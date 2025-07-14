@@ -1,0 +1,407 @@
+﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model;
+using BarcodeVerificationSystem.View;
+using CommonVariable;
+using EncrytionFile.Model;
+using OperationLog.Controller;
+using OperationLog.Model;
+using Securedongle;
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+using UILanguage;
+namespace BarcodeVerificationSystem
+{
+    static class Program
+    {
+        #region Variables
+        private static USBKey _USBKey = new USBKey();
+        private static uint _HardwareIDUsing = 0;
+        private static FrmWarningUSBDongleKey frmWarningKey = null;
+        #endregion
+
+        [STAThread]
+        static void Main()
+        {
+            try
+            {
+                if (AnotherInstanceExists())
+                {
+                    MessageBox.Show(Lang.ApplicationIsAlreadyRunning, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                Shared.LoadSettings();
+
+                Lang.Culture = System.Globalization.CultureInfo.CreateSpecificCulture(Shared.Settings.Language); // Set init language
+                FrmSplashScreen.ShowSplashScreen(Lang.Loading, Lang.PleaseWait); //Show splash screen
+
+                bool isAllow = false; // true for bypass donglekey usb
+                try
+                {
+                  
+                    var uuid = DecryptionHardwareID.GetUniqueID(); // Get PC UUID
+                    var keyByte = Encoding.UTF8.GetBytes(uuid); // Convert UUID to bytes
+                    var pathKey = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\R-Link"; // Create Folder in app data
+                    if (!Directory.Exists(pathKey))
+                    {
+                        Directory.CreateDirectory(pathKey);
+                    }
+                    File.WriteAllBytes(pathKey + "\\UUID.txt", keyByte); // Save key to file use for bypass
+                    string pathRconfig = CommVariables.PathAllowPC + "RConfig.dat"; // Read file .dat
+                    if (!Directory.Exists(CommVariables.PathAllowPC))
+                    {
+                        Directory.CreateDirectory(CommVariables.PathAllowPC);
+                    }
+                    DecryptionHardwareID.DecryptFile_UUID(pathRconfig); // Descript file .dat
+
+                    foreach (HardwareIDModel id in Shared.listPCAllow) // Compare byte in descript data
+                    {
+                        var foundKeyByte = Encoding.UTF8.GetBytes(id.HardwareID);
+                        for (int i = 0; i < foundKeyByte.Length; i++)
+                        {
+                            isAllow = true; // Allow if complete compare key
+                            if (foundKeyByte[i] != keyByte[i] || foundKeyByte.Length != keyByte.Length)
+                            {
+                                isAllow = false;
+                                break;
+                            }
+                        }
+                    }
+                    Shared.listPCAllow = null;
+                }
+                catch (Exception) { }
+
+                if (!isAllow) // Check usb dongle 
+                {
+                    try
+                    {
+                        InitVariableUSBDongle(_newKey);
+                        if (CheckForValidUSBDongleKey() == false)
+                        {
+                            InitVariableUSBDongle(_oldKey);
+                            if (CheckForValidUSBDongleKey() == false)
+                            {
+                                ShowDialogUSBDongleKeyNotFound();
+                                return;
+                            }
+                            //ShowDialogUSBDongleKeyNotFound();
+                            //return;
+                        }
+                        Thread threadCheckUSBDongle = new Thread(() => CheckUSBDongleWhenRunning())
+                        {
+                            IsBackground = true,
+                            Priority = ThreadPriority.Lowest
+                        };
+                        threadCheckUSBDongle.Start();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error USB Key  {ex.Message}");
+                    }
+                }
+
+                Application.EnableVisualStyles();
+                LoggingController.LoginToAccess("_rynan_loggin_access_control_management_");
+                string path = CommVariables.PathAccountsApp;
+                if (!File.Exists(path + "AccountDB.db"))
+                {
+                    UserController.CreateDefaultDatabase();
+                }
+
+                var loginform = new FrmLoginNew
+                {
+                    TopMost = true
+                };
+
+                FrmSplashScreen.CloseSplash();
+                DialogResult result = loginform.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    UserController.LogedInUsername = "Administrator";
+                    AppDomain currentDomain = default;
+                    currentDomain = AppDomain.CurrentDomain;
+                    currentDomain.UnhandledException += GlobalUnhandledExceptionHandler;
+                    Application.ThreadException += GlobalThreadExceptionHandler;
+                    FrmJob frmJob = new FrmJob();
+                    Application.Run(frmJob);
+                }
+            }
+            catch (Exception) { }
+        }
+
+        #region UtilityFunction
+
+        public static bool AnotherInstanceExists()
+        {
+            var currentRunningProcess = Process.GetCurrentProcess();
+            var listOfProcs = Process.GetProcessesByName(currentRunningProcess.ProcessName);
+            foreach (Process proc in listOfProcs)
+            {
+                if ((proc.MainModule.FileName == currentRunningProcess.MainModule.FileName) && (proc.Id != currentRunningProcess.Id))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static void GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
+        {
+            var ex = (Exception)e.ExceptionObject;
+            var result = "";
+            if (ex.InnerException != null)
+            {
+                string innerExection = "InnerException: " + ex.InnerException.InnerException + " && ";
+                result += innerExection;
+            }
+            if (ex.Message != null)
+            {
+                string errorMessage = ex.Message.Replace("\r", "").Replace("\n", "").Replace(',', '&');
+                result += "Message: " + errorMessage;
+            }
+            if (ex.Source != null)
+            {
+                string errorSource = ex.Source;
+                result += " && Source: " + errorSource;
+            }
+            if (ex.StackTrace != null)
+            {
+                var stackTrace = new StackTrace(ex, true);
+                foreach (StackFrame stackFrame in stackTrace.GetFrames())
+                {
+                    string methodName = stackFrame.GetMethod().Name;
+                    int lineNumber = stackFrame.GetFileLineNumber();
+                    if (methodName != "" && lineNumber != 0)
+                    {
+                        result += " && Method: " + methodName + " line " + lineNumber;
+                    }
+                }
+            }
+            if (ex.TargetSite != null)
+            {
+                string targetSite = " && TargetSite: " + ex.TargetSite.ToString() + " - " + ex.TargetSite.DeclaringType.ToString();
+                result += targetSite;
+            }
+            result = result.Replace("'", "");
+            LoggingController.SaveHistory(
+                string.Format("Unhandled Exception"),
+                Lang.Error,
+                string.Format(result),
+                SecurityController.Decrypt(Shared.LoggedInUser.UserName, "rynan_encrypt_remember"),
+                LoggingType.Error);
+        }
+
+        private static void GlobalThreadExceptionHandler(object sender, ThreadExceptionEventArgs e)
+        {
+            Exception ex = e.Exception;
+            string result = "";
+            if (ex.InnerException != null)
+            {
+                string innerExection = "InnerException: " + ex.InnerException.InnerException + " && ";
+                result += innerExection;
+            }
+            if (ex.Message != null)
+            {
+                string errorMessage = ex.Message.Replace("\r", "").Replace("\n", "").Replace(',', '&');
+                result += "Message: " + errorMessage;
+            }
+            if (ex.Source != null)
+            {
+                string errorSource = ex.Source;
+                result += " && Source: " + errorSource;
+            }
+            if (ex.StackTrace != null)
+            {
+                var stackTrace = new StackTrace(ex, true);
+                foreach (StackFrame stackFrame in stackTrace.GetFrames())
+                {
+                    string methodName = stackFrame.GetMethod().Name;
+                    int lineNumber = stackFrame.GetFileLineNumber();
+                    if (methodName != "" && lineNumber != 0)
+                    {
+                        result += " && Method: " + methodName + " line " + lineNumber;
+                    }
+                }
+            }
+            if (ex.TargetSite != null)
+            {
+                string targetSite = " && TargetSite: " + ex.TargetSite.ToString() + " - " + ex.TargetSite.DeclaringType.ToString();
+                result += targetSite;
+            }
+            result = result.Replace("'", "");
+            LoggingController.SaveHistory(
+                string.Format("Thread Exception"),
+                Lang.Error,
+                string.Format(result),
+                SecurityController.Decrypt(Shared.LoggedInUser.UserName, "rynan_encrypt_remember"),
+                LoggingType.Error);
+        }
+
+        #region USB Dongle key
+        // Old key : 0xAB2A, 0x9718, 0xFF56, 0x2A25 
+        // New key :  0x890F, 0x1A74, 0x9844, 0xC60A
+        private static readonly ushort[] _newKey = { 0x890F, 0x1A74, 0x9844, 0xC60A };
+        //private static readonly ushort[] _newKey1 = { 0xB4F4 , 0x50D0 , 0x352D , 0x412B };
+        private static readonly ushort[] _oldKey = { 0xAB2A, 0x9718, 0xFF56, 0x2A25 };
+       
+
+        private static void InitVariableUSBDongle(ushort[] key)
+        {
+            _USBKey = new USBKey
+            {
+                USBPassword = key,
+                InputValue = new ushort[] { 0x06, 0x02, 0x08, 0x15 }
+            };
+            _USBKey.ExpectedResult = CalculateValueWithFormulaDefined(_USBKey.InputValue[0], _USBKey.InputValue[1], _USBKey.InputValue[2], _USBKey.InputValue[3]);
+        }
+
+        private static ushort[] CalculateValueWithFormulaDefined(ushort ValueA, ushort ValueB, ushort ValueC, ushort ValueD)
+        {
+            ValueB = (ushort)(ValueB & ValueD);
+            ValueA = (ushort)(ValueA + ValueB);
+            ValueC = (ushort)(ValueC - ValueA);
+            ValueD = (ushort)(ValueD | ValueC);
+            return new ushort[] { ValueA, ValueB, ValueC, ValueD };
+        }
+
+        private static bool CheckForValidUSBDongleKey()
+        {
+            byte[] buffer = new byte[1024];
+            uint hardwareID = 0;
+            ushort handle = 0;
+            uint lp1 = 0;
+            uint lp2 = 0;
+            ulong ret = 1;
+            SecuredongleControl SD = new SecuredongleControl();
+            ret = SD.SecureDongle((ushort)SDCmd.SD_FIND, ref handle, ref lp1, ref lp2,
+                ref _USBKey.USBPassword[0], ref _USBKey.USBPassword[1], ref _USBKey.USBPassword[2], ref _USBKey.USBPassword[3], buffer);
+            if (ret != 0)
+            {
+#if DEBUG
+                Console.WriteLine("TrangNoi No SecureDongle found");
+#endif
+                return false;
+            }
+            hardwareID = lp1;
+            if (_HardwareIDUsing == 0)
+            {
+                _HardwareIDUsing = hardwareID;
+            }
+
+            if (_HardwareIDUsing != hardwareID)
+            {
+#if DEBUG
+                Console.WriteLine("_HardwareIDUsing changed");
+#endif
+                return false;
+            }
+
+            ret = SD.SecureDongle((ushort)SDCmd.SD_OPEN, ref handle, ref hardwareID, ref lp2,
+                ref _USBKey.USBPassword[0], ref _USBKey.USBPassword[1], ref _USBKey.USBPassword[2], ref _USBKey.USBPassword[3], buffer);
+            if (ret != 0)
+            {
+                return false;
+            }
+            lp1 = 0;
+            lp2 = 0;
+            ushort[] inputValue = new ushort[] { _USBKey.InputValue[0], _USBKey.InputValue[1], _USBKey.InputValue[2], _USBKey.InputValue[3] };
+            ret = SD.SecureDongle((ushort)SDCmd.SD_CALCULATE1, ref handle, ref lp1, ref lp2,
+                ref inputValue[0], ref inputValue[1], ref inputValue[2], ref inputValue[3], buffer);
+            if (ret != 0)
+            {
+#if DEBUG
+                Console.WriteLine("SD_CALCULATE1 fail");
+#endif
+                return false;
+            }
+            for (int i = 0; i < inputValue.Length; i++)
+            {
+                if (inputValue[i] != _USBKey.ExpectedResult[i])
+                {
+                    return false;
+                }
+            }
+            ushort p1 = 500;  //Offset of UDZ (UDZ memory position)
+            //[500] Rynan 0x54
+            //[501] 0x01 Basler camera, 0x02 Cognex camera
+            //[502] support level
+            //[503] 
+            ushort p2 = 4;
+            ushort p3 = 0;
+            ushort p4 = 0;
+            ret = SD.SecureDongle((ushort)SDCmd.SD_READ, ref handle, ref hardwareID, ref lp2, ref p1, ref p2, ref p3, ref p4, buffer);
+            if (ret != 0)
+            {
+                return false;
+            }
+
+            //Check OEM code
+            if (buffer[0] != 0x54) //0x54 is label Rynan
+            {
+                return false;
+            }
+
+            // Check Cognex
+            if (buffer[1] != 0x02)
+            {
+                return false;
+            }
+
+            //Close SecureDongle
+            SD.SecureDongle((ushort)SDCmd.SD_CLOSE,
+                ref handle,
+                ref lp1,
+                ref lp2,
+                ref _USBKey.USBPassword[0],
+                ref _USBKey.USBPassword[1],
+                ref _USBKey.USBPassword[2],
+                ref _USBKey.USBPassword[3],
+                buffer);
+            return true;
+        }
+
+        private static void CheckUSBDongleWhenRunning()
+        {
+            while (true)
+            {
+#if DEBUG
+                Console.WriteLine("CheckUSBDongleWhenRunning");
+#endif
+                Thread.Sleep(6000);
+                InitVariableUSBDongle(_newKey);
+                if (CheckForValidUSBDongleKey() == false)
+                {
+                    InitVariableUSBDongle(_oldKey);
+                    if (CheckForValidUSBDongleKey() == false)
+                    {
+                        ShowDialogUSBDongleKeyNotFound();
+                        break;
+                    }
+                }
+            }
+        }
+
+        private static void ShowDialogUSBDongleKeyNotFound()
+        {
+            if (frmWarningKey == null || frmWarningKey.IsDisposed)
+            {
+                frmWarningKey = new FrmWarningUSBDongleKey();
+                frmWarningKey.Focus();
+                frmWarningKey.BringToFront();
+                frmWarningKey.TopMost = true;
+                frmWarningKey.ShowDialog();
+            }
+            else
+            {
+                frmWarningKey.BringToFront();
+            }
+        }
+
+        #endregion USB Dongle key
+        #endregion
+    }
+}
