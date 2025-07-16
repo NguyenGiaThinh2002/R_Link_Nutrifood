@@ -35,4 +35,4 @@ New Update:
   R_Link_1.0.7.4
 - Updated Position Data Through TCP/IP for Camera In-Sight.
 - Compared both Position and Data.
-- Added Editing Command and Index after Command.
+- Added Editing Command and Index after Command. HEHEHEH
