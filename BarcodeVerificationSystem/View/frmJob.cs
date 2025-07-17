@@ -24,6 +24,7 @@ using System.Windows.Forms;
 using UILanguage;
 using RestartProcessHelper;
 using Timer = System.Windows.Forms.Timer;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -295,14 +296,14 @@ namespace BarcodeVerificationSystem.View
                 var _FormDatabase = new frmDatabase(this);
                 _FormDatabase.ShowDialog();
 
+                if (ProjectLabel.IsNutrifood)
+                {
+                    txtDirectoryDatabse.PasswordChar = true;
+                }
+
                 if (Shared.databasePath != "")
                 {
-                    bool isShowedPath = true;                   
                     txtDirectoryDatabse.Text = _JobModel.DirectoryDatabase = Shared.databasePath;
-                    if (isShowedPath)
-                    {
-                        txtDirectoryDatabse.PasswordChar = true; 
-                    }
                 }
 
                 _PODFormat.Clear();
@@ -861,7 +862,7 @@ namespace BarcodeVerificationSystem.View
             var podText = new PODModel(0, "", PODModel.TypePOD.TEXT, "");
             _PODList.Add(podText);
 
-            btnSettings.Enabled = Shared.UserPermission["editSetting"];
+            btnSettings.Enabled = Shared.UserPermission["settings"];
             btnDelete.Enabled = Shared.UserPermission["deleteJob"];
             tabPage2.Enabled = Shared.UserPermission["createJob"];
 

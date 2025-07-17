@@ -187,7 +187,11 @@
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controller\UtilityFunctions.cs" />
     <Compile Include="Interfaces\IPositionHandler.cs" />
+    <Compile Include="Labels\ProjectLabel\ProjectLabel.cs" />
+    <Compile Include="Model\Apis\ApiModel.cs" />
     <Compile Include="Model\CameraModel.cs" />
+    <Compile Include="Model\CodeGeneration\DispatchingCode.cs" />
+    <Compile Include="Model\CodeGeneration\ManufacturingCode.cs" />
     <Compile Include="Model\CountEventISCamera.cs" />
     <Compile Include="Model\DataISCamera.cs" />
     <Compile Include="Model\DetectModel.cs" />
@@ -199,6 +203,8 @@
     <Compile Include="Model\ItemCustomModel.cs" />
     <Compile Include="Model\JobModel.cs" />
     <Compile Include="Model\ObjectResultModel.cs" />
+    <Compile Include="Model\Payload\LoginPayload.cs" />
+    <Compile Include="Model\Payload\PermissionPayload.cs" />
     <Compile Include="Model\PODDataModel.cs" />
     <Compile Include="Model\PODModel.cs" />
     <Compile Include="Model\PODResponseModel.cs" />
@@ -236,9 +242,16 @@
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\PermissionService.cs" />
     <Compile Include="Utils\AutoTriggerCameraDataman.cs" />
+    <Compile Include="Utils\MaskData.cs" />
     <Compile Include="Utils\ExceptionLogger.cs" />
     <Compile Include="Services\FormCapture.cs" />
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
+    <Compile Include="View\SubForms\frnGetDataOffline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubForms\frnGetDataOffline.Designer.cs">
+      <DependentUpon>frnGetDataOffline.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UcSettings\ucProductionSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -402,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmMain.vi.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubForms\frnGetDataOffline.resx">
+      <DependentUpon>frnGetDataOffline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UcSettings\ucProductionSetting.resx">
       <DependentUpon>ucProductionSetting.cs</DependentUpon>
@@ -791,8 +807,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\x64\" />
-    <Folder Include="Model\DispatchingPayload\" />
-    <Folder Include="Model\ManafacturingPayload\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonVariable\CommonVariable.csproj">

@@ -1,4 +1,5 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.View.UcSettings;
 using System;
@@ -105,11 +106,27 @@ namespace BarcodeVerificationSystem.View
             tabPageSerialDevice.Controls.Add(usSerialDeviceSettings);
             //END Initial tab Serial Device settings
 
-            //Initial tab api settings
-            tabPageProductionSetting.Controls.Clear();
-            ucProductionSetting ucApiSetting = new ucProductionSetting();
-            ucApiSetting.Dock = DockStyle.Fill;
-            tabPageProductionSetting.Controls.Add(ucApiSetting);
+            if (ProjectLabel.IsNutrifood)
+            {
+                this.tabPageProductionSetting = new System.Windows.Forms.TabPage();
+                this.tabControlSettings.Controls.Add(this.tabPageProductionSetting);
+                this.tabPageProductionSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                this.tabPageProductionSetting.Location = new System.Drawing.Point(4, 44);
+                this.tabPageProductionSetting.Name = "tabPageAPISetting";
+                this.tabPageProductionSetting.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+                this.tabPageProductionSetting.Size = new System.Drawing.Size(996, 484);
+                this.tabPageProductionSetting.TabIndex = 1;
+                this.tabPageProductionSetting.Text = "Production settings";
+                this.tabPageProductionSetting.UseVisualStyleBackColor = true;
+
+                //Initial tab api settings
+                tabPageProductionSetting.Controls.Clear();
+                ucProductionSetting ucApiSetting = new ucProductionSetting();
+                ucApiSetting.Dock = DockStyle.Fill;
+                tabPageProductionSetting.Controls.Add(ucApiSetting);
+            }
+
+
         }
         private void InitEvents()
         {

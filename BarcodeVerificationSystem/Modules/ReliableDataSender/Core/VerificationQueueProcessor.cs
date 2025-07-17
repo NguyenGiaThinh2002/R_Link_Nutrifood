@@ -36,13 +36,13 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
 
         }
 
-        public void Enqueue(int id, string code)
+        public void Enqueue(int id, string[] code)
         {
 
             var entry = new VerificationDataEntry
             {
                 Id = id,
-                Code = code,
+                Code = code[1],
                 VerifiedStatus = "Verified", // reconsider to (duplicate, valid, invalid)
                 VerifiedDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 Status = "NotSent"

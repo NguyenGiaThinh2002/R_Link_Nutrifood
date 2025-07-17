@@ -45,6 +45,8 @@ using Timer = System.Windows.Forms.Timer;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Core;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Services;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Factories;
+using BarcodeVerificationSystem.Model.CodeGeneration;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -607,9 +609,9 @@ namespace BarcodeVerificationSystem.View
 
             }
 
-            btnExportAll.Visible = btnExportResult.Visible = btnExportData.Visible = Shared.UserPermission["exportDatas"];
-            btnAccount.Enabled = Shared.UserPermission["accountSettings"];
-            pnlControllButton.Enabled = Shared.UserPermission["operationActions"];
+            btnExportAll.Visible = btnExportResult.Visible = btnExportData.Visible = Shared.UserPermission["exports"];
+            btnAccount.Enabled = Shared.UserPermission["accounts"];
+            pnlControllButton.Enabled = Shared.UserPermission["controls"];
 
             if (Shared.Settings.ExportOneForAllEnable)
             {
@@ -1066,9 +1068,7 @@ namespace BarcodeVerificationSystem.View
 
                 if (e.ColumnIndex != _DatabaseImageIndex)
                     //e.Value = _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex];
-                    e.Value = _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex].Length > 5 && Shared.Settings.MaskData && e.ColumnIndex != Index_DateTime
-                                                    ? _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex].Substring(0, _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex].Length - 5) + "******"
-                                                    : _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex];
+                    e.Value = MaskData.MaskString(_PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex]);
                 else
                 {
                     var status = _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex];
@@ -1124,9 +1124,8 @@ namespace BarcodeVerificationSystem.View
                 if (e.ColumnIndex != _CheckedResulImageIndex)
                 {
                     //string value = _CheckedResultCodeList[correspondingIndex][e.ColumnIndex];
-                    string value = _CheckedResultCodeList[correspondingIndex][e.ColumnIndex].Length > 5 && Shared.Settings.MaskData && e.ColumnIndex != Index_DateTime
-                                                   ? _CheckedResultCodeList[correspondingIndex][e.ColumnIndex].Substring(0, _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex].Length - 5) + "******"
-                                                   : _CheckedResultCodeList[correspondingIndex][e.ColumnIndex];
+                    string value = e.ColumnIndex == Index_ResultData ? MaskData.MaskString(_CheckedResultCodeList[correspondingIndex][e.ColumnIndex]) : _CheckedResultCodeList[correspondingIndex][e.ColumnIndex];
+
                     e.Value = value == "" ? Lang.CannotDetect : value;
                 }
                 else
@@ -2758,8 +2757,11 @@ namespace BarcodeVerificationSystem.View
                     Directory.CreateDirectory(CommVariables.PathSentDataPrinted);
                 }
 
-                _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url);
-                _printedDataProcess.Start();
+                if (ProjectLabel.IsNutrifood)
+                {
+                    _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url);
+                    _printedDataProcess.Start();
+                }
 
                 var apiService = new ApiService();
                 while (true)
@@ -2775,10 +2777,8 @@ namespace BarcodeVerificationSystem.View
                     if (valueArr.Count() > 0)
                     {
                         SaveResultToFile(valueArr, path);
-
-                        string te = clone[0][2] ; //  + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                        _printedDataProcess.Enqueue(int.Parse(clone[0][3]), te);
-                        //SendDataToServer(apiService, clone, sentDataPath, url);
+                        if (ProjectLabel.IsNutrifood)
+                            _printedDataProcess.Enqueue(int.Parse(clone[0][3]), clone[0][2]);
                     }
                     valueArr.Clear();
                     Thread.Sleep(5);
@@ -2980,7 +2980,13 @@ namespace BarcodeVerificationSystem.View
                 }
                 string sentDataPath = CommVariables.PathSentDataChecked + _SelectedJob.CheckedResultPath;
                 string url = Shared.Settings.ApiUrl + "/" + Shared.Settings.RLinkId + "/checkedData";
-                _checkedDataProcess = ReliableProcessorFactory.CreateVerificationProcessor(sentDataPath, url);
+
+                if (ProjectLabel.IsNutrifood)
+                {
+                    _checkedDataProcess = ReliableProcessorFactory.CreateVerificationProcessor(sentDataPath, url);
+                    _checkedDataProcess.Start();
+                }
+
 
                 while (true)
                 {
@@ -2990,14 +2996,21 @@ namespace BarcodeVerificationSystem.View
                             token.ThrowIfCancellationRequested();
 
                     List<string[]> valueArr = _QueueBufferBackupCheckedResult.Dequeue();
-                    var apiService = new ApiService();
+                    //var apiService = new ApiService();
 
                     if (valueArr == null) continue;
                     var clone = valueArr.Select(arr => arr.ToArray()).ToList();
                     if (valueArr.Count() > 0)
                     {
-                        string te = clone[0][1];
-                        _checkedDataProcess.Enqueue(int.Parse(clone[0][0]), te);
+                        // use the Dispatching or the Manufacturing to extract the code, write in the model a function to do that.
+
+                        if (DispatchingCode.TryParse(clone[0][1], out string extractedRandomCode))
+                        {
+                            string t = extractedRandomCode;
+                        }
+
+                        if (ProjectLabel.IsNutrifood)
+                            _checkedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0]);
                         SaveResultToFile(valueArr, path);
                         //SendDataToServer(apiService, clone, sentDataPath, url);
                     }
@@ -3141,7 +3154,11 @@ namespace BarcodeVerificationSystem.View
             while (_QueueBufferDataObtained.TryDequeue(out _)) { }
             while (_QueuePositionDataObtained.TryDequeue(out _)) { }
             _QueueBufferUpdateUIPrinter.Enqueue(null);
-            _printedDataProcess.Stop();
+            if (ProjectLabel.IsNutrifood)
+            {
+                _printedDataProcess.Stop();
+                _checkedDataProcess.Stop();
+            }
             Shared.OperStatus = OperationStatus.Stopped;
             Shared.RaiseOnOperationStatusChangeEvent(Shared.OperStatus);
 
@@ -6293,9 +6310,9 @@ namespace BarcodeVerificationSystem.View
             btnStop.Enabled = !isEnable;
             btnTrigger.Enabled = !isEnable;
             btnJob.Enabled = isEnable;
-            btnAccount.Enabled = isEnable && Shared.UserPermission["accountSettings"];
+            btnAccount.Enabled = isEnable && Shared.UserPermission["accounts"];
             btnHistory.Enabled = isEnable;
-            btnSettings.Enabled = isEnable && Shared.UserPermission["editSetting"];
+            btnSettings.Enabled = isEnable && Shared.UserPermission["settings"];
             btnExportData.Enabled = isEnable;
             btnExportResult.Enabled = isEnable;
 

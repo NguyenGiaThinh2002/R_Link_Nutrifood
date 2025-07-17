@@ -1,4 +1,5 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.Model.UserPermission;
 using BarcodeVerificationSystem.Services;
@@ -8,6 +9,7 @@ using OperationLog.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -97,32 +99,32 @@ namespace BarcodeVerificationSystem.View
             }
         }
 
-        private UserPermission _adminPermission = new UserPermission
-        {
-            Permissions = new Dictionary<string, bool>
-            {
-                { "editSetting", true },
-                { "operationActions", true },
-                { "exportDatas", true },
-                { "accountSettings", true },
-                { "createJob", true },
-                { "deleteJob", true }
+        //private UserPermission _adminPermission = new UserPermission
+        //{
+        //    Permissions = new Dictionary<string, bool>
+        //    {
+        //        { "settings", true },
+        //        { "controls", true },
+        //        { "exports", true },
+        //        { "accounts", true },
+        //        { "createJob", true },
+        //        { "deleteJob", true }
 
-            }
-        };
+        //    }
+        //};
 
-        private UserPermission _operatorPermission = new UserPermission
-        {
-            Permissions = new Dictionary<string, bool>
-            {
-                { "editSetting", false },
-                { "operationActions", true },
-                { "exportDatas", false },
-                { "accountSettings", false },
-                { "createJob", true },
-                { "deleteJob", false }
-            }
-        };
+        //private UserPermission _operatorPermission = new UserPermission
+        //{
+        //    Permissions = new Dictionary<string, bool>
+        //    {
+        //        { "settings", false },
+        //        { "controls", true },
+        //        { "exports", false },
+        //        { "accounts", false },
+        //        { "createJob", true },
+        //        { "deleteJob", false }
+        //    }
+        //};
 
         private async void Login(string username, string password, bool isRemenber)
         {
@@ -194,7 +196,7 @@ namespace BarcodeVerificationSystem.View
                     ActivationStatus activationStatus = Shared.LoginLocal(username, password);
                     if (activationStatus == ActivationStatus.Successful)
                     {
-                        Shared.UserPermission = username == "admin" || username == "technician" || username == "demo" ? _adminPermission : _operatorPermission;
+                        Shared.UserPermission = username == "admin" || username == "technician" || username == "demo" ? UserPermission.AdminPermission : UserPermission.OperatorPermission;
 
                         LoggingController.SaveHistory("Login success",
                             "Login",
@@ -212,14 +214,11 @@ namespace BarcodeVerificationSystem.View
                         bool isOnlineAccountOK = false;
                         try
                         {
-                            if (Shared.Settings.IsProductionMode)
+                            if (Shared.Settings.IsProductionMode && ProjectLabel.IsNutrifood)
                             {
-                                var user = new
-                                {
-                                    username = username,
-                                    password = password
-                                };
-                                Shared.UserPermission = await service.GetPermissionsAsync(user);
+                                Shared.UserPermission = await service.GetPermissionsAsync(username, password);
+                                Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
+
                                 if (Shared.UserPermission == null)
                                 {
                                     isOnlineAccountOK = false;
@@ -244,7 +243,7 @@ namespace BarcodeVerificationSystem.View
                             //return;
                         }
 
-                        if (isOnlineAccountOK)
+                        if (isOnlineAccountOK && ProjectLabel.IsNutrifood)
                         {
                             activationStatus = Shared.LoginLocal("admin", "123456");
                             LoggingController.SaveHistory("Login success",

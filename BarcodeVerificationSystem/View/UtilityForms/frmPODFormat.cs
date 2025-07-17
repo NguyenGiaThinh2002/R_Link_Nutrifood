@@ -1,5 +1,6 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model;
+using BarcodeVerificationSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -114,7 +115,7 @@ namespace BarcodeVerificationSystem.View
                         {
                             Index = index + 1,
                             Type = PODModel.TypePOD.FIELD,
-                            PODName = lineContent[index]
+                            PODName = lineContent[index] 
                         };
                         listBoxPODLeft.Items.Add(pod);
                     }
@@ -457,7 +458,7 @@ namespace BarcodeVerificationSystem.View
                                         {
                                             if (i - 1 < temp.Count)
                                             {
-                                                code[i] = temp[i - 1];
+                                                code[i] = MaskData.MaskString(temp[i - 1]);
                                             }
                                             else
                                             {
@@ -486,7 +487,7 @@ namespace BarcodeVerificationSystem.View
                                         {
                                             if (i - 1 < line.Count)
                                             {
-                                                code[i] = line[i - 1];
+                                                code[i] = MaskData.MaskString(line[i - 1]);
                                             }
                                             else
                                             {

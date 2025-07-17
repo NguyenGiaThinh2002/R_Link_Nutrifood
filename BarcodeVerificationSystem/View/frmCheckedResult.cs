@@ -1,5 +1,6 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model;
+using BarcodeVerificationSystem.Utils;
 using DesignUI.CuzAlert;
 using System;
 using System.Collections.Concurrent;
@@ -123,8 +124,8 @@ namespace BarcodeVerificationSystem.View
             };
            
             var _SelectedJob = Shared.GetJob(Shared.JobNameSelected);
-            cuzExportType.Enabled = _SelectedJob.CompareType == CompareType.Database && !Shared.Settings.ExportOneForAllEnable && Shared.UserPermission["exportDatas"] ? true : false;
-            btnExportData.Enabled = _SelectedJob.CompareType == CompareType.Database && !Shared.Settings.ExportOneForAllEnable && Shared.UserPermission["exportDatas"] ? true : false;
+            cuzExportType.Enabled = _SelectedJob.CompareType == CompareType.Database && !Shared.Settings.ExportOneForAllEnable && Shared.UserPermission["exports"] ? true : false;
+            btnExportData.Enabled = _SelectedJob.CompareType == CompareType.Database && !Shared.Settings.ExportOneForAllEnable && Shared.UserPermission["exports"] ? true : false;
 
             cbxExportType.Items.AddRange(exportOptions);
             cbxExportType.SelectedIndex = 0;
@@ -487,7 +488,7 @@ namespace BarcodeVerificationSystem.View
                     {
                         if (e.ColumnIndex == 1)
                         {
-                            string dataValue = cell == "" ? Lang.CannotDetect : cell.Length > 5 && Shared.Settings.MaskData ? cell.Substring(0, cell.Length - 5) + "******" : cell;
+                            string dataValue = MaskData.MaskString(cell);
                             e.Value = dataValue;
                         }
                         else

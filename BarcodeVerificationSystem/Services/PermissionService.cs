@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using BarcodeVerificationSystem.Model.UserPermission;
 using Newtonsoft.Json.Linq;
 using BarcodeVerificationSystem.Controller;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using BarcodeVerificationSystem.Model.Payload;
+using System.Collections;
+using BarcodeVerificationSystem.Model.Apis;
 
 namespace BarcodeVerificationSystem.Services
 {
@@ -15,29 +19,57 @@ namespace BarcodeVerificationSystem.Services
     {
         private static readonly HttpClient _client = new HttpClient();
 
-        //public async Task<UserPermission> GetPermissionsAsync(object user)
-        //{
-        //    string url = $"http://192.168.15.189:5555/settings/apiTestCalling1";
-
-        //    // Serialize user object to JSON
-        //    string jsonPayload = JsonConvert.SerializeObject(user);
-        //    var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-
-        //    // Send POST request with user in body
-        //    var response = await _client.PostAsync(url, content);
-        //    response.EnsureSuccessStatusCode();
-
-        //    string json = await response.Content.ReadAsStringAsync();
-
-        //    var dict = JsonConvert.DeserializeObject<Dictionary<string, bool>>(json);
-            
-
-        //    return new UserPermission { Permissions = dict };
-        //}
-
-        public async Task<UserPermission> GetPermissionsAsync(object user)
+        public async Task<UserPermission> GetPermissionsAsync(string username, string password)
         {
-              
+            string url = ApiModel.getLoginUrl(username, password);
+            HttpResponseMessage response = await _client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string json = await response.Content.ReadAsStringAsync();
+            var loginPayload = JsonConvert.DeserializeObject<LoginPayload>(json);
+
+            string MaQuyen = "";
+            if (loginPayload != null && loginPayload.data != null && loginPayload.data.Count > 0)
+            {
+                MaQuyen = loginPayload.data[0].MaQuyen;
+            }
+            else
+            {
+                return null;
+            }
+
+            string loginUrl = ApiModel.getPermissionUrl(MaQuyen);
+            HttpResponseMessage response1 = await _client.GetAsync(loginUrl);
+            response.EnsureSuccessStatusCode();
+            string json1 = await response1.Content.ReadAsStringAsync();
+            var permissionPayload = JsonConvert.DeserializeObject<PermissionPayload>(json1);
+
+            Dictionary<string, bool> userPermission = new Dictionary<string, bool>();
+            if (permissionPayload?.data != null)
+            {
+                List<PermissionDatum> permissions = permissionPayload.data;
+
+                foreach (var item in permissions)
+                {
+                    if (!string.IsNullOrWhiteSpace(item.MaChucNang))
+                    {
+                        userPermission[item.MaChucNang] = true;
+                    }
+                }
+            }
+            else
+            {
+                return null;
+            }
+
+            return new UserPermission
+            {
+                Permissions = userPermission
+            };
+        }
+
+        public async Task<UserPermission> GetPermissionsAsync_BK250716(object user)
+        {
+
             string url = Shared.Settings.ApiUrl + "/getPermission";
 
             string jsonPayload = JsonConvert.SerializeObject(user);

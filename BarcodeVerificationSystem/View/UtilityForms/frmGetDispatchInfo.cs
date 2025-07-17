@@ -109,7 +109,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             dgvItems.AllowUserToAddRows = false;
         }
 
-        private async void btnGetInfo_Click(object sender, EventArgs e)
+        private async void btnGetInfo_Click_1(object sender, EventArgs e)
         {
             string orderId = txtOrderId.Text.Trim();
             if (string.IsNullOrEmpty(orderId))
@@ -177,7 +177,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             Shared.SaveSettings();
         }
 
-        private void btnPerform(object sender, EventArgs e)
+        private void btnAction_Click(object sender, EventArgs e)
         {
             if (dgvItems.SelectedRows.Count == 0)
             {
@@ -193,6 +193,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             MessageBox.Show($"Performing action on item:\nMaterial Number: {materialNumber}\nMaterial Name: {materialName}",
                 "Item Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 
 }

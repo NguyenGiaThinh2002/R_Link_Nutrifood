@@ -1,4 +1,5 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -288,7 +289,7 @@ namespace BarcodeVerificationSystem.View
                     if (cell == "") return;
                     if (e.ColumnIndex != imgIndex)
                     {
-                        e.Value = cell.Length > 5 && e.ColumnIndex > 1 && Shared.Settings.MaskData ? cell.Substring(0, cell.Length - 5) + "******" : cell;
+                        e.Value = e.ColumnIndex > 1 ? MaskData.MaskString(cell) : cell;
                     }
                     else
                     {

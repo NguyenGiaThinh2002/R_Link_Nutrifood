@@ -35,7 +35,6 @@
             this.tabPagePrinterSettings = new System.Windows.Forms.TabPage();
             this.tabPageSensorController = new System.Windows.Forms.TabPage();
             this.tabPageSerialDevice = new System.Windows.Forms.TabPage();
-            this.tabPageProductionSetting = new System.Windows.Forms.TabPage();
             this.pnlDrag = new System.Windows.Forms.Panel();
             this.cuzControlBox1 = new DesignUI.CuzUI.CuzControlBox();
             this.lblFormName = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@
             this.tabControlSettings.Controls.Add(this.tabPagePrinterSettings);
             this.tabControlSettings.Controls.Add(this.tabPageSensorController);
             this.tabControlSettings.Controls.Add(this.tabPageSerialDevice);
-            this.tabControlSettings.Controls.Add(this.tabPageProductionSetting);
             this.tabControlSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlSettings.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -129,14 +127,7 @@
             // 
             // tabPageAPISetting
             // 
-            this.tabPageProductionSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPageProductionSetting.Location = new System.Drawing.Point(4, 44);
-            this.tabPageProductionSetting.Name = "tabPageAPISetting";
-            this.tabPageProductionSetting.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.tabPageProductionSetting.Size = new System.Drawing.Size(996, 484);
-            this.tabPageProductionSetting.TabIndex = 1;
-            this.tabPageProductionSetting.Text = "Production settings";
-            this.tabPageProductionSetting.UseVisualStyleBackColor = true;
+
             // 
             // pnlDrag
             // 
