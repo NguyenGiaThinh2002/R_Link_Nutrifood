@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BarcodeVerificationSystem.View.SubForms
 {
-    public partial class frnGetDataOffline : Form
+    public partial class frmGetDataOffline : Form
     {
-        public frnGetDataOffline()
+        public frmGetDataOffline()
         {
             InitializeComponent();
         }

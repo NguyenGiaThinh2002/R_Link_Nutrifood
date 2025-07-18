@@ -15,6 +15,7 @@ using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.View.CustomDialogs;
 using BarcodeVerificationSystem.Model.Apis;
 using BarcodeVerificationSystem.Model.Payload;
+using BarcodeVerificationSystem.View.SubForms;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -206,6 +207,11 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 "Item Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void getDataOffline_Click(object sender, EventArgs e)
+        {
+            var offlineForm = new frmGetDataOffline();
+            offlineForm.ShowDialog();
+        }
     }
 
 }

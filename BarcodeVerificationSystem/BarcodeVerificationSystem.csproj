@@ -248,11 +248,11 @@
     <Compile Include="Utils\ExceptionLogger.cs" />
     <Compile Include="Services\FormCapture.cs" />
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
-    <Compile Include="View\SubForms\frnGetDataOffline.cs">
+    <Compile Include="View\SubForms\frmGetDataOffline.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\SubForms\frnGetDataOffline.Designer.cs">
-      <DependentUpon>frnGetDataOffline.cs</DependentUpon>
+    <Compile Include="View\SubForms\frmGetDataOffline.Designer.cs">
+      <DependentUpon>frmGetDataOffline.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UcSettings\ucProductionSetting.cs">
       <SubType>UserControl</SubType>
@@ -418,8 +418,8 @@
     <EmbeddedResource Include="View\frmMain.vi.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SubForms\frnGetDataOffline.resx">
-      <DependentUpon>frnGetDataOffline.cs</DependentUpon>
+    <EmbeddedResource Include="View\SubForms\frmGetDataOffline.resx">
+      <DependentUpon>frmGetDataOffline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UcSettings\ucProductionSetting.resx">
       <DependentUpon>ucProductionSetting.cs</DependentUpon>

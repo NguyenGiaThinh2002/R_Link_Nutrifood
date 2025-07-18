@@ -1,6 +1,6 @@
 ﻿namespace BarcodeVerificationSystem.View.SubForms
 {
-    partial class frnGetDataOffline
+    partial class frmGetDataOffline
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@
         {
             this.txtServerName = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnAction = new System.Windows.Forms.Button();
             this.lblDatabaseType = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +40,7 @@
             // txtServerName
             // 
             this.txtServerName.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtServerName.Location = new System.Drawing.Point(161, 49);
+            this.txtServerName.Location = new System.Drawing.Point(178, 49);
             this.txtServerName.Name = "txtServerName";
             this.txtServerName.Size = new System.Drawing.Size(450, 27);
             this.txtServerName.TabIndex = 3;
@@ -49,21 +48,10 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.textBox1.Location = new System.Drawing.Point(161, 120);
+            this.textBox1.Location = new System.Drawing.Point(178, 121);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(450, 27);
             this.textBox1.TabIndex = 4;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnSave.Location = new System.Drawing.Point(646, 45);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 35);
-            this.btnSave.TabIndex = 19;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnAction
             // 
@@ -72,7 +60,7 @@
             this.btnAction.FlatAppearance.BorderSize = 0;
             this.btnAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAction.ForeColor = System.Drawing.Color.White;
-            this.btnAction.Location = new System.Drawing.Point(646, 119);
+            this.btnAction.Location = new System.Drawing.Point(649, 44);
             this.btnAction.Name = "btnAction";
             this.btnAction.Size = new System.Drawing.Size(130, 32);
             this.btnAction.TabIndex = 21;
@@ -82,7 +70,7 @@
             // lblDatabaseType
             // 
             this.lblDatabaseType.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblDatabaseType.Location = new System.Drawing.Point(37, 52);
+            this.lblDatabaseType.Location = new System.Drawing.Point(69, 52);
             this.lblDatabaseType.Name = "lblDatabaseType";
             this.lblDatabaseType.Size = new System.Drawing.Size(75, 25);
             this.lblDatabaseType.TabIndex = 22;
@@ -91,7 +79,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label1.Location = new System.Drawing.Point(23, 123);
+            this.label1.Location = new System.Drawing.Point(55, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 25);
             this.label1.TabIndex = 23;
@@ -100,21 +88,21 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label2.Location = new System.Drawing.Point(12, 195);
+            this.label2.Location = new System.Drawing.Point(12, 194);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
+            this.label2.Size = new System.Drawing.Size(132, 25);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Code Number:";
+            this.label2.Text = "Number of codes:";
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.textBox2.Location = new System.Drawing.Point(161, 192);
+            this.textBox2.Location = new System.Drawing.Point(178, 192);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(450, 27);
             this.textBox2.TabIndex = 25;
             // 
-            // frnGetDataOffline
+            // frmGetDataOffline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,10 +112,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDatabaseType);
             this.Controls.Add(this.btnAction);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtServerName);
-            this.Name = "frnGetDataOffline";
+            this.Name = "frmGetDataOffline";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -138,7 +125,6 @@
 
         private System.Windows.Forms.TextBox txtServerName;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAction;
         private System.Windows.Forms.Label lblDatabaseType;
         private System.Windows.Forms.Label label1;

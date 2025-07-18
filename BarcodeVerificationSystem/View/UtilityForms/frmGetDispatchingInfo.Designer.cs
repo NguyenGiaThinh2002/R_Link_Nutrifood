@@ -109,6 +109,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "Create Offline";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.getDataOffline_Click);
             // 
             // lblDatabaseType
             // 
