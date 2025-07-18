@@ -92,9 +92,9 @@ namespace BarcodeVerificationSystem.View
                     break;
                 case "sqlite":
                     LoadSQLiteFile(); break;
-                case "production data":
-                    GetProductionDatabase();
-                    break;
+                //case "production data":
+                //    GetProductionDatabase();
+                //    break;
                 case "sql":
                 case "mysql":
                 default:
@@ -199,12 +199,12 @@ namespace BarcodeVerificationSystem.View
         {
             try
             {
-                this.Close();
-                Form dispatchInfo = Shared.Settings.IsManufacturingMode
-                    ? (Form)new frmGetManufacturingInfo()
-                    : new frmGetDispatchInfo();
+                //this.Close();
+                //Form dispatchInfo = Shared.Settings.IsManufacturingMode
+                //    ? (Form)new frmGetManufacturingInfo()
+                //    : new frmGetDispatchingInfo();
 
-                dispatchInfo.ShowDialog();
+                //dispatchInfo.ShowDialog();
 
                 //string apiUrl = Shared.Settings.ApiUrl + "/" + Shared.Settings.RLinkId + "/data";
                 //var apiService = new ApiService();  

@@ -1,6 +1,6 @@
 ﻿namespace BarcodeVerificationSystem.View.UtilityForms
 {
-    partial class frmGetDispatchInfo
+    partial class frmGetDispatchingInfo
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -32,25 +32,25 @@
             this.txtPayload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtPayload.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPayload.Font = new System.Drawing.Font("Consolas", 11F);
-            this.txtPayload.Location = new System.Drawing.Point(64, 245);
+            this.txtPayload.Location = new System.Drawing.Point(33, 245);
             this.txtPayload.Margin = new System.Windows.Forms.Padding(5);
             this.txtPayload.Multiline = true;
             this.txtPayload.Name = "txtPayload";
             this.txtPayload.ReadOnly = true;
             this.txtPayload.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPayload.Size = new System.Drawing.Size(746, 291);
+            this.txtPayload.Size = new System.Drawing.Size(803, 291);
             this.txtPayload.TabIndex = 6;
             this.txtPayload.WordWrap = false;
             // 
             // dgvItems
             // 
             this.dgvItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.dgvItems.Location = new System.Drawing.Point(64, 94);
+            this.dgvItems.Location = new System.Drawing.Point(33, 94);
             this.dgvItems.Margin = new System.Windows.Forms.Padding(5);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItems.Size = new System.Drawing.Size(473, 141);
+            this.dgvItems.Size = new System.Drawing.Size(660, 141);
             this.dgvItems.TabIndex = 10;
             // 
             // btnAction
@@ -60,7 +60,7 @@
             this.btnAction.FlatAppearance.BorderSize = 0;
             this.btnAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAction.ForeColor = System.Drawing.Color.White;
-            this.btnAction.Location = new System.Drawing.Point(563, 94);
+            this.btnAction.Location = new System.Drawing.Point(708, 94);
             this.btnAction.Name = "btnAction";
             this.btnAction.Size = new System.Drawing.Size(130, 32);
             this.btnAction.TabIndex = 11;
@@ -82,17 +82,17 @@
             this.btnGetInfo.TabIndex = 12;
             this.btnGetInfo.Text = "Get Info";
             this.btnGetInfo.UseVisualStyleBackColor = false;
-            this.btnGetInfo.Click += new System.EventHandler(this.btnGetInfo_Click_1);
+            this.btnGetInfo.Click += new System.EventHandler(this.btnGetInfo_Click);
             // 
             // txtOrderId
             // 
             this.txtOrderId.BackColor = System.Drawing.Color.White;
             this.txtOrderId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtOrderId.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtOrderId.Location = new System.Drawing.Point(64, 46);
+            this.txtOrderId.Location = new System.Drawing.Point(33, 46);
             this.txtOrderId.Margin = new System.Windows.Forms.Padding(5);
             this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Size = new System.Drawing.Size(473, 27);
+            this.txtOrderId.Size = new System.Drawing.Size(504, 27);
             this.txtOrderId.TabIndex = 13;
             // 
             // button1
@@ -113,13 +113,13 @@
             // lblDatabaseType
             // 
             this.lblDatabaseType.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblDatabaseType.Location = new System.Drawing.Point(60, 16);
+            this.lblDatabaseType.Location = new System.Drawing.Point(29, 16);
             this.lblDatabaseType.Name = "lblDatabaseType";
             this.lblDatabaseType.Size = new System.Drawing.Size(75, 25);
             this.lblDatabaseType.TabIndex = 18;
             this.lblDatabaseType.Text = "Order ID: ";
             // 
-            // frmGetDispatchInfo
+            // frmGetDispatchingInfo
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(850, 550);
@@ -132,7 +132,7 @@
             this.Controls.Add(this.txtPayload);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "frmGetDispatchInfo";
+            this.Name = "frmGetDispatchingInfo";
             this.Text = "Order Info Viewer";
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);

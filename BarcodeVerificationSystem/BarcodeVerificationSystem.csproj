@@ -204,6 +204,7 @@
     <Compile Include="Model\JobModel.cs" />
     <Compile Include="Model\ObjectResultModel.cs" />
     <Compile Include="Model\Payload\LoginPayload.cs" />
+    <Compile Include="Model\Payload\OrderPayload.cs" />
     <Compile Include="Model\Payload\PermissionPayload.cs" />
     <Compile Include="Model\PODDataModel.cs" />
     <Compile Include="Model\PODModel.cs" />
@@ -218,7 +219,8 @@
     <Compile Include="Model\UDT\CheckMode.cs" />
     <Compile Include="Model\USBKey.cs" />
     <Compile Include="Model\UserDataModel.cs" />
-    <Compile Include="Model\UserPermission\UserPermission.cs" />
+    <Compile Include="Model\UserInfo\OnlineUserModel.cs" />
+    <Compile Include="Model\UserInfo\UserPermission.cs" />
     <Compile Include="Modules\ReliableDataSender\Core\PrintingQueueProcessor.cs" />
     <Compile Include="Modules\ReliableDataSender\Core\VerificationQueueProcessor.cs" />
     <Compile Include="Modules\ReliableDataSender\Factories\ReliableProcessorFactory.cs" />
@@ -264,11 +266,11 @@
     <Compile Include="View\UtilityForms\frmGetManufacturingInfo.Designer.cs">
       <DependentUpon>frmGetManufacturingInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UtilityForms\frmGetDispatchInfo.cs">
+    <Compile Include="View\UtilityForms\frmGetDispatchingInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\UtilityForms\frmGetDispatchInfo.Designer.cs">
-      <DependentUpon>frmGetDispatchInfo.cs</DependentUpon>
+    <Compile Include="View\UtilityForms\frmGetDispatchingInfo.Designer.cs">
+      <DependentUpon>frmGetDispatchingInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UtilityForms\frmDatabase.cs">
       <SubType>Form</SubType>
@@ -425,8 +427,8 @@
     <EmbeddedResource Include="View\UtilityForms\frmDatabase.resx">
       <DependentUpon>frmDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UtilityForms\frmGetDispatchInfo.resx">
-      <DependentUpon>frmGetDispatchInfo.cs</DependentUpon>
+    <EmbeddedResource Include="View\UtilityForms\frmGetDispatchingInfo.resx">
+      <DependentUpon>frmGetDispatchingInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\frmGetManufacturingInfo.resx">
       <DependentUpon>frmGetManufacturingInfo.cs</DependentUpon>

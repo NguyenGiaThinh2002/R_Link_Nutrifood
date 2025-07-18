@@ -81,8 +81,7 @@
             "CSV",
             "SQL",
             "MySQL",
-            "SQLite",
-            "Production Data"});
+            "SQLite"});
             this.cmbDatabaseType.Location = new System.Drawing.Point(20, 91);
             this.cmbDatabaseType.Name = "cmbDatabaseType";
             this.cmbDatabaseType.Size = new System.Drawing.Size(450, 28);

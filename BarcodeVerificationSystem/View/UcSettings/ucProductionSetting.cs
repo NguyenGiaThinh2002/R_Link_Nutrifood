@@ -31,6 +31,8 @@ namespace BarcodeVerificationSystem.View.UcSettings
             lineName.Text = Shared.Settings.LineName;
             factoryCode.Text = Shared.Settings.FactoryCode;
             LineId.Text = Shared.Settings.RLinkId;
+
+            maskData.Enabled = !Shared.UserPermission.isOnline;
         }
 
         private void InitEvents()

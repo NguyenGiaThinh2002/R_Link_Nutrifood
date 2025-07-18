@@ -47,6 +47,7 @@ using BarcodeVerificationSystem.Modules.ReliableDataSender.Services;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Factories;
 using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
+using BarcodeVerificationSystem.Model.Apis;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -609,9 +610,9 @@ namespace BarcodeVerificationSystem.View
 
             }
 
-            btnExportAll.Visible = btnExportResult.Visible = btnExportData.Visible = Shared.UserPermission["exports"];
-            btnAccount.Enabled = Shared.UserPermission["accounts"];
-            pnlControllButton.Enabled = Shared.UserPermission["controls"];
+            btnExportAll.Visible = btnExportResult.Visible = btnExportData.Visible = Shared.UserPermission.Exports;
+            btnAccount.Enabled = Shared.UserPermission.Accounts;
+            pnlControllButton.Enabled = Shared.UserPermission.Controls;
 
             if (Shared.Settings.ExportOneForAllEnable)
             {
@@ -1873,10 +1874,8 @@ namespace BarcodeVerificationSystem.View
         {
             try
             {
-
-
                 ApiService apiService = new ApiService();
-                string url = Shared.Settings.ApiUrl + "/" + Shared.Settings.RLinkId + "/parameters";
+                string url = ApiModel.getSendParametersUrl();
                 object parameters = new 
                 {
                     NumberPrinted,
@@ -2750,7 +2749,7 @@ namespace BarcodeVerificationSystem.View
             {
                 string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
                 string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                string url = Shared.Settings.ApiUrl + "/" + Shared.Settings.RLinkId + "/printedData";
+                string url = ApiModel.getSendPrintedDataUrl();
 
                 if (!Directory.Exists(CommVariables.PathSentDataPrinted))
                 {
@@ -2979,7 +2978,7 @@ namespace BarcodeVerificationSystem.View
                     Directory.CreateDirectory(CommVariables.PathSentDataChecked);
                 }
                 string sentDataPath = CommVariables.PathSentDataChecked + _SelectedJob.CheckedResultPath;
-                string url = Shared.Settings.ApiUrl + "/" + Shared.Settings.RLinkId + "/checkedData";
+                string url = ApiModel.getSendCheckedDataUrl();
 
                 if (ProjectLabel.IsNutrifood)
                 {
@@ -6310,9 +6309,9 @@ namespace BarcodeVerificationSystem.View
             btnStop.Enabled = !isEnable;
             btnTrigger.Enabled = !isEnable;
             btnJob.Enabled = isEnable;
-            btnAccount.Enabled = isEnable && Shared.UserPermission["accounts"];
+            btnAccount.Enabled = isEnable && Shared.UserPermission.Accounts;
             btnHistory.Enabled = isEnable;
-            btnSettings.Enabled = isEnable && Shared.UserPermission["settings"];
+            btnSettings.Enabled = isEnable && Shared.UserPermission.Settings;
             btnExportData.Enabled = isEnable;
             btnExportResult.Enabled = isEnable;
 

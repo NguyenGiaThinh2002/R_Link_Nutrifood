@@ -124,8 +124,8 @@ namespace BarcodeVerificationSystem.View
             };
            
             var _SelectedJob = Shared.GetJob(Shared.JobNameSelected);
-            cuzExportType.Enabled = _SelectedJob.CompareType == CompareType.Database && !Shared.Settings.ExportOneForAllEnable && Shared.UserPermission["exports"] ? true : false;
-            btnExportData.Enabled = _SelectedJob.CompareType == CompareType.Database && !Shared.Settings.ExportOneForAllEnable && Shared.UserPermission["exports"] ? true : false;
+            cuzExportType.Enabled = _SelectedJob.CompareType == CompareType.Database && !Shared.Settings.ExportOneForAllEnable && Shared.UserPermission.Exports ? true : false;
+            btnExportData.Enabled = _SelectedJob.CompareType == CompareType.Database && !Shared.Settings.ExportOneForAllEnable && Shared.UserPermission.Exports ? true : false;
 
             cbxExportType.Items.AddRange(exportOptions);
             cbxExportType.SelectedIndex = 0;

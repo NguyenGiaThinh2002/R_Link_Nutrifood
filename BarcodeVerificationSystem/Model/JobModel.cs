@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarcodeVerificationSystem.Model.Payload;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
@@ -9,6 +10,7 @@ namespace BarcodeVerificationSystem.Model
     public class JobModel
     {
         #region Properties
+        public OrderPayload OrderPayload { get; set; } = null;
 
         private CompareType _CompareType = CompareType.CanRead;
         private string _StaticText = "";

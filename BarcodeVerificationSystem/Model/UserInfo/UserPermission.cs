@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarcodeVerificationSystem.Model.UserInfo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace BarcodeVerificationSystem.Model.UserPermission
 
     public class UserPermission
     {
+
+        public bool isOnline = false;
         private static string _settings = "settings";
         private static string _controls = "controls";
         private static string _exports = "exports";
@@ -20,6 +23,8 @@ namespace BarcodeVerificationSystem.Model.UserPermission
         private static string _partialDisplay = "partialDisplay";
         private static string _repackFactory = "repackFactory";
         private static string _repackWarehouse = "repackWarehouse";
+
+        public OnlineUserModel OnlineUserModel = null;
 
         public static UserPermission AdminPermission = new UserPermission
         {
@@ -81,47 +86,6 @@ namespace BarcodeVerificationSystem.Model.UserPermission
         public bool RepackFactory => this[_repackFactory];
         public bool RepackWarehouse => this[_repackWarehouse];
 
-
-        //private readonly Dictionary<string, bool> _permissions;
-
-        //public static readonly UserPermission Admin = new UserPermission(new Dictionary<string, bool>
-        //{
-        //    ["settings"] = true,
-        //    ["controls"] = true,
-        //    ["exports"] = true,
-        //    ["accounts"] = true,
-        //    ["createJob"] = true,
-        //    ["deleteJob"] = true
-        //});
-
-        //public static readonly UserPermission Operator = new UserPermission(new Dictionary<string, bool>
-        //{
-        //    ["settings"] = false,
-        //    ["controls"] = true,
-        //    ["exports"] = false,
-        //    ["accounts"] = false,
-        //    ["createJob"] = true,
-        //    ["deleteJob"] = false
-        //});
-
-        //public UserPermission(Dictionary<string, bool> permissions)
-        //{
-        //    _permissions = permissions ?? new Dictionary<string, bool>();
-        //}
-
-        //public bool this[string key] => _permissions.TryGetValue(key, out var value) && value;
-
-        //public IReadOnlyDictionary<string, bool> Permissions => _permissions;
-
-        //public bool CreateJob => this["createJob"];
-        //public bool DeleteJob => this["deleteJob"];
-        //public bool Settings => this["settings"];
-        //public bool Controls => this["controls"];
-        //public bool Exports => this["exports"];
-        //public bool Accounts => this["accounts"];
-
-        //public class UserPermission
-        //{
     }
 
 

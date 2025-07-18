@@ -1,4 +1,6 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
+using BarcodeVerificationSystem.Model.Payload;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,6 +16,9 @@ namespace BarcodeVerificationSystem.Model
     public class SettingsModel
     {
         #region Properties
+
+        public OrderPayload OrderPayload { get; set; } = null;
+
         private CompareType _CompareType = CompareType.CanRead;
         public CompareType CompareType { get => _CompareType; set => _CompareType = value; }
 
@@ -41,9 +46,7 @@ namespace BarcodeVerificationSystem.Model
         public bool AllowDupAndNonStop { get => _allowDupAndNonStop; set => _allowDupAndNonStop = value; }
 
         private bool _maskData = false;
-        public bool MaskData { get => _maskData; set => _maskData = value; }
-        
-
+        public bool MaskData { get => _maskData && ProjectLabel.IsNutrifood; set => _maskData = value; }
         public bool SensorControllerEnable { get => _SensorControllerEnable; set => _SensorControllerEnable = value; }
         public int SensorControllerPort2 { get => _SensorControllerPort2; set => _SensorControllerPort2 = value; }
         public string SensorControllerIP { get => _SensorControllerIP; set => _SensorControllerIP = value; }
@@ -123,7 +126,7 @@ namespace BarcodeVerificationSystem.Model
         private bool _isManufacturingMode = true;
         public bool IsManufacturingMode
         {
-            get { return _isManufacturingMode; }
+            get { return _isManufacturingMode; } 
             set { _isManufacturingMode = value; }
         }
 
@@ -179,22 +182,6 @@ namespace BarcodeVerificationSystem.Model
             set { _factoryCode = value; }
         }
 
-        [XmlIgnore]
-        public List<JToken> JTokenDispatchingItems { get ; set; } = new List<JToken>();
-
-        // Surrogate property to allow XML serialization
-        [XmlElement("JTokenDispatchingItemsJson")]
-        public string JTokenDispatchingItemsJson
-        {
-            get { return JsonConvert.SerializeObject(JTokenDispatchingItems); }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                    JTokenDispatchingItems = new List<JToken>();
-                else
-                    JTokenDispatchingItems = JsonConvert.DeserializeObject<List<JToken>>(value);
-            }
-        }
         #endregion
 
 

@@ -25,6 +25,7 @@ using UILanguage;
 using RestartProcessHelper;
 using Timer = System.Windows.Forms.Timer;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
+using BarcodeVerificationSystem.View.UtilityForms;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -56,7 +57,7 @@ namespace BarcodeVerificationSystem.View
         private readonly List<ToolStripLabel> _LabelStatusPrinterList = new List<ToolStripLabel>();
 
         private FrmSettings _FormSettings;
-        private JobModel _JobModel = null;
+        public JobModel _JobModel = null;
         private FrmMain _FormMainPC = null;
 
         private Thread _ThreadMonitorPrinter;
@@ -290,16 +291,25 @@ namespace BarcodeVerificationSystem.View
             else if (sender == btnImportDatabase)
             {
                 //txtDirectoryDatabse.Text = _JobModel.DirectoryDatabase = OpenDirectoryFileDatabase();
-
                 //_PODFormat.Clear();
                 //txtPODFormat.Text = "";
-                var _FormDatabase = new frmDatabase(this);
-                _FormDatabase.ShowDialog();
 
                 if (ProjectLabel.IsNutrifood)
                 {
+                    Form dispatchInfo = Shared.Settings.IsManufacturingMode
+                   ? (Form)new frmGetManufacturingInfo()
+                   : new frmGetDispatchingInfo(this);
+
+                    dispatchInfo.ShowDialog();
                     txtDirectoryDatabse.PasswordChar = true;
                 }
+                else
+                {
+                    var _FormDatabase = new frmDatabase(this);
+                    _FormDatabase.ShowDialog();
+                }
+
+                var t = _JobModel.OrderPayload;
 
                 if (Shared.databasePath != "")
                 {
@@ -862,9 +872,9 @@ namespace BarcodeVerificationSystem.View
             var podText = new PODModel(0, "", PODModel.TypePOD.TEXT, "");
             _PODList.Add(podText);
 
-            btnSettings.Enabled = Shared.UserPermission["settings"];
-            btnDelete.Enabled = Shared.UserPermission["deleteJob"];
-            tabPage2.Enabled = Shared.UserPermission["createJob"];
+            btnSettings.Enabled = Shared.UserPermission.Settings;
+            btnDelete.Enabled = Shared.UserPermission.DeleteJob;
+            tabPage2.Enabled = Shared.UserPermission.CreateJob;
 
             for (int index = 1; index <= 20; index++)
             {
@@ -1281,6 +1291,8 @@ namespace BarcodeVerificationSystem.View
             bool isRSeries = radRSeries.Checked;
             job.PrinterSeries = isRSeries;
             job.FileName = txtFileName.Text;
+            job.OrderPayload = _JobModel.OrderPayload;
+
             if (isRSeries)
             {
                 job.CompareType = CompareType.Database;

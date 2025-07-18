@@ -14,9 +14,7 @@ namespace BarcodeVerificationSystem.Labels.ProjectLabel
             Nutrifood
         }
         private static LabelType _labelType = LabelType.Nutrifood;
-
         //public static LabelType ProjectType { get => _labelType; set => _labelType = value; }
-
         public static bool IsNutrifood => _labelType == LabelType.Nutrifood;
         public static bool IsDefault => _labelType == LabelType.Default;
     }

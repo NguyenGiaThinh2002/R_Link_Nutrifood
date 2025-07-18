@@ -13,15 +13,19 @@ using System.Windows.Forms;
 using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.View.CustomDialogs;
+using BarcodeVerificationSystem.Model.Apis;
+using BarcodeVerificationSystem.Model.Payload;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
-    public partial class frmGetDispatchInfo : Form
+    public partial class frmGetDispatchingInfo : Form
     {
         private readonly HttpClient _httpClient = new HttpClient();
+        private readonly FrmJob _frmJob;
 
-        public frmGetDispatchInfo()
+        public frmGetDispatchingInfo(FrmJob frmJob)
         {
+            _frmJob = frmJob;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             SetupDataGridView();
@@ -42,23 +46,26 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
             try
             {
-                var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
+                //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
+                var items = Shared.Settings.OrderPayload.payload.item;
+
+                
                 if (items != null)
                 {
                     foreach (var item in items)
                     {
                         dgvItems.Rows.Add(
-                            item["material_number"]?.ToString(),
-                            item["material_name"]?.ToString(),
-                            item["status_desc"]?.ToString(),
-                            item["item_group"]?.ToString(),
-                            item["uom_name"]?.ToString(),
-                            item["case_cnt"]?.ToString(),
-                            item["pallet"]?.ToString(),
-                            item["original_qty"]?.ToString(),
-                            item["total_qty_ctn"]?.ToString(),
-                            item["gross_wgt"]?.ToString(),
-                            item["cube"]?.ToString()
+                            item.material_number?.ToString(),
+                            item.material_name?.ToString(),
+                            item.status_desc?.ToString(),
+                            item.item_group?.ToString(),
+                            item.uom_name?.ToString(),
+                            item.case_cnt.ToString(),
+                            item.pallet.ToString(),
+                            item.original_qty.ToString(),
+                            item.total_qty_ctn.ToString(),
+                            item.gross_wgt.ToString(),
+                            item.cube.ToString()
                         );
                     }
                 }
@@ -70,6 +77,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         private void InitEvents()
         {
             Shared.OnSerialDeviceReadDataChange += Shared_OnSerialDeviceReadDataChange;
+            txtOrderId.TextChanged += AdjustData;
         }
         private void Shared_OnSerialDeviceReadDataChange(object sender, EventArgs e)
         {
@@ -79,11 +87,24 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 if (sender is DetectModel)
                 {
                     var detectModel = sender as DetectModel;
-                    txtOrderId.Text = detectModel.Text.Trim();  
+                    txtOrderId.Text = detectModel.Text.Trim();
+                    Shared.Settings.OrderId = txtOrderId.Text.Trim();
                 }
             }
             catch (Exception)
             {
+            }
+        }
+
+        private void AdjustData(object sender, EventArgs e)
+        {
+            switch (sender)
+            {
+                case TextBox textBox when textBox.Name == "txtOrderId":
+                    Shared.Settings.OrderId = textBox.Text.Trim();
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -109,7 +130,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             dgvItems.AllowUserToAddRows = false;
         }
 
-        private async void btnGetInfo_Click_1(object sender, EventArgs e)
+        private async void btnGetInfo_Click(object sender, EventArgs e)
         {
             string orderId = txtOrderId.Text.Trim();
             if (string.IsNullOrEmpty(orderId))
@@ -120,42 +141,36 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
             try
             {
-                Shared.Settings.OrderId = orderId;
-                string productionMode = Shared.Settings.IsManufacturingMode ? "manufacturing" : "dispatching";
-                string apiUrl = Shared.Settings.ApiUrl + "/" + Shared.Settings.RLinkId + "/" + productionMode + "/getOrder/" + orderId;
+                string apiUrl = ApiModel.getOrderInfoUrl();
 
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
-                string payload = await response.Content.ReadAsStringAsync();
-                Shared.Settings.DispatchingPayload = payload;
-                // Parse and display JSON
-                var jsonObject = JObject.Parse(payload);
-                txtPayload.Text = JsonConvert.SerializeObject(jsonObject, Newtonsoft.Json.Formatting.Indented);
+
+                var loginPayload = JsonConvert.DeserializeObject<OrderPayload>(await response.Content.ReadAsStringAsync());
+                _frmJob._JobModel.OrderPayload = Shared.Settings.OrderPayload = loginPayload;
+                txtPayload.Text = Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented);
 
                 // Populate DataGridView with items  
                 dgvItems.Rows.Clear();
-                var items = jsonObject["item"]?.Children().ToList();
-                string wms_number = jsonObject["wms_number"]?.ToString();
-
-                Shared.Settings.WmsNumber = wms_number;
-                Shared.Settings.JTokenDispatchingItems = items;
+                var items = loginPayload?.payload?.item.ToList();
+                Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
 
                 if (items != null)
                 {
                     foreach (var item in items)
                     {
                         dgvItems.Rows.Add(
-                            item["material_number"]?.ToString(),
-                            item["material_name"]?.ToString(),
-                            item["status_desc"]?.ToString(),
-                            item["item_group"]?.ToString(),
-                            item["uom_name"]?.ToString(),
-                            item["case_cnt"]?.ToString(),
-                            item["pallet"]?.ToString(),
-                            item["original_qty"]?.ToString(),
-                            item["total_qty_ctn"]?.ToString(),
-                            item["gross_wgt"]?.ToString(),
-                            item["cube"]?.ToString()
+                            item.material_number?.ToString(),
+                            item.material_name?.ToString(),
+                            item.status_desc?.ToString(),
+                            item.item_group?.ToString(),
+                            item.uom_name?.ToString(),
+                            item.case_cnt.ToString(),
+                            item.pallet.ToString(),
+                            item.original_qty.ToString(),
+                            item.total_qty_ctn.ToString(),
+                            item.gross_wgt.ToString(),
+                            item.cube.ToString()
 
                         );
                     }
@@ -166,9 +181,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             catch (Exception ex)
             {
                 Shared.Settings.DispatchingPayload = string.Empty;
-                Shared.Settings.JTokenDispatchingItems = new List<JToken>();
-                Shared.Settings.JTokenDispatchingItemsJson = "[]";
-
                 txtPayload.Text = $"Error: {ex.Message}";
                 dgvItems.Rows.Clear();
                 btnAction.Enabled = false;

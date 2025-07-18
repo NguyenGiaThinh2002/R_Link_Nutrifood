@@ -219,13 +219,15 @@ namespace BarcodeVerificationSystem.View
                                 Shared.UserPermission = await service.GetPermissionsAsync(username, password);
                                 Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
 
+                                var t = Shared.UserPermission.OnlineUserModel.MaQuyen;
+
                                 if (Shared.UserPermission == null)
                                 {
                                     isOnlineAccountOK = false;
                                 }
                                 else
                                 {
-                                    isOnlineAccountOK = true;
+                                    Shared.UserPermission.isOnline = isOnlineAccountOK = true;
                                 }
                                 //var text = string.Join(Environment.NewLine,
                                 //                        Shared.UserPermission.Permissions.Select(p => $"{p.Key} = {p.Value}"));

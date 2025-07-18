@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BarcodeVerificationSystem.Model.Apis;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -72,10 +73,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
             try
             {
-                Shared.Settings.OrderId = orderId;
-
-                string productionMode = Shared.Settings.IsManufacturingMode ? "manufacturing" : "dispatching";
-                string apiUrl = Shared.Settings.ApiUrl + "/" + Shared.Settings.RLinkId + "/" + productionMode + "/getOrder/" + orderId;
+                string apiUrl = ApiModel.getOrderInfoUrl();
 
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
@@ -90,8 +88,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             catch (Exception ex)
             {
                 Shared.Settings.DispatchingPayload = string.Empty;
-                Shared.Settings.JTokenDispatchingItems = new List<JToken>();
-                Shared.Settings.JTokenDispatchingItemsJson = "[]";
 
                 txtPayload.Text = $"Error: {ex.Message}";
                 CustomMessageBox.Show($"Failed to retrieve order information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
