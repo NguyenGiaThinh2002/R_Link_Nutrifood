@@ -247,6 +247,17 @@
     <Compile Include="Utils\MaskData.cs" />
     <Compile Include="Utils\ExceptionLogger.cs" />
     <Compile Include="Services\FormCapture.cs" />
+    <Compile Include="Utils\QRCode\Base30AutoCodeGenerator.cs" />
+    <Compile Include="Utils\QRCode\BenchmarkGenerateLineCodes.cs" />
+    <Compile Include="Utils\QRCode\CodeConverter.cs" />
+    <Compile Include="Utils\QRCode\CurrentCodeSavedHelper.cs" />
+    <Compile Include="Utils\QRCode\DateCodeHelper.cs" />
+    <Compile Include="Utils\QRCode\Enums.cs" />
+    <Compile Include="Utils\QRCode\FactoryCodeHelper.cs" />
+    <Compile Include="Utils\QRCode\MonthCodeHelper.cs" />
+    <Compile Include="Utils\QRCode\Random2CharHelper.cs" />
+    <Compile Include="Utils\QRCode\TestGenCode.cs" />
+    <Compile Include="Utils\QRCode\YearCodeHelper.cs" />
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
     <Compile Include="View\SubForms\frmGetDataOffline.cs">
       <SubType>Form</SubType>
