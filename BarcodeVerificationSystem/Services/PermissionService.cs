@@ -27,7 +27,7 @@ namespace BarcodeVerificationSystem.Services
             var loginPayload = JsonConvert.DeserializeObject<LoginPayload>(await loginResponse.Content.ReadAsStringAsync());
 
             if (loginPayload?.data?.Count == 0) return null;
-            string maQuyen = loginPayload.data[0].MaQuyen;
+            string maQuyen = loginPayload.data[0].ma_quyen;
 
             // Get permissions
             var permResponse = await _client.GetAsync(ApiModel.getPermissionUrl(maQuyen));
@@ -37,8 +37,8 @@ namespace BarcodeVerificationSystem.Services
             if (permPayload?.data == null) return null;
 
             var userPermissions = permPayload.data
-                .Where(p => !string.IsNullOrWhiteSpace(p.MaChucNang))
-                .ToDictionary(p => p.MaChucNang, _ => true);
+                .Where(p => !string.IsNullOrWhiteSpace(p.ma_chuc_nang))
+                .ToDictionary(p => p.ma_chuc_nang, _ => true);
 
             return new UserPermission
             {

@@ -9,9 +9,9 @@ namespace BarcodeVerificationSystem.Model.UserInfo
     public class OnlineUserModel
     {
         public string _id { get; set; }
-        public string MaQuyen { get; set; }
-        public string TenQuyen { get; set; }
-        public string MaTaiKhoan { get; set; }
-        public string TenTaiKhoan { get; set; }
+        public string ma_quyen { get; set; }
+        public string ten_quyen { get; set; }
+        public string ma_tai_khoan { get; set; }
+        public string ten_tai_khoan { get; set; }
     }
 }

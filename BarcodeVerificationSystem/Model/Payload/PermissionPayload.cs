@@ -9,9 +9,9 @@ namespace BarcodeVerificationSystem.Model.Payload
     internal class PermissionDatum
     {
         public string _id { get; set; }
-        public string MaChucNang { get; set; }
-        public string TenChucNang { get; set; }
-        public object GhiChu { get; set; }
+        public string ma_chuc_nang { get; set; }
+        public string ten_chuc_nang { get; set; }
+        public object ghi_chu { get; set; }
     }
 
     internal class PermissionPayload

@@ -23,9 +23,9 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
             //_randomCode = randomCode; // Ký tự loại bỏ: O U E A I, W
         }
 
-        public string GenerateCode(string _randomCode)
+        public static string GenerateCode(string _randomCode)
         {
-            if (_shiptoCode.Length != 10 || _shipmentCode.Length != 8 || _lineCode.Length != 2 || _randomCode.Length != 6)
+            if (_shiptoCode.Length != 10 || _shipmentCode.Length != 8 || _lineCode.Length != 2 || _randomCode.Length != 12) // 6
             {
                 MessageBox.Show("Invalid code length. Please check the input values.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -36,7 +36,7 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
                 return string.Empty;
             }
 
-            return $"{_shiptoCode}{_shipmentCode}{_lineCode}{_randomCode}";
+            return $"{_shiptoCode}{_shipmentCode}{_lineCode}{_randomCode}"; // tong cu: 26 , mới là : 32
         }
 
         public static bool TryParse(string fullCode, out string randomCode)

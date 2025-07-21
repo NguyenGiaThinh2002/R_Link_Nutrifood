@@ -1,4 +1,5 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.View.CustomDialogs;
 using System;
@@ -59,6 +60,8 @@ namespace BarcodeVerificationSystem.View
             cbxRole.ValueMember = "Value";
 
             btnSave.Enabled = false;
+
+            btnAdd.Visible = ProjectLabel.IsDefault;
 
             dgvAccount.VirtualMode = false;
             dgvAccount.AllowUserToAddRows = false;
@@ -248,7 +251,7 @@ namespace BarcodeVerificationSystem.View
                         {
                             user = new string[] { string.Format(_ListUser[index].FullName), _ListUser[index].UserName,
                             _ListUser[index].Password, _ListUser[index].RoleName.ToString()};
-                            if (user[1] == "technician") continue;
+                            if (user[1] == "Support" || user[1] == "demo") continue;
                             dgvAccount.Invoke(new Action(() =>
                             {
                                 dgvAccount.Rows.Add(user);
@@ -443,7 +446,7 @@ namespace BarcodeVerificationSystem.View
             cbxRole.Enabled = isEnable;
 
             string currentUser = SecurityController.Decrypt(Shared.LoggedInUser.UserName, "rynan_encrypt_remember");
-            //if (_IsEdit) //  && !(currentUser == "technician")
+            //if (_IsEdit) //  && !(currentUser == "Support")
             //{
             //    txtUserName.Enabled = false;
             //    txtPassword.Enabled = false;

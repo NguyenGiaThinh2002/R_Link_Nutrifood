@@ -16,6 +16,8 @@ using BarcodeVerificationSystem.View.CustomDialogs;
 using BarcodeVerificationSystem.Model.Apis;
 using BarcodeVerificationSystem.Model.Payload;
 using BarcodeVerificationSystem.View.SubForms;
+using GenCode.Utils;
+using System.IO;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -190,7 +192,19 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             Shared.SaveSettings();
         }
 
-        private void btnAction_Click(object sender, EventArgs e)
+        private void GenCode()
+        {
+            //Task.Run(() =>
+            //{
+            //    Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: 100); // Test 1 line
+            //});
+            //  Base30AutoCodeGenerator.RunBulkGenerationTest(10, 1000, totalLines: 1, 100, 100); // Test nhieu line
+
+            List<string> test = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: 100);
+
+        }
+
+        private void btnGenerateCodes_Click(object sender, EventArgs e)
         {
             if (dgvItems.SelectedRows.Count == 0)
             {
@@ -202,9 +216,53 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
             string materialName = selectedRow.Cells["material_name"].Value.ToString();
 
+            var list = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: 100);
+
+            string tableName = "DispatchingCodes"; // Example table name, adjust as needed
+            string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
+            //string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "R-Link");
+            string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");
+
+            if (!Directory.Exists(documentsPath))
+            {
+                Directory.CreateDirectory(documentsPath);
+            }
+
+            string filePath = Path.Combine(documentsPath, fileName);
+            Console.WriteLine(documentsPath);
+
+            WriteStringListToCsv(list, filePath);
+            Shared.databasePath = filePath;
+            this.Close();
             // Example action: Display selected item details
             MessageBox.Show($"Performing action on item:\nMaterial Number: {materialNumber}\nMaterial Name: {materialName}",
                 "Item Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void WriteStringListToCsv(List<string> list, string filePath)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    // Write header
+                    //writer.WriteLine("LineCode");
+
+                    // Write each string in the list
+                    foreach (var lineCode in list)
+                    {
+                        // Escape any quotes in the string and wrap in quotes to handle commas or special characters
+                        //writer.WriteLine($"\"{lineCode.Replace("\"", "\"\"")}\"");
+                        writer.WriteLine(lineCode);
+
+                    }
+                }
+                Console.WriteLine($"Successfully wrote list to {filePath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error writing to CSV file: {ex.Message}");
+            }
         }
 
         private void getDataOffline_Click(object sender, EventArgs e)

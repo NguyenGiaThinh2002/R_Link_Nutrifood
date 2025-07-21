@@ -1,4 +1,5 @@
-﻿using BarcodeVerificationSystem.Model;
+﻿using BarcodeVerificationSystem.Labels.ProjectLabel;
+using BarcodeVerificationSystem.Model;
 using CommonVariable;
 using System;
 using System.Collections.Generic;
@@ -36,15 +37,29 @@ namespace BarcodeVerificationSystem.Controller
             {
                 databaseConnection.Open();
                 SQLiteCommand command = databaseConnection.CreateCommand();
-                string addSuperAdminSql = UserDataModel.GeneralInsertCommand("Demonstration", "demo", "123456", 0);
-                string addAdminSql = UserDataModel.GeneralInsertCommand("Administrator","admin","123456", 0);
-                string addOperatorSql = UserDataModel.GeneralInsertCommand("Operator", "operator", "123456", 1);
-                string addTechnicianSql = UserDataModel.GeneralInsertCommand("Technician", "technician", "123456", 0);
+
+                if (ProjectLabel.IsDefault)
+                {
+                    string addSuperAdminSql = UserDataModel.GeneralInsertCommand("Demonstration", "demo", "123456", 0);
+                    string addAdminSql = UserDataModel.GeneralInsertCommand("Administrator", "admin", "123456", 0);
+                    string addOperatorSql = UserDataModel.GeneralInsertCommand("Operator", "operator", "123456", 1);
+                    string importedSql = "CREATE TABLE tbl_account (id	INTEGER PRIMARY KEY AUTOINCREMENT, fullname	TEXT, username	TEXT,password	TEXT,role	INTEGER);";
+                    command.CommandText = importedSql + addAdminSql + addOperatorSql + addSuperAdminSql;
+                }
+
+                if (ProjectLabel.IsNutrifood)
+                {
+                    string addAdminSql = UserDataModel.GeneralInsertCommand("Administrator", "Administrator", "Admin@2025", 0);
+                    string addOperatorSql = UserDataModel.GeneralInsertCommand("Operator", "Operator", "Operator123", 1);
+                    string adSupportSql = UserDataModel.GeneralInsertCommand("Administrator", "Support", "Support@2025", 0);
+                    string importedSql = "CREATE TABLE tbl_account (id	INTEGER PRIMARY KEY AUTOINCREMENT, fullname	TEXT, username	TEXT,password	TEXT,role	INTEGER);";
+                    command.CommandText = importedSql + addAdminSql + addOperatorSql + adSupportSql;
+
+                }
                 //string addCreatorSql = UserDataModel.GeneralInsertCommand("Creator", "creator", "123456", 3);
 
 
-                string importedSql = "CREATE TABLE tbl_account (id	INTEGER PRIMARY KEY AUTOINCREMENT, fullname	TEXT, username	TEXT,password	TEXT,role	INTEGER);";
-                command.CommandText = importedSql + addAdminSql + addOperatorSql + addSuperAdminSql + addTechnicianSql;
+
                 command.ExecuteNonQuery();
             }
         }

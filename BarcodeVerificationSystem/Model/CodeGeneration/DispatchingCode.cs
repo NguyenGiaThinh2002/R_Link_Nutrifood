@@ -10,9 +10,9 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
 {
     public class DispatchingCode
     {
-        private string _url = "https://loyalty.nuti.vn/"; // 10 characters
-        private string _factoryId = "2"; // 2	Bình Dương - 3	Gia Lai - 4	Hưng Yên
-        private string _yearAndMonth = DateTime.Now.ToString("yyMM");
+        private static string _url = "https://loyalty.nuti.vn/"; // 24 characters
+        private static string _factoryId = "2"; // 2	Bình Dương - 3	Gia Lai - 4	Hưng Yên
+        private static string _yearAndMonth = DateTime.Now.ToString("yyMM");
 
         //private string _yearAndMonth = "2507"; // 4 characters
         //private string _randomCode = "01234567890B"; // 12 characters
@@ -24,22 +24,19 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
             _yearAndMonth = yearAndMonth;
             //_randomCode = randomCode; // Ký tự loại bỏ: O U E A I, W
         }
-        public string GenerateCode(string _randomCode)
+        public static string GenerateCode(string _randomCode)
         {
-            if (_url.Length != 10 || _factoryId.Length != 1 || _yearAndMonth.Length != 4 || _randomCode.Length != 12)
+            if (_url.Length != 24 || _factoryId.Length != 1 || _yearAndMonth.Length != 4 || _randomCode.Length != 12) 
             {
-                //throw new ArgumentException("Invalid code length");
-                MessageBox.Show("Invalid code length. Please check the input values.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return string.Empty;
+                throw new ArgumentException("Invalid code length. Please check the input values.");
             }
 
             if (Shared.Settings.IsManufacturingMode)
             {
-                MessageBox.Show("Dispatching code generation is not available in manufacturing mode.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return string.Empty;
+                throw new ArgumentException("Invalid code length. Please check the input values.");
             }
 
-            return $"{_url}{_factoryId}{_yearAndMonth}{_randomCode}";
+            return $"{_url}{_factoryId}{_yearAndMonth}{_randomCode}"; // Tong ky tu la 41
         }
 
         // to take the random code from the generated code

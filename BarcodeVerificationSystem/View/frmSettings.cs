@@ -1,6 +1,7 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
+using BarcodeVerificationSystem.Model.UserPermission;
 using BarcodeVerificationSystem.View.UcSettings;
 using System;
 using System.Collections.Generic;
@@ -106,7 +107,10 @@ namespace BarcodeVerificationSystem.View
             tabPageSerialDevice.Controls.Add(usSerialDeviceSettings);
             //END Initial tab Serial Device settings
 
-            if (ProjectLabel.IsNutrifood)
+            string currentUser = SecurityController.Decrypt(Shared.LoggedInUser.UserName, "rynan_encrypt_remember");
+
+
+            if ((ProjectLabel.IsNutrifood && Shared.UserPermission.SystemSettings) || currentUser == "Support")
             {
                 this.tabPageProductionSetting = new System.Windows.Forms.TabPage();
                 this.tabControlSettings.Controls.Add(this.tabPageProductionSetting);

@@ -26,8 +26,6 @@ using RestartProcessHelper;
 using Timer = System.Windows.Forms.Timer;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.View.UtilityForms;
-using BarcodeVerificationSystem.Utils.QRCode;
-using GenCode.Utils;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -91,16 +89,6 @@ namespace BarcodeVerificationSystem.View
         public FrmJob()
         {
             InitializeComponent();
-            GenCode();
-        }
-        void GenCode()
-        {
-            Task.Run(() =>
-            {
-                Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: 100); // Test 1 line
-            });
-          //  Base30AutoCodeGenerator.RunBulkGenerationTest(10, 1000, totalLines: 1, 100, 100); // Test nhieu line
-           
         }
 
         protected override void OnHandleCreated(EventArgs e)

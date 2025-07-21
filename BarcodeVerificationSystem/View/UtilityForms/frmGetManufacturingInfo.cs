@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BarcodeVerificationSystem.Model.Apis;
+using GenCode.Utils;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -98,6 +99,8 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         private void btnAction_Click(object sender, EventArgs e)
         {
             var jsonObject = JObject.Parse(Shared.Settings.DispatchingPayload);
+
+            var list = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: 100);
 
             string materialNumber = jsonObject["material"].ToString();
             string materialName = jsonObject["material_description"].ToString();

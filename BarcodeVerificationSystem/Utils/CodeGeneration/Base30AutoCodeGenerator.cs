@@ -1,4 +1,6 @@
-﻿using GenCode.Types;
+﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model.CodeGeneration;
+using GenCode.Types;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,7 +68,7 @@ namespace GenCode.Utils
             return new string(result.ToArray());
         }
         
-        public static void GenerateLineCodes(
+        public static List<string> GenerateLineCodes(
                 int lineIndex = 0,      // i: line ID từ 0 đến n - 1
                 int totalLines= 14,     // n: tổng số line
                 int startValue = 100,     // s: giá trị bắt đầu
@@ -74,85 +76,116 @@ namespace GenCode.Utils
                 int quantity = 10        // số lượng mã muốn tạo ra
 )
         {
-            if (!currentPerLine.ContainsKey(lineIndex))
-                currentPerLine[lineIndex] = startValue;
 
-            int s = startValue;
-            int c = currentPerLine[lineIndex];
-            // int c = initialCurrent;
-            int i = lineIndex;
-            int n = totalLines;
-
-            Random rand = new Random(Guid.NewGuid().GetHashCode());
-
-            int r = rand.Next(1, 4);  // từ 1 đến 14 theo mô tả (tránh 0 vì j=0 không hợp lệ)
-
-            int j = n * r;             // bước nhảy cố định cho line này trong đợt sinh
-            int t = n * r + i;         // bước tăng theo line index (i)
-
-            Console.WriteLine($"[INIT] Line={i}, n={n}, r={r}, j={j}, t={t}");
-
-            for (int k = 0; k < quantity; k++)
+            try
             {
-                int b = (c - s) / j;       // số bước nhảy đã đi
-                int u = s + (j * b) + t;   // giá trị u cuối cùng để mã hóa base30
 
-                string base30code = EncodeToBase30(u); // unique code
+                if (!currentPerLine.ContainsKey(lineIndex))
+                    currentPerLine[lineIndex] = startValue;
 
-                int factoryCodeInt = (int)FactoryCode.GiaLai;
-                string factoryCode = factoryCodeInt.ToString();
-                string currentYear = DateCodeHelper.GetCurrentYearTwoDigits();
-                string currentMonth = DateCodeHelper.GetCurrentMonthTwoDigits();
-                char monthVal = MonthCodeHelper.GetMonthCode(currentMonth);
-                char yearVal = YearCodeHelper.GetYearCode(currentYear);
-                string[] twoChar = Random2CharHelper.GetTwoRandomChars();
+                List<string> randomCodes = new List<string>();
 
-                string lineIDStr = i.ToString();
+                int s = startValue;
+                int c = currentPerLine[lineIndex];
+                // int c = initialCurrent;
+                int i = lineIndex;
+                int n = totalLines;
 
-                string rawCode = factoryCode +
-                                 currentYear +
-                                 currentMonth +
-                                 monthVal +
-                                 yearVal +
-                                 base30code+
-                                 lineIDStr+
-                                 twoChar[0] +
-                                 twoChar[1];
+                Random rand = new Random(Guid.NewGuid().GetHashCode());
 
-                string checksumSource = monthVal.ToString() +
-                                        yearVal.ToString() +
-                                        base30code +
-                                        lineIDStr +
-                                        twoChar[0] +
-                                        twoChar[1];
+                int r = rand.Next(1, 4);  // từ 1 đến 14 theo mô tả (tránh 0 vì j=0 không hợp lệ)
 
-                int total;
-                char checksum = CodeConverter.GetChecksumChar(checksumSource, out total);
-                string fullCode = rawCode + checksum;
+                int j = n * r;             // bước nhảy cố định cho line này trong đợt sinh
+                int t = n * r + i;         // bước tăng theo line index (i)
 
-                if (!generatedCodes.Add(fullCode))
+                Console.WriteLine($"[INIT] Line={i}, n={n}, r={r}, j={j}, t={t}");
+
+                for (int k = 0; k < quantity; k++)
                 {
-                    Console.WriteLine($"⚠️ Trùng mã: {fullCode}");
-                    OnDuplicateCode?.Invoke(fullCode); // báo trùng
-                }
-                else
-                {
-                    OnCodeGenerated?.Invoke(fullCode); // báo mã mới
+                    int b = (c - s) / j;       // số bước nhảy đã đi
+                    int u = s + (j * b) + t;   // giá trị u cuối cùng để mã hóa base30
+
+                    string base30code = EncodeToBase30(u); // unique code
+
+                    int factoryCodeInt = (int)FactoryCode.GiaLai;
+                    string factoryCode = factoryCodeInt.ToString();
+                    string currentYear = DateCodeHelper.GetCurrentYearTwoDigits();
+                    string currentMonth = DateCodeHelper.GetCurrentMonthTwoDigits();
+                    char monthVal = MonthCodeHelper.GetMonthCode(currentMonth);
+                    char yearVal = YearCodeHelper.GetYearCode(currentYear);
+                    string[] twoChar = Random2CharHelper.GetTwoRandomChars();
+
+                    string lineIDStr = i.ToString();
+
+                    string rawCode = factoryCode +
+                                     currentYear +
+                                     currentMonth +
+                                     monthVal +
+                                     yearVal +
+                                     base30code+
+                                     lineIDStr+
+                                     twoChar[0] +
+                                     twoChar[1];
+
+                    string checksumSource = monthVal.ToString() +
+                                            yearVal.ToString() +
+                                            base30code +
+                                            lineIDStr +
+                                            twoChar[0] +
+                                            twoChar[1];
+
+
+
+
+                    int total;
+                    char checksum = CodeConverter.GetChecksumChar(checksumSource, out total);
+
+                    // Tạo mã 12 ký tự
+                    string TwelveCharacterCode = monthVal.ToString() +
+                                     yearVal.ToString() +
+                                     base30code +
+                                     lineIDStr +
+                                     twoChar[0] +
+                                     twoChar[1] + checksum;
+
+                    string code = Shared.Settings.IsManufacturingMode ? ManufacturingCode.GenerateCode(TwelveCharacterCode) : DispatchingCode.GenerateCode(TwelveCharacterCode);
+                    string allPODCode = code + "," + TwelveCharacterCode;
+
+
+                    randomCodes.Add(allPODCode);
+
+
+                    string fullCode = rawCode + checksum;
+
+                    if (!generatedCodes.Add(fullCode))
+                    {
+                        Console.WriteLine($"⚠️ Trùng mã: {fullCode}");
+                        OnDuplicateCode?.Invoke(fullCode); // báo trùng
+                    }
+                    else
+                    {
+                        OnCodeGenerated?.Invoke(fullCode); // báo mã mới
                                                      
-                    totalCodeCount++;
-                    OnCodeCountChanged?.Invoke(totalCodeCount);
-                }
+                        totalCodeCount++;
+                        OnCodeCountChanged?.Invoke(totalCodeCount);
+                    }
 
-                Console.WriteLine($"Line index: {lineIDStr}, c: {c}, b: {b}, u: {u}, base30: {base30code}, full Code: {fullCode}");
-                // Ghi dòng dữ liệu vào CSV
-                csvWriter.WriteLine($"Line index: {lineIDStr}, c: {c}, b: {b}, u: {u}, base30: {base30code}, full Code: {fullCode}");
-                c = u;
+                    Console.WriteLine($"Line index: {lineIDStr}, c: {c}, b: {b}, u: {u}, base30: {base30code}, full Code: {fullCode}");
+                    // Ghi dòng dữ liệu vào CSV
+                    csvWriter.WriteLine($"Line index: {lineIDStr}, c: {c}, b: {b}, u: {u}, base30: {base30code}, full Code: {fullCode}");
+                    c = u;
+                }
+                currentPerLine[lineIndex] = c; // cập nhật lại current
+                csvWriter.Flush();
+                csvWriter.Close();
+                Console.WriteLine($"Tong so code : {totalCodeCount}");
+                    // TODO: Save lại `c` cho line này nếu cần
+                return randomCodes;
             }
-            currentPerLine[lineIndex] = c; // cập nhật lại current
-            csvWriter.Flush();
-            csvWriter.Close();
-            Console.WriteLine($"Tong so code : {totalCodeCount}");
-            // TODO: Save lại `c` cho line này nếu cần
+            catch (Exception)
+            {
+                return new List<string>();
+            }
         }
 
 

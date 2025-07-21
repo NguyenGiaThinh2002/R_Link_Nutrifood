@@ -66,7 +66,7 @@
             this.btnAction.TabIndex = 11;
             this.btnAction.Text = "Generate Code";
             this.btnAction.UseVisualStyleBackColor = false;
-            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
+            this.btnAction.Click += new System.EventHandler(this.btnGenerateCodes_Click);
             // 
             // btnGetInfo
             // 

@@ -196,7 +196,7 @@ namespace BarcodeVerificationSystem.View
                     ActivationStatus activationStatus = Shared.LoginLocal(username, password);
                     if (activationStatus == ActivationStatus.Successful)
                     {
-                        Shared.UserPermission = username == "admin" || username == "technician" || username == "demo" ? UserPermission.AdminPermission : UserPermission.OperatorPermission;
+                        Shared.UserPermission = username.ToLower() == "admin" || username.ToLower() == "administrator" || username.ToLower() == "support" || username == "demo" ? UserPermission.AdminPermission : UserPermission.OperatorPermission;
 
                         LoggingController.SaveHistory("Login success",
                             "Login",
@@ -219,7 +219,7 @@ namespace BarcodeVerificationSystem.View
                                 Shared.UserPermission = await service.GetPermissionsAsync(username, password);
                                 Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
 
-                                var t = Shared.UserPermission.OnlineUserModel.MaQuyen;
+                                var t = Shared.UserPermission.OnlineUserModel.ma_quyen;
 
                                 if (Shared.UserPermission == null)
                                 {
