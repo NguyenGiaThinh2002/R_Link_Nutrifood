@@ -244,6 +244,7 @@
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\PermissionService.cs" />
     <Compile Include="Utils\AutoTriggerCameraDataman.cs" />
+    <Compile Include="Utils\CodeGeneration\Helper\Base30Helper.cs" />
     <Compile Include="Utils\MaskData.cs" />
     <Compile Include="Utils\ExceptionLogger.cs" />
     <Compile Include="Services\FormCapture.cs" />

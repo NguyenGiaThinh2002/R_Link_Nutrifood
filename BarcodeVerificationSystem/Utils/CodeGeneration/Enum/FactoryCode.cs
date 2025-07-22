@@ -13,4 +13,10 @@ namespace GenCode.Types
         GiaLai = 3,
         HungYen = 4
     }
+
+    public enum GenCodeMode
+    {
+        Loyaltly = 0,
+        Export = 1,
+    }
 }

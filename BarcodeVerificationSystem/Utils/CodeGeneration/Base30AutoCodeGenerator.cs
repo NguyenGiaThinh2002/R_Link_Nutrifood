@@ -1,5 +1,6 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model.CodeGeneration;
+using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 using GenCode.Types;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,7 @@ namespace GenCode.Utils
     {
         
 
-        // Bảng ký tự base30: loại bỏ A, O, U, I, E, W
-        private static readonly char[] Base30Chars = {
-        '0','1','2','3','4','5','6','7','8','9',
-        'B','C','D','F','G','H','J','K','L','M',
-        'N','P','Q','R','S','T','V','X','Y','Z'
-    };
+      
 
         static StreamWriter csvWriter = new StreamWriter("log.csv", append: false);
         static HashSet<string> generatedCodes = new HashSet<string>(); // Kiểm tra trùng
@@ -44,36 +40,18 @@ namespace GenCode.Utils
         public static event Action<int> OnCodeCountChanged;
 
 
-        public static string EncodeToBase30(int number)
-        {
-            List<char> result = new List<char>();
-          
-            if (number==0)
-            {
-                result.Add(Base30Chars[0]);
-            }
-            //
-            while (number > 0)
-            {
-                int remainder = number % 30;
-                result.Add(Base30Chars[remainder]);
-                number /= 30;
-            }
-
-            // Đảo ngược và đệm 0 nếu chưa đủ 6 ký tự
-            result.Reverse();
-            while (result.Count < 6)
-                result.Insert(0, '0');
-
-            return new string(result.ToArray());
-        }
+      
         
         public static List<string> GenerateLineCodes(
                 int lineIndex = 0,      // i: line ID từ 0 đến n - 1
                 int totalLines= 14,     // n: tổng số line
                 int startValue = 100,     // s: giá trị bắt đầu
                 int initialCurrent = 100, // c: giá trị hiện tại
-                int quantity = 10        // số lượng mã muốn tạo ra
+                int quantity = 10  ,      // số lượng mã muốn tạo ra,
+                GenCodeMode genCodeMode= GenCodeMode.Loyaltly, 
+                string shiptoCode = "",
+                string shipment = "",
+                string lineCode ="" // Bình dương B1, B2 //Hưng yên H1 , H2
 )
         {
 
@@ -105,57 +83,70 @@ namespace GenCode.Utils
                     int b = (c - s) / j;       // số bước nhảy đã đi
                     int u = s + (j * b) + t;   // giá trị u cuối cùng để mã hóa base30
 
-                    string base30code = EncodeToBase30(u); // unique code
-
-                    int factoryCodeInt = (int)FactoryCode.GiaLai;
-                    string factoryCode = factoryCodeInt.ToString();
-                    string currentYear = DateCodeHelper.GetCurrentYearTwoDigits();
-                    string currentMonth = DateCodeHelper.GetCurrentMonthTwoDigits();
-                    char monthVal = MonthCodeHelper.GetMonthCode(currentMonth);
-                    char yearVal = YearCodeHelper.GetYearCode(currentYear);
-                    string[] twoChar = Random2CharHelper.GetTwoRandomChars();
-
                     string lineIDStr = i.ToString();
-
-                    string rawCode = factoryCode +
-                                     currentYear +
-                                     currentMonth +
-                                     monthVal +
-                                     yearVal +
-                                     base30code+
-                                     lineIDStr+
-                                     twoChar[0] +
-                                     twoChar[1];
-
-                    string checksumSource = monthVal.ToString() +
-                                            yearVal.ToString() +
-                                            base30code +
-                                            lineIDStr +
-                                            twoChar[0] +
-                                            twoChar[1];
+                    string base30code = genCodeMode == GenCodeMode.Loyaltly ? Base30Helper.EncodeToBase30_Loyaltly(u) : Base30Helper.EncodeToBase30WithChecksum_Export(u,lineIDStr);
 
 
+                    string rawCode = "";
+                    string focusCode = "";
+                    string fullCode = "";
+                   
+                    if (genCodeMode == GenCodeMode.Loyaltly)
+                    {
+                        int factoryCodeInt = (int)FactoryCode.GiaLai;
+                        string factoryCode = factoryCodeInt.ToString();
+                        string currentYear = DateCodeHelper.GetCurrentYearTwoDigits();
+                        string currentMonth = DateCodeHelper.GetCurrentMonthTwoDigits();
+                        char monthVal = MonthCodeHelper.GetMonthCode(currentMonth);
+                        char yearVal = YearCodeHelper.GetYearCode(currentYear);
+                        string[] twoChar = Random2CharHelper.GetTwoRandomChars();
 
-
-                    int total;
-                    char checksum = CodeConverter.GetChecksumChar(checksumSource, out total);
-
-                    // Tạo mã 12 ký tự
-                    string TwelveCharacterCode = monthVal.ToString() +
+                        rawCode = factoryCode +
+                                currentYear +
+                                currentMonth +
+                                monthVal +
+                                yearVal +
+                                base30code +
+                                lineIDStr +
+                                twoChar[0] +
+                                twoChar[1];
+                        string checksumSource = monthVal.ToString() +
                                      yearVal.ToString() +
                                      base30code +
                                      lineIDStr +
                                      twoChar[0] +
-                                     twoChar[1] + checksum;
+                                     twoChar[1];
 
-                    string code = Shared.Settings.IsManufacturingMode ? ManufacturingCode.GenerateCode(TwelveCharacterCode) : DispatchingCode.GenerateCode(TwelveCharacterCode);
-                    string allPODCode = code + "," + TwelveCharacterCode;
+
+
+
+                        int total;
+                        char checksum = CodeConverter.GetChecksumChar(checksumSource, out total);
+
+                        
+                        focusCode = monthVal.ToString() +
+                                         yearVal.ToString() +
+                                         base30code +
+                                         lineIDStr +
+                                         twoChar[0] +
+                                         twoChar[1] + checksum;
+
+                        // Tạo mã full QR Code
+                        fullCode = "https://loyalty.nuti.vn/"+ rawCode + checksum;
+                    }
+                    else
+                    {
+                           focusCode = base30code;
+                           fullCode =  shiptoCode + shipment + base30code;
+
+                    }
+
+                    string _focusCode = Shared.Settings.IsManufacturingMode ? ManufacturingCode.GenerateCode(focusCode) : DispatchingCode.GenerateCode(focusCode);
+                  
+                    string allPODCode = focusCode + "," + (genCodeMode == GenCodeMode.Loyaltly ? fullCode : _focusCode);
 
 
                     randomCodes.Add(allPODCode);
-
-
-                    string fullCode = rawCode + checksum;
 
                     if (!generatedCodes.Add(fullCode))
                     {
@@ -164,8 +155,7 @@ namespace GenCode.Utils
                     }
                     else
                     {
-                        OnCodeGenerated?.Invoke(fullCode); // báo mã mới
-                                                     
+                        OnCodeGenerated?.Invoke(fullCode); // báo mã mới               
                         totalCodeCount++;
                         OnCodeCountChanged?.Invoke(totalCodeCount);
                     }
