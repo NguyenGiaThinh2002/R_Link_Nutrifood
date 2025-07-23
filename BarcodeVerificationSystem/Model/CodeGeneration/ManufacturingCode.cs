@@ -25,7 +25,7 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
 
         public static string GenerateCode(string _randomCode)
         {
-            if (_shiptoCode.Length != 10 || _shipmentCode.Length != 8 || _lineCode.Length != 2 || _randomCode.Length != 12) // 6
+            if (_shiptoCode.Length != 10 || _shipmentCode.Length != 8 || _lineCode.Length != 2 || _randomCode.Length < 10) // 6
             {
                 MessageBox.Show("Invalid code length. Please check the input values.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
