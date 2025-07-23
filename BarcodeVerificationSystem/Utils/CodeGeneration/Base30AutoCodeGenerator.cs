@@ -1,10 +1,12 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model.CodeGeneration;
-using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
+//using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 using GenCode.Types;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using GenCode.Utils;
+using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 
 namespace GenCode.Utils
 {
