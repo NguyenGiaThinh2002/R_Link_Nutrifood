@@ -11,6 +11,8 @@ namespace BarcodeVerificationSystem.Model
     {
         #region Properties
         public OrderPayload OrderPayload { get; set; } = null;
+        public int SelectedMaterialIndex { get; set; } = 0;
+        public bool IsOnlineJob { get; set; } = false;
 
         private CompareType _CompareType = CompareType.CanRead;
         private string _StaticText = "";

@@ -50,7 +50,7 @@ namespace BarcodeVerificationSystem.Controller
                 if (ProjectLabel.IsNutrifood)
                 {
                     string addAdminSql = UserDataModel.GeneralInsertCommand("Administrator", "Administrator", "Admin@2025", 0);
-                    string addOperatorSql = UserDataModel.GeneralInsertCommand("Operator", "Operator", "Operator123", 1);
+                    string addOperatorSql = UserDataModel.GeneralInsertCommand("Operator", "Operator", "Operator@123", 1);
                     string adSupportSql = UserDataModel.GeneralInsertCommand("Administrator", "Support", "Support@2025", 0);
                     string importedSql = "CREATE TABLE tbl_account (id	INTEGER PRIMARY KEY AUTOINCREMENT, fullname	TEXT, username	TEXT,password	TEXT,role	INTEGER);";
                     command.CommandText = importedSql + addAdminSql + addOperatorSql + adSupportSql;

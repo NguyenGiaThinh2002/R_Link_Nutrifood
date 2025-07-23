@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BarcodeVerificationSystem.View.SubForms
+namespace BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess
 {
     public partial class frmGetDataOffline : Form
     {
         public frmGetDataOffline()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }

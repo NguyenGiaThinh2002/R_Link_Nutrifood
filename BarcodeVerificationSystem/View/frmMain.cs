@@ -48,6 +48,7 @@ using BarcodeVerificationSystem.Modules.ReliableDataSender.Factories;
 using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model.Apis;
+using BarcodeVerificationSystem.View.UtilityForms;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -473,19 +474,6 @@ namespace BarcodeVerificationSystem.View
                 countSlave = countEventISCamera.Count.ToString();
             }
 
-            // Ensure the UI update is performed on the UI thread
-            if (labelISMasterSlaveCount.InvokeRequired)
-            {
-                labelISMasterSlaveCount.Invoke(new Action(() =>
-                {
-                    labelISMasterSlaveCount.Text = $"Master: {countMaster} + Slave: {countSlave}";
-                }));
-            }
-            else
-            {
-                //  labelISMasterSlaveCount.Text = $"Master: {countMaster} + Slave: {countSlave}";
-            }
-
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -550,9 +538,6 @@ namespace BarcodeVerificationSystem.View
         }
         private void InitControls()
         {
-
-            btnViewLog.Visible = labelISMasterSlaveCount.Visible = false;// labelISMasterSlaveCount.Visible = Properties.Settings.Default.Username == "demo";
-            cuzTextBoxTriggerTime.Visible =  button_AutoTrigger.Visible = button_StopAutoTrigger.Visible = Properties.Settings.Default.Username == "demo";
             txtStatusResult.ReadOnly = true;
             ChangeCheckMode(Checkmode.Camera);
             //  ChangePictureCamera();
@@ -620,7 +605,13 @@ namespace BarcodeVerificationSystem.View
                 btnExportResult.Visible = false;
             }
 
+            if (ProjectLabel.IsNutrifood)
+            {
+                confirmCompletion.Visible = true;
+                BarcodeQualityLabel.Text = "Confirm Completion";
+                txtBarcodeQuality.Visible = false;
 
+            }
 
 
             IsFullHD = true;
@@ -666,15 +657,11 @@ namespace BarcodeVerificationSystem.View
         #region Event Action
         private void InitEvents()
         {
-
-            btnViewLog.Click += BtnViewLog_Click;
             _TimerDateTime.Tick += TimerDateTime_Tick;
             btnStart.Click += ActionChanged;
             btnStop.Click += ActionChanged;
             btnTrigger.MouseUp += BtnTrigger_MouseUp;
             btnTrigger.MouseDown += BtnTrigger_MouseDown;
-            button_AutoTrigger.Click += Button_AutoTrigger;
-            button_StopAutoTrigger.Click += Button_StopAutoTrigger;
             pnlSentData.MouseDown += (obj, e) =>
             {
                 ReleaseCapture();
@@ -705,6 +692,7 @@ namespace BarcodeVerificationSystem.View
             pnlTotalChecked.Click += ActionChanged;
             btnExportData.Click += ActionChanged;
             btnExportAll.Click += ActionChanged;
+            confirmCompletion.Click += ActionChanged;
 
             cuzButtonGetSample.Click += GetSampleRaise;
 
@@ -803,10 +791,6 @@ namespace BarcodeVerificationSystem.View
         {
             try
             {
-                if (_autoTrigger == null)
-                {
-                    _autoTrigger = new AutoTriggerCameraDataman(int.Parse(cuzTextBoxTriggerTime.Text));
-                }
                 _autoTrigger.StartTimer();
                 _autoTrigger.TriggerEvent += _autoTrigger_TriggerEvent;
             }
@@ -3982,6 +3966,11 @@ namespace BarcodeVerificationSystem.View
             {
                 string filePathCheckResult = CommVariables.PathCheckedResult + _SelectedJob.CheckedResultPath;
                 Shared.ExportCheckedResult(filePathCheckResult);
+            }
+            else if(sender == confirmCompletion)
+            {
+                Form confirmCompletion = new frmConfirmCompletion(_SelectedJob);
+                confirmCompletion.ShowDialog();
             }
         }
         private void Shared_OnCameraReadDataChange(object sender, EventArgs e)

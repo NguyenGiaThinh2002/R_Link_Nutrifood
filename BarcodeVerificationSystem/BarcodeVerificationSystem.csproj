@@ -203,8 +203,9 @@
     <Compile Include="Model\ItemCustomModel.cs" />
     <Compile Include="Model\JobModel.cs" />
     <Compile Include="Model\ObjectResultModel.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\OfflineOrder.cs" />
     <Compile Include="Model\Payload\LoginPayload.cs" />
-    <Compile Include="Model\Payload\OrderPayload.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\OrderPayload.cs" />
     <Compile Include="Model\Payload\PermissionPayload.cs" />
     <Compile Include="Model\PODDataModel.cs" />
     <Compile Include="Model\PODModel.cs" />
@@ -244,6 +245,8 @@
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\PermissionService.cs" />
     <Compile Include="Utils\AutoTriggerCameraDataman.cs" />
+    <Compile Include="Utils\CreateScrollablePanel.cs" />
+    <Compile Include="Utils\CsvConvert.cs" />
     <Compile Include="Utils\MaskData.cs" />
     <Compile Include="Utils\ExceptionLogger.cs" />
     <Compile Include="Services\FormCapture.cs" />
@@ -259,11 +262,11 @@
     <Compile Include="Utils\CodeGeneration\TestCodeGeneration\TestGenCode.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\YearCodeHelper.cs" />
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
-    <Compile Include="View\SubForms\frmGetDataOffline.cs">
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\SubForms\frmGetDataOffline.Designer.cs">
-      <DependentUpon>frmGetDataOffline.cs</DependentUpon>
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.Designer.cs">
+      <DependentUpon>frmGetDispatchingDataOffline.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UcSettings\ucProductionSetting.cs">
       <SubType>UserControl</SubType>
@@ -271,16 +274,28 @@
     <Compile Include="View\UcSettings\ucProductionSetting.Designer.cs">
       <DependentUpon>ucProductionSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UtilityForms\frmGetManufacturingInfo.cs">
+    <Compile Include="View\UtilityForms\frmConfirmCompletion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\UtilityForms\frmGetManufacturingInfo.Designer.cs">
+    <Compile Include="View\UtilityForms\frmConfirmCompletion.Designer.cs">
+      <DependentUpon>frmConfirmCompletion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmGetDataOffline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmGetDataOffline.Designer.cs">
+      <DependentUpon>frmGetDataOffline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmGetManufacturingInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmGetManufacturingInfo.Designer.cs">
       <DependentUpon>frmGetManufacturingInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UtilityForms\frmGetDispatchingInfo.cs">
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\UtilityForms\frmGetDispatchingInfo.Designer.cs">
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingInfo.Designer.cs">
       <DependentUpon>frmGetDispatchingInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UtilityForms\frmDatabase.cs">
@@ -429,19 +444,25 @@
     <EmbeddedResource Include="View\frmMain.vi.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\SubForms\frmGetDataOffline.resx">
-      <DependentUpon>frmGetDataOffline.cs</DependentUpon>
+    <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.resx">
+      <DependentUpon>frmGetDispatchingDataOffline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UcSettings\ucProductionSetting.resx">
       <DependentUpon>ucProductionSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\frmConfirmCompletion.resx">
+      <DependentUpon>frmConfirmCompletion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\frmDatabase.resx">
       <DependentUpon>frmDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UtilityForms\frmGetDispatchingInfo.resx">
+    <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingInfo.resx">
       <DependentUpon>frmGetDispatchingInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UtilityForms\frmGetManufacturingInfo.resx">
+    <EmbeddedResource Include="View\UtilityForms\ManufacturingProcess\frmGetDataOffline.resx">
+      <DependentUpon>frmGetDataOffline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\ManufacturingProcess\frmGetManufacturingInfo.resx">
       <DependentUpon>frmGetManufacturingInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\frmTableData.resx">
@@ -820,6 +841,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\x64\" />
+    <Folder Include="Model\DispatchingModel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonVariable\CommonVariable.csproj">
@@ -863,6 +885,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DeepCloner">
+      <Version>0.10.4</Version>
+    </PackageReference>
     <PackageReference Include="FontAwesome.Sharp">
       <Version>6.1.1</Version>
     </PackageReference>

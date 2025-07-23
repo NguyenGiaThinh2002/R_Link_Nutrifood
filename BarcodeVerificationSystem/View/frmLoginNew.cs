@@ -247,7 +247,9 @@ namespace BarcodeVerificationSystem.View
 
                         if (isOnlineAccountOK && ProjectLabel.IsNutrifood)
                         {
-                            activationStatus = Shared.LoginLocal("admin", "123456");
+                            //activationStatus = Shared.LoginLocal("admin", "123456");
+                            activationStatus = Shared.LoginLocal("Administrator", "Admin@2025");
+
                             LoggingController.SaveHistory("Login success",
                            "Login",
                            "Login success: " + username,

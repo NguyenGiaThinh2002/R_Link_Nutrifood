@@ -55,15 +55,11 @@
             this.btnStop = new DesignUI.CuzUI.CuzButton();
             this.btnStart = new DesignUI.CuzUI.CuzButton();
             this.pnlJobInformation = new DesignUI.CuzUI.RoundPanel();
+            this.itemsPerHour = new System.Windows.Forms.Label();
             this.PixelToMmTextY = new System.Windows.Forms.Label();
             this.PixelToMmTextX = new System.Windows.Forms.Label();
-            this.cuzTextBoxTriggerTime = new DesignUI.CuzUI.CuzTextBox();
-            this.button_StopAutoTrigger = new System.Windows.Forms.Button();
-            this.button_AutoTrigger = new System.Windows.Forms.Button();
             this.labelModeCheck = new System.Windows.Forms.Label();
             this.lblStatusRecheck = new System.Windows.Forms.Label();
-            this.labelISMasterSlaveCount = new System.Windows.Forms.Label();
-            this.btnViewLog = new System.Windows.Forms.Button();
             this.txtJobType = new DesignUI.CuzUI.CuzTextBox();
             this.lblJobType = new System.Windows.Forms.Label();
             this.txtTemplatePrint = new DesignUI.CuzUI.CuzTextBox();
@@ -156,7 +152,7 @@
             this.mnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.mnLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemsPerHour = new System.Windows.Forms.Label();
+            this.confirmCompletion = new DesignUI.CuzUI.CuzButton();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlControllButton.SuspendLayout();
@@ -437,13 +433,8 @@
             this.pnlJobInformation.Controls.Add(this.itemsPerHour);
             this.pnlJobInformation.Controls.Add(this.PixelToMmTextY);
             this.pnlJobInformation.Controls.Add(this.PixelToMmTextX);
-            this.pnlJobInformation.Controls.Add(this.cuzTextBoxTriggerTime);
-            this.pnlJobInformation.Controls.Add(this.button_StopAutoTrigger);
-            this.pnlJobInformation.Controls.Add(this.button_AutoTrigger);
             this.pnlJobInformation.Controls.Add(this.labelModeCheck);
             this.pnlJobInformation.Controls.Add(this.lblStatusRecheck);
-            this.pnlJobInformation.Controls.Add(this.labelISMasterSlaveCount);
-            this.pnlJobInformation.Controls.Add(this.btnViewLog);
             this.pnlJobInformation.Controls.Add(this.txtJobType);
             this.pnlJobInformation.Controls.Add(this.lblJobType);
             this.pnlJobInformation.Controls.Add(this.txtTemplatePrint);
@@ -472,6 +463,18 @@
             this.pnlJobInformation.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlJobInformation.TitleHeight = 30;
             // 
+            // itemsPerHour
+            // 
+            this.itemsPerHour.AutoSize = true;
+            this.itemsPerHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemsPerHour.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.itemsPerHour.Location = new System.Drawing.Point(12, 508);
+            this.itemsPerHour.Name = "itemsPerHour";
+            this.itemsPerHour.Size = new System.Drawing.Size(149, 25);
+            this.itemsPerHour.TabIndex = 135;
+            this.itemsPerHour.Text = "Items per hour";
+            this.itemsPerHour.Visible = false;
+            // 
             // PixelToMmTextY
             // 
             this.PixelToMmTextY.AutoSize = true;
@@ -495,51 +498,6 @@
             this.PixelToMmTextX.TabIndex = 131;
             this.PixelToMmTextX.Text = "Pixel To Mm X";
             this.PixelToMmTextX.Visible = false;
-            // 
-            // cuzTextBoxTriggerTime
-            // 
-            this.cuzTextBoxTriggerTime._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.cuzTextBoxTriggerTime._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBoxTriggerTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuzTextBoxTriggerTime.BackColor = System.Drawing.Color.White;
-            this.cuzTextBoxTriggerTime.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cuzTextBoxTriggerTime.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBoxTriggerTime.BorderRadius = 8;
-            this.cuzTextBoxTriggerTime.BorderSize = 1;
-            this.cuzTextBoxTriggerTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuzTextBoxTriggerTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cuzTextBoxTriggerTime.Location = new System.Drawing.Point(211, 621);
-            this.cuzTextBoxTriggerTime.Margin = new System.Windows.Forms.Padding(4);
-            this.cuzTextBoxTriggerTime.Multiline = false;
-            this.cuzTextBoxTriggerTime.Name = "cuzTextBoxTriggerTime";
-            this.cuzTextBoxTriggerTime.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.cuzTextBoxTriggerTime.PasswordChar = false;
-            this.cuzTextBoxTriggerTime.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.cuzTextBoxTriggerTime.PlaceholderText = "";
-            this.cuzTextBoxTriggerTime.ReadOnly = false;
-            this.cuzTextBoxTriggerTime.Size = new System.Drawing.Size(87, 35);
-            this.cuzTextBoxTriggerTime.TabIndex = 130;
-            this.cuzTextBoxTriggerTime.TabStop = false;
-            this.cuzTextBoxTriggerTime.UnderlinedStyle = false;
-            // 
-            // button_StopAutoTrigger
-            // 
-            this.button_StopAutoTrigger.Location = new System.Drawing.Point(208, 699);
-            this.button_StopAutoTrigger.Name = "button_StopAutoTrigger";
-            this.button_StopAutoTrigger.Size = new System.Drawing.Size(78, 31);
-            this.button_StopAutoTrigger.TabIndex = 129;
-            this.button_StopAutoTrigger.Text = "Stop Auto";
-            this.button_StopAutoTrigger.UseVisualStyleBackColor = true;
-            // 
-            // button_AutoTrigger
-            // 
-            this.button_AutoTrigger.Location = new System.Drawing.Point(214, 716);
-            this.button_AutoTrigger.Name = "button_AutoTrigger";
-            this.button_AutoTrigger.Size = new System.Drawing.Size(78, 31);
-            this.button_AutoTrigger.TabIndex = 128;
-            this.button_AutoTrigger.Text = "Auto Trigger";
-            this.button_AutoTrigger.UseVisualStyleBackColor = true;
             // 
             // labelModeCheck
             // 
@@ -565,28 +523,6 @@
             this.lblStatusRecheck.TabIndex = 125;
             this.lblStatusRecheck.Text = "Mode Check";
             this.lblStatusRecheck.Visible = false;
-            // 
-            // labelISMasterSlaveCount
-            // 
-            this.labelISMasterSlaveCount.AutoSize = true;
-            this.labelISMasterSlaveCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelISMasterSlaveCount.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.labelISMasterSlaveCount.Location = new System.Drawing.Point(152, 676);
-            this.labelISMasterSlaveCount.Name = "labelISMasterSlaveCount";
-            this.labelISMasterSlaveCount.Size = new System.Drawing.Size(146, 20);
-            this.labelISMasterSlaveCount.TabIndex = 124;
-            this.labelISMasterSlaveCount.Text = "IS Camera Counter";
-            this.labelISMasterSlaveCount.Visible = false;
-            // 
-            // btnViewLog
-            // 
-            this.btnViewLog.Location = new System.Drawing.Point(211, 649);
-            this.btnViewLog.Name = "btnViewLog";
-            this.btnViewLog.Size = new System.Drawing.Size(78, 31);
-            this.btnViewLog.TabIndex = 123;
-            this.btnViewLog.Text = "Folder Log View";
-            this.btnViewLog.UseVisualStyleBackColor = true;
-            this.btnViewLog.Visible = false;
             // 
             // txtJobType
             // 
@@ -872,6 +808,7 @@
             this.tableLayoutPanelGetSample.Name = "tableLayoutPanelGetSample";
             this.tableLayoutPanelGetSample.RowCount = 1;
             this.tableLayoutPanelGetSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelGetSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanelGetSample.Size = new System.Drawing.Size(97, 47);
             this.tableLayoutPanelGetSample.TabIndex = 127;
             // 
@@ -1007,6 +944,7 @@
             // pnlCurrentCheck
             // 
             this.pnlCurrentCheck.BackColor = System.Drawing.Color.White;
+            this.pnlCurrentCheck.Controls.Add(this.confirmCompletion);
             this.pnlCurrentCheck.Controls.Add(this.GetSample);
             this.pnlCurrentCheck.Controls.Add(this.txtBarcodeQuality);
             this.pnlCurrentCheck.Controls.Add(this.BarcodeQualityLabel);
@@ -2321,17 +2259,28 @@
             this.mnLogOut.Size = new System.Drawing.Size(168, 22);
             this.mnLogOut.Text = "Log out";
             // 
-            // itemsPerHour
+            // confirmCompletion
             // 
-            this.itemsPerHour.AutoSize = true;
-            this.itemsPerHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemsPerHour.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.itemsPerHour.Location = new System.Drawing.Point(12, 508);
-            this.itemsPerHour.Name = "itemsPerHour";
-            this.itemsPerHour.Size = new System.Drawing.Size(149, 25);
-            this.itemsPerHour.TabIndex = 135;
-            this.itemsPerHour.Text = "Items per hour";
-            this.itemsPerHour.Visible = false;
+            this.confirmCompletion._BorderColor = System.Drawing.Color.Silver;
+            this.confirmCompletion._BorderRadius = 15;
+            this.confirmCompletion._BorderSize = 0;
+            this.confirmCompletion._GradientsButton = false;
+            this.confirmCompletion._Text = "Confirm Completion";
+            this.confirmCompletion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.confirmCompletion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.confirmCompletion.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.confirmCompletion.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.confirmCompletion.FlatAppearance.BorderSize = 0;
+            this.confirmCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmCompletion.ForeColor = System.Drawing.Color.White;
+            this.confirmCompletion.Location = new System.Drawing.Point(188, 214);
+            this.confirmCompletion.Name = "confirmCompletion";
+            this.confirmCompletion.Size = new System.Drawing.Size(184, 45);
+            this.confirmCompletion.TabIndex = 136;
+            this.confirmCompletion.Text = "Confirm Completion";
+            this.confirmCompletion.TextColor = System.Drawing.Color.White;
+            this.confirmCompletion.UseVisualStyleBackColor = false;
             // 
             // FrmMain
             // 
@@ -2498,11 +2447,9 @@
         private System.Windows.Forms.PictureBox picCheckedResultLoading;
         private System.Windows.Forms.PictureBox picDatabaseLoading;
         private DesignUI.CuzUI.CuzDataGridView dgvDatabase;
-        private System.Windows.Forms.Button btnViewLog;
         //private Cognex.InSight.Web.Controls.CvsDisplay cvsDisplayImage;
         //private Cognex.InSight.Web.Controls.CvsDisplay cvsDisplayImg;
         private System.Windows.Forms.Label labelTimeSent;
-        private System.Windows.Forms.Label labelISMasterSlaveCount;
         private FontAwesome.Sharp.IconButton btnExportResult;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusPrinter01;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusSerialDevice;
@@ -2510,9 +2457,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGetSample;
         private System.Windows.Forms.Label labelModeCheck;
         private DesignUI.CuzUI.CuzTextBox cuzTextBoxCheckMode;
-        private System.Windows.Forms.Button button_AutoTrigger;
-        private System.Windows.Forms.Button button_StopAutoTrigger;
-        private DesignUI.CuzUI.CuzTextBox cuzTextBoxTriggerTime;
         private DesignUI.CuzUI.CuzButton cuzButtonGetSample;
         private FontAwesome.Sharp.IconButton btnExportAll;
         private System.Windows.Forms.Label PixelToMmTextX;
@@ -2521,5 +2465,6 @@
         private System.Windows.Forms.Label BarcodeQualityLabel;
         private System.Windows.Forms.Label GetSample;
         private System.Windows.Forms.Label itemsPerHour;
+        private DesignUI.CuzUI.CuzButton confirmCompletion;
     }
 }

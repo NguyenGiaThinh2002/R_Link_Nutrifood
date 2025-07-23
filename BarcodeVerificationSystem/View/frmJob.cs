@@ -26,6 +26,8 @@ using RestartProcessHelper;
 using Timer = System.Windows.Forms.Timer;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.View.UtilityForms;
+using BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess;
+using BarcodeVerificationSystem.View.SubForms;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -296,11 +298,22 @@ namespace BarcodeVerificationSystem.View
 
                 if (ProjectLabel.IsNutrifood)
                 {
-                    Form dispatchInfo = Shared.Settings.IsManufacturingMode
-                   ? (Form)new frmGetManufacturingInfo()
-                   : new frmGetDispatchingInfo(this);
+                    if (Shared.UserPermission.isOnline)
+                    {
+                        Form onlineDataForm = Shared.Settings.IsManufacturingMode
+                                            ? (Form)new frmGetManufacturingInfo()
+                                            : new frmGetDispatchingInfo(this);
 
-                    dispatchInfo.ShowDialog();
+                        onlineDataForm.ShowDialog();
+                    }
+                    else
+                    {
+                        Form offlineDataForm = Shared.Settings.IsManufacturingMode
+                                            ? (Form)new frmGetDataOffline()
+                                            : new frmGetDispatchingDataOffline(this);
+                        offlineDataForm.ShowDialog();
+
+                    }
                     txtDirectoryDatabse.PasswordChar = true;
                 }
                 else
@@ -880,6 +893,12 @@ namespace BarcodeVerificationSystem.View
             {
                 var podVCD = new PODModel(index, "", PODModel.TypePOD.FIELD, "");
                 _PODList.Add(podVCD);
+            }
+
+            if (ProjectLabel.IsNutrifood)
+            {
+                FirstRowHeader.Visible = _JobModel.IsFirstRowHeader = FirstRowHeader.Checked = false;
+
             }
 
             MonitorCameraConnection();

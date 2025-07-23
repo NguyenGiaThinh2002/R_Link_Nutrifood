@@ -18,6 +18,7 @@ using BarcodeVerificationSystem.Model.Payload;
 using BarcodeVerificationSystem.View.SubForms;
 using GenCode.Utils;
 using System.IO;
+using BarcodeVerificationSystem.Utils;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -81,6 +82,8 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         {
             Shared.OnSerialDeviceReadDataChange += Shared_OnSerialDeviceReadDataChange;
             txtOrderId.TextChanged += AdjustData;
+            btnGetInfo.Click += btnGetInfo_Click;
+            btnAction.Click += btnGenerateCodes_Click;
         }
         private void Shared_OnSerialDeviceReadDataChange(object sender, EventArgs e)
         {
@@ -146,17 +149,20 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             {
                 string apiUrl = ApiModel.getOrderInfoUrl();
 
+                apiUrl = "http://127.0.0.1:5555/settings/R1/dispatching/getOrder/123";
+
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
 
                 var loginPayload = JsonConvert.DeserializeObject<OrderPayload>(await response.Content.ReadAsStringAsync());
-                _frmJob._JobModel.OrderPayload = Shared.Settings.OrderPayload = loginPayload;
+                Shared.Settings.OrderPayload = loginPayload;
                 txtPayload.Text = Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented);
 
                 // Populate DataGridView with items  
                 dgvItems.Rows.Clear();
                 var items = loginPayload?.payload?.item.ToList();
                 Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
+                Shared.Settings.OrderId = txtOrderId.Text;
 
                 if (items != null)
                 {
@@ -184,24 +190,13 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             catch (Exception ex)
             {
                 Shared.Settings.DispatchingPayload = string.Empty;
+                Shared.Settings.OrderPayload = null;
                 txtPayload.Text = $"Error: {ex.Message}";
                 dgvItems.Rows.Clear();
                 btnAction.Enabled = false;
                 CustomMessageBox.Show($"Failed to retrieve order information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Shared.SaveSettings();
-        }
-
-        private void GenCode()
-        {
-            //Task.Run(() =>
-            //{
-            //    Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: 100); // Test 1 line
-            //});
-            //  Base30AutoCodeGenerator.RunBulkGenerationTest(10, 1000, totalLines: 1, 100, 100); // Test nhieu line
-
-            List<string> test = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: 100);
-
         }
 
         private void btnGenerateCodes_Click(object sender, EventArgs e)
@@ -211,64 +206,53 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 MessageBox.Show("Please select an item from the list.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            
+            int lineIndex = dgvItems.SelectedRows[0].Index;
+            _frmJob._JobModel.SelectedMaterialIndex = lineIndex;
+            _frmJob._JobModel.OrderPayload = Shared.Settings.OrderPayload;
 
             var selectedRow = dgvItems.SelectedRows[0];
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
             string materialName = selectedRow.Cells["material_name"].Value.ToString();
+            string wms_number = Shared.Settings.WmsNumber;
+            string numberOfCodes = selectedRow.Cells["total_qty_ctn"].Value.ToString();
 
-            var list = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: 100);
-
-            string tableName = "DispatchingCodes"; // Example table name, adjust as needed
-            string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
-            //string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "R-Link");
-            string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");
-
-            if (!Directory.Exists(documentsPath))
+            DialogResult result = CustomMessageBox.Show(
+                $"Are you sure you want to generate dispatching codes for:" +
+                $"\nWMS Number: {wms_number}" +
+                $"\nNumber Of Codes: {numberOfCodes}" +
+                $"\nMaterial Number: {materialNumber}" +
+                $"\nMaterial Name: {materialName}",
+                "Confirm Action",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                Directory.CreateDirectory(documentsPath);
-            }
+                var list = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: int.Parse(numberOfCodes));
 
-            string filePath = Path.Combine(documentsPath, fileName);
-            Console.WriteLine(documentsPath);
+                string tableName = "DispatchingCodes"; // Example table name, adjust as needed
+                string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
+                string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");
 
-            WriteStringListToCsv(list, filePath);
-            Shared.databasePath = filePath;
-            this.Close();
-            // Example action: Display selected item details
-            MessageBox.Show($"Performing action on item:\nMaterial Number: {materialNumber}\nMaterial Name: {materialName}",
-                "Item Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        public void WriteStringListToCsv(List<string> list, string filePath)
-        {
-            try
-            {
-                using (StreamWriter writer = new StreamWriter(filePath))
+                if (!Directory.Exists(documentsPath))
                 {
-                    // Write header
-                    //writer.WriteLine("LineCode");
-
-                    // Write each string in the list
-                    foreach (var lineCode in list)
-                    {
-                        // Escape any quotes in the string and wrap in quotes to handle commas or special characters
-                        //writer.WriteLine($"\"{lineCode.Replace("\"", "\"\"")}\"");
-                        writer.WriteLine(lineCode);
-
-                    }
+                    Directory.CreateDirectory(documentsPath);
                 }
-                Console.WriteLine($"Successfully wrote list to {filePath}");
+
+                string filePath = Path.Combine(documentsPath, fileName);
+                CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
+                Shared.databasePath = filePath;
+                this.Close();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error writing to CSV file: {ex.Message}");
-            }
+
+           
+
         }
 
         private void getDataOffline_Click(object sender, EventArgs e)
         {
-            var offlineForm = new frmGetDataOffline();
-            offlineForm.ShowDialog();
+            //var offlineForm = new frmGetDispatchingDataOffline();
+            //offlineForm.ShowDialog();
         }
     }
 

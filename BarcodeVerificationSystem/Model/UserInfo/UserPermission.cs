@@ -25,7 +25,6 @@ namespace BarcodeVerificationSystem.Model.UserPermission
         private static string _repackWarehouse = "repackWarehouse";
         private static string _systemSettings = "systemSettings";
 
-
         public OnlineUserModel OnlineUserModel = null;
 
         public static UserPermission AdminPermission = new UserPermission
@@ -81,7 +80,7 @@ namespace BarcodeVerificationSystem.Model.UserPermission
 
         public bool CreateJob => this[_createJob];
         public bool DeleteJob => this[_deleteJob];
-        public bool Settings => this[_deleteJob];
+        public bool Settings => this[_settings];
         public bool Controls => this[_controls];
         public bool Exports => this[_exports];
         public bool Accounts => this[_accounts];

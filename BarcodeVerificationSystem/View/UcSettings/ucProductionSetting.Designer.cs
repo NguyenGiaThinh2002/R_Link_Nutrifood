@@ -36,25 +36,25 @@
             this.radProductionModeEnable = new System.Windows.Forms.RadioButton();
             this.radProductionModeDisable = new System.Windows.Forms.RadioButton();
             this.groupBoxApiSetting = new System.Windows.Forms.GroupBox();
+            this.onlineProductionSettings = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.manufacturingRad = new System.Windows.Forms.RadioButton();
+            this.dispatchRad = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numIncreasedData = new System.Windows.Forms.NumericUpDown();
+            this.maskData = new System.Windows.Forms.CheckBox();
+            this.dataDisplay = new System.Windows.Forms.Label();
             this.LineId = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.factoryCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lineName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataDisplay = new System.Windows.Forms.Label();
-            this.maskData = new System.Windows.Forms.CheckBox();
-            this.numIncreasedData = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dispatchRad = new System.Windows.Forms.RadioButton();
-            this.manufacturingRad = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.onlineProductionSettings = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBoxApiSetting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numIncreasedData)).BeginInit();
             this.onlineProductionSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numIncreasedData)).BeginInit();
             this.SuspendLayout();
             // 
             // apiTextbox
@@ -180,6 +180,103 @@
             this.groupBoxApiSetting.TabStop = false;
             this.groupBoxApiSetting.Text = "Production Settings";
             // 
+            // onlineProductionSettings
+            // 
+            this.onlineProductionSettings.Controls.Add(this.label1);
+            this.onlineProductionSettings.Controls.Add(this.manufacturingRad);
+            this.onlineProductionSettings.Controls.Add(this.dispatchRad);
+            this.onlineProductionSettings.Controls.Add(this.label2);
+            this.onlineProductionSettings.Controls.Add(this.label4);
+            this.onlineProductionSettings.Controls.Add(this.numIncreasedData);
+            this.onlineProductionSettings.Controls.Add(this.maskData);
+            this.onlineProductionSettings.Controls.Add(this.dataDisplay);
+            this.onlineProductionSettings.Location = new System.Drawing.Point(460, 138);
+            this.onlineProductionSettings.Name = "onlineProductionSettings";
+            this.onlineProductionSettings.Size = new System.Drawing.Size(509, 257);
+            this.onlineProductionSettings.TabIndex = 51;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 20);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Production Mode:";
+            // 
+            // manufacturingRad
+            // 
+            this.manufacturingRad.AutoSize = true;
+            this.manufacturingRad.Location = new System.Drawing.Point(194, 36);
+            this.manufacturingRad.Name = "manufacturingRad";
+            this.manufacturingRad.Size = new System.Drawing.Size(142, 24);
+            this.manufacturingRad.TabIndex = 44;
+            this.manufacturingRad.TabStop = true;
+            this.manufacturingRad.Text = "Manufacturing";
+            this.manufacturingRad.UseVisualStyleBackColor = true;
+            // 
+            // dispatchRad
+            // 
+            this.dispatchRad.AutoSize = true;
+            this.dispatchRad.Location = new System.Drawing.Point(356, 36);
+            this.dispatchRad.Name = "dispatchRad";
+            this.dispatchRad.Size = new System.Drawing.Size(122, 24);
+            this.dispatchRad.TabIndex = 45;
+            this.dispatchRad.TabStop = true;
+            this.dispatchRad.Text = "Dispatching";
+            this.dispatchRad.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(303, 177);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 20);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "%";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(18, 173);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(141, 20);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Data increased by:";
+            // 
+            // numIncreasedData
+            // 
+            this.numIncreasedData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numIncreasedData.Location = new System.Drawing.Point(194, 171);
+            this.numIncreasedData.Name = "numIncreasedData";
+            this.numIncreasedData.Size = new System.Drawing.Size(103, 26);
+            this.numIncreasedData.TabIndex = 48;
+            // 
+            // maskData
+            // 
+            this.maskData.AutoSize = true;
+            this.maskData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskData.Location = new System.Drawing.Point(194, 106);
+            this.maskData.Name = "maskData";
+            this.maskData.Size = new System.Drawing.Size(198, 24);
+            this.maskData.TabIndex = 70;
+            this.maskData.Text = "Partially Mask Values";
+            this.maskData.UseVisualStyleBackColor = true;
+            // 
+            // dataDisplay
+            // 
+            this.dataDisplay.AutoSize = true;
+            this.dataDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataDisplay.Location = new System.Drawing.Point(59, 106);
+            this.dataDisplay.Name = "dataDisplay";
+            this.dataDisplay.Size = new System.Drawing.Size(100, 20);
+            this.dataDisplay.TabIndex = 71;
+            this.dataDisplay.Text = "Data display:";
+            this.dataDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LineId
             // 
             this.LineId.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -234,103 +331,6 @@
             this.label3.TabIndex = 72;
             this.label3.Text = "Factory Code:";
             // 
-            // dataDisplay
-            // 
-            this.dataDisplay.AutoSize = true;
-            this.dataDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataDisplay.Location = new System.Drawing.Point(59, 106);
-            this.dataDisplay.Name = "dataDisplay";
-            this.dataDisplay.Size = new System.Drawing.Size(100, 20);
-            this.dataDisplay.TabIndex = 71;
-            this.dataDisplay.Text = "Data display:";
-            this.dataDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // maskData
-            // 
-            this.maskData.AutoSize = true;
-            this.maskData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskData.Location = new System.Drawing.Point(194, 106);
-            this.maskData.Name = "maskData";
-            this.maskData.Size = new System.Drawing.Size(198, 24);
-            this.maskData.TabIndex = 70;
-            this.maskData.Text = "Partially Mask Values";
-            this.maskData.UseVisualStyleBackColor = true;
-            // 
-            // numIncreasedData
-            // 
-            this.numIncreasedData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numIncreasedData.Location = new System.Drawing.Point(194, 171);
-            this.numIncreasedData.Name = "numIncreasedData";
-            this.numIncreasedData.Size = new System.Drawing.Size(103, 26);
-            this.numIncreasedData.TabIndex = 48;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 173);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 20);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Data increased by:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(303, 177);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 20);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "%";
-            // 
-            // dispatchRad
-            // 
-            this.dispatchRad.AutoSize = true;
-            this.dispatchRad.Location = new System.Drawing.Point(356, 36);
-            this.dispatchRad.Name = "dispatchRad";
-            this.dispatchRad.Size = new System.Drawing.Size(98, 24);
-            this.dispatchRad.TabIndex = 45;
-            this.dispatchRad.TabStop = true;
-            this.dispatchRad.Text = "Dispatch";
-            this.dispatchRad.UseVisualStyleBackColor = true;
-            // 
-            // manufacturingRad
-            // 
-            this.manufacturingRad.AutoSize = true;
-            this.manufacturingRad.Location = new System.Drawing.Point(194, 36);
-            this.manufacturingRad.Name = "manufacturingRad";
-            this.manufacturingRad.Size = new System.Drawing.Size(142, 24);
-            this.manufacturingRad.TabIndex = 44;
-            this.manufacturingRad.TabStop = true;
-            this.manufacturingRad.Text = "Manufacturing";
-            this.manufacturingRad.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 20);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Production Mode:";
-            // 
-            // onlineProductionSettings
-            // 
-            this.onlineProductionSettings.Controls.Add(this.label1);
-            this.onlineProductionSettings.Controls.Add(this.manufacturingRad);
-            this.onlineProductionSettings.Controls.Add(this.dispatchRad);
-            this.onlineProductionSettings.Controls.Add(this.label2);
-            this.onlineProductionSettings.Controls.Add(this.label4);
-            this.onlineProductionSettings.Controls.Add(this.numIncreasedData);
-            this.onlineProductionSettings.Controls.Add(this.maskData);
-            this.onlineProductionSettings.Controls.Add(this.dataDisplay);
-            this.onlineProductionSettings.Location = new System.Drawing.Point(460, 138);
-            this.onlineProductionSettings.Name = "onlineProductionSettings";
-            this.onlineProductionSettings.Size = new System.Drawing.Size(509, 257);
-            this.onlineProductionSettings.TabIndex = 51;
-            // 
             // ucProductionSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,9 +341,9 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBoxApiSetting.ResumeLayout(false);
             this.groupBoxApiSetting.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numIncreasedData)).EndInit();
             this.onlineProductionSettings.ResumeLayout(false);
             this.onlineProductionSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numIncreasedData)).EndInit();
             this.ResumeLayout(false);
 
         }
