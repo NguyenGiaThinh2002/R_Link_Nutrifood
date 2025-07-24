@@ -1,4 +1,5 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.DevModeLabel;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.Model.UserPermission;
@@ -20,6 +21,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UILanguage;
+using static BarcodeVerificationSystem.Labels.DevModeLabel.DevMode;
+using static BarcodeVerificationSystem.Labels.ProjectLabel.ProjectLabel;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -41,6 +44,45 @@ namespace BarcodeVerificationSystem.View
             InitControl();
             InitEvent();
             SetLanguage();
+
+            MonitorSenderService.SendParametersToServer();
+
+
+            if (DevMode.IsDevMode)
+            {
+                switch (DevMode.LabelType)
+                {
+                    case LoginLabel.AdminOnlineMode:
+                        txtUsername.Text = "admin";
+                        txtPassword.Text = "123456";
+                        chbRememberPassword.Checked = true;
+                        break;
+                    case LoginLabel.AdminOfflineMode:
+                        txtUsername.Text = "Administrator";
+                        txtPassword.Text = "Admin@2025";
+                        chbRememberPassword.Checked = true;
+                        break;
+                    case LoginLabel.SupportOfflineMode:
+                        txtUsername.Text = "Support";
+                        txtPassword.Text = "Support@2025";
+                        chbRememberPassword.Checked = true;
+                        break;
+                    case LoginLabel.OperatorOnlineMode:
+                        txtUsername.Text = "binhduongpp";
+                        txtPassword.Text = "binhduong@pp";
+                        chbRememberPassword.Checked = true;
+                        break;
+
+                    default:
+                        txtUsername.Text = "";
+                        txtPassword.Text = "";
+                        chbRememberPassword.Checked = false;
+                        break;
+                }
+                Login(txtUsername.Text, txtPassword.Text, chbRememberPassword.Checked);
+
+            }
+
         }
 
         private void InitControl()
@@ -99,33 +141,6 @@ namespace BarcodeVerificationSystem.View
             }
         }
 
-        //private UserPermission _adminPermission = new UserPermission
-        //{
-        //    Permissions = new Dictionary<string, bool>
-        //    {
-        //        { "settings", true },
-        //        { "controls", true },
-        //        { "exports", true },
-        //        { "accounts", true },
-        //        { "createJob", true },
-        //        { "deleteJob", true }
-
-        //    }
-        //};
-
-        //private UserPermission _operatorPermission = new UserPermission
-        //{
-        //    Permissions = new Dictionary<string, bool>
-        //    {
-        //        { "settings", false },
-        //        { "controls", true },
-        //        { "exports", false },
-        //        { "accounts", false },
-        //        { "createJob", true },
-        //        { "deleteJob", false }
-        //    }
-        //};
-
         private async void Login(string username, string password, bool isRemenber)
         {
             if (_IsProcessing)
@@ -133,28 +148,6 @@ namespace BarcodeVerificationSystem.View
                 return;
             }
             var service = new PermissionService();
-            
-            //try
-            //{
-            //    var user = new
-            //    {
-            //        username = username,
-            //        password = password
-            //    };
-            //    Shared.UserPermission = await service.GetPermissionsAsync(user); // userId = 1
-            //    var text = string.Join(Environment.NewLine,
-            //                            Shared.UserPermission.Permissions.Select(p => $"{p.Key} = {p.Value}"));
-            //    MessageBox.Show(text);
-
-            //    //var mainForm = new MainForm(_userPermission);
-            //    //this.Hide(); // Hide the login form
-            //    //mainForm.Show();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Failed to load permissions: " + ex.Message);
-            //    //return;
-            //}
 
             KillThreadLogin();
 
@@ -228,6 +221,8 @@ namespace BarcodeVerificationSystem.View
                                 else
                                 {
                                     Shared.UserPermission.isOnline = isOnlineAccountOK = true;
+                                    Shared.Settings.IsManufacturingMode = Shared.UserPermission.ManufacturingMode;
+                                    Shared.SaveSettings();
                                 }
                                 //var text = string.Join(Environment.NewLine,
                                 //                        Shared.UserPermission.Permissions.Select(p => $"{p.Key} = {p.Value}"));

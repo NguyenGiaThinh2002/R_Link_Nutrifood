@@ -17,10 +17,6 @@ namespace GenCode.Utils
             sw.Start();
 
             Base30AutoCodeGenerator.GenerateLineCodes(
-                lineIndex: lineIndex,
-                totalLines: totalLines,
-                startValue: startValue,
-                initialCurrent: initialCurrent,
                 quantity: quantity
             );
 

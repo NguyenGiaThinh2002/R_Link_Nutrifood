@@ -38,13 +38,14 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
 
         }
 
-        public void Enqueue(int id,string code)
+        public void Enqueue(int id,string code, string humanCode)
         {
 
             var entry = new PrintingDataEntry
             {
                 Id = id,
                 Code = code,
+                HumanCode = humanCode,
                 PrintedStatus = "Printed",
                 PrintedDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 Status = "NotSent",

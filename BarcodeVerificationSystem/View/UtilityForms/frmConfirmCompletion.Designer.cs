@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.note = new DesignUI.CuzUI.CuzTextBox();
-            this.btnGetInfo = new DesignUI.CuzUI.CuzButton();
+            this.btnConfirmCompletion = new DesignUI.CuzUI.CuzButton();
             this.wmsNumber = new DesignUI.CuzUI.CuzTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -111,28 +111,29 @@
             this.note.TabIndex = 127;
             this.note.UnderlinedStyle = false;
             // 
-            // btnGetInfo
+            // btnConfirmCompletion
             // 
-            this.btnGetInfo._BorderColor = System.Drawing.Color.Silver;
-            this.btnGetInfo._BorderRadius = 15;
-            this.btnGetInfo._BorderSize = 0;
-            this.btnGetInfo._GradientsButton = false;
-            this.btnGetInfo._Text = "Confirm Completion";
-            this.btnGetInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btnGetInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btnGetInfo.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnGetInfo.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.btnGetInfo.FlatAppearance.BorderSize = 0;
-            this.btnGetInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGetInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.btnGetInfo.ForeColor = System.Drawing.Color.White;
-            this.btnGetInfo.Location = new System.Drawing.Point(669, 61);
-            this.btnGetInfo.Name = "btnGetInfo";
-            this.btnGetInfo.Size = new System.Drawing.Size(176, 40);
-            this.btnGetInfo.TabIndex = 129;
-            this.btnGetInfo.Text = "Confirm Completion";
-            this.btnGetInfo.TextColor = System.Drawing.Color.White;
-            this.btnGetInfo.UseVisualStyleBackColor = false;
+            this.btnConfirmCompletion._BorderColor = System.Drawing.Color.Silver;
+            this.btnConfirmCompletion._BorderRadius = 15;
+            this.btnConfirmCompletion._BorderSize = 0;
+            this.btnConfirmCompletion._GradientsButton = false;
+            this.btnConfirmCompletion._Text = "Confirm Completion";
+            this.btnConfirmCompletion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnConfirmCompletion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnConfirmCompletion.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnConfirmCompletion.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.btnConfirmCompletion.FlatAppearance.BorderSize = 0;
+            this.btnConfirmCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmCompletion.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.btnConfirmCompletion.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmCompletion.Location = new System.Drawing.Point(669, 61);
+            this.btnConfirmCompletion.Name = "btnConfirmCompletion";
+            this.btnConfirmCompletion.Size = new System.Drawing.Size(176, 40);
+            this.btnConfirmCompletion.TabIndex = 129;
+            this.btnConfirmCompletion.Text = "Confirm Completion";
+            this.btnConfirmCompletion.TextColor = System.Drawing.Color.White;
+            this.btnConfirmCompletion.UseVisualStyleBackColor = false;
+            this.btnConfirmCompletion.Click += new System.EventHandler(this.btnConfirmCompletion_Click);
             // 
             // wmsNumber
             // 
@@ -247,7 +248,7 @@
             this.Controls.Add(this.materialID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.wmsNumber);
-            this.Controls.Add(this.btnGetInfo);
+            this.Controls.Add(this.btnConfirmCompletion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.note);
             this.Controls.Add(this.numberOfCodes);
@@ -265,7 +266,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private DesignUI.CuzUI.CuzTextBox note;
-        private DesignUI.CuzUI.CuzButton btnGetInfo;
+        private DesignUI.CuzUI.CuzButton btnConfirmCompletion;
         private DesignUI.CuzUI.CuzTextBox wmsNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;

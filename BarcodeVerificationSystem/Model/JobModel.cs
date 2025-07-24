@@ -1,4 +1,4 @@
-﻿using BarcodeVerificationSystem.Model.Payload;
+﻿using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ namespace BarcodeVerificationSystem.Model
     public class JobModel
     {
         #region Properties
-        public OrderPayload OrderPayload { get; set; } = null;
+        public ResponseOrder DispatchingOrderPayload { get; set; } = null;
         public int SelectedMaterialIndex { get; set; } = 0;
         public bool IsOnlineJob { get; set; } = false;
 

@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace BarcodeVerificationSystem.Model.CodeGeneration
 {
-    public class DispatchingCode
+    public class Manufacturing
     {
         private static string _url = "https://loyalty.nuti.vn/"; // 24 characters
         private static string _factoryId = "2"; // 2	Bình Dương - 3	Gia Lai - 4	Hưng Yên
@@ -17,7 +17,7 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
         //private string _yearAndMonth = "2507"; // 4 characters
         //private string _randomCode = "01234567890B"; // 12 characters
 
-        public DispatchingCode(string url, string factoryId, string yearAndMonth, string randomCode)
+        public Manufacturing(string url, string factoryId, string yearAndMonth, string randomCode)
         {
             _url = url;
             _factoryId = factoryId;
@@ -31,7 +31,7 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
                 throw new ArgumentException("Invalid code length. Please check the input values.");
             }
 
-            if (Shared.Settings.IsManufacturingMode)
+            if (!Shared.Settings.IsManufacturingMode)
             {
                 throw new ArgumentException("Invalid code length. Please check the input values.");
             }

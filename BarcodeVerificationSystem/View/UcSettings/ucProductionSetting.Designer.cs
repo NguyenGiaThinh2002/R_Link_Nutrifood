@@ -31,28 +31,28 @@
             this.apiTextbox = new System.Windows.Forms.TextBox();
             this.labelApi = new System.Windows.Forms.Label();
             this.comboBoxRLinkId = new System.Windows.Forms.ComboBox();
-            this.RLinkID = new System.Windows.Forms.Label();
+            this.lineIdLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.radProductionModeEnable = new System.Windows.Forms.RadioButton();
             this.radProductionModeDisable = new System.Windows.Forms.RadioButton();
-            this.groupBoxApiSetting = new System.Windows.Forms.GroupBox();
+            this.groupBoxProductionSettings = new System.Windows.Forms.GroupBox();
             this.onlineProductionSettings = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.productionMode = new System.Windows.Forms.Label();
             this.manufacturingRad = new System.Windows.Forms.RadioButton();
-            this.dispatchRad = new System.Windows.Forms.RadioButton();
+            this.dispatchingRad = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.dataIncrease = new System.Windows.Forms.Label();
             this.numIncreasedData = new System.Windows.Forms.NumericUpDown();
             this.maskData = new System.Windows.Forms.CheckBox();
             this.dataDisplay = new System.Windows.Forms.Label();
             this.LineId = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.factoryCode = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lineNameLabel = new System.Windows.Forms.Label();
             this.lineName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.factoryCodeLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel5.SuspendLayout();
-            this.groupBoxApiSetting.SuspendLayout();
+            this.groupBoxProductionSettings.SuspendLayout();
             this.onlineProductionSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numIncreasedData)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +71,7 @@
             // 
             this.labelApi.AutoSize = true;
             this.labelApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApi.Location = new System.Drawing.Point(99, 109);
+            this.labelApi.Location = new System.Drawing.Point(48, 109);
             this.labelApi.Name = "labelApi";
             this.labelApi.Size = new System.Drawing.Size(57, 20);
             this.labelApi.TabIndex = 39;
@@ -92,15 +92,15 @@
             this.comboBoxRLinkId.TabIndex = 40;
             this.comboBoxRLinkId.Visible = false;
             // 
-            // RLinkID
+            // lineIdLabel
             // 
-            this.RLinkID.AutoSize = true;
-            this.RLinkID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RLinkID.Location = new System.Drawing.Point(79, 176);
-            this.RLinkID.Name = "RLinkID";
-            this.RLinkID.Size = new System.Drawing.Size(61, 20);
-            this.RLinkID.TabIndex = 41;
-            this.RLinkID.Text = "Line Id:";
+            this.lineIdLabel.AutoSize = true;
+            this.lineIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lineIdLabel.Location = new System.Drawing.Point(48, 178);
+            this.lineIdLabel.Name = "lineIdLabel";
+            this.lineIdLabel.Size = new System.Drawing.Size(61, 20);
+            this.lineIdLabel.TabIndex = 41;
+            this.lineIdLabel.Text = "Line Id:";
             // 
             // tableLayoutPanel5
             // 
@@ -157,58 +157,58 @@
             this.radProductionModeDisable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radProductionModeDisable.UseVisualStyleBackColor = false;
             // 
-            // groupBoxApiSetting
+            // groupBoxProductionSettings
             // 
-            this.groupBoxApiSetting.Controls.Add(this.onlineProductionSettings);
-            this.groupBoxApiSetting.Controls.Add(this.LineId);
-            this.groupBoxApiSetting.Controls.Add(this.progressBar1);
-            this.groupBoxApiSetting.Controls.Add(this.factoryCode);
-            this.groupBoxApiSetting.Controls.Add(this.label5);
-            this.groupBoxApiSetting.Controls.Add(this.lineName);
-            this.groupBoxApiSetting.Controls.Add(this.label3);
-            this.groupBoxApiSetting.Controls.Add(this.comboBoxRLinkId);
-            this.groupBoxApiSetting.Controls.Add(this.tableLayoutPanel5);
-            this.groupBoxApiSetting.Controls.Add(this.RLinkID);
-            this.groupBoxApiSetting.Controls.Add(this.labelApi);
-            this.groupBoxApiSetting.Controls.Add(this.apiTextbox);
-            this.groupBoxApiSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxApiSetting.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.groupBoxApiSetting.Location = new System.Drawing.Point(3, 3);
-            this.groupBoxApiSetting.Name = "groupBoxApiSetting";
-            this.groupBoxApiSetting.Size = new System.Drawing.Size(984, 494);
-            this.groupBoxApiSetting.TabIndex = 50;
-            this.groupBoxApiSetting.TabStop = false;
-            this.groupBoxApiSetting.Text = "Production Settings";
+            this.groupBoxProductionSettings.Controls.Add(this.onlineProductionSettings);
+            this.groupBoxProductionSettings.Controls.Add(this.LineId);
+            this.groupBoxProductionSettings.Controls.Add(this.progressBar1);
+            this.groupBoxProductionSettings.Controls.Add(this.factoryCode);
+            this.groupBoxProductionSettings.Controls.Add(this.lineNameLabel);
+            this.groupBoxProductionSettings.Controls.Add(this.lineName);
+            this.groupBoxProductionSettings.Controls.Add(this.factoryCodeLabel);
+            this.groupBoxProductionSettings.Controls.Add(this.comboBoxRLinkId);
+            this.groupBoxProductionSettings.Controls.Add(this.tableLayoutPanel5);
+            this.groupBoxProductionSettings.Controls.Add(this.lineIdLabel);
+            this.groupBoxProductionSettings.Controls.Add(this.labelApi);
+            this.groupBoxProductionSettings.Controls.Add(this.apiTextbox);
+            this.groupBoxProductionSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxProductionSettings.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.groupBoxProductionSettings.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxProductionSettings.Name = "groupBoxProductionSettings";
+            this.groupBoxProductionSettings.Size = new System.Drawing.Size(984, 494);
+            this.groupBoxProductionSettings.TabIndex = 50;
+            this.groupBoxProductionSettings.TabStop = false;
+            this.groupBoxProductionSettings.Text = "Production Settings";
             // 
             // onlineProductionSettings
             // 
-            this.onlineProductionSettings.Controls.Add(this.label1);
+            this.onlineProductionSettings.Controls.Add(this.productionMode);
             this.onlineProductionSettings.Controls.Add(this.manufacturingRad);
-            this.onlineProductionSettings.Controls.Add(this.dispatchRad);
+            this.onlineProductionSettings.Controls.Add(this.dispatchingRad);
             this.onlineProductionSettings.Controls.Add(this.label2);
-            this.onlineProductionSettings.Controls.Add(this.label4);
+            this.onlineProductionSettings.Controls.Add(this.dataIncrease);
             this.onlineProductionSettings.Controls.Add(this.numIncreasedData);
             this.onlineProductionSettings.Controls.Add(this.maskData);
             this.onlineProductionSettings.Controls.Add(this.dataDisplay);
             this.onlineProductionSettings.Location = new System.Drawing.Point(460, 138);
             this.onlineProductionSettings.Name = "onlineProductionSettings";
-            this.onlineProductionSettings.Size = new System.Drawing.Size(509, 257);
+            this.onlineProductionSettings.Size = new System.Drawing.Size(509, 240);
             this.onlineProductionSettings.TabIndex = 51;
             // 
-            // label1
+            // productionMode
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 20);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Production Mode:";
+            this.productionMode.AutoSize = true;
+            this.productionMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productionMode.Location = new System.Drawing.Point(22, 40);
+            this.productionMode.Name = "productionMode";
+            this.productionMode.Size = new System.Drawing.Size(133, 20);
+            this.productionMode.TabIndex = 43;
+            this.productionMode.Text = "Production Mode:";
             // 
             // manufacturingRad
             // 
             this.manufacturingRad.AutoSize = true;
-            this.manufacturingRad.Location = new System.Drawing.Point(194, 36);
+            this.manufacturingRad.Location = new System.Drawing.Point(198, 36);
             this.manufacturingRad.Name = "manufacturingRad";
             this.manufacturingRad.Size = new System.Drawing.Size(142, 24);
             this.manufacturingRad.TabIndex = 44;
@@ -216,41 +216,41 @@
             this.manufacturingRad.Text = "Manufacturing";
             this.manufacturingRad.UseVisualStyleBackColor = true;
             // 
-            // dispatchRad
+            // dispatchingRad
             // 
-            this.dispatchRad.AutoSize = true;
-            this.dispatchRad.Location = new System.Drawing.Point(356, 36);
-            this.dispatchRad.Name = "dispatchRad";
-            this.dispatchRad.Size = new System.Drawing.Size(122, 24);
-            this.dispatchRad.TabIndex = 45;
-            this.dispatchRad.TabStop = true;
-            this.dispatchRad.Text = "Dispatching";
-            this.dispatchRad.UseVisualStyleBackColor = true;
+            this.dispatchingRad.AutoSize = true;
+            this.dispatchingRad.Location = new System.Drawing.Point(360, 36);
+            this.dispatchingRad.Name = "dispatchingRad";
+            this.dispatchingRad.Size = new System.Drawing.Size(122, 24);
+            this.dispatchingRad.TabIndex = 45;
+            this.dispatchingRad.TabStop = true;
+            this.dispatchingRad.Text = "Dispatching";
+            this.dispatchingRad.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(303, 177);
+            this.label2.Location = new System.Drawing.Point(307, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 20);
             this.label2.TabIndex = 46;
             this.label2.Text = "%";
             // 
-            // label4
+            // dataIncrease
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 173);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 20);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Data increased by:";
+            this.dataIncrease.AutoSize = true;
+            this.dataIncrease.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataIncrease.Location = new System.Drawing.Point(22, 168);
+            this.dataIncrease.Name = "dataIncrease";
+            this.dataIncrease.Size = new System.Drawing.Size(141, 20);
+            this.dataIncrease.TabIndex = 46;
+            this.dataIncrease.Text = "Data increased by:";
             // 
             // numIncreasedData
             // 
             this.numIncreasedData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numIncreasedData.Location = new System.Drawing.Point(194, 171);
+            this.numIncreasedData.Location = new System.Drawing.Point(198, 163);
             this.numIncreasedData.Name = "numIncreasedData";
             this.numIncreasedData.Size = new System.Drawing.Size(103, 26);
             this.numIncreasedData.TabIndex = 48;
@@ -259,7 +259,7 @@
             // 
             this.maskData.AutoSize = true;
             this.maskData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskData.Location = new System.Drawing.Point(194, 106);
+            this.maskData.Location = new System.Drawing.Point(198, 97);
             this.maskData.Name = "maskData";
             this.maskData.Size = new System.Drawing.Size(198, 24);
             this.maskData.TabIndex = 70;
@@ -270,7 +270,7 @@
             // 
             this.dataDisplay.AutoSize = true;
             this.dataDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataDisplay.Location = new System.Drawing.Point(59, 106);
+            this.dataDisplay.Location = new System.Drawing.Point(22, 101);
             this.dataDisplay.Name = "dataDisplay";
             this.dataDisplay.Size = new System.Drawing.Size(100, 20);
             this.dataDisplay.TabIndex = 71;
@@ -302,15 +302,15 @@
             this.factoryCode.Size = new System.Drawing.Size(103, 26);
             this.factoryCode.TabIndex = 75;
             // 
-            // label5
+            // lineNameLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(67, 242);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 20);
-            this.label5.TabIndex = 74;
-            this.label5.Text = "Line Name:";
+            this.lineNameLabel.AutoSize = true;
+            this.lineNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lineNameLabel.Location = new System.Drawing.Point(48, 242);
+            this.lineNameLabel.Name = "lineNameLabel";
+            this.lineNameLabel.Size = new System.Drawing.Size(89, 20);
+            this.lineNameLabel.TabIndex = 74;
+            this.lineNameLabel.Text = "Line Name:";
             // 
             // lineName
             // 
@@ -321,26 +321,26 @@
             this.lineName.Size = new System.Drawing.Size(103, 26);
             this.lineName.TabIndex = 73;
             // 
-            // label3
+            // factoryCodeLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(48, 307);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
-            this.label3.TabIndex = 72;
-            this.label3.Text = "Factory Code:";
+            this.factoryCodeLabel.AutoSize = true;
+            this.factoryCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.factoryCodeLabel.Location = new System.Drawing.Point(48, 307);
+            this.factoryCodeLabel.Name = "factoryCodeLabel";
+            this.factoryCodeLabel.Size = new System.Drawing.Size(108, 20);
+            this.factoryCodeLabel.TabIndex = 72;
+            this.factoryCodeLabel.Text = "Factory Code:";
             // 
             // ucProductionSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBoxApiSetting);
+            this.Controls.Add(this.groupBoxProductionSettings);
             this.Name = "ucProductionSetting";
             this.Size = new System.Drawing.Size(990, 500);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.groupBoxApiSetting.ResumeLayout(false);
-            this.groupBoxApiSetting.PerformLayout();
+            this.groupBoxProductionSettings.ResumeLayout(false);
+            this.groupBoxProductionSettings.PerformLayout();
             this.onlineProductionSettings.ResumeLayout(false);
             this.onlineProductionSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numIncreasedData)).EndInit();
@@ -353,23 +353,23 @@
         private System.Windows.Forms.TextBox apiTextbox;
         private System.Windows.Forms.Label labelApi;
         private System.Windows.Forms.ComboBox comboBoxRLinkId;
-        private System.Windows.Forms.Label RLinkID;
+        private System.Windows.Forms.Label lineIdLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.RadioButton radProductionModeEnable;
         private System.Windows.Forms.RadioButton radProductionModeDisable;
-        private System.Windows.Forms.GroupBox groupBoxApiSetting;
-        private System.Windows.Forms.RadioButton dispatchRad;
+        private System.Windows.Forms.GroupBox groupBoxProductionSettings;
+        private System.Windows.Forms.RadioButton dispatchingRad;
         private System.Windows.Forms.RadioButton manufacturingRad;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label productionMode;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label dataIncrease;
         private System.Windows.Forms.NumericUpDown numIncreasedData;
         private System.Windows.Forms.Label dataDisplay;
         private System.Windows.Forms.CheckBox maskData;
         private System.Windows.Forms.TextBox factoryCode;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lineNameLabel;
         private System.Windows.Forms.TextBox lineName;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label factoryCodeLabel;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox LineId;
         private System.Windows.Forms.Panel onlineProductionSettings;

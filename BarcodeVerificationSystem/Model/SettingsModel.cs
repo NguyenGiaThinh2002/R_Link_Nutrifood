@@ -1,8 +1,6 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
-using BarcodeVerificationSystem.Model.Payload;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +15,12 @@ namespace BarcodeVerificationSystem.Model
     {
         #region Properties
 
-        public OrderPayload OrderPayload { get; set; } = null;
+        public ResponseOrder DispatchingOrderPayload { get; set; } = null;
+
+        public int TotalLines = 14;
+        public int LineIndex = 0;
+
+
 
         private CompareType _CompareType = CompareType.CanRead;
         public CompareType CompareType { get => _CompareType; set => _CompareType = value; }

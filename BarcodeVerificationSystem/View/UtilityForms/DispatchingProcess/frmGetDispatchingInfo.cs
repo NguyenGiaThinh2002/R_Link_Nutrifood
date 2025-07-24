@@ -1,24 +1,17 @@
 ﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.View.CustomDialogs;
-using BarcodeVerificationSystem.Model.Apis;
-using BarcodeVerificationSystem.Model.Payload;
-using BarcodeVerificationSystem.View.SubForms;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
 using GenCode.Utils;
 using System.IO;
 using BarcodeVerificationSystem.Utils;
+using BarcodeVerificationSystem.Model.Apis.Dispatching;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -51,7 +44,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             try
             {
                 //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
-                var items = Shared.Settings.OrderPayload.payload.item;
+                var items = Shared.Settings.DispatchingOrderPayload.payload.item;
 
                 
                 if (items != null)
@@ -147,15 +140,13 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
             try
             {
-                string apiUrl = ApiModel.getOrderInfoUrl();
-
-                apiUrl = "http://127.0.0.1:5555/settings/R1/dispatching/getOrder/123";
+                string apiUrl = DispatchingApis.getOrderInfoUrl();
 
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
 
-                var loginPayload = JsonConvert.DeserializeObject<OrderPayload>(await response.Content.ReadAsStringAsync());
-                Shared.Settings.OrderPayload = loginPayload;
+                var loginPayload = JsonConvert.DeserializeObject<ResponseOrder>(await response.Content.ReadAsStringAsync());
+                Shared.Settings.DispatchingOrderPayload = loginPayload;
                 txtPayload.Text = Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented);
 
                 // Populate DataGridView with items  
@@ -190,7 +181,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             catch (Exception ex)
             {
                 Shared.Settings.DispatchingPayload = string.Empty;
-                Shared.Settings.OrderPayload = null;
+                Shared.Settings.DispatchingOrderPayload = null;
                 txtPayload.Text = $"Error: {ex.Message}";
                 dgvItems.Rows.Clear();
                 btnAction.Enabled = false;
@@ -209,7 +200,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             
             int lineIndex = dgvItems.SelectedRows[0].Index;
             _frmJob._JobModel.SelectedMaterialIndex = lineIndex;
-            _frmJob._JobModel.OrderPayload = Shared.Settings.OrderPayload;
+            _frmJob._JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
 
             var selectedRow = dgvItems.SelectedRows[0];
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
@@ -228,7 +219,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                var list = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: int.Parse(numberOfCodes));
+                var list = Base30AutoCodeGenerator.GenerateLineCodes(quantity: int.Parse(numberOfCodes));
 
                 string tableName = "DispatchingCodes"; // Example table name, adjust as needed
                 string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";

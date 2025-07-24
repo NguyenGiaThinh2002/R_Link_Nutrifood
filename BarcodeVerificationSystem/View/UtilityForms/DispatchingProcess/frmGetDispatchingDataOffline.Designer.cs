@@ -216,9 +216,9 @@
             this.panel1.Controls.Add(this.orderID);
             this.panel1.Controls.Add(this.numberOfCodes);
             this.panel1.Controls.Add(this.materialID);
-            this.panel1.Location = new System.Drawing.Point(203, 494);
+            this.panel1.Location = new System.Drawing.Point(33, 475);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(635, 44);
+            this.panel1.Size = new System.Drawing.Size(635, 63);
             this.panel1.TabIndex = 127;
             this.panel1.Visible = false;
             // 

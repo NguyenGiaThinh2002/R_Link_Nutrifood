@@ -1,15 +1,18 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Interfaces;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using BarcodeVerificationSystem.View;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -44,18 +47,29 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
         {
             try
             {
-                //var content = new StringContent($"{{\"qr_code\":\"{entry.Code}\"}}", Encoding.UTF8, "application/json");
-                var content = new StringContent($@"
-                {{
-                    ""id"": {entry.Id},
-                    ""qr_code"": ""{entry.Code}"",
-                    ""plant"": ""{Shared.Settings.FactoryCode}"",
-                    ""wms_number"": ""{Shared.Settings.WmsNumber}"",
-                    ""resource_code"": ""{Shared.Settings.RLinkId}"",
-                    ""resource_name"": ""{Shared.Settings.LineName}"",
-                    ""printed_date"": ""{entry.PrintedDate}"",
-                    ""status"": ""{entry.PrintedStatus}""
-                }}", Encoding.UTF8, "application/json");
+                var printedContent = new RequestPrinted {
+                    id = entry.Id,
+                    index_qr_code = entry.Id, // ???
+                    session_code = "",
+                    qr_code = entry.Code,
+                    human_qr_code = entry.HumanCode, // entry.HumanCode
+                    plant = Shared.Settings.FactoryCode,
+                    wave_key = Shared.CurrentJob.DispatchingOrderPayload.payload.wave_key,
+                    wms_number = Shared.Settings.WmsNumber,
+                    material_number = Shared.CurrentJob.DispatchingOrderPayload.payload.item[Shared.CurrentJob.SelectedMaterialIndex].material_number,
+                    resource_code = Shared.Settings.RLinkId,
+                    resource_name = Shared.Settings.LineName,
+                    username = Shared.UserPermission?.OnlineUserModel?.ten_tai_khoan ?? Shared.LoggedInUser.UserName,
+                    printed_date = DateTime.Parse(entry.PrintedDate),
+                    status = entry.PrintedStatus
+                };
+
+                var jsonContent = JsonConvert.SerializeObject(printedContent, new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
                 var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
                 string responseContent = await response.Content.ReadAsStringAsync();
                 var json = JObject.Parse(responseContent);
@@ -76,6 +90,18 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     _storageService.MarkAsFailed(entry.Id, entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
                     _queue.Add(entry);
                 }
+
+                //var content = new StringContent($@"
+                //{{
+                //    ""id"": {entry.Id},
+                //    ""qr_code"": ""{entry.Code}"",
+                //    ""plant"": ""{Shared.Settings.FactoryCode}"",
+                //    ""wms_number"": ""{Shared.Settings.WmsNumber}"",
+                //    ""resource_code"": ""{Shared.Settings.RLinkId}"",
+                //    ""resource_name"": ""{Shared.Settings.LineName}"",
+                //    ""printed_date"": ""{entry.PrintedDate}"",
+                //    ""status"": ""{entry.PrintedStatus}""
+                //}}", Encoding.UTF8, "application/json");
             }
             catch (Exception ex)
             {

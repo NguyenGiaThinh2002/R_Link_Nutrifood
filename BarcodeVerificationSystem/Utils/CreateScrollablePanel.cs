@@ -37,11 +37,11 @@ namespace BarcodeVerificationSystem.Utils
             return item.GetType().GetProperties();
         }
 
-        public void CreateTextBoxes(object item, int count , Panel scrollPanel)
+        public void CreateTextBoxes(object item, string itemName , Panel scrollPanel)
         {
             _currentItem = item; // Store the current item for later use
             PropertyInfo[]  propertyInfo = item.GetType().GetProperties();
-            //int count = propertyInfo.Count();
+            int count = itemName == "payload" ? propertyInfo.Count()-1 : propertyInfo.Count();
 
             int startX = _curentStartX;
             int startY = _curentStartY;
@@ -124,7 +124,7 @@ namespace BarcodeVerificationSystem.Utils
 
 
         private void TextBox_TextChanged(object sender, EventArgs e)
-        {
+       {
             Control control = sender as Control;
 
             // Traverse upward until you find the parent CuzTextBox

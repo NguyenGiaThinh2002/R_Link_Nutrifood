@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UILanguage;
 
 namespace BarcodeVerificationSystem.View.UcSettings
 {
@@ -18,15 +19,32 @@ namespace BarcodeVerificationSystem.View.UcSettings
             InitializeComponent();
             InitControls();
             InitEvents();
+            InitLanguage();
+        }
+
+        private void InitLanguage()
+        {
+            lineIdLabel.Text = Lang.LineID;
+            lineNameLabel.Text = Lang.LineName;
+            factoryCodeLabel.Text = Lang.FactoryCode;
+            radProductionModeEnable.Text = Lang.Enable;
+            radProductionModeDisable.Text = Lang.Disable;
+            manufacturingRad.Text = Lang.Manufacturing;
+            dispatchingRad.Text = Lang.Dispatching;
+            productionMode.Text = Lang.ProductionMode;
+            dataDisplay.Text = Lang.DisplayData;
+            maskData.Text = Lang.MaskData;
+            dataIncrease.Text = Lang.IncreasedData;
+            groupBoxProductionSettings.Text = Lang.ProductionSettings;
+            labelApi.Text = Lang.URLPath;
         }
 
         private void InitControls()
         {
             apiTextbox.Text = Shared.Settings.ApiUrl;
-            //comboBoxRLinkId.SelectedIndex = comboBoxRLinkId.Items.IndexOf(Shared.Settings.RLinkId);
             numIncreasedData.Value = Shared.Settings.IncreasedDataPercent;
             manufacturingRad.Checked = Shared.Settings.IsManufacturingMode;
-            dispatchRad.Checked = !Shared.Settings.IsManufacturingMode;
+            dispatchingRad.Checked = !Shared.Settings.IsManufacturingMode;
             maskData.Checked = Shared.Settings.MaskData;
             lineName.Text = Shared.Settings.LineName;
             factoryCode.Text = Shared.Settings.FactoryCode;
@@ -42,7 +60,7 @@ namespace BarcodeVerificationSystem.View.UcSettings
             //comboBoxRLinkId.SelectedIndexChanged += AdjustData;
             numIncreasedData.ValueChanged += AdjustData;
             manufacturingRad.CheckedChanged += AdjustData;
-            dispatchRad.CheckedChanged += AdjustData; 
+            dispatchingRad.CheckedChanged += AdjustData; 
             maskData.CheckedChanged += AdjustData;
             lineName.TextChanged += AdjustData;
             factoryCode.TextChanged += AdjustData;
@@ -81,7 +99,7 @@ namespace BarcodeVerificationSystem.View.UcSettings
                 case RadioButton rb:
                     if (rb == manufacturingRad)
                         Shared.Settings.IsManufacturingMode = true;
-                    else if (rb == dispatchRad)
+                    else if (rb == dispatchingRad)
                         Shared.Settings.IsManufacturingMode = false;
                     if (rb == radProductionModeDisable)
                         Shared.Settings.IsProductionMode = false;

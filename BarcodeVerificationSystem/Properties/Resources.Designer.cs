@@ -1251,6 +1251,15 @@ namespace BarcodeVerificationSystem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Line ID.
+        /// </summary>
+        internal static string LineID {
+            get {
+                return ResourceManager.GetString("LineID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo1 {

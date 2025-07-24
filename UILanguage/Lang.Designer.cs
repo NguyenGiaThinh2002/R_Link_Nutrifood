@@ -790,11 +790,29 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dispatching.
+        /// </summary>
+        public static string Dispatching {
+            get {
+                return ResourceManager.GetString("Dispatching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Display.
         /// </summary>
         public static string Display {
             get {
                 return ResourceManager.GetString("Display", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display Data.
+        /// </summary>
+        public static string DisplayData {
+            get {
+                return ResourceManager.GetString("DisplayData", resourceCulture);
             }
         }
         
@@ -1002,6 +1020,15 @@ namespace UILanguage {
         public static string ExportType {
             get {
                 return ResourceManager.GetString("ExportType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factory Code.
+        /// </summary>
+        public static string FactoryCode {
+            get {
+                return ResourceManager.GetString("FactoryCode", resourceCulture);
             }
         }
         
@@ -1276,6 +1303,15 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Increased Data.
+        /// </summary>
+        public static string IncreasedData {
+            get {
+                return ResourceManager.GetString("IncreasedData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Info.
         /// </summary>
         public static string Info {
@@ -1402,6 +1438,24 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Line ID.
+        /// </summary>
+        public static string LineID {
+            get {
+                return ResourceManager.GetString("LineID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Line Name.
+        /// </summary>
+        public static string LineName {
+            get {
+                return ResourceManager.GetString("LineName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to List of field.
         /// </summary>
         public static string ListOfField {
@@ -1461,6 +1515,24 @@ namespace UILanguage {
         public static string Manage {
             get {
                 return ResourceManager.GetString("Manage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manufacturing.
+        /// </summary>
+        public static string Manufacturing {
+            get {
+                return ResourceManager.GetString("Manufacturing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mask data partially.
+        /// </summary>
+        public static string MaskData {
+            get {
+                return ResourceManager.GetString("MaskData", resourceCulture);
             }
         }
         
@@ -2244,6 +2316,24 @@ namespace UILanguage {
         public static string ProcessingTime {
             get {
                 return ResourceManager.GetString("ProcessingTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Production Mode.
+        /// </summary>
+        public static string ProductionMode {
+            get {
+                return ResourceManager.GetString("ProductionMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Production Settings.
+        /// </summary>
+        public static string ProductionSettings {
+            get {
+                return ResourceManager.GetString("ProductionSettings", resourceCulture);
             }
         }
         
@@ -3099,6 +3189,15 @@ namespace UILanguage {
         public static string UnverifiedData {
             get {
                 return ResourceManager.GetString("UnverifiedData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to URL Path.
+        /// </summary>
+        public static string URLPath {
+            get {
+                return ResourceManager.GetString("URLPath", resourceCulture);
             }
         }
         

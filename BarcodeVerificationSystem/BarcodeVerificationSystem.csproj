@@ -116,6 +116,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\Newtonsoft.Json.dll</HintPath>
@@ -187,11 +188,14 @@
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controller\UtilityFunctions.cs" />
     <Compile Include="Interfaces\IPositionHandler.cs" />
+    <Compile Include="Labels\DevModeLabel\DevMode.cs" />
     <Compile Include="Labels\ProjectLabel\ProjectLabel.cs" />
     <Compile Include="Model\Apis\ApiModel.cs" />
+    <Compile Include="Model\Apis\Dispatching\DispatchingApis.cs" />
+    <Compile Include="Model\Apis\Manufacturing\ManufacturingApis.cs" />
     <Compile Include="Model\CameraModel.cs" />
-    <Compile Include="Model\CodeGeneration\DispatchingCode.cs" />
-    <Compile Include="Model\CodeGeneration\ManufacturingCode.cs" />
+    <Compile Include="Model\CodeGeneration\Manufacturing.cs" />
+    <Compile Include="Model\CodeGeneration\Dispatching.cs" />
     <Compile Include="Model\CountEventISCamera.cs" />
     <Compile Include="Model\DataISCamera.cs" />
     <Compile Include="Model\DetectModel.cs" />
@@ -203,9 +207,17 @@
     <Compile Include="Model\ItemCustomModel.cs" />
     <Compile Include="Model\JobModel.cs" />
     <Compile Include="Model\ObjectResultModel.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\OfflineOrder.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestConfirmCompletion.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestDisposal.cs" />
+    <Compile Include="Model\Payload\MonitorPayload.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestPrinted.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestRePrint.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseConfirmCompletion.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseDisposal.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponsePrinted.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseRePrint.cs" />
     <Compile Include="Model\Payload\LoginPayload.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\OrderPayload.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseOrder.cs" />
     <Compile Include="Model\Payload\PermissionPayload.cs" />
     <Compile Include="Model\PODDataModel.cs" />
     <Compile Include="Model\PODModel.cs" />
@@ -217,7 +229,7 @@
     <Compile Include="Model\SettingsModel.cs" />
     <Compile Include="Model\SynchronizedDictionary.cs" />
     <Compile Include="Model\SynchronizedQueue.cs" />
-    <Compile Include="Model\UDT\CheckMode.cs" />
+    <Compile Include="Model\CheckMode.cs" />
     <Compile Include="Model\USBKey.cs" />
     <Compile Include="Model\UserDataModel.cs" />
     <Compile Include="Model\UserInfo\OnlineUserModel.cs" />
@@ -243,6 +255,7 @@
     </Compile>
     <Compile Include="Controller\ExportResult.cs" />
     <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\MonitorSenderService.cs" />
     <Compile Include="Services\PermissionService.cs" />
     <Compile Include="Utils\AutoTriggerCameraDataman.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\Base30Helper.cs" />
@@ -262,6 +275,7 @@
     <Compile Include="Utils\CodeGeneration\Helper\Random2CharHelper.cs" />
     <Compile Include="Utils\CodeGeneration\TestCodeGeneration\TestGenCode.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\YearCodeHelper.cs" />
+    <Compile Include="Utils\RegistryHelper.cs" />
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
     <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.cs">
       <SubType>Form</SubType>
@@ -442,6 +456,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.vi.resx" />
     <EmbeddedResource Include="View\frmMain.vi.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -842,7 +857,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\x64\" />
-    <Folder Include="Model\DispatchingModel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonVariable\CommonVariable.csproj">

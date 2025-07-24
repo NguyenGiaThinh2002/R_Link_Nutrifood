@@ -1275,4 +1275,37 @@
   <data name="ItemsPerHour" xml:space="preserve">
     <value>Items / Hour</value>
   </data>
+  <data name="LineID" xml:space="preserve">
+    <value>Line ID</value>
+  </data>
+  <data name="LineName" xml:space="preserve">
+    <value>Line Name</value>
+  </data>
+  <data name="FactoryCode" xml:space="preserve">
+    <value>Factory Code</value>
+  </data>
+  <data name="ProductionMode" xml:space="preserve">
+    <value>Production Mode</value>
+  </data>
+  <data name="Manufacturing" xml:space="preserve">
+    <value>Manufacturing</value>
+  </data>
+  <data name="Dispatching" xml:space="preserve">
+    <value>Dispatching</value>
+  </data>
+  <data name="DisplayData" xml:space="preserve">
+    <value>Display Data</value>
+  </data>
+  <data name="MaskData" xml:space="preserve">
+    <value>Mask data partially</value>
+  </data>
+  <data name="IncreasedData" xml:space="preserve">
+    <value>Increased Data</value>
+  </data>
+  <data name="ProductionSettings" xml:space="preserve">
+    <value>Production Settings</value>
+  </data>
+  <data name="URLPath" xml:space="preserve">
+    <value>URL Path</value>
+  </data>
 </root>

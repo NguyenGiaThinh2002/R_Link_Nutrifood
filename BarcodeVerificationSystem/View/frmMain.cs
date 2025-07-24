@@ -49,6 +49,14 @@ using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model.Apis;
 using BarcodeVerificationSystem.View.UtilityForms;
+using BarcodeVerificationSystem.Model.Apis.Dispatching;
+using BarcodeVerificationSystem.Model.Apis.Manufacturing;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request;
+using BarcodeVerificationSystem.Model.Payload;
+using System.Net.Sockets;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -59,28 +67,7 @@ namespace BarcodeVerificationSystem.View
         private JobModel _SelectedJob = new JobModel();
         private bool _IsPrinterDisconnectedNot = false;
         private bool _IsReCheck = false;
-        public bool IsReCheck
-        {
-            get { return _IsReCheck; }
-            set
-            {
-                _IsReCheck = value;
-                if (_IsReCheck)
-                {
-                    Invoke(new Action(() =>
-                    {
-                        lblStatusRecheck.Text = Lang.RecheckMode;
-                    }));
-                }
-                else
-                {
-                    Invoke(new Action(() =>
-                    {
-                        lblStatusRecheck.Text = "";
-                    }));
-                }
-            }
-        }
+      
 
         private readonly Timer _TimerDateTime = new Timer();
         private readonly string _DateTimeFormatTicker = "yyyy/MM/dd hh:mm:ss tt";
@@ -108,10 +95,6 @@ namespace BarcodeVerificationSystem.View
         public string _PixelToMMY = "";
         public double PixelToMmX = 0;
         public double PixelToMmY = 0;
-
-
-        public string PixelToMMX { get { return _PixelToMMX; } set { _PixelToMMX = value; Invoke(new Action(() => { PixelToMmTextX.Text = string.Format("{0:N0}", _PixelToMMX); })); } }
-        public string PixelToMMY { get { return _PixelToMMY; } set { _PixelToMMY = value; Invoke(new Action(() => { PixelToMmTextY.Text = string.Format("{0:N0}", _PixelToMMY); })); } }
 
         private long _SendPodTimeMs;
         public long SendPodTimeMs
@@ -365,6 +348,7 @@ namespace BarcodeVerificationSystem.View
             FormClosing += FrmMain_FormClosing;
             FormClosed += FrmMain_FormClosed;
             _ParentForm = parentForm;
+            Shared.CurrentJob = parentForm._JobModel;
             WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
             Shared.OnNumberEventISCount += Shared_OnNumberEventISCountAsync;
@@ -607,10 +591,13 @@ namespace BarcodeVerificationSystem.View
 
             if (ProjectLabel.IsNutrifood)
             {
+                //syncCodes.Visible = numberOfCodes.Visible = confirmCompletion.Visible = true;
                 confirmCompletion.Visible = true;
+                pnlCurrentCheck.Text = "Printing Process";
+                lblCodeResult.Text = "Number of Sync Code";            
                 BarcodeQualityLabel.Text = "Confirm Completion";
                 txtBarcodeQuality.Visible = false;
-
+                GetSample.Text = "Disposal Process";
             }
 
 
@@ -620,7 +607,7 @@ namespace BarcodeVerificationSystem.View
 #if DEBUG
             DebugVirtual();
 #endif
-            UpdateCheckTotalAndPrintedDatabase();
+            UpdateCheckTotalAndPrintedDatabase();         
         }
 
         // public Checkmode CheckMode { get; set; }
@@ -742,6 +729,11 @@ namespace BarcodeVerificationSystem.View
 
         private void GetSampleRaise(object sender, EventArgs e)
         {
+            if (ProjectLabel.IsNutrifood)
+            {
+                CustomMessageBox.Show("Disposal Process", "Disposal Process", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                return;
+            }
             GetSampleWithScanner();
 
             // Test
@@ -1849,48 +1841,6 @@ namespace BarcodeVerificationSystem.View
 
         }
 
-        private async void SendParametersToServerAsync(CancellationToken token)
-        {
-            await Task.Run(() => SendParametersToServer(token));
-        }
-
-        private async void SendParametersToServer(CancellationToken token)
-        {
-            try
-            {
-                ApiService apiService = new ApiService();
-                string url = ApiModel.getSendParametersUrl();
-                object parameters = new 
-                {
-                    NumberPrinted,
-                    ReceivedCode,
-                    _NumberOfSentPrinter,
-                    TotalChecked,
-                    NumberOfCheckPassed,
-                    NumberOfCheckFailed
-                };
-
-                while (true)
-                {
-                    if (token.IsCancellationRequested)
-                        token.ThrowIfCancellationRequested(); // Stop thread
-
-                    await apiService.PostApiDataAsync(url, parameters);
-                    await Task.Delay(1000);
-                }
-            }
-            catch (OperationCanceledException)
-            {
-                Console.WriteLine("Thread send parameters to server was stopped!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error sending parameters to server: " + ex.Message);
-            }
-        }
-
-
-
         public bool IsBarcodeWithinThreshold(
           double barcodeX, double barcodeY, double barcodeWidthPx, double barcodeHeightPx,
           double fixedX, double fixedY, int actualBarcodeWidthMm, int actualBarcodeHeightMm,
@@ -1915,30 +1865,6 @@ namespace BarcodeVerificationSystem.View
             double pxToMmX = actualBarcodeWidthMm / effectiveWidthPx;  // mm per pixel (x-axis)
             double pxToMmY = actualBarcodeHeightMm / effectiveHeightPx; // mm per pixel (y-axis)
 
-            if ((pxToMmX + pxToMmY) > 0)
-            {
-                if (PixelToMmTextX.InvokeRequired)
-                {
-                    PixelToMmTextX.Invoke((MethodInvoker)(() => PixelToMmTextX.Visible = true));
-                }
-                else
-                {
-                    PixelToMmTextX.Visible = true;
-                }
-
-                if (PixelToMmTextY.InvokeRequired)
-                {
-                    PixelToMmTextY.Invoke((MethodInvoker)(() => PixelToMmTextY.Visible = true));
-                }
-                else
-                {
-                    PixelToMmTextY.Visible = true;
-                }
-
-                PixelToMMX = "1 mm ≈ " + (1/pxToMmX).ToString("0.000") + " X pixels";
-                PixelToMMY = "1 mm ≈ " + (1 / pxToMmY).ToString("0.000") + " Y pixels";
-            }
-
             PixelToMmX = pxToMmX;
             PixelToMmY = pxToMmY;
 
@@ -1954,52 +1880,6 @@ namespace BarcodeVerificationSystem.View
             double threshold = Shared.Settings.CameraList.FirstOrDefault()?.Threshold ?? 0.5;
             return (diffX <= threshold && diffY <= threshold);
         }
-        // This is calculate Distance using Euclidean
-        //public static bool IsBarcodeWithinThreshold2(
-        //    double barcodeX, double barcodeY, double barcodeWidthPx, double barcodeHeightPx,
-        //    double fixedX, double fixedY, int actualBarcodeWidthMm, int actualBarcodeHeightMm,
-        //    double angleDegrees)
-        //{
-
-        //    angleDegrees = 1000;
-        //    barcodeX = 280;
-        //    // Calculate pixel-to-mm conversion ratios
-        //    double pxToMmX = actualBarcodeWidthMm / barcodeWidthPx;  // mm per pixel (x-axis)
-        //    double pxToMmY = actualBarcodeHeightMm / barcodeHeightPx; // mm per pixel (y-axis)
-
-        //    // Convert barcode coordinates from pixels to mm
-        //    double barcodeXMm = barcodeX * pxToMmX;
-        //    double barcodeYMm = barcodeY * pxToMmY;
-
-        //    // Convert fixed coordinates from pixels to mm
-        //    double fixedXMm = fixedX * pxToMmX;
-        //    double fixedYMm = fixedY * pxToMmY;
-
-        //    // If angle is involved, adjust coordinates (assuming barcodeX, barcodeY is the center)
-        //    if (angleDegrees != 0)
-        //    {
-        //        double angleRadians = angleDegrees * Math.PI / 180.0;
-        //        double cosAngle = Math.Cos(angleRadians);
-        //        double sinAngle = Math.Sin(angleRadians);
-
-        //        // Translate to origin, rotate, then translate back
-        //        double tempX = barcodeXMm - fixedXMm;
-        //        double tempY = barcodeYMm - fixedYMm;
-        //        barcodeXMm = fixedXMm + (tempX * cosAngle - tempY * sinAngle);
-        //        barcodeYMm = fixedYMm + (tempX * sinAngle + tempY * cosAngle);
-        //    }
-
-        //    // Define a threshold in mm (e.g., 5mm, adjust as needed)
-        //    double thresholdMm = 0.5;
-
-        //    // Check if barcode position is within threshold of fixed point
-        //    double distance = Math.Sqrt(
-        //        Math.Pow(barcodeXMm - fixedXMm, 2) +
-        //        Math.Pow(barcodeYMm - fixedYMm, 2)
-        //    );
-
-        //    return distance <= thresholdMm;
-        //}
 
         private async void CompareAsync(CancellationToken token)
         {
@@ -2733,7 +2613,8 @@ namespace BarcodeVerificationSystem.View
             {
                 string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
                 string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                string url = ApiModel.getSendPrintedDataUrl();
+                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
+                                                                 : DispatchingApis.getPrintedDataUrl();
 
                 if (!Directory.Exists(CommVariables.PathSentDataPrinted))
                 {
@@ -2746,7 +2627,6 @@ namespace BarcodeVerificationSystem.View
                     _printedDataProcess.Start();
                 }
 
-                var apiService = new ApiService();
                 while (true)
                 {
                     // Only stop if handled all data
@@ -2761,7 +2641,13 @@ namespace BarcodeVerificationSystem.View
                     {
                         SaveResultToFile(valueArr, path);
                         if (ProjectLabel.IsNutrifood)
-                            _printedDataProcess.Enqueue(int.Parse(clone[0][3]), clone[0][2]);
+                        {
+                            //syncCodes.Text = clone[0][0];
+                            //txtCodeResult.Text = clone[0][0];
+
+                            //_printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
+
+                        }
                     }
                     valueArr.Clear();
                     Thread.Sleep(5);
@@ -2962,7 +2848,7 @@ namespace BarcodeVerificationSystem.View
                     Directory.CreateDirectory(CommVariables.PathSentDataChecked);
                 }
                 string sentDataPath = CommVariables.PathSentDataChecked + _SelectedJob.CheckedResultPath;
-                string url = ApiModel.getSendCheckedDataUrl();
+                string url = ManufacturingApis.getSendCheckedDataUrl();
 
                 if (ProjectLabel.IsNutrifood)
                 {
@@ -2987,7 +2873,7 @@ namespace BarcodeVerificationSystem.View
                     {
                         // use the Dispatching or the Manufacturing to extract the code, write in the model a function to do that.
 
-                        if (DispatchingCode.TryParse(clone[0][1], out string extractedRandomCode))
+                        if (Manufacturing.TryParse(clone[0][1], out string extractedRandomCode))
                         {
                             string t = extractedRandomCode;
                         }
@@ -3098,7 +2984,6 @@ namespace BarcodeVerificationSystem.View
                 else
                 {
                     Shared.OperStatus = OperationStatus.Stopped;
-                    IsReCheck = false;
                 }
                 dialogResultStopExist = false;
                 messages = Lang.UserStoppedTheSystem;
@@ -3971,6 +3856,7 @@ namespace BarcodeVerificationSystem.View
             {
                 Form confirmCompletion = new frmConfirmCompletion(_SelectedJob);
                 confirmCompletion.ShowDialog();
+                tableLayoutControl.Enabled = false;
             }
         }
         private void Shared_OnCameraReadDataChange(object sender, EventArgs e)
@@ -4602,7 +4488,6 @@ namespace BarcodeVerificationSystem.View
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        IsReCheck = true;
                         ChangeCheckMode(Checkmode.recheckWithScanner);
                         StartProcess();
                     }

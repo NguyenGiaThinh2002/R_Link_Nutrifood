@@ -330,7 +330,7 @@ namespace BarcodeVerificationSystem.View
                     _FormDatabase.ShowDialog();
                 }
 
-                var t = _JobModel.OrderPayload;
+                var t = _JobModel.DispatchingOrderPayload;
 
                 if (Shared.databasePath != "")
                 {
@@ -1318,7 +1318,7 @@ namespace BarcodeVerificationSystem.View
             bool isRSeries = radRSeries.Checked;
             job.PrinterSeries = isRSeries;
             job.FileName = txtFileName.Text;
-            job.OrderPayload = _JobModel.OrderPayload;
+            job.DispatchingOrderPayload = _JobModel.DispatchingOrderPayload;
 
             if (isRSeries)
             {

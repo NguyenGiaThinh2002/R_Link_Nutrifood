@@ -23,7 +23,7 @@ namespace BarcodeVerificationSystem.Model.UserPermission
         private static string _partialDisplay = "partialDisplay";
         private static string _repackFactory = "repackFactory";
         private static string _repackWarehouse = "repackWarehouse";
-        private static string _systemSettings = "systemSettings";
+        private static string _productionSettings = "productionSettings";
 
         public OnlineUserModel OnlineUserModel = null;
 
@@ -42,7 +42,7 @@ namespace BarcodeVerificationSystem.Model.UserPermission
                 { _partialDisplay, true },
                 { _repackFactory, true },
                 { _repackWarehouse, true },
-                { _systemSettings, false }
+                { _productionSettings, false }
             }
         };
 
@@ -61,7 +61,7 @@ namespace BarcodeVerificationSystem.Model.UserPermission
                 { _partialDisplay, false },
                 { _repackFactory, false },
                 { _repackWarehouse, false },
-                { _systemSettings, false }
+                { _productionSettings, false }
 
             }
         };
@@ -89,7 +89,7 @@ namespace BarcodeVerificationSystem.Model.UserPermission
         public bool PartialDisplay => this[_partialDisplay];
         public bool RepackFactory => this[_repackFactory];
         public bool RepackWarehouse => this[_repackWarehouse];
-        public bool SystemSettings => this[_systemSettings];
+        public bool ProductionSettings => this[_productionSettings];
 
     }
 

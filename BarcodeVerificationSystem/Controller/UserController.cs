@@ -58,8 +58,6 @@ namespace BarcodeVerificationSystem.Controller
                 }
                 //string addCreatorSql = UserDataModel.GeneralInsertCommand("Creator", "creator", "123456", 3);
 
-
-
                 command.ExecuteNonQuery();
             }
         }

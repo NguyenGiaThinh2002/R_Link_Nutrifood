@@ -110,7 +110,7 @@ namespace BarcodeVerificationSystem.View
             string currentUser = SecurityController.Decrypt(Shared.LoggedInUser.UserName, "rynan_encrypt_remember");
 
 
-            if ((ProjectLabel.IsNutrifood && Shared.UserPermission.SystemSettings) || currentUser == "Support")
+            if ((ProjectLabel.IsNutrifood && Shared.UserPermission.ProductionSettings) || currentUser == "Support")
             {
                 this.tabPageProductionSetting = new System.Windows.Forms.TabPage();
                 this.tabControlSettings.Controls.Add(this.tabPageProductionSetting);
@@ -120,7 +120,7 @@ namespace BarcodeVerificationSystem.View
                 this.tabPageProductionSetting.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
                 this.tabPageProductionSetting.Size = new System.Drawing.Size(996, 484);
                 this.tabPageProductionSetting.TabIndex = 1;
-                this.tabPageProductionSetting.Text = "Production settings";
+                this.tabPageProductionSetting.Text = Lang.ProductionSettings;
                 this.tabPageProductionSetting.UseVisualStyleBackColor = true;
 
                 //Initial tab api settings

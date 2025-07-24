@@ -1185,4 +1185,37 @@
   <data name="ItemsPerHour" xml:space="preserve">
     <value>Sản phẩm / Giờ</value>
   </data>
+  <data name="LineID" xml:space="preserve">
+    <value>Mã Line</value>
+  </data>
+  <data name="LineName" xml:space="preserve">
+    <value>Tên Line</value>
+  </data>
+  <data name="FactoryCode" xml:space="preserve">
+    <value>Mã nhà máy</value>
+  </data>
+  <data name="ProductionMode" xml:space="preserve">
+    <value>Chế độ vận hành</value>
+  </data>
+  <data name="Manufacturing" xml:space="preserve">
+    <value>Sản xuất</value>
+  </data>
+  <data name="Dispatching" xml:space="preserve">
+    <value>Xuất kho</value>
+  </data>
+  <data name="DisplayData" xml:space="preserve">
+    <value>Hiển thị dữ liệu</value>
+  </data>
+  <data name="MaskData" xml:space="preserve">
+    <value>Ẩn một phần dữ liệu</value>
+  </data>
+  <data name="IncreasedData" xml:space="preserve">
+    <value>Số dư dữ liệu</value>
+  </data>
+  <data name="ProductionSettings" xml:space="preserve">
+    <value>Cài đặt sản xuất</value>
+  </data>
+  <data name="URLPath" xml:space="preserve">
+    <value>Đường dẫn URL</value>
+  </data>
 </root>

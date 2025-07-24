@@ -1,20 +1,12 @@
 ﻿using BarcodeVerificationSystem.Controller;
-using BarcodeVerificationSystem.Model.Payload;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
 using BarcodeVerificationSystem.Utils;
 using BarcodeVerificationSystem.View.CustomDialogs;
 using GenCode.Utils;
-using Google.Protobuf.Compiler;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Force.DeepCloner;
 
@@ -28,15 +20,15 @@ namespace BarcodeVerificationSystem.View.SubForms
         private Panel _panel;
 
 
-        private OrderPayload _orderPayload = new OrderPayload
+        private ResponseOrder _orderPayload = new ResponseOrder
         {
             isSuccessed = true,
             message = "Success",
-            payload = new OrderPayload.Payload
+            payload = new ResponseOrder.Payload
             {
-                item = new List<OrderPayload.Item>
+                item = new List<ResponseOrder.Item>
                 {
-                    new OrderPayload.Item()
+                    new ResponseOrder.Item()
                 }
             }
         };
@@ -45,10 +37,10 @@ namespace BarcodeVerificationSystem.View.SubForms
         public frmGetDispatchingDataOffline(FrmJob frmJob)
         {
             _frmJob = frmJob;
-            if(Shared.Settings.OrderPayload != null)
+            if(Shared.Settings.DispatchingOrderPayload != null)
             {
                 //_orderPayload = Shared.Settings.OrderPayload;
-                _orderPayload = Shared.Settings.OrderPayload.DeepClone();
+                _orderPayload = Shared.Settings.DispatchingOrderPayload.DeepClone();
 
             }
 
@@ -61,13 +53,13 @@ namespace BarcodeVerificationSystem.View.SubForms
             CreateScrollablePanel payloadScrollablePanel = new CreateScrollablePanel();
             Panel payloadScrollPanel = payloadScrollablePanel.CreatePanel(33, 273, 803, 263, this.Controls);
 
-            if (Shared.Settings.OrderPayload != null)
+            if (Shared.Settings.DispatchingOrderPayload != null)
             {
-                payloadScrollablePanel.CreateTextBoxes(Shared.Settings.OrderPayload.payload, Shared.Settings.OrderPayload.payload.GetType().GetProperties().Count() - 1, payloadScrollPanel);
+                payloadScrollablePanel.CreateTextBoxes(Shared.Settings.DispatchingOrderPayload.payload, "payload", payloadScrollPanel);
             }
             else
             {
-                payloadScrollablePanel.CreateTextBoxes(_orderPayload.payload, _orderPayload.payload.GetType().GetProperties().Count() - 1, payloadScrollPanel);
+                payloadScrollablePanel.CreateTextBoxes(_orderPayload.payload, "payload", payloadScrollPanel);
             }
 
             //payloadScrollablePanel.CreateTextBoxes(_orderPayload.payload, _orderPayload.payload.GetType().GetProperties().Count() - 1, payloadScrollPanel);
@@ -102,8 +94,8 @@ namespace BarcodeVerificationSystem.View.SubForms
             try
             {
                 //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
-                _orderPayload = Shared.Settings.OrderPayload.DeepClone();
-                var items = Shared.Settings.OrderPayload.payload.item;
+                _orderPayload = Shared.Settings.DispatchingOrderPayload.DeepClone();
+                var items = Shared.Settings.DispatchingOrderPayload.payload.item;
                 dgvItems.Rows.Clear(); // Clear existing rows before adding new ones
 
 
@@ -147,7 +139,7 @@ namespace BarcodeVerificationSystem.View.SubForms
             return (sender, e) =>
             {
                 originalHandler?.Invoke(sender, e); // Run original logic
-                Shared.Settings.OrderPayload = _orderPayload;
+                Shared.Settings.DispatchingOrderPayload = _orderPayload;
                 Shared.SaveSettings();
             };
         }
@@ -180,12 +172,12 @@ namespace BarcodeVerificationSystem.View.SubForms
                 ClearItemScrollPanel();
                 itemScrollablePanel = new CreateScrollablePanel();
                 _panel = itemScrollablePanel.CreatePanel(33, 94, 660, 169, this.Controls);
-                itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.item[_lineIndex], _orderPayload.payload.item[_lineIndex].GetType().GetProperties().Count(), _panel);
+                itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.item[_lineIndex], "", _panel);
             }
             else if(btnEdit.Text == "Save")
             {
                 SetAllNamesDefault();
-                Shared.Settings.OrderPayload = _orderPayload;
+                Shared.Settings.DispatchingOrderPayload = _orderPayload;
                 Shared.SaveSettings();
                 InitControl();
             }
@@ -202,7 +194,7 @@ namespace BarcodeVerificationSystem.View.SubForms
                     dgvItems.Rows.RemoveAt(lineIndex);
                 }
 
-                Shared.Settings.OrderPayload = _orderPayload;
+                Shared.Settings.DispatchingOrderPayload = _orderPayload;
                 Shared.SaveSettings();
             }
             else if(deleteButton.Text == "Cancel")
@@ -229,13 +221,13 @@ namespace BarcodeVerificationSystem.View.SubForms
             {
                 SetAllNameEditing();
 
-                _orderPayload.payload.item.Add(new OrderPayload.Item());
+                _orderPayload.payload.item.Add(new ResponseOrder.Item());
 
 
                 ClearItemScrollPanel();
                 itemScrollablePanel = new CreateScrollablePanel();
                 _panel = itemScrollablePanel.CreatePanel(33, 94, 660, 169, this.Controls);
-                itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.item.LastOrDefault(), _orderPayload.payload.item.LastOrDefault().GetType().GetProperties().Count(), _panel);
+                itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.item.LastOrDefault(), "", _panel);
             }
 
         }
@@ -262,7 +254,7 @@ namespace BarcodeVerificationSystem.View.SubForms
 
             int lineIndex = dgvItems.SelectedRows[0].Index;
             _frmJob._JobModel.SelectedMaterialIndex = lineIndex;
-            _frmJob._JobModel.OrderPayload = Shared.Settings.OrderPayload;
+            _frmJob._JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
 
             var selectedRow = dgvItems.SelectedRows[0];
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
@@ -281,7 +273,8 @@ namespace BarcodeVerificationSystem.View.SubForms
                 MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                var list = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, totalLines: 14, startValue: 100, initialCurrent: 100, quantity: int.Parse(numberOfCodes));
+
+                var list = Base30AutoCodeGenerator.GenerateLineCodes(quantity: int.Parse(numberOfCodes));
 
                 string tableName = "DispatchingCodes"; // Example table name, adjust as needed
                 string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
