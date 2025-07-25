@@ -39,15 +39,15 @@ namespace GenCode.Utils
         private static int totalCodeCount = 0;
         public static event Action<int> OnCodeCountChanged;
 
-        public static List<string> GenerateLineCodes(int quantity)
+   
+        public static List<string> GenerateLineCodesForLoyalty(int quantity)
         {
-            bool isManufacturingMode = Shared.Settings.IsManufacturingMode; 
-            string valueMode = isManufacturingMode ? "ManufacturingCurrentValue" : "DispatchingCurrentValue";
-
+         
             // added surplus percentage
-            int? surplusPercentage = !isManufacturingMode ? Shared.Settings.DispatchingOrderPayload.payload.surplus_percentage : 0;
+            int? surplusPercentage =  0;
             quantity = (int)((quantity * surplusPercentage) / 100) + quantity;
 
+            string valueMode = "ManufacturingCurrentValue";
             int lineIndex = Shared.Settings.LineIndex;
             int totalLines = Shared.Settings.TotalLines;
             int startValue = RegistryHelper.ReadValue(valueMode) == null ? 0 : int.Parse(RegistryHelper.ReadValue(valueMode));
@@ -78,13 +78,12 @@ namespace GenCode.Utils
                     int b = (c - s) / j;       // số bước nhảy đã đi
                     int u = s + (j * b) + t;   // giá trị u cuối cùng để mã hóa base30
 
-                    string lineIDStr = i.ToString();
-                    string base30code = isManufacturingMode ? Base30Helper.EncodeToBase30_Loyaltly(u) : Base30Helper.EncodeToBase30WithChecksum_Export(u,lineIDStr);
+                    string lineIDStr = LineConvertHelper.GetLineCode(i+1).ToString();
+                    string base30code = Base30Helper.EncodeToBase30_Loyaltly(u);
                     string rawCode = "";
                     string focusCode = "";
                    
-                    if (isManufacturingMode)
-                    {
+                 
                         int factoryCodeInt = (int)FactoryCode.GiaLai;
                         string factoryCode = factoryCodeInt.ToString();
                         string currentYear = DateCodeHelper.GetCurrentYearTwoDigits();
@@ -119,16 +118,12 @@ namespace GenCode.Utils
                                          twoChar[0] +
                                          twoChar[1]
                                           + checksum;
-                    }
-                    else
-                    {
-                           focusCode = base30code;
-                    }
+                    
 
-                    string _focusCode = isManufacturingMode ? Manufacturing.GenerateCode(focusCode) : Dispatching.GenerateCode(focusCode);
 
-                    string allPODCode = _focusCode + "," + focusCode + (!isManufacturingMode
-                                        ? "," + Dispatching.getShipmentCode() + "," + Dispatching.getShiptoCode() : "");
+                    string _focusCode = Manufacturing.GenerateCode(focusCode);
+
+                    string allPODCode = _focusCode + "," + focusCode; //+ (!isManufacturingMode ? "," + Dispatching.getShipmentCode() + "," + Dispatching.getShiptoCode() : "");
 
                     randomCodes.Add(allPODCode);
 
@@ -155,6 +150,9 @@ namespace GenCode.Utils
                 return new List<string>();
             }
         }
+
+
+
 
 
 
@@ -189,7 +187,7 @@ namespace GenCode.Utils
                     if (quantityPerLine <= 0)
                         continue;
 
-                    GenerateLineCodes(quantityPerLine);
+                    GenerateLineCodesForLoyalty(quantityPerLine);
 
                     current += quantityPerLine;
                     quantitySoFar += quantityPerLine;

@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using GenCode.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,7 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
         }
 
 
+        // Old way , not use
         public static string EncodeToBase30WithChecksum_Export(int number, string lineIndex)
         {
             // Step 1: Encode number to base30 (min 6 chars)
@@ -79,5 +81,6 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
             // Final code =  prefix + 6 encoded + 3 checksum = (>=10) chars
             return prefix + base30Body + new string(checksum);
         }
+
     }
 }

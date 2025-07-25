@@ -16,7 +16,7 @@ namespace GenCode.Utils
             Stopwatch sw = new Stopwatch();
             sw.Start();
 
-            Base30AutoCodeGenerator.GenerateLineCodes(
+            Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(
                 quantity: quantity
             );
 

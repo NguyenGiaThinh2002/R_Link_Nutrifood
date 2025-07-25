@@ -258,7 +258,9 @@
     <Compile Include="Services\MonitorSenderService.cs" />
     <Compile Include="Services\PermissionService.cs" />
     <Compile Include="Utils\AutoTriggerCameraDataman.cs" />
+    <Compile Include="Utils\CodeGeneration\AutoIDCodeGenerator.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\Base30Helper.cs" />
+    <Compile Include="Utils\CodeGeneration\Helper\LineConvertHelper.cs" />
     <Compile Include="Utils\CreateScrollablePanel.cs" />
     <Compile Include="Utils\CsvConvert.cs" />
     <Compile Include="Utils\MaskData.cs" />
@@ -566,6 +568,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Utils\CodeGeneration\Docs\thuat_toan_sinh_code.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

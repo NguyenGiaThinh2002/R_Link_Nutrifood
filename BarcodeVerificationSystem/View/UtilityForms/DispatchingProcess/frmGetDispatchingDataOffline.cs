@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Force.DeepCloner;
+using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 
 
 namespace BarcodeVerificationSystem.View.SubForms
@@ -276,8 +277,17 @@ namespace BarcodeVerificationSystem.View.SubForms
                 MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-
-                var list = Base30AutoCodeGenerator.GenerateLineCodes(quantity: int.Parse(numberOfCodes));
+                bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
+                List<string> list;
+                if (isManufacturingMode) // san xuat
+                {
+                     list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: int.Parse(numberOfCodes));
+                }
+                else // xuat hang
+                {
+                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(lineNo: 1, quantity: int.Parse(numberOfCodes));
+                }
+               
 
                 string tableName = "DispatchingCodes"; // Example table name, adjust as needed
                 string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
