@@ -8,6 +8,7 @@ using System.IO;
 using GenCode.Utils;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 using BarcodeVerificationSystem.Utils;
+using System.Windows;
 
 namespace GenCode.Utils
 {

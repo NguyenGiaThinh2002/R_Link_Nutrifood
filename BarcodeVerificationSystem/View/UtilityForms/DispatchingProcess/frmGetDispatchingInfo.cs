@@ -244,8 +244,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 this.Close();
             }
 
-           
-
         }
 
         private void getDataOffline_Click(object sender, EventArgs e)

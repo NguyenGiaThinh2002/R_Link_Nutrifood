@@ -2645,7 +2645,7 @@ namespace BarcodeVerificationSystem.View
                             //syncCodes.Text = clone[0][0];
                             //txtCodeResult.Text = clone[0][0];
 
-                            //_printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
+                            _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
 
                         }
                     }

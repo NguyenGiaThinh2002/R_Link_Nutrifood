@@ -12,7 +12,6 @@ namespace BarcodeVerificationSystem.Model
     {
         #region Properties
         public ResponseOrder DispatchingOrderPayload { get; set; } = null;
-  
         public int SelectedMaterialIndex { get; set; } = 0;
         public bool IsOnlineJob { get; set; } = false;
 

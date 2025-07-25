@@ -13,6 +13,8 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using BarcodeVerificationSystem.View;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
+using BarcodeVerificationSystem.Model.Payload;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -64,6 +66,11 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     status = entry.PrintedStatus
                 };
 
+                if (Shared.UserPermission.isOnline)
+                {
+
+                }
+
                 var jsonContent = JsonConvert.SerializeObject(printedContent, new JsonSerializerSettings
                 {
                     ContractResolver = new CamelCasePropertyNamesContractResolver()
@@ -71,12 +78,13 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
                 var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
-                string responseContent = await response.Content.ReadAsStringAsync();
-                var json = JObject.Parse(responseContent);
-                entry.SaasStatus = json.Value<string>("status");
-                entry.ServerStatus = json.Value<string>("serverStatus");
-                entry.SaasError = "";
-                entry.ServerError = json.Value<string>("serverError");
+                response.EnsureSuccessStatusCode();
+                var ResponsePrinted = JsonConvert.DeserializeObject<ResponsePrinted>(await response.Content.ReadAsStringAsync());
+
+                entry.SaasStatus = ResponsePrinted.isSuccessed ? "success" : "failed";
+                entry.ServerStatus = ResponsePrinted.sap_isSuccessed ? "success" : "failed";
+                entry.SaasError = ResponsePrinted.message;
+                entry.ServerError = ResponsePrinted.sap_message;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -91,17 +99,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     _queue.Add(entry);
                 }
 
-                //var content = new StringContent($@"
-                //{{
-                //    ""id"": {entry.Id},
-                //    ""qr_code"": ""{entry.Code}"",
-                //    ""plant"": ""{Shared.Settings.FactoryCode}"",
-                //    ""wms_number"": ""{Shared.Settings.WmsNumber}"",
-                //    ""resource_code"": ""{Shared.Settings.RLinkId}"",
-                //    ""resource_name"": ""{Shared.Settings.LineName}"",
-                //    ""printed_date"": ""{entry.PrintedDate}"",
-                //    ""status"": ""{entry.PrintedStatus}""
-                //}}", Encoding.UTF8, "application/json");
+
             }
             catch (Exception ex)
             {
@@ -119,6 +117,25 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             _cts.Cancel();
             _queue.CompleteAdding();
         }
+
+        //string responseContent = await response.Content.ReadAsStringAsync();
+        //var json = ResponsePrinted.Parse(responseContent);
+        //entry.SaasStatus = json.Value<string>("status");
+        //entry.ServerStatus = json.Value<string>("serverStatus");
+        //entry.SaasError = "";
+        //entry.ServerError = json.Value<string>("serverError");
+
+        //var content = new StringContent($@"
+        //{{
+        //    ""id"": {entry.Id},
+        //    ""qr_code"": ""{entry.Code}"",
+        //    ""plant"": ""{Shared.Settings.FactoryCode}"",
+        //    ""wms_number"": ""{Shared.Settings.WmsNumber}"",
+        //    ""resource_code"": ""{Shared.Settings.RLinkId}"",
+        //    ""resource_name"": ""{Shared.Settings.LineName}"",
+        //    ""printed_date"": ""{entry.PrintedDate}"",
+        //    ""status"": ""{entry.PrintedStatus}""
+        //}}", Encoding.UTF8, "application/json");
 
         //public void Start()
         //{

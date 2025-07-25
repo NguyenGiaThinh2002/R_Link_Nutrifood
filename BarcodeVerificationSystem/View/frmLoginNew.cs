@@ -72,6 +72,11 @@ namespace BarcodeVerificationSystem.View
                         txtPassword.Text = "binhduong@pp";
                         chbRememberPassword.Checked = true;
                         break;
+                    case LoginLabel.OperatorOfflineMode:
+                        txtUsername.Text = "Operator";
+                        txtPassword.Text = "Operator@123";
+                        chbRememberPassword.Checked = true;
+                        break;
 
                     default:
                         txtUsername.Text = "";

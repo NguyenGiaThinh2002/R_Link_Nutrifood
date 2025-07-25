@@ -51,6 +51,8 @@
             this.lineNameLabel = new System.Windows.Forms.Label();
             this.lineName = new System.Windows.Forms.TextBox();
             this.factoryCodeLabel = new System.Windows.Forms.Label();
+            this.lineIndexTextBox = new System.Windows.Forms.TextBox();
+            this.lineIndex = new System.Windows.Forms.Label();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBoxProductionSettings.SuspendLayout();
             this.onlineProductionSettings.SuspendLayout();
@@ -159,6 +161,8 @@
             // 
             // groupBoxProductionSettings
             // 
+            this.groupBoxProductionSettings.Controls.Add(this.lineIndex);
+            this.groupBoxProductionSettings.Controls.Add(this.lineIndexTextBox);
             this.groupBoxProductionSettings.Controls.Add(this.onlineProductionSettings);
             this.groupBoxProductionSettings.Controls.Add(this.LineId);
             this.groupBoxProductionSettings.Controls.Add(this.progressBar1);
@@ -331,6 +335,25 @@
             this.factoryCodeLabel.TabIndex = 72;
             this.factoryCodeLabel.Text = "Factory Code:";
             // 
+            // lineIndexTextBox
+            // 
+            this.lineIndexTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lineIndexTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lineIndexTextBox.Location = new System.Drawing.Point(215, 370);
+            this.lineIndexTextBox.Name = "lineIndexTextBox";
+            this.lineIndexTextBox.Size = new System.Drawing.Size(103, 26);
+            this.lineIndexTextBox.TabIndex = 78;
+            // 
+            // lineIndex
+            // 
+            this.lineIndex.AutoSize = true;
+            this.lineIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lineIndex.Location = new System.Drawing.Point(48, 376);
+            this.lineIndex.Name = "lineIndex";
+            this.lineIndex.Size = new System.Drawing.Size(86, 20);
+            this.lineIndex.TabIndex = 79;
+            this.lineIndex.Text = "Line Index:";
+            // 
             // ucProductionSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,5 +396,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox LineId;
         private System.Windows.Forms.Panel onlineProductionSettings;
+        private System.Windows.Forms.TextBox lineIndexTextBox;
+        private System.Windows.Forms.Label lineIndex;
     }
 }

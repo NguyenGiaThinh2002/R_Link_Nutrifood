@@ -18,11 +18,11 @@ namespace BarcodeVerificationSystem.Labels.DevModeLabel
             AdminOfflineMode,
             AdminOnlineMode,
             SupportOfflineMode,
-            //OperatorOfflineMode,
+            OperatorOfflineMode,
             OperatorOnlineMode,
         }
         private static DevModeLabel _devMode = DevModeLabel.OnDevMode;
-        private static LoginLabel _labelType = LoginLabel.OperatorOnlineMode;
+        private static LoginLabel _labelType = LoginLabel.OperatorOfflineMode;
         //public static LabelType ProjectType { get => _labelType; set => _labelType = value; }
         public static bool IsDevMode => _devMode == DevModeLabel.OnDevMode;
         public static LoginLabel LabelType => _labelType;
