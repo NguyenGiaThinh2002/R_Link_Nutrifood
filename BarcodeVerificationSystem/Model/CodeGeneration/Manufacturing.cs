@@ -13,19 +13,15 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
         private static string _url = "https://loyalty.nuti.vn/"; // 24 characters
         private static string _factoryId = "2"; // 2	Bình Dương - 3	Gia Lai - 4	Hưng Yên
         private static string _yearAndMonth = DateTime.Now.ToString("yyMM");
-
-        //private string _yearAndMonth = "2507"; // 4 characters
-        //private string _randomCode = "01234567890B"; // 12 characters
-
-        public Manufacturing(string url, string factoryId, string yearAndMonth, string randomCode)
+        public Manufacturing(string url, string factoryId, string yearAndMonth)
         {
             _url = url;
             _factoryId = factoryId;
             _yearAndMonth = yearAndMonth;
-            //_randomCode = randomCode; // Ký tự loại bỏ: O U E A I, W
         }
         public static string GenerateCode(string _randomCode)
         {
+
             if (_url.Length != 24 || _factoryId.Length != 1 || _yearAndMonth.Length != 4 || _randomCode.Length != 12) 
             {
                 throw new ArgumentException("Invalid code length. Please check the input values.");

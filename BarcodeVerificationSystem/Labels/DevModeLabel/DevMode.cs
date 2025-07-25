@@ -18,7 +18,7 @@ namespace BarcodeVerificationSystem.Labels.DevModeLabel
             AdminOfflineMode,
             AdminOnlineMode,
             SupportOfflineMode,
-            OperatorOfflineMode,
+            //OperatorOfflineMode,
             OperatorOnlineMode,
         }
         private static DevModeLabel _devMode = DevModeLabel.OnDevMode;

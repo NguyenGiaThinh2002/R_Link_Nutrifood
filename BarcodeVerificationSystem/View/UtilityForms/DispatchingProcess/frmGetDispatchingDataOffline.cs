@@ -256,6 +256,9 @@ namespace BarcodeVerificationSystem.View.SubForms
             _frmJob._JobModel.SelectedMaterialIndex = lineIndex;
             _frmJob._JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
 
+            //_frmJob._JobModel.DispatchingModel = Shared.Settings.DispatchingPayload;
+
+
             var selectedRow = dgvItems.SelectedRows[0];
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
             string materialName = selectedRow.Cells["material_name"].Value.ToString();

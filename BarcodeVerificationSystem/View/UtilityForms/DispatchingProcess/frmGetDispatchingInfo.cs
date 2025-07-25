@@ -12,6 +12,7 @@ using GenCode.Utils;
 using System.IO;
 using BarcodeVerificationSystem.Utils;
 using BarcodeVerificationSystem.Model.Apis.Dispatching;
+using BarcodeVerificationSystem.Model.CodeGeneration;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -140,7 +141,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
             try
             {
-                string apiUrl = DispatchingApis.getOrderInfoUrl();
+                string apiUrl = DispatchingApis.getOrderInfoUrl(orderId);
 
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
@@ -197,10 +198,17 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 MessageBox.Show("Please select an item from the list.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            
+
             int lineIndex = dgvItems.SelectedRows[0].Index;
+
             _frmJob._JobModel.SelectedMaterialIndex = lineIndex;
             _frmJob._JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
+
+            //Shared.Settings.DispatchingModel = _frmJob._JobModel.DispatchingModel = new Dispatching(
+            //    Shared.Settings.DispatchingOrderPayload.payload.shipto_code,
+            //    Shared.Settings.DispatchingOrderPayload.payload.shipment,
+            //    Shared.Settings.FactoryCode
+            //);
 
             var selectedRow = dgvItems.SelectedRows[0];
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();

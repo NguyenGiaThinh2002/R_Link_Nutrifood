@@ -45,7 +45,7 @@ namespace BarcodeVerificationSystem.View
             InitEvent();
             SetLanguage();
 
-            MonitorSenderService.SendParametersToServer();
+            //MonitorSenderService.SendParametersToServer();
 
 
             if (DevMode.IsDevMode)

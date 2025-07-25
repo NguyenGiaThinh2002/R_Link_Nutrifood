@@ -331,6 +331,7 @@ namespace BarcodeVerificationSystem.View
                 }
 
                 var t = _JobModel.DispatchingOrderPayload;
+                //var f = _JobModel.DispatchingModel;
 
                 if (Shared.databasePath != "")
                 {

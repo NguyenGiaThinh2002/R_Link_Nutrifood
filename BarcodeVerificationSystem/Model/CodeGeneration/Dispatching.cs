@@ -9,40 +9,37 @@ using System.Windows;
 namespace BarcodeVerificationSystem.Model.CodeGeneration
 {
     public class Dispatching
-    { 
-        private static string _shiptoCode = "2000000573"; // 10 characters
-        private static string _shipmentCode = "00136999"; // 8 characters
-        private static string _lineCode = "B2"; //Bình Dương: B1 ; B2 -- Hưng Yên: H1 ; H2
-        //private string _randomCode = "1sd34d"; // 6 characters
+    {
+        private static string _shiptoCode = Shared.Settings.DispatchingOrderPayload.payload.shipto_code;  //"2000000573"; // 10 characters
+        private static string _shipmentCode = Shared.Settings.DispatchingOrderPayload.payload.shipment; //"00136999"; // 8 characters
+        private static string _lineCode = Shared.Settings.FactoryCode;  //"B2"; //Bình Dương: B1 ; B2 -- Hưng Yên: H1 ; H2
 
         public static string getShiptoCode() => _shiptoCode;
         public static string getShipmentCode() => _shipmentCode;
 
-        public Dispatching(string shiptoCode, string shipment, string lineCode, string randomCode)
+        public Dispatching(string shiptoCode, string shipment, string lineCode)
         {
             _shiptoCode = shiptoCode;
             _shipmentCode = shipment;
             _lineCode = lineCode;
-            //_randomCode = randomCode; // Ký tự loại bỏ: O U E A I, W
         }
 
         public static string GenerateCode(string _randomCode)
         {
+
             if (_shiptoCode.Length != 10 || _shipmentCode.Length != 8 || _lineCode.Length != 2 || _randomCode.Length != 10) // 6
             {
-                //MessageBox.Show("Invalid code length. Please check the input values.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             if (Shared.Settings.IsManufacturingMode)
             {
-                //MessageBox.Show("Manufacturing code generation is not available in dispatching mode.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return string.Empty;
             }
 
             return $"{_shiptoCode}{_shipmentCode}{_lineCode}{_randomCode}"; // tong cu: 26 , mới là : 32
         }
 
-        public static bool TryParse(string fullCode, out string randomCode)
+        public bool TryParse(string fullCode, out string randomCode)
         {
             randomCode = string.Empty;
 

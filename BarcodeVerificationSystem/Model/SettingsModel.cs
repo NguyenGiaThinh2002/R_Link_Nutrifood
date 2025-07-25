@@ -1,5 +1,6 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
+using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace BarcodeVerificationSystem.Model
         #region Properties
 
         public ResponseOrder DispatchingOrderPayload { get; set; } = null;
+
+        //public Dispatching DispatchingModel { get; set; } = new Dispatching("", "", "") { };
+        //public Manufacturing ManufacturingModel { get; set; } = new Manufacturing("", "", "") { };
 
         public int TotalLines = 14;
         public int LineIndex = 0;
