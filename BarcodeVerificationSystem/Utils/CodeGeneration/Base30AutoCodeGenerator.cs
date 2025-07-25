@@ -78,7 +78,7 @@ namespace GenCode.Utils
                     int b = (c - s) / j;       // số bước nhảy đã đi
                     int u = s + (j * b) + t;   // giá trị u cuối cùng để mã hóa base30
 
-                    string lineIDStr = LineConvertHelper.GetLineCode(i+1).ToString();
+                    string lineIDStr = LineConvertHelper.GetLineCode(i).ToString();
                     string base30code = Base30Helper.EncodeToBase30_Loyaltly(u);
                     string rawCode = "";
                     string focusCode = "";

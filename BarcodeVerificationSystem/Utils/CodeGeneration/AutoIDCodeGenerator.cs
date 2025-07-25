@@ -1,4 +1,6 @@
-﻿using GenCode.Utils;
+﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model.CodeGeneration;
+using GenCode.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -41,15 +43,24 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="Exception"></exception>
-        public static List<string> GenerateCodesWithAutoID(int lineNo = 1, int quantity=1)
+        public static List<string> GenerateCodesWithAutoID(int quantity=1)
         {
          
            LoadAutoIdState(); // Load old key when start new sesion gen
             if (quantity <= 0)
                 throw new ArgumentException("Quantity must be > 0");
 
-           
-          //  Stopwatch sw = Stopwatch.StartNew();
+            int? surplusPercentage = 0;
+            quantity = (int)((quantity * surplusPercentage) / 100) + quantity;
+
+            int lineNo = Shared.Settings.LineIndex;
+
+            //string valueMode = "ManufacturingCurrentValue";
+            //int totalLines = Shared.Settings.TotalLines;
+            //int startValue = RegistryHelper.ReadValue(valueMode) == null ? 0 : int.Parse(RegistryHelper.ReadValue(valueMode));
+
+
+            //  Stopwatch sw = Stopwatch.StartNew();
 
             // 1. Get the current + month code
             string currentYear = DateCodeHelper.GetCurrentYearTwoDigits();
@@ -78,7 +89,9 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
                 int id = currentAutoId + i;
                 string autoIdStr = id.ToString("D7");
                 string code = $"{yearCode}{monthCode}{autoIdStr}{lineCode}";
-                codes.Add(code);
+                string fullCode = Dispatching.GenerateCode(code) + "," + code +
+                    "," + Dispatching.getShipmentCode() + "," + Dispatching.getShiptoCode();
+                codes.Add(fullCode);
             }
 
             // 6. Update Autoid after birth

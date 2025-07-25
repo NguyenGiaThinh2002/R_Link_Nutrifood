@@ -94,8 +94,8 @@ namespace BarcodeVerificationSystem.View
         {
             InitializeComponent();
             //  var list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: 100);
-            var list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity:1000000);
-            Console.WriteLine(list.Count);
+            //var list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity:1000000);
+            //Console.WriteLine(list.Count);
         }
 
         protected override void OnHandleCreated(EventArgs e)

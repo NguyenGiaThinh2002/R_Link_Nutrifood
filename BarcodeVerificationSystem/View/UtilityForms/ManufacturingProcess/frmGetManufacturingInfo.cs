@@ -111,7 +111,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             }
             else // xuat hang
             {
-                list = AutoIDCodeGenerator.GenerateCodesWithAutoID(1, 100);
+                list = AutoIDCodeGenerator.GenerateCodesWithAutoID(100);
             }
 
 

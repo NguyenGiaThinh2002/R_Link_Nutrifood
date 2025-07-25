@@ -237,7 +237,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 }
                 else // xuat hang
                 {
-                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(lineNo: 1, quantity: int.Parse(numberOfCodes));
+                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID( quantity: int.Parse(numberOfCodes));
                 }
 
                 string tableName = "DispatchingCodes"; // Example table name, adjust as needed

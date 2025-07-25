@@ -285,7 +285,7 @@ namespace BarcodeVerificationSystem.View.SubForms
                 }
                 else // xuat hang
                 {
-                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(lineNo: 1, quantity: int.Parse(numberOfCodes));
+                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: int.Parse(numberOfCodes));
                 }
                
 
