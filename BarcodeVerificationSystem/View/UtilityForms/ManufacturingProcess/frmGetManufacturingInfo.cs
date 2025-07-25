@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using BarcodeVerificationSystem.Model.Apis;
 using GenCode.Utils;
 using BarcodeVerificationSystem.Model.Apis.Manufacturing;
+using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -101,7 +102,18 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         {
             var jsonObject = JObject.Parse(Shared.Settings.DispatchingPayload);
 
-            var list = Base30AutoCodeGenerator.GenerateLineCodes(quantity: 100);
+            //  var list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: 100);
+            bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
+            List<string> list;
+            if (isManufacturingMode) // san xuat
+            {
+                list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: 100);
+            }
+            else // xuat hang
+            {
+                list = AutoIDCodeGenerator.GenerateCodesWithAutoID(1, 100);
+            }
+
 
             string materialNumber = jsonObject["material"].ToString();
             string materialName = jsonObject["material_description"].ToString();

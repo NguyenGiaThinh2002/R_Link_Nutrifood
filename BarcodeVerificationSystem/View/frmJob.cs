@@ -29,6 +29,7 @@ using BarcodeVerificationSystem.View.UtilityForms;
 using BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess;
 using BarcodeVerificationSystem.View.SubForms;
 using GenCode.Utils;
+using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -92,13 +93,9 @@ namespace BarcodeVerificationSystem.View
         public FrmJob()
         {
             InitializeComponent();
-            //var list = Base30AutoCodeGenerator.GenerateLineCodes(lineIndex: 0, 
-            //    totalLines: 14, 
-            //    startValue: 100, 
-            //    initialCurrent: 100, 
-            //    quantity: 100,
-            //    genCodeMode: GenCode.Types.GenCodeMode.Export
-            //    );
+            //  var list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: 100);
+            var list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity:1000000);
+            Console.WriteLine(list.Count);
         }
 
         protected override void OnHandleCreated(EventArgs e)
