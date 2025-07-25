@@ -12,9 +12,9 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
         public int status_code { get; set; }
         public string error_code { get; set; }
         public string message { get; set; }
-        public bool sap_isSuccessed { get; set; }
-        public int sap_status_code { get; set; }
-        public string sap_error_code { get; set; }
-        public string sap_message { get; set; }
+        public bool isSuccessed_sap { get; set; }
+        public int status_code_sap { get; set; }
+        public string error_code_sap { get; set; }
+        public string message_sap { get; set; }
     }
 }

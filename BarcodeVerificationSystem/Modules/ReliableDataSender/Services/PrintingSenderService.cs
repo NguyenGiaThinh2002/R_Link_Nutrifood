@@ -68,37 +68,38 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
                 if (Shared.UserPermission.isOnline)
                 {
+                    var jsonContent = JsonConvert.SerializeObject(printedContent, new JsonSerializerSettings
+                    {
+                        ContractResolver = new CamelCasePropertyNamesContractResolver()
+                    });
+                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-                }
+                    var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
+                    response.EnsureSuccessStatusCode();
+                    var ResponsePrinted = JsonConvert.DeserializeObject<ResponsePrinted>(await response.Content.ReadAsStringAsync());
 
-                var jsonContent = JsonConvert.SerializeObject(printedContent, new JsonSerializerSettings
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver()
-                });
-                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                    entry.SaasStatus = ResponsePrinted.isSuccessed ? "success" : "failed";
+                    entry.ServerStatus = ResponsePrinted.isSuccessed_sap ? "success" : "failed";
+                    entry.SaasError = ResponsePrinted.message;
+                    entry.ServerError = ResponsePrinted.message_sap;
 
-                var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
-                response.EnsureSuccessStatusCode();
-                var ResponsePrinted = JsonConvert.DeserializeObject<ResponsePrinted>(await response.Content.ReadAsStringAsync());
-
-                entry.SaasStatus = ResponsePrinted.isSuccessed ? "success" : "failed";
-                entry.ServerStatus = ResponsePrinted.sap_isSuccessed ? "success" : "failed";
-                entry.SaasError = ResponsePrinted.message;
-                entry.ServerError = ResponsePrinted.sap_message;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    _storageService.MarkAsSent(entry.Id, entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        _storageService.MarkAsSent(entry.Id, entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
+                    }
+                    else
+                    {
+                        //_storageService.AppendEntry(entry); // Re-append entry for retry
+                        entry.SaasStatus = "failed";
+                        entry.SaasError = "Response Status is " + response.StatusCode;
+                        _storageService.MarkAsFailed(entry.Id, entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
+                        _queue.Add(entry);
+                    }
                 }
                 else
                 {
-                    //_storageService.AppendEntry(entry); // Re-append entry for retry
-                    entry.SaasStatus = "failed";
-                    entry.SaasError = "Response Status is " + response.StatusCode;
                     _storageService.MarkAsFailed(entry.Id, entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
-                    _queue.Add(entry);
                 }
-
 
             }
             catch (Exception ex)

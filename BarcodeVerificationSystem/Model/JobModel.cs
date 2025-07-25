@@ -15,6 +15,9 @@ namespace BarcodeVerificationSystem.Model
         public int SelectedMaterialIndex { get; set; } = 0;
         public bool IsOnlineJob { get; set; } = false;
 
+        // Sync data parameters
+        public int NumberOfSentData { get; set; } = 0;
+
         private CompareType _CompareType = CompareType.CanRead;
         private string _StaticText = "";
         private string _DirectoryDatabase = "";

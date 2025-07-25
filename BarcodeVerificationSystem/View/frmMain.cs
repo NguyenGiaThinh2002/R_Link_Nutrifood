@@ -84,6 +84,20 @@ namespace BarcodeVerificationSystem.View
         private readonly int _TotalColumns = 1;
         private readonly int _StartIndex = 1;
 
+        #region sync Data parameters
+        private int _SentSyncData = 0;
+        private int _SaaSSuccessCodes = 0;
+        private int _SaaSFailedCodes = 0;
+        private int _SAPSuccessCodes = 0;
+        private int _SAPFailedCodes = 0;
+
+        public int SentSyncData { get { return _SentSyncData; } set { _SentSyncData = value; Invoke(new Action(() => { syncSentCodes.Text = string.Format("{0:N0}", _SentSyncData); })); } }
+        public int SaaSSuccess { get { return _SaaSSuccessCodes; } set { _SaaSSuccessCodes = value; Invoke(new Action(() => { SaaSSuccessCodes.Text = string.Format("{0:N0}", _SaaSSuccessCodes); })); } }
+        public int SaaSFailed { get { return _SaaSFailedCodes; } set { _SaaSFailedCodes = value; Invoke(new Action(() => { SaaSFailedCodes.Text = string.Format("{0:N0}", _SaaSFailedCodes); })); } }
+        public int SAPSuccess { get { return _SAPSuccessCodes; } set { _SAPSuccessCodes = value; Invoke(new Action(() => { SAPSuccessCodes.Text = string.Format("{0:N0}", _SAPSuccessCodes); })); } }
+        public int SAPFailed { get { return _SAPFailedCodes; } set { _SAPFailedCodes = value; Invoke(new Action(() => { SAPFailedCodes.Text = string.Format("{0:N0}", _SAPFailedCodes); })); } }
+        #endregion
+
         public int TotalChecked { get { return _TotalChecked; } set { _TotalChecked = value; Invoke(new Action(() => { lblTotalCheckedValue.Text = string.Format("{0:N0}", _TotalChecked); })); } }
         public int NumberOfCheckPassed { get { return _NumberOfCheckPassed; } set { _NumberOfCheckPassed = value; Invoke(new Action(() => { lblCheckResultPassedValue.Text = string.Format("{0:N0}", _NumberOfCheckPassed); })); } }
         public int NumberOfCheckFailed { get { return _NumberOfCheckFailed; } set { _NumberOfCheckFailed = value; Invoke(new Action(() => { lblCheckResultFailedValue.Text = string.Format("{0:N0}", _NumberOfCheckFailed); })); } }
@@ -178,6 +192,9 @@ namespace BarcodeVerificationSystem.View
         private List<string[]> _CheckedResultCodeList = new List<string[]>();
         private readonly ConcurrentDictionary<string, CompareStatus> _CodeListPODFormat = new ConcurrentDictionary<string, CompareStatus>();
         private ConcurrentDictionary<string, int> _Emergency = new ConcurrentDictionary<string, int>();
+
+        private List<string[]> _SentPrintedCodeObtainFromFile = new List<string[]>();
+
 
         private CancellationTokenSource _OperationCancelTokenSource;
         private CancellationTokenSource _UICheckedResultCancelTokenSource;
@@ -2645,6 +2662,8 @@ namespace BarcodeVerificationSystem.View
                             //syncCodes.Text = clone[0][0];
                             //txtCodeResult.Text = clone[0][0];
 
+                            //SentSyncData = SaaSSuccess = SaaSFailed = SAPSuccess = SAPFailed = int.Parse(clone[0][0]);
+
                             _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
 
                         }
@@ -3160,6 +3179,31 @@ namespace BarcodeVerificationSystem.View
                 return (totalCode - 1) / maxDatabaseLine;
             }
         }
+        public static List<string[]> ReadPrintedCodeData(string fullFilePath, char delimiter = ',')
+        {
+            var result = new List<string[]>();
+
+            if (string.IsNullOrWhiteSpace(fullFilePath) || !File.Exists(fullFilePath))
+                return result;
+
+            try
+            {
+                foreach (var line in File.ReadLines(fullFilePath))
+                {
+                    if (!string.IsNullOrWhiteSpace(line))
+                    {
+                        var values = line.Split(delimiter);
+                        result.Add(values);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading file at {fullFilePath}: {ex.Message}");
+            }
+
+            return result;
+        }
 
         private async void InitDataAsync(JobModel jobModel)
         {
@@ -3169,6 +3213,20 @@ namespace BarcodeVerificationSystem.View
 
             if (jobModel.CompareType == CompareType.Database)
             {
+                #region Sent Printed Data
+                string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
+                _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
+
+                int SaaSSuccessCount = SaaSSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 3 && item[3].Equals("success", StringComparison.OrdinalIgnoreCase));
+                int SaaSFailedCount = SaaSFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 3 && item[3].Equals("failed", StringComparison.OrdinalIgnoreCase));
+
+                int SAPSuccessCount = SAPSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 3 && item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
+                int SAPFailedCount = SAPFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 3 && item[4].Equals("failed", StringComparison.OrdinalIgnoreCase));
+
+                int BothSuccessCount = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 3 && item[3].Equals("success", StringComparison.OrdinalIgnoreCase) 
+                                        && item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
+                #endregion
+
                 Task<List<string[]>> databaseTsk = InitDatabaseAndPrintedStatusAsync(jobModel); //Load database and update printed status
                 Task<List<string[]>> checkedResultTsk = InitCheckedResultDataAsync(jobModel); //Load checked result
                 await Task.WhenAll(databaseTsk, checkedResultTsk); // Waiting until database and checked result completed load

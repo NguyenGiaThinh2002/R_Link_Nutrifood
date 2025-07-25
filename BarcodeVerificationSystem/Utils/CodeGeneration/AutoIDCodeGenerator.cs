@@ -31,9 +31,6 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
                 autoIdPerMonth = new Dictionary<string, int>();
         }
 
-
-     
-
         /// <summary>
         /// Auto gen code tracking by autoid , with line Number (1-n)
         /// Test :  1000000 / 283 ms
@@ -43,7 +40,7 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="Exception"></exception>
-        public static List<string> GenerateCodesWithAutoID(int quantity=1)
+        public static List<string> GenerateCodesWithAutoID(int quantity)
         {
          
            LoadAutoIdState(); // Load old key when start new sesion gen
@@ -54,13 +51,6 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
             quantity = (int)((quantity * surplusPercentage) / 100) + quantity;
 
             int lineNo = Shared.Settings.LineIndex;
-
-            //string valueMode = "ManufacturingCurrentValue";
-            //int totalLines = Shared.Settings.TotalLines;
-            //int startValue = RegistryHelper.ReadValue(valueMode) == null ? 0 : int.Parse(RegistryHelper.ReadValue(valueMode));
-
-
-            //  Stopwatch sw = Stopwatch.StartNew();
 
             // 1. Get the current + month code
             string currentYear = DateCodeHelper.GetCurrentYearTwoDigits();
@@ -98,8 +88,6 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
             autoIdPerMonth[key] = currentAutoId + quantity;
 
             SaveAutoIdState(); // Save latest key
-            //sw.Stop();
-            //Console.WriteLine($"✅ Đã sinh {quantity} mã trong {sw.ElapsedMilliseconds} ms");
 
             return codes;
         }

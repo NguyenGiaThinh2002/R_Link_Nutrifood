@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusCamera01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusPrinter01 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,6 +55,17 @@
             this.btnStop = new DesignUI.CuzUI.CuzButton();
             this.btnStart = new DesignUI.CuzUI.CuzButton();
             this.pnlJobInformation = new DesignUI.CuzUI.RoundPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.SAPFailedCodes = new DesignUI.CuzUI.CuzTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SAPSuccessCodes = new DesignUI.CuzUI.CuzTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.SaaSFailedCodes = new DesignUI.CuzUI.CuzTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numberOfCodes = new System.Windows.Forms.Label();
+            this.SaaSSuccessCodes = new DesignUI.CuzUI.CuzTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.syncSentCodes = new DesignUI.CuzUI.CuzTextBox();
             this.itemsPerHour = new System.Windows.Forms.Label();
             this.labelModeCheck = new System.Windows.Forms.Label();
             this.txtJobType = new DesignUI.CuzUI.CuzTextBox();
@@ -81,6 +92,8 @@
             this.pnlPicture = new DesignUI.CuzUI.CuzPanel();
             this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.pnlCurrentCheck = new DesignUI.CuzUI.RoundPanel();
+            this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
+            this.btnRefeshDatabase = new DesignUI.CuzUI.CuzButton();
             this.confirmCompletion = new DesignUI.CuzUI.CuzButton();
             this.GetSample = new System.Windows.Forms.Label();
             this.txtBarcodeQuality = new DesignUI.CuzUI.CuzTextBox();
@@ -150,15 +163,12 @@
             this.mnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.mnLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.syncCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.numberOfCodes = new System.Windows.Forms.Label();
-            this.btnRefeshDatabase = new DesignUI.CuzUI.CuzButton();
-            this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlControllButton.SuspendLayout();
             this.tableLayoutControl.SuspendLayout();
             this.pnlJobInformation.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.tableLayoutPanelGetSample.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             this.tableLayoutPanelMain.SuspendLayout();
@@ -431,8 +441,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlJobInformation.BackColor = System.Drawing.Color.White;
-            this.pnlJobInformation.Controls.Add(this.syncCodes);
-            this.pnlJobInformation.Controls.Add(this.numberOfCodes);
+            this.pnlJobInformation.Controls.Add(this.panel3);
             this.pnlJobInformation.Controls.Add(this.itemsPerHour);
             this.pnlJobInformation.Controls.Add(this.labelModeCheck);
             this.pnlJobInformation.Controls.Add(this.txtJobType);
@@ -463,12 +472,239 @@
             this.pnlJobInformation.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlJobInformation.TitleHeight = 30;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.SAPFailedCodes);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.SAPSuccessCodes);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.SaaSFailedCodes);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.numberOfCodes);
+            this.panel3.Controls.Add(this.SaaSSuccessCodes);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.syncSentCodes);
+            this.panel3.Location = new System.Drawing.Point(14, 46);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(261, 578);
+            this.panel3.TabIndex = 143;
+            // 
+            // SAPFailedCodes
+            // 
+            this.SAPFailedCodes._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.SAPFailedCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.SAPFailedCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SAPFailedCodes.AutoSize = true;
+            this.SAPFailedCodes.BackColor = System.Drawing.Color.White;
+            this.SAPFailedCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.SAPFailedCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.SAPFailedCodes.BorderRadius = 8;
+            this.SAPFailedCodes.BorderSize = 1;
+            this.SAPFailedCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SAPFailedCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SAPFailedCodes.Location = new System.Drawing.Point(7, 403);
+            this.SAPFailedCodes.Margin = new System.Windows.Forms.Padding(4);
+            this.SAPFailedCodes.Multiline = false;
+            this.SAPFailedCodes.Name = "SAPFailedCodes";
+            this.SAPFailedCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.SAPFailedCodes.PasswordChar = false;
+            this.SAPFailedCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.SAPFailedCodes.PlaceholderText = "";
+            this.SAPFailedCodes.ReadOnly = true;
+            this.SAPFailedCodes.Size = new System.Drawing.Size(241, 35);
+            this.SAPFailedCodes.TabIndex = 148;
+            this.SAPFailedCodes.TabStop = false;
+            this.SAPFailedCodes.UnderlinedStyle = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoEllipsis = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label4.Location = new System.Drawing.Point(13, 368);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(242, 20);
+            this.label4.TabIndex = 147;
+            this.label4.Text = "Sent SAP Failed";
+            // 
+            // SAPSuccessCodes
+            // 
+            this.SAPSuccessCodes._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.SAPSuccessCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.SAPSuccessCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SAPSuccessCodes.AutoSize = true;
+            this.SAPSuccessCodes.BackColor = System.Drawing.Color.White;
+            this.SAPSuccessCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.SAPSuccessCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.SAPSuccessCodes.BorderRadius = 8;
+            this.SAPSuccessCodes.BorderSize = 1;
+            this.SAPSuccessCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SAPSuccessCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SAPSuccessCodes.Location = new System.Drawing.Point(10, 308);
+            this.SAPSuccessCodes.Margin = new System.Windows.Forms.Padding(4);
+            this.SAPSuccessCodes.Multiline = false;
+            this.SAPSuccessCodes.Name = "SAPSuccessCodes";
+            this.SAPSuccessCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.SAPSuccessCodes.PasswordChar = false;
+            this.SAPSuccessCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.SAPSuccessCodes.PlaceholderText = "";
+            this.SAPSuccessCodes.ReadOnly = true;
+            this.SAPSuccessCodes.Size = new System.Drawing.Size(241, 35);
+            this.SAPSuccessCodes.TabIndex = 146;
+            this.SAPSuccessCodes.TabStop = false;
+            this.SAPSuccessCodes.UnderlinedStyle = false;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoEllipsis = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label3.Location = new System.Drawing.Point(9, 284);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(242, 20);
+            this.label3.TabIndex = 145;
+            this.label3.Text = "Sent SAP Successful";
+            // 
+            // SaaSFailedCodes
+            // 
+            this.SaaSFailedCodes._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.SaaSFailedCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.SaaSFailedCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaaSFailedCodes.AutoSize = true;
+            this.SaaSFailedCodes.BackColor = System.Drawing.Color.White;
+            this.SaaSFailedCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.SaaSFailedCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.SaaSFailedCodes.BorderRadius = 8;
+            this.SaaSFailedCodes.BorderSize = 1;
+            this.SaaSFailedCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaaSFailedCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SaaSFailedCodes.Location = new System.Drawing.Point(10, 221);
+            this.SaaSFailedCodes.Margin = new System.Windows.Forms.Padding(4);
+            this.SaaSFailedCodes.Multiline = false;
+            this.SaaSFailedCodes.Name = "SaaSFailedCodes";
+            this.SaaSFailedCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.SaaSFailedCodes.PasswordChar = false;
+            this.SaaSFailedCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.SaaSFailedCodes.PlaceholderText = "";
+            this.SaaSFailedCodes.ReadOnly = true;
+            this.SaaSFailedCodes.Size = new System.Drawing.Size(241, 35);
+            this.SaaSFailedCodes.TabIndex = 144;
+            this.SaaSFailedCodes.TabStop = false;
+            this.SaaSFailedCodes.UnderlinedStyle = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoEllipsis = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label2.Location = new System.Drawing.Point(9, 197);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(242, 20);
+            this.label2.TabIndex = 143;
+            this.label2.Text = "Sent SaaS Failed";
+            // 
+            // numberOfCodes
+            // 
+            this.numberOfCodes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numberOfCodes.AutoEllipsis = true;
+            this.numberOfCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfCodes.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.numberOfCodes.Location = new System.Drawing.Point(7, 9);
+            this.numberOfCodes.Name = "numberOfCodes";
+            this.numberOfCodes.Size = new System.Drawing.Size(207, 20);
+            this.numberOfCodes.TabIndex = 140;
+            this.numberOfCodes.Text = "Number Of Sent Codes";
+            // 
+            // SaaSSuccessCodes
+            // 
+            this.SaaSSuccessCodes._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.SaaSSuccessCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.SaaSSuccessCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaaSSuccessCodes.AutoSize = true;
+            this.SaaSSuccessCodes.BackColor = System.Drawing.Color.White;
+            this.SaaSSuccessCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.SaaSSuccessCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.SaaSSuccessCodes.BorderRadius = 8;
+            this.SaaSSuccessCodes.BorderSize = 1;
+            this.SaaSSuccessCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaaSSuccessCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SaaSSuccessCodes.Location = new System.Drawing.Point(11, 123);
+            this.SaaSSuccessCodes.Margin = new System.Windows.Forms.Padding(4);
+            this.SaaSSuccessCodes.Multiline = false;
+            this.SaaSSuccessCodes.Name = "SaaSSuccessCodes";
+            this.SaaSSuccessCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.SaaSSuccessCodes.PasswordChar = false;
+            this.SaaSSuccessCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.SaaSSuccessCodes.PlaceholderText = "";
+            this.SaaSSuccessCodes.ReadOnly = true;
+            this.SaaSSuccessCodes.Size = new System.Drawing.Size(241, 35);
+            this.SaaSSuccessCodes.TabIndex = 141;
+            this.SaaSSuccessCodes.TabStop = false;
+            this.SaaSSuccessCodes.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoEllipsis = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Location = new System.Drawing.Point(9, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(242, 20);
+            this.label1.TabIndex = 142;
+            this.label1.Text = "Sent SaaS Successful";
+            // 
+            // syncSentCodes
+            // 
+            this.syncSentCodes._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.syncSentCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.syncSentCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.syncSentCodes.AutoSize = true;
+            this.syncSentCodes.BackColor = System.Drawing.Color.White;
+            this.syncSentCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.syncSentCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.syncSentCodes.BorderRadius = 8;
+            this.syncSentCodes.BorderSize = 1;
+            this.syncSentCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.syncSentCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.syncSentCodes.Location = new System.Drawing.Point(11, 46);
+            this.syncSentCodes.Margin = new System.Windows.Forms.Padding(4);
+            this.syncSentCodes.Multiline = false;
+            this.syncSentCodes.Name = "syncSentCodes";
+            this.syncSentCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.syncSentCodes.PasswordChar = false;
+            this.syncSentCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.syncSentCodes.PlaceholderText = "";
+            this.syncSentCodes.ReadOnly = true;
+            this.syncSentCodes.Size = new System.Drawing.Size(237, 35);
+            this.syncSentCodes.TabIndex = 139;
+            this.syncSentCodes.TabStop = false;
+            this.syncSentCodes.UnderlinedStyle = false;
+            // 
             // itemsPerHour
             // 
             this.itemsPerHour.AutoSize = true;
             this.itemsPerHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemsPerHour.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.itemsPerHour.Location = new System.Drawing.Point(29, 683);
+            this.itemsPerHour.Location = new System.Drawing.Point(137, 709);
             this.itemsPerHour.Name = "itemsPerHour";
             this.itemsPerHour.Size = new System.Drawing.Size(149, 25);
             this.itemsPerHour.TabIndex = 135;
@@ -936,6 +1172,62 @@
             this.pnlCurrentCheck.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlCurrentCheck.TitleHeight = 30;
             // 
+            // cuzButton1
+            // 
+            this.cuzButton1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton1._BorderRadius = 10;
+            this.cuzButton1._BorderSize = 1;
+            this.cuzButton1._GradientsButton = false;
+            this.cuzButton1._Text = "Sync Data";
+            this.cuzButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cuzButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton1.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cuzButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.cuzButton1.FlatAppearance.BorderSize = 0;
+            this.cuzButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cuzButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuzButton1.ForeColor = System.Drawing.Color.White;
+            this.cuzButton1.Image = ((System.Drawing.Image)(resources.GetObject("cuzButton1.Image")));
+            this.cuzButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cuzButton1.Location = new System.Drawing.Point(15, 122);
+            this.cuzButton1.Name = "cuzButton1";
+            this.cuzButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.cuzButton1.Size = new System.Drawing.Size(152, 57);
+            this.cuzButton1.TabIndex = 138;
+            this.cuzButton1.Text = "Sync Data";
+            this.cuzButton1.TextColor = System.Drawing.Color.White;
+            this.cuzButton1.UseVisualStyleBackColor = false;
+            this.cuzButton1.Visible = false;
+            // 
+            // btnRefeshDatabase
+            // 
+            this.btnRefeshDatabase._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.btnRefeshDatabase._BorderRadius = 10;
+            this.btnRefeshDatabase._BorderSize = 1;
+            this.btnRefeshDatabase._GradientsButton = false;
+            this.btnRefeshDatabase._Text = "RePrint";
+            this.btnRefeshDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefeshDatabase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.btnRefeshDatabase.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.btnRefeshDatabase.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnRefeshDatabase.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.btnRefeshDatabase.FlatAppearance.BorderSize = 0;
+            this.btnRefeshDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefeshDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefeshDatabase.ForeColor = System.Drawing.Color.White;
+            this.btnRefeshDatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnRefeshDatabase.Image")));
+            this.btnRefeshDatabase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefeshDatabase.Location = new System.Drawing.Point(185, 122);
+            this.btnRefeshDatabase.Name = "btnRefeshDatabase";
+            this.btnRefeshDatabase.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnRefeshDatabase.Size = new System.Drawing.Size(187, 57);
+            this.btnRefeshDatabase.TabIndex = 137;
+            this.btnRefeshDatabase.Text = "RePrint";
+            this.btnRefeshDatabase.TextColor = System.Drawing.Color.White;
+            this.btnRefeshDatabase.UseVisualStyleBackColor = false;
+            this.btnRefeshDatabase.Visible = false;
+            // 
             // confirmCompletion
             // 
             this.confirmCompletion._BorderColor = System.Drawing.Color.Silver;
@@ -1389,10 +1681,10 @@
             // 
             this.dgvDatabase.AllowUserToAddRows = false;
             this.dgvDatabase.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle61.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle61.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle61;
             this.dgvDatabase.AlterRowBackColor = System.Drawing.Color.White;
             this.dgvDatabase.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1408,24 +1700,24 @@
             this.dgvDatabase.ColumnHeaderHeight = 4;
             this.dgvDatabase.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.dgvDatabase.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatabase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle62.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatabase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle62;
             this.dgvDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDatabase.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDatabase.DefaultCellStyle = dataGridViewCellStyle63;
             this.dgvDatabase.EnableHeadersVisualStyles = false;
             this.dgvDatabase.GridLineColor = System.Drawing.Color.LightBlue;
             this.dgvDatabase.HeaderBorder = true;
@@ -1440,22 +1732,22 @@
             this.dgvDatabase.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dgvDatabase.RowForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvDatabase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatabase.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatabase.RowHeadersDefaultCellStyle = dataGridViewCellStyle64;
             this.dgvDatabase.RowHeadersVisible = false;
             this.dgvDatabase.RowHeight = 35;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle65.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.RowsDefaultCellStyle = dataGridViewCellStyle65;
             this.dgvDatabase.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dgvDatabase.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvDatabase.RowTemplate.Height = 35;
@@ -1569,10 +1861,10 @@
             // 
             this.dgvCheckedResult.AllowUserToAddRows = false;
             this.dgvCheckedResult.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvCheckedResult.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle66.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle66.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvCheckedResult.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle66;
             this.dgvCheckedResult.AlterRowBackColor = System.Drawing.Color.White;
             this.dgvCheckedResult.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvCheckedResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1588,24 +1880,24 @@
             this.dgvCheckedResult.ColumnHeaderHeight = 4;
             this.dgvCheckedResult.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.dgvCheckedResult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckedResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle67.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle67.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckedResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
             this.dgvCheckedResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCheckedResult.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCheckedResult.DefaultCellStyle = dataGridViewCellStyle68;
             this.dgvCheckedResult.EnableHeadersVisualStyles = false;
             this.dgvCheckedResult.GridLineColor = System.Drawing.Color.LightBlue;
             this.dgvCheckedResult.HeaderBorder = true;
@@ -1620,22 +1912,22 @@
             this.dgvCheckedResult.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dgvCheckedResult.RowForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvCheckedResult.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckedResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle69.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle69.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckedResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle69;
             this.dgvCheckedResult.RowHeadersVisible = false;
             this.dgvCheckedResult.RowHeight = 35;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvCheckedResult.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle70.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle70.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvCheckedResult.RowsDefaultCellStyle = dataGridViewCellStyle70;
             this.dgvCheckedResult.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dgvCheckedResult.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvCheckedResult.RowTemplate.Height = 35;
@@ -2248,106 +2540,6 @@
             this.mnLogOut.Size = new System.Drawing.Size(168, 22);
             this.mnLogOut.Text = "Log out";
             // 
-            // syncCodes
-            // 
-            this.syncCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.syncCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.syncCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.syncCodes.AutoSize = true;
-            this.syncCodes.BackColor = System.Drawing.Color.White;
-            this.syncCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.syncCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.syncCodes.BorderRadius = 8;
-            this.syncCodes.BorderSize = 1;
-            this.syncCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.syncCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.syncCodes.Location = new System.Drawing.Point(14, 537);
-            this.syncCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.syncCodes.Multiline = false;
-            this.syncCodes.Name = "syncCodes";
-            this.syncCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.syncCodes.PasswordChar = false;
-            this.syncCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.syncCodes.PlaceholderText = "";
-            this.syncCodes.ReadOnly = true;
-            this.syncCodes.Size = new System.Drawing.Size(261, 35);
-            this.syncCodes.TabIndex = 139;
-            this.syncCodes.TabStop = false;
-            this.syncCodes.UnderlinedStyle = false;
-            this.syncCodes.Visible = false;
-            // 
-            // numberOfCodes
-            // 
-            this.numberOfCodes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numberOfCodes.AutoEllipsis = true;
-            this.numberOfCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfCodes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.numberOfCodes.Location = new System.Drawing.Point(13, 513);
-            this.numberOfCodes.Name = "numberOfCodes";
-            this.numberOfCodes.Size = new System.Drawing.Size(262, 20);
-            this.numberOfCodes.TabIndex = 140;
-            this.numberOfCodes.Text = "Number of Sync Code";
-            this.numberOfCodes.Visible = false;
-            // 
-            // btnRefeshDatabase
-            // 
-            this.btnRefeshDatabase._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.btnRefeshDatabase._BorderRadius = 10;
-            this.btnRefeshDatabase._BorderSize = 1;
-            this.btnRefeshDatabase._GradientsButton = false;
-            this.btnRefeshDatabase._Text = "RePrint";
-            this.btnRefeshDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefeshDatabase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.btnRefeshDatabase.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.btnRefeshDatabase.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnRefeshDatabase.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.btnRefeshDatabase.FlatAppearance.BorderSize = 0;
-            this.btnRefeshDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefeshDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefeshDatabase.ForeColor = System.Drawing.Color.White;
-            this.btnRefeshDatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnRefeshDatabase.Image")));
-            this.btnRefeshDatabase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefeshDatabase.Location = new System.Drawing.Point(185, 122);
-            this.btnRefeshDatabase.Name = "btnRefeshDatabase";
-            this.btnRefeshDatabase.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnRefeshDatabase.Size = new System.Drawing.Size(187, 57);
-            this.btnRefeshDatabase.TabIndex = 137;
-            this.btnRefeshDatabase.Text = "RePrint";
-            this.btnRefeshDatabase.TextColor = System.Drawing.Color.White;
-            this.btnRefeshDatabase.UseVisualStyleBackColor = false;
-            this.btnRefeshDatabase.Visible = false;
-            // 
-            // cuzButton1
-            // 
-            this.cuzButton1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton1._BorderRadius = 10;
-            this.cuzButton1._BorderSize = 1;
-            this.cuzButton1._GradientsButton = false;
-            this.cuzButton1._Text = "Sync Data";
-            this.cuzButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuzButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton1.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cuzButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.cuzButton1.FlatAppearance.BorderSize = 0;
-            this.cuzButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cuzButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuzButton1.ForeColor = System.Drawing.Color.White;
-            this.cuzButton1.Image = ((System.Drawing.Image)(resources.GetObject("cuzButton1.Image")));
-            this.cuzButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cuzButton1.Location = new System.Drawing.Point(15, 122);
-            this.cuzButton1.Name = "cuzButton1";
-            this.cuzButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.cuzButton1.Size = new System.Drawing.Size(152, 57);
-            this.cuzButton1.TabIndex = 138;
-            this.cuzButton1.Text = "Sync Data";
-            this.cuzButton1.TextColor = System.Drawing.Color.White;
-            this.cuzButton1.UseVisualStyleBackColor = false;
-            this.cuzButton1.Visible = false;
-            // 
             // FrmMain
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
@@ -2372,6 +2564,8 @@
             this.tableLayoutControl.ResumeLayout(false);
             this.pnlJobInformation.ResumeLayout(false);
             this.pnlJobInformation.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.tableLayoutPanelGetSample.ResumeLayout(false);
             this.pnlContainer.ResumeLayout(false);
             this.tableLayoutPanelMain.ResumeLayout(false);
@@ -2530,8 +2724,17 @@
         private System.Windows.Forms.Label itemsPerHour;
         private DesignUI.CuzUI.CuzButton confirmCompletion;
         private System.Windows.Forms.Label numberOfCodes;
-        private DesignUI.CuzUI.CuzTextBox syncCodes;
+        private DesignUI.CuzUI.CuzTextBox syncSentCodes;
         private DesignUI.CuzUI.CuzButton btnRefeshDatabase;
         private DesignUI.CuzUI.CuzButton cuzButton1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private DesignUI.CuzUI.CuzTextBox SAPSuccessCodes;
+        private System.Windows.Forms.Label label3;
+        private DesignUI.CuzUI.CuzTextBox SaaSFailedCodes;
+        private System.Windows.Forms.Label label2;
+        private DesignUI.CuzUI.CuzTextBox SaaSSuccessCodes;
+        private DesignUI.CuzUI.CuzTextBox SAPFailedCodes;
     }
 }
