@@ -50,7 +50,7 @@ namespace BarcodeVerificationSystem.Model.UserPermission
         {
             Permissions = new Dictionary<string, bool>
             {
-                { _settings, false },
+                { _settings, true },
                 { _controls, true },
                 { _exports, false },
                 { _accounts, false },

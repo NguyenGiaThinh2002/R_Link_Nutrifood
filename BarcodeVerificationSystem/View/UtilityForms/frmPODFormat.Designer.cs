@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPODFormat));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlDrag = new System.Windows.Forms.Panel();
             this.cuzControlBox1 = new DesignUI.CuzUI.CuzControlBox();
@@ -39,6 +39,7 @@
             this.cuzDragControl1 = new DesignUI.CuzUI.CuzDragControl();
             this.cuzDropShadow1 = new DesignUI.CuzUI.CuzDropShadow();
             this.pnlDisplay = new System.Windows.Forms.Panel();
+            this.dgvSampleData = new DesignUI.CuzUI.CuzDataGridView();
             this.txtSample = new System.Windows.Forms.TextBox();
             this.lblSample = new System.Windows.Forms.Label();
             this.lblPreview = new System.Windows.Forms.Label();
@@ -63,9 +64,10 @@
             this.btnPreviewComparison = new DesignUI.CuzUI.CuzButton();
             this.btnSave = new DesignUI.CuzUI.CuzButton();
             this.tblPanelMain = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvSampleData = new DesignUI.CuzUI.CuzDataGridView();
+            this.numberOfCodes = new System.Windows.Forms.Label();
             this.pnlDrag.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSampleData)).BeginInit();
             this.pnlPOD.SuspendLayout();
             this.tblPanelPOD.SuspendLayout();
             this.pnlPODList.SuspendLayout();
@@ -73,7 +75,6 @@
             this.pnlPODFormat.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tblPanelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSampleData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -137,6 +138,7 @@
             // 
             // pnlDisplay
             // 
+            this.pnlDisplay.Controls.Add(this.numberOfCodes);
             this.pnlDisplay.Controls.Add(this.dgvSampleData);
             this.pnlDisplay.Controls.Add(this.txtSample);
             this.pnlDisplay.Controls.Add(this.lblSample);
@@ -148,6 +150,68 @@
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(998, 311);
             this.pnlDisplay.TabIndex = 3;
+            // 
+            // dgvSampleData
+            // 
+            this.dgvSampleData.AllowUserToAddRows = false;
+            this.dgvSampleData.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvSampleData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvSampleData.AlterRowBackColor = System.Drawing.Color.White;
+            this.dgvSampleData.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvSampleData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSampleData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSampleData.BackgroundColor = System.Drawing.Color.White;
+            this.dgvSampleData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSampleData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvSampleData.ColumnHeaderBackColor = System.Drawing.Color.White;
+            this.dgvSampleData.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dgvSampleData.ColumnHeaderForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvSampleData.ColumnHeaderHeight = 4;
+            this.dgvSampleData.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.dgvSampleData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSampleData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvSampleData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSampleData.EnableHeadersVisualStyles = false;
+            this.dgvSampleData.GridLineColor = System.Drawing.Color.LightBlue;
+            this.dgvSampleData.HeaderBorder = true;
+            this.dgvSampleData.HeaderBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
+            this.dgvSampleData.Location = new System.Drawing.Point(13, 117);
+            this.dgvSampleData.MultiSelect = false;
+            this.dgvSampleData.Name = "dgvSampleData";
+            this.dgvSampleData.ReadOnly = true;
+            this.dgvSampleData.RowBackColor = System.Drawing.Color.White;
+            this.dgvSampleData.RowBorder = true;
+            this.dgvSampleData.RowBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
+            this.dgvSampleData.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dgvSampleData.RowForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvSampleData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvSampleData.RowHeadersVisible = false;
+            this.dgvSampleData.RowHeight = 35;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvSampleData.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvSampleData.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dgvSampleData.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvSampleData.RowTemplate.Height = 35;
+            this.dgvSampleData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSampleData.Size = new System.Drawing.Size(976, 191);
+            this.dgvSampleData.TabIndex = 112;
             // 
             // txtSample
             // 
@@ -547,69 +611,20 @@
             this.tblPanelMain.Size = new System.Drawing.Size(1004, 565);
             this.tblPanelMain.TabIndex = 0;
             // 
-            // dgvSampleData
+            // numberOfCodes
             // 
-            this.dgvSampleData.AllowUserToAddRows = false;
-            this.dgvSampleData.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvSampleData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSampleData.AlterRowBackColor = System.Drawing.Color.White;
-            this.dgvSampleData.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvSampleData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSampleData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSampleData.BackgroundColor = System.Drawing.Color.White;
-            this.dgvSampleData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvSampleData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvSampleData.ColumnHeaderBackColor = System.Drawing.Color.White;
-            this.dgvSampleData.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dgvSampleData.ColumnHeaderForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvSampleData.ColumnHeaderHeight = 4;
-            this.dgvSampleData.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.dgvSampleData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSampleData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSampleData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSampleData.EnableHeadersVisualStyles = false;
-            this.dgvSampleData.GridLineColor = System.Drawing.Color.LightBlue;
-            this.dgvSampleData.HeaderBorder = true;
-            this.dgvSampleData.HeaderBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
-            this.dgvSampleData.Location = new System.Drawing.Point(13, 117);
-            this.dgvSampleData.MultiSelect = false;
-            this.dgvSampleData.Name = "dgvSampleData";
-            this.dgvSampleData.ReadOnly = true;
-            this.dgvSampleData.RowBackColor = System.Drawing.Color.White;
-            this.dgvSampleData.RowBorder = true;
-            this.dgvSampleData.RowBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
-            this.dgvSampleData.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dgvSampleData.RowForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvSampleData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvSampleData.RowHeadersVisible = false;
-            this.dgvSampleData.RowHeight = 35;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvSampleData.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvSampleData.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dgvSampleData.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvSampleData.RowTemplate.Height = 35;
-            this.dgvSampleData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSampleData.Size = new System.Drawing.Size(976, 191);
-            this.dgvSampleData.TabIndex = 112;
+            this.numberOfCodes.AutoSize = true;
+            this.numberOfCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.numberOfCodes.ForeColor = System.Drawing.Color.DarkOrange;
+            this.numberOfCodes.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.numberOfCodes.Location = new System.Drawing.Point(770, 87);
+            this.numberOfCodes.Name = "numberOfCodes";
+            this.numberOfCodes.Size = new System.Drawing.Size(136, 20);
+            this.numberOfCodes.TabIndex = 134;
+            this.numberOfCodes.Text = "Number Of Codes";
+            this.numberOfCodes.Visible = false;
             // 
-            // frmPODFormat
+            // FrmPODFormat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -622,7 +637,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmPODFormat";
+            this.Name = "FrmPODFormat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POD Format";
             this.Load += new System.EventHandler(this.FrmPODFormat_Load);
@@ -630,6 +645,7 @@
             this.pnlDrag.PerformLayout();
             this.pnlDisplay.ResumeLayout(false);
             this.pnlDisplay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSampleData)).EndInit();
             this.pnlPOD.ResumeLayout(false);
             this.tblPanelPOD.ResumeLayout(false);
             this.pnlPODList.ResumeLayout(false);
@@ -639,7 +655,6 @@
             this.pnlPODFormat.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tblPanelMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSampleData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -677,5 +692,6 @@
         private DesignUI.CuzUI.CuzButton btnSave;
         private DesignUI.CuzUI.CuzButton btnPreviewDatabase;
         private DesignUI.CuzUI.CuzDataGridView dgvSampleData;
+        private System.Windows.Forms.Label numberOfCodes;
     }
 }

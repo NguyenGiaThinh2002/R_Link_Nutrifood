@@ -10,6 +10,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Force.DeepCloner;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
+using UILanguage;
 
 
 namespace BarcodeVerificationSystem.View.SubForms
@@ -38,7 +39,8 @@ namespace BarcodeVerificationSystem.View.SubForms
         public frmGetDispatchingDataOffline(FrmJob frmJob)
         {
             _frmJob = frmJob;
-            if(Shared.Settings.DispatchingOrderPayload != null)
+            Shared.Settings.DispatchingOrderPayload = null;
+            if (Shared.Settings.DispatchingOrderPayload != null)
             {
                 //_orderPayload = Shared.Settings.OrderPayload;
                 _orderPayload = Shared.Settings.DispatchingOrderPayload.DeepClone();
@@ -50,6 +52,7 @@ namespace BarcodeVerificationSystem.View.SubForms
             InitEvents();
             SetupDataGridView();
             InitControl();
+            InitLanguage();
 
             CreateScrollablePanel payloadScrollablePanel = new CreateScrollablePanel();
             Panel payloadScrollPanel = payloadScrollablePanel.CreatePanel(33, 273, 803, 263, this.Controls);
@@ -62,8 +65,17 @@ namespace BarcodeVerificationSystem.View.SubForms
             {
                 payloadScrollablePanel.CreateTextBoxes(_orderPayload.payload, "payload", payloadScrollPanel);
             }
-
+            //payloadScrollablePanel.CreateTextBoxes(_orderPayload.payload, "payload", payloadScrollPanel);
             //payloadScrollablePanel.CreateTextBoxes(_orderPayload.payload, _orderPayload.payload.GetType().GetProperties().Count() - 1, payloadScrollPanel);
+        }
+
+        private void InitLanguage()
+        {
+            btnGenerate.Text = Lang.GenerateCodes;
+            addMaterial.Text = Lang.AddMaterial;
+            btnEdit.Text = Lang.Edit;
+            deleteButton.Text = Lang.Delete; 
+            Close.Text = Lang.Close;
         }
 
         private void SetupDataGridView()
@@ -95,7 +107,11 @@ namespace BarcodeVerificationSystem.View.SubForms
             try
             {
                 //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
-                _orderPayload = Shared.Settings.DispatchingOrderPayload.DeepClone();
+                if(Shared.Settings.DispatchingOrderPayload != null)
+                {
+                    _orderPayload = Shared.Settings.DispatchingOrderPayload.DeepClone();
+
+                }
                 var items = Shared.Settings.DispatchingOrderPayload.payload.item;
                 dgvItems.Rows.Clear(); // Clear existing rows before adding new ones
 
@@ -127,7 +143,7 @@ namespace BarcodeVerificationSystem.View.SubForms
 
         private void InitEvents()
         {
-            btnAction.Click += btnGenerateCodes_Click;
+            btnGenerate.Click += btnGenerateCodes_Click;
             addMaterial.Click += AddMaterial_Click;
             deleteButton.Click += DeleteButton_Click;
             btnEdit.Click += BtnEdit_Click;
@@ -149,22 +165,22 @@ namespace BarcodeVerificationSystem.View.SubForms
         {
             dgvItems.Visible = true;
             addMaterial.Visible = true;
-            btnEdit.Text = "Edit";
-            deleteButton.Text = "Delete";
+            btnEdit.Text = Lang.Edit;
+            deleteButton.Text = Lang.Delete;
         }
 
         private void SetAllNameEditing()
         {
             dgvItems.Visible = false;
-            btnEdit.Text = "Save";
-            deleteButton.Text = "Cancel";
+            btnEdit.Text = Lang.Save;
+            deleteButton.Text = Lang.Cancel;
             addMaterial.Visible = false;
         }
 
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if(btnEdit.Text == "Edit")
+            if(btnEdit.Text == Lang.Edit)
             {
                 SetAllNameEditing();
 
@@ -175,7 +191,7 @@ namespace BarcodeVerificationSystem.View.SubForms
                 _panel = itemScrollablePanel.CreatePanel(33, 94, 660, 169, this.Controls);
                 itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.item[_lineIndex], "", _panel);
             }
-            else if(btnEdit.Text == "Save")
+            else if(btnEdit.Text == Lang.Save)
             {
                 SetAllNamesDefault();
                 Shared.Settings.DispatchingOrderPayload = _orderPayload;
@@ -186,7 +202,7 @@ namespace BarcodeVerificationSystem.View.SubForms
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if(deleteButton.Text == "Delete")
+            if(deleteButton.Text == Lang.Delete)
             {
                 int lineIndex = dgvItems.SelectedRows[0].Index;
                 if (lineIndex >= 0 && lineIndex < _orderPayload.payload.item.Count)
@@ -198,7 +214,7 @@ namespace BarcodeVerificationSystem.View.SubForms
                 Shared.Settings.DispatchingOrderPayload = _orderPayload;
                 Shared.SaveSettings();
             }
-            else if(deleteButton.Text == "Cancel")
+            else if(deleteButton.Text == Lang.Cancel)
             {
                 SetAllNamesDefault();
             }
@@ -218,7 +234,7 @@ namespace BarcodeVerificationSystem.View.SubForms
 
         private void AddMaterial_Click(object sender, EventArgs e)
         {
-            if(addMaterial.Text == "Add Material")
+            if(addMaterial.Text == Lang.AddMaterial)
             {
                 SetAllNameEditing();
 
@@ -267,12 +283,12 @@ namespace BarcodeVerificationSystem.View.SubForms
             string numberOfCodes = selectedRow.Cells["total_qty_ctn"].Value.ToString();
 
             DialogResult result = CustomMessageBox.Show(
-                $"Are you sure you want to generate dispatching codes for:" +
+                Lang.AreYouSureGenerateDispatchingCodes +
                 $"\nWMS Number: {wms_number}" +
                 $"\nNumber Of Codes: {numberOfCodes}" +
                 $"\nMaterial Number: {materialNumber}" +
                 $"\nMaterial Name: {materialName}",
-                "Confirm Action",
+                Lang.Confirm,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -306,6 +322,11 @@ namespace BarcodeVerificationSystem.View.SubForms
 
 
 
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

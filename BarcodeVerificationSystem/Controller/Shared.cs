@@ -43,6 +43,7 @@ namespace BarcodeVerificationSystem.Controller
         public static List<HardwareIDModel> listPCAllow = new List<HardwareIDModel>();
         public static string JobNameSelected = "";
         public static string databasePath = "";
+        public static int numberOfCodesGenerate = 0;
 
         #endregion Variables
 

@@ -296,9 +296,13 @@ namespace BarcodeVerificationSystem.View
 
                     tableLayoutPanel1.RowCount = 2;
                     tableLayoutPanel1.ColumnCount = 1;
+
                     tableLayoutPanel1.RowStyles[0].Height = _SelectedJob.CompareType == CompareType.Database ?
                          tableLayoutPanel1.Width * 50 / 100 : 0;
                     tableLayoutPanel1.RowStyles[1].Height = tableLayoutPanel1.Width * 50 / 100;
+
+ 
+
                     if (_SelectedJob.CompareType != CompareType.Database)
                     {
                         tableLayoutPanel1.Controls.Remove(pnlDatabase);
@@ -308,6 +312,15 @@ namespace BarcodeVerificationSystem.View
                         tableLayoutPanel1.Controls.Add(pnlDatabase, 0, 0);
                     }
                     tableLayoutPanel1.Controls.Add(pnlCheckedResult, 0, 1);
+
+                    bool isAppearResultTable = ProjectLabel.IsNutrifood && !Shared.Settings.IsManufacturingMode;
+                    if (isAppearResultTable)
+                    {
+                        tableLayoutPanel1.RowStyles[1].Height = 0;
+                        tableLayoutPanel1.Controls.Remove(pnlCheckedResult);
+
+                        tableLayoutPanel1.RowStyles[0].Height = tableLayoutPanel1.Width * 50 / 100;
+                    }
                 }
             }
         }
@@ -574,6 +587,7 @@ namespace BarcodeVerificationSystem.View
 
             UpdateJobInfomationInterface(); // Get Job Infor
 
+      
             if (_SelectedJob.CompareType == CompareType.Database) // For Database Compare
             {
                 tableLayoutPanelPrintedState.Visible = true;
@@ -609,12 +623,33 @@ namespace BarcodeVerificationSystem.View
             if (ProjectLabel.IsNutrifood)
             {
                 //syncCodes.Visible = numberOfCodes.Visible = confirmCompletion.Visible = true;
-                confirmCompletion.Visible = true;
+                syncDataInfo.Visible = confirmCompletion.Visible = true;
                 pnlCurrentCheck.Text = "Printing Process";
                 lblCodeResult.Text = "Number of Sync Code";            
                 BarcodeQualityLabel.Text = "Confirm Completion";
                 txtBarcodeQuality.Visible = false;
                 GetSample.Text = "Disposal Process";
+                pnlVerificationProcess.Text = "Sync Data Actions";
+
+                if (!Shared.Settings.IsManufacturingMode)
+                {
+                    //tableLayoutPanelProcess.Visible = false;
+                    //DispatchingActionsPanel.Visible = true;
+                    lblCodeResult.Text = Lang.SentSyncData;
+                    SentSaaS.Text = Lang.SentSyncDataSaaS;
+                    SentSAP.Text = Lang.SentSAPData;
+                    ConfirmLabel.Text = Lang.ConfirmCompletion + " " + Lang.Job;
+                    SyncDataLabel.Text = Lang.SyncData;
+                    DisposeLabel.Text = Lang.DisposeBarcodes;
+                    RePrintLabel.Text = Lang.RePrintBarcodes;
+
+                    confirmCompletion.Text = Lang.ConfirmCompletion;
+                    syncDataBtn.Text = Lang.Sync;
+                    disposeBtn.Text = Lang.Dispose;
+                    RePrintBtn.Text = Lang.RePrint;
+
+                }
+          
             }
 
 
@@ -5781,6 +5816,21 @@ namespace BarcodeVerificationSystem.View
             lblCheckedResult.Text = Lang.CheckedResult1;
 
             toolStripVersion.Text = Lang.Version + ": " + Properties.Settings.Default.SoftwareVersion;
+        }
+
+        private void dgvCheckedResult_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pictureBoxPreview_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfirmLabel_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void ReleaseResource()

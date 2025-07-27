@@ -1,4 +1,5 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.Utils;
 using System;
@@ -84,6 +85,13 @@ namespace BarcodeVerificationSystem.View
             listBoxPODRight.BorderStyle = BorderStyle.None;
 
             UpdateFiledsByNumberColumn();
+
+
+            if (ProjectLabel.IsNutrifood)
+            {
+                numberOfCodes.Visible = true;
+                numberOfCodes.Text = Shared.numberOfCodesGenerate > 0 ? Lang.NumberOfGeneratedCodes + ": " + Shared.numberOfCodesGenerate : Lang.NoCodesGeneratedYet;
+            }
         }
 
         private void UpdateFiledsByNumberColumn()

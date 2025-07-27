@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusCamera01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusPrinter01 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,6 +55,7 @@
             this.btnStop = new DesignUI.CuzUI.CuzButton();
             this.btnStart = new DesignUI.CuzUI.CuzButton();
             this.pnlJobInformation = new DesignUI.CuzUI.RoundPanel();
+            this.itemsPerHour = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.SAPFailedCodes = new DesignUI.CuzUI.CuzTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.SaaSSuccessCodes = new DesignUI.CuzUI.CuzTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.syncSentCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.itemsPerHour = new System.Windows.Forms.Label();
             this.labelModeCheck = new System.Windows.Forms.Label();
             this.txtJobType = new DesignUI.CuzUI.CuzTextBox();
             this.lblJobType = new System.Windows.Forms.Label();
@@ -92,9 +92,11 @@
             this.pnlPicture = new DesignUI.CuzUI.CuzPanel();
             this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.pnlCurrentCheck = new DesignUI.CuzUI.RoundPanel();
-            this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
-            this.btnRefeshDatabase = new DesignUI.CuzUI.CuzButton();
-            this.confirmCompletion = new DesignUI.CuzUI.CuzButton();
+            this.syncDataInfo = new System.Windows.Forms.Panel();
+            this.cuzTextBox2 = new DesignUI.CuzUI.CuzTextBox();
+            this.SentSAP = new System.Windows.Forms.Label();
+            this.cuzTextBox4 = new DesignUI.CuzUI.CuzTextBox();
+            this.SentSaaS = new System.Windows.Forms.Label();
             this.GetSample = new System.Windows.Forms.Label();
             this.txtBarcodeQuality = new DesignUI.CuzUI.CuzTextBox();
             this.BarcodeQualityLabel = new System.Windows.Forms.Label();
@@ -105,6 +107,15 @@
             this.txtCodeResult = new DesignUI.CuzUI.CuzTextBox();
             this.lblCodeResult = new System.Windows.Forms.Label();
             this.pnlVerificationProcess = new DesignUI.CuzUI.RoundPanel();
+            this.DispatchingActionsPanel = new System.Windows.Forms.Panel();
+            this.ConfirmLabel = new System.Windows.Forms.Label();
+            this.confirmCompletion = new DesignUI.CuzUI.CuzButton();
+            this.SyncDataLabel = new System.Windows.Forms.Label();
+            this.syncDataBtn = new DesignUI.CuzUI.CuzButton();
+            this.DisposeLabel = new System.Windows.Forms.Label();
+            this.disposeBtn = new DesignUI.CuzUI.CuzButton();
+            this.RePrintLabel = new System.Windows.Forms.Label();
+            this.RePrintBtn = new DesignUI.CuzUI.CuzButton();
             this.tableLayoutPanelProcess = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTotalChecked = new DesignUI.CuzUI.CuzPanel();
             this.lblTotalCheckedValue = new System.Windows.Forms.Label();
@@ -178,7 +189,9 @@
             this.pnlPicture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
             this.pnlCurrentCheck.SuspendLayout();
+            this.syncDataInfo.SuspendLayout();
             this.pnlVerificationProcess.SuspendLayout();
+            this.DispatchingActionsPanel.SuspendLayout();
             this.tableLayoutPanelProcess.SuspendLayout();
             this.pnlTotalChecked.SuspendLayout();
             this.pnlCheckFailed.SuspendLayout();
@@ -441,8 +454,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlJobInformation.BackColor = System.Drawing.Color.White;
-            this.pnlJobInformation.Controls.Add(this.panel3);
             this.pnlJobInformation.Controls.Add(this.itemsPerHour);
+            this.pnlJobInformation.Controls.Add(this.panel3);
             this.pnlJobInformation.Controls.Add(this.labelModeCheck);
             this.pnlJobInformation.Controls.Add(this.txtJobType);
             this.pnlJobInformation.Controls.Add(this.lblJobType);
@@ -472,6 +485,18 @@
             this.pnlJobInformation.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlJobInformation.TitleHeight = 30;
             // 
+            // itemsPerHour
+            // 
+            this.itemsPerHour.AutoSize = true;
+            this.itemsPerHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemsPerHour.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.itemsPerHour.Location = new System.Drawing.Point(137, 709);
+            this.itemsPerHour.Name = "itemsPerHour";
+            this.itemsPerHour.Size = new System.Drawing.Size(149, 25);
+            this.itemsPerHour.TabIndex = 135;
+            this.itemsPerHour.Text = "Items per hour";
+            this.itemsPerHour.Visible = false;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.SAPFailedCodes);
@@ -484,10 +509,11 @@
             this.panel3.Controls.Add(this.SaaSSuccessCodes);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.syncSentCodes);
-            this.panel3.Location = new System.Drawing.Point(14, 46);
+            this.panel3.Location = new System.Drawing.Point(14, 221);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(261, 578);
+            this.panel3.Size = new System.Drawing.Size(261, 368);
             this.panel3.TabIndex = 143;
+            this.panel3.Visible = false;
             // 
             // SAPFailedCodes
             // 
@@ -698,18 +724,6 @@
             this.syncSentCodes.TabIndex = 139;
             this.syncSentCodes.TabStop = false;
             this.syncSentCodes.UnderlinedStyle = false;
-            // 
-            // itemsPerHour
-            // 
-            this.itemsPerHour.AutoSize = true;
-            this.itemsPerHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemsPerHour.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.itemsPerHour.Location = new System.Drawing.Point(137, 709);
-            this.itemsPerHour.Name = "itemsPerHour";
-            this.itemsPerHour.Size = new System.Drawing.Size(149, 25);
-            this.itemsPerHour.TabIndex = 135;
-            this.itemsPerHour.Text = "Items per hour";
-            this.itemsPerHour.Visible = false;
             // 
             // labelModeCheck
             // 
@@ -1134,19 +1148,21 @@
             // 
             this.pictureBoxPreview.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBoxPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxPreview.ErrorImage = global::BarcodeVerificationSystem.Properties.Resources.icon_NoImage;
+            this.pictureBoxPreview.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_NoImage;
+            this.pictureBoxPreview.InitialImage = global::BarcodeVerificationSystem.Properties.Resources.icon_NoImage;
             this.pictureBoxPreview.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxPreview.Name = "pictureBoxPreview";
             this.pictureBoxPreview.Size = new System.Drawing.Size(379, 142);
             this.pictureBoxPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPreview.TabIndex = 3;
             this.pictureBoxPreview.TabStop = false;
+            this.pictureBoxPreview.Click += new System.EventHandler(this.pictureBoxPreview_Click);
             // 
             // pnlCurrentCheck
             // 
             this.pnlCurrentCheck.BackColor = System.Drawing.Color.White;
-            this.pnlCurrentCheck.Controls.Add(this.cuzButton1);
-            this.pnlCurrentCheck.Controls.Add(this.btnRefeshDatabase);
-            this.pnlCurrentCheck.Controls.Add(this.confirmCompletion);
+            this.pnlCurrentCheck.Controls.Add(this.syncDataInfo);
             this.pnlCurrentCheck.Controls.Add(this.GetSample);
             this.pnlCurrentCheck.Controls.Add(this.txtBarcodeQuality);
             this.pnlCurrentCheck.Controls.Add(this.BarcodeQualityLabel);
@@ -1172,84 +1188,104 @@
             this.pnlCurrentCheck.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlCurrentCheck.TitleHeight = 30;
             // 
-            // cuzButton1
+            // syncDataInfo
             // 
-            this.cuzButton1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton1._BorderRadius = 10;
-            this.cuzButton1._BorderSize = 1;
-            this.cuzButton1._GradientsButton = false;
-            this.cuzButton1._Text = "Sync Data";
-            this.cuzButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuzButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton1.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cuzButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.cuzButton1.FlatAppearance.BorderSize = 0;
-            this.cuzButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cuzButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuzButton1.ForeColor = System.Drawing.Color.White;
-            this.cuzButton1.Image = ((System.Drawing.Image)(resources.GetObject("cuzButton1.Image")));
-            this.cuzButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cuzButton1.Location = new System.Drawing.Point(15, 122);
-            this.cuzButton1.Name = "cuzButton1";
-            this.cuzButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.cuzButton1.Size = new System.Drawing.Size(152, 57);
-            this.cuzButton1.TabIndex = 138;
-            this.cuzButton1.Text = "Sync Data";
-            this.cuzButton1.TextColor = System.Drawing.Color.White;
-            this.cuzButton1.UseVisualStyleBackColor = false;
-            this.cuzButton1.Visible = false;
+            this.syncDataInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.syncDataInfo.Controls.Add(this.cuzTextBox2);
+            this.syncDataInfo.Controls.Add(this.SentSAP);
+            this.syncDataInfo.Controls.Add(this.cuzTextBox4);
+            this.syncDataInfo.Controls.Add(this.SentSaaS);
+            this.syncDataInfo.Location = new System.Drawing.Point(3, 112);
+            this.syncDataInfo.Name = "syncDataInfo";
+            this.syncDataInfo.Size = new System.Drawing.Size(380, 138);
+            this.syncDataInfo.TabIndex = 149;
+            this.syncDataInfo.Visible = false;
             // 
-            // btnRefeshDatabase
+            // cuzTextBox2
             // 
-            this.btnRefeshDatabase._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.btnRefeshDatabase._BorderRadius = 10;
-            this.btnRefeshDatabase._BorderSize = 1;
-            this.btnRefeshDatabase._GradientsButton = false;
-            this.btnRefeshDatabase._Text = "RePrint";
-            this.btnRefeshDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefeshDatabase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.btnRefeshDatabase.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.btnRefeshDatabase.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnRefeshDatabase.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.btnRefeshDatabase.FlatAppearance.BorderSize = 0;
-            this.btnRefeshDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefeshDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefeshDatabase.ForeColor = System.Drawing.Color.White;
-            this.btnRefeshDatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnRefeshDatabase.Image")));
-            this.btnRefeshDatabase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefeshDatabase.Location = new System.Drawing.Point(185, 122);
-            this.btnRefeshDatabase.Name = "btnRefeshDatabase";
-            this.btnRefeshDatabase.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnRefeshDatabase.Size = new System.Drawing.Size(187, 57);
-            this.btnRefeshDatabase.TabIndex = 137;
-            this.btnRefeshDatabase.Text = "RePrint";
-            this.btnRefeshDatabase.TextColor = System.Drawing.Color.White;
-            this.btnRefeshDatabase.UseVisualStyleBackColor = false;
-            this.btnRefeshDatabase.Visible = false;
+            this.cuzTextBox2._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.cuzTextBox2._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.cuzTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cuzTextBox2.AutoSize = true;
+            this.cuzTextBox2.BackColor = System.Drawing.Color.White;
+            this.cuzTextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cuzTextBox2.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.cuzTextBox2.BorderRadius = 8;
+            this.cuzTextBox2.BorderSize = 1;
+            this.cuzTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuzTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cuzTextBox2.Location = new System.Drawing.Point(13, 105);
+            this.cuzTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.cuzTextBox2.Multiline = false;
+            this.cuzTextBox2.Name = "cuzTextBox2";
+            this.cuzTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.cuzTextBox2.PasswordChar = false;
+            this.cuzTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.cuzTextBox2.PlaceholderText = "";
+            this.cuzTextBox2.ReadOnly = true;
+            this.cuzTextBox2.Size = new System.Drawing.Size(360, 35);
+            this.cuzTextBox2.TabIndex = 146;
+            this.cuzTextBox2.TabStop = false;
+            this.cuzTextBox2.UnderlinedStyle = false;
             // 
-            // confirmCompletion
+            // SentSAP
             // 
-            this.confirmCompletion._BorderColor = System.Drawing.Color.Silver;
-            this.confirmCompletion._BorderRadius = 15;
-            this.confirmCompletion._BorderSize = 0;
-            this.confirmCompletion._GradientsButton = false;
-            this.confirmCompletion._Text = "Confirm Completion";
-            this.confirmCompletion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.confirmCompletion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.confirmCompletion.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.confirmCompletion.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.confirmCompletion.FlatAppearance.BorderSize = 0;
-            this.confirmCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.confirmCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmCompletion.ForeColor = System.Drawing.Color.White;
-            this.confirmCompletion.Location = new System.Drawing.Point(188, 214);
-            this.confirmCompletion.Name = "confirmCompletion";
-            this.confirmCompletion.Size = new System.Drawing.Size(184, 45);
-            this.confirmCompletion.TabIndex = 136;
-            this.confirmCompletion.Text = "Confirm Completion";
-            this.confirmCompletion.TextColor = System.Drawing.Color.White;
-            this.confirmCompletion.UseVisualStyleBackColor = false;
+            this.SentSAP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SentSAP.AutoEllipsis = true;
+            this.SentSAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SentSAP.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.SentSAP.Location = new System.Drawing.Point(12, 79);
+            this.SentSAP.Name = "SentSAP";
+            this.SentSAP.Size = new System.Drawing.Size(361, 20);
+            this.SentSAP.TabIndex = 145;
+            this.SentSAP.Text = "Sent SAP Successful";
+            // 
+            // cuzTextBox4
+            // 
+            this.cuzTextBox4._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.cuzTextBox4._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.cuzTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cuzTextBox4.AutoSize = true;
+            this.cuzTextBox4.BackColor = System.Drawing.Color.White;
+            this.cuzTextBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cuzTextBox4.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.cuzTextBox4.BorderRadius = 8;
+            this.cuzTextBox4.BorderSize = 1;
+            this.cuzTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuzTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cuzTextBox4.Location = new System.Drawing.Point(12, 34);
+            this.cuzTextBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.cuzTextBox4.Multiline = false;
+            this.cuzTextBox4.Name = "cuzTextBox4";
+            this.cuzTextBox4.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.cuzTextBox4.PasswordChar = false;
+            this.cuzTextBox4.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.cuzTextBox4.PlaceholderText = "";
+            this.cuzTextBox4.ReadOnly = true;
+            this.cuzTextBox4.Size = new System.Drawing.Size(360, 35);
+            this.cuzTextBox4.TabIndex = 141;
+            this.cuzTextBox4.TabStop = false;
+            this.cuzTextBox4.UnderlinedStyle = false;
+            // 
+            // SentSaaS
+            // 
+            this.SentSaaS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SentSaaS.AutoEllipsis = true;
+            this.SentSaaS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SentSaaS.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.SentSaaS.Location = new System.Drawing.Point(11, 10);
+            this.SentSaaS.Name = "SentSaaS";
+            this.SentSaaS.Size = new System.Drawing.Size(361, 20);
+            this.SentSaaS.TabIndex = 142;
+            this.SentSaaS.Text = "Sent SaaS Successful";
             // 
             // GetSample
             // 
@@ -1420,6 +1456,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlVerificationProcess.BackColor = System.Drawing.Color.White;
+            this.pnlVerificationProcess.Controls.Add(this.DispatchingActionsPanel);
             this.pnlVerificationProcess.Controls.Add(this.tableLayoutPanelProcess);
             this.pnlVerificationProcess.IsTitleHatchStyle = false;
             this.pnlVerificationProcess.Location = new System.Drawing.Point(11, 442);
@@ -1435,6 +1472,169 @@
             this.pnlVerificationProcess.TitleForeColor = System.Drawing.Color.White;
             this.pnlVerificationProcess.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlVerificationProcess.TitleHeight = 30;
+            // 
+            // DispatchingActionsPanel
+            // 
+            this.DispatchingActionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DispatchingActionsPanel.Controls.Add(this.ConfirmLabel);
+            this.DispatchingActionsPanel.Controls.Add(this.confirmCompletion);
+            this.DispatchingActionsPanel.Controls.Add(this.SyncDataLabel);
+            this.DispatchingActionsPanel.Controls.Add(this.syncDataBtn);
+            this.DispatchingActionsPanel.Controls.Add(this.DisposeLabel);
+            this.DispatchingActionsPanel.Controls.Add(this.disposeBtn);
+            this.DispatchingActionsPanel.Controls.Add(this.RePrintLabel);
+            this.DispatchingActionsPanel.Controls.Add(this.RePrintBtn);
+            this.DispatchingActionsPanel.Location = new System.Drawing.Point(6, 41);
+            this.DispatchingActionsPanel.Name = "DispatchingActionsPanel";
+            this.DispatchingActionsPanel.Size = new System.Drawing.Size(380, 369);
+            this.DispatchingActionsPanel.TabIndex = 136;
+            // 
+            // ConfirmLabel
+            // 
+            this.ConfirmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.ConfirmLabel.Location = new System.Drawing.Point(20, 20);
+            this.ConfirmLabel.Name = "ConfirmLabel";
+            this.ConfirmLabel.Size = new System.Drawing.Size(340, 25);
+            this.ConfirmLabel.TabIndex = 0;
+            this.ConfirmLabel.Text = "Confirm job is completed:";
+            this.ConfirmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ConfirmLabel.Click += new System.EventHandler(this.ConfirmLabel_Click);
+            // 
+            // confirmCompletion
+            // 
+            this.confirmCompletion._BorderColor = System.Drawing.Color.Lavender;
+            this.confirmCompletion._BorderRadius = 15;
+            this.confirmCompletion._BorderSize = 1;
+            this.confirmCompletion._GradientsButton = false;
+            this.confirmCompletion._Text = "Confirm Completion";
+            this.confirmCompletion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.confirmCompletion.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.confirmCompletion.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
+            this.confirmCompletion.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.confirmCompletion.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.confirmCompletion.FlatAppearance.BorderSize = 0;
+            this.confirmCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmCompletion.ForeColor = System.Drawing.Color.White;
+            this.confirmCompletion.Location = new System.Drawing.Point(20, 50);
+            this.confirmCompletion.Name = "confirmCompletion";
+            this.confirmCompletion.Size = new System.Drawing.Size(340, 45);
+            this.confirmCompletion.TabIndex = 1;
+            this.confirmCompletion.Text = "Confirm Completion";
+            this.confirmCompletion.TextColor = System.Drawing.Color.White;
+            this.confirmCompletion.UseVisualStyleBackColor = false;
+            // 
+            // SyncDataLabel
+            // 
+            this.SyncDataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.SyncDataLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.SyncDataLabel.Location = new System.Drawing.Point(20, 110);
+            this.SyncDataLabel.Name = "SyncDataLabel";
+            this.SyncDataLabel.Size = new System.Drawing.Size(340, 25);
+            this.SyncDataLabel.TabIndex = 2;
+            this.SyncDataLabel.Text = "Sync Data Manually:";
+            this.SyncDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // syncDataBtn
+            // 
+            this.syncDataBtn._BorderColor = System.Drawing.Color.Lavender;
+            this.syncDataBtn._BorderRadius = 10;
+            this.syncDataBtn._BorderSize = 1;
+            this.syncDataBtn._GradientsButton = false;
+            this.syncDataBtn._Text = "Sync Data";
+            this.syncDataBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.syncDataBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.syncDataBtn.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.syncDataBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.syncDataBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.syncDataBtn.FlatAppearance.BorderSize = 0;
+            this.syncDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.syncDataBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.syncDataBtn.ForeColor = System.Drawing.Color.White;
+            this.syncDataBtn.Location = new System.Drawing.Point(20, 140);
+            this.syncDataBtn.Name = "syncDataBtn";
+            this.syncDataBtn.Size = new System.Drawing.Size(340, 45);
+            this.syncDataBtn.TabIndex = 3;
+            this.syncDataBtn.Text = "Sync Data";
+            this.syncDataBtn.TextColor = System.Drawing.Color.White;
+            this.syncDataBtn.UseVisualStyleBackColor = false;
+            // 
+            // DisposeLabel
+            // 
+            this.DisposeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.DisposeLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.DisposeLabel.Location = new System.Drawing.Point(20, 200);
+            this.DisposeLabel.Name = "DisposeLabel";
+            this.DisposeLabel.Size = new System.Drawing.Size(340, 25);
+            this.DisposeLabel.TabIndex = 4;
+            this.DisposeLabel.Text = "Dispose Error Barcodes:";
+            this.DisposeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // disposeBtn
+            // 
+            this.disposeBtn._BorderColor = System.Drawing.Color.Lavender;
+            this.disposeBtn._BorderRadius = 10;
+            this.disposeBtn._BorderSize = 1;
+            this.disposeBtn._GradientsButton = false;
+            this.disposeBtn._Text = "Dispose Barcodes";
+            this.disposeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.disposeBtn.BackColor = System.Drawing.Color.Turquoise;
+            this.disposeBtn.BackgroundColor = System.Drawing.Color.Turquoise;
+            this.disposeBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.disposeBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.disposeBtn.FlatAppearance.BorderSize = 0;
+            this.disposeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.disposeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.disposeBtn.ForeColor = System.Drawing.Color.White;
+            this.disposeBtn.Location = new System.Drawing.Point(20, 230);
+            this.disposeBtn.Name = "disposeBtn";
+            this.disposeBtn.Size = new System.Drawing.Size(340, 45);
+            this.disposeBtn.TabIndex = 5;
+            this.disposeBtn.Text = "Dispose Barcodes";
+            this.disposeBtn.TextColor = System.Drawing.Color.White;
+            this.disposeBtn.UseVisualStyleBackColor = false;
+            // 
+            // RePrintLabel
+            // 
+            this.RePrintLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.RePrintLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.RePrintLabel.Location = new System.Drawing.Point(20, 290);
+            this.RePrintLabel.Name = "RePrintLabel";
+            this.RePrintLabel.Size = new System.Drawing.Size(340, 25);
+            this.RePrintLabel.TabIndex = 6;
+            this.RePrintLabel.Text = "RePrint Old Barcodes:";
+            this.RePrintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // RePrintBtn
+            // 
+            this.RePrintBtn._BorderColor = System.Drawing.Color.Lavender;
+            this.RePrintBtn._BorderRadius = 10;
+            this.RePrintBtn._BorderSize = 1;
+            this.RePrintBtn._GradientsButton = false;
+            this.RePrintBtn._Text = "RePrint";
+            this.RePrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RePrintBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.RePrintBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.RePrintBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RePrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.RePrintBtn.FlatAppearance.BorderSize = 0;
+            this.RePrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RePrintBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.RePrintBtn.ForeColor = System.Drawing.Color.White;
+            this.RePrintBtn.Location = new System.Drawing.Point(20, 320);
+            this.RePrintBtn.Name = "RePrintBtn";
+            this.RePrintBtn.Size = new System.Drawing.Size(340, 45);
+            this.RePrintBtn.TabIndex = 7;
+            this.RePrintBtn.Text = "RePrint";
+            this.RePrintBtn.TextColor = System.Drawing.Color.White;
+            this.RePrintBtn.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanelProcess
             // 
@@ -1454,8 +1654,10 @@
             this.tableLayoutPanelProcess.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelProcess.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelProcess.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanelProcess.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelProcess.Size = new System.Drawing.Size(379, 369);
             this.tableLayoutPanelProcess.TabIndex = 108;
+            this.tableLayoutPanelProcess.TabStop = true;
             // 
             // pnlTotalChecked
             // 
@@ -1681,10 +1883,10 @@
             // 
             this.dgvDatabase.AllowUserToAddRows = false;
             this.dgvDatabase.AllowUserToResizeRows = false;
-            dataGridViewCellStyle61.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle61.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle61.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatabase.AlterRowBackColor = System.Drawing.Color.White;
             this.dgvDatabase.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1700,24 +1902,24 @@
             this.dgvDatabase.ColumnHeaderHeight = 4;
             this.dgvDatabase.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.dgvDatabase.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle62.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle62.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatabase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatabase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDatabase.DefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDatabase.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatabase.EnableHeadersVisualStyles = false;
             this.dgvDatabase.GridLineColor = System.Drawing.Color.LightBlue;
             this.dgvDatabase.HeaderBorder = true;
@@ -1732,22 +1934,22 @@
             this.dgvDatabase.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dgvDatabase.RowForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvDatabase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle64.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatabase.RowHeadersDefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatabase.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDatabase.RowHeadersVisible = false;
             this.dgvDatabase.RowHeight = 35;
-            dataGridViewCellStyle65.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.RowsDefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDatabase.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dgvDatabase.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvDatabase.RowTemplate.Height = 35;
@@ -1861,10 +2063,10 @@
             // 
             this.dgvCheckedResult.AllowUserToAddRows = false;
             this.dgvCheckedResult.AllowUserToResizeRows = false;
-            dataGridViewCellStyle66.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle66.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle66.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvCheckedResult.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvCheckedResult.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCheckedResult.AlterRowBackColor = System.Drawing.Color.White;
             this.dgvCheckedResult.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvCheckedResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1880,24 +2082,24 @@
             this.dgvCheckedResult.ColumnHeaderHeight = 4;
             this.dgvCheckedResult.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.dgvCheckedResult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle67.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle67.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle67.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckedResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckedResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvCheckedResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle68.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCheckedResult.DefaultCellStyle = dataGridViewCellStyle68;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCheckedResult.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvCheckedResult.EnableHeadersVisualStyles = false;
             this.dgvCheckedResult.GridLineColor = System.Drawing.Color.LightBlue;
             this.dgvCheckedResult.HeaderBorder = true;
@@ -1912,28 +2114,29 @@
             this.dgvCheckedResult.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dgvCheckedResult.RowForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvCheckedResult.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle69.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle69.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCheckedResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCheckedResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvCheckedResult.RowHeadersVisible = false;
             this.dgvCheckedResult.RowHeight = 35;
-            dataGridViewCellStyle70.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle70.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle70.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvCheckedResult.RowsDefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvCheckedResult.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCheckedResult.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dgvCheckedResult.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvCheckedResult.RowTemplate.Height = 35;
             this.dgvCheckedResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCheckedResult.Size = new System.Drawing.Size(935, 296);
             this.dgvCheckedResult.TabIndex = 112;
+            this.dgvCheckedResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCheckedResult_CellContentClick);
             // 
             // lblCheckedResult
             // 
@@ -2575,7 +2778,10 @@
             this.pnlPicture.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
             this.pnlCurrentCheck.ResumeLayout(false);
+            this.syncDataInfo.ResumeLayout(false);
+            this.syncDataInfo.PerformLayout();
             this.pnlVerificationProcess.ResumeLayout(false);
+            this.DispatchingActionsPanel.ResumeLayout(false);
             this.tableLayoutPanelProcess.ResumeLayout(false);
             this.pnlTotalChecked.ResumeLayout(false);
             this.pnlTotalChecked.PerformLayout();
@@ -2725,8 +2931,6 @@
         private DesignUI.CuzUI.CuzButton confirmCompletion;
         private System.Windows.Forms.Label numberOfCodes;
         private DesignUI.CuzUI.CuzTextBox syncSentCodes;
-        private DesignUI.CuzUI.CuzButton btnRefeshDatabase;
-        private DesignUI.CuzUI.CuzButton cuzButton1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
@@ -2736,5 +2940,18 @@
         private System.Windows.Forms.Label label2;
         private DesignUI.CuzUI.CuzTextBox SaaSSuccessCodes;
         private DesignUI.CuzUI.CuzTextBox SAPFailedCodes;
+        private System.Windows.Forms.Panel DispatchingActionsPanel;
+        private DesignUI.CuzUI.CuzButton disposeBtn;
+        private DesignUI.CuzUI.CuzButton syncDataBtn;
+        private System.Windows.Forms.Label RePrintLabel;
+        private System.Windows.Forms.Label DisposeLabel;
+        private System.Windows.Forms.Label SyncDataLabel;
+        private System.Windows.Forms.Label ConfirmLabel;
+        private DesignUI.CuzUI.CuzTextBox cuzTextBox2;
+        private System.Windows.Forms.Label SentSAP;
+        private DesignUI.CuzUI.CuzTextBox cuzTextBox4;
+        private System.Windows.Forms.Panel syncDataInfo;
+        private System.Windows.Forms.Label SentSaaS;
+        private DesignUI.CuzUI.CuzButton RePrintBtn;
     }
 }

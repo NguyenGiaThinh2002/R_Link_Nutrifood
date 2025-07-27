@@ -303,6 +303,9 @@ namespace BarcodeVerificationSystem.View
 
                 if (ProjectLabel.IsNutrifood)
                 {
+                    Shared.numberOfCodesGenerate = 0;
+                    numberOfCodes.Visible = true;
+
                     if (Shared.UserPermission.isOnline)
                     {
                         Form onlineDataForm = Shared.Settings.IsManufacturingMode
@@ -318,8 +321,17 @@ namespace BarcodeVerificationSystem.View
                                             : new frmGetDispatchingDataOffline(this);
                         offlineDataForm.ShowDialog();
 
+                        //Form onlineDataForm = Shared.Settings.IsManufacturingMode
+                        //                 ? (Form)new frmGetManufacturingInfo()
+                        //                 : new frmGetDispatchingInfo(this);
+
+                        //onlineDataForm.ShowDialog();
+
                     }
                     txtDirectoryDatabse.PasswordChar = true;
+
+                    numberOfCodes.Text = Shared.numberOfCodesGenerate > 0 ? Lang.NumberOfGeneratedCodes + ": " + Shared.numberOfCodesGenerate : Lang.NoCodesGeneratedYet;
+
                 }
                 else
                 {

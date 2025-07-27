@@ -106,6 +106,15 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Material.
+        /// </summary>
+        public static string AddMaterial {
+            get {
+                return ResourceManager.GetString("AddMaterial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -165,6 +174,15 @@ namespace UILanguage {
         public static string ApplicationIsAlreadyRunning {
             get {
                 return ResourceManager.GetString("ApplicationIsAlreadyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are You Sure To Generate Dispatching Codes For This ?.
+        /// </summary>
+        public static string AreYouSureGenerateDispatchingCodes {
+            get {
+                return ResourceManager.GetString("AreYouSureGenerateDispatchingCodes", resourceCulture);
             }
         }
         
@@ -565,6 +583,15 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Completion.
+        /// </summary>
+        public static string ConfirmCompletion {
+            get {
+                return ResourceManager.GetString("ConfirmCompletion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You do not have a license for this software. Please contact the vendor..
         /// </summary>
         public static string ConfirmPC {
@@ -817,6 +844,24 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dispose.
+        /// </summary>
+        public static string Dispose {
+            get {
+                return ResourceManager.GetString("Dispose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dispose Barcodes.
+        /// </summary>
+        public static string DisposeBarcodes {
+            get {
+                return ResourceManager.GetString("DisposeBarcodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to exit the application ?.
         /// </summary>
         public static string DoYouWantExitApplication {
@@ -876,6 +921,15 @@ namespace UILanguage {
         public static string DuplicatedDatabase {
             get {
                 return ResourceManager.GetString("DuplicatedDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -1195,11 +1249,29 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate Codes.
+        /// </summary>
+        public static string GenerateCodes {
+            get {
+                return ResourceManager.GetString("GenerateCodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gennerate.
         /// </summary>
         public static string Gennerate {
             get {
                 return ResourceManager.GetString("Gennerate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Info.
+        /// </summary>
+        public static string GetInfo {
+            get {
+                return ResourceManager.GetString("GetInfo", resourceCulture);
             }
         }
         
@@ -1375,6 +1447,15 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Job.
+        /// </summary>
+        public static string Job {
+            get {
+                return ResourceManager.GetString("Job", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Job details.
         /// </summary>
         public static string JobDetails {
@@ -1546,6 +1627,15 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Material Items.
+        /// </summary>
+        public static string MaterialItems {
+            get {
+                return ResourceManager.GetString("MaterialItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Model.
         /// </summary>
         public static string Model {
@@ -1609,6 +1699,15 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Codes Generated Yet.
+        /// </summary>
+        public static string NoCodesGeneratedYet {
+            get {
+                return ResourceManager.GetString("NoCodesGeneratedYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No read ouput string.
         /// </summary>
         public static string NoReadOuputString {
@@ -1650,6 +1749,15 @@ namespace UILanguage {
         public static string NumberOfFailedCodes {
             get {
                 return ResourceManager.GetString("NumberOfFailedCodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number Of Generated Codes.
+        /// </summary>
+        public static string NumberOfGeneratedCodes {
+            get {
+                return ResourceManager.GetString("NumberOfGeneratedCodes", resourceCulture);
             }
         }
         
@@ -1758,6 +1866,15 @@ namespace UILanguage {
         public static string Operation {
             get {
                 return ResourceManager.GetString("Operation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Information.
+        /// </summary>
+        public static string OrderInfo {
+            get {
+                return ResourceManager.GetString("OrderInfo", resourceCulture);
             }
         }
         
@@ -2455,6 +2572,15 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RePrint Barcodes.
+        /// </summary>
+        public static string RePrintBarcodes {
+            get {
+                return ResourceManager.GetString("RePrintBarcodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to Reprint ?.
         /// </summary>
         public static string ReprintConfirm {
@@ -2752,6 +2878,33 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sent Middleware Data.
+        /// </summary>
+        public static string SentSAPData {
+            get {
+                return ResourceManager.GetString("SentSAPData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sent Sync Data.
+        /// </summary>
+        public static string SentSyncData {
+            get {
+                return ResourceManager.GetString("SentSyncData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sent Web Server Data.
+        /// </summary>
+        public static string SentSyncDataSaaS {
+            get {
+                return ResourceManager.GetString("SentSyncDataSaaS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scanner.
         /// </summary>
         public static string SerialDevice {
@@ -2973,6 +3126,24 @@ namespace UILanguage {
         public static string SwitchUser {
             get {
                 return ResourceManager.GetString("SwitchUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sync.
+        /// </summary>
+        public static string Sync {
+            get {
+                return ResourceManager.GetString("Sync", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sync Data.
+        /// </summary>
+        public static string SyncData {
+            get {
+                return ResourceManager.GetString("SyncData", resourceCulture);
             }
         }
         

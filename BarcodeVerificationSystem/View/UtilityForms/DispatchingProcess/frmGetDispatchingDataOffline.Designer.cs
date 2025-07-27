@@ -37,16 +37,17 @@
             this.orderID = new DesignUI.CuzUI.CuzTextBox();
             this.materialID = new DesignUI.CuzUI.CuzTextBox();
             this.numberOfCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.btnAction = new DesignUI.CuzUI.CuzButton();
+            this.btnGenerate = new DesignUI.CuzUI.CuzButton();
             this.wmsNumber = new DesignUI.CuzUI.CuzTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEdit = new DesignUI.CuzUI.CuzButton();
             this.txtOrderId = new DesignUI.CuzUI.CuzTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.addMaterial = new DesignUI.CuzUI.CuzButton();
             this.deleteButton = new DesignUI.CuzUI.CuzButton();
+            this.Close = new DesignUI.CuzUI.CuzButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
@@ -150,28 +151,28 @@
             this.numberOfCodes.TabIndex = 123;
             this.numberOfCodes.UnderlinedStyle = false;
             // 
-            // btnAction
+            // btnGenerate
             // 
-            this.btnAction._BorderColor = System.Drawing.Color.Silver;
-            this.btnAction._BorderRadius = 15;
-            this.btnAction._BorderSize = 0;
-            this.btnAction._GradientsButton = false;
-            this.btnAction._Text = "Generate Code";
-            this.btnAction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.btnAction.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.btnAction.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnAction.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.btnAction.FlatAppearance.BorderSize = 0;
-            this.btnAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAction.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            this.btnAction.ForeColor = System.Drawing.Color.White;
-            this.btnAction.Location = new System.Drawing.Point(708, 37);
-            this.btnAction.Name = "btnAction";
-            this.btnAction.Size = new System.Drawing.Size(130, 42);
-            this.btnAction.TabIndex = 124;
-            this.btnAction.Text = "Generate Code";
-            this.btnAction.TextColor = System.Drawing.Color.White;
-            this.btnAction.UseVisualStyleBackColor = false;
+            this.btnGenerate._BorderColor = System.Drawing.Color.Silver;
+            this.btnGenerate._BorderRadius = 15;
+            this.btnGenerate._BorderSize = 0;
+            this.btnGenerate._GradientsButton = false;
+            this.btnGenerate._Text = "Generate Code";
+            this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnGenerate.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnGenerate.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnGenerate.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.btnGenerate.FlatAppearance.BorderSize = 0;
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.btnGenerate.ForeColor = System.Drawing.Color.White;
+            this.btnGenerate.Location = new System.Drawing.Point(708, 37);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(130, 42);
+            this.btnGenerate.TabIndex = 124;
+            this.btnGenerate.Text = "Generate Code";
+            this.btnGenerate.TextColor = System.Drawing.Color.White;
+            this.btnGenerate.UseVisualStyleBackColor = false;
             // 
             // wmsNumber
             // 
@@ -269,15 +270,6 @@
             this.txtOrderId.TabIndex = 129;
             this.txtOrderId.UnderlinedStyle = false;
             // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label4.Location = new System.Drawing.Point(29, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 25);
-            this.label4.TabIndex = 128;
-            this.label4.Text = "Order ID: ";
-            // 
             // dgvItems
             // 
             this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -361,19 +353,53 @@
             this.deleteButton.TextColor = System.Drawing.Color.White;
             this.deleteButton.UseVisualStyleBackColor = false;
             // 
+            // Close
+            // 
+            this.Close._BorderColor = System.Drawing.Color.Silver;
+            this.Close._BorderRadius = 15;
+            this.Close._BorderSize = 0;
+            this.Close._GradientsButton = false;
+            this.Close._Text = "Close";
+            this.Close.BackColor = System.Drawing.Color.Red;
+            this.Close.BackgroundColor = System.Drawing.Color.Red;
+            this.Close.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Close.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.Close.FlatAppearance.BorderSize = 0;
+            this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Close.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.Close.ForeColor = System.Drawing.Color.White;
+            this.Close.Location = new System.Drawing.Point(708, 546);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(130, 42);
+            this.Close.TabIndex = 143;
+            this.Close.Text = "Close";
+            this.Close.TextColor = System.Drawing.Color.White;
+            this.Close.UseVisualStyleBackColor = false;
+            this.Close.Click += new System.EventHandler(this.Close_Click);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label4.Location = new System.Drawing.Point(35, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 25);
+            this.label4.TabIndex = 144;
+            this.label4.Text = "Wms Number:";
+            // 
             // frmGetDispatchingDataOffline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 550);
+            this.ClientSize = new System.Drawing.Size(850, 600);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Close);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addMaterial);
             this.Controls.Add(this.dgvItems);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtOrderId);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnAction);
+            this.Controls.Add(this.btnGenerate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGetDispatchingDataOffline";
             this.Text = "Getting Data";
@@ -390,15 +416,16 @@
         private DesignUI.CuzUI.CuzTextBox orderID;
         private DesignUI.CuzUI.CuzTextBox materialID;
         private DesignUI.CuzUI.CuzTextBox numberOfCodes;
-        private DesignUI.CuzUI.CuzButton btnAction;
+        private DesignUI.CuzUI.CuzButton btnGenerate;
         private DesignUI.CuzUI.CuzTextBox wmsNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private DesignUI.CuzUI.CuzButton btnEdit;
         private DesignUI.CuzUI.CuzTextBox txtOrderId;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvItems;
         private DesignUI.CuzUI.CuzButton addMaterial;
         private DesignUI.CuzUI.CuzButton deleteButton;
+        private DesignUI.CuzUI.CuzButton Close;
+        private System.Windows.Forms.Label label4;
     }
 }

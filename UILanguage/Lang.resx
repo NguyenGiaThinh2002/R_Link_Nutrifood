@@ -1308,4 +1308,62 @@
   <data name="URLPath" xml:space="preserve">
     <value>URL Path</value>
   </data>
+  <data name="GetInfo" xml:space="preserve">
+    <value>Get Info</value>
+  </data>
+  <data name="GenerateCodes" xml:space="preserve">
+    <value>Generate Codes</value>
+  </data>
+  <data name="MaterialItems" xml:space="preserve">
+    <value>Material Items</value>
+    <comment>Danh sách sản phẩm</comment>
+  </data>
+  <data name="OrderInfo" xml:space="preserve">
+    <value>Order Information</value>
+  </data>
+  <data name="NumberOfGeneratedCodes" xml:space="preserve">
+    <value>Number Of Generated Codes</value>
+  </data>
+  <data name="NoCodesGeneratedYet" xml:space="preserve">
+    <value>No Codes Generated Yet</value>
+  </data>
+  <data name="SentSyncData" xml:space="preserve">
+    <value>Sent Sync Data</value>
+  </data>
+  <data name="SentSyncDataSaaS" xml:space="preserve">
+    <value>Sent Web Server Data</value>
+  </data>
+  <data name="SentSAPData" xml:space="preserve">
+    <value>Sent Middleware Data</value>
+  </data>
+  <data name="ConfirmCompletion" xml:space="preserve">
+    <value>Confirm Completion</value>
+  </data>
+  <data name="SyncData" xml:space="preserve">
+    <value>Sync Data</value>
+  </data>
+  <data name="DisposeBarcodes" xml:space="preserve">
+    <value>Dispose Barcodes</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="Sync" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="Dispose" xml:space="preserve">
+    <value>Dispose</value>
+  </data>
+  <data name="RePrintBarcodes" xml:space="preserve">
+    <value>RePrint Barcodes</value>
+  </data>
+  <data name="AddMaterial" xml:space="preserve">
+    <value>Add Material</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="AreYouSureGenerateDispatchingCodes" xml:space="preserve">
+    <value>Are You Sure To Generate Dispatching Codes For This ?</value>
+  </data>
 </root>

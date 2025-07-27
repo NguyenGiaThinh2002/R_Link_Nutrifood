@@ -15,6 +15,7 @@ using BarcodeVerificationSystem.Model.Apis.Dispatching;
 using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 using System.Collections.Generic;
+using UILanguage;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -31,46 +32,56 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             SetupDataGridView();
             InitEvents();
             InitControl();
+            InitLanguage();
+        }
+
+        private void InitLanguage()
+        {
+            btnGetInfo.Text = Lang.GetInfo;
+            btnGenerate.Text = Lang.GenerateCodes;
+            materialItemsTxt.Text = Lang.MaterialItems + ":";
+            orderInfo.Text = Lang.OrderInfo + ":";
+            Close.Text = Lang.Close;
         }
 
         private void InitControl()
         {
-            txtOrderId.Text = Shared.Settings.OrderId;
+            //txtOrderId.Text = Shared.Settings.OrderId;
 
-            if (!string.IsNullOrWhiteSpace(Shared.Settings.DispatchingPayload))
-            {
-                try { txtPayload.Text = JObject.Parse(Shared.Settings.DispatchingPayload).ToString(Formatting.Indented); }
-                catch { txtPayload.Text = "Invalid JSON"; }
-            }
-            else txtPayload.Text = "No payload";
+            //if (!string.IsNullOrWhiteSpace(Shared.Settings.DispatchingPayload))
+            //{
+            //    try { txtPayload.Text = JObject.Parse(Shared.Settings.DispatchingPayload).ToString(Formatting.Indented); }
+            //    catch { txtPayload.Text = "Invalid JSON"; }
+            //}
+            //else txtPayload.Text = "No payload";
 
-            try
-            {
-                //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
-                var items = Shared.Settings.DispatchingOrderPayload.payload.item;
+            //try
+            //{
+            //    //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
+            //    var items = Shared.Settings.DispatchingOrderPayload.payload.item;
 
                 
-                if (items != null)
-                {
-                    foreach (var item in items)
-                    {
-                        dgvItems.Rows.Add(
-                            item.material_number?.ToString(),
-                            item.material_name?.ToString(),
-                            item.status_desc?.ToString(),
-                            item.item_group?.ToString(),
-                            item.uom_name?.ToString(),
-                            item.case_cnt.ToString(),
-                            item.pallet.ToString(),
-                            item.original_qty.ToString(),
-                            item.total_qty_ctn.ToString(),
-                            item.gross_wgt.ToString(),
-                            item.cube.ToString()
-                        );
-                    }
-                }
-            }
-            catch { /* optionally log error */ }
+            //    if (items != null)
+            //    {
+            //        foreach (var item in items)
+            //        {
+            //            dgvItems.Rows.Add(
+            //                item.material_number?.ToString(),
+            //                item.material_name?.ToString(),
+            //                item.status_desc?.ToString(),
+            //                item.item_group?.ToString(),
+            //                item.uom_name?.ToString(),
+            //                item.case_cnt.ToString(),
+            //                item.pallet.ToString(),
+            //                item.original_qty.ToString(),
+            //                item.total_qty_ctn.ToString(),
+            //                item.gross_wgt.ToString(),
+            //                item.cube.ToString()
+            //            );
+            //        }
+            //    }
+            //}
+            //catch { /* optionally log error */ }
 
         }
 
@@ -79,7 +90,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             Shared.OnSerialDeviceReadDataChange += Shared_OnSerialDeviceReadDataChange;
             txtOrderId.TextChanged += AdjustData;
             btnGetInfo.Click += btnGetInfo_Click;
-            btnAction.Click += btnGenerateCodes_Click;
+            btnGenerate.Click += btnGenerateCodes_Click;
         }
         private void Shared_OnSerialDeviceReadDataChange(object sender, EventArgs e)
         {
@@ -90,7 +101,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 {
                     var detectModel = sender as DetectModel;
                     txtOrderId.Text = detectModel.Text.Trim();
-                    Shared.Settings.OrderId = txtOrderId.Text.Trim();
+                    //Shared.Settings.OrderId = txtOrderId.Text.Trim();
                 }
             }
             catch (Exception)
@@ -149,14 +160,18 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 response.EnsureSuccessStatusCode();
 
                 var loginPayload = JsonConvert.DeserializeObject<ResponseOrder>(await response.Content.ReadAsStringAsync());
-                Shared.Settings.DispatchingOrderPayload = loginPayload;
-                txtPayload.Text = Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented);
+                //Shared.Settings.DispatchingOrderPayload = loginPayload;
+                //Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented); // txtPayload.Text = 
 
                 // Populate DataGridView with items  
                 dgvItems.Rows.Clear();
                 var items = loginPayload?.payload?.item.ToList();
-                Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
-                Shared.Settings.OrderId = txtOrderId.Text;
+                //Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
+                //Shared.Settings.OrderId = txtOrderId.Text;
+
+                waveKey.Text = loginPayload.payload.wave_key;
+                shipment.Text = loginPayload.payload.shipment;
+                shiptoCode.Text = loginPayload.payload.shipto_code;
 
                 if (items != null)
                 {
@@ -179,15 +194,15 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                     }
                 }
 
-                btnAction.Enabled = dgvItems.Rows.Count > 0;
+                btnGenerate.Enabled = dgvItems.Rows.Count > 0;
             }
             catch (Exception ex)
             {
                 Shared.Settings.DispatchingPayload = string.Empty;
                 Shared.Settings.DispatchingOrderPayload = null;
-                txtPayload.Text = $"Error: {ex.Message}";
+                //txtPayload.Text = $"Error: {ex.Message}";
                 dgvItems.Rows.Clear();
-                btnAction.Enabled = false;
+                btnGenerate.Enabled = false;
                 CustomMessageBox.Show($"Failed to retrieve order information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Shared.SaveSettings();
@@ -219,13 +234,13 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             string numberOfCodes = selectedRow.Cells["total_qty_ctn"].Value.ToString();
 
             DialogResult result = CustomMessageBox.Show(
-                $"Are you sure you want to generate dispatching codes for:" +
-                $"\nWMS Number: {wms_number}" +
-                $"\nNumber Of Codes: {numberOfCodes}" +
-                $"\nMaterial Number: {materialNumber}" +
-                $"\nMaterial Name: {materialName}",
-                "Confirm Action",
-                MessageBoxButtons.YesNo,
+                         Lang.AreYouSureGenerateDispatchingCodes +
+                         $"\nWMS Number: {wms_number}" +
+                         $"\nNumber Of Codes: {numberOfCodes}" +
+                         $"\nMaterial Number: {materialNumber}" +
+                         $"\nMaterial Name: {materialName}",
+                         Lang.Confirm,
+                         MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -252,6 +267,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 string filePath = Path.Combine(documentsPath, fileName);
                 CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
                 Shared.databasePath = filePath;
+                Shared.numberOfCodesGenerate = list.Count;
                 this.Close();
             }
 
@@ -261,6 +277,11 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         {
             //var offlineForm = new frmGetDispatchingDataOffline();
             //offlineForm.ShowDialog();
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

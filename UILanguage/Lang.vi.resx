@@ -1218,4 +1218,61 @@
   <data name="URLPath" xml:space="preserve">
     <value>Đường dẫn URL</value>
   </data>
+  <data name="GetInfo" xml:space="preserve">
+    <value>Lấy Thông Tin</value>
+  </data>
+  <data name="GenerateCodes" xml:space="preserve">
+    <value>Tạo mã</value>
+  </data>
+  <data name="MaterialItems" xml:space="preserve">
+    <value>Danh sách sản phẩm</value>
+  </data>
+  <data name="OrderInfo" xml:space="preserve">
+    <value>Thông tin phiếu</value>
+  </data>
+  <data name="NumberOfGeneratedCodes" xml:space="preserve">
+    <value>Tổng số mã đã tạo</value>
+  </data>
+  <data name="NoCodesGeneratedYet" xml:space="preserve">
+    <value>Không mã nào được tạo!</value>
+  </data>
+  <data name="SentSyncData" xml:space="preserve">
+    <value>Mã đã gửi đồng bộ</value>
+  </data>
+  <data name="SentSyncDataSaaS" xml:space="preserve">
+    <value>Mã gửi lên Web Server</value>
+  </data>
+  <data name="SentSAPData" xml:space="preserve">
+    <value>Mã đã gửi lên Middleware</value>
+  </data>
+  <data name="ConfirmCompletion" xml:space="preserve">
+    <value>Xác nhận hoàn thành</value>
+  </data>
+  <data name="SyncData" xml:space="preserve">
+    <value>Đồng bộ dữ liệu</value>
+  </data>
+  <data name="DisposeBarcodes" xml:space="preserve">
+    <value>Huỷ mã QR code</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Công việc</value>
+  </data>
+  <data name="Sync" xml:space="preserve">
+    <value>Đồng bộ</value>
+  </data>
+  <data name="Dispose" xml:space="preserve">
+    <value>Huỷ mã</value>
+  </data>
+  <data name="RePrintBarcodes" xml:space="preserve">
+    <value>In lại mã QR Code</value>
+  </data>
+  <data name="AddMaterial" xml:space="preserve">
+    <value>Thêm sản phẩm</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="AreYouSureGenerateDispatchingCodes" xml:space="preserve">
+    <value>Bạn có muốn tạo mã xuất kho cho thông tin này ?</value>
+  </data>
 </root>
