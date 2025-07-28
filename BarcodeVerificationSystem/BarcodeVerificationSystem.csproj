@@ -207,6 +207,8 @@
     <Compile Include="Model\ItemCustomModel.cs" />
     <Compile Include="Model\JobModel.cs" />
     <Compile Include="Model\ObjectResultModel.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\QRCode.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestBasedData.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestConfirmCompletion.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestDisposal.cs" />
     <Compile Include="Model\Payload\MonitorPayload.cs" />

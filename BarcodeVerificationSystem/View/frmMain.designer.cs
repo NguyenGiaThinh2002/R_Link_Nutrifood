@@ -93,9 +93,9 @@
             this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.pnlCurrentCheck = new DesignUI.CuzUI.RoundPanel();
             this.syncDataInfo = new System.Windows.Forms.Panel();
-            this.cuzTextBox2 = new DesignUI.CuzUI.CuzTextBox();
+            this.sentSAPSuccess = new DesignUI.CuzUI.CuzTextBox();
             this.SentSAP = new System.Windows.Forms.Label();
-            this.cuzTextBox4 = new DesignUI.CuzUI.CuzTextBox();
+            this.sentSaaSSuccess = new DesignUI.CuzUI.CuzTextBox();
             this.SentSaaS = new System.Windows.Forms.Label();
             this.GetSample = new System.Windows.Forms.Label();
             this.txtBarcodeQuality = new DesignUI.CuzUI.CuzTextBox();
@@ -1193,9 +1193,9 @@
             this.syncDataInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.syncDataInfo.Controls.Add(this.cuzTextBox2);
+            this.syncDataInfo.Controls.Add(this.sentSAPSuccess);
             this.syncDataInfo.Controls.Add(this.SentSAP);
-            this.syncDataInfo.Controls.Add(this.cuzTextBox4);
+            this.syncDataInfo.Controls.Add(this.sentSaaSSuccess);
             this.syncDataInfo.Controls.Add(this.SentSaaS);
             this.syncDataInfo.Location = new System.Drawing.Point(3, 112);
             this.syncDataInfo.Name = "syncDataInfo";
@@ -1203,34 +1203,34 @@
             this.syncDataInfo.TabIndex = 149;
             this.syncDataInfo.Visible = false;
             // 
-            // cuzTextBox2
+            // sentSAPSuccess
             // 
-            this.cuzTextBox2._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.cuzTextBox2._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.sentSAPSuccess._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.sentSAPSuccess._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentSAPSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuzTextBox2.AutoSize = true;
-            this.cuzTextBox2.BackColor = System.Drawing.Color.White;
-            this.cuzTextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cuzTextBox2.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBox2.BorderRadius = 8;
-            this.cuzTextBox2.BorderSize = 1;
-            this.cuzTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuzTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cuzTextBox2.Location = new System.Drawing.Point(13, 105);
-            this.cuzTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.cuzTextBox2.Multiline = false;
-            this.cuzTextBox2.Name = "cuzTextBox2";
-            this.cuzTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.cuzTextBox2.PasswordChar = false;
-            this.cuzTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.cuzTextBox2.PlaceholderText = "";
-            this.cuzTextBox2.ReadOnly = true;
-            this.cuzTextBox2.Size = new System.Drawing.Size(360, 35);
-            this.cuzTextBox2.TabIndex = 146;
-            this.cuzTextBox2.TabStop = false;
-            this.cuzTextBox2.UnderlinedStyle = false;
+            this.sentSAPSuccess.AutoSize = true;
+            this.sentSAPSuccess.BackColor = System.Drawing.Color.White;
+            this.sentSAPSuccess.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sentSAPSuccess.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentSAPSuccess.BorderRadius = 8;
+            this.sentSAPSuccess.BorderSize = 1;
+            this.sentSAPSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sentSAPSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sentSAPSuccess.Location = new System.Drawing.Point(13, 105);
+            this.sentSAPSuccess.Margin = new System.Windows.Forms.Padding(4);
+            this.sentSAPSuccess.Multiline = false;
+            this.sentSAPSuccess.Name = "sentSAPSuccess";
+            this.sentSAPSuccess.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.sentSAPSuccess.PasswordChar = false;
+            this.sentSAPSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.sentSAPSuccess.PlaceholderText = "";
+            this.sentSAPSuccess.ReadOnly = true;
+            this.sentSAPSuccess.Size = new System.Drawing.Size(360, 35);
+            this.sentSAPSuccess.TabIndex = 146;
+            this.sentSAPSuccess.TabStop = false;
+            this.sentSAPSuccess.UnderlinedStyle = false;
             // 
             // SentSAP
             // 
@@ -1245,34 +1245,34 @@
             this.SentSAP.TabIndex = 145;
             this.SentSAP.Text = "Sent SAP Successful";
             // 
-            // cuzTextBox4
+            // sentSaaSSuccess
             // 
-            this.cuzTextBox4._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.cuzTextBox4._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.sentSaaSSuccess._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.sentSaaSSuccess._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentSaaSSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuzTextBox4.AutoSize = true;
-            this.cuzTextBox4.BackColor = System.Drawing.Color.White;
-            this.cuzTextBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cuzTextBox4.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBox4.BorderRadius = 8;
-            this.cuzTextBox4.BorderSize = 1;
-            this.cuzTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuzTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cuzTextBox4.Location = new System.Drawing.Point(12, 34);
-            this.cuzTextBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.cuzTextBox4.Multiline = false;
-            this.cuzTextBox4.Name = "cuzTextBox4";
-            this.cuzTextBox4.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.cuzTextBox4.PasswordChar = false;
-            this.cuzTextBox4.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.cuzTextBox4.PlaceholderText = "";
-            this.cuzTextBox4.ReadOnly = true;
-            this.cuzTextBox4.Size = new System.Drawing.Size(360, 35);
-            this.cuzTextBox4.TabIndex = 141;
-            this.cuzTextBox4.TabStop = false;
-            this.cuzTextBox4.UnderlinedStyle = false;
+            this.sentSaaSSuccess.AutoSize = true;
+            this.sentSaaSSuccess.BackColor = System.Drawing.Color.White;
+            this.sentSaaSSuccess.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sentSaaSSuccess.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentSaaSSuccess.BorderRadius = 8;
+            this.sentSaaSSuccess.BorderSize = 1;
+            this.sentSaaSSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sentSaaSSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sentSaaSSuccess.Location = new System.Drawing.Point(12, 34);
+            this.sentSaaSSuccess.Margin = new System.Windows.Forms.Padding(4);
+            this.sentSaaSSuccess.Multiline = false;
+            this.sentSaaSSuccess.Name = "sentSaaSSuccess";
+            this.sentSaaSSuccess.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.sentSaaSSuccess.PasswordChar = false;
+            this.sentSaaSSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.sentSaaSSuccess.PlaceholderText = "";
+            this.sentSaaSSuccess.ReadOnly = true;
+            this.sentSaaSSuccess.Size = new System.Drawing.Size(360, 35);
+            this.sentSaaSSuccess.TabIndex = 141;
+            this.sentSaaSSuccess.TabStop = false;
+            this.sentSaaSSuccess.UnderlinedStyle = false;
             // 
             // SentSaaS
             // 
@@ -2947,9 +2947,9 @@
         private System.Windows.Forms.Label DisposeLabel;
         private System.Windows.Forms.Label SyncDataLabel;
         private System.Windows.Forms.Label ConfirmLabel;
-        private DesignUI.CuzUI.CuzTextBox cuzTextBox2;
+        private DesignUI.CuzUI.CuzTextBox sentSAPSuccess;
         private System.Windows.Forms.Label SentSAP;
-        private DesignUI.CuzUI.CuzTextBox cuzTextBox4;
+        private DesignUI.CuzUI.CuzTextBox sentSaaSSuccess;
         private System.Windows.Forms.Panel syncDataInfo;
         private System.Windows.Forms.Label SentSaaS;
         private DesignUI.CuzUI.CuzButton RePrintBtn;

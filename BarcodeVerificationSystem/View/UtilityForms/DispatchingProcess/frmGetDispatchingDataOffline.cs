@@ -39,7 +39,7 @@ namespace BarcodeVerificationSystem.View.SubForms
         public frmGetDispatchingDataOffline(FrmJob frmJob)
         {
             _frmJob = frmJob;
-            Shared.Settings.DispatchingOrderPayload = null;
+            //Shared.Settings.DispatchingOrderPayload = null;
             if (Shared.Settings.DispatchingOrderPayload != null)
             {
                 //_orderPayload = Shared.Settings.OrderPayload;
@@ -317,6 +317,7 @@ namespace BarcodeVerificationSystem.View.SubForms
                 string filePath = Path.Combine(documentsPath, fileName);
                 CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
                 Shared.databasePath = filePath;
+                Shared.numberOfCodesGenerate = list.Count;
                 this.Close();
             }
 

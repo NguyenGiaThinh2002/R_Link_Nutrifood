@@ -16,6 +16,8 @@ using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 using System.Collections.Generic;
 using UILanguage;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request;
+using System.Text;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -46,7 +48,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
         private void InitControl()
         {
-            //txtOrderId.Text = Shared.Settings.OrderId;
+            txtOrderId.Text = Shared.Settings.OrderId;
 
             //if (!string.IsNullOrWhiteSpace(Shared.Settings.DispatchingPayload))
             //{
@@ -55,33 +57,33 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             //}
             //else txtPayload.Text = "No payload";
 
-            //try
-            //{
-            //    //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
-            //    var items = Shared.Settings.DispatchingOrderPayload.payload.item;
+            try
+            {
+                //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
+                var items = Shared.Settings.DispatchingOrderPayload.payload.item;
 
-                
-            //    if (items != null)
-            //    {
-            //        foreach (var item in items)
-            //        {
-            //            dgvItems.Rows.Add(
-            //                item.material_number?.ToString(),
-            //                item.material_name?.ToString(),
-            //                item.status_desc?.ToString(),
-            //                item.item_group?.ToString(),
-            //                item.uom_name?.ToString(),
-            //                item.case_cnt.ToString(),
-            //                item.pallet.ToString(),
-            //                item.original_qty.ToString(),
-            //                item.total_qty_ctn.ToString(),
-            //                item.gross_wgt.ToString(),
-            //                item.cube.ToString()
-            //            );
-            //        }
-            //    }
-            //}
-            //catch { /* optionally log error */ }
+
+                if (items != null)
+                {
+                    foreach (var item in items)
+                    {
+                        dgvItems.Rows.Add(
+                            item.material_number?.ToString(),
+                            item.material_name?.ToString(),
+                            item.status_desc?.ToString(),
+                            item.item_group?.ToString(),
+                            item.uom_name?.ToString(),
+                            item.case_cnt.ToString(),
+                            item.pallet.ToString(),
+                            item.original_qty.ToString(),
+                            item.total_qty_ctn.ToString(),
+                            item.gross_wgt.ToString(),
+                            item.cube.ToString()
+                        );
+                    }
+                }
+            }
+            catch { /* optionally log error */ }
 
         }
 
@@ -101,7 +103,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 {
                     var detectModel = sender as DetectModel;
                     txtOrderId.Text = detectModel.Text.Trim();
-                    //Shared.Settings.OrderId = txtOrderId.Text.Trim();
+                    Shared.Settings.OrderId = txtOrderId.Text.Trim();
                 }
             }
             catch (Exception)
@@ -160,14 +162,14 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 response.EnsureSuccessStatusCode();
 
                 var loginPayload = JsonConvert.DeserializeObject<ResponseOrder>(await response.Content.ReadAsStringAsync());
-                //Shared.Settings.DispatchingOrderPayload = loginPayload;
-                //Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented); // txtPayload.Text = 
+                Shared.Settings.DispatchingOrderPayload = loginPayload;
+                Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented); // txtPayload.Text = 
 
                 // Populate DataGridView with items  
                 dgvItems.Rows.Clear();
                 var items = loginPayload?.payload?.item.ToList();
-                //Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
-                //Shared.Settings.OrderId = txtOrderId.Text;
+                Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
+                Shared.Settings.OrderId = txtOrderId.Text;
 
                 waveKey.Text = loginPayload.payload.wave_key;
                 shipment.Text = loginPayload.payload.shipment;
@@ -255,6 +257,8 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                     list = AutoIDCodeGenerator.GenerateCodesWithAutoID( quantity: int.Parse(numberOfCodes));
                 }
 
+                SendGeneratedCodes(list);
+
                 string tableName = "DispatchingCodes"; // Example table name, adjust as needed
                 string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
                 string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");
@@ -271,6 +275,69 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 this.Close();
             }
 
+        }
+
+        private async void SendGeneratedCodes(List<string> list)
+        {
+            var payload = Shared.Settings.DispatchingOrderPayload.payload;
+            var selectedRow = dgvItems.SelectedRows[0];
+            string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
+            string materialName = selectedRow.Cells["material_name"].Value.ToString();
+            string jobName = _frmJob._JobModel.FileName;
+
+            List<QrCode> qrCodes = new List<QrCode>();
+
+            for (int i = 0; i< list.Count; i++)
+            {
+                string[] fields = list[i].Split(',');
+                var t = new QrCode
+                {
+                    id = i + 1,
+                    unique_code = fields[0],
+                    qr_code = fields[1],
+                    job_name = jobName
+                };
+                qrCodes.Add(t);
+            }
+
+            var request = new RequestBasedData
+            {
+                wms_number = payload.wms_number,
+                username = Shared.UserPermission?.OnlineUserModel?.ten_tai_khoan ?? Shared.LoggedInUser.UserName,
+                plant = Shared.Settings.FactoryCode,
+                job_name = jobName,
+                material_number = materialNumber,
+                wave_key = payload.wave_key,
+                qrCodes = qrCodes
+            };
+
+            //string url = DispatchingApis.getSendGeneratedCodesUrl();
+            string url = DispatchingApis.getPrintedDataUrl();
+
+            string requestJson = JsonConvert.SerializeObject(request, Formatting.Indented);
+
+            using (HttpClient client = new HttpClient())
+            {
+                var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+                try
+                {
+                    HttpResponseMessage response = await client.PostAsync(url, content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Data sent successfully!");
+                    }
+                    else
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Failed to send data. Status: {response.StatusCode}\n{responseBody}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error sending data:\n{ex.Message}");
+                }
+            }
         }
 
         private void getDataOffline_Click(object sender, EventArgs e)

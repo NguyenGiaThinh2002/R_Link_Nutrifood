@@ -490,7 +490,11 @@ namespace BarcodeVerificationSystem.Controller
             if (Shared.Settings.CameraList.FirstOrDefault().IsIndexCommandEnable)
             {
                 string formattedCompareIndex = Index.ToString("D7"); // Formats as a 7-digit number
-                SensorController.Send((Shared.Settings.CameraList.FirstOrDefault()).CommandErrorOutput + formattedCompareIndex);
+
+                if(Shared.Settings.PLCVersion != 0)
+                {
+                    SensorController.Send((Shared.Settings.CameraList.FirstOrDefault()).CommandErrorOutput + formattedCompareIndex);
+                }
 
                 if (SensorController.IsConnected2())
                 {
@@ -499,7 +503,10 @@ namespace BarcodeVerificationSystem.Controller
             }
             else
             {
-                SensorController.Send(Shared.Settings.CameraList.FirstOrDefault().CommandErrorOutput);
+                if (Shared.Settings.PLCVersion != 0)
+                {
+                    SensorController.Send(Shared.Settings.CameraList.FirstOrDefault().CommandErrorOutput);
+                }
 
                 if (SensorController.IsConnected2())
                 {

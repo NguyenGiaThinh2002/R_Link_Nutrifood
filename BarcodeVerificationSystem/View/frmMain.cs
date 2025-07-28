@@ -1097,7 +1097,8 @@ namespace BarcodeVerificationSystem.View
 
                 if (e.ColumnIndex != _DatabaseImageIndex)
                     //e.Value = _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex];
-                    e.Value = MaskData.MaskString(_PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex]);
+                    e.Value = e.ColumnIndex != 0 ? MaskData.MaskString(_PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex])
+                                                 : _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex];
                 else
                 {
                     var status = _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex];
@@ -2697,6 +2698,7 @@ namespace BarcodeVerificationSystem.View
                             //syncCodes.Text = clone[0][0];
                             //txtCodeResult.Text = clone[0][0];
 
+                            txtCodeResult.Text = sentSaaSSuccess.Text = sentSAPSuccess.Text = clone[0][0];
                             //SentSyncData = SaaSSuccess = SaaSFailed = SAPSuccess = SAPFailed = int.Parse(clone[0][0]);
 
                             _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
