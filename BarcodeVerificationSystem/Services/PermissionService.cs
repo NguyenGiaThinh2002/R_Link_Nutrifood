@@ -12,6 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using BarcodeVerificationSystem.Model.Payload;
 using System.Collections;
 using BarcodeVerificationSystem.Model.Apis;
+using System.Windows.Forms.Design;
 
 namespace BarcodeVerificationSystem.Services
 {
@@ -21,81 +22,41 @@ namespace BarcodeVerificationSystem.Services
 
         public async Task<UserPermission> GetPermissionsAsync(string username, string password)
         {
-            // Get login data
-            var loginResponse = await _client.GetAsync(ApiModel.getLoginUrl(username, password));
-            loginResponse.EnsureSuccessStatusCode();
-            var loginPayload = JsonConvert.DeserializeObject<LoginPayload>(await loginResponse.Content.ReadAsStringAsync());
+            var apiService = new ApiService();
+                try
+                {
+                    string loginUrl = ApiModel.getLoginUrl(username, password);
+                    var loginPayload = await apiService.GetApiWithModel<LoginPayload>(loginUrl);
 
-            if (loginPayload?.data?.Count == 0) return null;
-            string maQuyen = loginPayload.data[0].ma_quyen;
+                    if (loginPayload?.data?.Count == 0) return null;
+                    string maQuyen = loginPayload.data[0].ma_quyen;
+                    string permissionUrl = ApiModel.getPermissionUrl(maQuyen);
+                    var permPayload = await apiService.GetApiWithModel<PermissionPayload>(permissionUrl);
 
-            // Get permissions
-            var permResponse = await _client.GetAsync(ApiModel.getPermissionUrl(maQuyen));
-            permResponse.EnsureSuccessStatusCode();
-            var permPayload = JsonConvert.DeserializeObject<PermissionPayload>(await permResponse.Content.ReadAsStringAsync());
+                    if (permPayload?.data == null) return null;
 
-            if (permPayload?.data == null) return null;
+                    var userPermissions = permPayload.data
+                        .Where(p => !string.IsNullOrWhiteSpace(p.ma_chuc_nang))
+                        .ToDictionary(p => p.ma_chuc_nang, _ => true);
 
-            var userPermissions = permPayload.data
-                .Where(p => !string.IsNullOrWhiteSpace(p.ma_chuc_nang))
-                .ToDictionary(p => p.ma_chuc_nang, _ => true);
-
-            return new UserPermission
-            {
-                OnlineUserModel = loginPayload.data[0],
-                Permissions = userPermissions
-            };
+                    return new UserPermission
+                    {
+                        OnlineUserModel = loginPayload.data[0],
+                        Permissions = userPermissions
+                    };
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
         }
-
-        //public async Task<UserPermission> GetPermissionsAsync(string username, string password)
-        //{
-        //    string url = ApiModel.getLoginUrl(username, password);
-        //    HttpResponseMessage response = await _client.GetAsync(url);
-        //    response.EnsureSuccessStatusCode();
-        //    string json = await response.Content.ReadAsStringAsync();
-        //    var loginPayload = JsonConvert.DeserializeObject<LoginPayload>(json);
-
-        //    string MaQuyen = "";
-        //    if (loginPayload != null && loginPayload.data != null && loginPayload.data.Count > 0)
-        //    {
-        //        MaQuyen = loginPayload.data[0].MaQuyen;
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-
-        //    string loginUrl = ApiModel.getPermissionUrl(MaQuyen);
-        //    HttpResponseMessage response1 = await _client.GetAsync(loginUrl);
-        //    response.EnsureSuccessStatusCode();
-        //    string json1 = await response1.Content.ReadAsStringAsync();
-        //    var permissionPayload = JsonConvert.DeserializeObject<PermissionPayload>(json1);
-
-        //    Dictionary<string, bool> userPermission = new Dictionary<string, bool>();
-        //    if (permissionPayload?.data != null)
-        //    {
-        //        List<PermissionDatum> permissions = permissionPayload.data;
-
-        //        foreach (var item in permissions)
-        //        {
-        //            if (!string.IsNullOrWhiteSpace(item.MaChucNang))
-        //            {
-        //                userPermission[item.MaChucNang] = true;
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-
-        //    return new UserPermission
-        //    {
-        //        OnlineUserModel = loginPayload.data[0],
-        //        Permissions = userPermission
-        //    };
-        //}
 
     }
 
 }
+
+
+// Get login data
+//var loginResponse = await _client.GetAsync(ApiModel.getLoginUrl(username, password));
+//loginResponse.EnsureSuccessStatusCode();
+//var loginPayload = JsonConvert.DeserializeObject<LoginPayload>(await loginResponse.Content.ReadAsStringAsync());

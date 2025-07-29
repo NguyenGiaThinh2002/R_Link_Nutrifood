@@ -211,6 +211,8 @@
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestBasedData.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestConfirmCompletion.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestDisposal.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestListDisposal.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestListRePrint.cs" />
     <Compile Include="Model\Payload\MonitorPayload.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestPrinted.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestRePrint.cs" />
@@ -234,6 +236,7 @@
     <Compile Include="Model\CheckMode.cs" />
     <Compile Include="Model\USBKey.cs" />
     <Compile Include="Model\UserDataModel.cs" />
+    <Compile Include="Model\UserInfo\CurrentUser.cs" />
     <Compile Include="Model\UserInfo\OnlineUserModel.cs" />
     <Compile Include="Model\UserInfo\UserPermission.cs" />
     <Compile Include="Modules\ReliableDataSender\Core\PrintingQueueProcessor.cs" />
@@ -281,6 +284,12 @@
     <Compile Include="Utils\CodeGeneration\Helper\YearCodeHelper.cs" />
     <Compile Include="Utils\RegistryHelper.cs" />
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmDisposal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmDisposal.Designer.cs">
+      <DependentUpon>frmDisposal.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +301,12 @@
     </Compile>
     <Compile Include="View\UcSettings\ucProductionSetting.Designer.cs">
       <DependentUpon>ucProductionSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmRePrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmRePrint.Designer.cs">
+      <DependentUpon>frmRePrint.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UtilityForms\frmConfirmCompletion.cs">
       <SubType>Form</SubType>
@@ -469,6 +484,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UcSettings\ucProductionSetting.resx">
       <DependentUpon>ucProductionSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmRePrint.resx">
+      <DependentUpon>frmRePrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\frmConfirmCompletion.resx">
       <DependentUpon>frmConfirmCompletion.cs</DependentUpon>

@@ -35,6 +35,30 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
             return $"{_url}{_factoryId}{_yearAndMonth}{_randomCode}"; // Tong ky tu la 41
         }
 
+
+        public static string GetHumanReadableCode(string code)
+        {
+            string randomCode = string.Empty;
+            if (string.IsNullOrWhiteSpace(code) || code.Length != 41)
+                return "";
+
+            string urlPart = code.Substring(0, 24);
+            string factoryIdPart = code.Substring(24, 1);
+            string yearMonthPart = code.Substring(25, 4);
+            string randomCodePart = code.Substring(28, 12);
+
+            // Validate each segment's length and basic format
+            if (urlPart.Length == 24 &&
+                factoryIdPart.Length == 1 &&
+                yearMonthPart.Length == 4 &&
+                randomCodePart.Length == 12)
+            {
+                randomCode = randomCodePart;
+                return randomCode;
+            }
+
+            return "";
+        }
         // to take the random code from the generated code
         public static bool TryParse(string code, out string randomCode)
         {

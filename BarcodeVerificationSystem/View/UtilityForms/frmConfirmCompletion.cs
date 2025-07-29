@@ -19,6 +19,7 @@ using BarcodeVerificationSystem.Model.Apis.Manufacturing;
 using BarcodeVerificationSystem.Model.Apis.Dispatching;
 using System.Threading;
 using BarcodeVerificationSystem.Utils;
+using BarcodeVerificationSystem.Services;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -50,29 +51,30 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             {
                 var confirmCompletionContent = new RequestConfirmCompletion
                 {
-                    plant = Shared.Settings.FactoryCode,
                     wms_number = _jobModel.DispatchingOrderPayload.payload.wms_number,
                     wave_key = _jobModel.DispatchingOrderPayload.payload.wave_key,
                     material_number = _jobModel.DispatchingOrderPayload.payload.item[_jobModel.SelectedMaterialIndex].material_number,
-                    resource_code = Shared.Settings.RLinkId,
-                    resource_name = Shared.Settings.LineName,
                     actual_quantity = int.Parse(numberOfCodes.Text),
-                    username = Shared.UserPermission?.OnlineUserModel?.ten_tai_khoan ?? Shared.LoggedInUser.UserName,
                     notes = note.Text,
                     confirm_type = Shared.Settings.IsManufacturingMode ? "Loyalty" : "Shipment",
-                    confirm_date = DateTime.Now
                 };
 
-                var jsonContent = JsonConvert.SerializeObject(confirmCompletionContent, new JsonSerializerSettings
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver()
-                });
-                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
                 string endpoint = Shared.Settings.IsManufacturingMode
-                    ? ManufacturingApis.getConfirmCompletionUrl()
-                    : DispatchingApis.getConfirmCompletionUrl();
-                var response = await _httpClient.PostAsync(endpoint, content, _cts.Token);
+                        ? ManufacturingApis.getConfirmCompletionUrl()
+                        : DispatchingApis.GetConfirmCompletionUrl();
+
+                //var jsonContent = JsonConvert.SerializeObject(confirmCompletionContent, new JsonSerializerSettings
+                //{
+                //    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                //});
+                //var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+    
+                //var response = await _httpClient.PostAsync(endpoint, content, _cts.Token);
+
+                var apiService = new ApiService();
+                var isResponsed = await apiService.PostApiDataAsync(endpoint, confirmCompletionContent);
+                //apiService.Dispose();
 
                 CustomMessageBox.Show("Job completed successfully!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

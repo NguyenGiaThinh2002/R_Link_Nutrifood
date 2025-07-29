@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using UILanguage;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request;
 using System.Text;
+using BarcodeVerificationSystem.Services;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
@@ -99,11 +100,22 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             if ((Shared.OperStatus == OperationStatus.Running && Shared.OperStatus == OperationStatus.Processing)) return;
             try
             {
-                if (sender is DetectModel)
+                if (sender is DetectModel detectModel)
                 {
-                    var detectModel = sender as DetectModel;
-                    txtOrderId.Text = detectModel.Text.Trim();
-                    Shared.Settings.OrderId = txtOrderId.Text.Trim();
+                    // UI update must be done on the main thread
+                    if (txtOrderId.InvokeRequired)
+                    {
+                        txtOrderId.Invoke(new MethodInvoker(delegate
+                        {
+                            txtOrderId.Text = detectModel.Text.Trim();
+                            Shared.Settings.OrderId = txtOrderId.Text.Trim();
+                        }));
+                    }
+                    else
+                    {
+                        txtOrderId.Text = detectModel.Text.Trim();
+                        Shared.Settings.OrderId = txtOrderId.Text.Trim();
+                    }
                 }
             }
             catch (Exception)
@@ -156,7 +168,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
             try
             {
-                string apiUrl = DispatchingApis.getOrderInfoUrl(orderId);
+                string apiUrl = DispatchingApis.GetOrderInfoUrl(orderId);
 
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
@@ -303,41 +315,16 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             var request = new RequestBasedData
             {
                 wms_number = payload.wms_number,
-                username = Shared.UserPermission?.OnlineUserModel?.ten_tai_khoan ?? Shared.LoggedInUser.UserName,
-                plant = Shared.Settings.FactoryCode,
                 job_name = jobName,
                 material_number = materialNumber,
                 wave_key = payload.wave_key,
                 qrCodes = qrCodes
             };
-
             //string url = DispatchingApis.getSendGeneratedCodesUrl();
-            string url = DispatchingApis.getPrintedDataUrl();
-
-            string requestJson = JsonConvert.SerializeObject(request, Formatting.Indented);
-
-            using (HttpClient client = new HttpClient())
-            {
-                var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
-
-                try
-                {
-                    HttpResponseMessage response = await client.PostAsync(url, content);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show("Data sent successfully!");
-                    }
-                    else
-                    {
-                        string responseBody = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show($"Failed to send data. Status: {response.StatusCode}\n{responseBody}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error sending data:\n{ex.Message}");
-                }
-            }
+            string url = DispatchingApis.GetSendGeneratedCodesUrl();
+            var apiService = new ApiService();
+            var isResponsed = await apiService.PostApiDataAsync(url, request);
+            //apiService.Dispose();
         }
 
         private void getDataOffline_Click(object sender, EventArgs e)

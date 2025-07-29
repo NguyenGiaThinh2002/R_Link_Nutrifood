@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Models;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Interfaces;
+using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model.CodeGeneration;
 
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
@@ -50,6 +52,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         {
                             Id = int.Parse(parts[0]),
                             Code = parts[1],
+                            HumanCode = Shared.Settings.IsManufacturingMode ? Manufacturing.GetHumanReadableCode(parts[1]) : Dispatching.GetHumanReadableCode(parts[1]),
                             PrintedDate = parts[2],
                             PrintedStatus = parts[3],
                             SaasStatus = parts.Length > 4 ? parts[4] : null,

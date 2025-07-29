@@ -13,50 +13,46 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
         static readonly string orderId = Shared.Settings.OrderId;
         static readonly string factoryCode = Shared.Settings.FactoryCode;
 
-        //private static string _getOrderInfoUrl = $"{url}/api/shipment/get/plant/wms_code";
         private static string _getOrderInfoUrl = $"{url}/api/shipment/get/{factoryCode}";
-
-        private static string _sendOrderCodesUrl = $"{url}/api/shipment/orderCodes";
-
+        private static string _sendGeneratedCodesUrl = $"{url}/api/shipment/orderCodes";
         private static string _printedDataUrl = $"{url}/api/shipment/printed";
         private static string _monitorUrl = $"{url}/api/shipment/monitoring";
         private static string _confirmCompletionUrl = $"{url}/api/shipment/confirmcomplete";
-
         private static string _destroyCodesUrl = $"{url}/api/shipment/destroy";
         private static string _reprintCodesUrl = $"{url}/api/production/reprint";
 
-        public static string getOrderInfoUrl(string wmsNumber)
+        public static string GetOrderInfoUrl(string wmsNumber)
         {
             return _getOrderInfoUrl + "/" + wmsNumber;
         }
 
-        public static string getSendGeneratedCodesUrl()
+        public static string GetSendGeneratedCodesUrl()
         {
-            return _sendOrderCodesUrl;
+            return _printedDataUrl; // _sendGeneratedCodesUrl
         }
 
-        public static string getPrintedDataUrl()
+        public static string GetPrintedDataUrl()
         {
             return _printedDataUrl;
         }
 
-        public static string getMonitorUrl()
+        public static string GetMonitorUrl()
         {
             return _monitorUrl;
         }
 
-        public static string getConfirmCompletionUrl()
+        public static string GetConfirmCompletionUrl()
         {
             return _confirmCompletionUrl;
         }
-        public static string getDestroyCodesUrl()
+        public static string GetDestroyCodesUrl()
         {
-            return _destroyCodesUrl;
+            return _printedDataUrl; // _destroyCodesUrl
         }
 
-        public static string getReprintCodesUrl()
+        public static string GetSendReprintCodesUrl()
         {
-            return _reprintCodesUrl;
+            return _printedDataUrl;// _reprintCodesUrl
         }
     }
 }

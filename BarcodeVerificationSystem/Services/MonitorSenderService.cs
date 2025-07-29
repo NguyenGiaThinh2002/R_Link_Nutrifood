@@ -21,17 +21,17 @@ namespace BarcodeVerificationSystem.Services
 
         private static async void SendParametersToServerAsync()
         {
+            ApiService apiService = new ApiService();
+
             try
             {
-                ApiService apiService = new ApiService();
-
                 while (true)
                 {
 
                     try
                     {
                         var settings = Shared.Settings;
-                        string url = DispatchingApis.getMonitorUrl();
+                        string url = DispatchingApis.GetMonitorUrl();
 
                         var monitor = new MonitorPayload
                         {
@@ -40,7 +40,6 @@ namespace BarcodeVerificationSystem.Services
                             resource_name = settings.LineName,
                             ip_address_rlink = GetLocalIPv4Address(),
                             is_running = Shared.OperStatus == Model.OperationStatus.Running,
-                            username = Shared.UserPermission?.OnlineUserModel?.ten_tai_khoan ?? Shared.LoggedInUser.UserName,
                             ip_address_printer = settings.PrinterList[0].IP,
                             ip_address_camera = settings.CameraList[0].IP,
                             is_printer_connected = settings.PrinterList[0].IsConnected,
@@ -52,6 +51,7 @@ namespace BarcodeVerificationSystem.Services
                     }
                     catch (Exception)
                     {
+                        //apiService.Dispose();
                     }
 
                     await Task.Delay(2000);
@@ -59,10 +59,12 @@ namespace BarcodeVerificationSystem.Services
             }
             catch (OperationCanceledException)
             {
+                //apiService.Dispose();
                 Console.WriteLine("Thread send parameters to server was stopped!");
             }
             catch (Exception ex)
             {
+                //apiService.Dispose();
                 Console.WriteLine("Error sending parameters to server: " + ex.Message);
             }
         }

@@ -1,4 +1,5 @@
-﻿using BarcodeVerificationSystem.Model.UserInfo;
+﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model.UserInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace BarcodeVerificationSystem.Model.UserPermission
 
     public class UserPermission
     {
-
         public bool isOnline = false;
         private static string _settings = "settings";
         private static string _controls = "controls";

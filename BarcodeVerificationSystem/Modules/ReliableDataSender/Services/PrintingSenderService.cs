@@ -9,7 +9,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using BarcodeVerificationSystem.View;
@@ -51,17 +50,8 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             {
                 var printedContent = new RequestPrinted {
                     id = entry.Id,
-                    index_qr_code = entry.Id, // ???
-                    session_code = "",
                     qr_code = entry.Code,
-                    human_qr_code = entry.HumanCode, // entry.HumanCode
-                    plant = Shared.Settings.FactoryCode,
-                    wave_key = Shared.CurrentJob.DispatchingOrderPayload.payload.wave_key,
-                    wms_number = Shared.Settings.WmsNumber,
-                    material_number = Shared.CurrentJob.DispatchingOrderPayload.payload.item[Shared.CurrentJob.SelectedMaterialIndex].material_number,
-                    resource_code = Shared.Settings.RLinkId,
-                    resource_name = Shared.Settings.LineName,
-                    username = Shared.UserPermission?.OnlineUserModel?.ten_tai_khoan ?? Shared.LoggedInUser.UserName,
+                    unique_code = entry.HumanCode, // entry.HumanCode
                     printed_date = DateTime.Parse(entry.PrintedDate),
                     status = entry.PrintedStatus
                 };

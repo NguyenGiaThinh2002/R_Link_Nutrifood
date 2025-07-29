@@ -30,7 +30,7 @@ namespace BarcodeVerificationSystem.Controller
         public static List<PODController> PODControllerList = new List<PODController>();
         public static PODController PrinterPODController = null;
         public static SettingsModel Settings = new SettingsModel();
-        public static UserPermission UserPermission;
+        public static UserPermission UserPermission = new UserPermission();
         public static JobModel CurrentJob = new JobModel();
         public static bool IsSensorControllerConnected = false;
         public static bool IsSerialDeviceConnected = false;

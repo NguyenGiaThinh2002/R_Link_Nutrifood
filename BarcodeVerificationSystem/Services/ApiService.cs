@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BarcodeVerificationSystem.Model.Payload;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,19 @@ namespace BarcodeVerificationSystem.Services
     public class ApiService
     {
         private static readonly HttpClient _client = new HttpClient();
+
+        public async Task<T> GetApiWithModel<T>(string url)
+        {
+            var response = await _client.GetAsync(url);
+
+            response.EnsureSuccessStatusCode(); // throws if not 2xx
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            var result = JsonConvert.DeserializeObject<T>(responseContent);
+
+            return result;
+        }
 
         public async Task<JArray> GetApiDataAsync(string apiUrl)
         {
@@ -73,7 +87,12 @@ namespace BarcodeVerificationSystem.Services
                 return false;
             }
         }
+        public void Dispose()
+        {
+            _client.Dispose();
+            //GC.SuppressFinalize(this);
 
+        }
 
     }
 }

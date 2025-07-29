@@ -1,6 +1,7 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,29 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
             return $"{_shiptoCode}{_shipmentCode}{_lineCode}{_randomCode}"; // tong cu: 26 , mới là : 32
         }
 
+        public static string GetHumanReadableCode(string fullCode)
+        {
+            string randomCode = string.Empty;
+            if (string.IsNullOrWhiteSpace(fullCode) || fullCode.Length != 30)
+                return "";
+
+            string shipToPart = fullCode.Substring(0, 10);
+            string shipmentPart = fullCode.Substring(10, 8);
+            string lineCodePart = fullCode.Substring(18, 2);
+            string randomPart = fullCode.Substring(20, 10);
+
+            // Validate parts length (redundant here but makes logic explicit)
+            if (shipToPart.Length == 10 &&
+                shipmentPart.Length == 8 &&
+                lineCodePart.Length == 2 &&
+                randomPart.Length == 10)
+            {
+                randomCode = randomPart;
+                return randomCode;
+            }
+            return "";
+        }
+
         public bool TryParse(string fullCode, out string randomCode)
         {
             randomCode = string.Empty;
@@ -60,15 +84,6 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
                 randomCode = randomPart;
                 return true;
             }
-
-            //if (shipToPart == _shiptoCode &&
-            //    shipmentPart == _shipmentCode &&
-            //    lineCodePart == _lineCode)
-            //{
-            //    randomCode = randomPart;
-            //    return true;
-            //}
-
             return false;
         }
     }

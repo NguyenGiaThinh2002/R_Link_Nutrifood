@@ -57,6 +57,8 @@ using System.Net.Sockets;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Security.Policy;
+using BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -731,6 +733,9 @@ namespace BarcodeVerificationSystem.View
             pnlTotalChecked.Click += ActionChanged;
             btnExportData.Click += ActionChanged;
             btnExportAll.Click += ActionChanged;
+            syncDataBtn.Click += ActionChanged;
+            RePrintBtn.Click += ActionChanged;
+            disposeBtn.Click += ActionChanged;
             confirmCompletion.Click += ActionChanged;
 
             cuzButtonGetSample.Click += GetSampleRaise;
@@ -750,6 +755,7 @@ namespace BarcodeVerificationSystem.View
             Shared.OnLanguageChange += Shared_OnLanguageChange;
             Shared.OnSensorControllerChangeEvent += Shared_OnSensorControllerChangeEvent;
             Shared.OnSerialDeviceControllerChangeEvent += Shared_OnSerialDeviceControllerChangeEvent;
+
 
             Shared.OnVerifyAndPrindSendDataMethod += Shared_OnVerifyAndPrindSendDataMethod;
             OnReceiveVerifyDataEvent += SendVerifiedDataToPrinter;
@@ -2005,7 +2011,6 @@ namespace BarcodeVerificationSystem.View
 
             bool isOneMore = false;
             bool isComplete = false;
-            var apiService = new ApiService();
 
             try
             {
@@ -2667,7 +2672,7 @@ namespace BarcodeVerificationSystem.View
                 string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
                 string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
                 string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
-                                                                 : DispatchingApis.getPrintedDataUrl();
+                                                                 : DispatchingApis.GetPrintedDataUrl();
 
                 if (!Directory.Exists(CommVariables.PathSentDataPrinted))
                 {
@@ -3952,6 +3957,26 @@ namespace BarcodeVerificationSystem.View
                 Form confirmCompletion = new frmConfirmCompletion(_SelectedJob);
                 confirmCompletion.ShowDialog();
                 tableLayoutControl.Enabled = false;
+            }
+            else if(sender == syncDataBtn)
+            {
+                string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
+                string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
+                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
+                                                                 : DispatchingApis.GetPrintedDataUrl();
+
+                _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url);
+                _printedDataProcess.Start();
+            }
+            else if(sender == RePrintBtn)
+            {
+                var RePrintForm = new frmRePrint();
+                RePrintForm.ShowDialog();
+            }
+            else if(sender == disposeBtn)
+            {
+                var frmDisposal = new frmDisposal();
+                frmDisposal.ShowDialog();
             }
         }
         private void Shared_OnCameraReadDataChange(object sender, EventArgs e)

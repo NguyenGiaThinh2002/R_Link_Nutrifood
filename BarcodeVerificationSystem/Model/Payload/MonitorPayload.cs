@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarcodeVerificationSystem.Model.UserInfo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace BarcodeVerificationSystem.Model.Payload
         public string resource_name { get; set; }
         public string ip_address_rlink { get; set; }
         public bool is_running { get; set; }
-        public string username { get; set; }
+        public string username { get; set; } = CurrentUser.UserName;
         public string ip_address_printer { get; set; }
         public string ip_address_camera { get; set; }
         public bool is_printer_connected { get; set; }
