@@ -30,10 +30,19 @@ using BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess;
 using BarcodeVerificationSystem.View.SubForms;
 using GenCode.Utils;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
+using BarcodeVerificationSystem.Model.Apis.Dispatching;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
+using Newtonsoft.Json;
+using System.Net.Http;
+using BarcodeVerificationSystem.Services;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request;
+using BarcodeVerificationSystem.Utils;
+using System.IO.Compression;
+using System.Net.Http.Headers;
 
-namespace BarcodeVerificationSystem.View
+namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
-    public partial class FrmJob : Form
+    public partial class frmJobNutri : Form
     {
         #region Variables Jobs
         public static readonly DMSeries DMCamera = new DMSeries();
@@ -62,7 +71,7 @@ namespace BarcodeVerificationSystem.View
 
         private FrmSettings _FormSettings;
         public JobModel _JobModel = null;
-        private FrmMain _FormMainPC = null;
+        private FrmMainNutri _FormMainPC = null;
 
         private Thread _ThreadMonitorPrinter;
         private readonly bool _IsObtainingPrintProductTemplateList = false;
@@ -90,7 +99,7 @@ namespace BarcodeVerificationSystem.View
 
         #endregion Variables Jobs
 
-        public FrmJob()
+        public frmJobNutri()
         {
             InitializeComponent();
         }
@@ -105,7 +114,7 @@ namespace BarcodeVerificationSystem.View
         }
 
         #region UI_Control_Event
-        private void ActionResult(object sender, EventArgs e)
+        private async void ActionResult(object sender, EventArgs e)
         {
             if (_IsBinding)
             {
@@ -120,6 +129,96 @@ namespace BarcodeVerificationSystem.View
                     PrinterSupport(radRSeries.Checked, false);
                 }
                 LoadJobNameList();
+            }
+            else if(sender == wmsNumber)
+            {
+                Shared.Settings.OrderId = wmsNumber.Text.Trim();
+            }
+            else if (sender == btnGetInfo)
+            {
+                string orderId = wmsNumber.Text.Trim();
+                if (string.IsNullOrEmpty(orderId))
+                {
+                    MessageBox.Show("Please enter a valid Order ID.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                try
+                {
+                    string apiUrl = DispatchingApis.GetOrderInfoUrl(orderId);
+                    var apiService = new ApiService();
+                    var loginPayload = await apiService.GetApiWithModel<ResponseOrder>(apiUrl);
+                    Shared.Settings.DispatchingOrderPayload = loginPayload;
+                    Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented); // txtPayload.Text = 
+
+                    var payload = loginPayload?.payload;
+                    // Job Info
+                    _JobModel.DispatchingOrderPayload = loginPayload;
+
+                    txtFileName.Text = _JobModel.FileName = jobName.Text = payload.wms_number + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    _JobModel.TemplatePrint = templatePrint.Text = payload.template_name;
+                    // Populate DataGridView with items  
+                    dgvItems.Rows.Clear();
+                    var items = payload?.item.ToList();
+                    Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
+                    Shared.Settings.OrderId = wmsNumber.Text;
+
+                    waveKey.Text = payload.wave_key;
+                    shipment.Text = payload.shipment;
+                    shiptoCode.Text = payload.shipto_code;
+
+                  
+                    if (items != null)
+                    {
+                        foreach (var item in items)
+                        {
+                            int numberOfCodes = item.qty / item.qty_per_carton;
+
+                            dgvItems.Rows.Add(
+                                item.material_number?.ToString(),
+                                item.material_name?.ToString(),
+                                item.material_group?.ToString(),
+                                //item.uom?.ToString(),
+                                //item.qty_per_pallet.ToString(),
+                                item.qty.ToString(),
+                                item.qty_per_carton.ToString(),
+                                numberOfCodes.ToString(),
+                                item.printed_number.ToString()
+
+
+                                //item.cube.ToString()
+                                //item.total_qty_ctn.ToString(),
+                                //item.gross_wgt.ToString(),
+
+                            );
+                        }
+                    }
+
+                    //btnGenerate.Enabled = dgvItems.Rows.Count > 0;
+                }
+                catch (Exception ex)
+                {
+                    Shared.Settings.DispatchingPayload = string.Empty;
+                    Shared.Settings.DispatchingOrderPayload = null;
+                    //txtPayload.Text = $"Error: {ex.Message}";
+                    dgvItems.Rows.Clear();
+                    //btnGenerate.Enabled = false;
+                    CustomMessageBox.Show($"Failed to retrieve order information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //Shared.SaveSettings();
+            }
+            else if (sender == saveJobNutri)
+            {
+                await btnGenerateCodes_Click();
+                if (Shared.databasePath != "")
+                {
+                    txtDirectoryDatabse.Text = _JobModel.DirectoryDatabase = Shared.databasePath;
+                }
+
+                _PODFormat.Clear();
+                txtPODFormat.Text = "";
+                Shared.databasePath = "";
+                SaveJob();
             }
             else if (sender == radAfterProduction)
             {
@@ -325,8 +424,8 @@ namespace BarcodeVerificationSystem.View
                 //{
                  
                 //}
-                var _FormDatabase = new frmDatabase(this);
-                _FormDatabase.ShowDialog();
+                //var _FormDatabase = new frmDatabase(this); // needed changed
+                //_FormDatabase.ShowDialog();
 
                 var t = _JobModel.DispatchingOrderPayload;
                 //var f = _JobModel.DispatchingModel;
@@ -388,7 +487,7 @@ namespace BarcodeVerificationSystem.View
 
                         if (_FormMainPC == null || _FormMainPC.IsDisposed)
                         {
-                            _FormMainPC = new FrmMain(this);
+                            _FormMainPC = new FrmMainNutri(this); //  // needed changed
                             _FormMainPC.Show();
                         }
                         else
@@ -867,12 +966,40 @@ namespace BarcodeVerificationSystem.View
             btnHelp.Text = Lang.Help;
             btnRestart.Text = Lang.Restart;
 
-            tabPage1.Text = Lang.SelectJob;
-            tabPage2.Text = Lang.CreateANewJob;
+            tabPage1.Text = "Xuất Hàng"; // Lang.CreateANewJob
+            tabPage2.Text = "Lịch Sử"; //Lang.SelectJob
+            tabPage3.Text = "In Lại QR";
         }
 
         private void InitControls()
         {
+            SetupDataGridView();
+            //wmsNumber.Text = Shared.Settings.OrderId;
+
+            //try
+            //{
+            //    var items = Shared.Settings.DispatchingOrderPayload.payload.item;
+
+            //    if (items != null)
+            //    {
+            //        foreach (var item in items)
+            //        {
+            //            dgvItems.Rows.Add(
+            //                item.material_number?.ToString(),
+            //                item.material_name?.ToString(),
+            //                item.material_group?.ToString(),
+            //                item.uom?.ToString(),
+            //                item.qty_per_pallet.ToString(),
+            //                item.qty.ToString(),
+            //                item.qty_per_carton.ToString(),
+            //                item.cube.ToString()
+            //            );
+            //        }
+            //    }
+            //}
+            //catch { /* optionally log error */ }
+
+
 #if DEBUG
             DebugVirtual();
 #endif
@@ -894,7 +1021,7 @@ namespace BarcodeVerificationSystem.View
 
             btnSettings.Enabled = Shared.UserPermission.Settings;
             btnDelete.Enabled = Shared.UserPermission.DeleteJob;
-            tabPage2.Enabled = Shared.UserPermission.CreateJob;
+            tabPage1.Enabled = Shared.UserPermission.CreateJob;
 
             for (int index = 1; index <= 20; index++)
             {
@@ -916,8 +1043,180 @@ namespace BarcodeVerificationSystem.View
             MonitorListenerServer();
         }
 
+        private void SetupDataGridView()
+        {
+            dgvItems.Columns.Clear();
+            dgvItems.Columns.Add("material_number", "Material Number");
+            dgvItems.Columns.Add("material_name", "Material Name");
+            dgvItems.Columns.Add("material_group", "Item Group");
+            //dgvItems.Columns.Add("uom", "UOM");
+            //dgvItems.Columns.Add("qty_per_pallet", "Pallet");
+            dgvItems.Columns.Add("qty", "Quantity");
+            dgvItems.Columns.Add("qty_per_carton", "Quantity Per Carton");
+            dgvItems.Columns.Add("total_qty_ctn", "Số lượng cần in");
+            dgvItems.Columns.Add("printed_number", "Số lượng đã in");
+
+            //dgvItems.Columns.Add("total_cube", "Cube");
+
+            dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvItems.MultiSelect = false;
+            dgvItems.ReadOnly = true;
+            dgvItems.AllowUserToAddRows = false;
+        }
+
+        private async Task btnGenerateCodes_Click()
+        {
+            if (dgvItems.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an item from the list.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int lineIndex = dgvItems.SelectedRows[0].Index;
+
+            _JobModel.SelectedMaterialIndex = lineIndex;
+            _JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
+
+            var selectedRow = dgvItems.SelectedRows[0];
+            string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
+            string materialName = selectedRow.Cells["material_name"].Value.ToString();
+            string wms_number = Shared.Settings.WmsNumber;
+            //string numberOfCodes = selectedRow.Cells["total_qty_ctn"].Value.ToString();
+            string selectedQy = selectedRow.Cells["qty"].Value.ToString();
+            string selectedQtyPerCarton = selectedRow.Cells["qty_per_carton"].Value.ToString();
+
+            int numberOfCodes = (int.Parse(selectedQy) / int.Parse(selectedQtyPerCarton));
+
+            DialogResult result = CustomMessageBox.Show(
+                         Lang.AreYouSureGenerateDispatchingCodes +
+                         $"\nWMS Number: {wms_number}" +
+                         $"\nNumber Of Codes: {numberOfCodes}" +
+                         $"\nMaterial Number: {materialNumber}" +
+                         $"\nMaterial Name: {materialName}",
+                         Lang.Confirm,
+                         MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
+                List<string> list;
+                if (isManufacturingMode) // san xuat
+                {
+                    list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes);
+                }
+                else // xuat hang
+                {
+                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: numberOfCodes);
+                }
+
+                await SendGeneratedCodes(list);
+
+                string tableName = "DispatchingCodes"; // Example table name, adjust as needed
+                string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
+                string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");
+
+                if (!Directory.Exists(documentsPath))
+                {
+                    Directory.CreateDirectory(documentsPath);
+                }
+
+                string filePath = Path.Combine(documentsPath, fileName);
+                CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
+                Shared.databasePath = filePath;
+                Shared.numberOfCodesGenerate = list.Count;
+                //this.Close();
+            }
+
+        }
+
+        private async Task SendGeneratedCodes(List<string> list)
+        {
+            var payload = Shared.Settings.DispatchingOrderPayload.payload;
+            var selectedRow = dgvItems.SelectedRows[0];
+            string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
+            string materialName = selectedRow.Cells["material_name"].Value.ToString();
+            string JobName = jobName.Text;
+
+            List<QrCode> qrCodes = new List<QrCode>();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                string[] fields = list[i].Split(',');
+                var t = new QrCode
+                {
+                    id = i + 1,
+                    unique_code = fields[0],
+                    qr_code = fields[1],
+                    job_name = JobName
+                };
+                qrCodes.Add(t);
+            }
+
+            var request = new RequestBasedData
+            {
+                wms_number = payload.wms_number,
+                job_name = JobName,
+                material_number = materialNumber,
+                wave_key = payload.wave_key,
+                qrCodes = qrCodes
+            };
+            string url = DispatchingApis.GetSendGeneratedCodesUrl();
+
+            await SendAsync(request, url);
+
+            //string url = DispatchingApis.GetSendGeneratedCodesUrl();
+            //var apiService = new ApiService();
+            //var isResponsed = await apiService.PostApiDataAsync(url, request);
+            //apiService.Dispose();
+        }
+        private async Task SendAsync(RequestBasedData data, string url)
+        {
+
+            var client = new HttpClient();
+
+            var json = JsonConvert.SerializeObject(data);
+            var bytes = Encoding.UTF8.GetBytes(json);
+
+            using (var ms = new MemoryStream())
+            {
+                using (var gzip = new GZipStream(ms, CompressionMode.Compress))
+                {
+                    gzip.Write(bytes, 0, bytes.Length);
+                }
+
+                var compressedBytes = ms.ToArray();
+                var content = new ByteArrayContent(compressedBytes);
+                content.Headers.ContentEncoding.Add("gzip");
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                var response = await client.PostAsync(url, content);
+                var responseText = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseText);
+            }
+        }
+
+        private byte[] Compress(string input)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(input);
+            using (var output = new MemoryStream())
+            {
+                using (var gzip = new GZipStream(output, CompressionMode.Compress, leaveOpen: false)) // ensure proper close
+                {
+                    gzip.Write(bytes, 0, bytes.Length);
+                }
+                return output.ToArray(); // This will now include the full compressed stream
+            }
+        }
+
         private void InitEvents()
         {
+            Shared.OnSerialDeviceReadDataChange += Shared_OnSerialDeviceReadDataChange;
+            wmsNumber.TextChanged += ActionResult;
+            btnGetInfo.Click += ActionResult;
+            saveJobNutri.Click += ActionResult;
+            //btnGenerate.Click += btnGenerateCodes_Click;
+
             _TimerDateTime.Tick += TimerDateTime_Tick;
             btnGennerate.Click += ActionResult;
             radCanRead.CheckedChanged += ActionResult;
@@ -961,7 +1260,7 @@ namespace BarcodeVerificationSystem.View
 
             Load += FrmJob_Load;
             tabControl1.SelectedIndexChanged += ActionResult;
-            tabPage2.Click += ActionResult;
+            tabPage1.Click += ActionResult;
 
             btnExit.Click += BtnClose_Click;
             btnNext.Click += ActionResult;
@@ -1003,6 +1302,33 @@ namespace BarcodeVerificationSystem.View
             cuzButtonPurge.Click += CuzButtonPurge_Click;
         }
 
+        private void Shared_OnSerialDeviceReadDataChange(object sender, EventArgs e)
+        {
+            if ((Shared.OperStatus == OperationStatus.Running && Shared.OperStatus == OperationStatus.Processing)) return;
+            try
+            {
+                if (sender is DetectModel detectModel)
+                {
+                    // UI update must be done on the main thread
+                    if (wmsNumber.InvokeRequired)
+                    {
+                        wmsNumber.Invoke(new MethodInvoker(delegate
+                        {
+                            wmsNumber.Text = detectModel.Text.Trim();
+                            Shared.Settings.OrderId = wmsNumber.Text.Trim();
+                        }));
+                    }
+                    else
+                    {
+                        wmsNumber.Text = detectModel.Text.Trim();
+                        Shared.Settings.OrderId = wmsNumber.Text.Trim();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
         private void CuzButtonPurge_Click(object sender, EventArgs e)
         {
             try
@@ -1318,6 +1644,9 @@ namespace BarcodeVerificationSystem.View
             job.PrinterSeries = isRSeries;
             job.FileName = txtFileName.Text;
             job.DispatchingOrderPayload = _JobModel.DispatchingOrderPayload;
+            int lineIndex = dgvItems.SelectedRows[0].Index;
+            job.SelectedMaterialIndex = lineIndex;
+
 
             if (isRSeries)
             {
@@ -1413,6 +1742,8 @@ namespace BarcodeVerificationSystem.View
             try
             {
                 _JobModel = InitJobModel();
+                _JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
+
                 if (_JobModel != null)   // Check current Job has null
                 {
                     string JobName = _JobModel.FileName;  // Check Job name is empty
@@ -1434,6 +1765,13 @@ namespace BarcodeVerificationSystem.View
                                 return;
                             }
 
+                            //_JobModel.PODFormat = "<field1>";
+                            txtPODFormat.Text = "<field1>";
+                            _JobModel.PODFormat = new List<PODModel>
+                            {
+                                new PODModel(1, txtPODFormat.Text, PODModel.TypePOD.FIELD, txtPODFormat.Text)
+                            };  // Check POD format
+
                             string podFormat = _JobModel.PODFormat.ToString();   // Check POD format
 
                             if (_JobModel.CompareType == CompareType.Database && podFormat == "" || txtPODFormat.Text == "")
@@ -1441,6 +1779,8 @@ namespace BarcodeVerificationSystem.View
                                 CuzMessageBox.Show(Lang.PleaseSelectPODFormat, Lang.Confirm, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 return;
                             }
+
+                            _JobModel.TemplatePrint = templatePrint.Text;
 
                             if (_JobModel != null && _JobModel.CompareType == CompareType.Database && !CheckExistTemplatePrint(_JobModel.TemplatePrint) && _JobModel.PrinterSeries)
                             {
@@ -1536,7 +1876,8 @@ namespace BarcodeVerificationSystem.View
                     listBoxPrintProductTemplate.ClearSelected();
                 }
 
-                DialogResult dialogResult = CuzMessageBox.Show(Lang.SuccessfulNewJobCreationStartTheProcess, Lang.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //DialogResult dialogResult = CuzMessageBox.Show(Lang.SuccessfulNewJobCreationStartTheProcess, Lang.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialogResult = DialogResult.Yes;
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (Shared.Settings.PrinterList.FirstOrDefault().CheckAllPrinterSettings && _JobModel.CompareType == CompareType.Database && _JobModel.PrinterSeries)
@@ -1557,7 +1898,7 @@ namespace BarcodeVerificationSystem.View
                     _FormMainPC?.Dispose();
                     if (_FormMainPC == null || _FormMainPC.IsDisposed)
                     {
-                        _FormMainPC = new FrmMain(this);
+                        _FormMainPC = new FrmMainNutri(this);  // needed changed
 
                         _FormMainPC.Show();
                     }
@@ -2513,6 +2854,10 @@ namespace BarcodeVerificationSystem.View
 
         #endregion Monitor_SerialDevice_Controller
 
+        private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

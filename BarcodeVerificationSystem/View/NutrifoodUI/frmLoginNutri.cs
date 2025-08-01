@@ -1,39 +1,36 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Labels.DevModeLabel;
-using BarcodeVerificationSystem.Labels.ProjectLabel;
-using BarcodeVerificationSystem.Model;
-using BarcodeVerificationSystem.Model.UserPermission;
 using BarcodeVerificationSystem.Services;
 using CommonVariable;
-using OperationLog.Controller;
-using OperationLog.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UILanguage;
 using static BarcodeVerificationSystem.Labels.DevModeLabel.DevMode;
-using static BarcodeVerificationSystem.Labels.ProjectLabel.ProjectLabel;
+using UILanguage;
+using BarcodeVerificationSystem.Model;
+using OperationLog.Controller;
+using OperationLog.Model;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
+using BarcodeVerificationSystem.Model.UserPermission;
 
-namespace BarcodeVerificationSystem.View
+namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
-    public partial class FrmLoginNew : Form
+    public partial class frmLoginNutri : Form
     {
         private bool _IsBinding = false;
         private bool _IsProcessing = false;
         private string _RememberPath = "";
         private Thread _ThreadLogin;
 
-        public FrmLoginNew()
+        public frmLoginNutri()
         {
             InitializeComponent();
         }
@@ -121,8 +118,8 @@ namespace BarcodeVerificationSystem.View
             btnLogin.Click += ActionChanged;
             Shared.OnLanguageChange += Shared_OnLanguageChange;
         }
-        
-        private void Shared_OnLanguageChange(object sender,EventArgs e)
+
+        private void Shared_OnLanguageChange(object sender, EventArgs e)
         {
             SetLanguage();
         }
@@ -133,11 +130,11 @@ namespace BarcodeVerificationSystem.View
             {
                 return;
             }
-            if(sender == btnLogin)
+            if (sender == btnLogin)
             {
-                if(txtUsername.Text == "" || txtPassword.Text == "")
+                if (txtUsername.Text == "" || txtPassword.Text == "")
                 {
-                    UpdateMessageLabel(true,false,Lang.UsernameOrPasswordCannotBeLeftBlank);
+                    UpdateMessageLabel(true, false, Lang.UsernameOrPasswordCannotBeLeftBlank);
                 }
                 else
                 {
@@ -156,7 +153,7 @@ namespace BarcodeVerificationSystem.View
 
             KillThreadLogin();
 
-            _ThreadLogin = new Thread(async() =>
+            _ThreadLogin = new Thread(async () =>
             {
                 _IsProcessing = true;
                 UpdateMessageLabel(false, true, "");
@@ -237,9 +234,9 @@ namespace BarcodeVerificationSystem.View
                             {
                                 isOnlineAccountOK = false;
                             }
-                           
+
                         }
-                        catch (Exception ex)    
+                        catch (Exception ex)
                         {
                             //MessageBox.Show("Failed to load permissions: " + ex.Message);
                             //return;

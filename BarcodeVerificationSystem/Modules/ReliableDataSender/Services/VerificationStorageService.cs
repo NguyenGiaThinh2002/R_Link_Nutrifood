@@ -61,7 +61,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             }
         }
 
-        public void MarkAsSent(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+        public void MarkAsSent(int entryId, string CheckedDate , string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
         {
             lock (_fileLock)
             {
@@ -79,7 +79,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             }
         }
 
-        public void MarkAsFailed(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+        public void MarkAsFailed(int entryId, string CheckedDate, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
         {
             lock (_fileLock)
             {

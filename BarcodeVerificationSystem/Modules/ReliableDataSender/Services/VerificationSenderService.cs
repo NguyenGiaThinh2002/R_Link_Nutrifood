@@ -66,7 +66,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
                 if (response.IsSuccessStatusCode)
                 {
-                    _storageService.MarkAsSent(entry.Id, status, serverStatus, saasError, serverError);
+                    _storageService.MarkAsSent(entry.Id, entry.VerifiedDate, status, serverStatus, saasError, serverError);
                 }
                 else
                 {

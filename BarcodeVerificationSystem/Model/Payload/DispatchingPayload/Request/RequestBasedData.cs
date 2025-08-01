@@ -19,4 +19,5 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
 
         public List<QrCode> qrCodes { get; set; } = new List<QrCode>();
     }
+
 }

@@ -1,6 +1,6 @@
-﻿namespace BarcodeVerificationSystem.View
+﻿namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
-    partial class FrmJob
+    partial class frmJobNutri
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJob));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJobNutri));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DragControl = new DesignUI.CuzUI.CuzDragControl();
             this.pnlMenu = new DesignUI.CuzUI.CuzPanel();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
@@ -45,6 +48,22 @@
             this.toolStripDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.saveJobNutri = new DesignUI.CuzUI.CuzButton();
+            this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.shiptoCode = new DesignUI.CuzUI.CuzTextBox();
+            this.shipment = new DesignUI.CuzUI.CuzTextBox();
+            this.waveKey = new DesignUI.CuzUI.CuzTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnGetInfo = new DesignUI.CuzUI.CuzButton();
+            this.templatePrint = new DesignUI.CuzUI.CuzTextBox();
+            this.templatePrintTxt = new System.Windows.Forms.Label();
+            this.wmsNumber = new DesignUI.CuzUI.CuzTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.jobName = new DesignUI.CuzUI.CuzTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cuzButtonPurge = new DesignUI.CuzUI.CuzButton();
             this.pnlJobInfomation = new DesignUI.CuzUI.RoundPanel();
             this.txtJobStatus = new DesignUI.CuzUI.CuzTextBox();
@@ -73,8 +92,10 @@
             this.lblRLinkSeries = new System.Windows.Forms.Label();
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.numberOfCodes = new System.Windows.Forms.Label();
             this.FirstRowHeader = new System.Windows.Forms.CheckBox();
+            this.BtnViewLog = new DesignUI.CuzUI.CuzButton();
             this.tblCompareType = new System.Windows.Forms.TableLayoutPanel();
             this.radCanRead = new System.Windows.Forms.RadioButton();
             this.radStaticText = new System.Windows.Forms.RadioButton();
@@ -112,16 +133,17 @@
             this.btnImportDatabase = new DesignUI.CuzUI.CuzButton();
             this.btnGennerate = new DesignUI.CuzUI.CuzButton();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.BtnViewLog = new DesignUI.CuzUI.CuzButton();
-            this.numberOfCodes = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.pnlJobInfomation.SuspendLayout();
             this.cuzPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tblCompareType.SuspendLayout();
             this.tblJobType.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -138,12 +160,12 @@
             // 
             // pnlMenu
             // 
-            this.pnlMenu._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.pnlMenu._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.pnlMenu._BorderRadius = 0;
             this.pnlMenu._BorderSize = 1;
             this.pnlMenu._Corner = 90F;
-            this.pnlMenu._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.pnlMenu._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.pnlMenu._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.pnlMenu._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.pnlMenu._GradientPanel = true;
             this.pnlMenu.Controls.Add(this.btnHelp);
             this.pnlMenu.Controls.Add(this.btnAbout);
@@ -307,6 +329,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -314,20 +337,267 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.cuzButtonPurge);
-            this.tabPage1.Controls.Add(this.pnlJobInfomation);
-            this.tabPage1.Controls.Add(this.cuzPanel3);
-            this.tabPage1.Controls.Add(this.btnDelete);
-            this.tabPage1.Controls.Add(this.btnNext);
-            this.tabPage1.Controls.Add(this.pnlRLinkSeriesColor);
-            this.tabPage1.Controls.Add(this.pnlStandaloneColor);
-            this.tabPage1.Controls.Add(this.txtSearch);
-            this.tabPage1.Controls.Add(this.btnSearchJob);
-            this.tabPage1.Controls.Add(this.lblRLinkSeries);
-            this.tabPage1.Controls.Add(this.btnRefesh);
-            this.tabPage1.Controls.Add(this.lblStandalone);
+            this.tabPage1.Controls.Add(this.saveJobNutri);
+            this.tabPage1.Controls.Add(this.dgvItems);
+            this.tabPage1.Controls.Add(this.shiptoCode);
+            this.tabPage1.Controls.Add(this.shipment);
+            this.tabPage1.Controls.Add(this.waveKey);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.btnGetInfo);
+            this.tabPage1.Controls.Add(this.templatePrint);
+            this.tabPage1.Controls.Add(this.templatePrintTxt);
+            this.tabPage1.Controls.Add(this.wmsNumber);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.jobName);
+            this.tabPage1.Controls.Add(this.label1);
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
+            // 
+            // saveJobNutri
+            // 
+            this.saveJobNutri._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
+            this.saveJobNutri._BorderRadius = 20;
+            this.saveJobNutri._BorderSize = 1;
+            this.saveJobNutri._GradientsButton = false;
+            this.saveJobNutri._Text = "LƯU";
+            this.saveJobNutri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.saveJobNutri.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.saveJobNutri.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.saveJobNutri.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.saveJobNutri.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.saveJobNutri, "saveJobNutri");
+            this.saveJobNutri.ForeColor = System.Drawing.Color.White;
+            this.saveJobNutri.Name = "saveJobNutri";
+            this.saveJobNutri.TextColor = System.Drawing.Color.White;
+            this.saveJobNutri.UseVisualStyleBackColor = false;
+            // 
+            // dgvItems
+            // 
+            this.dgvItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.dgvItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            resources.ApplyResources(this.dgvItems, "dgvItems");
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(165)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItems.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvItems.EnableHeadersVisualStyles = false;
+            this.dgvItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvItems.Name = "dgvItems";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvItems.RowHeadersVisible = false;
+            this.dgvItems.RowTemplate.Height = 30;
+            this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellContentClick);
+            // 
+            // shiptoCode
+            // 
+            this.shiptoCode._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.shiptoCode._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.shiptoCode.BackColor = System.Drawing.Color.White;
+            this.shiptoCode.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.shiptoCode.BorderFocusColor = System.Drawing.Color.Silver;
+            this.shiptoCode.BorderRadius = 6;
+            this.shiptoCode.BorderSize = 1;
+            resources.ApplyResources(this.shiptoCode, "shiptoCode");
+            this.shiptoCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.shiptoCode.Multiline = false;
+            this.shiptoCode.Name = "shiptoCode";
+            this.shiptoCode.PasswordChar = false;
+            this.shiptoCode.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.shiptoCode.PlaceholderText = "";
+            this.shiptoCode.ReadOnly = false;
+            this.shiptoCode.UnderlinedStyle = false;
+            // 
+            // shipment
+            // 
+            this.shipment._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.shipment._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.shipment.BackColor = System.Drawing.Color.White;
+            this.shipment.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.shipment.BorderFocusColor = System.Drawing.Color.Silver;
+            this.shipment.BorderRadius = 6;
+            this.shipment.BorderSize = 1;
+            resources.ApplyResources(this.shipment, "shipment");
+            this.shipment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.shipment.Multiline = false;
+            this.shipment.Name = "shipment";
+            this.shipment.PasswordChar = false;
+            this.shipment.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.shipment.PlaceholderText = "";
+            this.shipment.ReadOnly = false;
+            this.shipment.UnderlinedStyle = false;
+            // 
+            // waveKey
+            // 
+            this.waveKey._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.waveKey._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.waveKey.BackColor = System.Drawing.Color.White;
+            this.waveKey.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.waveKey.BorderFocusColor = System.Drawing.Color.Silver;
+            this.waveKey.BorderRadius = 6;
+            this.waveKey.BorderSize = 1;
+            resources.ApplyResources(this.waveKey, "waveKey");
+            this.waveKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.waveKey.Multiline = false;
+            this.waveKey.Name = "waveKey";
+            this.waveKey.PasswordChar = false;
+            this.waveKey.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.waveKey.PlaceholderText = "";
+            this.waveKey.ReadOnly = false;
+            this.waveKey.UnderlinedStyle = false;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label6.Name = "label6";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label5.Name = "label5";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label4.Name = "label4";
+            // 
+            // btnGetInfo
+            // 
+            this.btnGetInfo._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
+            this.btnGetInfo._BorderRadius = 20;
+            this.btnGetInfo._BorderSize = 1;
+            this.btnGetInfo._GradientsButton = false;
+            this.btnGetInfo._Text = "LẤY PHIẾU";
+            this.btnGetInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.btnGetInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.btnGetInfo.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnGetInfo.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.btnGetInfo.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btnGetInfo, "btnGetInfo");
+            this.btnGetInfo.ForeColor = System.Drawing.Color.White;
+            this.btnGetInfo.Name = "btnGetInfo";
+            this.btnGetInfo.TextColor = System.Drawing.Color.White;
+            this.btnGetInfo.UseVisualStyleBackColor = false;
+            // 
+            // templatePrint
+            // 
+            this.templatePrint._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.templatePrint._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.templatePrint.BackColor = System.Drawing.Color.White;
+            this.templatePrint.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.templatePrint.BorderFocusColor = System.Drawing.Color.Silver;
+            this.templatePrint.BorderRadius = 6;
+            this.templatePrint.BorderSize = 1;
+            resources.ApplyResources(this.templatePrint, "templatePrint");
+            this.templatePrint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.templatePrint.Multiline = false;
+            this.templatePrint.Name = "templatePrint";
+            this.templatePrint.PasswordChar = false;
+            this.templatePrint.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.templatePrint.PlaceholderText = "";
+            this.templatePrint.ReadOnly = false;
+            this.templatePrint.UnderlinedStyle = false;
+            // 
+            // templatePrintTxt
+            // 
+            resources.ApplyResources(this.templatePrintTxt, "templatePrintTxt");
+            this.templatePrintTxt.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.templatePrintTxt.Name = "templatePrintTxt";
+            // 
+            // wmsNumber
+            // 
+            this.wmsNumber._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.wmsNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.wmsNumber.BackColor = System.Drawing.Color.White;
+            this.wmsNumber.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.wmsNumber.BorderFocusColor = System.Drawing.Color.Silver;
+            this.wmsNumber.BorderRadius = 6;
+            this.wmsNumber.BorderSize = 1;
+            resources.ApplyResources(this.wmsNumber, "wmsNumber");
+            this.wmsNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.wmsNumber.Multiline = false;
+            this.wmsNumber.Name = "wmsNumber";
+            this.wmsNumber.PasswordChar = false;
+            this.wmsNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.wmsNumber.PlaceholderText = "";
+            this.wmsNumber.ReadOnly = false;
+            this.wmsNumber.UnderlinedStyle = false;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label2.Name = "label2";
+            // 
+            // jobName
+            // 
+            this.jobName._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.jobName._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.jobName.BackColor = System.Drawing.Color.White;
+            this.jobName.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.jobName.BorderFocusColor = System.Drawing.Color.Silver;
+            this.jobName.BorderRadius = 6;
+            this.jobName.BorderSize = 1;
+            resources.ApplyResources(this.jobName, "jobName");
+            this.jobName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.jobName.Multiline = false;
+            this.jobName.Name = "jobName";
+            this.jobName.PasswordChar = false;
+            this.jobName.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.jobName.PlaceholderText = "";
+            this.jobName.ReadOnly = false;
+            this.jobName.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Name = "label1";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.cuzButtonPurge);
+            this.tabPage2.Controls.Add(this.pnlJobInfomation);
+            this.tabPage2.Controls.Add(this.cuzPanel3);
+            this.tabPage2.Controls.Add(this.btnDelete);
+            this.tabPage2.Controls.Add(this.btnNext);
+            this.tabPage2.Controls.Add(this.pnlRLinkSeriesColor);
+            this.tabPage2.Controls.Add(this.pnlStandaloneColor);
+            this.tabPage2.Controls.Add(this.txtSearch);
+            this.tabPage2.Controls.Add(this.btnSearchJob);
+            this.tabPage2.Controls.Add(this.lblRLinkSeries);
+            this.tabPage2.Controls.Add(this.btnRefesh);
+            this.tabPage2.Controls.Add(this.lblStandalone);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
             // 
             // cuzButtonPurge
             // 
@@ -369,7 +639,7 @@
             this.pnlJobInfomation.Name = "pnlJobInfomation";
             this.pnlJobInfomation.Radious = 15;
             this.pnlJobInfomation.TabStop = false;
-            this.pnlJobInfomation.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(230)))));
+            this.pnlJobInfomation.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.pnlJobInfomation.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlJobInfomation.TitleForeColor = System.Drawing.Color.White;
             this.pnlJobInfomation.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
@@ -697,40 +967,47 @@
             this.lblStandalone.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblStandalone.Name = "lblStandalone";
             // 
-            // tabPage2
+            // tabPage3
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Controls.Add(this.numberOfCodes);
-            this.tabPage2.Controls.Add(this.FirstRowHeader);
-            this.tabPage2.Controls.Add(this.BtnViewLog);
-            this.tabPage2.Controls.Add(this.tblCompareType);
-            this.tabPage2.Controls.Add(this.lblCompare);
-            this.tabPage2.Controls.Add(this.tblJobType);
-            this.tabPage2.Controls.Add(this.lblJobTypeInput);
-            this.tabPage2.Controls.Add(this.cboSupportForCamera);
-            this.tabPage2.Controls.Add(this.lblSupportForCamera);
-            this.tabPage2.Controls.Add(this.lblStaticText);
-            this.tabPage2.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage2.Controls.Add(this.lblFileName);
-            this.tabPage2.Controls.Add(this.lblTemplate);
-            this.tabPage2.Controls.Add(this.lblPrinterSeries);
-            this.tabPage2.Controls.Add(this.lblPODFromat);
-            this.tabPage2.Controls.Add(this.lblImportDatabase);
-            this.tabPage2.Controls.Add(this.cuzTextBox2);
-            this.tabPage2.Controls.Add(this.txtStaticText);
-            this.tabPage2.Controls.Add(this.cuzPanel4);
-            this.tabPage2.Controls.Add(this.btnSave);
-            this.tabPage2.Controls.Add(this.txtSearchTemplate);
-            this.tabPage2.Controls.Add(this.txtFileName);
-            this.tabPage2.Controls.Add(this.txtDirectoryDatabse);
-            this.tabPage2.Controls.Add(this.txtPODFormat);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.btnRefeshTemplate);
-            this.tabPage2.Controls.Add(this.btnPODFormat);
-            this.tabPage2.Controls.Add(this.btnImportDatabase);
-            this.tabPage2.Controls.Add(this.btnGennerate);
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Name = "tabPage2";
+            this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.panel1);
+            this.tabPage3.Controls.Add(this.numberOfCodes);
+            this.tabPage3.Controls.Add(this.FirstRowHeader);
+            this.tabPage3.Controls.Add(this.BtnViewLog);
+            this.tabPage3.Controls.Add(this.tblCompareType);
+            this.tabPage3.Controls.Add(this.lblCompare);
+            this.tabPage3.Controls.Add(this.tblJobType);
+            this.tabPage3.Controls.Add(this.lblJobTypeInput);
+            this.tabPage3.Controls.Add(this.cboSupportForCamera);
+            this.tabPage3.Controls.Add(this.lblSupportForCamera);
+            this.tabPage3.Controls.Add(this.lblStaticText);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel2);
+            this.tabPage3.Controls.Add(this.lblFileName);
+            this.tabPage3.Controls.Add(this.lblTemplate);
+            this.tabPage3.Controls.Add(this.lblPrinterSeries);
+            this.tabPage3.Controls.Add(this.lblPODFromat);
+            this.tabPage3.Controls.Add(this.lblImportDatabase);
+            this.tabPage3.Controls.Add(this.cuzTextBox2);
+            this.tabPage3.Controls.Add(this.txtStaticText);
+            this.tabPage3.Controls.Add(this.cuzPanel4);
+            this.tabPage3.Controls.Add(this.btnSave);
+            this.tabPage3.Controls.Add(this.txtSearchTemplate);
+            this.tabPage3.Controls.Add(this.txtFileName);
+            this.tabPage3.Controls.Add(this.txtDirectoryDatabse);
+            this.tabPage3.Controls.Add(this.txtPODFormat);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.btnRefeshTemplate);
+            this.tabPage3.Controls.Add(this.btnPODFormat);
+            this.tabPage3.Controls.Add(this.btnImportDatabase);
+            this.tabPage3.Controls.Add(this.btnGennerate);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Name = "tabPage3";
+            // 
+            // numberOfCodes
+            // 
+            resources.ApplyResources(this.numberOfCodes, "numberOfCodes");
+            this.numberOfCodes.ForeColor = System.Drawing.Color.DarkOrange;
+            this.numberOfCodes.Name = "numberOfCodes";
             // 
             // FirstRowHeader
             // 
@@ -740,6 +1017,25 @@
             this.FirstRowHeader.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.FirstRowHeader.Name = "FirstRowHeader";
             this.FirstRowHeader.UseVisualStyleBackColor = true;
+            // 
+            // BtnViewLog
+            // 
+            this.BtnViewLog._BorderColor = System.Drawing.Color.Silver;
+            this.BtnViewLog._BorderRadius = 10;
+            this.BtnViewLog._BorderSize = 1;
+            this.BtnViewLog._GradientsButton = false;
+            this.BtnViewLog._Text = "";
+            this.BtnViewLog.BackColor = System.Drawing.Color.White;
+            this.BtnViewLog.BackgroundColor = System.Drawing.Color.White;
+            this.BtnViewLog.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.BtnViewLog.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.BtnViewLog.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.BtnViewLog, "BtnViewLog");
+            this.BtnViewLog.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnViewLog.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_open_321;
+            this.BtnViewLog.Name = "BtnViewLog";
+            this.BtnViewLog.TextColor = System.Drawing.SystemColors.ControlText;
+            this.BtnViewLog.UseVisualStyleBackColor = false;
             // 
             // tblCompareType
             // 
@@ -1174,51 +1470,34 @@
             resources.ApplyResources(this.pnlMain, "pnlMain");
             this.pnlMain.Name = "pnlMain";
             // 
-            // BtnViewLog
+            // panel1
             // 
-            this.BtnViewLog._BorderColor = System.Drawing.Color.Silver;
-            this.BtnViewLog._BorderRadius = 10;
-            this.BtnViewLog._BorderSize = 1;
-            this.BtnViewLog._GradientsButton = false;
-            this.BtnViewLog._Text = "";
-            this.BtnViewLog.BackColor = System.Drawing.Color.White;
-            this.BtnViewLog.BackgroundColor = System.Drawing.Color.White;
-            this.BtnViewLog.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.BtnViewLog.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.BtnViewLog.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.BtnViewLog, "BtnViewLog");
-            this.BtnViewLog.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnViewLog.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_open_321;
-            this.BtnViewLog.Name = "BtnViewLog";
-            this.BtnViewLog.TextColor = System.Drawing.SystemColors.ControlText;
-            this.BtnViewLog.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
             // 
-            // numberOfCodes
-            // 
-            resources.ApplyResources(this.numberOfCodes, "numberOfCodes");
-            this.numberOfCodes.ForeColor = System.Drawing.Color.DarkOrange;
-            this.numberOfCodes.Name = "numberOfCodes";
-            // 
-            // FrmJob
+            // frmJobNutri
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmJob";
+            this.Name = "frmJobNutri";
             this.pnlMenu.ResumeLayout(false);
             this.statusStrip2.ResumeLayout(false);
             this.statusStrip2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.pnlJobInfomation.ResumeLayout(false);
             this.pnlJobInfomation.PerformLayout();
             this.cuzPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tblCompareType.ResumeLayout(false);
             this.tblCompareType.PerformLayout();
             this.tblJobType.ResumeLayout(false);
@@ -1244,7 +1523,7 @@
         internal System.Windows.Forms.ToolStripStatusLabel lblToolStripVersion;
         private System.Windows.Forms.ToolStripStatusLabel toolStripDateTime;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
         private DesignUI.CuzUI.CuzPanel cuzPanel3;
         private System.Windows.Forms.PictureBox picLoading;
         private DesignUI.CuzUI.CuzButton btnDelete;
@@ -1256,7 +1535,9 @@
         private System.Windows.Forms.Label lblRLinkSeries;
         private DesignUI.CuzUI.CuzButton btnRefesh;
         private System.Windows.Forms.Label lblStandalone;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage3;
+
         private System.Windows.Forms.TableLayoutPanel tblCompareType;
         private System.Windows.Forms.RadioButton radCanRead;
         private System.Windows.Forms.RadioButton radStaticText;
@@ -1317,6 +1598,22 @@
         private System.Windows.Forms.CheckBox FirstRowHeader;
         private DesignUI.CuzUI.CuzButton BtnViewLog;
         private System.Windows.Forms.Label numberOfCodes;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private DesignUI.CuzUI.CuzButton btnGetInfo;
+        private DesignUI.CuzUI.CuzTextBox templatePrint;
+        private System.Windows.Forms.Label templatePrintTxt;
+        private DesignUI.CuzUI.CuzTextBox wmsNumber;
+        private System.Windows.Forms.Label label2;
+        private DesignUI.CuzUI.CuzTextBox jobName;
+        private System.Windows.Forms.Label label1;
+        private DesignUI.CuzUI.CuzTextBox shiptoCode;
+        private DesignUI.CuzUI.CuzTextBox shipment;
+        private DesignUI.CuzUI.CuzTextBox waveKey;
+        private System.Windows.Forms.DataGridView dgvItems;
+        private DesignUI.CuzUI.CuzButton saveJobNutri;
+        private System.Windows.Forms.Panel panel1;
     }
 
 }

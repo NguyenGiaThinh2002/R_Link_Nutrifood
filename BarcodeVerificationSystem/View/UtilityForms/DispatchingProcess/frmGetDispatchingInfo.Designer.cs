@@ -24,7 +24,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGetDispatchingInfo));
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.lblDatabaseType = new System.Windows.Forms.Label();
-            this.txtOrderId = new DesignUI.CuzUI.CuzTextBox();
+            this.wmsNumber = new DesignUI.CuzUI.CuzTextBox();
             this.btnGetInfo = new DesignUI.CuzUI.CuzButton();
             this.btnGenerate = new DesignUI.CuzUI.CuzButton();
             this.materialItemsTxt = new System.Windows.Forms.Label();
@@ -83,29 +83,29 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             this.lblDatabaseType.TabIndex = 18;
             this.lblDatabaseType.Text = "Wms Number:";
             // 
-            // txtOrderId
+            // wmsNumber
             // 
-            this.txtOrderId._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtOrderId._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtOrderId.BackColor = System.Drawing.Color.White;
-            this.txtOrderId.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtOrderId.BorderFocusColor = System.Drawing.Color.Silver;
-            this.txtOrderId.BorderRadius = 6;
-            this.txtOrderId.BorderSize = 1;
-            this.txtOrderId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtOrderId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtOrderId.Location = new System.Drawing.Point(33, 41);
-            this.txtOrderId.Margin = new System.Windows.Forms.Padding(4);
-            this.txtOrderId.Multiline = false;
-            this.txtOrderId.Name = "txtOrderId";
-            this.txtOrderId.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtOrderId.PasswordChar = false;
-            this.txtOrderId.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtOrderId.PlaceholderText = "";
-            this.txtOrderId.ReadOnly = false;
-            this.txtOrderId.Size = new System.Drawing.Size(660, 35);
-            this.txtOrderId.TabIndex = 120;
-            this.txtOrderId.UnderlinedStyle = false;
+            this.wmsNumber._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.wmsNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.wmsNumber.BackColor = System.Drawing.Color.White;
+            this.wmsNumber.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.wmsNumber.BorderFocusColor = System.Drawing.Color.Silver;
+            this.wmsNumber.BorderRadius = 6;
+            this.wmsNumber.BorderSize = 1;
+            this.wmsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.wmsNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.wmsNumber.Location = new System.Drawing.Point(33, 41);
+            this.wmsNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.wmsNumber.Multiline = false;
+            this.wmsNumber.Name = "wmsNumber";
+            this.wmsNumber.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.wmsNumber.PasswordChar = false;
+            this.wmsNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.wmsNumber.PlaceholderText = "";
+            this.wmsNumber.ReadOnly = false;
+            this.wmsNumber.Size = new System.Drawing.Size(660, 35);
+            this.wmsNumber.TabIndex = 120;
+            this.wmsNumber.UnderlinedStyle = false;
             // 
             // btnGetInfo
             // 
@@ -312,7 +312,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             this.Controls.Add(this.orderInfo);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.btnGetInfo);
-            this.Controls.Add(this.txtOrderId);
+            this.Controls.Add(this.wmsNumber);
             this.Controls.Add(this.lblDatabaseType);
             this.Controls.Add(this.dgvItems);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -328,7 +328,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         #endregion
         private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.Label lblDatabaseType;
-        private DesignUI.CuzUI.CuzTextBox txtOrderId;
+        private DesignUI.CuzUI.CuzTextBox wmsNumber;
         private DesignUI.CuzUI.CuzButton btnGetInfo;
         private DesignUI.CuzUI.CuzButton btnGenerate;
         private Label materialItemsTxt;

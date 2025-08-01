@@ -11,13 +11,14 @@ using System.Windows.Forms;
 using Force.DeepCloner;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 using UILanguage;
+using BarcodeVerificationSystem.View.NutrifoodUI;
 
 
 namespace BarcodeVerificationSystem.View.SubForms
 {
     public partial class frmGetDispatchingDataOffline : Form
     {
-        private readonly FrmJob _frmJob;
+        private readonly frmJobNutri _frmJob;
         private CreateScrollablePanel itemScrollablePanel;
         private Panel _panel;
 
@@ -36,7 +37,7 @@ namespace BarcodeVerificationSystem.View.SubForms
         };
 
 
-        public frmGetDispatchingDataOffline(FrmJob frmJob)
+        public frmGetDispatchingDataOffline(frmJobNutri frmJob)
         {
             _frmJob = frmJob;
             //Shared.Settings.DispatchingOrderPayload = null;
@@ -83,15 +84,12 @@ namespace BarcodeVerificationSystem.View.SubForms
             dgvItems.Columns.Clear();
             dgvItems.Columns.Add("material_number", "Material Number");
             dgvItems.Columns.Add("material_name", "Material Name");
-            dgvItems.Columns.Add("status_desc", "Status");
-            dgvItems.Columns.Add("item_group", "Item Group");
-            dgvItems.Columns.Add("uom_name", "UOM");
-            dgvItems.Columns.Add("case_cnt", "Case Count");
-            dgvItems.Columns.Add("pallet", "Pallet");
-            dgvItems.Columns.Add("original_qty", "Original Quatity");
-            dgvItems.Columns.Add("total_qty_ctn", "Total Qty Ctn");
-            dgvItems.Columns.Add("gross_wgt", "Gross Weight");
-            dgvItems.Columns.Add("cube", "Cube");
+            dgvItems.Columns.Add("material_group", "Item Group");
+            dgvItems.Columns.Add("uom", "UOM");
+            dgvItems.Columns.Add("qty_per_pallet", "Pallet");
+            dgvItems.Columns.Add("qty", "Quantity");
+            dgvItems.Columns.Add("qty_per_carton", "Quantity Per Carton");
+            dgvItems.Columns.Add("total_cube", "Cube");
 
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -123,14 +121,11 @@ namespace BarcodeVerificationSystem.View.SubForms
                         dgvItems.Rows.Add(
                             item.material_number?.ToString(),
                             item.material_name?.ToString(),
-                            item.status_desc?.ToString(),
-                            item.item_group?.ToString(),
-                            item.uom_name?.ToString(),
-                            item.case_cnt.ToString(),
-                            item.pallet.ToString(),
-                            item.original_qty.ToString(),
-                            item.total_qty_ctn.ToString(),
-                            item.gross_wgt.ToString(),
+                            item.material_group?.ToString(),
+                            item.uom?.ToString(),
+                            item.qty_per_pallet.ToString(),
+                            item.qty.ToString(),
+                            item.qty_per_carton.ToString(),
                             item.cube.ToString()
                         );
                     }
@@ -273,14 +268,15 @@ namespace BarcodeVerificationSystem.View.SubForms
             _frmJob._JobModel.SelectedMaterialIndex = lineIndex;
             _frmJob._JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
 
-            //_frmJob._JobModel.DispatchingModel = Shared.Settings.DispatchingPayload;
-
-
             var selectedRow = dgvItems.SelectedRows[0];
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
             string materialName = selectedRow.Cells["material_name"].Value.ToString();
             string wms_number = Shared.Settings.WmsNumber;
-            string numberOfCodes = selectedRow.Cells["total_qty_ctn"].Value.ToString();
+            //string numberOfCodes = selectedRow.Cells["total_qty_ctn"].Value.ToString();
+            string selectedQy = selectedRow.Cells["qty"].Value.ToString();
+            string selectedQtyPerCarton = selectedRow.Cells["qty_per_carton"].Value.ToString();
+
+            int numberOfCodes = (int.Parse(selectedQy) / int.Parse(selectedQtyPerCarton));
 
             DialogResult result = CustomMessageBox.Show(
                 Lang.AreYouSureGenerateDispatchingCodes +
@@ -297,11 +293,11 @@ namespace BarcodeVerificationSystem.View.SubForms
                 List<string> list;
                 if (isManufacturingMode) // san xuat
                 {
-                     list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: int.Parse(numberOfCodes));
+                     list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes);
                 }
                 else // xuat hang
                 {
-                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: int.Parse(numberOfCodes));
+                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: numberOfCodes);
                 }
                
 

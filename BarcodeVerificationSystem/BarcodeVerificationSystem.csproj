@@ -209,10 +209,14 @@
     <Compile Include="Model\ObjectResultModel.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\QRCode.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestBasedData.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestCheckCodeAmount.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestConfirmCompletion.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestDisposal.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestListDisposal.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestListRePrint.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestReprintedCode.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseCurrentPrintedCodeInfo.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseListRePrint.cs" />
     <Compile Include="Model\Payload\MonitorPayload.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestPrinted.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestRePrint.cs" />
@@ -231,6 +235,7 @@
     <Compile Include="Model\PrinterSettingsResponseModel.cs" />
     <Compile Include="Model\ResponseGetInfoModel.cs" />
     <Compile Include="Model\SettingsModel.cs" />
+    <Compile Include="Model\SyncDataParams.cs" />
     <Compile Include="Model\SynchronizedDictionary.cs" />
     <Compile Include="Model\SynchronizedQueue.cs" />
     <Compile Include="Model\CheckMode.cs" />
@@ -283,6 +288,24 @@
     <Compile Include="Utils\CodeGeneration\TestCodeGeneration\TestGenCode.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\YearCodeHelper.cs" />
     <Compile Include="Utils\RegistryHelper.cs" />
+    <Compile Include="View\NutrifoodUI\frmJobNutri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmJobNutri.Designer.cs">
+      <DependentUpon>frmJobNutri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmLoginNutri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmLoginNutri.Designer.cs">
+      <DependentUpon>frmLoginNutri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmMainNutri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmMainNutri.designer.cs">
+      <DependentUpon>frmMainNutri.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
     <Compile Include="View\UtilityForms\DispatchingProcess\frmDisposal.cs">
       <SubType>Form</SubType>
@@ -478,6 +501,20 @@
     <EmbeddedResource Include="Properties\Resources.vi.resx" />
     <EmbeddedResource Include="View\frmMain.vi.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\frmJobNutri.resx">
+      <DependentUpon>frmJobNutri.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\frmLoginNutri.resx">
+      <DependentUpon>frmLoginNutri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\frmMainNutri.resx">
+      <DependentUpon>frmMainNutri.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\frmMainNutri.vi.resx">
+      <DependentUpon>frmMainNutri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.resx">
       <DependentUpon>frmGetDispatchingDataOffline.cs</DependentUpon>
@@ -679,6 +716,7 @@
     <None Include="Resources\icons8_scanner_disconnected.png" />
     <None Include="Resources\icons8_scanner_connected.png" />
     <None Include="Resources\icon-check-mark.png" />
+    <Resource Include="Resources\nutifood_logo.jpg" />
     <Content Include="vcredist2010_x86.exe" />
     <None Include="RConfig.dat" />
     <None Include="Resources\TemplateIllustration.png" />

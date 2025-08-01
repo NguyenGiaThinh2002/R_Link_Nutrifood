@@ -62,12 +62,12 @@ using BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess;
 using static BarcodeVerificationSystem.Model.SyncDataParams;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
 
-namespace BarcodeVerificationSystem.View
+namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
-    public partial class FrmMain : Form
+    public partial class FrmMainNutri : Form
     {
         #region VARIABLES DEFINITION
-        private readonly FrmJob _ParentForm = null;
+        private readonly frmJobNutri _ParentForm = null;
         private JobModel _SelectedJob = new JobModel();
         private bool _IsPrinterDisconnectedNot = false;
         private bool _IsReCheck = false;
@@ -370,13 +370,13 @@ namespace BarcodeVerificationSystem.View
         AutoTriggerCameraDataman _autoTrigger;
         #endregion
 
-        public FrmMain()
+        public FrmMainNutri()
         {
             InitializeComponent();
         }
         private bool isDragging = false;
         private Point dragStartPoint;
-        public FrmMain(FrmJob parentForm)
+        public FrmMainNutri(frmJobNutri parentForm)
         {
             InitializeComponent();
             FormClosing += FrmMain_FormClosing;
@@ -389,6 +389,7 @@ namespace BarcodeVerificationSystem.View
             Shared.OnNumberEventISCount += Shared_OnNumberEventISCountAsync;
             //StartWebSocketServer("http://localhost:3333/ws/");
             //MessageBox.Show(Shared.LoggedInUser.Role.ToString());
+
         }
 
         #region SendData to WebSocket Server
@@ -628,13 +629,13 @@ namespace BarcodeVerificationSystem.View
             if (ProjectLabel.IsNutrifood)
             {
                 //syncCodes.Visible = numberOfCodes.Visible = confirmCompletion.Visible = true;
-                syncDataInfo.Visible = confirmCompletion.Visible = true;
-                pnlCurrentCheck.Text = "Printing Process";
+                confirmCompletion.Visible = true;
+                pnlCurrentCheck.Text = "Thông tin mã in"; // Printing Process
                 lblCodeResult.Text = "Number of Sync Code";            
                 BarcodeQualityLabel.Text = "Confirm Completion";
                 txtBarcodeQuality.Visible = false;
                 GetSample.Text = "Disposal Process";
-                pnlVerificationProcess.Text = "Sync Data Actions";
+                pnlVerificationProcess.Text = "Vận hành khác";
 
                 if (!Shared.Settings.IsManufacturingMode)
                 {
@@ -654,7 +655,11 @@ namespace BarcodeVerificationSystem.View
                     RePrintBtn.Text = Lang.RePrint;
 
                 }
-          
+
+                // thinh dang lam
+                var payloadJob = _SelectedJob?.DispatchingOrderPayload?.payload;
+                wmsNumber.Text = payloadJob?.wms_number;
+                materialNumber.Text = payloadJob?.item[_SelectedJob.SelectedMaterialIndex].material_number;
             }
 
 
@@ -3365,7 +3370,6 @@ namespace BarcodeVerificationSystem.View
 
                     _PrintedCodeObtainFromFile = databaseTsk.Result;
                     _CheckedResultCodeList = checkedResultTsk.Result;
-                    // thinh dang lam ne
                     if (_PrintedCodeObtainFromFile.Count() > 1)  // Inititalize database information
                     {
                         _DatabaseColunms = _PrintedCodeObtainFromFile[0];
@@ -3377,6 +3381,8 @@ namespace BarcodeVerificationSystem.View
                         }
 
                         _TotalCode = _PrintedCodeObtainFromFile.Count();
+                        numberOfCode.Text = _TotalCode.ToString();
+
                         NumberPrinted = _PrintedCodeObtainFromFile.Where(x => x[1] == "Printed").Count();
                         int firstWaiting = _PrintedCodeObtainFromFile.IndexOf(_PrintedCodeObtainFromFile.Find(x => x[1] == "Waiting"));  // Identify datas need to display by first waiting code
                         _CurrentPage = CalculateCurrentPage(_TotalCode, _MaxDatabaseLine, firstWaiting);
@@ -3910,7 +3916,7 @@ namespace BarcodeVerificationSystem.View
                         _NumberOfCheckedFailed = (TotalChecked - NumberOfCheckPassed),
                         _JobName = _SelectedJob.FileName,
                         _PODFormat = _SelectedJob.PODFormat,
-                        _frmParent = this
+                        //_frmParent = this // needed changes
                     };
                     // fillValue = 0: Load all
                     // fillValue = 1: Load passed result
@@ -4317,6 +4323,7 @@ namespace BarcodeVerificationSystem.View
                                     {
                                         foreach (var item in _SelectedJob.PODFormat)
                                         {
+                                            /// Loi o day
                                             if (item.Type == PODModel.TypePOD.FIELD)
                                             {
                                                 int indexItem = item.Index - 1;
@@ -5931,6 +5938,11 @@ namespace BarcodeVerificationSystem.View
         }
 
         private void ConfirmLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

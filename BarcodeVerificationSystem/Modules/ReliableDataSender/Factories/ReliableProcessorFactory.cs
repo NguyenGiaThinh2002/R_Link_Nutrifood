@@ -12,10 +12,10 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Factories
 {
     public class ReliableProcessorFactory
     {
-        public static PrintingQueueProcessor CreatePrintingProcessor(string filePath, string endpoint)
+        public static PrintingQueueProcessor CreatePrintingProcessor(string filePath, string endpoint, string databasePath)
         {
             var queue = new BlockingCollection<PrintingDataEntry>();
-            var fileStorage = new PrintingStorageService(filePath);
+            var fileStorage = new PrintingStorageService(filePath, databasePath);
             var senderWorker = new PrintingSenderService(queue, fileStorage, endpoint);
             var processor = new PrintingQueueProcessor(queue, fileStorage, senderWorker);
             return processor;

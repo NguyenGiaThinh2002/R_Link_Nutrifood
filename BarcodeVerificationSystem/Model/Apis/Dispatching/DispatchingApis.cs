@@ -14,12 +14,17 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
         static readonly string factoryCode = Shared.Settings.FactoryCode;
 
         private static string _getOrderInfoUrl = $"{url}/api/shipment/get/{factoryCode}";
-        private static string _sendGeneratedCodesUrl = $"{url}/api/shipment/orderCodes";
+        private static string _sendGeneratedCodesUrl = $"{url}/api/shipment/generatedCodes";
         private static string _printedDataUrl = $"{url}/api/shipment/printed";
-        private static string _monitorUrl = $"{url}/api/shipment/monitoring";
-        private static string _confirmCompletionUrl = $"{url}/api/shipment/confirmcomplete";
         private static string _destroyCodesUrl = $"{url}/api/shipment/destroy";
-        private static string _reprintCodesUrl = $"{url}/api/production/reprint";
+
+        private static string _getReprintCodesUrl = $"{url}/api/production/reprint/get_info"; // ResponseListRePrint
+        private static string _postReprintCodesUrl = $"{url}/api/production/reprint"; // ResponseListRePrint
+
+        private static string _confirmCompletionUrl = $"{url}/api/shipment/confirmcomplete";
+        private static string _monitorUrl = $"{url}/api/shipment/monitoring";
+
+        private static string _getCurrentPrintedCodeInfo = $"{url}/api/shipment/getCurrentProcessing";
 
         public static string GetOrderInfoUrl(string wmsNumber)
         {
@@ -28,7 +33,7 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
 
         public static string GetSendGeneratedCodesUrl()
         {
-            return _printedDataUrl; // _sendGeneratedCodesUrl
+            return _sendGeneratedCodesUrl; // _sendGeneratedCodesUrl
         }
 
         public static string GetPrintedDataUrl()
@@ -53,6 +58,11 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
         public static string GetSendReprintCodesUrl()
         {
             return _printedDataUrl;// _reprintCodesUrl
+        }
+
+        public static string GetCurrentPrintedCodeInfoUrl()  // ResponseCurrentPrintedCodeInfo
+        {
+            return _getCurrentPrintedCodeInfo;
         }
     }
 }

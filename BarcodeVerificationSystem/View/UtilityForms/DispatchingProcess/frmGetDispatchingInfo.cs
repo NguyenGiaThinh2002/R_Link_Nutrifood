@@ -19,15 +19,19 @@ using UILanguage;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request;
 using System.Text;
 using BarcodeVerificationSystem.Services;
+using System.IO.Compression;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using BarcodeVerificationSystem.View.NutrifoodUI;
 
 namespace BarcodeVerificationSystem.View.UtilityForms
 {
     public partial class frmGetDispatchingInfo : Form
     {
         private readonly HttpClient _httpClient = new HttpClient();
-        private readonly FrmJob _frmJob;
+        private readonly frmJobNutri _frmJob;
 
-        public frmGetDispatchingInfo(FrmJob frmJob)
+        public frmGetDispatchingInfo(frmJobNutri frmJob)
         {
             _frmJob = frmJob;
             InitializeComponent();
@@ -49,14 +53,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
         private void InitControl()
         {
-            txtOrderId.Text = Shared.Settings.OrderId;
-
-            //if (!string.IsNullOrWhiteSpace(Shared.Settings.DispatchingPayload))
-            //{
-            //    try { txtPayload.Text = JObject.Parse(Shared.Settings.DispatchingPayload).ToString(Formatting.Indented); }
-            //    catch { txtPayload.Text = "Invalid JSON"; }
-            //}
-            //else txtPayload.Text = "No payload";
+            wmsNumber.Text = Shared.Settings.OrderId;
 
             try
             {
@@ -71,14 +68,11 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                         dgvItems.Rows.Add(
                             item.material_number?.ToString(),
                             item.material_name?.ToString(),
-                            item.status_desc?.ToString(),
-                            item.item_group?.ToString(),
-                            item.uom_name?.ToString(),
-                            item.case_cnt.ToString(),
-                            item.pallet.ToString(),
-                            item.original_qty.ToString(),
-                            item.total_qty_ctn.ToString(),
-                            item.gross_wgt.ToString(),
+                            item.material_group?.ToString(),
+                            item.uom?.ToString(),
+                            item.qty_per_pallet.ToString(),
+                            item.qty.ToString(),
+                            item.qty_per_carton.ToString(),
                             item.cube.ToString()
                         );
                     }
@@ -91,7 +85,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         private void InitEvents()
         {
             Shared.OnSerialDeviceReadDataChange += Shared_OnSerialDeviceReadDataChange;
-            txtOrderId.TextChanged += AdjustData;
+            wmsNumber.TextChanged += AdjustData;
             btnGetInfo.Click += btnGetInfo_Click;
             btnGenerate.Click += btnGenerateCodes_Click;
         }
@@ -103,18 +97,18 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 if (sender is DetectModel detectModel)
                 {
                     // UI update must be done on the main thread
-                    if (txtOrderId.InvokeRequired)
+                    if (wmsNumber.InvokeRequired)
                     {
-                        txtOrderId.Invoke(new MethodInvoker(delegate
+                        wmsNumber.Invoke(new MethodInvoker(delegate
                         {
-                            txtOrderId.Text = detectModel.Text.Trim();
-                            Shared.Settings.OrderId = txtOrderId.Text.Trim();
+                            wmsNumber.Text = detectModel.Text.Trim();
+                            Shared.Settings.OrderId = wmsNumber.Text.Trim();
                         }));
                     }
                     else
                     {
-                        txtOrderId.Text = detectModel.Text.Trim();
-                        Shared.Settings.OrderId = txtOrderId.Text.Trim();
+                        wmsNumber.Text = detectModel.Text.Trim();
+                        Shared.Settings.OrderId = wmsNumber.Text.Trim();
                     }
                 }
             }
@@ -140,15 +134,19 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             dgvItems.Columns.Clear();
             dgvItems.Columns.Add("material_number", "Material Number");
             dgvItems.Columns.Add("material_name", "Material Name");
-            dgvItems.Columns.Add("status_desc", "Status");
-            dgvItems.Columns.Add("item_group", "Item Group");
-            dgvItems.Columns.Add("uom_name", "UOM");
-            dgvItems.Columns.Add("case_cnt", "Case Count");
-            dgvItems.Columns.Add("pallet", "Pallet");
-            dgvItems.Columns.Add("original_qty", "Original Quatity");
-            dgvItems.Columns.Add("total_qty_ctn", "Total Qty Ctn");
-            dgvItems.Columns.Add("gross_wgt", "Gross Weight");
-            dgvItems.Columns.Add("cube", "Cube");
+            dgvItems.Columns.Add("material_group", "Item Group");
+            dgvItems.Columns.Add("uom", "UOM");
+            dgvItems.Columns.Add("qty_per_pallet", "Pallet");
+            dgvItems.Columns.Add("qty", "Quantity");
+            dgvItems.Columns.Add("qty_per_carton", "Quantity Per Carton");
+            dgvItems.Columns.Add("total_cube", "Cube");
+
+            //dgvItems.Columns.Add("status_desc", "Status");
+            //dgvItems.Columns.Add("case_cnt", "Case Count");
+            //dgvItems.Columns.Add("original_qty", "Original Quantity");
+            //dgvItems.Columns.Add("total_qty_ctn", "Total Qty Ctn");
+            //dgvItems.Columns.Add("gross_wgt", "Gross Weight");
+
 
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -159,7 +157,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
         private async void btnGetInfo_Click(object sender, EventArgs e)
         {
-            string orderId = txtOrderId.Text.Trim();
+            string orderId = wmsNumber.Text.Trim();
             if (string.IsNullOrEmpty(orderId))
             {
                 MessageBox.Show("Please enter a valid Order ID.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -181,7 +179,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 dgvItems.Rows.Clear();
                 var items = loginPayload?.payload?.item.ToList();
                 Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
-                Shared.Settings.OrderId = txtOrderId.Text;
+                Shared.Settings.OrderId = wmsNumber.Text;
 
                 waveKey.Text = loginPayload.payload.wave_key;
                 shipment.Text = loginPayload.payload.shipment;
@@ -194,15 +192,14 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                         dgvItems.Rows.Add(
                             item.material_number?.ToString(),
                             item.material_name?.ToString(),
-                            item.status_desc?.ToString(),
-                            item.item_group?.ToString(),
-                            item.uom_name?.ToString(),
-                            item.case_cnt.ToString(),
-                            item.pallet.ToString(),
-                            item.original_qty.ToString(),
-                            item.total_qty_ctn.ToString(),
-                            item.gross_wgt.ToString(),
+                            item.material_group?.ToString(),
+                            item.uom?.ToString(),
+                            item.qty_per_pallet.ToString(),
+                            item.qty.ToString(),
+                            item.qty_per_carton.ToString(),
                             item.cube.ToString()
+                        //item.total_qty_ctn.ToString(),
+                        //item.gross_wgt.ToString(),
 
                         );
                     }
@@ -245,7 +242,15 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
             string materialName = selectedRow.Cells["material_name"].Value.ToString();
             string wms_number = Shared.Settings.WmsNumber;
-            string numberOfCodes = selectedRow.Cells["total_qty_ctn"].Value.ToString();
+            //string numberOfCodes = selectedRow.Cells["total_qty_ctn"].Value.ToString();
+            string selectedQy = selectedRow.Cells["qty"].Value.ToString();
+            string selectedQtyPerCarton = selectedRow.Cells["qty_per_carton"].Value.ToString();
+
+            int numberOfCodes = (int.Parse(selectedQy) / int.Parse(selectedQtyPerCarton));
+
+
+
+
 
             DialogResult result = CustomMessageBox.Show(
                          Lang.AreYouSureGenerateDispatchingCodes +
@@ -262,11 +267,11 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 List<string> list;
                 if (isManufacturingMode) // san xuat
                 {
-                    list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: int.Parse(numberOfCodes));
+                    list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes);
                 }
                 else // xuat hang
                 {
-                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID( quantity: int.Parse(numberOfCodes));
+                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID( quantity: numberOfCodes);
                 }
 
                 SendGeneratedCodes(list);
@@ -320,12 +325,54 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 wave_key = payload.wave_key,
                 qrCodes = qrCodes
             };
-            //string url = DispatchingApis.getSendGeneratedCodesUrl();
             string url = DispatchingApis.GetSendGeneratedCodesUrl();
-            var apiService = new ApiService();
-            var isResponsed = await apiService.PostApiDataAsync(url, request);
+
+            await SendAsync(request, url);
+
+            //string url = DispatchingApis.GetSendGeneratedCodesUrl();
+            //var apiService = new ApiService();
+            //var isResponsed = await apiService.PostApiDataAsync(url, request);
             //apiService.Dispose();
         }
+        private async Task SendAsync(RequestBasedData data, string url)
+        {
+
+            var client = new HttpClient();
+
+            var json = JsonConvert.SerializeObject(data);
+            var bytes = Encoding.UTF8.GetBytes(json);
+
+            using (var ms = new MemoryStream())
+            {
+                using (var gzip = new GZipStream(ms, CompressionMode.Compress))
+                {
+                    gzip.Write(bytes, 0, bytes.Length);
+                }
+
+                var compressedBytes = ms.ToArray();
+                var content = new ByteArrayContent(compressedBytes);
+                content.Headers.ContentEncoding.Add("gzip");
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                var response = await client.PostAsync(url, content);
+                var responseText = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseText);
+            }
+        }
+
+        private byte[] Compress(string input)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(input);
+            using (var output = new MemoryStream())
+            {
+                using (var gzip = new GZipStream(output, CompressionMode.Compress, leaveOpen: false)) // ensure proper close
+                {
+                    gzip.Write(bytes, 0, bytes.Length);
+                }
+                return output.ToArray(); // This will now include the full compressed stream
+            }
+        }
+
 
         private void getDataOffline_Click(object sender, EventArgs e)
         {

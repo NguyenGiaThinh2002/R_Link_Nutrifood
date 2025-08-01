@@ -11,8 +11,8 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Interfaces
     {
         void AppendEntry(T entry);
         List<T> LoadUnsentEntries();
-        void MarkAsSent(int id, string SaasStatus, string ServerStatus, string SaasSError, string ServerError);
-        void MarkAsFailed(int id, string SaasStatus, string ServerStatus, string SaasSError, string ServerError);
+        void MarkAsSent(int id, string PrintedDate , string SaasStatus, string ServerStatus, string SaasSError, string ServerError);
+        void MarkAsFailed(int id,string PrintedDate, string SaasStatus, string ServerStatus, string SaasSError, string ServerError);
 
     }
 

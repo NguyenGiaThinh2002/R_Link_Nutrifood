@@ -1,13 +1,11 @@
-﻿using System;
-using System.IO;
+﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model.CodeGeneration;
+using BarcodeVerificationSystem.Modules.ReliableDataSender.Interfaces;
+using BarcodeVerificationSystem.Modules.ReliableDataSender.Models;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using BarcodeVerificationSystem.Modules.ReliableDataSender.Models;
-using BarcodeVerificationSystem.Modules.ReliableDataSender.Interfaces;
-using BarcodeVerificationSystem.Controller;
-using BarcodeVerificationSystem.Model.CodeGeneration;
 
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
@@ -19,23 +17,54 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
         private readonly string _unsentStatus = "NotSent";
         private readonly string _sentStatus = "Sent";
 
+        private readonly string _databasePath;
 
-        public PrintingStorageService(string filePath)
+
+
+        public PrintingStorageService(string filePath, string databasePath)
         {
             _filePath = filePath;
+            _databasePath = databasePath;
             if (!File.Exists(_filePath))
             {
                 File.Create(_filePath).Dispose(); // Dispose to release the handle immediately
+                InitializeDefaultDatabaseFormat();
             }
 
         }
+
+        public void InitializeDefaultDatabaseFormat()
+        {
+            lock (_fileLock)
+            {
+                var lines = File.ReadAllLines(_databasePath).ToList();
+                var newLines = new List<string>();
+
+                for (int i = 0; i < lines.Count; i++)
+                {
+                    var parts = lines[i].Split(',');
+                    var newLine = $"{i+1},{parts[0]},{parts[1]},,,,,";
+                    newLines.Add(newLine);
+                }
+
+                File.WriteAllLines(_filePath, newLines, Encoding.UTF8);
+            }
+        }
+
 
         public void AppendEntry(PrintingDataEntry entry)
         {
             lock (_fileLock)
             {
-                var entryLine = $"{entry.Id},{entry.Code},{entry.PrintedDate},{entry.SaasStatus}.{entry.ServerStatus},{entry.SaasError},{entry.ServerError},{entry.Status}";
-                File.AppendAllLines(_filePath, new[] { entryLine }, Encoding.UTF8);
+                var lines = File.ReadAllLines(_filePath).ToList();
+
+                // This will throw if entryId is out of range
+                var parts = lines[entry.Id - 1].Split(',');
+
+                // Blindly replace the line like MarkAsSent
+                lines[entry.Id - 1] = $"{entry.Id},{entry.Code},{entry.HumanCode},{entry.PrintedDate},,,,,{_unsentStatus}";
+
+                File.WriteAllLines(_filePath, lines, Encoding.UTF8);
             }
         }
 
@@ -50,11 +79,12 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         var parts = line.Split(',');
                         return new PrintingDataEntry
                         {
-                            Id = int.Parse(parts[0]),
-                            Code = parts[1],
-                            HumanCode = Shared.Settings.IsManufacturingMode ? Manufacturing.GetHumanReadableCode(parts[1]) : Dispatching.GetHumanReadableCode(parts[1]),
-                            PrintedDate = parts[2],
-                            PrintedStatus = parts[3],
+                            Id = int.Parse(parts[0]), // parts[0]}
+                            Code = parts[1], // parts[1]
+                            //HumanCode = Shared.Settings.IsManufacturingMode ? Manufacturing.GetHumanReadableCode(parts[1]) : Dispatching.GetHumanReadableCode(parts[1]),
+                            HumanCode = parts[2],
+                            PrintedDate = parts[3] ?? "",
+                            //PrintedStatus = parts[3] ?? "", // SaasStatus
                             SaasStatus = parts.Length > 4 ? parts[4] : null,
                             ServerStatus = parts.Length > 5 ? parts[5] : null,
                             SaasError = parts.Length > 6 ? parts[6] : null,
@@ -67,64 +97,101 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             }
         }
 
-        public void MarkAsSent(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
-        {
-            lock (_fileLock)
-            {
-                var lines = File.ReadAllLines(_filePath).ToList();
-                for (int i = 0; i < lines.Count; i++) // int = 1
-                {
-                    var parts = lines[i].Split(',');
-                    if (int.Parse(parts[0]) == entryId)
-                    {
-                        //lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{parts[3]},Sent";
-                        lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_sentStatus}";
-                        break;
-                    }
-                }
-                File.WriteAllLines(_filePath, lines, Encoding.UTF8);
-            }
-        }
-
-        public void MarkAsFailed(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
-        {
-            lock (_fileLock)
-            {
-                var lines = File.ReadAllLines(_filePath).ToList();
-                for (int i = 0; i < lines.Count; i++) // int = 1
-                {
-                    var parts = lines[i].Split(',');
-                    if (int.Parse(parts[0]) == entryId)
-                    {
-                        //lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{parts[3]},Sent";
-                        lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_unsentStatus}";
-                        break;
-                    }
-                }
-                File.WriteAllLines(_filePath, lines, Encoding.UTF8);
-            }
-        }
-
-        //if (!File.Exists(_filePath))
-        //{
-        //    File.WriteAllText(_filePath, "Id,Code,Status\n");
-        //}
-
-        //public void AppendEntry(VerificationEntry entry)
+        //public void MarkAsSent(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
         //{
         //    lock (_fileLock)
         //    {
-        //        var existsAndSent = File.ReadAllLines(_filePath)
-        //            .Skip(1)
-        //            .Any(l => l.StartsWith($"{entry.Id},") && l.EndsWith("Sent"));
-
-        //        if (existsAndSent)
-        //            return;
-
-        //        var entryLine = $"{entry.Id},{entry.Code},{entry.Status}";
-        //        File.AppendAllLines(_filePath, new[] { entryLine }, Encoding.UTF8);
+        //        var lines = File.ReadAllLines(_filePath).ToList();
+        //        for (int i = 0; i < lines.Count; i++) // int = 1
+        //        {
+        //            var parts = lines[i].Split(',');
+        //            if (int.Parse(parts[0]) == entryId)
+        //            {
+        //                //MessageBox.Show($"Line index = {i}, parts[0] = {parts[0]}, entryId = {entryId}");
+        //                lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_sentStatus}";
+        //                break;
+        //            }
+        //        }
+        //        File.WriteAllLines(_filePath, lines, Encoding.UTF8);
         //    }
         //}
+
+        //public void MarkAsFailed(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+        //{
+        //    lock (_fileLock)
+        //    {
+        //        var lines = File.ReadAllLines(_filePath).ToList();
+        //        for (int i = 0; i < lines.Count; i++) // int = 1
+        //        {
+        //            var parts = lines[i].Split(',');
+        //            if (int.Parse(parts[0]) == entryId)
+        //            {
+        //                //lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{parts[3]},Sent";
+        //                lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_unsentStatus}";
+        //                break;
+        //            }
+        //        }
+        //        File.WriteAllLines(_filePath, lines, Encoding.UTF8);
+        //    }
+        //}
+
+        public void MarkAsFailed(int entryId, string PrintedDate, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+        {
+            lock (_fileLock)
+            {
+                var lines = File.ReadAllLines(_filePath).ToList();
+
+                // This will throw if entryId is out of range
+                var parts = lines[entryId - 1].Split(',');
+
+                // Blindly replace the line like MarkAsSent
+                lines[entryId - 1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_unsentStatus}";
+
+                File.WriteAllLines(_filePath, lines, Encoding.UTF8);
+            }
+        }
+
+
+        public void MarkAsSent(int entryId, string PrintedDate, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+        {
+            lock (_fileLock)
+            {
+                var lines = File.ReadAllLines(_filePath).ToList();
+
+                // This will throw if entryId is out of range
+                var parts = lines[entryId-1].Split(',');
+
+                // Blindly replace the line
+                lines[entryId-1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_sentStatus}";
+
+                File.WriteAllLines(_filePath, lines, Encoding.UTF8);
+            }
+        }
+
+
+
     }
 
 }
+
+
+//if (!File.Exists(_filePath))
+//{
+//    File.WriteAllText(_filePath, "Id,Code,Status\n");
+//}
+
+//public void AppendEntry(VerificationEntry entry)
+//{
+//    lock (_fileLock)
+//    {
+//        var existsAndSent = File.ReadAllLines(_filePath)
+//            .Skip(1)
+//            .Any(l => l.StartsWith($"{entry.Id},") && l.EndsWith("Sent"));
+
+//        if (existsAndSent)
+//            return;
+
+//        var entryLine = $"{entry.Id},{entry.Code},{entry.Status}";
+//        File.AppendAllLines(_filePath, new[] { entryLine }, Encoding.UTF8);
+//    }
+//}

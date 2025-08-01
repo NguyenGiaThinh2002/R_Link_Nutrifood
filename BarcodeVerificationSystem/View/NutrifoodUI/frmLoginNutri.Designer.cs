@@ -1,6 +1,6 @@
-﻿namespace BarcodeVerificationSystem.View
+﻿namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
-    partial class FrmLoginNew
+    partial class frmLoginNutri
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoginNew));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginNutri));
             this.panelDrag = new System.Windows.Forms.Panel();
             this.cuzPanel1 = new DesignUI.CuzUI.CuzPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -46,6 +46,8 @@
             this.chbRememberPassword = new System.Windows.Forms.CheckBox();
             this.cuzDragControl1 = new DesignUI.CuzUI.CuzDragControl();
             this.cuzDropShadow1 = new DesignUI.CuzUI.CuzDropShadow();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelDrag.SuspendLayout();
             this.cuzPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,6 +56,8 @@
             // 
             // panelDrag
             // 
+            this.panelDrag.Controls.Add(this.label3);
+            this.panelDrag.Controls.Add(this.pictureBox1);
             this.panelDrag.Controls.Add(this.cuzPanel1);
             this.panelDrag.Controls.Add(this.cuzControlBox1);
             this.panelDrag.Controls.Add(this.btnLogin);
@@ -73,14 +77,14 @@
             // 
             // cuzPanel1
             // 
-            this.cuzPanel1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.cuzPanel1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.cuzPanel1._BorderRadius = 0;
             this.cuzPanel1._BorderSize = 1;
             this.cuzPanel1._Corner = 90F;
-            this.cuzPanel1._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.cuzPanel1._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.cuzPanel1._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzPanel1._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.cuzPanel1._GradientPanel = true;
-            this.cuzPanel1.Controls.Add(this.pictureBox1);
+            this.cuzPanel1.Controls.Add(this.label2);
             this.cuzPanel1.Controls.Add(this.labelSoftwareName);
             this.cuzPanel1.Controls.Add(this.label1);
             this.cuzPanel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -92,10 +96,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::BarcodeVerificationSystem.Properties.Resources.logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(875, 563);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(245, 57);
+            this.pictureBox1.Size = new System.Drawing.Size(146, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -149,8 +153,8 @@
             this.btnLogin._BorderSize = 0;
             this.btnLogin._GradientsButton = false;
             this.btnLogin._Text = "Login";
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnLogin.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.btnLogin.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.btnLogin.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btnLogin.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
@@ -227,7 +231,7 @@
             // lblLogIn
             // 
             this.lblLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.lblLogIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.lblLogIn.Location = new System.Drawing.Point(603, 116);
             this.lblLogIn.Name = "lblLogIn";
             this.lblLogIn.Size = new System.Drawing.Size(339, 45);
@@ -292,17 +296,40 @@
             // 
             this.cuzDropShadow1.TargetControl = this;
             // 
-            // FrmLoginNew
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(72, 566);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(372, 25);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "© 2025 - All rights reserved by Mylan ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Green;
+            this.label3.Location = new System.Drawing.Point(787, 565);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 25);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Design for";
+            // 
+            // frmLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.panelDrag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmLoginNew";
+            this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelDrag.ResumeLayout(false);
             this.panelDrag.PerformLayout();
@@ -333,6 +360,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelSoftwareName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 
 }

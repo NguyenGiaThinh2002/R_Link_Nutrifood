@@ -14,14 +14,19 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
 
         public class Item
         {
+            public int printed_number { get; set; }
             public string material_number { get; set; }
             public string material_name { get; set; }
             public string status_desc { get; set; }
-            public string item_group { get; set; }
-            public string uom_name { get; set; }
-            public int case_cnt { get; set; }
-            public int pallet { get; set; }
-            public int original_qty { get; set; }
+            public string material_group { get; set; }
+            public string uom { get; set; }
+            public int qty_per_carton { get; set; }
+            public string uom_per_carton { get; set; }
+            public int qty_per_pallet { get; set; }
+            public string uom_per_pallet { get; set; }
+            public decimal total_gross { get; set; }
+            public decimal total_cube { get; set; }
+            public int qty { get; set; }
             public int total_qty_ctn { get; set; }
             public int gross_wgt { get; set; }
             public int cube { get; set; }
@@ -34,7 +39,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
             public string wms_number { get; set; }
             public string shipment { get; set; }
             public string door { get; set; }
-            public string pick_list_count { get; set; }
+            public string pick_count { get; set; }
             public string list_delivery_order { get; set; }
             public string list_sales_order { get; set; }
             public string soldto_code { get; set; }
@@ -42,6 +47,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
             public string shipto_code { get; set; }
             public string shipto_name { get; set; }
             public string shipto_address { get; set; }
+            public string template_name { get; set; }
             public string wave_desc { get; set; }
             public string warehouse { get; set; }
             public string trailer_number { get; set; }

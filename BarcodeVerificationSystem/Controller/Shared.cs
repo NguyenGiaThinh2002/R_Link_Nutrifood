@@ -31,7 +31,7 @@ namespace BarcodeVerificationSystem.Controller
         public static PODController PrinterPODController = null;
         public static SettingsModel Settings = new SettingsModel();
         public static UserPermission UserPermission = new UserPermission();
-        public static JobModel CurrentJob = new JobModel();
+        public static JobModel CurrentJob;
         public static bool IsSensorControllerConnected = false;
         public static bool IsSerialDeviceConnected = false;
         public static bool IsSampled = false;
@@ -48,6 +48,12 @@ namespace BarcodeVerificationSystem.Controller
         #endregion Variables
 
         #region Events
+
+        public static event EventHandler OnSyncDataParameterChange;
+        public static void RaiseOnSyncDataParameterChangeEvent(SyncDataParams.SyncDataType sender)
+        {
+            OnSyncDataParameterChange?.Invoke(sender, EventArgs.Empty);
+        }
 
         public static event EventHandler OnNextButtonEvent;
         public static void RaiseOnNextButtonEvent()

@@ -1,6 +1,8 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.View;
+using BarcodeVerificationSystem.View.NutrifoodUI;
 using CommonVariable;
 using EncrytionFile.Model;
 using OperationLog.Controller;
@@ -111,14 +113,31 @@ namespace BarcodeVerificationSystem
                 {
                     UserController.CreateDefaultDatabase();
                 }
+                DialogResult result = DialogResult.None;
 
-                var loginform = new FrmLoginNew
+                if (ProjectLabel.IsDefault)
                 {
-                    TopMost = true
-                };
+                    var loginform = new FrmLoginNew
+                    {
+                        TopMost = true
+                    };
 
-                FrmSplashScreen.CloseSplash();
-                DialogResult result = loginform.ShowDialog();
+                    FrmSplashScreen.CloseSplash();
+                    result = loginform.ShowDialog();
+                }
+
+                if (ProjectLabel.IsNutrifood)
+                {
+                    var loginform = new frmLoginNutri
+                    {
+                        TopMost = true
+                    };
+
+                    FrmSplashScreen.CloseSplash();
+                    result = loginform.ShowDialog();
+                }
+
+       
                 if (result == DialogResult.OK)
                 {
                     UserController.LogedInUsername = "Administrator";
@@ -126,8 +145,18 @@ namespace BarcodeVerificationSystem
                     currentDomain = AppDomain.CurrentDomain;
                     currentDomain.UnhandledException += GlobalUnhandledExceptionHandler;
                     Application.ThreadException += GlobalThreadExceptionHandler;
-                    FrmJob frmJob = new FrmJob();
-                    Application.Run(frmJob);
+                    Form form = null;
+                    if (ProjectLabel.IsNutrifood)
+                    {
+                        form = new frmJobNutri();
+                    }
+
+                    if (ProjectLabel.IsDefault)
+                    {
+                        form = new FrmJob();
+                    }
+                    //FrmJob frmJob = new FrmJob();
+                    Application.Run(form);
                 }
             }
             catch (Exception) { }

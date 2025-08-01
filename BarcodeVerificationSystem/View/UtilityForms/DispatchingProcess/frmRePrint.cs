@@ -99,7 +99,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 
                 try
                 {
-
                     string ReprintCodesUrl = DispatchingApis.GetSendReprintCodesUrl();
                     var request = new RequestListRePrint
                     {
