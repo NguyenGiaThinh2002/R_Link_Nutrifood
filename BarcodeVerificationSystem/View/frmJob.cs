@@ -30,6 +30,8 @@ using BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess;
 using BarcodeVerificationSystem.View.SubForms;
 using GenCode.Utils;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
+using BarcodeVerificationSystem.Model.JobCreateModels;
+using BarcodeVerificationSystem.Controller.HistorySync;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -648,6 +650,7 @@ namespace BarcodeVerificationSystem.View
         private void FrmJob_Load(object sender, EventArgs e)
         {
             LoadJobNameList();
+          
             radRSeries.Checked = _JobModel.PrinterSeries;
             radOther.Checked = !_JobModel.PrinterSeries;
             if (_JobModel.JobType == JobType.AfterProduction)
@@ -882,11 +885,37 @@ namespace BarcodeVerificationSystem.View
             tabPage2.Text = Lang.CreateANewJob;
         }
 
+
+        void displayHistory()
+        {
+            var rows = ExportData.ReturnSampleData(_JobNameList);
+
+            foreach (var row in rows)
+            {
+                int rowIndex = dgvHistoryJob.Rows.Add();
+                dgvHistoryJob.Rows[rowIndex].Cells["STT"].Value = row.STT;
+                dgvHistoryJob.Rows[rowIndex].Cells["MaCongViec"].Value = row.MaCongViec;
+                dgvHistoryJob.Rows[rowIndex].Cells["MaPhieuSoanHang"].Value = row.MaPhieuSoanHang;
+                dgvHistoryJob.Rows[rowIndex].Cells["MaSanPham"].Value = row.MaSanPham;
+                dgvHistoryJob.Rows[rowIndex].Cells["SoLuongCanXuat"].Value = row.SoLuongCanXuat;
+                dgvHistoryJob.Rows[rowIndex].Cells["SoLuongDongBoSaaS"].Value = row.SoLuongDongBoSaaS;
+                dgvHistoryJob.Rows[rowIndex].Cells["SoLuongDongBoSAP"].Value = row.SoLuongDongBoSAP;
+            }
+            Console.WriteLine("So luong: " + _JobNameList.Count);
+        }
+
         private void InitControls()
         {
 #if DEBUG
             DebugVirtual();
 #endif
+           
+
+            cbbHisFilterType.SelectedIndex = 0;
+            HistoryUtils.CustomDataGridView(dgv: dgvHistoryJob);
+           // HistoryUtils.StyleButton(btnSearchHis);
+
+
             _LabelStatusCameraList.Add(lblStatusCamera01);
             UpdateStatusLabelCamera();
             _LabelStatusPrinterList.Add(lblStatusPrinter01);
@@ -1012,6 +1041,17 @@ namespace BarcodeVerificationSystem.View
             // ISCamera.UpdateLabelStatusEvent += UpdateLabelStatusEvent;
 
             cuzButtonPurge.Click += CuzButtonPurge_Click;
+            tabControl1.Click += TabPage3_Click;
+        }
+
+        private void TabPage3_Click(object sender, EventArgs e)
+        {
+           
+            var tab = sender as TabControl;
+           if( tab.SelectedIndex == 2)
+            {
+                displayHistory();
+            }
         }
 
         private void CuzButtonPurge_Click(object sender, EventArgs e)

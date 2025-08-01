@@ -39,7 +39,7 @@ namespace BarcodeVerificationSystem
                 Lang.Culture = System.Globalization.CultureInfo.CreateSpecificCulture(Shared.Settings.Language); // Set init language
                 FrmSplashScreen.ShowSplashScreen(Lang.Loading, Lang.PleaseWait); //Show splash screen
 
-                bool isAllow = false; // true for bypass donglekey usb
+                bool isAllow = true; // true for bypass donglekey usb
                 try
                 {
                   

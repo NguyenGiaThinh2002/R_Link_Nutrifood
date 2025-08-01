@@ -175,6 +175,8 @@
     <Compile Include="Controller\DecryptionHardwareID.cs" />
     <Compile Include="Controller\DrawListBox.cs" />
     <Compile Include="Controller\FingerPrint.cs" />
+    <Compile Include="Controller\HistorySync\HistoryUtils.cs" />
+    <Compile Include="Controller\HistorySync\RoundedButton.cs" />
     <Compile Include="Controller\ISMultiSyncHandler.cs" />
     <Compile Include="Controller\ISSingleHandler.cs" />
     <Compile Include="Controller\PODController.cs" />
@@ -205,6 +207,7 @@
     <Compile Include="Model\HardwareIDModel.cs" />
     <Compile Include="Model\InternalData.cs" />
     <Compile Include="Model\ItemCustomModel.cs" />
+    <Compile Include="Model\JobCreateModels\ExportData.cs" />
     <Compile Include="Model\JobModel.cs" />
     <Compile Include="Model\ObjectResultModel.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\QRCode.cs" />
