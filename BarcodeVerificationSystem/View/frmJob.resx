@@ -120,102 +120,14 @@
   <metadata name="DragControl.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>67, 16</value>
   </metadata>
-  <data name="&gt;&gt;btnHelp.Name" xml:space="preserve">
-    <value>btnHelp</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnAbout.Name" xml:space="preserve">
-    <value>btnAbout</value>
-  </data>
-  <data name="&gt;&gt;btnAbout.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;btnAbout.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;btnAbout.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
-    <value>btnSettings</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnRestart.Name" xml:space="preserve">
-    <value>btnRestart</value>
-  </data>
-  <data name="&gt;&gt;btnRestart.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;btnRestart.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;btnRestart.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnExit.Name" xml:space="preserve">
-    <value>btnExit</value>
-  </data>
-  <data name="&gt;&gt;btnExit.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;btnExit.Parent" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;btnExit.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pnlMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pnlMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="pnlMenu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 30, 0, 0</value>
-  </data>
-  <data name="pnlMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 600</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pnlMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
-  <data name="&gt;&gt;pnlMenu.Name" xml:space="preserve">
-    <value>pnlMenu</value>
-  </data>
-  <data name="&gt;&gt;pnlMenu.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pnlMenu.Parent" xml:space="preserve">
-    <value>pnlMain</value>
-  </data>
-  <data name="&gt;&gt;pnlMenu.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="btnHelp.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="btnHelp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnHelp.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
@@ -234,6 +146,7 @@
   <data name="btnHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 72</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnHelp.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
@@ -435,6 +348,33 @@
   <data name="&gt;&gt;btnExit.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="pnlMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="pnlMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlMenu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 30, 0, 0</value>
+  </data>
+  <data name="pnlMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 600</value>
+  </data>
+  <data name="pnlMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu.Name" xml:space="preserve">
+    <value>pnlMenu</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="statusStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>171, 19</value>
   </metadata>
@@ -554,6 +494,75 @@
   </data>
   <data name="toolStripDateTime.Text" xml:space="preserve">
     <value>2022/10/17 1:35 PM</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="tabControl1.ItemSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 40</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 0</value>
+  </data>
+  <data name="tabControl1.Padding" type="System.Drawing.Point, System.Drawing">
+    <value>10, 3</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>944, 567</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;cuzButtonPurge.Name" xml:space="preserve">
     <value>cuzButtonPurge</value>
@@ -724,1110 +733,6 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="numberOfCodes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="numberOfCodes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="numberOfCodes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="numberOfCodes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>204, 352</value>
-  </data>
-  <data name="numberOfCodes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
-  </data>
-  <data name="numberOfCodes.TabIndex" type="System.Int32, mscorlib">
-    <value>133</value>
-  </data>
-  <data name="numberOfCodes.Text" xml:space="preserve">
-    <value>Number Of Codes</value>
-  </data>
-  <data name="numberOfCodes.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;numberOfCodes.Name" xml:space="preserve">
-    <value>numberOfCodes</value>
-  </data>
-  <data name="&gt;&gt;numberOfCodes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;numberOfCodes.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;numberOfCodes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="FirstRowHeader.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="FirstRowHeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="FirstRowHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 348</value>
-  </data>
-  <data name="FirstRowHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 24</value>
-  </data>
-  <data name="FirstRowHeader.TabIndex" type="System.Int32, mscorlib">
-    <value>132</value>
-  </data>
-  <data name="FirstRowHeader.Text" xml:space="preserve">
-    <value>First row header</value>
-  </data>
-  <data name="&gt;&gt;FirstRowHeader.Name" xml:space="preserve">
-    <value>FirstRowHeader</value>
-  </data>
-  <data name="&gt;&gt;FirstRowHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FirstRowHeader.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;FirstRowHeader.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="BtnViewLog.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="BtnViewLog.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.5pt</value>
-  </data>
-  <data name="BtnViewLog.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="BtnViewLog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 7</value>
-  </data>
-  <data name="BtnViewLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 31</value>
-  </data>
-  <data name="BtnViewLog.TabIndex" type="System.Int32, mscorlib">
-    <value>128</value>
-  </data>
-  <data name="BtnViewLog.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;BtnViewLog.Name" xml:space="preserve">
-    <value>BtnViewLog</value>
-  </data>
-  <data name="&gt;&gt;BtnViewLog.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;BtnViewLog.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;BtnViewLog.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tblCompareType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="tblCompareType.ColumnCount" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;radCanRead.Name" xml:space="preserve">
-    <value>radCanRead</value>
-  </data>
-  <data name="&gt;&gt;radCanRead.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radCanRead.Parent" xml:space="preserve">
-    <value>tblCompareType</value>
-  </data>
-  <data name="&gt;&gt;radCanRead.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;radStaticText.Name" xml:space="preserve">
-    <value>radStaticText</value>
-  </data>
-  <data name="&gt;&gt;radStaticText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radStaticText.Parent" xml:space="preserve">
-    <value>tblCompareType</value>
-  </data>
-  <data name="&gt;&gt;radStaticText.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;radDatabase.Name" xml:space="preserve">
-    <value>radDatabase</value>
-  </data>
-  <data name="&gt;&gt;radDatabase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radDatabase.Parent" xml:space="preserve">
-    <value>tblCompareType</value>
-  </data>
-  <data name="&gt;&gt;radDatabase.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tblCompareType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 120</value>
-  </data>
-  <data name="tblCompareType.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tblCompareType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>445, 40</value>
-  </data>
-  <data name="tblCompareType.TabIndex" type="System.Int32, mscorlib">
-    <value>127</value>
-  </data>
-  <data name="&gt;&gt;tblCompareType.Name" xml:space="preserve">
-    <value>tblCompareType</value>
-  </data>
-  <data name="&gt;&gt;tblCompareType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tblCompareType.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tblCompareType.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tblCompareType.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radCanRead" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radStaticText" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="radDatabase" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="lblCompare.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblCompare.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblCompare.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblCompare.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 93</value>
-  </data>
-  <data name="lblCompare.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 20</value>
-  </data>
-  <data name="lblCompare.TabIndex" type="System.Int32, mscorlib">
-    <value>126</value>
-  </data>
-  <data name="lblCompare.Text" xml:space="preserve">
-    <value>Compare type</value>
-  </data>
-  <data name="&gt;&gt;lblCompare.Name" xml:space="preserve">
-    <value>lblCompare</value>
-  </data>
-  <data name="&gt;&gt;lblCompare.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCompare.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblCompare.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tblJobType.ColumnCount" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;radOnProduction.Name" xml:space="preserve">
-    <value>radOnProduction</value>
-  </data>
-  <data name="&gt;&gt;radOnProduction.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radOnProduction.Parent" xml:space="preserve">
-    <value>tblJobType</value>
-  </data>
-  <data name="&gt;&gt;radOnProduction.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;radAfterProduction.Name" xml:space="preserve">
-    <value>radAfterProduction</value>
-  </data>
-  <data name="&gt;&gt;radAfterProduction.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radAfterProduction.Parent" xml:space="preserve">
-    <value>tblJobType</value>
-  </data>
-  <data name="&gt;&gt;radAfterProduction.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;radVerifyAndPrint.Name" xml:space="preserve">
-    <value>radVerifyAndPrint</value>
-  </data>
-  <data name="&gt;&gt;radVerifyAndPrint.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radVerifyAndPrint.Parent" xml:space="preserve">
-    <value>tblJobType</value>
-  </data>
-  <data name="&gt;&gt;radVerifyAndPrint.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tblJobType.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="tblJobType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 211</value>
-  </data>
-  <data name="tblJobType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tblJobType.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tblJobType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>445, 40</value>
-  </data>
-  <data name="tblJobType.TabIndex" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="&gt;&gt;tblJobType.Name" xml:space="preserve">
-    <value>tblJobType</value>
-  </data>
-  <data name="&gt;&gt;tblJobType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tblJobType.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tblJobType.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tblJobType.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radOnProduction" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radAfterProduction" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radVerifyAndPrint" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="lblJobTypeInput.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblJobTypeInput.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblJobTypeInput.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblJobTypeInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 184</value>
-  </data>
-  <data name="lblJobTypeInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 20</value>
-  </data>
-  <data name="lblJobTypeInput.TabIndex" type="System.Int32, mscorlib">
-    <value>124</value>
-  </data>
-  <data name="lblJobTypeInput.Text" xml:space="preserve">
-    <value>Job type</value>
-  </data>
-  <data name="&gt;&gt;lblJobTypeInput.Name" xml:space="preserve">
-    <value>lblJobTypeInput</value>
-  </data>
-  <data name="&gt;&gt;lblJobTypeInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblJobTypeInput.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblJobTypeInput.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="cboSupportForCamera.Location" type="System.Drawing.Point, System.Drawing">
-    <value>703, 6</value>
-  </data>
-  <data name="cboSupportForCamera.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 28</value>
-  </data>
-  <data name="cboSupportForCamera.TabIndex" type="System.Int32, mscorlib">
-    <value>129</value>
-  </data>
-  <data name="cboSupportForCamera.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cboSupportForCamera.Name" xml:space="preserve">
-    <value>cboSupportForCamera</value>
-  </data>
-  <data name="&gt;&gt;cboSupportForCamera.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cboSupportForCamera.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;cboSupportForCamera.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lblSupportForCamera.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblSupportForCamera.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblSupportForCamera.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSupportForCamera.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 17</value>
-  </data>
-  <data name="lblSupportForCamera.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 20</value>
-  </data>
-  <data name="lblSupportForCamera.TabIndex" type="System.Int32, mscorlib">
-    <value>121</value>
-  </data>
-  <data name="lblSupportForCamera.Text" xml:space="preserve">
-    <value>Camera is use</value>
-  </data>
-  <data name="lblSupportForCamera.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblSupportForCamera.Name" xml:space="preserve">
-    <value>lblSupportForCamera</value>
-  </data>
-  <data name="&gt;&gt;lblSupportForCamera.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblSupportForCamera.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblSupportForCamera.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lblStaticText.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblStaticText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblStaticText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblStaticText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 271</value>
-  </data>
-  <data name="lblStaticText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 20</value>
-  </data>
-  <data name="lblStaticText.TabIndex" type="System.Int32, mscorlib">
-    <value>120</value>
-  </data>
-  <data name="lblStaticText.Text" xml:space="preserve">
-    <value>Static text</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText.Name" xml:space="preserve">
-    <value>lblStaticText</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;radRSeries.Name" xml:space="preserve">
-    <value>radRSeries</value>
-  </data>
-  <data name="&gt;&gt;radRSeries.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radRSeries.Parent" xml:space="preserve">
-    <value>tableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;radRSeries.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;radOther.Name" xml:space="preserve">
-    <value>radOther</value>
-  </data>
-  <data name="&gt;&gt;radOther.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radOther.Parent" xml:space="preserve">
-    <value>tableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;radOther.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tableLayoutPanel2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 120</value>
-  </data>
-  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 40</value>
-  </data>
-  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
-    <value>112</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
-    <value>tableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radRSeries" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radOther" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50,Absolute,20" /&gt;&lt;Rows Styles="Percent,100,Absolute,40" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="lblFileName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblFileName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblFileName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblFileName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 17</value>
-  </data>
-  <data name="lblFileName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 20</value>
-  </data>
-  <data name="lblFileName.TabIndex" type="System.Int32, mscorlib">
-    <value>69</value>
-  </data>
-  <data name="lblFileName.Text" xml:space="preserve">
-    <value>File name</value>
-  </data>
-  <data name="&gt;&gt;lblFileName.Name" xml:space="preserve">
-    <value>lblFileName</value>
-  </data>
-  <data name="&gt;&gt;lblFileName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblFileName.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblFileName.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="lblTemplate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblTemplate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblTemplate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblTemplate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 184</value>
-  </data>
-  <data name="lblTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 20</value>
-  </data>
-  <data name="lblTemplate.TabIndex" type="System.Int32, mscorlib">
-    <value>98</value>
-  </data>
-  <data name="lblTemplate.Text" xml:space="preserve">
-    <value>Template print</value>
-  </data>
-  <data name="&gt;&gt;lblTemplate.Name" xml:space="preserve">
-    <value>lblTemplate</value>
-  </data>
-  <data name="&gt;&gt;lblTemplate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTemplate.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblTemplate.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="lblPrinterSeries.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblPrinterSeries.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblPrinterSeries.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblPrinterSeries.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 93</value>
-  </data>
-  <data name="lblPrinterSeries.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 20</value>
-  </data>
-  <data name="lblPrinterSeries.TabIndex" type="System.Int32, mscorlib">
-    <value>78</value>
-  </data>
-  <data name="lblPrinterSeries.Text" xml:space="preserve">
-    <value>Printer support</value>
-  </data>
-  <data name="&gt;&gt;lblPrinterSeries.Name" xml:space="preserve">
-    <value>lblPrinterSeries</value>
-  </data>
-  <data name="&gt;&gt;lblPrinterSeries.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPrinterSeries.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblPrinterSeries.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="lblPODFromat.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblPODFromat.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblPODFromat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblPODFromat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 435</value>
-  </data>
-  <data name="lblPODFromat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
-  </data>
-  <data name="lblPODFromat.TabIndex" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
-  <data name="lblPODFromat.Text" xml:space="preserve">
-    <value>POD format</value>
-  </data>
-  <data name="&gt;&gt;lblPODFromat.Name" xml:space="preserve">
-    <value>lblPODFromat</value>
-  </data>
-  <data name="&gt;&gt;lblPODFromat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPODFromat.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblPODFromat.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="lblImportDatabase.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblImportDatabase.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblImportDatabase.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblImportDatabase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 353</value>
-  </data>
-  <data name="lblImportDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 20</value>
-  </data>
-  <data name="lblImportDatabase.TabIndex" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="lblImportDatabase.Text" xml:space="preserve">
-    <value>Database path</value>
-  </data>
-  <data name="&gt;&gt;lblImportDatabase.Name" xml:space="preserve">
-    <value>lblImportDatabase</value>
-  </data>
-  <data name="&gt;&gt;lblImportDatabase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblImportDatabase.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblImportDatabase.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="cuzTextBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="cuzTextBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 45</value>
-  </data>
-  <data name="cuzTextBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="cuzTextBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="cuzTextBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>433, 35</value>
-  </data>
-  <data name="cuzTextBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>122</value>
-  </data>
-  <data name="cuzTextBox2.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cuzTextBox2.Name" xml:space="preserve">
-    <value>cuzTextBox2</value>
-  </data>
-  <data name="&gt;&gt;cuzTextBox2.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cuzTextBox2.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;cuzTextBox2.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="txtStaticText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="txtStaticText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 297</value>
-  </data>
-  <data name="txtStaticText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtStaticText.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="txtStaticText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>449, 35</value>
-  </data>
-  <data name="txtStaticText.TabIndex" type="System.Int32, mscorlib">
-    <value>119</value>
-  </data>
-  <data name="&gt;&gt;txtStaticText.Name" xml:space="preserve">
-    <value>txtStaticText</value>
-  </data>
-  <data name="&gt;&gt;txtStaticText.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtStaticText.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;txtStaticText.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;picLoadTemplate.Name" xml:space="preserve">
-    <value>picLoadTemplate</value>
-  </data>
-  <data name="&gt;&gt;picLoadTemplate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picLoadTemplate.Parent" xml:space="preserve">
-    <value>cuzPanel4</value>
-  </data>
-  <data name="&gt;&gt;picLoadTemplate.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;listBoxPrintProductTemplate.Name" xml:space="preserve">
-    <value>listBoxPrintProductTemplate</value>
-  </data>
-  <data name="&gt;&gt;listBoxPrintProductTemplate.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzListBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;listBoxPrintProductTemplate.Parent" xml:space="preserve">
-    <value>cuzPanel4</value>
-  </data>
-  <data name="&gt;&gt;listBoxPrintProductTemplate.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cuzPanel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 266</value>
-  </data>
-  <data name="cuzPanel4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 3, 3</value>
-  </data>
-  <data name="cuzPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 183</value>
-  </data>
-  <data name="cuzPanel4.TabIndex" type="System.Int32, mscorlib">
-    <value>108</value>
-  </data>
-  <data name="&gt;&gt;cuzPanel4.Name" xml:space="preserve">
-    <value>cuzPanel4</value>
-  </data>
-  <data name="&gt;&gt;cuzPanel4.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cuzPanel4.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;cuzPanel4.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="btnSave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>703, 460</value>
-  </data>
-  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 42</value>
-  </data>
-  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
-    <value>105</value>
-  </data>
-  <data name="btnSave.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
-    <value>btnSave</value>
-  </data>
-  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="txtSearchTemplate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="txtSearchTemplate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="txtSearchTemplate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>484, 212</value>
-  </data>
-  <data name="txtSearchTemplate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtSearchTemplate.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="txtSearchTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 35</value>
-  </data>
-  <data name="txtSearchTemplate.TabIndex" type="System.Int32, mscorlib">
-    <value>104</value>
-  </data>
-  <data name="&gt;&gt;txtSearchTemplate.Name" xml:space="preserve">
-    <value>txtSearchTemplate</value>
-  </data>
-  <data name="&gt;&gt;txtSearchTemplate.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtSearchTemplate.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;txtSearchTemplate.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="txtFileName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="txtFileName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 45</value>
-  </data>
-  <data name="txtFileName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtFileName.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="txtFileName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>367, 35</value>
-  </data>
-  <data name="txtFileName.TabIndex" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="&gt;&gt;txtFileName.Name" xml:space="preserve">
-    <value>txtFileName</value>
-  </data>
-  <data name="&gt;&gt;txtFileName.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtFileName.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;txtFileName.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="txtDirectoryDatabse.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="txtDirectoryDatabse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 379</value>
-  </data>
-  <data name="txtDirectoryDatabse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtDirectoryDatabse.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="txtDirectoryDatabse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 35</value>
-  </data>
-  <data name="txtDirectoryDatabse.TabIndex" type="System.Int32, mscorlib">
-    <value>73</value>
-  </data>
-  <data name="&gt;&gt;txtDirectoryDatabse.Name" xml:space="preserve">
-    <value>txtDirectoryDatabse</value>
-  </data>
-  <data name="&gt;&gt;txtDirectoryDatabse.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtDirectoryDatabse.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;txtDirectoryDatabse.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="txtPODFormat.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="txtPODFormat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 462</value>
-  </data>
-  <data name="txtPODFormat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtPODFormat.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="txtPODFormat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 35</value>
-  </data>
-  <data name="txtPODFormat.TabIndex" type="System.Int32, mscorlib">
-    <value>72</value>
-  </data>
-  <data name="&gt;&gt;txtPODFormat.Name" xml:space="preserve">
-    <value>txtPODFormat</value>
-  </data>
-  <data name="&gt;&gt;txtPODFormat.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtPODFormat.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;txtPODFormat.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="button1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>801, 217</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 24</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>101</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="btnRefeshTemplate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="btnRefeshTemplate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnRefeshTemplate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.5pt</value>
-  </data>
-  <data name="btnRefeshTemplate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnRefeshTemplate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>846, 210</value>
-  </data>
-  <data name="btnRefeshTemplate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 38</value>
-  </data>
-  <data name="btnRefeshTemplate.TabIndex" type="System.Int32, mscorlib">
-    <value>103</value>
-  </data>
-  <data name="&gt;&gt;btnRefeshTemplate.Name" xml:space="preserve">
-    <value>btnRefeshTemplate</value>
-  </data>
-  <data name="&gt;&gt;btnRefeshTemplate.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnRefeshTemplate.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnRefeshTemplate.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="btnPODFormat.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnPODFormat.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.5pt</value>
-  </data>
-  <data name="btnPODFormat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnPODFormat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 460</value>
-  </data>
-  <data name="btnPODFormat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 40</value>
-  </data>
-  <data name="btnPODFormat.TabIndex" type="System.Int32, mscorlib">
-    <value>75</value>
-  </data>
-  <data name="&gt;&gt;btnPODFormat.Name" xml:space="preserve">
-    <value>btnPODFormat</value>
-  </data>
-  <data name="&gt;&gt;btnPODFormat.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnPODFormat.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnPODFormat.ZOrder" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="btnImportDatabase.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnImportDatabase.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.5pt</value>
-  </data>
-  <data name="btnImportDatabase.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnImportDatabase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 376</value>
-  </data>
-  <data name="btnImportDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 40</value>
-  </data>
-  <data name="btnImportDatabase.TabIndex" type="System.Int32, mscorlib">
-    <value>76</value>
-  </data>
-  <data name="&gt;&gt;btnImportDatabase.Name" xml:space="preserve">
-    <value>btnImportDatabase</value>
-  </data>
-  <data name="&gt;&gt;btnImportDatabase.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnImportDatabase.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnImportDatabase.ZOrder" xml:space="preserve">
-    <value>27</value>
-  </data>
-  <data name="btnGennerate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnGennerate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.5pt</value>
-  </data>
-  <data name="btnGennerate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnGennerate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>390, 43</value>
-  </data>
-  <data name="btnGennerate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 40</value>
-  </data>
-  <data name="btnGennerate.TabIndex" type="System.Int32, mscorlib">
-    <value>74</value>
-  </data>
-  <data name="&gt;&gt;btnGennerate.Name" xml:space="preserve">
-    <value>btnGennerate</value>
-  </data>
-  <data name="&gt;&gt;btnGennerate.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnGennerate.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnGennerate.ZOrder" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 44</value>
-  </data>
-  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>936, 519</value>
-  </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Create a new job</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="tabControl1.ItemSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 40</value>
-  </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 0</value>
-  </data>
-  <data name="tabControl1.Padding" type="System.Drawing.Point, System.Drawing">
-    <value>10, 3</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>944, 567</value>
-  </data>
-  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>pnlMain</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="cuzButtonPurge.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -2868,6 +1773,558 @@
   <data name="&gt;&gt;lblStandalone.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="&gt;&gt;numberOfCodes.Name" xml:space="preserve">
+    <value>numberOfCodes</value>
+  </data>
+  <data name="&gt;&gt;numberOfCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numberOfCodes.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;numberOfCodes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;FirstRowHeader.Name" xml:space="preserve">
+    <value>FirstRowHeader</value>
+  </data>
+  <data name="&gt;&gt;FirstRowHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FirstRowHeader.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;FirstRowHeader.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BtnViewLog.Name" xml:space="preserve">
+    <value>BtnViewLog</value>
+  </data>
+  <data name="&gt;&gt;BtnViewLog.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BtnViewLog.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;BtnViewLog.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tblCompareType.Name" xml:space="preserve">
+    <value>tblCompareType</value>
+  </data>
+  <data name="&gt;&gt;tblCompareType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tblCompareType.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tblCompareType.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tblCompareType.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radCanRead" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radStaticText" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="radDatabase" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;lblCompare.Name" xml:space="preserve">
+    <value>lblCompare</value>
+  </data>
+  <data name="&gt;&gt;lblCompare.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCompare.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblCompare.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tblJobType.Name" xml:space="preserve">
+    <value>tblJobType</value>
+  </data>
+  <data name="&gt;&gt;tblJobType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tblJobType.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tblJobType.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tblJobType.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radOnProduction" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radAfterProduction" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radVerifyAndPrint" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;lblJobTypeInput.Name" xml:space="preserve">
+    <value>lblJobTypeInput</value>
+  </data>
+  <data name="&gt;&gt;lblJobTypeInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblJobTypeInput.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblJobTypeInput.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;cboSupportForCamera.Name" xml:space="preserve">
+    <value>cboSupportForCamera</value>
+  </data>
+  <data name="&gt;&gt;cboSupportForCamera.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cboSupportForCamera.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;cboSupportForCamera.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblSupportForCamera.Name" xml:space="preserve">
+    <value>lblSupportForCamera</value>
+  </data>
+  <data name="&gt;&gt;lblSupportForCamera.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSupportForCamera.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblSupportForCamera.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText.Name" xml:space="preserve">
+    <value>lblStaticText</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radRSeries" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radOther" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50,Absolute,20" /&gt;&lt;Rows Styles="Percent,100,Absolute,40" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;lblFileName.Name" xml:space="preserve">
+    <value>lblFileName</value>
+  </data>
+  <data name="&gt;&gt;lblFileName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFileName.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblFileName.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;lblTemplate.Name" xml:space="preserve">
+    <value>lblTemplate</value>
+  </data>
+  <data name="&gt;&gt;lblTemplate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTemplate.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblTemplate.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;lblPrinterSeries.Name" xml:space="preserve">
+    <value>lblPrinterSeries</value>
+  </data>
+  <data name="&gt;&gt;lblPrinterSeries.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPrinterSeries.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblPrinterSeries.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;lblPODFromat.Name" xml:space="preserve">
+    <value>lblPODFromat</value>
+  </data>
+  <data name="&gt;&gt;lblPODFromat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPODFromat.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblPODFromat.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;lblImportDatabase.Name" xml:space="preserve">
+    <value>lblImportDatabase</value>
+  </data>
+  <data name="&gt;&gt;lblImportDatabase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblImportDatabase.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblImportDatabase.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox2.Name" xml:space="preserve">
+    <value>cuzTextBox2</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox2.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox2.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox2.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;txtStaticText.Name" xml:space="preserve">
+    <value>txtStaticText</value>
+  </data>
+  <data name="&gt;&gt;txtStaticText.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtStaticText.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtStaticText.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel4.Name" xml:space="preserve">
+    <value>cuzPanel4</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel4.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel4.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel4.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;txtSearchTemplate.Name" xml:space="preserve">
+    <value>txtSearchTemplate</value>
+  </data>
+  <data name="&gt;&gt;txtSearchTemplate.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSearchTemplate.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtSearchTemplate.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Name" xml:space="preserve">
+    <value>txtFileName</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;txtDirectoryDatabse.Name" xml:space="preserve">
+    <value>txtDirectoryDatabse</value>
+  </data>
+  <data name="&gt;&gt;txtDirectoryDatabse.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDirectoryDatabse.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtDirectoryDatabse.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;txtPODFormat.Name" xml:space="preserve">
+    <value>txtPODFormat</value>
+  </data>
+  <data name="&gt;&gt;txtPODFormat.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtPODFormat.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtPODFormat.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;btnRefeshTemplate.Name" xml:space="preserve">
+    <value>btnRefeshTemplate</value>
+  </data>
+  <data name="&gt;&gt;btnRefeshTemplate.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnRefeshTemplate.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnRefeshTemplate.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;btnPODFormat.Name" xml:space="preserve">
+    <value>btnPODFormat</value>
+  </data>
+  <data name="&gt;&gt;btnPODFormat.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnPODFormat.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnPODFormat.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;btnImportDatabase.Name" xml:space="preserve">
+    <value>btnImportDatabase</value>
+  </data>
+  <data name="&gt;&gt;btnImportDatabase.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnImportDatabase.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnImportDatabase.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;btnGennerate.Name" xml:space="preserve">
+    <value>btnGennerate</value>
+  </data>
+  <data name="&gt;&gt;btnGennerate.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnGennerate.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnGennerate.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 44</value>
+  </data>
+  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>936, 519</value>
+  </data>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Create a new job</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="numberOfCodes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="numberOfCodes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="numberOfCodes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="numberOfCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>204, 352</value>
+  </data>
+  <data name="numberOfCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 20</value>
+  </data>
+  <data name="numberOfCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>133</value>
+  </data>
+  <data name="numberOfCodes.Text" xml:space="preserve">
+    <value>Number Of Codes</value>
+  </data>
+  <data name="numberOfCodes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;numberOfCodes.Name" xml:space="preserve">
+    <value>numberOfCodes</value>
+  </data>
+  <data name="&gt;&gt;numberOfCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numberOfCodes.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;numberOfCodes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="FirstRowHeader.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="FirstRowHeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="FirstRowHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 348</value>
+  </data>
+  <data name="FirstRowHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 24</value>
+  </data>
+  <data name="FirstRowHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>132</value>
+  </data>
+  <data name="FirstRowHeader.Text" xml:space="preserve">
+    <value>First row header</value>
+  </data>
+  <data name="&gt;&gt;FirstRowHeader.Name" xml:space="preserve">
+    <value>FirstRowHeader</value>
+  </data>
+  <data name="&gt;&gt;FirstRowHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FirstRowHeader.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;FirstRowHeader.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BtnViewLog.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="BtnViewLog.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.5pt</value>
+  </data>
+  <data name="BtnViewLog.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BtnViewLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 7</value>
+  </data>
+  <data name="BtnViewLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 31</value>
+  </data>
+  <data name="BtnViewLog.TabIndex" type="System.Int32, mscorlib">
+    <value>128</value>
+  </data>
+  <data name="BtnViewLog.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;BtnViewLog.Name" xml:space="preserve">
+    <value>BtnViewLog</value>
+  </data>
+  <data name="&gt;&gt;BtnViewLog.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BtnViewLog.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;BtnViewLog.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tblCompareType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tblCompareType.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;radCanRead.Name" xml:space="preserve">
+    <value>radCanRead</value>
+  </data>
+  <data name="&gt;&gt;radCanRead.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radCanRead.Parent" xml:space="preserve">
+    <value>tblCompareType</value>
+  </data>
+  <data name="&gt;&gt;radCanRead.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radStaticText.Name" xml:space="preserve">
+    <value>radStaticText</value>
+  </data>
+  <data name="&gt;&gt;radStaticText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radStaticText.Parent" xml:space="preserve">
+    <value>tblCompareType</value>
+  </data>
+  <data name="&gt;&gt;radStaticText.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;radDatabase.Name" xml:space="preserve">
+    <value>radDatabase</value>
+  </data>
+  <data name="&gt;&gt;radDatabase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radDatabase.Parent" xml:space="preserve">
+    <value>tblCompareType</value>
+  </data>
+  <data name="&gt;&gt;radDatabase.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tblCompareType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 120</value>
+  </data>
+  <data name="tblCompareType.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tblCompareType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>445, 40</value>
+  </data>
+  <data name="tblCompareType.TabIndex" type="System.Int32, mscorlib">
+    <value>127</value>
+  </data>
+  <data name="&gt;&gt;tblCompareType.Name" xml:space="preserve">
+    <value>tblCompareType</value>
+  </data>
+  <data name="&gt;&gt;tblCompareType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tblCompareType.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tblCompareType.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tblCompareType.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radCanRead" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radStaticText" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="radDatabase" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
   <data name="radCanRead.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
   </data>
@@ -3030,6 +2487,111 @@
   <data name="&gt;&gt;radDatabase.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="lblCompare.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCompare.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblCompare.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblCompare.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 93</value>
+  </data>
+  <data name="lblCompare.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 20</value>
+  </data>
+  <data name="lblCompare.TabIndex" type="System.Int32, mscorlib">
+    <value>126</value>
+  </data>
+  <data name="lblCompare.Text" xml:space="preserve">
+    <value>Compare type</value>
+  </data>
+  <data name="&gt;&gt;lblCompare.Name" xml:space="preserve">
+    <value>lblCompare</value>
+  </data>
+  <data name="&gt;&gt;lblCompare.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCompare.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblCompare.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tblJobType.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;radOnProduction.Name" xml:space="preserve">
+    <value>radOnProduction</value>
+  </data>
+  <data name="&gt;&gt;radOnProduction.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radOnProduction.Parent" xml:space="preserve">
+    <value>tblJobType</value>
+  </data>
+  <data name="&gt;&gt;radOnProduction.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radAfterProduction.Name" xml:space="preserve">
+    <value>radAfterProduction</value>
+  </data>
+  <data name="&gt;&gt;radAfterProduction.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radAfterProduction.Parent" xml:space="preserve">
+    <value>tblJobType</value>
+  </data>
+  <data name="&gt;&gt;radAfterProduction.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;radVerifyAndPrint.Name" xml:space="preserve">
+    <value>radVerifyAndPrint</value>
+  </data>
+  <data name="&gt;&gt;radVerifyAndPrint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radVerifyAndPrint.Parent" xml:space="preserve">
+    <value>tblJobType</value>
+  </data>
+  <data name="&gt;&gt;radVerifyAndPrint.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tblJobType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="tblJobType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 211</value>
+  </data>
+  <data name="tblJobType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tblJobType.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tblJobType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>445, 40</value>
+  </data>
+  <data name="tblJobType.TabIndex" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;tblJobType.Name" xml:space="preserve">
+    <value>tblJobType</value>
+  </data>
+  <data name="&gt;&gt;tblJobType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tblJobType.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tblJobType.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tblJobType.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radOnProduction" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radAfterProduction" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radVerifyAndPrint" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
   <data name="radOnProduction.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
   </data>
@@ -3165,6 +2727,192 @@
   <data name="&gt;&gt;radVerifyAndPrint.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="lblJobTypeInput.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblJobTypeInput.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblJobTypeInput.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblJobTypeInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 184</value>
+  </data>
+  <data name="lblJobTypeInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 20</value>
+  </data>
+  <data name="lblJobTypeInput.TabIndex" type="System.Int32, mscorlib">
+    <value>124</value>
+  </data>
+  <data name="lblJobTypeInput.Text" xml:space="preserve">
+    <value>Job type</value>
+  </data>
+  <data name="&gt;&gt;lblJobTypeInput.Name" xml:space="preserve">
+    <value>lblJobTypeInput</value>
+  </data>
+  <data name="&gt;&gt;lblJobTypeInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblJobTypeInput.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblJobTypeInput.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cboSupportForCamera.Location" type="System.Drawing.Point, System.Drawing">
+    <value>703, 6</value>
+  </data>
+  <data name="cboSupportForCamera.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 28</value>
+  </data>
+  <data name="cboSupportForCamera.TabIndex" type="System.Int32, mscorlib">
+    <value>129</value>
+  </data>
+  <data name="cboSupportForCamera.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;cboSupportForCamera.Name" xml:space="preserve">
+    <value>cboSupportForCamera</value>
+  </data>
+  <data name="&gt;&gt;cboSupportForCamera.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cboSupportForCamera.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;cboSupportForCamera.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblSupportForCamera.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSupportForCamera.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblSupportForCamera.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSupportForCamera.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 17</value>
+  </data>
+  <data name="lblSupportForCamera.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 20</value>
+  </data>
+  <data name="lblSupportForCamera.TabIndex" type="System.Int32, mscorlib">
+    <value>121</value>
+  </data>
+  <data name="lblSupportForCamera.Text" xml:space="preserve">
+    <value>Camera is use</value>
+  </data>
+  <data name="lblSupportForCamera.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblSupportForCamera.Name" xml:space="preserve">
+    <value>lblSupportForCamera</value>
+  </data>
+  <data name="&gt;&gt;lblSupportForCamera.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSupportForCamera.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblSupportForCamera.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblStaticText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblStaticText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblStaticText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblStaticText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 271</value>
+  </data>
+  <data name="lblStaticText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 20</value>
+  </data>
+  <data name="lblStaticText.TabIndex" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="lblStaticText.Text" xml:space="preserve">
+    <value>Static text</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText.Name" xml:space="preserve">
+    <value>lblStaticText</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;radRSeries.Name" xml:space="preserve">
+    <value>radRSeries</value>
+  </data>
+  <data name="&gt;&gt;radRSeries.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radRSeries.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;radRSeries.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radOther.Name" xml:space="preserve">
+    <value>radOther</value>
+  </data>
+  <data name="&gt;&gt;radOther.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radOther.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;radOther.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 120</value>
+  </data>
+  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 40</value>
+  </data>
+  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>112</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="radRSeries" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="radOther" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50,Absolute,20" /&gt;&lt;Rows Styles="Percent,100,Absolute,40" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
   <data name="radRSeries.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
   </data>
@@ -3255,6 +3003,282 @@
   <data name="&gt;&gt;radOther.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="lblFileName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFileName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblFileName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFileName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 17</value>
+  </data>
+  <data name="lblFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 20</value>
+  </data>
+  <data name="lblFileName.TabIndex" type="System.Int32, mscorlib">
+    <value>69</value>
+  </data>
+  <data name="lblFileName.Text" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="&gt;&gt;lblFileName.Name" xml:space="preserve">
+    <value>lblFileName</value>
+  </data>
+  <data name="&gt;&gt;lblFileName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFileName.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblFileName.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lblTemplate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTemplate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblTemplate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 184</value>
+  </data>
+  <data name="lblTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 20</value>
+  </data>
+  <data name="lblTemplate.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="lblTemplate.Text" xml:space="preserve">
+    <value>Template print</value>
+  </data>
+  <data name="&gt;&gt;lblTemplate.Name" xml:space="preserve">
+    <value>lblTemplate</value>
+  </data>
+  <data name="&gt;&gt;lblTemplate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTemplate.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblTemplate.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="lblPrinterSeries.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPrinterSeries.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblPrinterSeries.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblPrinterSeries.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 93</value>
+  </data>
+  <data name="lblPrinterSeries.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 20</value>
+  </data>
+  <data name="lblPrinterSeries.TabIndex" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="lblPrinterSeries.Text" xml:space="preserve">
+    <value>Printer support</value>
+  </data>
+  <data name="&gt;&gt;lblPrinterSeries.Name" xml:space="preserve">
+    <value>lblPrinterSeries</value>
+  </data>
+  <data name="&gt;&gt;lblPrinterSeries.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPrinterSeries.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblPrinterSeries.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="lblPODFromat.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPODFromat.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblPODFromat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblPODFromat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 435</value>
+  </data>
+  <data name="lblPODFromat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="lblPODFromat.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="lblPODFromat.Text" xml:space="preserve">
+    <value>POD format</value>
+  </data>
+  <data name="&gt;&gt;lblPODFromat.Name" xml:space="preserve">
+    <value>lblPODFromat</value>
+  </data>
+  <data name="&gt;&gt;lblPODFromat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPODFromat.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblPODFromat.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="lblImportDatabase.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblImportDatabase.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblImportDatabase.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblImportDatabase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 353</value>
+  </data>
+  <data name="lblImportDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 20</value>
+  </data>
+  <data name="lblImportDatabase.TabIndex" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="lblImportDatabase.Text" xml:space="preserve">
+    <value>Database path</value>
+  </data>
+  <data name="&gt;&gt;lblImportDatabase.Name" xml:space="preserve">
+    <value>lblImportDatabase</value>
+  </data>
+  <data name="&gt;&gt;lblImportDatabase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblImportDatabase.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblImportDatabase.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="cuzTextBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cuzTextBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 45</value>
+  </data>
+  <data name="cuzTextBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cuzTextBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="cuzTextBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 35</value>
+  </data>
+  <data name="cuzTextBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>122</value>
+  </data>
+  <data name="cuzTextBox2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox2.Name" xml:space="preserve">
+    <value>cuzTextBox2</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox2.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox2.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox2.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="txtStaticText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="txtStaticText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 297</value>
+  </data>
+  <data name="txtStaticText.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="txtStaticText.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtStaticText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>449, 35</value>
+  </data>
+  <data name="txtStaticText.TabIndex" type="System.Int32, mscorlib">
+    <value>119</value>
+  </data>
+  <data name="&gt;&gt;txtStaticText.Name" xml:space="preserve">
+    <value>txtStaticText</value>
+  </data>
+  <data name="&gt;&gt;txtStaticText.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtStaticText.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtStaticText.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;picLoadTemplate.Name" xml:space="preserve">
+    <value>picLoadTemplate</value>
+  </data>
+  <data name="&gt;&gt;picLoadTemplate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picLoadTemplate.Parent" xml:space="preserve">
+    <value>cuzPanel4</value>
+  </data>
+  <data name="&gt;&gt;picLoadTemplate.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;listBoxPrintProductTemplate.Name" xml:space="preserve">
+    <value>listBoxPrintProductTemplate</value>
+  </data>
+  <data name="&gt;&gt;listBoxPrintProductTemplate.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzListBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;listBoxPrintProductTemplate.Parent" xml:space="preserve">
+    <value>cuzPanel4</value>
+  </data>
+  <data name="&gt;&gt;listBoxPrintProductTemplate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cuzPanel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 266</value>
+  </data>
+  <data name="cuzPanel4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 3, 3</value>
+  </data>
+  <data name="cuzPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 183</value>
+  </data>
+  <data name="cuzPanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>108</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel4.Name" xml:space="preserve">
+    <value>cuzPanel4</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel4.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel4.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel4.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
   <data name="picLoadTemplate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -3315,6 +3339,315 @@
   <data name="&gt;&gt;listBoxPrintProductTemplate.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="btnSave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>703, 460</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 42</value>
+  </data>
+  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
+    <value>105</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="txtSearchTemplate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txtSearchTemplate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="txtSearchTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>484, 212</value>
+  </data>
+  <data name="txtSearchTemplate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="txtSearchTemplate.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtSearchTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>355, 35</value>
+  </data>
+  <data name="txtSearchTemplate.TabIndex" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="&gt;&gt;txtSearchTemplate.Name" xml:space="preserve">
+    <value>txtSearchTemplate</value>
+  </data>
+  <data name="&gt;&gt;txtSearchTemplate.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSearchTemplate.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtSearchTemplate.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="txtFileName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="txtFileName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 45</value>
+  </data>
+  <data name="txtFileName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="txtFileName.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>367, 35</value>
+  </data>
+  <data name="txtFileName.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Name" xml:space="preserve">
+    <value>txtFileName</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="txtDirectoryDatabse.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="txtDirectoryDatabse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 379</value>
+  </data>
+  <data name="txtDirectoryDatabse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="txtDirectoryDatabse.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtDirectoryDatabse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 35</value>
+  </data>
+  <data name="txtDirectoryDatabse.TabIndex" type="System.Int32, mscorlib">
+    <value>73</value>
+  </data>
+  <data name="&gt;&gt;txtDirectoryDatabse.Name" xml:space="preserve">
+    <value>txtDirectoryDatabse</value>
+  </data>
+  <data name="&gt;&gt;txtDirectoryDatabse.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDirectoryDatabse.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtDirectoryDatabse.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="txtPODFormat.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="txtPODFormat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 462</value>
+  </data>
+  <data name="txtPODFormat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="txtPODFormat.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtPODFormat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>366, 35</value>
+  </data>
+  <data name="txtPODFormat.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="&gt;&gt;txtPODFormat.Name" xml:space="preserve">
+    <value>txtPODFormat</value>
+  </data>
+  <data name="&gt;&gt;txtPODFormat.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtPODFormat.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtPODFormat.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="button1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>801, 217</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 24</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>101</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="btnRefeshTemplate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnRefeshTemplate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnRefeshTemplate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.5pt</value>
+  </data>
+  <data name="btnRefeshTemplate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRefeshTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>846, 210</value>
+  </data>
+  <data name="btnRefeshTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 38</value>
+  </data>
+  <data name="btnRefeshTemplate.TabIndex" type="System.Int32, mscorlib">
+    <value>103</value>
+  </data>
+  <data name="&gt;&gt;btnRefeshTemplate.Name" xml:space="preserve">
+    <value>btnRefeshTemplate</value>
+  </data>
+  <data name="&gt;&gt;btnRefeshTemplate.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnRefeshTemplate.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnRefeshTemplate.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="btnPODFormat.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnPODFormat.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.5pt</value>
+  </data>
+  <data name="btnPODFormat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPODFormat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 460</value>
+  </data>
+  <data name="btnPODFormat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 40</value>
+  </data>
+  <data name="btnPODFormat.TabIndex" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="&gt;&gt;btnPODFormat.Name" xml:space="preserve">
+    <value>btnPODFormat</value>
+  </data>
+  <data name="&gt;&gt;btnPODFormat.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnPODFormat.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnPODFormat.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="btnImportDatabase.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnImportDatabase.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.5pt</value>
+  </data>
+  <data name="btnImportDatabase.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnImportDatabase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 376</value>
+  </data>
+  <data name="btnImportDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 40</value>
+  </data>
+  <data name="btnImportDatabase.TabIndex" type="System.Int32, mscorlib">
+    <value>76</value>
+  </data>
+  <data name="&gt;&gt;btnImportDatabase.Name" xml:space="preserve">
+    <value>btnImportDatabase</value>
+  </data>
+  <data name="&gt;&gt;btnImportDatabase.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnImportDatabase.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnImportDatabase.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="btnGennerate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnGennerate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.5pt</value>
+  </data>
+  <data name="btnGennerate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnGennerate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>390, 43</value>
+  </data>
+  <data name="btnGennerate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 40</value>
+  </data>
+  <data name="btnGennerate.TabIndex" type="System.Int32, mscorlib">
+    <value>74</value>
+  </data>
+  <data name="&gt;&gt;btnGennerate.Name" xml:space="preserve">
+    <value>btnGennerate</value>
+  </data>
+  <data name="&gt;&gt;btnGennerate.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnGennerate.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnGennerate.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
   <data name="pnlMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -3337,6 +3670,447 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cuzButton2.Name" xml:space="preserve">
+    <value>cuzButton2</value>
+  </data>
+  <data name="&gt;&gt;cuzButton2.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzButton2.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cuzButton2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cuzButton1.Name" xml:space="preserve">
+    <value>cuzButton1</value>
+  </data>
+  <data name="&gt;&gt;cuzButton1.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzButton1.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cuzButton1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;dtpHist.Name" xml:space="preserve">
+    <value>dtpHist</value>
+  </data>
+  <data name="&gt;&gt;dtpHist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpHist.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;dtpHist.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox1.Name" xml:space="preserve">
+    <value>cuzTextBox1</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox1.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox1.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cbbHisFilterType.Name" xml:space="preserve">
+    <value>cbbHisFilterType</value>
+  </data>
+  <data name="&gt;&gt;cbbHisFilterType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbbHisFilterType.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cbbHisFilterType.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoryJob.Name" xml:space="preserve">
+    <value>dgvHistoryJob</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoryJob.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoryJob.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoryJob.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 44</value>
+  </data>
+  <data name="tabPage3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>936, 519</value>
+  </data>
+  <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Lịch Sử Công Việc</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbbHisFilterType.Items" xml:space="preserve">
+    <value>Hoàn tất đồng bộ</value>
+  </data>
+  <data name="cbbHisFilterType.Items1" xml:space="preserve">
+    <value>Chưa đồng bộ xong</value>
+  </data>
+  <data name="cbbHisFilterType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 20</value>
+  </data>
+  <data name="cbbHisFilterType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 28</value>
+  </data>
+  <data name="cbbHisFilterType.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;cbbHisFilterType.Name" xml:space="preserve">
+    <value>cbbHisFilterType</value>
+  </data>
+  <data name="&gt;&gt;cbbHisFilterType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbbHisFilterType.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cbbHisFilterType.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cuzTextBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cuzTextBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>467, 16</value>
+  </data>
+  <data name="cuzTextBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cuzTextBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="cuzTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 35</value>
+  </data>
+  <data name="cuzTextBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>123</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox1.Name" xml:space="preserve">
+    <value>cuzTextBox1</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox1.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox1.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 23</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 20</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>124</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Lọc trạng thái</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="STT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MaCongViec.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MaPhieuSoanHang.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MaSanPham.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SoLuongCanXuat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SoLuongDongBoSaaS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SoLuongDongBoSAP.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dgvHistoryJob.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 59</value>
+  </data>
+  <data name="dgvHistoryJob.Size" type="System.Drawing.Size, System.Drawing">
+    <value>901, 370</value>
+  </data>
+  <data name="dgvHistoryJob.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoryJob.Name" xml:space="preserve">
+    <value>dgvHistoryJob</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoryJob.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoryJob.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoryJob.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="dtpHist.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Hiragana</value>
+  </data>
+  <data name="dtpHist.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 445</value>
+  </data>
+  <data name="dtpHist.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 26</value>
+  </data>
+  <data name="dtpHist.TabIndex" type="System.Int32, mscorlib">
+    <value>129</value>
+  </data>
+  <data name="&gt;&gt;dtpHist.Name" xml:space="preserve">
+    <value>dtpHist</value>
+  </data>
+  <data name="&gt;&gt;dtpHist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpHist.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;dtpHist.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 447</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>130</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Chọn ngày</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
+    <value>STT</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>Mã Công Việc</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn3.HeaderText" xml:space="preserve">
+    <value>Mã Phiếu Soạn Hàng</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn4.HeaderText" xml:space="preserve">
+    <value>Mã Sản Phẩm</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn5.HeaderText" xml:space="preserve">
+    <value>Số lượng cần xuất</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn6.HeaderText" xml:space="preserve">
+    <value>Số lượng đồng bộ SaaS</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn7.HeaderText" xml:space="preserve">
+    <value>Số lượng đồng bộ lên SAP</value>
+  </data>
+  <metadata name="SoLuongDongBoSAP.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="SoLuongDongBoSAP.HeaderText" xml:space="preserve">
+    <value>Số lượng đồng bộ lên SAP</value>
+  </data>
+  <metadata name="SoLuongDongBoSaaS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="SoLuongDongBoSaaS.HeaderText" xml:space="preserve">
+    <value>Số lượng đồng bộ SaaS</value>
+  </data>
+  <metadata name="SoLuongCanXuat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="SoLuongCanXuat.HeaderText" xml:space="preserve">
+    <value>Số lượng cần xuất</value>
+  </data>
+  <metadata name="MaSanPham.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="MaSanPham.HeaderText" xml:space="preserve">
+    <value>Mã Sản Phẩm</value>
+  </data>
+  <metadata name="MaPhieuSoanHang.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="MaPhieuSoanHang.HeaderText" xml:space="preserve">
+    <value>Mã Phiếu Soạn Hàng</value>
+  </data>
+  <metadata name="MaCongViec.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="MaCongViec.HeaderText" xml:space="preserve">
+    <value>Mã Công Việc</value>
+  </data>
+  <metadata name="STT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="STT.HeaderText" xml:space="preserve">
+    <value>STT</value>
+  </data>
+  <data name="cuzButton1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cuzButton1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="cuzButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cuzButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>792, 16</value>
+  </data>
+  <data name="cuzButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 37</value>
+  </data>
+  <data name="cuzButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>131</value>
+  </data>
+  <data name="cuzButton1.Text" xml:space="preserve">
+    <value>Tìm Kiếm</value>
+  </data>
+  <data name="&gt;&gt;cuzButton1.Name" xml:space="preserve">
+    <value>cuzButton1</value>
+  </data>
+  <data name="&gt;&gt;cuzButton1.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzButton1.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cuzButton1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cuzButton2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cuzButton2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="cuzButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cuzButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>792, 445</value>
+  </data>
+  <data name="cuzButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 37</value>
+  </data>
+  <data name="cuzButton2.TabIndex" type="System.Int32, mscorlib">
+    <value>132</value>
+  </data>
+  <data name="cuzButton2.Text" xml:space="preserve">
+    <value>Đồng Bộ</value>
+  </data>
+  <data name="&gt;&gt;cuzButton2.Name" xml:space="preserve">
+    <value>cuzButton2</value>
+  </data>
+  <data name="&gt;&gt;cuzButton2.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzButton2.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;cuzButton2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -3990,6 +4764,9 @@
         //////9CAAAAAEL////////RQAAAAov////////0KAAAFC////8=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -4037,6 +4814,90 @@
   </data>
   <data name="&gt;&gt;toolStripDateTime.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn2</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn3.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn3</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn4</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn5</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn6</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn7.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn7</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SoLuongDongBoSAP.Name" xml:space="preserve">
+    <value>SoLuongDongBoSAP</value>
+  </data>
+  <data name="&gt;&gt;SoLuongDongBoSAP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SoLuongDongBoSaaS.Name" xml:space="preserve">
+    <value>SoLuongDongBoSaaS</value>
+  </data>
+  <data name="&gt;&gt;SoLuongDongBoSaaS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SoLuongCanXuat.Name" xml:space="preserve">
+    <value>SoLuongCanXuat</value>
+  </data>
+  <data name="&gt;&gt;SoLuongCanXuat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MaSanPham.Name" xml:space="preserve">
+    <value>MaSanPham</value>
+  </data>
+  <data name="&gt;&gt;MaSanPham.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MaPhieuSoanHang.Name" xml:space="preserve">
+    <value>MaPhieuSoanHang</value>
+  </data>
+  <data name="&gt;&gt;MaPhieuSoanHang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MaCongViec.Name" xml:space="preserve">
+    <value>MaCongViec</value>
+  </data>
+  <data name="&gt;&gt;MaCongViec.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;STT.Name" xml:space="preserve">
+    <value>STT</value>
+  </data>
+  <data name="&gt;&gt;STT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmJob</value>

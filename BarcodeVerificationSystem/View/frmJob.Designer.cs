@@ -74,7 +74,9 @@
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.numberOfCodes = new System.Windows.Forms.Label();
             this.FirstRowHeader = new System.Windows.Forms.CheckBox();
+            this.BtnViewLog = new DesignUI.CuzUI.CuzButton();
             this.tblCompareType = new System.Windows.Forms.TableLayoutPanel();
             this.radCanRead = new System.Windows.Forms.RadioButton();
             this.radStaticText = new System.Windows.Forms.RadioButton();
@@ -112,8 +114,29 @@
             this.btnImportDatabase = new DesignUI.CuzUI.CuzButton();
             this.btnGennerate = new DesignUI.CuzUI.CuzButton();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.BtnViewLog = new DesignUI.CuzUI.CuzButton();
-            this.numberOfCodes = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cbbHisFilterType = new System.Windows.Forms.ComboBox();
+            this.cuzTextBox1 = new DesignUI.CuzUI.CuzTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvHistoryJob = new System.Windows.Forms.DataGridView();
+            this.dtpHist = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongDongBoSaaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongCanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPhieuSoanHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCongViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
+            this.cuzButton2 = new DesignUI.CuzUI.CuzButton();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -128,6 +151,8 @@
             this.cuzPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).BeginInit();
             this.pnlMain.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).BeginInit();
             this.SuspendLayout();
             // 
             // DragControl
@@ -138,12 +163,12 @@
             // 
             // pnlMenu
             // 
-            this.pnlMenu._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.pnlMenu._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.pnlMenu._BorderRadius = 0;
             this.pnlMenu._BorderSize = 1;
             this.pnlMenu._Corner = 90F;
-            this.pnlMenu._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.pnlMenu._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.pnlMenu._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.pnlMenu._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.pnlMenu._GradientPanel = true;
             this.pnlMenu.Controls.Add(this.btnHelp);
             this.pnlMenu.Controls.Add(this.btnAbout);
@@ -307,6 +332,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -732,6 +758,12 @@
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             // 
+            // numberOfCodes
+            // 
+            resources.ApplyResources(this.numberOfCodes, "numberOfCodes");
+            this.numberOfCodes.ForeColor = System.Drawing.Color.DarkOrange;
+            this.numberOfCodes.Name = "numberOfCodes";
+            // 
             // FirstRowHeader
             // 
             resources.ApplyResources(this.FirstRowHeader, "FirstRowHeader");
@@ -740,6 +772,25 @@
             this.FirstRowHeader.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.FirstRowHeader.Name = "FirstRowHeader";
             this.FirstRowHeader.UseVisualStyleBackColor = true;
+            // 
+            // BtnViewLog
+            // 
+            this.BtnViewLog._BorderColor = System.Drawing.Color.Silver;
+            this.BtnViewLog._BorderRadius = 10;
+            this.BtnViewLog._BorderSize = 1;
+            this.BtnViewLog._GradientsButton = false;
+            this.BtnViewLog._Text = "";
+            this.BtnViewLog.BackColor = System.Drawing.Color.White;
+            this.BtnViewLog.BackgroundColor = System.Drawing.Color.White;
+            this.BtnViewLog.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.BtnViewLog.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.BtnViewLog.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.BtnViewLog, "BtnViewLog");
+            this.BtnViewLog.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnViewLog.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_open_321;
+            this.BtnViewLog.Name = "BtnViewLog";
+            this.BtnViewLog.TextColor = System.Drawing.SystemColors.ControlText;
+            this.BtnViewLog.UseVisualStyleBackColor = false;
             // 
             // tblCompareType
             // 
@@ -1174,30 +1225,195 @@
             resources.ApplyResources(this.pnlMain, "pnlMain");
             this.pnlMain.Name = "pnlMain";
             // 
-            // BtnViewLog
+            // tabPage3
             // 
-            this.BtnViewLog._BorderColor = System.Drawing.Color.Silver;
-            this.BtnViewLog._BorderRadius = 10;
-            this.BtnViewLog._BorderSize = 1;
-            this.BtnViewLog._GradientsButton = false;
-            this.BtnViewLog._Text = "";
-            this.BtnViewLog.BackColor = System.Drawing.Color.White;
-            this.BtnViewLog.BackgroundColor = System.Drawing.Color.White;
-            this.BtnViewLog.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.BtnViewLog.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.BtnViewLog.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.BtnViewLog, "BtnViewLog");
-            this.BtnViewLog.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnViewLog.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_open_321;
-            this.BtnViewLog.Name = "BtnViewLog";
-            this.BtnViewLog.TextColor = System.Drawing.SystemColors.ControlText;
-            this.BtnViewLog.UseVisualStyleBackColor = false;
+            this.tabPage3.Controls.Add(this.cuzButton2);
+            this.tabPage3.Controls.Add(this.cuzButton1);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.dtpHist);
+            this.tabPage3.Controls.Add(this.label1);
+            this.tabPage3.Controls.Add(this.cuzTextBox1);
+            this.tabPage3.Controls.Add(this.cbbHisFilterType);
+            this.tabPage3.Controls.Add(this.dgvHistoryJob);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // numberOfCodes
+            // cbbHisFilterType
             // 
-            resources.ApplyResources(this.numberOfCodes, "numberOfCodes");
-            this.numberOfCodes.ForeColor = System.Drawing.Color.DarkOrange;
-            this.numberOfCodes.Name = "numberOfCodes";
+            this.cbbHisFilterType.FormattingEnabled = true;
+            this.cbbHisFilterType.Items.AddRange(new object[] {
+            resources.GetString("cbbHisFilterType.Items"),
+            resources.GetString("cbbHisFilterType.Items1")});
+            resources.ApplyResources(this.cbbHisFilterType, "cbbHisFilterType");
+            this.cbbHisFilterType.Name = "cbbHisFilterType";
+            // 
+            // cuzTextBox1
+            // 
+            this.cuzTextBox1._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.cuzTextBox1._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.cuzTextBox1.BackColor = System.Drawing.Color.White;
+            this.cuzTextBox1.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.cuzTextBox1.BorderFocusColor = System.Drawing.Color.Silver;
+            this.cuzTextBox1.BorderRadius = 6;
+            this.cuzTextBox1.BorderSize = 1;
+            resources.ApplyResources(this.cuzTextBox1, "cuzTextBox1");
+            this.cuzTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cuzTextBox1.Multiline = false;
+            this.cuzTextBox1.Name = "cuzTextBox1";
+            this.cuzTextBox1.PasswordChar = false;
+            this.cuzTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.cuzTextBox1.PlaceholderText = "";
+            this.cuzTextBox1.ReadOnly = false;
+            this.cuzTextBox1.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Name = "label1";
+            // 
+            // dgvHistoryJob
+            // 
+            this.dgvHistoryJob.AllowUserToAddRows = false;
+            this.dgvHistoryJob.AllowUserToDeleteRows = false;
+            this.dgvHistoryJob.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvHistoryJob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistoryJob.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.MaCongViec,
+            this.MaPhieuSoanHang,
+            this.MaSanPham,
+            this.SoLuongCanXuat,
+            this.SoLuongDongBoSaaS,
+            this.SoLuongDongBoSAP});
+            resources.ApplyResources(this.dgvHistoryJob, "dgvHistoryJob");
+            this.dgvHistoryJob.Name = "dgvHistoryJob";
+            this.dgvHistoryJob.ReadOnly = true;
+            // 
+            // dtpHist
+            // 
+            resources.ApplyResources(this.dtpHist, "dtpHist");
+            this.dtpHist.Name = "dtpHist";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label2.Name = "label2";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            resources.ApplyResources(this.dataGridViewTextBoxColumn3, "dataGridViewTextBoxColumn3");
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            resources.ApplyResources(this.dataGridViewTextBoxColumn4, "dataGridViewTextBoxColumn4");
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            resources.ApplyResources(this.dataGridViewTextBoxColumn5, "dataGridViewTextBoxColumn5");
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            resources.ApplyResources(this.dataGridViewTextBoxColumn6, "dataGridViewTextBoxColumn6");
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            resources.ApplyResources(this.dataGridViewTextBoxColumn7, "dataGridViewTextBoxColumn7");
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // SoLuongDongBoSAP
+            // 
+            resources.ApplyResources(this.SoLuongDongBoSAP, "SoLuongDongBoSAP");
+            this.SoLuongDongBoSAP.Name = "SoLuongDongBoSAP";
+            this.SoLuongDongBoSAP.ReadOnly = true;
+            // 
+            // SoLuongDongBoSaaS
+            // 
+            resources.ApplyResources(this.SoLuongDongBoSaaS, "SoLuongDongBoSaaS");
+            this.SoLuongDongBoSaaS.Name = "SoLuongDongBoSaaS";
+            this.SoLuongDongBoSaaS.ReadOnly = true;
+            // 
+            // SoLuongCanXuat
+            // 
+            resources.ApplyResources(this.SoLuongCanXuat, "SoLuongCanXuat");
+            this.SoLuongCanXuat.Name = "SoLuongCanXuat";
+            this.SoLuongCanXuat.ReadOnly = true;
+            // 
+            // MaSanPham
+            // 
+            resources.ApplyResources(this.MaSanPham, "MaSanPham");
+            this.MaSanPham.Name = "MaSanPham";
+            this.MaSanPham.ReadOnly = true;
+            // 
+            // MaPhieuSoanHang
+            // 
+            resources.ApplyResources(this.MaPhieuSoanHang, "MaPhieuSoanHang");
+            this.MaPhieuSoanHang.Name = "MaPhieuSoanHang";
+            this.MaPhieuSoanHang.ReadOnly = true;
+            // 
+            // MaCongViec
+            // 
+            resources.ApplyResources(this.MaCongViec, "MaCongViec");
+            this.MaCongViec.Name = "MaCongViec";
+            this.MaCongViec.ReadOnly = true;
+            // 
+            // STT
+            // 
+            resources.ApplyResources(this.STT, "STT");
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // cuzButton1
+            // 
+            this.cuzButton1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton1._BorderRadius = 0;
+            this.cuzButton1._BorderSize = 1;
+            this.cuzButton1._GradientsButton = false;
+            this.cuzButton1._Text = "Tìm Kiếm";
+            this.cuzButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton1.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cuzButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.cuzButton1.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.cuzButton1, "cuzButton1");
+            this.cuzButton1.ForeColor = System.Drawing.Color.White;
+            this.cuzButton1.Name = "cuzButton1";
+            this.cuzButton1.TextColor = System.Drawing.Color.White;
+            this.cuzButton1.UseVisualStyleBackColor = false;
+            // 
+            // cuzButton2
+            // 
+            this.cuzButton2._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton2._BorderRadius = 0;
+            this.cuzButton2._BorderSize = 1;
+            this.cuzButton2._GradientsButton = false;
+            this.cuzButton2._Text = "Đồng Bộ";
+            this.cuzButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton2.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cuzButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.cuzButton2.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.cuzButton2, "cuzButton2");
+            this.cuzButton2.ForeColor = System.Drawing.Color.White;
+            this.cuzButton2.Name = "cuzButton2";
+            this.cuzButton2.TextColor = System.Drawing.Color.White;
+            this.cuzButton2.UseVisualStyleBackColor = false;
             // 
             // FrmJob
             // 
@@ -1226,6 +1442,9 @@
             this.cuzPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).EndInit();
             this.pnlMain.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1317,6 +1536,29 @@
         private System.Windows.Forms.CheckBox FirstRowHeader;
         private DesignUI.CuzUI.CuzButton BtnViewLog;
         private System.Windows.Forms.Label numberOfCodes;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ComboBox cbbHisFilterType;
+        private DesignUI.CuzUI.CuzTextBox cuzTextBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvHistoryJob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaCongViec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuSoanHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongCanXuat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSaaS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSAP;
+        private System.Windows.Forms.DateTimePicker dtpHist;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DesignUI.CuzUI.CuzButton cuzButton1;
+        private DesignUI.CuzUI.CuzButton cuzButton2;
     }
 
 }
