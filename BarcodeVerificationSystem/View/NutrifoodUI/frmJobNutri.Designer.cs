@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJobNutri));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DragControl = new DesignUI.CuzUI.CuzDragControl();
             this.pnlMenu = new DesignUI.CuzUI.CuzPanel();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
@@ -93,6 +93,7 @@
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.numberOfCodes = new System.Windows.Forms.Label();
             this.FirstRowHeader = new System.Windows.Forms.CheckBox();
             this.BtnViewLog = new DesignUI.CuzUI.CuzButton();
@@ -133,7 +134,22 @@
             this.btnImportDatabase = new DesignUI.CuzUI.CuzButton();
             this.btnGennerate = new DesignUI.CuzUI.CuzButton();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cuzButton2 = new DesignUI.CuzUI.CuzButton();
+            this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpHist = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cuzTextBox1 = new DesignUI.CuzUI.CuzTextBox();
+            this.cbbHisFilterType = new System.Windows.Forms.ComboBox();
+            this.dgvHistoryJob = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCongViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPhieuSoanHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongCanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongDongBoSaaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -150,6 +166,8 @@
             this.cuzPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).BeginInit();
             this.pnlMain.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).BeginInit();
             this.SuspendLayout();
             // 
             // DragControl
@@ -330,6 +348,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -378,36 +397,36 @@
             this.dgvItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.dgvItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.dgvItems, "dgvItems");
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(165)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItems.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(165)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItems.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvItems.EnableHeadersVisualStyles = false;
             this.dgvItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvItems.Name = "dgvItems";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.RowTemplate.Height = 30;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1003,6 +1022,11 @@
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
             // numberOfCodes
             // 
             resources.ApplyResources(this.numberOfCodes, "numberOfCodes");
@@ -1470,10 +1494,160 @@
             resources.ApplyResources(this.pnlMain, "pnlMain");
             this.pnlMain.Name = "pnlMain";
             // 
-            // panel1
+            // tabPage4
             // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
+            this.tabPage4.Controls.Add(this.cuzButton2);
+            this.tabPage4.Controls.Add(this.cuzButton1);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.dtpHist);
+            this.tabPage4.Controls.Add(this.label7);
+            this.tabPage4.Controls.Add(this.cuzTextBox1);
+            this.tabPage4.Controls.Add(this.cbbHisFilterType);
+            this.tabPage4.Controls.Add(this.dgvHistoryJob);
+            resources.ApplyResources(this.tabPage4, "tabPage4");
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // cuzButton2
+            // 
+            this.cuzButton2._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton2._BorderRadius = 0;
+            this.cuzButton2._BorderSize = 1;
+            this.cuzButton2._GradientsButton = false;
+            this.cuzButton2._Text = "Đồng Bộ";
+            this.cuzButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton2.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cuzButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.cuzButton2.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.cuzButton2, "cuzButton2");
+            this.cuzButton2.ForeColor = System.Drawing.Color.White;
+            this.cuzButton2.Name = "cuzButton2";
+            this.cuzButton2.TextColor = System.Drawing.Color.White;
+            this.cuzButton2.UseVisualStyleBackColor = false;
+            // 
+            // cuzButton1
+            // 
+            this.cuzButton1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton1._BorderRadius = 0;
+            this.cuzButton1._BorderSize = 1;
+            this.cuzButton1._GradientsButton = false;
+            this.cuzButton1._Text = "Tìm Kiếm";
+            this.cuzButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton1.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cuzButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.cuzButton1.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.cuzButton1, "cuzButton1");
+            this.cuzButton1.ForeColor = System.Drawing.Color.White;
+            this.cuzButton1.Name = "cuzButton1";
+            this.cuzButton1.TextColor = System.Drawing.Color.White;
+            this.cuzButton1.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label3.Name = "label3";
+            // 
+            // dtpHist
+            // 
+            resources.ApplyResources(this.dtpHist, "dtpHist");
+            this.dtpHist.Name = "dtpHist";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label7.Name = "label7";
+            // 
+            // cuzTextBox1
+            // 
+            this.cuzTextBox1._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.cuzTextBox1._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.cuzTextBox1.BackColor = System.Drawing.Color.White;
+            this.cuzTextBox1.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.cuzTextBox1.BorderFocusColor = System.Drawing.Color.Silver;
+            this.cuzTextBox1.BorderRadius = 6;
+            this.cuzTextBox1.BorderSize = 1;
+            resources.ApplyResources(this.cuzTextBox1, "cuzTextBox1");
+            this.cuzTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cuzTextBox1.Multiline = false;
+            this.cuzTextBox1.Name = "cuzTextBox1";
+            this.cuzTextBox1.PasswordChar = false;
+            this.cuzTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.cuzTextBox1.PlaceholderText = "";
+            this.cuzTextBox1.ReadOnly = false;
+            this.cuzTextBox1.UnderlinedStyle = false;
+            // 
+            // cbbHisFilterType
+            // 
+            this.cbbHisFilterType.FormattingEnabled = true;
+            this.cbbHisFilterType.Items.AddRange(new object[] {
+            resources.GetString("cbbHisFilterType.Items"),
+            resources.GetString("cbbHisFilterType.Items1")});
+            resources.ApplyResources(this.cbbHisFilterType, "cbbHisFilterType");
+            this.cbbHisFilterType.Name = "cbbHisFilterType";
+            // 
+            // dgvHistoryJob
+            // 
+            this.dgvHistoryJob.AllowUserToAddRows = false;
+            this.dgvHistoryJob.AllowUserToDeleteRows = false;
+            this.dgvHistoryJob.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvHistoryJob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistoryJob.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.MaCongViec,
+            this.MaPhieuSoanHang,
+            this.MaSanPham,
+            this.SoLuongCanXuat,
+            this.SoLuongDongBoSaaS,
+            this.SoLuongDongBoSAP});
+            resources.ApplyResources(this.dgvHistoryJob, "dgvHistoryJob");
+            this.dgvHistoryJob.Name = "dgvHistoryJob";
+            this.dgvHistoryJob.ReadOnly = true;
+            // 
+            // STT
+            // 
+            resources.ApplyResources(this.STT, "STT");
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // MaCongViec
+            // 
+            resources.ApplyResources(this.MaCongViec, "MaCongViec");
+            this.MaCongViec.Name = "MaCongViec";
+            this.MaCongViec.ReadOnly = true;
+            // 
+            // MaPhieuSoanHang
+            // 
+            resources.ApplyResources(this.MaPhieuSoanHang, "MaPhieuSoanHang");
+            this.MaPhieuSoanHang.Name = "MaPhieuSoanHang";
+            this.MaPhieuSoanHang.ReadOnly = true;
+            // 
+            // MaSanPham
+            // 
+            resources.ApplyResources(this.MaSanPham, "MaSanPham");
+            this.MaSanPham.Name = "MaSanPham";
+            this.MaSanPham.ReadOnly = true;
+            // 
+            // SoLuongCanXuat
+            // 
+            resources.ApplyResources(this.SoLuongCanXuat, "SoLuongCanXuat");
+            this.SoLuongCanXuat.Name = "SoLuongCanXuat";
+            this.SoLuongCanXuat.ReadOnly = true;
+            // 
+            // SoLuongDongBoSaaS
+            // 
+            resources.ApplyResources(this.SoLuongDongBoSaaS, "SoLuongDongBoSaaS");
+            this.SoLuongDongBoSaaS.Name = "SoLuongDongBoSaaS";
+            this.SoLuongDongBoSaaS.ReadOnly = true;
+            // 
+            // SoLuongDongBoSAP
+            // 
+            resources.ApplyResources(this.SoLuongDongBoSAP, "SoLuongDongBoSAP");
+            this.SoLuongDongBoSAP.Name = "SoLuongDongBoSAP";
+            this.SoLuongDongBoSAP.ReadOnly = true;
             // 
             // frmJobNutri
             // 
@@ -1505,6 +1679,9 @@
             this.cuzPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).EndInit();
             this.pnlMain.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1614,6 +1791,22 @@
         private System.Windows.Forms.DataGridView dgvItems;
         private DesignUI.CuzUI.CuzButton saveJobNutri;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private DesignUI.CuzUI.CuzButton cuzButton2;
+        private DesignUI.CuzUI.CuzButton cuzButton1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpHist;
+        private System.Windows.Forms.Label label7;
+        private DesignUI.CuzUI.CuzTextBox cuzTextBox1;
+        private System.Windows.Forms.ComboBox cbbHisFilterType;
+        private System.Windows.Forms.DataGridView dgvHistoryJob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaCongViec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuSoanHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongCanXuat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSaaS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSAP;
     }
 
 }

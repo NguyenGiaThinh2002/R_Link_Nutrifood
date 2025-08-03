@@ -39,6 +39,7 @@ using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request;
 using BarcodeVerificationSystem.Utils;
 using System.IO.Compression;
 using System.Net.Http.Headers;
+using BarcodeVerificationSystem.Controller.HistorySync;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -973,6 +974,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
         private void InitControls()
         {
+
+            cbbHisFilterType.SelectedIndex = 0;
+            HistoryUtils.CustomDataGridView(dgv: dgvHistoryJob);
             SetupDataGridView();
             //wmsNumber.Text = Shared.Settings.OrderId;
 
