@@ -663,7 +663,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 wmsNumber.Text = payloadJob?.wms_number;
                 materialNumber.Text = payloadJob?.item[_SelectedJob.SelectedMaterialIndex].material_number;
 
-                pnlVerificationProcess.Enabled = Shared.UserPermission.isOnline;
+                DispatchingActionsPanel.Visible = Shared.UserPermission.isOnline;
                
             }
 
@@ -817,14 +817,14 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                             break;
                         case SyncDataType.SAPSuccess:
                             ++SAPSuccess;
-                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex][DispatchingSharedValues.SAPStatus] = "success";
+                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SAPStatus] = "success";
                             break;
                         case SyncDataType.SAPFailed:
                             SAPFailed++;
                             break;
                         case SyncDataType.SaaSSuccess:
                             ++SaaSSuccess;
-                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex][DispatchingSharedValues.SaaSStatus] = "success";
+                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SaaSStatus] = "success";
                             break;
 
                     }

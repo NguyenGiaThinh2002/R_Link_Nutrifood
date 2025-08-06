@@ -40,7 +40,7 @@ namespace BarcodeVerificationSystem.Utils
                     MaCongViec = x,
                     MaPhieuSoanHang = payload?.wms_number,
                     MaSanPham = payload?.item[CurrentJob.SelectedMaterialIndex].material_number,
-                    SoLuongCanXuat = CurrentJob.NumberOfNeededSentCodes,
+                    SoLuongCanXuat = CurrentJob.NumberOfPrintedCodes,
                     SoLuongDongBoSaaS = CurrentJob.NumberOfSaaSSentCodes,
                     SoLuongDongBoSAP = CurrentJob.NumberOfSAPSentCodes
                 });

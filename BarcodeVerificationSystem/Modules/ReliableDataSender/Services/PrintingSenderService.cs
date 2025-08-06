@@ -149,7 +149,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
         public void Stop()
         {
-            _httpClient.Dispose();
+            //_httpClient.Dispose();
             _cts.Cancel();
             _queue.CompleteAdding();
         }

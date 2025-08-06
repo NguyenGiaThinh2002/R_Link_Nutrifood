@@ -151,8 +151,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             }
             else if (sender == SyncDataBtn)
             {
-                picDatabaseLoading.Visible = true;
-                // thinh dep trai dang lam
+                progressBar1.Visible = true; //  picDatabaseLoading.Visible = true;
                 int lineIndex = dgvHistoryJob.SelectedRows[0].Index;
                 string JobName = dgvHistoryJob.Rows[lineIndex].Cells[1].Value.ToString();
 
@@ -160,7 +159,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 Shared.CurrentJob = CurrentJob;
                 if (CurrentJob.NumberOfPrintedCodes == CurrentJob.NumberOfSAPSentCodes || CurrentJob.NumberOfPrintedCodes == 0)
                 {
-                    picDatabaseLoading.Visible = false;
+                    progressBar1.Visible = false; //  = picDatabaseLoading.Visible 
                     return;
                 }
 
@@ -189,7 +188,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 string orderId = wmsNumber.Text.Trim();
                 if (string.IsNullOrEmpty(orderId))
                 {
-                    MessageBox.Show("Please enter a valid Order ID.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CustomMessageBox.Show("Vui lòng nhập mã phiếu WMS!", "Lỗi thông tin nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -1067,8 +1066,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             btnRestart.Text = Lang.Restart;
 
             tabPage1.Text = "Xuất Hàng"; // Lang.CreateANewJob
-            tabPage2.Text = "Danh Sách Công Việc"; //Lang.SelectJob
+            tabPage2.Text = "Danh Sách Lệnh Xuất Hàng"; //Lang.SelectJob
             tabPage3.Text = "In Lại QR";
+            tabPage4.Text = "Lịch Sử Đồng Bộ"; // Lang.HistorySync
+            tabPage5.Text = "Xuất Hàng"; // Lang.Settings
         }
 
         private void InitUI()
@@ -1090,7 +1091,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     //this.tabControl1.Controls.Remove(this.tabPage2);
                     this.tabControl1.Controls.Remove(this.tabPage5);
                 }
-
+                dgvItems.Rows.Clear();
             }
             catch (Exception)
             {
@@ -1166,16 +1167,11 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             #region San pham keo phieu
             dgvItems.Columns.Clear();
-            //dgvItems.Columns.Add("material_number", "Material Number");
-            //dgvItems.Columns.Add("material_name", "Material Name");
-            //dgvItems.Columns.Add("material_group", "Item Group");
-            //dgvItems.Columns.Add("qty", "Quantity");
-            //dgvItems.Columns.Add("qty_per_carton", "Quantity Per Carton");
             dgvItems.Columns.Add("material_number", "Mã sản phẩm");
             dgvItems.Columns.Add("material_name", "Tên sản phẩm");
             dgvItems.Columns.Add("material_group", "Nhóm sản phẩm");
             dgvItems.Columns.Add("qty", "Số lượng");
-            dgvItems.Columns.Add("qty_per_carton", "Số lượng trên thùng hàng");
+            dgvItems.Columns.Add("qty_per_carton", "Số lượng trên thùng");
             dgvItems.Columns.Add("total_qty_ctn", "Số lượng cần in");
             dgvItems.Columns.Add("printed_number", "Số lượng đã in");
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -1183,6 +1179,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             dgvItems.MultiSelect = false;
             dgvItems.ReadOnly = true;
             dgvItems.AllowUserToAddRows = false;
+            dgvItems.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvItems.AutoResizeColumnHeadersHeight();
+
+
             #endregion
 
             #region Sản phẩm in lại
@@ -1198,7 +1198,11 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             reprintGridView.ReadOnly = true;
             reprintGridView.AllowUserToAddRows = false;
             #endregion
-
+            //dgvItems.Columns.Add("material_number", "Material Number");
+            //dgvItems.Columns.Add("material_name", "Material Name");
+            //dgvItems.Columns.Add("material_group", "Item Group");
+            //dgvItems.Columns.Add("qty", "Quantity");
+            //dgvItems.Columns.Add("qty_per_carton", "Quantity Per Carton");
         }
 
         private void GenerateCodesOffline()
@@ -1510,29 +1514,30 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         {
             try
             {
-                //if (sender is SyncDataParams ParamsName)
-                //{
-                //    string filePath = CommVariables.PathJobsApp + Shared.CurrentJob.FileName + Shared.Settings.JobFileExtension;
-                //    switch (ParamsName.Name)
-                //    {
-                //        case SyncDataType.SentData:
-                //            break;
-                //        case SyncDataType.SaaSFailed:
-                //            break;
-                //        case SyncDataType.SAPSuccess:
-                //            break;
-                //        case SyncDataType.SAPFailed:
-                //            break;
-                //        case SyncDataType.SaaSSuccess:
-                //            break;
+                if (sender is SyncDataParams ParamsName)
+                {
+                    string filePath = CommVariables.PathJobsApp + Shared.CurrentJob.FileName + Shared.Settings.JobFileExtension;
+                    switch (ParamsName.DataType)
+                    {
+                        case SyncDataType.SentData:
+                            break;
+                        case SyncDataType.SaaSFailed:
+                            break;
+                        case SyncDataType.SAPSuccess:
+                            break;
+                        case SyncDataType.SAPFailed:
+                            break;
+                        case SyncDataType.SaaSSuccess:
+                            break;
 
-                //    }
-                //}
+                    }
+                }
+                progressBar1.Value = Shared.CurrentJob.NumberOfSAPSentCodes * 100 / Shared.CurrentJob.NumberOfPrintedCodes;
 
                 if (Shared.CurrentJob.NumberOfPrintedCodes == Shared.CurrentJob.NumberOfSAPSentCodes)
                 {
                     _printedDataProcess.Stop();
-                    picDatabaseLoading.Visible = false;
+                    progressBar1.Visible = false; // = picDatabaseLoading.Visible
                     List<string> JobNameList = Shared.GetJobNameList();
                     DisplayHistory(JobNameList);
                 }
@@ -1967,7 +1972,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     string JobName = _JobModel.FileName;  // Check Job name is empty
                     if (JobName == "")
                     {
-                        CuzMessageBox.Show(Lang.PleaseInputJobName, Lang.Confirm, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //CuzMessageBox.Show(Lang.PleaseInputJobName, Lang.Confirm, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
@@ -2143,7 +2148,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             }
             catch (Exception ex)
             {
-                CuzMessageBox.Show(Lang.NewJobCreationFailed, Lang.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //CuzMessageBox.Show(Lang.NewJobCreationFailed, Lang.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 return;
             }
         }
