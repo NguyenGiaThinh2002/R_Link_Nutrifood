@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UILanguage;
 
 namespace BarcodeVerificationSystem.View.CustomDialogs
 {
@@ -25,6 +26,13 @@ namespace BarcodeVerificationSystem.View.CustomDialogs
             }
             formMessageBox.TopMost = true;
             return formMessageBox.ShowDialog();
+        }
+
+        public static bool IsResultShow(string text)
+        {
+            // Create the original message box with default buttons and icon
+            var result = Show(text, Lang.Confirm, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result == DialogResult.Yes;
         }
     }
 }

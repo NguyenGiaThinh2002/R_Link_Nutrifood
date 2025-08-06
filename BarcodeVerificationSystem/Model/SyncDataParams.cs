@@ -16,14 +16,16 @@ namespace BarcodeVerificationSystem.Model
             SAPFailed,
             SaaSFailed,
         }
-        public SyncDataType Name { get; set; }
-        public int Value { get; set; }
+        public SyncDataType DataType { get; set; }
+        public int CodeIndex { get; set; }
         public object Data { get; set; } // For more generic data
 
         public SyncDataParams(SyncDataType name, int value)
         {
-            Name = name;
-            Value = value; // Default value
+            DataType = name;
+            CodeIndex = value; // Default value
         }
+
+
     }
 }

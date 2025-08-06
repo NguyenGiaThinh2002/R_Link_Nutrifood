@@ -45,14 +45,14 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
             {
                 Id = id,
                 Code = code,
-                HumanCode = humanCode,
+                UniqueCode = humanCode,
                 PrintedStatus = "Printed",
                 PrintedDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 Status = "NotSent",
                 SaasStatus = string.Empty,
-                ServerStatus = string.Empty,
+                SAPStatus = string.Empty,
                 SaasError = string.Empty,
-                ServerError = string.Empty
+                SAPError = string.Empty
             };
             _storage.AppendEntry(entry);
             _queue.Add(entry);

@@ -16,6 +16,8 @@ using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
 using BarcodeVerificationSystem.Model.Payload;
 using System.Windows;
 using BarcodeVerificationSystem.Model;
+using CommonVariable;
+using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -52,14 +54,32 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             {
                 //MessageBox.Show("Shared.CurrentJob.FileName: " + Shared.CurrentJob.FileName);
                 string JobName = Shared.CurrentJob.FileName;
-                var printedContent = new RequestPrinted {
-                    id = entry.Id,
-                    qr_code = entry.Code,
-                    unique_code = entry.HumanCode, // entry.HumanCode
-                    printed_date = DateTime.Parse(entry.PrintedDate),
-                    status = entry.PrintedStatus,
-                    job_name = JobName,
-                };
+                string filePath = CommVariables.PathJobsApp + Shared.CurrentJob.FileName + Shared.Settings.JobFileExtension;
+
+                var printedContent = new object();
+
+                if (Shared.PrintingMode.IsPrintingMode || Shared.PrintingMode.IsPrintingModeOffline)
+                {
+                    printedContent = new RequestPrinted
+                    {
+                        id = entry.Id,
+                        qr_code = entry.Code,
+                        unique_code = entry.UniqueCode, // entry.HumanCode
+                        printed_date = DateTime.Parse(entry.PrintedDate),
+                        //status = entry.PrintedStatus ?? "Printed",
+                        job_name = JobName,
+                    };
+                }
+               
+                if(Shared.PrintingMode.IsReprintMode)
+                {
+                    printedContent = new RequestRePrint
+                    {
+                        qr_code = entry.Code,
+                        unique_code = entry.UniqueCode, // entry.HumanCode
+                        scan_date = DateTime.Parse(entry.PrintedDate),
+                    };
+                }
 
                 if (Shared.UserPermission.isOnline)
                 {
@@ -68,36 +88,51 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         ContractResolver = new CamelCasePropertyNamesContractResolver()
                     });
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                    Shared.RaiseOnSyncDataParameterChangeEvent(SyncDataParams.SyncDataType.SentData);
 
                     var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
                     response.EnsureSuccessStatusCode();
                     var ResponsePrinted = JsonConvert.DeserializeObject<ResponsePrinted>(await response.Content.ReadAsStringAsync());
 
                     entry.SaasStatus = ResponsePrinted.isSuccessed ? "success" : "failed";
-                    entry.ServerStatus = ResponsePrinted.sap_isSuccessed ? "success" : "failed";
+                    entry.SAPStatus = ResponsePrinted.sap_isSuccessed ? "success" : "failed";
                     entry.SaasError = ResponsePrinted.message;
-                    entry.ServerError = ResponsePrinted.sap_message;
+                    entry.SAPError = ResponsePrinted.sap_message;
 
-                    if (ResponsePrinted.isSuccessed) Shared.RaiseOnSyncDataParameterChangeEvent(SyncDataParams.SyncDataType.SaaSSuccess);
-                    if (ResponsePrinted.sap_isSuccessed) Shared.RaiseOnSyncDataParameterChangeEvent(SyncDataParams.SyncDataType.SAPSuccess);
+                    var syncDataModel = new SyncDataParams(SyncDataParams.SyncDataType.SentData, entry.Id){};
+
+                    Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+
+                    if (ResponsePrinted.isSuccessed)
+                    {
+                        Shared.CurrentJob.NumberOfSaaSSentCodes++;
+                        Shared.CurrentJob.SaveFile(filePath); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
+                        syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
+                        Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+                    }
+                    if (ResponsePrinted.sap_isSuccessed)
+                    {
+                        Shared.CurrentJob.NumberOfSAPSentCodes++;
+                        Shared.CurrentJob.SaveFile(filePath);
+                        syncDataModel.DataType = SyncDataParams.SyncDataType.SAPSuccess;
+                        Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+                    }
 
                     if (response.IsSuccessStatusCode)
                     {
-                        _storageService.MarkAsSent(entry.Id, entry.PrintedDate,  entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
+                        _storageService.MarkAsSent(entry.Id, entry.PrintedDate,  entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                     }
                     else
                     {
                         //_storageService.AppendEntry(entry); // Re-append entry for retry
                         entry.SaasStatus = "failed";
                         entry.SaasError = "Response Status is " + response.StatusCode;
-                        _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
+                        _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                         _queue.Add(entry);
                     }
                 }
                 else
                 {
-                    _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
+                    _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                 }
 
             }
@@ -106,7 +141,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 entry.SaasStatus = "failed";
                 entry.SaasError = ex.Message;
                 //_storageService.AppendEntry(entry);
-                _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.ServerStatus, entry.SaasError, entry.ServerError);
+                _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                 _queue.Add(entry);
                 // Do nothing if it fails
             }
@@ -114,6 +149,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
         public void Stop()
         {
+            _httpClient.Dispose();
             _cts.Cancel();
             _queue.CompleteAdding();
         }

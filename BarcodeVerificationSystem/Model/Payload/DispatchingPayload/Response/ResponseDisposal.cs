@@ -8,9 +8,16 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response
 {
     internal class ResponseDisposal
     {
-        public bool isSuccessed { get; set; }
-        public int status_code { get; set; }
-        public string error_code { get; set; }
+        public bool is_success { get; set; }
+        public string message { get; set; }
+        public int destroyed_qty { get; set; }
+        public List<Qrcode> qrcodes { get; set; }
+    }
+    public class Qrcode
+    {
+        public string qr_code { get; set; }
+        public DateTime scan_date { get; set; }
+        public string status_code { get; set; }
         public string message { get; set; }
     }
 }

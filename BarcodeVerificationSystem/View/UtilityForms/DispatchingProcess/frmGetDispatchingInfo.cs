@@ -173,7 +173,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
                 var loginPayload = JsonConvert.DeserializeObject<ResponseOrder>(await response.Content.ReadAsStringAsync());
                 Shared.Settings.DispatchingOrderPayload = loginPayload;
-                Shared.Settings.DispatchingPayload = JsonConvert.SerializeObject(loginPayload.payload, Newtonsoft.Json.Formatting.Indented); // txtPayload.Text = 
 
                 // Populate DataGridView with items  
                 dgvItems.Rows.Clear();
@@ -209,7 +208,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             }
             catch (Exception ex)
             {
-                Shared.Settings.DispatchingPayload = string.Empty;
                 Shared.Settings.DispatchingOrderPayload = null;
                 //txtPayload.Text = $"Error: {ex.Message}";
                 dgvItems.Rows.Clear();
@@ -247,10 +245,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             string selectedQtyPerCarton = selectedRow.Cells["qty_per_carton"].Value.ToString();
 
             int numberOfCodes = (int.Parse(selectedQy) / int.Parse(selectedQtyPerCarton));
-
-
-
-
 
             DialogResult result = CustomMessageBox.Show(
                          Lang.AreYouSureGenerateDispatchingCodes +

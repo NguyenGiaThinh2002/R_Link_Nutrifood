@@ -1,4 +1,5 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
 using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Interfaces;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Models;
@@ -18,8 +19,6 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
         private readonly string _sentStatus = "Sent";
 
         private readonly string _databasePath;
-
-
 
         public PrintingStorageService(string filePath, string databasePath)
         {
@@ -43,7 +42,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 for (int i = 0; i < lines.Count; i++)
                 {
                     var parts = lines[i].Split(',');
-                    var newLine = $"{i+1},{parts[0]},{parts[1]},,,,,";
+                    var newLine = $"{i+1},{parts[0]},{parts[1]},,,,,,";
                     newLines.Add(newLine);
                 }
 
@@ -62,7 +61,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 var parts = lines[entry.Id - 1].Split(',');
 
                 // Blindly replace the line like MarkAsSent
-                lines[entry.Id - 1] = $"{entry.Id},{entry.Code},{entry.HumanCode},{entry.PrintedDate},,,,,{_unsentStatus}";
+                lines[entry.Id - 1] = $"{entry.Id},{entry.Code},{entry.UniqueCode},{entry.PrintedDate},,,,,{_unsentStatus}";
 
                 File.WriteAllLines(_filePath, lines, Encoding.UTF8);
             }
@@ -79,63 +78,22 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         var parts = line.Split(',');
                         return new PrintingDataEntry
                         {
-                            Id = int.Parse(parts[0]), // parts[0]}
-                            Code = parts[1], // parts[1]
-                            //HumanCode = Shared.Settings.IsManufacturingMode ? Manufacturing.GetHumanReadableCode(parts[1]) : Dispatching.GetHumanReadableCode(parts[1]),
-                            HumanCode = parts[2],
-                            PrintedDate = parts[3] ?? "",
-                            //PrintedStatus = parts[3] ?? "", // SaasStatus
-                            SaasStatus = parts.Length > 4 ? parts[4] : null,
-                            ServerStatus = parts.Length > 5 ? parts[5] : null,
-                            SaasError = parts.Length > 6 ? parts[6] : null,
-                            ServerError = parts.Length > 7 ? parts[7] : null,
-                            Status = parts[parts.Length-1]
+                            Id = int.Parse(parts[DispatchingSharedValues.Index]), // parts[0]}
+                            Code = parts[DispatchingSharedValues.QrCodeIndex], // parts[1]
+                            UniqueCode = parts[DispatchingSharedValues.UniqueCode],
+                            PrintedDate = parts[DispatchingSharedValues.PrintedDate],
+                            SaasStatus = parts[DispatchingSharedValues.SaaSStatus],
+                            SAPStatus = parts[DispatchingSharedValues.SAPStatus],
+                            SaasError = parts[DispatchingSharedValues.SaaSError],
+                            SAPError = parts[DispatchingSharedValues.SAPError],
+                            Status = parts[DispatchingSharedValues.SentStatus],
                         };
                     })
                     .Where(e => e.Status == _unsentStatus)
                     .ToList();
             }
         }
-
-        //public void MarkAsSent(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
-        //{
-        //    lock (_fileLock)
-        //    {
-        //        var lines = File.ReadAllLines(_filePath).ToList();
-        //        for (int i = 0; i < lines.Count; i++) // int = 1
-        //        {
-        //            var parts = lines[i].Split(',');
-        //            if (int.Parse(parts[0]) == entryId)
-        //            {
-        //                //MessageBox.Show($"Line index = {i}, parts[0] = {parts[0]}, entryId = {entryId}");
-        //                lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_sentStatus}";
-        //                break;
-        //            }
-        //        }
-        //        File.WriteAllLines(_filePath, lines, Encoding.UTF8);
-        //    }
-        //}
-
-        //public void MarkAsFailed(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
-        //{
-        //    lock (_fileLock)
-        //    {
-        //        var lines = File.ReadAllLines(_filePath).ToList();
-        //        for (int i = 0; i < lines.Count; i++) // int = 1
-        //        {
-        //            var parts = lines[i].Split(',');
-        //            if (int.Parse(parts[0]) == entryId)
-        //            {
-        //                //lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{parts[3]},Sent";
-        //                lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_unsentStatus}";
-        //                break;
-        //            }
-        //        }
-        //        File.WriteAllLines(_filePath, lines, Encoding.UTF8);
-        //    }
-        //}
-
-        public void MarkAsFailed(int entryId, string PrintedDate, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+        public void MarkAsFailed(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
         {
             lock (_fileLock)
             {
@@ -145,14 +103,14 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 var parts = lines[entryId - 1].Split(',');
 
                 // Blindly replace the line like MarkAsSent
-                lines[entryId - 1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_unsentStatus}";
+                lines[entryId - 1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{SAPStatus},{SaasSError},{SAPError},{_unsentStatus}";
 
                 File.WriteAllLines(_filePath, lines, Encoding.UTF8);
             }
         }
 
 
-        public void MarkAsSent(int entryId, string PrintedDate, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+        public void MarkAsSent(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
         {
             lock (_fileLock)
             {
@@ -162,7 +120,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 var parts = lines[entryId-1].Split(',');
 
                 // Blindly replace the line
-                lines[entryId-1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_sentStatus}";
+                lines[entryId-1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{SAPStatus},{SaasSError},{SAPError},{_sentStatus}";
 
                 File.WriteAllLines(_filePath, lines, Encoding.UTF8);
             }
@@ -173,6 +131,46 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
     }
 
 }
+
+
+//public void MarkAsSent(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+//{
+//    lock (_fileLock)
+//    {
+//        var lines = File.ReadAllLines(_filePath).ToList();
+//        for (int i = 0; i < lines.Count; i++) // int = 1
+//        {
+//            var parts = lines[i].Split(',');
+//            if (int.Parse(parts[0]) == entryId)
+//            {
+//                //MessageBox.Show($"Line index = {i}, parts[0] = {parts[0]}, entryId = {entryId}");
+//                lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_sentStatus}";
+//                break;
+//            }
+//        }
+//        File.WriteAllLines(_filePath, lines, Encoding.UTF8);
+//    }
+//}
+
+//public void MarkAsFailed(int entryId, string SaasStatus, string ServerStatus, string SaasSError, string ServerError)
+//{
+//    lock (_fileLock)
+//    {
+//        var lines = File.ReadAllLines(_filePath).ToList();
+//        for (int i = 0; i < lines.Count; i++) // int = 1
+//        {
+//            var parts = lines[i].Split(',');
+//            if (int.Parse(parts[0]) == entryId)
+//            {
+//                //lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{parts[3]},Sent";
+//                lines[i] = $"{parts[0]},{parts[1]},{parts[2]},{SaasStatus},{ServerStatus},{SaasSError},{ServerError},{_unsentStatus}";
+//                break;
+//            }
+//        }
+//        File.WriteAllLines(_filePath, lines, Encoding.UTF8);
+//    }
+//}
+
 
 
 //if (!File.Exists(_filePath))

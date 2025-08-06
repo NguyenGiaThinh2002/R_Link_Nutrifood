@@ -179,6 +179,7 @@
     <Compile Include="Controller\HistorySync\RoundedButton.cs" />
     <Compile Include="Controller\ISMultiSyncHandler.cs" />
     <Compile Include="Controller\ISSingleHandler.cs" />
+    <Compile Include="Controller\NutrifoodController\DispatchingController\DispatchingSharedValues.cs" />
     <Compile Include="Controller\PODController.cs" />
     <Compile Include="Controller\SecurityController.cs" />
     <Compile Include="Controller\ControlShadow.cs" />
@@ -207,7 +208,6 @@
     <Compile Include="Model\HardwareIDModel.cs" />
     <Compile Include="Model\InternalData.cs" />
     <Compile Include="Model\ItemCustomModel.cs" />
-    <Compile Include="Model\JobCreateModels\ExportData.cs" />
     <Compile Include="Model\JobModel.cs" />
     <Compile Include="Model\ObjectResultModel.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\QRCode.cs" />
@@ -237,6 +237,7 @@
     <Compile Include="Model\PrinterSettingsModel.cs" />
     <Compile Include="Model\PrinterSettingsResponseModel.cs" />
     <Compile Include="Model\ResponseGetInfoModel.cs" />
+    <Compile Include="Model\RunningMode\Dispatching\PrintingMode.cs" />
     <Compile Include="Model\SettingsModel.cs" />
     <Compile Include="Model\SyncDataParams.cs" />
     <Compile Include="Model\SynchronizedDictionary.cs" />
@@ -261,12 +262,12 @@
     <Compile Include="Modules\ReliableDataSender\Services\VerificationStorageService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controller\ExportResult.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Controller\ExportResult.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\MonitorSenderService.cs" />
     <Compile Include="Services\PermissionService.cs" />
@@ -291,6 +292,7 @@
     <Compile Include="Utils\CodeGeneration\TestCodeGeneration\TestGenCode.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\YearCodeHelper.cs" />
     <Compile Include="Utils\RegistryHelper.cs" />
+    <Compile Include="Utils\SyncDataList.cs" />
     <Compile Include="View\NutrifoodUI\frmJobNutri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +310,12 @@
     </Compile>
     <Compile Include="View\NutrifoodUI\frmMainNutri.designer.cs">
       <DependentUpon>frmMainNutri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmPreviewDatabaseNutri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmPreviewDatabaseNutri.Designer.cs">
+      <DependentUpon>frmPreviewDatabaseNutri.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
     <Compile Include="View\UtilityForms\DispatchingProcess\frmDisposal.cs">
@@ -519,6 +527,12 @@
     <EmbeddedResource Include="View\NutrifoodUI\frmMainNutri.vi.resx">
       <DependentUpon>frmMainNutri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\frmPreviewDatabaseNutri.resx">
+      <DependentUpon>frmPreviewDatabaseNutri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmDisposal.resx">
+      <DependentUpon>frmDisposal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.resx">
       <DependentUpon>frmGetDispatchingDataOffline.cs</DependentUpon>
     </EmbeddedResource>
@@ -714,12 +728,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="R-Link_InnoScript.iss" />
+    <None Include="Resources\check.png" />
     <Content Include="Resources\Database18.png" />
     <Content Include="Resources\AccountsDumpCommand.sql" />
     <None Include="Resources\icons8_scanner_disconnected.png" />
     <None Include="Resources\icons8_scanner_connected.png" />
     <None Include="Resources\icon-check-mark.png" />
     <Resource Include="Resources\nutifood_logo.jpg" />
+    <None Include="Resources\success.png" />
+    <None Include="Resources\failed.png" />
     <Content Include="vcredist2010_x86.exe" />
     <None Include="RConfig.dat" />
     <None Include="Resources\TemplateIllustration.png" />
@@ -921,6 +938,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\x64\" />
+    <Folder Include="Model\RunningMode\Manufacturing\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonVariable\CommonVariable.csproj">

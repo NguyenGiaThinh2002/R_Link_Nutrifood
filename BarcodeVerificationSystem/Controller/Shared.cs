@@ -1,4 +1,6 @@
 ﻿using BarcodeVerificationSystem.Model;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
+using BarcodeVerificationSystem.Model.RunningMode.Dispatching;
 using BarcodeVerificationSystem.Model.UserPermission;
 using BarcodeVerificationSystem.Services;
 using BarcodeVerificationSystem.View;
@@ -45,12 +47,20 @@ namespace BarcodeVerificationSystem.Controller
         public static string databasePath = "";
         public static int numberOfCodesGenerate = 0;
 
+        // shared models
+        // Dispatching
+        internal static ResponseListRePrint ResponseListRePrint = new ResponseListRePrint();
+        internal static PrintingMode PrintingMode = new PrintingMode();
+        public static int FirstGeneratedCodeIndex = 0;
+        public static int LastGeneratedCodeIndex = 0;
+
+
         #endregion Variables
 
         #region Events
 
         public static event EventHandler OnSyncDataParameterChange;
-        public static void RaiseOnSyncDataParameterChangeEvent(SyncDataParams.SyncDataType sender)
+        public static void RaiseOnSyncDataParameterChangeEvent(SyncDataParams sender)
         {
             OnSyncDataParameterChange?.Invoke(sender, EventArgs.Empty);
         }

@@ -1237,13 +1237,13 @@
     <value>Không mã nào được tạo!</value>
   </data>
   <data name="SentSyncData" xml:space="preserve">
-    <value>Mã đã gửi đồng bộ</value>
+    <value>Mã gửi đồng bộ</value>
   </data>
   <data name="SentSyncDataSaaS" xml:space="preserve">
-    <value>Mã gửi lên Web Server</value>
+    <value>Mã đã đồng bộ Web Server</value>
   </data>
   <data name="SentSAPData" xml:space="preserve">
-    <value>Mã đã gửi lên Middleware</value>
+    <value>Mã đã đồng bộ Middleware</value>
   </data>
   <data name="ConfirmCompletion" xml:space="preserve">
     <value>Xác nhận hoàn thành</value>

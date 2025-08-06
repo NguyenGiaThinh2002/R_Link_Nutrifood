@@ -50,6 +50,23 @@ namespace BarcodeVerificationSystem.Services
             }
         }
 
+        public async Task<T> PostApiDataAsync<T>(string apiUrl, object payload)
+        {
+            var jsonPayload = JsonConvert.SerializeObject(payload);
+
+            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            var response = await _client.PostAsync(apiUrl, content);
+
+            response.EnsureSuccessStatusCode();
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            var result = JsonConvert.DeserializeObject<T>(responseContent);
+
+            return result;
+        }
+
         public async Task<bool> PostApiDataAsync(string apiUrl, object payload)
         {
             try

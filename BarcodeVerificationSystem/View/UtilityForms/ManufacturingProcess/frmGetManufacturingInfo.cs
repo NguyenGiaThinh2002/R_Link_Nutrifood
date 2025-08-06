@@ -36,12 +36,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         {
             txtOrderId.Text = Shared.Settings.OrderId;
 
-            if (!string.IsNullOrWhiteSpace(Shared.Settings.DispatchingPayload))
-            {
-                try { txtPayload.Text = JObject.Parse(Shared.Settings.DispatchingPayload).ToString(Formatting.Indented); }
-                catch { txtPayload.Text = "Invalid JSON"; }
-            }
-            else txtPayload.Text = "No payload";
 
         }
 
@@ -81,7 +75,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 var response = await _httpClient.GetAsync(apiUrl);
                 response.EnsureSuccessStatusCode();
                 string payload = await response.Content.ReadAsStringAsync();
-                Shared.Settings.DispatchingPayload = payload;
                 // Parse and display JSON
                 var jsonObject = JObject.Parse(payload);
                 txtPayload.Text = JsonConvert.SerializeObject(jsonObject, Newtonsoft.Json.Formatting.Indented);
@@ -90,7 +83,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             }
             catch (Exception ex)
             {
-                Shared.Settings.DispatchingPayload = string.Empty;
 
                 txtPayload.Text = $"Error: {ex.Message}";
                 CustomMessageBox.Show($"Failed to retrieve order information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -100,27 +92,27 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
         private void btnAction_Click(object sender, EventArgs e)
         {
-            var jsonObject = JObject.Parse(Shared.Settings.DispatchingPayload);
+            //var jsonObject = JObject.Parse(Shared.Settings.DispatchingPayload);
 
-            //  var list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: 100);
-            bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
-            List<string> list;
-            if (isManufacturingMode) // san xuat
-            {
-                list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: 100);
-            }
-            else // xuat hang
-            {
-                list = AutoIDCodeGenerator.GenerateCodesWithAutoID(100);
-            }
+            ////  var list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: 100);
+            //bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
+            //List<string> list;
+            //if (isManufacturingMode) // san xuat
+            //{
+            //    list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: 100);
+            //}
+            //else // xuat hang
+            //{
+            //    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(100);
+            //}
 
 
-            string materialNumber = jsonObject["material"].ToString();
-            string materialName = jsonObject["material_description"].ToString();
+            //string materialNumber = jsonObject["material"].ToString();
+            //string materialName = jsonObject["material_description"].ToString();
 
-            // Example action: Display selected item details
-            MessageBox.Show($"Performing action on item:\nMaterial Number: {materialNumber}\nMaterial Name: {materialName}",
-                "Item Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //// Example action: Display selected item details
+            //MessageBox.Show($"Performing action on item:\nMaterial Number: {materialNumber}\nMaterial Name: {materialName}",
+            //    "Item Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 

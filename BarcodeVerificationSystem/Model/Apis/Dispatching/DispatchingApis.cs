@@ -52,7 +52,12 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
         }
         public static string GetDestroyCodesUrl()
         {
-            return _printedDataUrl; // _destroyCodesUrl
+            return _destroyCodesUrl;
+        }
+
+        public static string GetReprintCodesUrl()
+        {
+            return _getReprintCodesUrl; // _reprintCodesUrl
         }
 
         public static string GetSendReprintCodesUrl()

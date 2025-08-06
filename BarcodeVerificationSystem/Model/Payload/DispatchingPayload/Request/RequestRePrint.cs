@@ -12,13 +12,13 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
     {
         public string qr_code { get; set; }
         public string unique_code { get; set; }
+        public DateTime scan_date { get; set; }
+        public DateTime sync_date { get; set; } = DateTime.Now;
+        public string notes { get; set; } = string.Empty;
+        public string status { get; set; } = "Reprint";
         public string plant { get; set; } = Shared.Settings.FactoryCode;
         public string resource_code { get; set; } = Shared.Settings.RLinkId;
         public string resource_name { get; set; } = Shared.Settings.LineName;
         public string username { get; set; } = CurrentUser.UserName;
-        public string notes { get; set; }
-        public DateTime scan_date { get; set; } = DateTime.Now;
-        public string status { get; set; } = "RePrint";
-        public DateTime sync_date { get; set; }
     }
 }

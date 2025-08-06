@@ -61,6 +61,7 @@ using System.Security.Policy;
 using BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess;
 using static BarcodeVerificationSystem.Model.SyncDataParams;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
+using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -165,6 +166,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                             Index_BarcodeQuality = Array.IndexOf(_ColumnNames, _barcodeQuality), Index_Position = Array.IndexOf(_ColumnNames, _position), Index_ProcessingTime = Array.IndexOf(_ColumnNames, _processingTime),
                             Index_DateTime = Array.IndexOf(_ColumnNames, _dateTime), Index_Device = Array.IndexOf(_ColumnNames, _device), Index_Sampled = Array.IndexOf(_ColumnNames, _sampled);
 
+
         private bool _IsAfterProductionMode = false;
         private bool _IsOnProductionMode = false;
         private bool _IsVerifyAndPrintMode = false;
@@ -214,7 +216,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
         private FrmSettings _FormSettings;
         private FrmViewHistoryProgram _FormViewHistoryProgram;
-        private FrmPreviewDatabase _FormPreviewDatabase;
+        private FrmPreviewDatabaseNutri _FormPreviewDatabase;
         private FrmCheckedResult _FormCheckedResult;
 
         private PrinterSettingsModel _PrinterSettingsModel;
@@ -629,7 +631,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             if (ProjectLabel.IsNutrifood)
             {
                 //syncCodes.Visible = numberOfCodes.Visible = confirmCompletion.Visible = true;
-                confirmCompletion.Visible = true;
+                //confirmCompletion.Visible = true;
                 pnlCurrentCheck.Text = "Thông tin mã in"; // Printing Process
                 lblCodeResult.Text = "Number of Sync Code";            
                 BarcodeQualityLabel.Text = "Confirm Completion";
@@ -660,6 +662,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 var payloadJob = _SelectedJob?.DispatchingOrderPayload?.payload;
                 wmsNumber.Text = payloadJob?.wms_number;
                 materialNumber.Text = payloadJob?.item[_SelectedJob.SelectedMaterialIndex].material_number;
+
+                pnlVerificationProcess.Enabled = Shared.UserPermission.isOnline;
+               
             }
 
 
@@ -799,9 +804,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         {
             try
             {
-                if (sender is SyncDataType ParamsName)
+                if (sender is SyncDataParams ParamsName)
                 {
-                    switch (ParamsName)
+                    string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
+                    switch (ParamsName.DataType)
                     {
                         case SyncDataType.SentData:
                             SentSyncData++;
@@ -810,13 +816,15 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                             SaaSFailed++;
                             break;
                         case SyncDataType.SAPSuccess:
-                            SAPSuccess++;
+                            ++SAPSuccess;
+                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex][DispatchingSharedValues.SAPStatus] = "success";
                             break;
                         case SyncDataType.SAPFailed:
                             SAPFailed++;
                             break;
                         case SyncDataType.SaaSSuccess:
-                            SaaSSuccess++;
+                            ++SaaSSuccess;
+                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex][DispatchingSharedValues.SaaSStatus] = "success";
                             break;
 
                     }
@@ -1143,6 +1151,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 if (e.RowIndex > _PrintedCodeObtainFromFile.Count - 1) return;
                 int correspondingIndex = e.RowIndex + _MaxDatabaseLine * _CurrentPage;
                 if (correspondingIndex > _PrintedCodeObtainFromFile.Count - 1) return;
+
 
                 if (e.ColumnIndex != _DatabaseImageIndex)
                     //e.Value = _PrintedCodeObtainFromFile[correspondingIndex][e.ColumnIndex];
@@ -2761,8 +2770,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 {
                     // thinh dang lam    
                     string dataPath = _SelectedJob.DirectoryDatabase;
-                    //MessageBox.Show("Data path: " + dataPath);
-
+                    if (_printedDataProcess != null) _printedDataProcess.Stop();
                     _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
                     _printedDataProcess.Start();
                 }
@@ -2779,14 +2787,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     if (valueArr.Count() > 0)
                     {
                         SaveResultToFile(valueArr, path);
-                        if (ProjectLabel.IsNutrifood)
-                        {
-                            //txtCodeResult.Text = sentSaaSSuccess.Text = sentSAPSuccess.Text = clone[0][0];
-                            //SentSyncData = SaaSSuccess = SaaSFailed = SAPSuccess = SAPFailed = int.Parse(clone[0][0]);
-
-                            _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
-
-                        }
+                        _SelectedJob.NumberOfPrintedCodes++;
+                        _SelectedJob.SaveFile(CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension);
+                        _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
                     }
                     valueArr.Clear();
                     Thread.Sleep(5);
@@ -3336,12 +3339,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 #region Sent Printed Data
                 string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
                 _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
-                SaaSSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
+                _SelectedJob.NumberOfSaaSSentCodes = SaaSSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
                 SaaSFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("failed", StringComparison.OrdinalIgnoreCase));
 
-                Shared.numberOfCodesGenerate = 100;
-
-               SAPSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
+                _SelectedJob.NumberOfSAPSentCodes =  SAPSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
                 SAPFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("failed", StringComparison.OrdinalIgnoreCase));
 
                 int BothSuccessCount = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("success", StringComparison.OrdinalIgnoreCase) 
@@ -3381,9 +3382,11 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         }
 
                         _TotalCode = _PrintedCodeObtainFromFile.Count();
+                        _SelectedJob.NumberOfNeededSentCodes = _TotalCode;
+
                         numberOfCode.Text = _TotalCode.ToString();
 
-                        NumberPrinted = _PrintedCodeObtainFromFile.Where(x => x[1] == "Printed").Count();
+                        _SelectedJob.NumberOfPrintedCodes = NumberPrinted = _PrintedCodeObtainFromFile.Where(x => x[1] == "Printed").Count();
                         int firstWaiting = _PrintedCodeObtainFromFile.IndexOf(_PrintedCodeObtainFromFile.Find(x => x[1] == "Waiting"));  // Identify datas need to display by first waiting code
                         _CurrentPage = CalculateCurrentPage(_TotalCode, _MaxDatabaseLine, firstWaiting);
                         InitDataGridView(dgvDatabase, _DatabaseColunms, 1, true); //// Implement virtual mode for DataGridView display database
@@ -3876,11 +3879,37 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                 if (_FormPreviewDatabase == null || _FormPreviewDatabase.IsDisposed)
                 {
-                    _FormPreviewDatabase = new FrmPreviewDatabase
+                    string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
+                    var SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
+
+                    List<string[]> DataWithSyncList = _PrintedCodeObtainFromFile
+                                    .Select((arr, i) =>
+                                    {
+                                        var newArray = new string[arr.Length + 2];
+
+                                        newArray[0] = arr[0];
+                                        newArray[1] = arr[1];
+
+                                        newArray[2] = SentPrintedCodeObtainFromFile[i][DispatchingSharedValues.SaaSStatus];
+                                        newArray[3] = SentPrintedCodeObtainFromFile[i][DispatchingSharedValues.SAPStatus];
+
+                                        Array.Copy(arr, 2, newArray, 4, arr.Length - 2);
+
+                                        return newArray;
+                                    })
+                                    .ToList();
+
+                    var updatedColumns = _DatabaseColunms
+                                            .Take(2)
+                                            .Concat(new[] { "Web Server", "Middleware" })
+                                            .Concat(_DatabaseColunms.Skip(2))
+                                            .ToArray();
+
+                    _FormPreviewDatabase = new FrmPreviewDatabaseNutri
                     {
-                        _DatabaseColunms = new List<string>(_DatabaseColunms),
-                        _ObtainCodeList = _PrintedCodeObtainFromFile.ToList(),
-                        _TotalColumns = _TotalColumns,
+                        _DatabaseColunms = new List<string>(updatedColumns),
+                        _ObtainCodeList = DataWithSyncList,
+                        _TotalColumns = _TotalColumns + 2,
                         _Totals = _TotalCode,
                         _NumberPrinted = NumberPrinted
                     };
@@ -4040,14 +4069,25 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             }
             else if(sender == syncDataBtn)
             {
-                string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
-                string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
-                                                                 : DispatchingApis.GetPrintedDataUrl();
-                string dataPath = _SelectedJob.DirectoryDatabase;
+                //if()
+                if (Shared.OperStatus != OperationStatus.Running && Shared.OperStatus != OperationStatus.Processing)
+                {
+                    string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
+                    string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
+                    string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
+                                                                     : DispatchingApis.GetPrintedDataUrl();
+                    string dataPath = _SelectedJob.DirectoryDatabase;
 
-                _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
-                _printedDataProcess.Start();
+                    if (_printedDataProcess != null) _printedDataProcess.Stop();
+                    _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
+                    _printedDataProcess.Start();
+                }
+                else
+                {
+                    // Lang.SystemIsRunningPleaseStop
+                    CustomMessageBox.Show("Hệ thống đang vận hành và đang thực hiện đồng bộ!", Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
             else if(sender == RePrintBtn)
             {

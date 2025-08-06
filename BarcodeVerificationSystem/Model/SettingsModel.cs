@@ -17,13 +17,12 @@ namespace BarcodeVerificationSystem.Model
         #region Properties
 
         public ResponseOrder DispatchingOrderPayload { get; set; } = null;
-
-        //public Dispatching DispatchingModel { get; set; } = new Dispatching("", "", "") { };
-        //public Manufacturing ManufacturingModel { get; set; } = new Manufacturing("", "", "") { };
+        public int AddQuantity = 0;
+        private string _printTemplate = "";
+        public string PrintTemplate { get => _printTemplate; set => _printTemplate = value; }
 
         public int TotalLines = 14;
         public int LineIndex = 0;
-
 
 
         private CompareType _CompareType = CompareType.CanRead;
@@ -159,13 +158,6 @@ namespace BarcodeVerificationSystem.Model
         {
             get { return _OrderId; }
             set { _OrderId = value; }
-        }
-
-        private string _DispatchingPayload = "";
-        public string DispatchingPayload
-        {
-            get { return _DispatchingPayload; }
-            set { _DispatchingPayload = value; }
         }
 
         private string _wmsNumber = "";

@@ -16,7 +16,11 @@ namespace BarcodeVerificationSystem.Model
         public bool IsOnlineJob { get; set; } = false;
 
         // Sync data parameters
-        public int NumberOfSentData { get; set; } = 0;
+        public int NumberOfPrintedCodes { get; set; } = 0;
+        public int NumberOfNeededSentCodes { get; set; } = 0;
+        public int NumberOfSaaSSentCodes { get; set; } = 0;
+        public int NumberOfSAPSentCodes { get; set; } = 0;
+
 
         private CompareType _CompareType = CompareType.CanRead;
         private string _StaticText = "";

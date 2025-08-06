@@ -30,7 +30,6 @@ using BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess;
 using BarcodeVerificationSystem.View.SubForms;
 using GenCode.Utils;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
-using BarcodeVerificationSystem.Model.JobCreateModels;
 using BarcodeVerificationSystem.Controller.HistorySync;
 
 namespace BarcodeVerificationSystem.View
@@ -874,25 +873,6 @@ namespace BarcodeVerificationSystem.View
             tabPage2.Text = Lang.CreateANewJob;
         }
 
-
-        void displayHistory()
-        {
-            var rows = ExportData.ReturnSampleData(_JobNameList);
-
-            foreach (var row in rows)
-            {
-                int rowIndex = dgvHistoryJob.Rows.Add();
-                dgvHistoryJob.Rows[rowIndex].Cells["STT"].Value = row.STT;
-                dgvHistoryJob.Rows[rowIndex].Cells["MaCongViec"].Value = row.MaCongViec;
-                dgvHistoryJob.Rows[rowIndex].Cells["MaPhieuSoanHang"].Value = row.MaPhieuSoanHang;
-                dgvHistoryJob.Rows[rowIndex].Cells["MaSanPham"].Value = row.MaSanPham;
-                dgvHistoryJob.Rows[rowIndex].Cells["SoLuongCanXuat"].Value = row.SoLuongCanXuat;
-                dgvHistoryJob.Rows[rowIndex].Cells["SoLuongDongBoSaaS"].Value = row.SoLuongDongBoSaaS;
-                dgvHistoryJob.Rows[rowIndex].Cells["SoLuongDongBoSAP"].Value = row.SoLuongDongBoSAP;
-            }
-            Console.WriteLine("So luong: " + _JobNameList.Count);
-        }
-
         private void InitControls()
         {
 #if DEBUG
@@ -1035,12 +1015,7 @@ namespace BarcodeVerificationSystem.View
 
         private void TabPage3_Click(object sender, EventArgs e)
         {
-           
-            var tab = sender as TabControl;
-           if( tab.SelectedIndex == 2)
-            {
-                displayHistory();
-            }
+          
         }
 
         private void CuzButtonPurge_Click(object sender, EventArgs e)

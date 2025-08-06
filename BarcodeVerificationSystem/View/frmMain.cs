@@ -2756,8 +2756,6 @@ namespace BarcodeVerificationSystem.View
                 {
                     // thinh dang lam    
                     string dataPath = _SelectedJob.DirectoryDatabase;
-                    //MessageBox.Show("Data path: " + dataPath);
-
                     _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
                     _printedDataProcess.Start();
                 }

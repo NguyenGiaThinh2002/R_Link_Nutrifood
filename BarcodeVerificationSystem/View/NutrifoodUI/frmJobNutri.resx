@@ -762,570 +762,6 @@
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="cuzButtonPurge.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="cuzButtonPurge.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="cuzButtonPurge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cuzButtonPurge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>385, 467</value>
-  </data>
-  <data name="cuzButtonPurge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 45</value>
-  </data>
-  <data name="cuzButtonPurge.TabIndex" type="System.Int32, mscorlib">
-    <value>119</value>
-  </data>
-  <data name="cuzButtonPurge.Text" xml:space="preserve">
-    <value>Purge</value>
-  </data>
-  <data name="&gt;&gt;cuzButtonPurge.Name" xml:space="preserve">
-    <value>cuzButtonPurge</value>
-  </data>
-  <data name="&gt;&gt;cuzButtonPurge.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cuzButtonPurge.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;cuzButtonPurge.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtJobStatus.Name" xml:space="preserve">
-    <value>txtJobStatus</value>
-  </data>
-  <data name="&gt;&gt;txtJobStatus.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtJobStatus.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;txtJobStatus.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblJobStatus.Name" xml:space="preserve">
-    <value>lblJobStatus</value>
-  </data>
-  <data name="&gt;&gt;lblJobStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblJobStatus.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblJobStatus.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txtJobType.Name" xml:space="preserve">
-    <value>txtJobType</value>
-  </data>
-  <data name="&gt;&gt;txtJobType.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtJobType.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;txtJobType.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblJobType.Name" xml:space="preserve">
-    <value>lblJobType</value>
-  </data>
-  <data name="&gt;&gt;lblJobType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblJobType.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblJobType.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrintInfo.Name" xml:space="preserve">
-    <value>lblTemplatePrintInfo</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrintInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrintInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrintInfo.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormatInfo.Name" xml:space="preserve">
-    <value>lblPODFormatInfo</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormatInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormatInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormatInfo.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lblStaticTextInfo.Name" xml:space="preserve">
-    <value>lblStaticTextInfo</value>
-  </data>
-  <data name="&gt;&gt;lblStaticTextInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblStaticTextInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblStaticTextInfo.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrint.Name" xml:space="preserve">
-    <value>lblTemplatePrint</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrint.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrint.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrint.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormat.Name" xml:space="preserve">
-    <value>lblPODFormat</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormat.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormat.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText1.Name" xml:space="preserve">
-    <value>lblStaticText1</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText1.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;lblCompareTypeInfo.Name" xml:space="preserve">
-    <value>lblCompareTypeInfo</value>
-  </data>
-  <data name="&gt;&gt;lblCompareTypeInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblCompareTypeInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblCompareTypeInfo.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;lblCompareType.Name" xml:space="preserve">
-    <value>lblCompareType</value>
-  </data>
-  <data name="&gt;&gt;lblCompareType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCompareType.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblCompareType.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;lblJobNameInfo.Name" xml:space="preserve">
-    <value>lblJobNameInfo</value>
-  </data>
-  <data name="&gt;&gt;lblJobNameInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblJobNameInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblJobNameInfo.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;lblJobName.Name" xml:space="preserve">
-    <value>lblJobName</value>
-  </data>
-  <data name="&gt;&gt;lblJobName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblJobName.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblJobName.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="pnlJobInfomation.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="pnlJobInfomation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>489, 7</value>
-  </data>
-  <data name="pnlJobInfomation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>439, 454</value>
-  </data>
-  <data name="pnlJobInfomation.TabIndex" type="System.Int32, mscorlib">
-    <value>118</value>
-  </data>
-  <data name="pnlJobInfomation.Text" xml:space="preserve">
-    <value>Job information</value>
-  </data>
-  <data name="&gt;&gt;pnlJobInfomation.Name" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;pnlJobInfomation.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.RoundPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;pnlJobInfomation.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;pnlJobInfomation.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;picLoading.Name" xml:space="preserve">
-    <value>picLoading</value>
-  </data>
-  <data name="&gt;&gt;picLoading.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picLoading.Parent" xml:space="preserve">
-    <value>cuzPanel3</value>
-  </data>
-  <data name="&gt;&gt;picLoading.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;listBoxJobList.Name" xml:space="preserve">
-    <value>listBoxJobList</value>
-  </data>
-  <data name="&gt;&gt;listBoxJobList.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzListBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;listBoxJobList.Parent" xml:space="preserve">
-    <value>cuzPanel3</value>
-  </data>
-  <data name="&gt;&gt;listBoxJobList.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cuzPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 58</value>
-  </data>
-  <data name="cuzPanel3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 3, 3</value>
-  </data>
-  <data name="cuzPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>458, 403</value>
-  </data>
-  <data name="cuzPanel3.TabIndex" type="System.Int32, mscorlib">
-    <value>105</value>
-  </data>
-  <data name="&gt;&gt;cuzPanel3.Name" xml:space="preserve">
-    <value>cuzPanel3</value>
-  </data>
-  <data name="&gt;&gt;cuzPanel3.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cuzPanel3.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;cuzPanel3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnDelete.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnDelete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="btnDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>489, 467</value>
-  </data>
-  <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 45</value>
-  </data>
-  <data name="btnDelete.TabIndex" type="System.Int32, mscorlib">
-    <value>104</value>
-  </data>
-  <data name="btnDelete.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
-    <value>btnDelete</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnNext.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnNext.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="btnNext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>715, 467</value>
-  </data>
-  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 45</value>
-  </data>
-  <data name="btnNext.TabIndex" type="System.Int32, mscorlib">
-    <value>104</value>
-  </data>
-  <data name="btnNext.Text" xml:space="preserve">
-    <value>Next</value>
-  </data>
-  <data name="&gt;&gt;btnNext.Name" xml:space="preserve">
-    <value>btnNext</value>
-  </data>
-  <data name="&gt;&gt;btnNext.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="pnlRLinkSeriesColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 476</value>
-  </data>
-  <data name="pnlRLinkSeriesColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 25</value>
-  </data>
-  <data name="pnlRLinkSeriesColor.TabIndex" type="System.Int32, mscorlib">
-    <value>115</value>
-  </data>
-  <data name="&gt;&gt;pnlRLinkSeriesColor.Name" xml:space="preserve">
-    <value>pnlRLinkSeriesColor</value>
-  </data>
-  <data name="&gt;&gt;pnlRLinkSeriesColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlRLinkSeriesColor.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;pnlRLinkSeriesColor.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="pnlStandaloneColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 476</value>
-  </data>
-  <data name="pnlStandaloneColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 25</value>
-  </data>
-  <data name="pnlStandaloneColor.TabIndex" type="System.Int32, mscorlib">
-    <value>116</value>
-  </data>
-  <data name="&gt;&gt;pnlStandaloneColor.Name" xml:space="preserve">
-    <value>pnlStandaloneColor</value>
-  </data>
-  <data name="&gt;&gt;pnlStandaloneColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlStandaloneColor.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;pnlStandaloneColor.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="txtSearch.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 10</value>
-  </data>
-  <data name="txtSearch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtSearch.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="txtSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>367, 35</value>
-  </data>
-  <data name="txtSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Name" xml:space="preserve">
-    <value>txtSearch</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="btnSearchJob.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="btnSearchJob.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnSearchJob.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSearchJob.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 16</value>
-  </data>
-  <data name="btnSearchJob.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 24</value>
-  </data>
-  <data name="btnSearchJob.TabIndex" type="System.Int32, mscorlib">
-    <value>102</value>
-  </data>
-  <data name="&gt;&gt;btnSearchJob.Name" xml:space="preserve">
-    <value>btnSearchJob</value>
-  </data>
-  <data name="&gt;&gt;btnSearchJob.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSearchJob.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnSearchJob.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lblRLinkSeries.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblRLinkSeries.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblRLinkSeries.Location" type="System.Drawing.Point, System.Drawing">
-    <value>35, 479</value>
-  </data>
-  <data name="lblRLinkSeries.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 20</value>
-  </data>
-  <data name="lblRLinkSeries.TabIndex" type="System.Int32, mscorlib">
-    <value>109</value>
-  </data>
-  <data name="lblRLinkSeries.Text" xml:space="preserve">
-    <value>RYNAN R-Series</value>
-  </data>
-  <data name="&gt;&gt;lblRLinkSeries.Name" xml:space="preserve">
-    <value>lblRLinkSeries</value>
-  </data>
-  <data name="&gt;&gt;lblRLinkSeries.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblRLinkSeries.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblRLinkSeries.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="btnRefesh.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="btnRefesh.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnRefesh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.5pt</value>
-  </data>
-  <data name="btnRefesh.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnRefesh.Location" type="System.Drawing.Point, System.Drawing">
-    <value>385, 7</value>
-  </data>
-  <data name="btnRefesh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 40</value>
-  </data>
-  <data name="btnRefesh.TabIndex" type="System.Int32, mscorlib">
-    <value>71</value>
-  </data>
-  <data name="&gt;&gt;btnRefesh.Name" xml:space="preserve">
-    <value>btnRefesh</value>
-  </data>
-  <data name="&gt;&gt;btnRefesh.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnRefesh.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;btnRefesh.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="lblStandalone.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblStandalone.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblStandalone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>270, 479</value>
-  </data>
-  <data name="lblStandalone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 20</value>
-  </data>
-  <data name="lblStandalone.TabIndex" type="System.Int32, mscorlib">
-    <value>111</value>
-  </data>
-  <data name="lblStandalone.Text" xml:space="preserve">
-    <value>Standalone</value>
-  </data>
-  <data name="&gt;&gt;lblStandalone.Name" xml:space="preserve">
-    <value>lblStandalone</value>
-  </data>
-  <data name="&gt;&gt;lblStandalone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStandalone.Parent" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;lblStandalone.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 44</value>
-  </data>
-  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>936, 519</value>
-  </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Select job</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
@@ -1714,19 +1150,55 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;cuzButton2.Name" xml:space="preserve">
-    <value>cuzButton2</value>
+  <data name="&gt;&gt;StopSyncData.Name" xml:space="preserve">
+    <value>StopSyncData</value>
   </data>
-  <data name="&gt;&gt;cuzButton2.Type" xml:space="preserve">
+  <data name="&gt;&gt;StopSyncData.Type" xml:space="preserve">
     <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;cuzButton2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StopSyncData.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;cuzButton2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StopSyncData.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Name" xml:space="preserve">
+    <value>progressBar1</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;picDatabaseLoading.Name" xml:space="preserve">
+    <value>picDatabaseLoading</value>
+  </data>
+  <data name="&gt;&gt;picDatabaseLoading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picDatabaseLoading.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="&gt;&gt;picDatabaseLoading.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;SyncDataBtn.Name" xml:space="preserve">
+    <value>SyncDataBtn</value>
+  </data>
+  <data name="&gt;&gt;SyncDataBtn.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;SyncDataBtn.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="&gt;&gt;SyncDataBtn.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;cuzButton1.Name" xml:space="preserve">
     <value>cuzButton1</value>
@@ -1738,7 +1210,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;cuzButton1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -1750,7 +1222,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;dtpHist.Name" xml:space="preserve">
     <value>dtpHist</value>
@@ -1762,7 +1234,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;dtpHist.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
@@ -1774,7 +1246,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;cuzTextBox1.Name" xml:space="preserve">
     <value>cuzTextBox1</value>
@@ -1786,7 +1258,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;cuzTextBox1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;cbbHisFilterType.Name" xml:space="preserve">
     <value>cbbHisFilterType</value>
@@ -1798,7 +1270,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;cbbHisFilterType.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="&gt;&gt;dgvHistoryJob.Name" xml:space="preserve">
     <value>dgvHistoryJob</value>
@@ -1810,7 +1282,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;dgvHistoryJob.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="tabPage4.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 44</value>
@@ -1825,7 +1297,7 @@
     <value>3</value>
   </data>
   <data name="tabPage4.Text" xml:space="preserve">
-    <value>Lịch Sử Công Việc</value>
+    <value>Lịch Sử Đồng Bộ</value>
   </data>
   <data name="&gt;&gt;tabPage4.Name" xml:space="preserve">
     <value>tabPage4</value>
@@ -1837,7 +1309,658 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;InputCodeNumber.Name" xml:space="preserve">
+    <value>InputCodeNumber</value>
+  </data>
+  <data name="&gt;&gt;InputCodeNumber.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputCodeNumber.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputCodeNumber.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialName.Name" xml:space="preserve">
+    <value>InputMaterialName</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialName.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialName.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialNumber.Name" xml:space="preserve">
+    <value>InputMaterialNumber</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialNumber.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialNumber.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialNumber.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label18.Name" xml:space="preserve">
+    <value>label18</value>
+  </data>
+  <data name="&gt;&gt;label18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="&gt;&gt;label19.Name" xml:space="preserve">
+    <value>label19</value>
+  </data>
+  <data name="&gt;&gt;label19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label20.Name" xml:space="preserve">
+    <value>label20</value>
+  </data>
+  <data name="&gt;&gt;label20.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label20.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;saveJobNutriOffline.Name" xml:space="preserve">
+    <value>saveJobNutriOffline</value>
+  </data>
+  <data name="&gt;&gt;saveJobNutriOffline.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;saveJobNutriOffline.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;saveJobNutriOffline.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;InputShipto.Name" xml:space="preserve">
+    <value>InputShipto</value>
+  </data>
+  <data name="&gt;&gt;InputShipto.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputShipto.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputShipto.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;InputShipment.Name" xml:space="preserve">
+    <value>InputShipment</value>
+  </data>
+  <data name="&gt;&gt;InputShipment.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputShipment.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputShipment.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;InputWavekey.Name" xml:space="preserve">
+    <value>InputWavekey</value>
+  </data>
+  <data name="&gt;&gt;InputWavekey.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputWavekey.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputWavekey.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox8.Name" xml:space="preserve">
+    <value>cuzTextBox8</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox8.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox8.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox8.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;label15.Name" xml:space="preserve">
+    <value>label15</value>
+  </data>
+  <data name="&gt;&gt;label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;InputWmsNumber.Name" xml:space="preserve">
+    <value>InputWmsNumber</value>
+  </data>
+  <data name="&gt;&gt;InputWmsNumber.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputWmsNumber.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputWmsNumber.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
+  <data name="&gt;&gt;label16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox10.Name" xml:space="preserve">
+    <value>cuzTextBox10</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox10.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox10.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox10.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;label17.Name" xml:space="preserve">
+    <value>label17</value>
+  </data>
+  <data name="&gt;&gt;label17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="tabPage5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 44</value>
+  </data>
+  <data name="tabPage5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>936, 519</value>
+  </data>
+  <data name="tabPage5.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Create a new job</value>
+  </data>
+  <data name="&gt;&gt;tabPage5.Name" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;tabPage5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage5.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage5.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cuzButtonPurge.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cuzButtonPurge.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cuzButtonPurge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cuzButtonPurge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>385, 467</value>
+  </data>
+  <data name="cuzButtonPurge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 45</value>
+  </data>
+  <data name="cuzButtonPurge.TabIndex" type="System.Int32, mscorlib">
+    <value>119</value>
+  </data>
+  <data name="cuzButtonPurge.Text" xml:space="preserve">
+    <value>Purge</value>
+  </data>
+  <data name="&gt;&gt;cuzButtonPurge.Name" xml:space="preserve">
+    <value>cuzButtonPurge</value>
+  </data>
+  <data name="&gt;&gt;cuzButtonPurge.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzButtonPurge.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;cuzButtonPurge.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;picLoading.Name" xml:space="preserve">
+    <value>picLoading</value>
+  </data>
+  <data name="&gt;&gt;picLoading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picLoading.Parent" xml:space="preserve">
+    <value>cuzPanel3</value>
+  </data>
+  <data name="&gt;&gt;picLoading.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlJobInfomation.Name" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;pnlJobInfomation.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.RoundPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlJobInfomation.Parent" xml:space="preserve">
+    <value>cuzPanel3</value>
+  </data>
+  <data name="&gt;&gt;pnlJobInfomation.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;listBoxJobList.Name" xml:space="preserve">
+    <value>listBoxJobList</value>
+  </data>
+  <data name="&gt;&gt;listBoxJobList.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzListBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;listBoxJobList.Parent" xml:space="preserve">
+    <value>cuzPanel3</value>
+  </data>
+  <data name="&gt;&gt;listBoxJobList.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cuzPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 58</value>
+  </data>
+  <data name="cuzPanel3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 3, 3</value>
+  </data>
+  <data name="cuzPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>917, 403</value>
+  </data>
+  <data name="cuzPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>105</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel3.Name" xml:space="preserve">
+    <value>cuzPanel3</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel3.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel3.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;cuzPanel3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnDelete.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnDelete.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="btnDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>489, 467</value>
+  </data>
+  <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 45</value>
+  </data>
+  <data name="btnDelete.TabIndex" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="btnDelete.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
+    <value>btnDelete</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnNext.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnNext.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="btnNext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>715, 467</value>
+  </data>
+  <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 45</value>
+  </data>
+  <data name="btnNext.TabIndex" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="btnNext.Text" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Name" xml:space="preserve">
+    <value>btnNext</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pnlRLinkSeriesColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 476</value>
+  </data>
+  <data name="pnlRLinkSeriesColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 25</value>
+  </data>
+  <data name="pnlRLinkSeriesColor.TabIndex" type="System.Int32, mscorlib">
+    <value>115</value>
+  </data>
+  <data name="pnlRLinkSeriesColor.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlRLinkSeriesColor.Name" xml:space="preserve">
+    <value>pnlRLinkSeriesColor</value>
+  </data>
+  <data name="&gt;&gt;pnlRLinkSeriesColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlRLinkSeriesColor.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;pnlRLinkSeriesColor.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pnlStandaloneColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>254, 476</value>
+  </data>
+  <data name="pnlStandaloneColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 25</value>
+  </data>
+  <data name="pnlStandaloneColor.TabIndex" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="pnlStandaloneColor.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlStandaloneColor.Name" xml:space="preserve">
+    <value>pnlStandaloneColor</value>
+  </data>
+  <data name="&gt;&gt;pnlStandaloneColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlStandaloneColor.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;pnlStandaloneColor.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtSearch.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 15</value>
+  </data>
+  <data name="txtSearch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="txtSearch.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>805, 35</value>
+  </data>
+  <data name="txtSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Name" xml:space="preserve">
+    <value>txtSearch</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnSearchJob.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnSearchJob.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSearchJob.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSearchJob.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 16</value>
+  </data>
+  <data name="btnSearchJob.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 24</value>
+  </data>
+  <data name="btnSearchJob.TabIndex" type="System.Int32, mscorlib">
+    <value>102</value>
+  </data>
+  <data name="&gt;&gt;btnSearchJob.Name" xml:space="preserve">
+    <value>btnSearchJob</value>
+  </data>
+  <data name="&gt;&gt;btnSearchJob.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSearchJob.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnSearchJob.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblRLinkSeries.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblRLinkSeries.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblRLinkSeries.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 479</value>
+  </data>
+  <data name="lblRLinkSeries.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 20</value>
+  </data>
+  <data name="lblRLinkSeries.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="lblRLinkSeries.Text" xml:space="preserve">
+    <value>RYNAN R-Series</value>
+  </data>
+  <data name="lblRLinkSeries.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblRLinkSeries.Name" xml:space="preserve">
+    <value>lblRLinkSeries</value>
+  </data>
+  <data name="&gt;&gt;lblRLinkSeries.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblRLinkSeries.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblRLinkSeries.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnRefesh.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnRefesh.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnRefesh.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.5pt</value>
+  </data>
+  <data name="btnRefesh.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRefesh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>838, 10</value>
+  </data>
+  <data name="btnRefesh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 40</value>
+  </data>
+  <data name="btnRefesh.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="&gt;&gt;btnRefesh.Name" xml:space="preserve">
+    <value>btnRefesh</value>
+  </data>
+  <data name="&gt;&gt;btnRefesh.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnRefesh.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnRefesh.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblStandalone.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblStandalone.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblStandalone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 479</value>
+  </data>
+  <data name="lblStandalone.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 20</value>
+  </data>
+  <data name="lblStandalone.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
+  </data>
+  <data name="lblStandalone.Text" xml:space="preserve">
+    <value>Standalone</value>
+  </data>
+  <data name="lblStandalone.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblStandalone.Name" xml:space="preserve">
+    <value>lblStandalone</value>
+  </data>
+  <data name="&gt;&gt;lblStandalone.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStandalone.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;lblStandalone.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 44</value>
+  </data>
+  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>936, 519</value>
+  </data>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Select job</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1870,6 +1993,30 @@
     <value>pnlMain</value>
   </data>
   <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="pnlMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1024, 600</value>
+  </data>
+  <data name="pnlMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Name" xml:space="preserve">
+    <value>pnlMain</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlMain.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="saveJobNutri.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -1932,6 +2079,9 @@
   <data name="&gt;&gt;dgvItems.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="shiptoCode.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="shiptoCode.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
@@ -1962,6 +2112,9 @@
   <data name="&gt;&gt;shiptoCode.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="shipment.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="shipment.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
@@ -1991,6 +2144,9 @@
   </data>
   <data name="&gt;&gt;shipment.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="waveKey.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="waveKey.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -2349,506 +2505,113 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="txtJobStatus.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
+  <data name="&gt;&gt;saveJobReprint.Name" xml:space="preserve">
+    <value>saveJobReprint</value>
   </data>
-  <data name="txtJobStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 403</value>
+  <data name="&gt;&gt;saveJobReprint.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="txtJobStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;saveJobReprint.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="txtJobStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="txtJobStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>399, 33</value>
-  </data>
-  <data name="txtJobStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>122</value>
-  </data>
-  <data name="&gt;&gt;txtJobStatus.Name" xml:space="preserve">
-    <value>txtJobStatus</value>
-  </data>
-  <data name="&gt;&gt;txtJobStatus.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtJobStatus.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;txtJobStatus.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;saveJobReprint.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblJobStatus.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;reprintGridView.Name" xml:space="preserve">
+    <value>reprintGridView</value>
   </data>
-  <data name="lblJobStatus.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
+  <data name="&gt;&gt;reprintGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblJobStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;reprintGridView.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="lblJobStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 379</value>
-  </data>
-  <data name="lblJobStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 20</value>
-  </data>
-  <data name="lblJobStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>121</value>
-  </data>
-  <data name="lblJobStatus.Text" xml:space="preserve">
-    <value>Job status</value>
-  </data>
-  <data name="&gt;&gt;lblJobStatus.Name" xml:space="preserve">
-    <value>lblJobStatus</value>
-  </data>
-  <data name="&gt;&gt;lblJobStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblJobStatus.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblJobStatus.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;reprintGridView.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="txtJobType.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
   </data>
-  <data name="txtJobType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>227, 138</value>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtJobType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="txtJobType.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="txtJobType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 33</value>
-  </data>
-  <data name="txtJobType.TabIndex" type="System.Int32, mscorlib">
-    <value>120</value>
-  </data>
-  <data name="&gt;&gt;txtJobType.Name" xml:space="preserve">
-    <value>txtJobType</value>
-  </data>
-  <data name="&gt;&gt;txtJobType.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtJobType.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;txtJobType.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="lblJobType.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;btnGetInfoReprint.Name" xml:space="preserve">
+    <value>btnGetInfoReprint</value>
   </data>
-  <data name="lblJobType.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
+  <data name="&gt;&gt;btnGetInfoReprint.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="lblJobType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;btnGetInfoReprint.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="lblJobType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 114</value>
-  </data>
-  <data name="lblJobType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 20</value>
-  </data>
-  <data name="lblJobType.TabIndex" type="System.Int32, mscorlib">
-    <value>119</value>
-  </data>
-  <data name="lblJobType.Text" xml:space="preserve">
-    <value>Job type</value>
-  </data>
-  <data name="&gt;&gt;lblJobType.Name" xml:space="preserve">
-    <value>lblJobType</value>
-  </data>
-  <data name="&gt;&gt;lblJobType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblJobType.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblJobType.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnGetInfoReprint.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="lblTemplatePrintInfo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
   </data>
-  <data name="lblTemplatePrintInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 337</value>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblTemplatePrintInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="lblTemplatePrintInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="lblTemplatePrintInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>399, 33</value>
-  </data>
-  <data name="lblTemplatePrintInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>114</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrintInfo.Name" xml:space="preserve">
-    <value>lblTemplatePrintInfo</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrintInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrintInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrintInfo.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="lblPODFormatInfo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
+  <data name="&gt;&gt;cuzTextBox4.Name" xml:space="preserve">
+    <value>cuzTextBox4</value>
   </data>
-  <data name="lblPODFormatInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 268</value>
-  </data>
-  <data name="lblPODFormatInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="lblPODFormatInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="lblPODFormatInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>399, 33</value>
-  </data>
-  <data name="lblPODFormatInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>115</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormatInfo.Name" xml:space="preserve">
-    <value>lblPODFormatInfo</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormatInfo.Type" xml:space="preserve">
+  <data name="&gt;&gt;cuzTextBox4.Type" xml:space="preserve">
     <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;lblPODFormatInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
+  <data name="&gt;&gt;cuzTextBox4.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="&gt;&gt;lblPODFormatInfo.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cuzTextBox4.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="lblStaticTextInfo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
   </data>
-  <data name="lblStaticTextInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 203</value>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblStaticTextInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="lblStaticTextInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="lblStaticTextInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>399, 33</value>
-  </data>
-  <data name="lblStaticTextInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>116</value>
-  </data>
-  <data name="&gt;&gt;lblStaticTextInfo.Name" xml:space="preserve">
-    <value>lblStaticTextInfo</value>
-  </data>
-  <data name="&gt;&gt;lblStaticTextInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblStaticTextInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblStaticTextInfo.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="lblTemplatePrint.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;cuzTextBox3.Name" xml:space="preserve">
+    <value>cuzTextBox3</value>
   </data>
-  <data name="lblTemplatePrint.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
+  <data name="&gt;&gt;cuzTextBox3.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="lblTemplatePrint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;cuzTextBox3.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="lblTemplatePrint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 313</value>
-  </data>
-  <data name="lblTemplatePrint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 20</value>
-  </data>
-  <data name="lblTemplatePrint.TabIndex" type="System.Int32, mscorlib">
-    <value>109</value>
-  </data>
-  <data name="lblTemplatePrint.Text" xml:space="preserve">
-    <value>Template print</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrint.Name" xml:space="preserve">
-    <value>lblTemplatePrint</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrint.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrint.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblTemplatePrint.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cuzTextBox3.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="lblPODFormat.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
   </data>
-  <data name="lblPODFormat.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblPODFormat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblPODFormat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 244</value>
-  </data>
-  <data name="lblPODFormat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
-  </data>
-  <data name="lblPODFormat.TabIndex" type="System.Int32, mscorlib">
-    <value>110</value>
-  </data>
-  <data name="lblPODFormat.Text" xml:space="preserve">
-    <value>POD format</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormat.Name" xml:space="preserve">
-    <value>lblPODFormat</value>
-  </data>
-  <data name="&gt;&gt;lblPODFormat.Type" xml:space="preserve">
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblPODFormat.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="&gt;&gt;lblPODFormat.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <data name="lblStaticText1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblStaticText1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblStaticText1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblStaticText1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 179</value>
-  </data>
-  <data name="lblStaticText1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 20</value>
-  </data>
-  <data name="lblStaticText1.TabIndex" type="System.Int32, mscorlib">
-    <value>111</value>
-  </data>
-  <data name="lblStaticText1.Text" xml:space="preserve">
-    <value>Static text</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText1.Name" xml:space="preserve">
-    <value>lblStaticText1</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText1.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblStaticText1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lblCompareTypeInfo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
-  </data>
-  <data name="lblCompareTypeInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 138</value>
-  </data>
-  <data name="lblCompareTypeInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="lblCompareTypeInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="lblCompareTypeInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 33</value>
-  </data>
-  <data name="lblCompareTypeInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>117</value>
-  </data>
-  <data name="&gt;&gt;lblCompareTypeInfo.Name" xml:space="preserve">
-    <value>lblCompareTypeInfo</value>
-  </data>
-  <data name="&gt;&gt;lblCompareTypeInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblCompareTypeInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblCompareTypeInfo.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="lblCompareType.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblCompareType.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblCompareType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblCompareType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 113</value>
-  </data>
-  <data name="lblCompareType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 20</value>
-  </data>
-  <data name="lblCompareType.TabIndex" type="System.Int32, mscorlib">
-    <value>112</value>
-  </data>
-  <data name="lblCompareType.Text" xml:space="preserve">
-    <value>Compare type</value>
-  </data>
-  <data name="&gt;&gt;lblCompareType.Name" xml:space="preserve">
-    <value>lblCompareType</value>
-  </data>
-  <data name="&gt;&gt;lblCompareType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCompareType.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblCompareType.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="lblJobNameInfo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 11.25pt</value>
-  </data>
-  <data name="lblJobNameInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 71</value>
-  </data>
-  <data name="lblJobNameInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="lblJobNameInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="lblJobNameInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>399, 33</value>
-  </data>
-  <data name="lblJobNameInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>118</value>
-  </data>
-  <data name="&gt;&gt;lblJobNameInfo.Name" xml:space="preserve">
-    <value>lblJobNameInfo</value>
-  </data>
-  <data name="&gt;&gt;lblJobNameInfo.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblJobNameInfo.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblJobNameInfo.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="lblJobName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblJobName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="lblJobName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblJobName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 47</value>
-  </data>
-  <data name="lblJobName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 20</value>
-  </data>
-  <data name="lblJobName.TabIndex" type="System.Int32, mscorlib">
-    <value>113</value>
-  </data>
-  <data name="lblJobName.Text" xml:space="preserve">
-    <value>Job name</value>
-  </data>
-  <data name="&gt;&gt;lblJobName.Name" xml:space="preserve">
-    <value>lblJobName</value>
-  </data>
-  <data name="&gt;&gt;lblJobName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblJobName.Parent" xml:space="preserve">
-    <value>pnlJobInfomation</value>
-  </data>
-  <data name="&gt;&gt;lblJobName.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="picLoading.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="picLoading.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="picLoading.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 139</value>
-  </data>
-  <data name="picLoading.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 62</value>
-  </data>
-  <data name="picLoading.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="picLoading.TabIndex" type="System.Int32, mscorlib">
-    <value>69</value>
-  </data>
-  <data name="picLoading.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;picLoading.Name" xml:space="preserve">
-    <value>picLoading</value>
-  </data>
-  <data name="&gt;&gt;picLoading.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picLoading.Parent" xml:space="preserve">
-    <value>cuzPanel3</value>
-  </data>
-  <data name="&gt;&gt;picLoading.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="listBoxJobList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="listBoxJobList.ItemHeight" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="listBoxJobList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
-  </data>
-  <data name="listBoxJobList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>446, 384</value>
-  </data>
-  <data name="listBoxJobList.TabIndex" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <data name="&gt;&gt;listBoxJobList.Name" xml:space="preserve">
-    <value>listBoxJobList</value>
-  </data>
-  <data name="&gt;&gt;listBoxJobList.Type" xml:space="preserve">
-    <value>DesignUI.CuzUI.CuzListBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;listBoxJobList.Parent" xml:space="preserve">
-    <value>cuzPanel3</value>
-  </data>
-  <data name="&gt;&gt;listBoxJobList.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -2870,6 +2633,297 @@
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="saveJobReprint.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="saveJobReprint.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="saveJobReprint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="saveJobReprint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>783, 460</value>
+  </data>
+  <data name="saveJobReprint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 45</value>
+  </data>
+  <data name="saveJobReprint.TabIndex" type="System.Int32, mscorlib">
+    <value>129</value>
+  </data>
+  <data name="saveJobReprint.Text" xml:space="preserve">
+    <value>LƯU</value>
+  </data>
+  <data name="&gt;&gt;saveJobReprint.Name" xml:space="preserve">
+    <value>saveJobReprint</value>
+  </data>
+  <data name="&gt;&gt;saveJobReprint.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;saveJobReprint.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;saveJobReprint.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="reprintGridView.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="reprintGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 173</value>
+  </data>
+  <data name="reprintGridView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="reprintGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>882, 276</value>
+  </data>
+  <data name="reprintGridView.TabIndex" type="System.Int32, mscorlib">
+    <value>128</value>
+  </data>
+  <data name="&gt;&gt;reprintGridView.Name" xml:space="preserve">
+    <value>reprintGridView</value>
+  </data>
+  <data name="&gt;&gt;reprintGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;reprintGridView.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;reprintGridView.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 140</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 20</value>
+  </data>
+  <data name="label11.TabIndex" type="System.Int32, mscorlib">
+    <value>124</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Danh sách sản phẩm cần in lại</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnGetInfoReprint.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnGetInfoReprint.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="btnGetInfoReprint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnGetInfoReprint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 17</value>
+  </data>
+  <data name="btnGetInfoReprint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 35</value>
+  </data>
+  <data name="btnGetInfoReprint.TabIndex" type="System.Int32, mscorlib">
+    <value>123</value>
+  </data>
+  <data name="btnGetInfoReprint.Text" xml:space="preserve">
+    <value>LẤY PHIẾU</value>
+  </data>
+  <data name="&gt;&gt;btnGetInfoReprint.Name" xml:space="preserve">
+    <value>btnGetInfoReprint</value>
+  </data>
+  <data name="&gt;&gt;btnGetInfoReprint.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnGetInfoReprint.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnGetInfoReprint.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 24</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 20</value>
+  </data>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>122</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Lấy danh sách sản phẩm in lại</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cuzTextBox4.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cuzTextBox4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cuzTextBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>572, 117</value>
+  </data>
+  <data name="cuzTextBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cuzTextBox4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="cuzTextBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 35</value>
+  </data>
+  <data name="cuzTextBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>121</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox4.Name" xml:space="preserve">
+    <value>cuzTextBox4</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox4.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox4.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox4.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>573, 93</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 20</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Template máy in</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cuzTextBox3.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cuzTextBox3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cuzTextBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>572, 45</value>
+  </data>
+  <data name="cuzTextBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cuzTextBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="cuzTextBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 35</value>
+  </data>
+  <data name="cuzTextBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox3.Name" xml:space="preserve">
+    <value>cuzTextBox3</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox3.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox3.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox3.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>573, 17</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 20</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>115</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Mã công việc</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="numberOfCodes.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4362,62 +4416,128 @@
   <data name="&gt;&gt;btnGennerate.ZOrder" xml:space="preserve">
     <value>29</value>
   </data>
-  <data name="pnlMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="pnlMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="pnlMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1024, 600</value>
-  </data>
-  <data name="pnlMain.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pnlMain.Name" xml:space="preserve">
-    <value>pnlMain</value>
-  </data>
-  <data name="&gt;&gt;pnlMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlMain.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cuzButton2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="StopSyncData.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="cuzButton2.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="StopSyncData.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
-  <data name="cuzButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="StopSyncData.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="cuzButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>792, 445</value>
+  <data name="StopSyncData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 447</value>
   </data>
-  <data name="cuzButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 37</value>
+  <data name="StopSyncData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 37</value>
   </data>
-  <data name="cuzButton2.TabIndex" type="System.Int32, mscorlib">
-    <value>132</value>
+  <data name="StopSyncData.TabIndex" type="System.Int32, mscorlib">
+    <value>135</value>
   </data>
-  <data name="cuzButton2.Text" xml:space="preserve">
-    <value>Đồng Bộ</value>
+  <data name="StopSyncData.Text" xml:space="preserve">
+    <value>Dừng đồng bộ</value>
   </data>
-  <data name="&gt;&gt;cuzButton2.Name" xml:space="preserve">
-    <value>cuzButton2</value>
+  <data name="&gt;&gt;StopSyncData.Name" xml:space="preserve">
+    <value>StopSyncData</value>
   </data>
-  <data name="&gt;&gt;cuzButton2.Type" xml:space="preserve">
+  <data name="&gt;&gt;StopSyncData.Type" xml:space="preserve">
     <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;cuzButton2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;StopSyncData.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
-  <data name="&gt;&gt;cuzButton2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;StopSyncData.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 280</value>
+  </data>
+  <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 31</value>
+  </data>
+  <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
+    <value>134</value>
+  </data>
+  <data name="progressBar1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Name" xml:space="preserve">
+    <value>progressBar1</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="picDatabaseLoading.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="picDatabaseLoading.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picDatabaseLoading.Location" type="System.Drawing.Point, System.Drawing">
+    <value>415, 212</value>
+  </data>
+  <data name="picDatabaseLoading.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 62</value>
+  </data>
+  <data name="picDatabaseLoading.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="picDatabaseLoading.TabIndex" type="System.Int32, mscorlib">
+    <value>133</value>
+  </data>
+  <data name="picDatabaseLoading.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;picDatabaseLoading.Name" xml:space="preserve">
+    <value>picDatabaseLoading</value>
+  </data>
+  <data name="&gt;&gt;picDatabaseLoading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picDatabaseLoading.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="&gt;&gt;picDatabaseLoading.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="SyncDataBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="SyncDataBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="SyncDataBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SyncDataBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>792, 445</value>
+  </data>
+  <data name="SyncDataBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 37</value>
+  </data>
+  <data name="SyncDataBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>132</value>
+  </data>
+  <data name="SyncDataBtn.Text" xml:space="preserve">
+    <value>Đồng Bộ</value>
+  </data>
+  <data name="&gt;&gt;SyncDataBtn.Name" xml:space="preserve">
+    <value>SyncDataBtn</value>
+  </data>
+  <data name="&gt;&gt;SyncDataBtn.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;SyncDataBtn.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="&gt;&gt;SyncDataBtn.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="cuzButton1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -4450,7 +4570,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;cuzButton1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4483,7 +4603,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="dtpHist.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Hiragana</value>
@@ -4507,7 +4627,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;dtpHist.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4540,7 +4660,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="cuzTextBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -4570,7 +4690,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;cuzTextBox1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="cbbHisFilterType.Items" xml:space="preserve">
     <value>Hoàn tất đồng bộ</value>
@@ -4597,7 +4717,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;cbbHisFilterType.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <metadata name="STT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -4639,7 +4759,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;dgvHistoryJob.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <metadata name="STT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -4682,6 +4802,1311 @@
   </metadata>
   <data name="SoLuongDongBoSAP.HeaderText" xml:space="preserve">
     <value>Số lượng đồng bộ lên SAP</value>
+  </data>
+  <data name="InputCodeNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="InputCodeNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 410</value>
+  </data>
+  <data name="InputCodeNumber.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="InputCodeNumber.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="InputCodeNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>356, 35</value>
+  </data>
+  <data name="InputCodeNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>134</value>
+  </data>
+  <data name="&gt;&gt;InputCodeNumber.Name" xml:space="preserve">
+    <value>InputCodeNumber</value>
+  </data>
+  <data name="&gt;&gt;InputCodeNumber.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputCodeNumber.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputCodeNumber.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="InputMaterialName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="InputMaterialName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 352</value>
+  </data>
+  <data name="InputMaterialName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="InputMaterialName.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="InputMaterialName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>356, 35</value>
+  </data>
+  <data name="InputMaterialName.TabIndex" type="System.Int32, mscorlib">
+    <value>133</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialName.Name" xml:space="preserve">
+    <value>InputMaterialName</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialName.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialName.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="InputMaterialNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="InputMaterialNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 295</value>
+  </data>
+  <data name="InputMaterialNumber.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="InputMaterialNumber.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="InputMaterialNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>356, 35</value>
+  </data>
+  <data name="InputMaterialNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>132</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialNumber.Name" xml:space="preserve">
+    <value>InputMaterialNumber</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialNumber.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialNumber.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputMaterialNumber.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label18.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label18.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 361</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 20</value>
+  </data>
+  <data name="label18.TabIndex" type="System.Int32, mscorlib">
+    <value>131</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Tên sản phẩm:</value>
+  </data>
+  <data name="&gt;&gt;label18.Name" xml:space="preserve">
+    <value>label18</value>
+  </data>
+  <data name="&gt;&gt;label18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label19.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label19.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 419</value>
+  </data>
+  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 20</value>
+  </data>
+  <data name="label19.TabIndex" type="System.Int32, mscorlib">
+    <value>130</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>Số lượng mã:</value>
+  </data>
+  <data name="&gt;&gt;label19.Name" xml:space="preserve">
+    <value>label19</value>
+  </data>
+  <data name="&gt;&gt;label19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label20.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label20.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 302</value>
+  </data>
+  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 20</value>
+  </data>
+  <data name="label20.TabIndex" type="System.Int32, mscorlib">
+    <value>129</value>
+  </data>
+  <data name="label20.Text" xml:space="preserve">
+    <value>Mã sản phẩm:</value>
+  </data>
+  <data name="&gt;&gt;label20.Name" xml:space="preserve">
+    <value>label20</value>
+  </data>
+  <data name="&gt;&gt;label20.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label20.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="saveJobNutriOffline.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="saveJobNutriOffline.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="saveJobNutriOffline.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="saveJobNutriOffline.Location" type="System.Drawing.Point, System.Drawing">
+    <value>790, 459</value>
+  </data>
+  <data name="saveJobNutriOffline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 45</value>
+  </data>
+  <data name="saveJobNutriOffline.TabIndex" type="System.Int32, mscorlib">
+    <value>128</value>
+  </data>
+  <data name="saveJobNutriOffline.Text" xml:space="preserve">
+    <value>LƯU</value>
+  </data>
+  <data name="&gt;&gt;saveJobNutriOffline.Name" xml:space="preserve">
+    <value>saveJobNutriOffline</value>
+  </data>
+  <data name="&gt;&gt;saveJobNutriOffline.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;saveJobNutriOffline.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;saveJobNutriOffline.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="InputShipto.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="InputShipto.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 243</value>
+  </data>
+  <data name="InputShipto.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="InputShipto.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="InputShipto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>356, 35</value>
+  </data>
+  <data name="InputShipto.TabIndex" type="System.Int32, mscorlib">
+    <value>126</value>
+  </data>
+  <data name="&gt;&gt;InputShipto.Name" xml:space="preserve">
+    <value>InputShipto</value>
+  </data>
+  <data name="&gt;&gt;InputShipto.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputShipto.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputShipto.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="InputShipment.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="InputShipment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 188</value>
+  </data>
+  <data name="InputShipment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="InputShipment.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="InputShipment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>356, 35</value>
+  </data>
+  <data name="InputShipment.TabIndex" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;InputShipment.Name" xml:space="preserve">
+    <value>InputShipment</value>
+  </data>
+  <data name="&gt;&gt;InputShipment.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputShipment.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputShipment.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="InputWavekey.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="InputWavekey.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 129</value>
+  </data>
+  <data name="InputWavekey.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="InputWavekey.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="InputWavekey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>356, 35</value>
+  </data>
+  <data name="InputWavekey.TabIndex" type="System.Int32, mscorlib">
+    <value>124</value>
+  </data>
+  <data name="&gt;&gt;InputWavekey.Name" xml:space="preserve">
+    <value>InputWavekey</value>
+  </data>
+  <data name="&gt;&gt;InputWavekey.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputWavekey.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputWavekey.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 196</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
+  </data>
+  <data name="label12.TabIndex" type="System.Int32, mscorlib">
+    <value>123</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Shipment :</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label13.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 251</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 20</value>
+  </data>
+  <data name="label13.TabIndex" type="System.Int32, mscorlib">
+    <value>122</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Shipto code :</value>
+  </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="label14.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 135</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
+  </data>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>121</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Wave key :</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="cuzTextBox8.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cuzTextBox8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cuzTextBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>589, 129</value>
+  </data>
+  <data name="cuzTextBox8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cuzTextBox8.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="cuzTextBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 35</value>
+  </data>
+  <data name="cuzTextBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>119</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox8.Name" xml:space="preserve">
+    <value>cuzTextBox8</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox8.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox8.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox8.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="label15.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label15.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>585, 105</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 20</value>
+  </data>
+  <data name="label15.TabIndex" type="System.Int32, mscorlib">
+    <value>118</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Template máy in</value>
+  </data>
+  <data name="&gt;&gt;label15.Name" xml:space="preserve">
+    <value>label15</value>
+  </data>
+  <data name="&gt;&gt;label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="InputWmsNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="InputWmsNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 55</value>
+  </data>
+  <data name="InputWmsNumber.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="InputWmsNumber.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="InputWmsNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>480, 35</value>
+  </data>
+  <data name="InputWmsNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>117</value>
+  </data>
+  <data name="&gt;&gt;InputWmsNumber.Name" xml:space="preserve">
+    <value>InputWmsNumber</value>
+  </data>
+  <data name="&gt;&gt;InputWmsNumber.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;InputWmsNumber.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;InputWmsNumber.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="label16.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label16.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 22</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 20</value>
+  </data>
+  <data name="label16.TabIndex" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>Mã phiếu soạn hàng</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
+  <data name="&gt;&gt;label16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="cuzTextBox10.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cuzTextBox10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="cuzTextBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>589, 55</value>
+  </data>
+  <data name="cuzTextBox10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="cuzTextBox10.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="cuzTextBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 35</value>
+  </data>
+  <data name="cuzTextBox10.TabIndex" type="System.Int32, mscorlib">
+    <value>115</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox10.Name" xml:space="preserve">
+    <value>cuzTextBox10</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox10.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox10.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;cuzTextBox10.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="label17.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label17.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="label17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>585, 22</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 20</value>
+  </data>
+  <data name="label17.TabIndex" type="System.Int32, mscorlib">
+    <value>114</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Mã công việc</value>
+  </data>
+  <data name="&gt;&gt;label17.Name" xml:space="preserve">
+    <value>label17</value>
+  </data>
+  <data name="&gt;&gt;label17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>tabPage5</value>
+  </data>
+  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;txtJobStatus.Name" xml:space="preserve">
+    <value>txtJobStatus</value>
+  </data>
+  <data name="&gt;&gt;txtJobStatus.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtJobStatus.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;txtJobStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblJobStatus.Name" xml:space="preserve">
+    <value>lblJobStatus</value>
+  </data>
+  <data name="&gt;&gt;lblJobStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblJobStatus.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblJobStatus.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtJobType.Name" xml:space="preserve">
+    <value>txtJobType</value>
+  </data>
+  <data name="&gt;&gt;txtJobType.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtJobType.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;txtJobType.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblJobType.Name" xml:space="preserve">
+    <value>lblJobType</value>
+  </data>
+  <data name="&gt;&gt;lblJobType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblJobType.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblJobType.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrintInfo.Name" xml:space="preserve">
+    <value>lblTemplatePrintInfo</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrintInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrintInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrintInfo.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormatInfo.Name" xml:space="preserve">
+    <value>lblPODFormatInfo</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormatInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormatInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormatInfo.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblStaticTextInfo.Name" xml:space="preserve">
+    <value>lblStaticTextInfo</value>
+  </data>
+  <data name="&gt;&gt;lblStaticTextInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblStaticTextInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblStaticTextInfo.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrint.Name" xml:space="preserve">
+    <value>lblTemplatePrint</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrint.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrint.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormat.Name" xml:space="preserve">
+    <value>lblPODFormat</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormat.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormat.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText1.Name" xml:space="preserve">
+    <value>lblStaticText1</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText1.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lblCompareTypeInfo.Name" xml:space="preserve">
+    <value>lblCompareTypeInfo</value>
+  </data>
+  <data name="&gt;&gt;lblCompareTypeInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblCompareTypeInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblCompareTypeInfo.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;lblCompareType.Name" xml:space="preserve">
+    <value>lblCompareType</value>
+  </data>
+  <data name="&gt;&gt;lblCompareType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCompareType.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblCompareType.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;lblJobNameInfo.Name" xml:space="preserve">
+    <value>lblJobNameInfo</value>
+  </data>
+  <data name="&gt;&gt;lblJobNameInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblJobNameInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblJobNameInfo.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;lblJobName.Name" xml:space="preserve">
+    <value>lblJobName</value>
+  </data>
+  <data name="&gt;&gt;lblJobName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblJobName.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblJobName.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="pnlJobInfomation.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="pnlJobInfomation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 343</value>
+  </data>
+  <data name="pnlJobInfomation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>439, 60</value>
+  </data>
+  <data name="pnlJobInfomation.TabIndex" type="System.Int32, mscorlib">
+    <value>118</value>
+  </data>
+  <data name="pnlJobInfomation.Text" xml:space="preserve">
+    <value>Job information</value>
+  </data>
+  <data name="pnlJobInfomation.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlJobInfomation.Name" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;pnlJobInfomation.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.RoundPanel, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pnlJobInfomation.Parent" xml:space="preserve">
+    <value>cuzPanel3</value>
+  </data>
+  <data name="&gt;&gt;pnlJobInfomation.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtJobStatus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="txtJobStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 403</value>
+  </data>
+  <data name="txtJobStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="txtJobStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtJobStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 33</value>
+  </data>
+  <data name="txtJobStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>122</value>
+  </data>
+  <data name="&gt;&gt;txtJobStatus.Name" xml:space="preserve">
+    <value>txtJobStatus</value>
+  </data>
+  <data name="&gt;&gt;txtJobStatus.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtJobStatus.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;txtJobStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblJobStatus.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblJobStatus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblJobStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblJobStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 379</value>
+  </data>
+  <data name="lblJobStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 20</value>
+  </data>
+  <data name="lblJobStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>121</value>
+  </data>
+  <data name="lblJobStatus.Text" xml:space="preserve">
+    <value>Job status</value>
+  </data>
+  <data name="&gt;&gt;lblJobStatus.Name" xml:space="preserve">
+    <value>lblJobStatus</value>
+  </data>
+  <data name="&gt;&gt;lblJobStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblJobStatus.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblJobStatus.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtJobType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="txtJobType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>227, 138</value>
+  </data>
+  <data name="txtJobType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="txtJobType.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtJobType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 33</value>
+  </data>
+  <data name="txtJobType.TabIndex" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="&gt;&gt;txtJobType.Name" xml:space="preserve">
+    <value>txtJobType</value>
+  </data>
+  <data name="&gt;&gt;txtJobType.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtJobType.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;txtJobType.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblJobType.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblJobType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblJobType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblJobType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 114</value>
+  </data>
+  <data name="lblJobType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 20</value>
+  </data>
+  <data name="lblJobType.TabIndex" type="System.Int32, mscorlib">
+    <value>119</value>
+  </data>
+  <data name="lblJobType.Text" xml:space="preserve">
+    <value>Job type</value>
+  </data>
+  <data name="&gt;&gt;lblJobType.Name" xml:space="preserve">
+    <value>lblJobType</value>
+  </data>
+  <data name="&gt;&gt;lblJobType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblJobType.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblJobType.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblTemplatePrintInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="lblTemplatePrintInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 337</value>
+  </data>
+  <data name="lblTemplatePrintInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblTemplatePrintInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="lblTemplatePrintInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 33</value>
+  </data>
+  <data name="lblTemplatePrintInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>114</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrintInfo.Name" xml:space="preserve">
+    <value>lblTemplatePrintInfo</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrintInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrintInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrintInfo.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblPODFormatInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="lblPODFormatInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 268</value>
+  </data>
+  <data name="lblPODFormatInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblPODFormatInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="lblPODFormatInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 33</value>
+  </data>
+  <data name="lblPODFormatInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>115</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormatInfo.Name" xml:space="preserve">
+    <value>lblPODFormatInfo</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormatInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormatInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormatInfo.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblStaticTextInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="lblStaticTextInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 203</value>
+  </data>
+  <data name="lblStaticTextInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblStaticTextInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="lblStaticTextInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 33</value>
+  </data>
+  <data name="lblStaticTextInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="&gt;&gt;lblStaticTextInfo.Name" xml:space="preserve">
+    <value>lblStaticTextInfo</value>
+  </data>
+  <data name="&gt;&gt;lblStaticTextInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblStaticTextInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblStaticTextInfo.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblTemplatePrint.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTemplatePrint.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblTemplatePrint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTemplatePrint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 313</value>
+  </data>
+  <data name="lblTemplatePrint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 20</value>
+  </data>
+  <data name="lblTemplatePrint.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="lblTemplatePrint.Text" xml:space="preserve">
+    <value>Template print</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrint.Name" xml:space="preserve">
+    <value>lblTemplatePrint</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrint.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblTemplatePrint.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblPODFormat.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPODFormat.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblPODFormat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblPODFormat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 244</value>
+  </data>
+  <data name="lblPODFormat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="lblPODFormat.TabIndex" type="System.Int32, mscorlib">
+    <value>110</value>
+  </data>
+  <data name="lblPODFormat.Text" xml:space="preserve">
+    <value>POD format</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormat.Name" xml:space="preserve">
+    <value>lblPODFormat</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormat.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblPODFormat.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblStaticText1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblStaticText1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblStaticText1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblStaticText1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 179</value>
+  </data>
+  <data name="lblStaticText1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 20</value>
+  </data>
+  <data name="lblStaticText1.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
+  </data>
+  <data name="lblStaticText1.Text" xml:space="preserve">
+    <value>Static text</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText1.Name" xml:space="preserve">
+    <value>lblStaticText1</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText1.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblStaticText1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblCompareTypeInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="lblCompareTypeInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 138</value>
+  </data>
+  <data name="lblCompareTypeInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblCompareTypeInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="lblCompareTypeInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 33</value>
+  </data>
+  <data name="lblCompareTypeInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>117</value>
+  </data>
+  <data name="&gt;&gt;lblCompareTypeInfo.Name" xml:space="preserve">
+    <value>lblCompareTypeInfo</value>
+  </data>
+  <data name="&gt;&gt;lblCompareTypeInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblCompareTypeInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblCompareTypeInfo.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblCompareType.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCompareType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblCompareType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblCompareType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 113</value>
+  </data>
+  <data name="lblCompareType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 20</value>
+  </data>
+  <data name="lblCompareType.TabIndex" type="System.Int32, mscorlib">
+    <value>112</value>
+  </data>
+  <data name="lblCompareType.Text" xml:space="preserve">
+    <value>Compare type</value>
+  </data>
+  <data name="&gt;&gt;lblCompareType.Name" xml:space="preserve">
+    <value>lblCompareType</value>
+  </data>
+  <data name="&gt;&gt;lblCompareType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCompareType.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblCompareType.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lblJobNameInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 11.25pt</value>
+  </data>
+  <data name="lblJobNameInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 71</value>
+  </data>
+  <data name="lblJobNameInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblJobNameInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="lblJobNameInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 33</value>
+  </data>
+  <data name="lblJobNameInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>118</value>
+  </data>
+  <data name="&gt;&gt;lblJobNameInfo.Name" xml:space="preserve">
+    <value>lblJobNameInfo</value>
+  </data>
+  <data name="&gt;&gt;lblJobNameInfo.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzTextBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lblJobNameInfo.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblJobNameInfo.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="lblJobName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblJobName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="lblJobName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblJobName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 47</value>
+  </data>
+  <data name="lblJobName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
+  </data>
+  <data name="lblJobName.TabIndex" type="System.Int32, mscorlib">
+    <value>113</value>
+  </data>
+  <data name="lblJobName.Text" xml:space="preserve">
+    <value>Job name</value>
+  </data>
+  <data name="&gt;&gt;lblJobName.Name" xml:space="preserve">
+    <value>lblJobName</value>
+  </data>
+  <data name="&gt;&gt;lblJobName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblJobName.Parent" xml:space="preserve">
+    <value>pnlJobInfomation</value>
+  </data>
+  <data name="&gt;&gt;lblJobName.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="picLoading.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="picLoading.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picLoading.Location" type="System.Drawing.Point, System.Drawing">
+    <value>411, 161</value>
+  </data>
+  <data name="picLoading.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 62</value>
+  </data>
+  <data name="picLoading.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="picLoading.TabIndex" type="System.Int32, mscorlib">
+    <value>69</value>
+  </data>
+  <data name="picLoading.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;picLoading.Name" xml:space="preserve">
+    <value>picLoading</value>
+  </data>
+  <data name="&gt;&gt;picLoading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picLoading.Parent" xml:space="preserve">
+    <value>cuzPanel3</value>
+  </data>
+  <data name="&gt;&gt;picLoading.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="listBoxJobList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="listBoxJobList.ItemHeight" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="listBoxJobList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="listBoxJobList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>905, 384</value>
+  </data>
+  <data name="listBoxJobList.TabIndex" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="&gt;&gt;listBoxJobList.Name" xml:space="preserve">
+    <value>listBoxJobList</value>
+  </data>
+  <data name="&gt;&gt;listBoxJobList.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzListBox, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;listBoxJobList.Parent" xml:space="preserve">
+    <value>cuzPanel3</value>
+  </data>
+  <data name="&gt;&gt;listBoxJobList.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

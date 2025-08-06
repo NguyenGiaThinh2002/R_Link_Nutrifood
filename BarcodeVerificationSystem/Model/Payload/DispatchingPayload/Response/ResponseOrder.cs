@@ -14,7 +14,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
 
         public class Item
         {
-            public int printed_number { get; set; }
+            public int printed_count { get; set; }
             public string material_number { get; set; }
             public string material_name { get; set; }
             public string status_desc { get; set; }
@@ -47,7 +47,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
             public string shipto_code { get; set; }
             public string shipto_name { get; set; }
             public string shipto_address { get; set; }
-            public string template_name { get; set; }
+            public string print_template_name { get; set; }
             public string wave_desc { get; set; }
             public string warehouse { get; set; }
             public string trailer_number { get; set; }
@@ -55,7 +55,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
             public string wave_type { get; set; }
             public string delivery_date { get; set; }
             public string effective_date { get; set; }
-            public int surplus_percentage { get; set; }
+            public int add_qty { get; set; }
             public string notes { get; set; }
             public List<Item> item { get; set; }
         }

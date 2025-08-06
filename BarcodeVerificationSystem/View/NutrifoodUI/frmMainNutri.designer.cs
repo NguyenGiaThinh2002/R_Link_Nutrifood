@@ -55,11 +55,8 @@
             this.btnStop = new DesignUI.CuzUI.CuzButton();
             this.btnStart = new DesignUI.CuzUI.CuzButton();
             this.pnlJobInformation = new DesignUI.CuzUI.RoundPanel();
+            this.numberOfCode = new DesignUI.CuzUI.CuzTextBox();
             this.materialNumber = new DesignUI.CuzUI.CuzTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.wmsNumber = new DesignUI.CuzUI.CuzTextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblProcessingTime = new System.Windows.Forms.Label();
             this.labelModeCheck = new System.Windows.Forms.Label();
@@ -95,6 +92,10 @@
             this.SaaSSuccessCodes = new DesignUI.CuzUI.CuzTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.syncSentCodes = new DesignUI.CuzUI.CuzTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.wmsNumber = new DesignUI.CuzUI.CuzTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtJobName = new DesignUI.CuzUI.CuzTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.lblJobName = new System.Windows.Forms.Label();
@@ -178,7 +179,6 @@
             this.mnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.mnLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.numberOfCode = new DesignUI.CuzUI.CuzTextBox();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlControllButton.SuspendLayout();
@@ -377,7 +377,7 @@
             // 
             // btnTrigger
             // 
-            this.btnTrigger._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnTrigger._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnTrigger._BorderRadius = 10;
             this.btnTrigger._BorderSize = 1;
             this.btnTrigger._GradientsButton = false;
@@ -402,7 +402,7 @@
             // 
             // btnStop
             // 
-            this.btnStop._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnStop._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnStop._BorderRadius = 10;
             this.btnStop._BorderSize = 1;
             this.btnStop._GradientsButton = false;
@@ -427,7 +427,7 @@
             // 
             // btnStart
             // 
-            this.btnStart._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnStart._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnStart._BorderRadius = 10;
             this.btnStart._BorderSize = 1;
             this.btnStart._GradientsButton = false;
@@ -481,6 +481,33 @@
             this.pnlJobInformation.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlJobInformation.TitleHeight = 30;
             // 
+            // numberOfCode
+            // 
+            this.numberOfCode._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.numberOfCode._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.numberOfCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numberOfCode.BackColor = System.Drawing.Color.White;
+            this.numberOfCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.numberOfCode.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.numberOfCode.BorderRadius = 8;
+            this.numberOfCode.BorderSize = 1;
+            this.numberOfCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.numberOfCode.Location = new System.Drawing.Point(14, 290);
+            this.numberOfCode.Margin = new System.Windows.Forms.Padding(4);
+            this.numberOfCode.Multiline = false;
+            this.numberOfCode.Name = "numberOfCode";
+            this.numberOfCode.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.numberOfCode.PasswordChar = false;
+            this.numberOfCode.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.numberOfCode.PlaceholderText = "";
+            this.numberOfCode.ReadOnly = true;
+            this.numberOfCode.Size = new System.Drawing.Size(261, 35);
+            this.numberOfCode.TabIndex = 149;
+            this.numberOfCode.TabStop = false;
+            this.numberOfCode.UnderlinedStyle = false;
+            // 
             // materialNumber
             // 
             this.materialNumber._ReadOnlyBackColor = System.Drawing.Color.White;
@@ -507,67 +534,6 @@
             this.materialNumber.TabIndex = 148;
             this.materialNumber.TabStop = false;
             this.materialNumber.UnderlinedStyle = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoEllipsis = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label8.Location = new System.Drawing.Point(13, 265);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 20);
-            this.label8.TabIndex = 147;
-            this.label8.Text = "Số lượng cần in";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoEllipsis = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label7.Location = new System.Drawing.Point(13, 195);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 20);
-            this.label7.TabIndex = 146;
-            this.label7.Text = "Mã sản phẩm";
-            // 
-            // wmsNumber
-            // 
-            this.wmsNumber._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.wmsNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.wmsNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wmsNumber.BackColor = System.Drawing.Color.White;
-            this.wmsNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.wmsNumber.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.wmsNumber.BorderRadius = 8;
-            this.wmsNumber.BorderSize = 1;
-            this.wmsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wmsNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.wmsNumber.Location = new System.Drawing.Point(14, 145);
-            this.wmsNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.wmsNumber.Multiline = false;
-            this.wmsNumber.Name = "wmsNumber";
-            this.wmsNumber.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.wmsNumber.PasswordChar = false;
-            this.wmsNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.wmsNumber.PlaceholderText = "";
-            this.wmsNumber.ReadOnly = true;
-            this.wmsNumber.Size = new System.Drawing.Size(261, 35);
-            this.wmsNumber.TabIndex = 145;
-            this.wmsNumber.TabStop = false;
-            this.wmsNumber.UnderlinedStyle = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoEllipsis = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label5.Location = new System.Drawing.Point(13, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(191, 20);
-            this.label5.TabIndex = 144;
-            this.label5.Text = "Mã phiếu soạn hàng";
             // 
             // panel3
             // 
@@ -902,7 +868,7 @@
             // 
             // cuzButtonGetSample
             // 
-            this.cuzButtonGetSample._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.cuzButtonGetSample._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.cuzButtonGetSample._BorderRadius = 10;
             this.cuzButtonGetSample._BorderSize = 1;
             this.cuzButtonGetSample._GradientsButton = false;
@@ -1270,6 +1236,67 @@
             this.syncSentCodes.TabStop = false;
             this.syncSentCodes.UnderlinedStyle = false;
             // 
+            // label8
+            // 
+            this.label8.AutoEllipsis = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label8.Location = new System.Drawing.Point(13, 265);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 20);
+            this.label8.TabIndex = 147;
+            this.label8.Text = "Số lượng cần in";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoEllipsis = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label7.Location = new System.Drawing.Point(13, 195);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(140, 20);
+            this.label7.TabIndex = 146;
+            this.label7.Text = "Mã sản phẩm";
+            // 
+            // wmsNumber
+            // 
+            this.wmsNumber._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.wmsNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.wmsNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wmsNumber.BackColor = System.Drawing.Color.White;
+            this.wmsNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.wmsNumber.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.wmsNumber.BorderRadius = 8;
+            this.wmsNumber.BorderSize = 1;
+            this.wmsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wmsNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.wmsNumber.Location = new System.Drawing.Point(14, 145);
+            this.wmsNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.wmsNumber.Multiline = false;
+            this.wmsNumber.Name = "wmsNumber";
+            this.wmsNumber.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.wmsNumber.PasswordChar = false;
+            this.wmsNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.wmsNumber.PlaceholderText = "";
+            this.wmsNumber.ReadOnly = true;
+            this.wmsNumber.Size = new System.Drawing.Size(261, 35);
+            this.wmsNumber.TabIndex = 145;
+            this.wmsNumber.TabStop = false;
+            this.wmsNumber.UnderlinedStyle = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoEllipsis = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label5.Location = new System.Drawing.Point(13, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(191, 20);
+            this.label5.TabIndex = 144;
+            this.label5.Text = "Mã phiếu soạn hàng";
+            // 
             // txtJobName
             // 
             this.txtJobName._ReadOnlyBackColor = System.Drawing.Color.White;
@@ -1613,12 +1640,13 @@
             // 
             this.ConfirmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.ConfirmLabel.Location = new System.Drawing.Point(20, 20);
+            this.ConfirmLabel.Location = new System.Drawing.Point(13, 259);
             this.ConfirmLabel.Name = "ConfirmLabel";
             this.ConfirmLabel.Size = new System.Drawing.Size(340, 25);
             this.ConfirmLabel.TabIndex = 0;
             this.ConfirmLabel.Text = "Xác nhận hoàn thành:";
             this.ConfirmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ConfirmLabel.Visible = false;
             this.ConfirmLabel.Click += new System.EventHandler(this.ConfirmLabel_Click);
             // 
             // confirmCompletion
@@ -1638,19 +1666,20 @@
             this.confirmCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmCompletion.ForeColor = System.Drawing.Color.White;
-            this.confirmCompletion.Location = new System.Drawing.Point(23, 56);
+            this.confirmCompletion.Location = new System.Drawing.Point(17, 293);
             this.confirmCompletion.Name = "confirmCompletion";
             this.confirmCompletion.Size = new System.Drawing.Size(340, 50);
             this.confirmCompletion.TabIndex = 1;
             this.confirmCompletion.Text = "Xác nhận hoàn thành";
             this.confirmCompletion.TextColor = System.Drawing.Color.White;
             this.confirmCompletion.UseVisualStyleBackColor = false;
+            this.confirmCompletion.Visible = false;
             // 
             // SyncDataLabel
             // 
             this.SyncDataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.SyncDataLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.SyncDataLabel.Location = new System.Drawing.Point(19, 142);
+            this.SyncDataLabel.Location = new System.Drawing.Point(17, 27);
             this.SyncDataLabel.Name = "SyncDataLabel";
             this.SyncDataLabel.Size = new System.Drawing.Size(340, 25);
             this.SyncDataLabel.TabIndex = 2;
@@ -1674,7 +1703,7 @@
             this.syncDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.syncDataBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.syncDataBtn.ForeColor = System.Drawing.Color.White;
-            this.syncDataBtn.Location = new System.Drawing.Point(23, 174);
+            this.syncDataBtn.Location = new System.Drawing.Point(21, 59);
             this.syncDataBtn.Name = "syncDataBtn";
             this.syncDataBtn.Size = new System.Drawing.Size(340, 50);
             this.syncDataBtn.TabIndex = 3;
@@ -1686,7 +1715,7 @@
             // 
             this.DisposeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.DisposeLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.DisposeLabel.Location = new System.Drawing.Point(23, 257);
+            this.DisposeLabel.Location = new System.Drawing.Point(21, 142);
             this.DisposeLabel.Name = "DisposeLabel";
             this.DisposeLabel.Size = new System.Drawing.Size(340, 25);
             this.DisposeLabel.TabIndex = 4;
@@ -1710,7 +1739,7 @@
             this.disposeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.disposeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.disposeBtn.ForeColor = System.Drawing.Color.White;
-            this.disposeBtn.Location = new System.Drawing.Point(23, 288);
+            this.disposeBtn.Location = new System.Drawing.Point(21, 173);
             this.disposeBtn.Name = "disposeBtn";
             this.disposeBtn.Size = new System.Drawing.Size(340, 50);
             this.disposeBtn.TabIndex = 5;
@@ -1743,14 +1772,14 @@
             // 
             // pnlTotalChecked
             // 
-            this.pnlTotalChecked._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.pnlTotalChecked._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.pnlTotalChecked._BorderRadius = 10;
             this.pnlTotalChecked._BorderSize = 1;
             this.pnlTotalChecked._Corner = 0F;
             this.pnlTotalChecked._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.pnlTotalChecked._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
             this.pnlTotalChecked._GradientPanel = false;
-            this.pnlTotalChecked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.pnlTotalChecked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.pnlTotalChecked.Controls.Add(this.lblTotalCheckedValue);
             this.pnlTotalChecked.Controls.Add(this.lblTotalChecked);
             this.pnlTotalChecked.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1927,7 +1956,7 @@
             // 
             // pnlDatabase
             // 
-            this.pnlDatabase._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.pnlDatabase._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.pnlDatabase._BorderRadius = 10;
             this.pnlDatabase._BorderSize = 1;
             this.pnlDatabase._Corner = 0F;
@@ -2052,7 +2081,7 @@
             // 
             // pnlCheckedResult
             // 
-            this.pnlCheckedResult._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.pnlCheckedResult._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.pnlCheckedResult._BorderRadius = 10;
             this.pnlCheckedResult._BorderSize = 1;
             this.pnlCheckedResult._Corner = 0F;
@@ -2507,11 +2536,11 @@
             // 
             this.btnExportAll.BackColor = System.Drawing.Color.Transparent;
             this.btnExportAll.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExportAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnExportAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnExportAll.FlatAppearance.BorderSize = 0;
-            this.btnExportAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnExportAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnExportAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnExportAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnExportAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnExportAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnExportAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportAll.ForeColor = System.Drawing.Color.White;
@@ -2535,11 +2564,11 @@
             // 
             this.btnExportResult.BackColor = System.Drawing.Color.Transparent;
             this.btnExportResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExportResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnExportResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnExportResult.FlatAppearance.BorderSize = 0;
-            this.btnExportResult.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnExportResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnExportResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnExportResult.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnExportResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnExportResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnExportResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportResult.ForeColor = System.Drawing.Color.White;
@@ -2561,11 +2590,11 @@
             // 
             this.btnVirtualStop.BackColor = System.Drawing.Color.Transparent;
             this.btnVirtualStop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVirtualStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnVirtualStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnVirtualStop.FlatAppearance.BorderSize = 0;
-            this.btnVirtualStop.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnVirtualStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnVirtualStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnVirtualStop.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnVirtualStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnVirtualStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnVirtualStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVirtualStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVirtualStop.ForeColor = System.Drawing.Color.White;
@@ -2588,11 +2617,11 @@
             // 
             this.btnVirtualStart.BackColor = System.Drawing.Color.Transparent;
             this.btnVirtualStart.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVirtualStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnVirtualStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnVirtualStart.FlatAppearance.BorderSize = 0;
-            this.btnVirtualStart.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnVirtualStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnVirtualStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnVirtualStart.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnVirtualStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnVirtualStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnVirtualStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVirtualStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVirtualStart.ForeColor = System.Drawing.Color.White;
@@ -2615,11 +2644,11 @@
             // 
             this.btnExportData.BackColor = System.Drawing.Color.Transparent;
             this.btnExportData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExportData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnExportData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnExportData.FlatAppearance.BorderSize = 0;
-            this.btnExportData.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnExportData.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnExportData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnExportData.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnExportData.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnExportData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportData.ForeColor = System.Drawing.Color.White;
@@ -2642,11 +2671,11 @@
             // 
             this.btnSettings.BackColor = System.Drawing.Color.Transparent;
             this.btnSettings.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.White;
@@ -2668,11 +2697,11 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnExit.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
@@ -2694,11 +2723,11 @@
             // 
             this.btnHistory.BackColor = System.Drawing.Color.Transparent;
             this.btnHistory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnHistory.FlatAppearance.BorderSize = 0;
-            this.btnHistory.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnHistory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnHistory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnHistory.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnHistory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnHistory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistory.ForeColor = System.Drawing.Color.White;
@@ -2720,11 +2749,11 @@
             // 
             this.btnAccount.BackColor = System.Drawing.Color.Transparent;
             this.btnAccount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnAccount.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnAccount.FlatAppearance.BorderSize = 0;
-            this.btnAccount.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnAccount.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccount.ForeColor = System.Drawing.Color.White;
@@ -2746,11 +2775,11 @@
             // 
             this.btnDatabase.BackColor = System.Drawing.Color.Transparent;
             this.btnDatabase.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDatabase.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnDatabase.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnDatabase.FlatAppearance.BorderSize = 0;
-            this.btnDatabase.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnDatabase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnDatabase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnDatabase.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnDatabase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnDatabase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDatabase.ForeColor = System.Drawing.Color.White;
@@ -2772,11 +2801,11 @@
             // 
             this.btnJob.BackColor = System.Drawing.Color.Transparent;
             this.btnJob.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnJob.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnJob.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnJob.FlatAppearance.BorderSize = 0;
-            this.btnJob.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnJob.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
-            this.btnJob.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.btnJob.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnJob.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.btnJob.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnJob.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJob.ForeColor = System.Drawing.Color.White;
@@ -2824,33 +2853,6 @@
             this.mnLogOut.Name = "mnLogOut";
             this.mnLogOut.Size = new System.Drawing.Size(168, 22);
             this.mnLogOut.Text = "Log out";
-            // 
-            // numberOfCode
-            // 
-            this.numberOfCode._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.numberOfCode._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.numberOfCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numberOfCode.BackColor = System.Drawing.Color.White;
-            this.numberOfCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.numberOfCode.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.numberOfCode.BorderRadius = 8;
-            this.numberOfCode.BorderSize = 1;
-            this.numberOfCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.numberOfCode.Location = new System.Drawing.Point(14, 290);
-            this.numberOfCode.Margin = new System.Windows.Forms.Padding(4);
-            this.numberOfCode.Multiline = false;
-            this.numberOfCode.Name = "numberOfCode";
-            this.numberOfCode.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.numberOfCode.PasswordChar = false;
-            this.numberOfCode.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.numberOfCode.PlaceholderText = "";
-            this.numberOfCode.ReadOnly = true;
-            this.numberOfCode.Size = new System.Drawing.Size(261, 35);
-            this.numberOfCode.TabIndex = 149;
-            this.numberOfCode.TabStop = false;
-            this.numberOfCode.UnderlinedStyle = false;
             // 
             // FrmMainNutri
             // 

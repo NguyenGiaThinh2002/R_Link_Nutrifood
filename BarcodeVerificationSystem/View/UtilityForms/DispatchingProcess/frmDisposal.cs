@@ -16,18 +16,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UILanguage;
 using BarcodeVerificationSystem.View.CustomDialogs;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
 
 namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 {
     public partial class frmDisposal : Form
     {
-        private Panel listContainer;
-        private FlowLayoutPanel flowProducts;
+        //private Panel listContainer;
+        //private FlowLayoutPanel flowProducts;
+        //private Button btnAddProduct;
+        //private Button btnDispose;
+        //private List<RequestDisposal> disposedItems = new List<RequestDisposal>();
+        //private string notes = string.Empty;
+        //TextBox txtNotes = new TextBox();
         TextBox txtNotes = new TextBox();
-        private Button btnAddProduct;
-        private Button btnDispose;
-        private List<RequestDisposal> disposedItems = new List<RequestDisposal>();
-        private string notes = string.Empty;
+
 
         public frmDisposal()
         {
@@ -38,77 +41,9 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 
         private void InitializeLayout()
         {
-            this.Text = "Product List";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.ClientSize = new Size(1000, 800);
-            this.BackColor = Color.White;
 
-            // Label-like border panel container
-            listContainer = new Panel();
-            listContainer.Location = new Point(20, 70);
-            listContainer.Size = new Size(940, 700);
-            listContainer.BorderStyle = BorderStyle.FixedSingle;
-            listContainer.BackColor = Color.WhiteSmoke;
-
-            // Title label (acts like a border label)
-            Label lblListTitle = new Label();
-            lblListTitle.Text = "Product List";
-            lblListTitle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblListTitle.BackColor = Color.White;
-            lblListTitle.Location = new Point(10, 50);
-            lblListTitle.Size = new Size(120, 20);
-
-            // Flow panel for product items
-            flowProducts = new FlowLayoutPanel();
-            flowProducts.Location = new Point(10, 10);
-            flowProducts.Size = new Size(920, 620); // Reduce height to make space for notes
-            flowProducts.FlowDirection = FlowDirection.TopDown;
-            flowProducts.WrapContents = false;
-            flowProducts.AutoScroll = true;
-            flowProducts.Padding = new Padding(5);
-            flowProducts.BackColor = Color.White;
-
-            // Notes label
-            Label lblNotes = new Label();
-            lblNotes.Text = "Notes:";
-            lblNotes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblNotes.Location = new Point(10, 640);
-            lblNotes.Size = new Size(50, 20);
-
-            // Notes TextBox
-            txtNotes.Multiline = true;
-            txtNotes.ScrollBars = ScrollBars.Vertical;
-            txtNotes.Location = new Point(60, 635);
-            txtNotes.Size = new Size(870, 50);
-            txtNotes.Font = new Font("Segoe UI", 9F);
-            txtNotes.TextChanged += NotesTextBox_TextChanged;
-
-            // Add to list container
-            listContainer.Controls.Add(flowProducts);
-            listContainer.Controls.Add(lblNotes);
-            listContainer.Controls.Add(txtNotes);
-
-            // Add container and title to form
-            this.Controls.Add(listContainer);
-            this.Controls.Add(lblListTitle);
-
-            // Add product button (left top)
-            btnAddProduct = new Button();
-            btnAddProduct.Text = "Add Product";
-            btnAddProduct.Size = new Size(150, 35);
-            btnAddProduct.Location = new Point(20, 20);
-            btnAddProduct.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            // this.Controls.Add(btnAddProduct);
-
-            // Sort button (right top)
-            btnDispose = new Button();
-            btnDispose.Text = Lang.Dispose;
-            btnDispose.Size = new Size(100, 35);
-            btnDispose.Location = new Point(860, 20);
-            btnDispose.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
-            this.Controls.Add(btnDispose);
         }
-        private void NotesTextBox_TextChanged(object sender, EventArgs e)
+        private void NotesInput_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = sender as TextBox;
             if (txt != null)
@@ -124,6 +59,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             btnAddProduct.Click += AddSampleProduct;
             Shared.OnSerialDeviceReadDataChange += AddReprintBarcodes;
             btnDispose.Click += BtnDispose_Click;
+            notesInput.TextChanged += NotesInput_TextChanged;
         }
 
         private async void BtnDispose_Click(object sender, EventArgs e)
@@ -146,10 +82,19 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
                     qrCodes = disposedItems
                 };
 
-                bool isPosted =  await apiService.PostApiDataAsync(DisposedCodesUrl, request);
-                if (isPosted)
+                var ResponseDisposal = await apiService.PostApiDataAsync<ResponseDisposal>(DisposedCodesUrl, request);
+
+
+                if (ResponseDisposal.is_success)
                 {
+                    NumberOfSuccess.Text = ResponseDisposal.destroyed_qty.ToString();
+                    NumberOfFailed.Text = (disposedItems.Count - ResponseDisposal.destroyed_qty).ToString();
+
                     CustomMessageBox.Show("Reprint dispose sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    CustomMessageBox.Show("Failed to send dispose request. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception)

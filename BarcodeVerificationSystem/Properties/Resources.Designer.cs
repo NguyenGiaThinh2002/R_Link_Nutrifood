@@ -63,6 +63,16 @@ namespace BarcodeVerificationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap failed1 {
+            get {
+                object obj = ResourceManager.GetObject("failed1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_add_181 {
             get {
                 object obj = ResourceManager.GetObject("icon_add_181", resourceCulture);
@@ -1285,6 +1295,16 @@ namespace BarcodeVerificationSystem.Properties {
         internal static System.Drawing.Bitmap Stop321 {
             get {
                 object obj = ResourceManager.GetObject("Stop321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap success {
+            get {
+                object obj = ResourceManager.GetObject("success", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
