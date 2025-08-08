@@ -3302,6 +3302,31 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 return (totalCode - 1) / maxDatabaseLine;
             }
         }
+        //public static List<string[]> ReadPrintedCodeData(string fullFilePath, char delimiter = ',')
+        //{
+        //    var result = new List<string[]>();
+
+        //    if (string.IsNullOrWhiteSpace(fullFilePath) || !File.Exists(fullFilePath))
+        //        return result;
+
+        //    try
+        //    {
+        //        foreach (var line in File.ReadLines(fullFilePath))
+        //        {
+        //            if (!string.IsNullOrWhiteSpace(line))
+        //            {
+        //                var values = line.Split(delimiter);
+        //                result.Add(values);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"Error reading file at {fullFilePath}: {ex.Message}");
+        //    }
+
+        //    return result;
+        //}
         public static List<string[]> ReadPrintedCodeData(string fullFilePath, char delimiter = ',')
         {
             var result = new List<string[]>();
@@ -3311,12 +3336,21 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             try
             {
-                foreach (var line in File.ReadLines(fullFilePath))
+                using (var fs = new FileStream(
+                    fullFilePath,
+                    FileMode.Open,
+                    FileAccess.Read,
+                    FileShare.ReadWrite)) // 👈 allow other readers and writers
+                using (var sr = new StreamReader(fs))
                 {
-                    if (!string.IsNullOrWhiteSpace(line))
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        var values = line.Split(delimiter);
-                        result.Add(values);
+                        if (!string.IsNullOrWhiteSpace(line))
+                        {
+                            var values = line.Split(delimiter);
+                            result.Add(values);
+                        }
                     }
                 }
             }
@@ -3327,6 +3361,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             return result;
         }
+
 
         private async void InitDataAsync(JobModel jobModel)
         {
@@ -3879,6 +3914,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                 if (_FormPreviewDatabase == null || _FormPreviewDatabase.IsDisposed)
                 {
+
                     string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
                     var SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
 
@@ -3914,6 +3950,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         _NumberPrinted = NumberPrinted
                     };
                     _FormPreviewDatabase.Show();
+       
                 }
                 else
                 {

@@ -16,6 +16,8 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
         public string job_name { get; set; }
         public string material_number { get; set; }
         public string wave_key { get; set; }
+        public string first_index { get; set; }
+        public string last_index { get; set; }
 
         public List<QrCode> qrCodes { get; set; } = new List<QrCode>();
     }

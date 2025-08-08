@@ -317,7 +317,9 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 job_name = jobName,
                 material_number = materialNumber,
                 wave_key = payload.wave_key,
-                qrCodes = qrCodes
+                first_index = Shared.FirstGeneratedCodeIndex.ToString(),
+                last_index = Shared.LastGeneratedCodeIndex.ToString(),
+                qrCodes = qrCodes,
             };
             string url = DispatchingApis.GetSendGeneratedCodesUrl();
 
