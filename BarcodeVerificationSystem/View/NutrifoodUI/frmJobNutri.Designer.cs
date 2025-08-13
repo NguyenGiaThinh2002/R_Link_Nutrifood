@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJobNutri));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DragControl = new DesignUI.CuzUI.CuzDragControl();
             this.pnlMenu = new DesignUI.CuzUI.CuzPanel();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
@@ -52,6 +52,11 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.jobName = new DesignUI.CuzUI.CuzTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.templatePrintTxt = new System.Windows.Forms.Label();
+            this.templatePrint = new DesignUI.CuzUI.CuzTextBox();
             this.saveJobNutri = new DesignUI.CuzUI.CuzButton();
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.shiptoCode = new DesignUI.CuzUI.CuzTextBox();
@@ -65,15 +70,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cuzTextBox3 = new DesignUI.CuzUI.CuzTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cuzTextBox4 = new DesignUI.CuzUI.CuzTextBox();
             this.saveJobReprint = new DesignUI.CuzUI.CuzButton();
             this.reprintGridView = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.btnGetInfoReprint = new DesignUI.CuzUI.CuzButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.cuzTextBox4 = new DesignUI.CuzUI.CuzTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cuzTextBox3 = new DesignUI.CuzUI.CuzTextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.numberOfCodes = new System.Windows.Forms.Label();
             this.FirstRowHeader = new System.Windows.Forms.CheckBox();
             this.BtnViewLog = new DesignUI.CuzUI.CuzButton();
@@ -132,6 +138,8 @@
             this.SoLuongCanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongDongBoSaaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoanThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.InputCodeNumber = new DesignUI.CuzUI.CuzTextBox();
             this.InputMaterialName = new DesignUI.CuzUI.CuzTextBox();
@@ -150,8 +158,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cuzButtonPurge = new DesignUI.CuzUI.CuzButton();
-            this.cuzPanel3 = new DesignUI.CuzUI.CuzPanel();
-            this.picLoading = new System.Windows.Forms.PictureBox();
             this.pnlJobInfomation = new DesignUI.CuzUI.RoundPanel();
             this.txtJobStatus = new DesignUI.CuzUI.CuzTextBox();
             this.lblJobStatus = new System.Windows.Forms.Label();
@@ -167,6 +173,8 @@
             this.lblCompareType = new System.Windows.Forms.Label();
             this.lblJobNameInfo = new DesignUI.CuzUI.CuzTextBox();
             this.lblJobName = new System.Windows.Forms.Label();
+            this.cuzPanel3 = new DesignUI.CuzUI.CuzPanel();
+            this.picLoading = new System.Windows.Forms.PictureBox();
             this.listBoxJobList = new DesignUI.CuzUI.CuzListBox();
             this.btnDelete = new DesignUI.CuzUI.CuzButton();
             this.btnNext = new DesignUI.CuzUI.CuzButton();
@@ -177,20 +185,16 @@
             this.lblRLinkSeries = new System.Windows.Forms.Label();
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.templatePrint = new DesignUI.CuzUI.CuzTextBox();
-            this.templatePrintTxt = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.jobName = new DesignUI.CuzUI.CuzTextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reprintGridView)).BeginInit();
             this.tblCompareType.SuspendLayout();
             this.tblJobType.SuspendLayout();
@@ -202,11 +206,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.pnlJobInfomation.SuspendLayout();
             this.cuzPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).BeginInit();
-            this.pnlJobInfomation.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // DragControl
@@ -419,6 +421,65 @@
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.jobName);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.templatePrintTxt);
+            this.panel2.Controls.Add(this.templatePrint);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
+            // jobName
+            // 
+            this.jobName._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.jobName._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.jobName.BackColor = System.Drawing.Color.White;
+            this.jobName.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.jobName.BorderFocusColor = System.Drawing.Color.Silver;
+            this.jobName.BorderRadius = 6;
+            this.jobName.BorderSize = 1;
+            resources.ApplyResources(this.jobName, "jobName");
+            this.jobName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.jobName.Multiline = false;
+            this.jobName.Name = "jobName";
+            this.jobName.PasswordChar = false;
+            this.jobName.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.jobName.PlaceholderText = "";
+            this.jobName.ReadOnly = false;
+            this.jobName.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Name = "label1";
+            // 
+            // templatePrintTxt
+            // 
+            resources.ApplyResources(this.templatePrintTxt, "templatePrintTxt");
+            this.templatePrintTxt.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.templatePrintTxt.Name = "templatePrintTxt";
+            // 
+            // templatePrint
+            // 
+            this.templatePrint._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.templatePrint._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.templatePrint.BackColor = System.Drawing.Color.White;
+            this.templatePrint.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.templatePrint.BorderFocusColor = System.Drawing.Color.Silver;
+            this.templatePrint.BorderRadius = 6;
+            this.templatePrint.BorderSize = 1;
+            resources.ApplyResources(this.templatePrint, "templatePrint");
+            this.templatePrint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.templatePrint.Multiline = false;
+            this.templatePrint.Name = "templatePrint";
+            this.templatePrint.PasswordChar = false;
+            this.templatePrint.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.templatePrint.PlaceholderText = "";
+            this.templatePrint.ReadOnly = false;
+            this.templatePrint.UnderlinedStyle = false;
+            // 
             // saveJobNutri
             // 
             this.saveJobNutri._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
@@ -442,36 +503,36 @@
             this.dgvItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.dgvItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(this.dgvItems, "dgvItems");
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(165)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItems.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(165)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItems.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvItems.EnableHeadersVisualStyles = false;
             this.dgvItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvItems.Name = "dgvItems";
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.RowTemplate.Height = 30;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -642,6 +703,65 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.cuzTextBox3);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.cuzTextBox4);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
+            // 
+            // cuzTextBox3
+            // 
+            this.cuzTextBox3._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.cuzTextBox3._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.cuzTextBox3.BackColor = System.Drawing.Color.White;
+            this.cuzTextBox3.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.cuzTextBox3.BorderFocusColor = System.Drawing.Color.Silver;
+            this.cuzTextBox3.BorderRadius = 6;
+            this.cuzTextBox3.BorderSize = 1;
+            resources.ApplyResources(this.cuzTextBox3, "cuzTextBox3");
+            this.cuzTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cuzTextBox3.Multiline = false;
+            this.cuzTextBox3.Name = "cuzTextBox3";
+            this.cuzTextBox3.PasswordChar = false;
+            this.cuzTextBox3.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.cuzTextBox3.PlaceholderText = "";
+            this.cuzTextBox3.ReadOnly = false;
+            this.cuzTextBox3.UnderlinedStyle = false;
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label8.Name = "label8";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label9.Name = "label9";
+            // 
+            // cuzTextBox4
+            // 
+            this.cuzTextBox4._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.cuzTextBox4._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.cuzTextBox4.BackColor = System.Drawing.Color.White;
+            this.cuzTextBox4.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.cuzTextBox4.BorderFocusColor = System.Drawing.Color.Silver;
+            this.cuzTextBox4.BorderRadius = 6;
+            this.cuzTextBox4.BorderSize = 1;
+            resources.ApplyResources(this.cuzTextBox4, "cuzTextBox4");
+            this.cuzTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cuzTextBox4.Multiline = false;
+            this.cuzTextBox4.Name = "cuzTextBox4";
+            this.cuzTextBox4.PasswordChar = false;
+            this.cuzTextBox4.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.cuzTextBox4.PlaceholderText = "";
+            this.cuzTextBox4.ReadOnly = false;
+            this.cuzTextBox4.UnderlinedStyle = false;
+            // 
             // saveJobReprint
             // 
             this.saveJobReprint._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
@@ -665,36 +785,36 @@
             this.reprintGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.reprintGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.reprintGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle34.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reprintGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reprintGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.reprintGridView, "reprintGridView");
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(165)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.reprintGridView.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(165)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.reprintGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.reprintGridView.EnableHeadersVisualStyles = false;
             this.reprintGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.reprintGridView.Name = "reprintGridView";
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.reprintGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reprintGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.reprintGridView.RowHeadersVisible = false;
             this.reprintGridView.RowTemplate.Height = 30;
             this.reprintGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -728,56 +848,6 @@
             resources.ApplyResources(this.label10, "label10");
             this.label10.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label10.Name = "label10";
-            // 
-            // cuzTextBox4
-            // 
-            this.cuzTextBox4._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.cuzTextBox4._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBox4.BackColor = System.Drawing.Color.White;
-            this.cuzTextBox4.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.cuzTextBox4.BorderFocusColor = System.Drawing.Color.Silver;
-            this.cuzTextBox4.BorderRadius = 6;
-            this.cuzTextBox4.BorderSize = 1;
-            resources.ApplyResources(this.cuzTextBox4, "cuzTextBox4");
-            this.cuzTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cuzTextBox4.Multiline = false;
-            this.cuzTextBox4.Name = "cuzTextBox4";
-            this.cuzTextBox4.PasswordChar = false;
-            this.cuzTextBox4.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.cuzTextBox4.PlaceholderText = "";
-            this.cuzTextBox4.ReadOnly = false;
-            this.cuzTextBox4.UnderlinedStyle = false;
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label9.Name = "label9";
-            // 
-            // cuzTextBox3
-            // 
-            this.cuzTextBox3._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.cuzTextBox3._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBox3.BackColor = System.Drawing.Color.White;
-            this.cuzTextBox3.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.cuzTextBox3.BorderFocusColor = System.Drawing.Color.Silver;
-            this.cuzTextBox3.BorderRadius = 6;
-            this.cuzTextBox3.BorderSize = 1;
-            resources.ApplyResources(this.cuzTextBox3, "cuzTextBox3");
-            this.cuzTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cuzTextBox3.Multiline = false;
-            this.cuzTextBox3.Name = "cuzTextBox3";
-            this.cuzTextBox3.PasswordChar = false;
-            this.cuzTextBox3.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.cuzTextBox3.PlaceholderText = "";
-            this.cuzTextBox3.ReadOnly = false;
-            this.cuzTextBox3.UnderlinedStyle = false;
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label8.Name = "label8";
             // 
             // numberOfCodes
             // 
@@ -1362,8 +1432,10 @@
             // 
             this.cbbHisFilterType.FormattingEnabled = true;
             this.cbbHisFilterType.Items.AddRange(new object[] {
+            resources.GetString("cbbHisFilterType.Items2"),
             resources.GetString("cbbHisFilterType.Items"),
-            resources.GetString("cbbHisFilterType.Items1")});
+            resources.GetString("cbbHisFilterType.Items1"),
+            });
             resources.ApplyResources(this.cbbHisFilterType, "cbbHisFilterType");
             this.cbbHisFilterType.Name = "cbbHisFilterType";
             // 
@@ -1380,7 +1452,8 @@
             this.MaSanPham,
             this.SoLuongCanXuat,
             this.SoLuongDongBoSaaS,
-            this.SoLuongDongBoSAP});
+            this.SoLuongDongBoSAP,
+            this.HoanThanh});
             resources.ApplyResources(this.dgvHistoryJob, "dgvHistoryJob");
             this.dgvHistoryJob.Name = "dgvHistoryJob";
             this.dgvHistoryJob.ReadOnly = true;
@@ -1426,6 +1499,13 @@
             resources.ApplyResources(this.SoLuongDongBoSAP, "SoLuongDongBoSAP");
             this.SoLuongDongBoSAP.Name = "SoLuongDongBoSAP";
             this.SoLuongDongBoSAP.ReadOnly = true;
+            // 
+            // SoLuongDongBoSAP
+            // 
+            resources.ApplyResources(this.HoanThanh, "HoanThanh");
+            this.HoanThanh.Name = "HoanThanh";
+            this.HoanThanh.HeaderText = "Hoàn Thành";
+            this.HoanThanh.ReadOnly = true;
             // 
             // tabPage5
             // 
@@ -1677,27 +1757,6 @@
             this.cuzButtonPurge.TextColor = System.Drawing.Color.White;
             this.cuzButtonPurge.UseVisualStyleBackColor = false;
             // 
-            // cuzPanel3
-            // 
-            this.cuzPanel3._BorderColor = System.Drawing.Color.Silver;
-            this.cuzPanel3._BorderRadius = 10;
-            this.cuzPanel3._BorderSize = 1;
-            this.cuzPanel3._Corner = 0F;
-            this.cuzPanel3._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cuzPanel3._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.cuzPanel3._GradientPanel = false;
-            this.cuzPanel3.Controls.Add(this.picLoading);
-            this.cuzPanel3.Controls.Add(this.listBoxJobList);
-            resources.ApplyResources(this.cuzPanel3, "cuzPanel3");
-            this.cuzPanel3.Name = "cuzPanel3";
-            // 
-            // picLoading
-            // 
-            resources.ApplyResources(this.picLoading, "picLoading");
-            this.picLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
-            this.picLoading.Name = "picLoading";
-            this.picLoading.TabStop = false;
-            // 
             // pnlJobInfomation
             // 
             this.pnlJobInfomation.BackColor = System.Drawing.Color.Transparent;
@@ -1901,6 +1960,27 @@
             this.lblJobName.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblJobName.Name = "lblJobName";
             // 
+            // cuzPanel3
+            // 
+            this.cuzPanel3._BorderColor = System.Drawing.Color.Silver;
+            this.cuzPanel3._BorderRadius = 10;
+            this.cuzPanel3._BorderSize = 1;
+            this.cuzPanel3._Corner = 0F;
+            this.cuzPanel3._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cuzPanel3._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.cuzPanel3._GradientPanel = false;
+            this.cuzPanel3.Controls.Add(this.picLoading);
+            this.cuzPanel3.Controls.Add(this.listBoxJobList);
+            resources.ApplyResources(this.cuzPanel3, "cuzPanel3");
+            this.cuzPanel3.Name = "cuzPanel3";
+            // 
+            // picLoading
+            // 
+            resources.ApplyResources(this.picLoading, "picLoading");
+            this.picLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
+            this.picLoading.Name = "picLoading";
+            this.picLoading.TabStop = false;
+            // 
             // listBoxJobList
             // 
             this.listBoxJobList._BackEnableSelectedColor = System.Drawing.Color.LightGray;
@@ -2027,74 +2107,6 @@
             this.lblStandalone.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblStandalone.Name = "lblStandalone";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.jobName);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.templatePrintTxt);
-            this.panel2.Controls.Add(this.templatePrint);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            // 
-            // templatePrint
-            // 
-            this.templatePrint._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.templatePrint._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.templatePrint.BackColor = System.Drawing.Color.White;
-            this.templatePrint.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.templatePrint.BorderFocusColor = System.Drawing.Color.Silver;
-            this.templatePrint.BorderRadius = 6;
-            this.templatePrint.BorderSize = 1;
-            resources.ApplyResources(this.templatePrint, "templatePrint");
-            this.templatePrint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.templatePrint.Multiline = false;
-            this.templatePrint.Name = "templatePrint";
-            this.templatePrint.PasswordChar = false;
-            this.templatePrint.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.templatePrint.PlaceholderText = "";
-            this.templatePrint.ReadOnly = false;
-            this.templatePrint.UnderlinedStyle = false;
-            // 
-            // templatePrintTxt
-            // 
-            resources.ApplyResources(this.templatePrintTxt, "templatePrintTxt");
-            this.templatePrintTxt.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.templatePrintTxt.Name = "templatePrintTxt";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Name = "label1";
-            // 
-            // jobName
-            // 
-            this.jobName._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.jobName._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.jobName.BackColor = System.Drawing.Color.White;
-            this.jobName.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.jobName.BorderFocusColor = System.Drawing.Color.Silver;
-            this.jobName.BorderRadius = 6;
-            this.jobName.BorderSize = 1;
-            resources.ApplyResources(this.jobName, "jobName");
-            this.jobName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.jobName.Multiline = false;
-            this.jobName.Name = "jobName";
-            this.jobName.PasswordChar = false;
-            this.jobName.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.jobName.PlaceholderText = "";
-            this.jobName.ReadOnly = false;
-            this.jobName.UnderlinedStyle = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.cuzTextBox3);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.cuzTextBox4);
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
             // frmJobNutri
             // 
             resources.ApplyResources(this, "$this");
@@ -2110,11 +2122,15 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reprintGridView)).EndInit();
             this.tblCompareType.ResumeLayout(false);
             this.tblCompareType.PerformLayout();
@@ -2130,14 +2146,10 @@
             this.tabPage5.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.cuzPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picLoading)).EndInit();
             this.pnlJobInfomation.ResumeLayout(false);
             this.pnlJobInfomation.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.cuzPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2267,6 +2279,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongCanXuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSaaS;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoanThanh;
         private System.Windows.Forms.TabPage tabPage5;
         private DesignUI.CuzUI.CuzButton saveJobNutriOffline;
         private DesignUI.CuzUI.CuzTextBox InputShipto;

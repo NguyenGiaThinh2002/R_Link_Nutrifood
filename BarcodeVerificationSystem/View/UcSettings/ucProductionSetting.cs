@@ -48,8 +48,9 @@ namespace BarcodeVerificationSystem.View.UcSettings
             maskData.Checked = Shared.Settings.MaskData;
             lineName.Text = Shared.Settings.LineName;
             factoryCode.Text = Shared.Settings.FactoryCode;
-            LineId.Text = Shared.Settings.RLinkId;
+            LineId.Text = Shared.Settings.LineId;
             lineIndexTextBox.Text = Shared.Settings.LineIndex.ToString();
+            RLinkName.Text = Shared.Settings.RLinkName;
 
             //maskData.Enabled = !Shared.UserPermission.isOnline;
             onlineProductionSettings.Enabled = !Shared.UserPermission.isOnline;
@@ -64,6 +65,7 @@ namespace BarcodeVerificationSystem.View.UcSettings
             dispatchingRad.CheckedChanged += AdjustData; 
             maskData.CheckedChanged += AdjustData;
             lineName.TextChanged += AdjustData;
+            RLinkName.TextChanged += AdjustData;
             factoryCode.TextChanged += AdjustData;
             LineId.TextChanged += AdjustData;
             lineIndexTextBox.TextChanged += AdjustData;
@@ -88,9 +90,11 @@ namespace BarcodeVerificationSystem.View.UcSettings
                     else if (tb == factoryCode)
                         Shared.Settings.FactoryCode = tb.Text;
                     else if (tb == LineId)
-                        Shared.Settings.RLinkId = tb.Text;
+                        Shared.Settings.LineId = tb.Text;
                     else if (tb == lineIndexTextBox)
                         Shared.Settings.LineIndex = int.Parse(tb.Text);
+                    else if (tb == RLinkName)
+                        Shared.Settings.RLinkName = tb.Text;
                     break;
                 //case ComboBox cb:
                 //    if (cb == comboBoxRLinkId)

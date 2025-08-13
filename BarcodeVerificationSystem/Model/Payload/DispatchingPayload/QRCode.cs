@@ -8,7 +8,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
 {
     internal class QrCode
     {
-        public int id { get; set; }
+        public int index_qr_code { get; set; }
         public string unique_code { get; set; }
         public string qr_code { get; set; }
         public string job_name { get; set; }

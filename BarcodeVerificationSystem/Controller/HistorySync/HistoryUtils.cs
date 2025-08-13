@@ -12,11 +12,6 @@ namespace BarcodeVerificationSystem.Controller.HistorySync
     {
         public static void CustomDataGridView(DataGridView dgv)
         {
-            //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //dgv.DefaultCellStyle.SelectionBackColor = Color.SteelBlue;
-            //dgv.DefaultCellStyle.SelectionForeColor = Color.White;
-
             dgv.Columns["STT"].Width = 50;
             dgv.Columns["MaCongViec"].Width = 300;
             dgv.Columns["MaPhieuSoanHang"].Width = 180;
@@ -24,15 +19,13 @@ namespace BarcodeVerificationSystem.Controller.HistorySync
             dgv.Columns["SoLuongCanXuat"].Width = 120;
             dgv.Columns["SoLuongDongBoSaaS"].Width = 150;
             dgv.Columns["SoLuongDongBoSAP"].Width = 150;
-
+            dgv.Columns["HoanThanh"].Width = 150;
 
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#D3D3D3");
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             dgv.ClearSelection();
             dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv.ColumnHeadersDefaultCellStyle.BackColor;
-            //  dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F0F0F0");
-            // dgv.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
 
             // Column behavior
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
@@ -48,8 +41,6 @@ namespace BarcodeVerificationSystem.Controller.HistorySync
 
             // Header style
             dgv.EnableHeadersVisualStyles = false;
-          //  dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
-           // dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
 
             // Row style

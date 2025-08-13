@@ -58,7 +58,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
             try
             {
                 //var items = JsonConvert.DeserializeObject<List<JToken>>(Shared.Settings.JTokenDispatchingItemsJson);
-                var items = Shared.Settings.DispatchingOrderPayload.payload.item;
+                var items = Shared.Settings.DispatchingOrderPayload.payload.items;
 
 
                 if (items != null)
@@ -166,45 +166,45 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
             try
             {
-                string apiUrl = DispatchingApis.GetOrderInfoUrl(orderId);
+                //string apiUrl = DispatchingApis.GetOrderInfoUrl(orderId);
 
-                var response = await _httpClient.GetAsync(apiUrl);
-                response.EnsureSuccessStatusCode();
+                //var response = await _httpClient.GetAsync(apiUrl);
+                //response.EnsureSuccessStatusCode();
 
-                var loginPayload = JsonConvert.DeserializeObject<ResponseOrder>(await response.Content.ReadAsStringAsync());
-                Shared.Settings.DispatchingOrderPayload = loginPayload;
+                //var loginPayload = JsonConvert.DeserializeObject<ResponseOrder>(await response.Content.ReadAsStringAsync());
+                //Shared.Settings.DispatchingOrderPayload = loginPayload;
 
-                // Populate DataGridView with items  
-                dgvItems.Rows.Clear();
-                var items = loginPayload?.payload?.item.ToList();
-                Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
-                Shared.Settings.OrderId = wmsNumber.Text;
+                //// Populate DataGridView with items  
+                //dgvItems.Rows.Clear();
+                //var items = loginPayload?.payload?.items.ToList();
+                //Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
+                //Shared.Settings.OrderId = wmsNumber.Text;
 
-                waveKey.Text = loginPayload.payload.wave_key;
-                shipment.Text = loginPayload.payload.shipment;
-                shiptoCode.Text = loginPayload.payload.shipto_code;
+                //waveKey.Text = loginPayload.payload.wave_key;
+                //shipment.Text = loginPayload.payload.shipment;
+                //shiptoCode.Text = loginPayload.payload.shipto_code;
 
-                if (items != null)
-                {
-                    foreach (var item in items)
-                    {
-                        dgvItems.Rows.Add(
-                            item.material_number?.ToString(),
-                            item.material_name?.ToString(),
-                            item.material_group?.ToString(),
-                            item.uom?.ToString(),
-                            item.qty_per_pallet.ToString(),
-                            item.qty.ToString(),
-                            item.qty_per_carton.ToString(),
-                            item.cube.ToString()
-                        //item.total_qty_ctn.ToString(),
-                        //item.gross_wgt.ToString(),
+                //if (items != null)
+                //{
+                //    foreach (var item in items)
+                //    {
+                //        dgvItems.Rows.Add(
+                //            item.material_number?.ToString(),
+                //            item.material_name?.ToString(),
+                //            item.material_group?.ToString(),
+                //            item.uom?.ToString(),
+                //            item.qty_per_pallet.ToString(),
+                //            item.qty.ToString(),
+                //            item.qty_per_carton.ToString(),
+                //            item.cube.ToString()
+                //        //item.total_qty_ctn.ToString(),
+                //        //item.gross_wgt.ToString(),
 
-                        );
-                    }
-                }
+                //        );
+                //    }
+                //}
 
-                btnGenerate.Enabled = dgvItems.Rows.Count > 0;
+                //btnGenerate.Enabled = dgvItems.Rows.Count > 0;
             }
             catch (Exception ex)
             {
@@ -303,7 +303,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 string[] fields = list[i].Split(',');
                 var t = new QrCode
                 {
-                    id = i + 1,
+                    index_qr_code = i + 1,
                     unique_code = fields[0],
                     qr_code = fields[1],
                     job_name = jobName
@@ -311,50 +311,50 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 qrCodes.Add(t);
             }
 
-            var request = new RequestBasedData
-            {
-                wms_number = payload.wms_number,
-                job_name = jobName,
-                material_number = materialNumber,
-                wave_key = payload.wave_key,
-                first_index = Shared.FirstGeneratedCodeIndex.ToString(),
-                last_index = Shared.LastGeneratedCodeIndex.ToString(),
-                qrCodes = qrCodes,
-            };
-            string url = DispatchingApis.GetSendGeneratedCodesUrl();
+            //var request = new RequestBasedData
+            //{
+            //    wms_number = payload.wms_number,
+            //    job_name = jobName,
+            //    material_number = materialNumber,
+            //    wave_key = payload.wave_key,
+            //    first_index = Shared.FirstGeneratedCodeIndex.ToString(),
+            //    last_index = Shared.LastGeneratedCodeIndex.ToString(),
+            //    qrCodes = qrCodes,
+            //};
+            //string url = DispatchingApis.GetSendGeneratedCodesUrl();
 
-            await SendAsync(request, url);
+            //await SendAsync(request, url);
 
             //string url = DispatchingApis.GetSendGeneratedCodesUrl();
             //var apiService = new ApiService();
             //var isResponsed = await apiService.PostApiDataAsync(url, request);
             //apiService.Dispose();
         }
-        private async Task SendAsync(RequestBasedData data, string url)
-        {
+        //private async Task SendAsync(RequestBasedData data, string url)
+        //{
 
-            var client = new HttpClient();
+        //    var client = new HttpClient();
 
-            var json = JsonConvert.SerializeObject(data);
-            var bytes = Encoding.UTF8.GetBytes(json);
+        //    var json = JsonConvert.SerializeObject(data);
+        //    var bytes = Encoding.UTF8.GetBytes(json);
 
-            using (var ms = new MemoryStream())
-            {
-                using (var gzip = new GZipStream(ms, CompressionMode.Compress))
-                {
-                    gzip.Write(bytes, 0, bytes.Length);
-                }
+        //    using (var ms = new MemoryStream())
+        //    {
+        //        using (var gzip = new GZipStream(ms, CompressionMode.Compress))
+        //        {
+        //            gzip.Write(bytes, 0, bytes.Length);
+        //        }
 
-                var compressedBytes = ms.ToArray();
-                var content = new ByteArrayContent(compressedBytes);
-                content.Headers.ContentEncoding.Add("gzip");
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        //        var compressedBytes = ms.ToArray();
+        //        var content = new ByteArrayContent(compressedBytes);
+        //        content.Headers.ContentEncoding.Add("gzip");
+        //        content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                var response = await client.PostAsync(url, content);
-                var responseText = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(responseText);
-            }
-        }
+        //        var response = await client.PostAsync(url, content);
+        //        var responseText = await response.Content.ReadAsStringAsync();
+        //        Console.WriteLine(responseText);
+        //    }
+        //}
 
         private byte[] Compress(string input)
         {

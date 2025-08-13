@@ -15,15 +15,15 @@ namespace BarcodeVerificationSystem.Labels.DevModeLabel
         }
         public enum LoginLabel
         {
+            OperatorOnlineMode,
+            OperatorOfflineMode,
+            SupportOfflineMode,
             AdminOfflineMode,
             AdminOnlineMode,
-            SupportOfflineMode,
-            OperatorOfflineMode,
-            OperatorOnlineMode,
         }
+        private static LoginLabel _labelType = LoginLabel.OperatorOnlineMode;
+
         private static DevModeLabel _devMode = DevModeLabel.OnDevMode;
-        private static LoginLabel _labelType = LoginLabel.SupportOfflineMode;
-        //public static LabelType ProjectType { get => _labelType; set => _labelType = value; }
         public static bool IsDevMode => _devMode == DevModeLabel.OnDevMode;
         public static LoginLabel LabelType => _labelType;
     }

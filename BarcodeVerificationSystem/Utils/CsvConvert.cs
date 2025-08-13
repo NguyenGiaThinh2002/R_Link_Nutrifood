@@ -34,5 +34,32 @@ namespace BarcodeVerificationSystem.Utils
                 Console.WriteLine($"Error writing to CSV file: {ex.Message}");
             }
         }
+
+        public static List<string> ReadStringListFromCsv(string filePath)
+        {
+            var result = new List<string>();
+
+            try
+            {
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        // If you later decide to handle quoted values:
+                        // line = line.Trim('"').Replace("\"\"", "\"");
+
+                        result.Add(line);
+                    }
+                }
+                Console.WriteLine($"Successfully read list from {filePath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading CSV file: {ex.Message}");
+            }
+
+            return result;
+        }
     }
 }

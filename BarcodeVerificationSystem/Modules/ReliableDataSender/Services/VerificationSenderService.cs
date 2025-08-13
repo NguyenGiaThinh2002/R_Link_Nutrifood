@@ -50,7 +50,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     ""qr_code"": ""{entry.Code}"",
                     ""plant"": ""{Shared.Settings.FactoryCode}"",
                     ""wms_number"": ""{Shared.Settings.WmsNumber}"",
-                    ""resource_code"": ""{Shared.Settings.RLinkId}"",
+                    ""resource_code"": ""{Shared.Settings.LineId}"",
                     ""resource_name"": ""{Shared.Settings.LineName}"",
                     ""printed_date"": ""{entry.VerifiedDate}"",
                     ""status"": ""{entry.VerifiedStatus}""

@@ -62,6 +62,8 @@ using BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess;
 using static BarcodeVerificationSystem.Model.SyncDataParams;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
 using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using BarcodeVerificationSystem.Model.UserInfo;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -661,7 +663,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 // thinh dang lam
                 var payloadJob = _SelectedJob?.DispatchingOrderPayload?.payload;
                 wmsNumber.Text = payloadJob?.wms_number;
-                materialNumber.Text = payloadJob?.item[_SelectedJob.SelectedMaterialIndex].material_number;
+                materialNumber.Text = payloadJob?.items[_SelectedJob.SelectedMaterialIndex].material_number;
 
                 DispatchingActionsPanel.Visible = Shared.UserPermission.isOnline;
                
@@ -1920,7 +1922,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             Shared.RaiseOnOperationStatusChangeEvent(Shared.OperStatus);
             EnableUIComponent(Shared.OperStatus);
 
-            //CheckCodeOutOfThreshold(backupResponseToken);
+            CheckCodeOutOfThreshold(backupResponseToken);
             //SendParametersToServerAsync(uiPrintedResponseToken);
             //AutoTriggerCamera(uiPrintedResponseToken);
             //  _ParentForm.ISCamera.StartGetData(); // Start get data from OCR camera
@@ -1945,7 +1947,17 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                 try
                 {
-                    var currentPrintedCodeInfo = await apiService.GetApiWithModel<ResponseCurrentPrintedCodeInfo>(url);
+                    var payload = Shared.CurrentJob?.DispatchingOrderPayload.payload;
+
+                    var CheckCodeAmount = new RequestCheckCodeAmount()
+                    {
+                        job_name = Shared.CurrentJob?.FileName,
+                        wave_key = payload?.wave_key,
+                        wms_number = payload?.wms_number,
+                        material_number = payload?.items[Shared.CurrentJob.SelectedMaterialIndex].material_number,
+                        username = CurrentUser.UserCode
+                    };
+                    var currentPrintedCodeInfo = await apiService.PostApiDataAsync<ResponseCurrentPrintedCodeInfo>(url, CheckCodeAmount);
                     if (currentPrintedCodeInfo.is_exceed)
                     {
                         CustomMessageBox.Show("Do you want to stop process ? \n Code out of threshold" +
@@ -2761,19 +2773,21 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
                                                                  : DispatchingApis.GetPrintedDataUrl();
 
+                if (Shared.PrintMode.IsReprintMode)
+                {
+                    url = DispatchingApis.GetSendReprintCodesUrl();
+                }
+
                 if (!Directory.Exists(CommVariables.PathSentDataPrinted))
                 {
                     Directory.CreateDirectory(CommVariables.PathSentDataPrinted);
                 }
 
-                if (ProjectLabel.IsNutrifood)
-                {
-                    // thinh dang lam    
-                    string dataPath = _SelectedJob.DirectoryDatabase;
-                    if (_printedDataProcess != null) _printedDataProcess.Stop();
-                    _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
-                    _printedDataProcess.Start();
-                }
+                string dataPath = _SelectedJob.DirectoryDatabase;
+                if (_printedDataProcess != null) _printedDataProcess.Stop();
+                _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
+                _printedDataProcess.Start();
+
                 while (true)
                 {
                     // Only stop if handled all data

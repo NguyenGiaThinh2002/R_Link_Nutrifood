@@ -21,6 +21,13 @@ namespace BarcodeVerificationSystem.Model
         private string _printTemplate = "";
         public string PrintTemplate { get => _printTemplate; set => _printTemplate = value; }
 
+        private string _RLinkName = "";
+        public string RLinkName
+        {
+            get { return _RLinkName; }
+            set { _RLinkName = value; }
+        }
+
         public int TotalLines = 14;
         public int LineIndex = 0;
 
@@ -147,7 +154,7 @@ namespace BarcodeVerificationSystem.Model
 
         private string _RLinkId = "";
 
-        public string RLinkId
+        public string LineId
         {
             get { return _RLinkId; }
             set { _RLinkId = value; }

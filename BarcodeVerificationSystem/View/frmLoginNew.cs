@@ -45,8 +45,6 @@ namespace BarcodeVerificationSystem.View
             InitEvent();
             SetLanguage();
 
-            //MonitorSenderService.SendParametersToServer();
-
 
             if (DevMode.IsDevMode)
             {
@@ -214,21 +212,21 @@ namespace BarcodeVerificationSystem.View
                         {
                             if (Shared.Settings.IsProductionMode && ProjectLabel.IsNutrifood)
                             {
-                                Shared.UserPermission = await service.GetPermissionsAsync(username, password);
-                                Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
+                                //Shared.UserPermission = await service.GetPermissionsAsync(username, password);
+                                //Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
 
-                                var t = Shared.UserPermission.OnlineUserModel.ma_quyen;
+                                //var t = Shared.UserPermission.OnlineUserModel.ma_quyen;
 
-                                if (Shared.UserPermission == null)
-                                {
-                                    isOnlineAccountOK = false;
-                                }
-                                else
-                                {
-                                    Shared.UserPermission.isOnline = isOnlineAccountOK = true;
-                                    Shared.Settings.IsManufacturingMode = Shared.UserPermission.ManufacturingMode;
-                                    Shared.SaveSettings();
-                                }
+                                //if (Shared.UserPermission == null)
+                                //{
+                                //    isOnlineAccountOK = false;
+                                //}
+                                //else
+                                //{
+                                //    Shared.UserPermission.isOnline = isOnlineAccountOK = true;
+                                //    Shared.Settings.IsManufacturingMode = Shared.UserPermission.ManufacturingMode;
+                                //    Shared.SaveSettings();
+                                //}
                                 //var text = string.Join(Environment.NewLine,
                                 //                        Shared.UserPermission.Permissions.Select(p => $"{p.Key} = {p.Value}"));
                                 //MessageBox.Show(text);

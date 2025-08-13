@@ -36,7 +36,7 @@ namespace BarcodeVerificationSystem.Services
                         var monitor = new MonitorPayload
                         {
                             plant = settings.FactoryCode,
-                            resource_code = settings.RLinkId,
+                            resource_code = settings.LineId,
                             resource_name = settings.LineName,
                             ip_address_rlink = GetLocalIPv4Address(),
                             is_running = Shared.OperStatus == Model.OperationStatus.Running,
@@ -47,7 +47,7 @@ namespace BarcodeVerificationSystem.Services
                             timestamp = DateTime.Now
                         };
 
-                        await apiService.PostApiDataAsync(url, monitor);
+                        var res = await apiService.PostApiDataAsync(url, monitor);
                     }
                     catch (Exception)
                     {

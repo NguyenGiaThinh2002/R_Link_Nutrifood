@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using UILanguage;
 using BarcodeVerificationSystem.View.CustomDialogs;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
+using Newtonsoft.Json;
 
 namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 {
@@ -65,22 +66,18 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
         private async void BtnDispose_Click(object sender, EventArgs e)
         {
             var apiService = new ApiService();
-            //await apiService.PostApiDataAsync(ReprintCodesUrl, reprintItems);
-            //using (var apiService = new ApiService())
-            //}
 
             try
             {
-
                 string DisposedCodesUrl = DispatchingApis.GetDestroyCodesUrl();
-
                 DateTime now = DateTime.Now;
                 disposedItems.ForEach(item => { item.destroy_date = now; item.notes = notes; });
-                //disposedItems.ForEach(item => item.notes = notes);
                 var request = new RequestListDisposal
                 {
-                    qrCodes = disposedItems
+                    qrcodes = disposedItems
                 };
+                string json = JsonConvert.SerializeObject(request);
+                Console.WriteLine(json);
 
                 var ResponseDisposal = await apiService.PostApiDataAsync<ResponseDisposal>(DisposedCodesUrl, request);
 
@@ -90,16 +87,16 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
                     NumberOfSuccess.Text = ResponseDisposal.destroyed_qty.ToString();
                     NumberOfFailed.Text = (disposedItems.Count - ResponseDisposal.destroyed_qty).ToString();
 
-                    CustomMessageBox.Show("Reprint dispose sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CustomMessageBox.Show("Hủy mã thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    CustomMessageBox.Show("Failed to send dispose request. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CustomMessageBox.Show(ResponseDisposal.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                CustomMessageBox.Show("Failed to send dispose request. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CustomMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

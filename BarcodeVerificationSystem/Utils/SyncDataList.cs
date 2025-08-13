@@ -19,54 +19,43 @@ namespace BarcodeVerificationSystem.Utils
         public int SoLuongCanXuat { get; set; }
         public int SoLuongDongBoSaaS { get; set; }
         public int SoLuongDongBoSAP { get; set; }
+        public bool Hoanthanh { get; set; }
 
         public static List<SyncDataList> ReturnSyncDataList(List<string> _JobNameList)
         {
-            //string folderPath = CommVariables.PathJobsApp;
-            //if (!Directory.Exists(folderPath))
-            //{
-            //    Directory.CreateDirectory(folderPath);
-            //}
-
-            List<SyncDataList> rows = new List<SyncDataList>();
-            foreach (var x in _JobNameList)
+            try
             {
-                JobModel CurrentJob = Shared.GetJob(x);
-                var payload = CurrentJob.DispatchingOrderPayload.payload;
-
-                rows.Add(new SyncDataList
+                List<SyncDataList> rows = new List<SyncDataList>();
+                foreach (var x in _JobNameList)
                 {
-                    STT = 1,
-                    MaCongViec = x,
-                    MaPhieuSoanHang = payload?.wms_number,
-                    MaSanPham = payload?.item[CurrentJob.SelectedMaterialIndex].material_number,
-                    SoLuongCanXuat = CurrentJob.NumberOfPrintedCodes,
-                    SoLuongDongBoSaaS = CurrentJob.NumberOfSaaSSentCodes,
-                    SoLuongDongBoSAP = CurrentJob.NumberOfSAPSentCodes
-                });
+                    JobModel CurrentJob = Shared.GetJob(x);
+                    var payload = CurrentJob.DispatchingOrderPayload.payload;
+
+                    rows.Add(new SyncDataList
+                    {
+                        STT = 1,
+                        MaCongViec = x,
+                        MaPhieuSoanHang = payload?.wms_number,
+                        MaSanPham = (payload?.items != null
+                                                     && CurrentJob.SelectedMaterialIndex >= 0
+                                                     && CurrentJob.SelectedMaterialIndex < payload.items.Count)
+                                                    ? payload.items[CurrentJob.SelectedMaterialIndex]?.material_number
+                                                    : "null",
+                        SoLuongCanXuat = CurrentJob.NumberOfPrintedCodes,
+                        SoLuongDongBoSaaS = CurrentJob.NumberOfSaaSSentCodes,
+                        SoLuongDongBoSAP = CurrentJob.NumberOfSAPSentCodes,
+                        Hoanthanh = CurrentJob.NumberOfPrintedCodes == CurrentJob.NumberOfSAPSentCodes
+                    });
+                }
+
+                return rows;
             }
-
-            return rows;
-        }
-        public static List<SyncDataList> ReturnSyncDataListOld(List<string> _JobNameList)
-        {
-
-            List<SyncDataList> rows = new List<SyncDataList>();
-            foreach (var x in _JobNameList)
+            catch (Exception ex)
             {
-                rows.Add(new SyncDataList
-                {
-                    STT = 1,
-                    MaCongViec = x,
-                    MaPhieuSoanHang = "...",
-                    MaSanPham = "...",
-                    SoLuongCanXuat = 0,
-                    SoLuongDongBoSaaS = 0,
-                    SoLuongDongBoSAP = 5
-                });
+                Console.WriteLine("Error: " + ex);
             }
-
-            return rows;
+            return null;
+            
         }
     }
 }

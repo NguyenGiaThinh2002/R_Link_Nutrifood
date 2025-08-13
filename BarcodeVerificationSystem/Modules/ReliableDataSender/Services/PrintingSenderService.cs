@@ -18,6 +18,7 @@ using System.Windows;
 using BarcodeVerificationSystem.Model;
 using CommonVariable;
 using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
+using BarcodeVerificationSystem.Model.Apis.Dispatching;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -52,13 +53,11 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
         {
             try
             {
-                //MessageBox.Show("Shared.CurrentJob.FileName: " + Shared.CurrentJob.FileName);
-                string JobName = Shared.CurrentJob.FileName;
                 string filePath = CommVariables.PathJobsApp + Shared.CurrentJob.FileName + Shared.Settings.JobFileExtension;
 
                 var printedContent = new object();
 
-                if (Shared.PrintingMode.IsPrintingMode || Shared.PrintingMode.IsPrintingModeOffline)
+                if (Shared.PrintMode.IsPrintingMode || Shared.PrintMode.IsPrintingModeOffline)
                 {
                     printedContent = new RequestPrinted
                     {
@@ -66,18 +65,21 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         qr_code = entry.Code,
                         unique_code = entry.UniqueCode, // entry.HumanCode
                         printed_date = DateTime.Parse(entry.PrintedDate),
-                        //status = entry.PrintedStatus ?? "Printed",
-                        job_name = JobName,
+                        shipto_name = Shared.CurrentJob.DispatchingOrderPayload.payload.shipto_name,  // 
+                        shipto_code = Shared.CurrentJob.DispatchingOrderPayload.payload.shipto_code, // 
+                        resource_code = Shared.Settings.LineId,
+                        resource_name = Shared.Settings.LineName,
                     };
                 }
                
-                if(Shared.PrintingMode.IsReprintMode)
+                if(Shared.PrintMode.IsReprintMode)
                 {
                     printedContent = new RequestRePrint
                     {
                         qr_code = entry.Code,
                         unique_code = entry.UniqueCode, // entry.HumanCode
                         scan_date = DateTime.Parse(entry.PrintedDate),
+
                     };
                 }
 
@@ -93,8 +95,8 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     response.EnsureSuccessStatusCode();
                     var ResponsePrinted = JsonConvert.DeserializeObject<ResponsePrinted>(await response.Content.ReadAsStringAsync());
 
-                    entry.SaasStatus = ResponsePrinted.isSuccessed ? "success" : "failed";
-                    entry.SAPStatus = ResponsePrinted.sap_isSuccessed ? "success" : "failed";
+                    entry.SaasStatus = ResponsePrinted.is_success ? "success" : "failed";
+                    entry.SAPStatus = ResponsePrinted.is_sucess_sap ? "success" : "failed";
                     entry.SaasError = ResponsePrinted.message;
                     entry.SAPError = ResponsePrinted.sap_message;
 
@@ -102,14 +104,14 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
                     Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
 
-                    if (ResponsePrinted.isSuccessed)
+                    if (ResponsePrinted.is_success)
                     {
                         Shared.CurrentJob.NumberOfSaaSSentCodes++;
                         Shared.CurrentJob.SaveFile(filePath); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
                         Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
-                    if (ResponsePrinted.sap_isSuccessed)
+                    if (ResponsePrinted.is_sucess_sap)
                     {
                         Shared.CurrentJob.NumberOfSAPSentCodes++;
                         Shared.CurrentJob.SaveFile(filePath);

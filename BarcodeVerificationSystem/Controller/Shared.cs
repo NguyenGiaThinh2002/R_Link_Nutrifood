@@ -50,11 +50,16 @@ namespace BarcodeVerificationSystem.Controller
         // shared models
         // Dispatching
         internal static ResponseListRePrint ResponseListRePrint = new ResponseListRePrint();
-        internal static PrintingMode PrintingMode = new PrintingMode();
+        internal static PrintingMode PrintMode = new PrintingMode();
         public static int FirstGeneratedCodeIndex = 0;
         public static int LastGeneratedCodeIndex = 0;
 
-
+        public enum HistoryFilter{
+            All,
+            Finished,
+            NotFinished,
+        }
+        
         #endregion Variables
 
         #region Events

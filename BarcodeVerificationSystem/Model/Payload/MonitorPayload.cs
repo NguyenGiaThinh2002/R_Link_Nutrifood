@@ -1,4 +1,5 @@
-﻿using BarcodeVerificationSystem.Model.UserInfo;
+﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model.UserInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,12 @@ namespace BarcodeVerificationSystem.Model.Payload
     internal class MonitorPayload
     {
         public string plant { get; set; }
+        public string device_name { get; set; } = Shared.Settings.RLinkName;
         public string resource_code { get; set; }
         public string resource_name { get; set; }
         public string ip_address_rlink { get; set; }
         public bool is_running { get; set; }
-        public string username { get; set; } = CurrentUser.UserName;
+        public string username { get; set; } = "user031"; //  CurrentUser.UserCode
         public string ip_address_printer { get; set; }
         public string ip_address_camera { get; set; }
         public bool is_printer_connected { get; set; }

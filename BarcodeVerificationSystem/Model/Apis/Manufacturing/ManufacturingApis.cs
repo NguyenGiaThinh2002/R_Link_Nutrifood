@@ -11,7 +11,7 @@ namespace BarcodeVerificationSystem.Model.Apis.Manufacturing
     {
         static string url = Shared.Settings.ApiUrl;
         static string productionMode = Shared.Settings.IsManufacturingMode ? "manufacturing" : "dispatching";
-        static string rLinkId = Shared.Settings.RLinkId;
+        static string rLinkId = Shared.Settings.LineId;
         static string orderId = Shared.Settings.OrderId;
 
         private static string _getOrderInfoUrl = $"{url}/getOrder/{orderId}";

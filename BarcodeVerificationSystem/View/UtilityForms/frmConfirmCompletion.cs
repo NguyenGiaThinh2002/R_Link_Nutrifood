@@ -40,8 +40,8 @@ namespace BarcodeVerificationSystem.View.UtilityForms
         private void InitControls()
         {
             wmsNumber.Text = _jobModel.DispatchingOrderPayload.payload.wms_number;
-            materialID.Text = _jobModel.DispatchingOrderPayload.payload.item[_jobModel.SelectedMaterialIndex].material_number;
-            materialName.Text = _jobModel.DispatchingOrderPayload.payload.item[_jobModel.SelectedMaterialIndex].material_name;
+            materialID.Text = _jobModel.DispatchingOrderPayload.payload.items[_jobModel.SelectedMaterialIndex].material_number;
+            materialName.Text = _jobModel.DispatchingOrderPayload.payload.items[_jobModel.SelectedMaterialIndex].material_name;
         }
 
         private async void btnConfirmCompletion_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms
                 {
                     wms_number = _jobModel.DispatchingOrderPayload.payload.wms_number,
                     wave_key = _jobModel.DispatchingOrderPayload.payload.wave_key,
-                    material_number = _jobModel.DispatchingOrderPayload.payload.item[_jobModel.SelectedMaterialIndex].material_number,
+                    material_number = _jobModel.DispatchingOrderPayload.payload.items[_jobModel.SelectedMaterialIndex].material_number,
                     actual_quantity = int.Parse(numberOfCodes.Text),
                     notes = note.Text,
                     confirm_type = Shared.Settings.IsManufacturingMode ? "Loyalty" : "Shipment",

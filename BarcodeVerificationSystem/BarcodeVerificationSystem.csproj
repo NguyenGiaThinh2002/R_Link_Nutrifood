@@ -210,6 +210,7 @@
     <Compile Include="Model\ItemCustomModel.cs" />
     <Compile Include="Model\JobModel.cs" />
     <Compile Include="Model\ObjectResultModel.cs" />
+    <Compile Include="Model\Payload\DeviceSettingsPayload.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\QRCode.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestBasedData.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestCheckCodeAmount.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestListDisposal.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestListRePrint.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestReprintedCode.cs" />
+    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseBasedData.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseCurrentPrintedCodeInfo.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseListRePrint.cs" />
     <Compile Include="Model\Payload\MonitorPayload.cs" />

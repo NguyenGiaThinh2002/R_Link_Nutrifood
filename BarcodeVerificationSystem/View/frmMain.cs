@@ -1920,29 +1920,29 @@ namespace BarcodeVerificationSystem.View
 
         private async Task CheckPrintedCodeThreshold(CancellationToken token)
         {
-            var apiService = new ApiService();
-            string url = DispatchingApis.GetCurrentPrintedCodeInfoUrl();
+            //var apiService = new ApiService();
+            //string url = DispatchingApis.GetCurrentPrintedCodeInfoUrl();
 
-            while (true)
-            {
+            //while (true)
+            //{
 
-                if (token.IsCancellationRequested)
-                    token.ThrowIfCancellationRequested(); // Stop thread
+            //    if (token.IsCancellationRequested)
+            //        token.ThrowIfCancellationRequested(); // Stop thread
 
-                try
-                {
-                    var currentPrintedCodeInfo = await apiService.GetApiWithModel<ResponseCurrentPrintedCodeInfo>(url);
-                    if (currentPrintedCodeInfo.is_exceed)
-                    {
-                        CustomMessageBox.Show("Do you want to stop process ? \n Code out of threshold" +
-                            "\n " + $"Number of printed code : {currentPrintedCodeInfo.amount}", "Code out of threshold", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception)
-                {
-                }
-                await Task.Delay(30000);
-            }
+            //    try
+            //    {
+            //        var currentPrintedCodeInfo = await apiService.GetApiWithModel<ResponseCurrentPrintedCodeInfo>(url);
+            //        if (currentPrintedCodeInfo.is_exceed)
+            //        {
+            //            CustomMessageBox.Show("Do you want to stop process ? \n Code out of threshold" +
+            //                "\n " + $"Number of printed code : {currentPrintedCodeInfo.amount}", "Code out of threshold", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        }
+            //    }
+            //    catch (Exception)
+            //    {
+            //    }
+            //    await Task.Delay(30000);
+            //}
         }
 
 
@@ -2743,22 +2743,22 @@ namespace BarcodeVerificationSystem.View
             try
             {
                 string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
-                string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
-                                                                 : DispatchingApis.GetPrintedDataUrl();
+                //string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
+                //string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
+                //                                                 : DispatchingApis.GetPrintedDataUrl();
 
-                if (!Directory.Exists(CommVariables.PathSentDataPrinted))
-                {
-                    Directory.CreateDirectory(CommVariables.PathSentDataPrinted);
-                }
+                //if (!Directory.Exists(CommVariables.PathSentDataPrinted))
+                //{
+                //    Directory.CreateDirectory(CommVariables.PathSentDataPrinted);
+                //}
 
-                if (ProjectLabel.IsNutrifood)
-                {
-                    // thinh dang lam    
-                    string dataPath = _SelectedJob.DirectoryDatabase;
-                    _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
-                    _printedDataProcess.Start();
-                }
+                //if (ProjectLabel.IsNutrifood)
+                //{
+                //    // thinh dang lam    
+                //    string dataPath = _SelectedJob.DirectoryDatabase;
+                //    _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
+                //    _printedDataProcess.Start();
+                //}
                 while (true)
                 {
                     // Only stop if handled all data
@@ -2772,14 +2772,10 @@ namespace BarcodeVerificationSystem.View
                     if (valueArr.Count() > 0)
                     {
                         SaveResultToFile(valueArr, path);
-                        if (ProjectLabel.IsNutrifood)
-                        {
-                            //txtCodeResult.Text = sentSaaSSuccess.Text = sentSAPSuccess.Text = clone[0][0];
-                            //SentSyncData = SaaSSuccess = SaaSFailed = SAPSuccess = SAPFailed = int.Parse(clone[0][0]);
-
-                            _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
-
-                        }
+                        //if (ProjectLabel.IsNutrifood)
+                        //{
+                        //    _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
+                        //}
                     }
                     valueArr.Clear();
                     Thread.Sleep(5);
@@ -4032,14 +4028,14 @@ namespace BarcodeVerificationSystem.View
             }
             else if(sender == syncDataBtn)
             {
-                string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
-                string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
-                                                                 : DispatchingApis.GetPrintedDataUrl();
-                string dataPath = _SelectedJob.DirectoryDatabase;
+                //string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
+                //string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
+                //string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
+                //                                                 : DispatchingApis.GetPrintedDataUrl();
+                //string dataPath = _SelectedJob.DirectoryDatabase;
 
-                _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
-                _printedDataProcess.Start();
+                //_printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
+                //_printedDataProcess.Start();
             }
             else if(sender == RePrintBtn)
             {

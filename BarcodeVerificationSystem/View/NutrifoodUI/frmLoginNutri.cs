@@ -20,6 +20,8 @@ using OperationLog.Controller;
 using OperationLog.Model;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model.UserPermission;
+using BarcodeVerificationSystem.Model.Apis;
+using BarcodeVerificationSystem.Model.Payload;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -42,7 +44,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             InitEvent();
             SetLanguage();
 
-            //MonitorSenderService.SendParametersToServer();
+            MonitorSenderService.SendParametersToServer();
 
 
             if (DevMode.IsDevMode)
@@ -214,7 +216,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                                 Shared.UserPermission = await service.GetPermissionsAsync(username, password);
                                 Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
 
-                                var t = Shared.UserPermission.OnlineUserModel.ma_quyen;
+                                var apiService = new ApiService();
+                                var deviceInfo = await apiService.GetApiWithModel<DeviceSettingsPayload>(ApiModel.getLineNameUrl(Shared.Settings.RLinkName));
+                                Shared.Settings.LineId = deviceInfo.resource_code;
+                                Shared.Settings.LineName = deviceInfo.resource_name;
 
                                 if (Shared.UserPermission == null)
                                 {

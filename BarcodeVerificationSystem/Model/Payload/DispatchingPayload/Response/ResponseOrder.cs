@@ -8,7 +8,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
 {
     public class ResponseOrder
     {
-        public bool isSuccessed { get; set; }
+        public bool is_success { get; set; }
         public string message { get; set; }
         public Payload payload { get; set; }
 
@@ -57,7 +57,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
             public string effective_date { get; set; }
             public int add_qty { get; set; }
             public string notes { get; set; }
-            public List<Item> item { get; set; }
+            public List<Item> items { get; set; }
         }
     }
 }

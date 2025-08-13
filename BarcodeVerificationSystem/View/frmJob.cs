@@ -880,8 +880,8 @@ namespace BarcodeVerificationSystem.View
 #endif
            
 
-            cbbHisFilterType.SelectedIndex = 0;
-            HistoryUtils.CustomDataGridView(dgv: dgvHistoryJob);
+            //cbbHisFilterType.SelectedIndex = 0;
+            //HistoryUtils.CustomDataGridView(dgv: dgvHistoryJob);
            // HistoryUtils.StyleButton(btnSearchHis);
 
 

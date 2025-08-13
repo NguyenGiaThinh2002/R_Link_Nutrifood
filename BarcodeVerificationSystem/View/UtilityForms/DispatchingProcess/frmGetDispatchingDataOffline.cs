@@ -25,11 +25,11 @@ namespace BarcodeVerificationSystem.View.SubForms
 
         private ResponseOrder _orderPayload = new ResponseOrder
         {
-            isSuccessed = true,
+            is_success = true,
             message = "Success",
             payload = new ResponseOrder.Payload
             {
-                item = new List<ResponseOrder.Item>
+                items = new List<ResponseOrder.Item>
                 {
                     new ResponseOrder.Item()
                 }
@@ -110,7 +110,7 @@ namespace BarcodeVerificationSystem.View.SubForms
                     _orderPayload = Shared.Settings.DispatchingOrderPayload.DeepClone();
 
                 }
-                var items = Shared.Settings.DispatchingOrderPayload.payload.item;
+                var items = Shared.Settings.DispatchingOrderPayload.payload.items;
                 dgvItems.Rows.Clear(); // Clear existing rows before adding new ones
 
 
@@ -184,7 +184,7 @@ namespace BarcodeVerificationSystem.View.SubForms
                 ClearItemScrollPanel();
                 itemScrollablePanel = new CreateScrollablePanel();
                 _panel = itemScrollablePanel.CreatePanel(33, 94, 660, 169, this.Controls);
-                itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.item[_lineIndex], "", _panel);
+                itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.items[_lineIndex], "", _panel);
             }
             else if(btnEdit.Text == Lang.Save)
             {
@@ -200,9 +200,9 @@ namespace BarcodeVerificationSystem.View.SubForms
             if(deleteButton.Text == Lang.Delete)
             {
                 int lineIndex = dgvItems.SelectedRows[0].Index;
-                if (lineIndex >= 0 && lineIndex < _orderPayload.payload.item.Count)
+                if (lineIndex >= 0 && lineIndex < _orderPayload.payload.items.Count)
                 {
-                    _orderPayload.payload.item.RemoveAt(lineIndex);
+                    _orderPayload.payload.items.RemoveAt(lineIndex);
                     dgvItems.Rows.RemoveAt(lineIndex);
                 }
 
@@ -233,13 +233,13 @@ namespace BarcodeVerificationSystem.View.SubForms
             {
                 SetAllNameEditing();
 
-                _orderPayload.payload.item.Add(new ResponseOrder.Item());
+                _orderPayload.payload.items.Add(new ResponseOrder.Item());
 
 
                 ClearItemScrollPanel();
                 itemScrollablePanel = new CreateScrollablePanel();
                 _panel = itemScrollablePanel.CreatePanel(33, 94, 660, 169, this.Controls);
-                itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.item.LastOrDefault(), "", _panel);
+                itemScrollablePanel.CreateTextBoxes(_orderPayload.payload.items.LastOrDefault(), "", _panel);
             }
 
         }

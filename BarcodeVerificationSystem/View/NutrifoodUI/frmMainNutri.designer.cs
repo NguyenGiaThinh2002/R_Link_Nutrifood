@@ -1631,7 +1631,7 @@
             this.DispatchingActionsPanel.Controls.Add(this.syncDataBtn);
             this.DispatchingActionsPanel.Controls.Add(this.DisposeLabel);
             this.DispatchingActionsPanel.Controls.Add(this.disposeBtn);
-            this.DispatchingActionsPanel.Location = new System.Drawing.Point(6, 41);
+            this.DispatchingActionsPanel.Location = new System.Drawing.Point(10, 41);
             this.DispatchingActionsPanel.Name = "DispatchingActionsPanel";
             this.DispatchingActionsPanel.Size = new System.Drawing.Size(380, 369);
             this.DispatchingActionsPanel.TabIndex = 136;
@@ -1769,6 +1769,7 @@
             this.tableLayoutPanelProcess.Size = new System.Drawing.Size(379, 369);
             this.tableLayoutPanelProcess.TabIndex = 108;
             this.tableLayoutPanelProcess.TabStop = true;
+            this.tableLayoutPanelProcess.Visible = false;
             // 
             // pnlTotalChecked
             // 

@@ -13,27 +13,25 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
         static readonly string orderId = Shared.Settings.OrderId;
         static readonly string factoryCode = Shared.Settings.FactoryCode;
 
-        private static string _getOrderInfoUrl = $"{url}/api/shipment/get/{factoryCode}";
-        private static string _sendGeneratedCodesUrl = $"{url}/api/shipment/generatedCodes";
-        private static string _printedDataUrl = $"{url}/api/shipment/printed";
-        private static string _destroyCodesUrl = $"{url}/api/shipment/destroy";
-
-        private static string _getReprintCodesUrl = $"{url}/api/production/reprint/get_info"; // ResponseListRePrint
-        private static string _postReprintCodesUrl = $"{url}/api/production/reprint"; // ResponseListRePrint
+        private static string _getOrderInfoUrl = $"{url}/api/shipment/get/{factoryCode}"; // Okay
+        private static string _sendGeneratedCodesUrl = $"{url}/api/shipment/pushDatabase"; // Okay
+        private static string _printedDataUrl = $"{url}/api/shipment/printed";// Okay
+        private static string _monitorUrl = $"{url}/api/shipment/monitoring";// Okay
+        private static string _getCurrentPrintedCodeInfo = $"{url}/api/shipment/getCurrentProcessing";// Okay
+        private static string _getReprintCodesUrl = $"{url}/api/production/reprint/get_info";// Okay
+        private static string _postReprintCodesUrl = $"{url}/api/production/reprint";// Okay
+        private static string _destroyCodesUrl = $"{url}/api/shipment/destroy";// Okay
 
         private static string _confirmCompletionUrl = $"{url}/api/shipment/confirmcomplete";
-        private static string _monitorUrl = $"{url}/api/shipment/monitoring";
 
-        private static string _getCurrentPrintedCodeInfo = $"{url}/api/shipment/getCurrentProcessing";
-
-        public static string GetOrderInfoUrl(string wmsNumber)
+        public static string GetOrderInfoUrl(string wmsNumber) // checked error
         {
             return _getOrderInfoUrl + "/" + wmsNumber;
         }
 
-        public static string GetSendGeneratedCodesUrl()
+        public static string GetSendGeneratedCodesUrl() // checked error
         {
-            return _sendGeneratedCodesUrl; // _sendGeneratedCodesUrl
+            return _sendGeneratedCodesUrl; 
         }
 
         public static string GetPrintedDataUrl()
@@ -50,22 +48,22 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
         {
             return _confirmCompletionUrl;
         }
-        public static string GetDestroyCodesUrl()
+        public static string GetDestroyCodesUrl() // checked error
         {
             return _destroyCodesUrl;
         }
 
-        public static string GetReprintCodesUrl()
+        public static string GetReprintCodesUrl() // checked error
         {
-            return _getReprintCodesUrl; // _reprintCodesUrl
+            return _getReprintCodesUrl; 
         }
 
         public static string GetSendReprintCodesUrl()
         {
-            return _printedDataUrl;// _reprintCodesUrl
+            return _postReprintCodesUrl;
         }
 
-        public static string GetCurrentPrintedCodeInfoUrl()  // ResponseCurrentPrintedCodeInfo
+        public static string GetCurrentPrintedCodeInfoUrl() 
         {
             return _getCurrentPrintedCodeInfo;
         }

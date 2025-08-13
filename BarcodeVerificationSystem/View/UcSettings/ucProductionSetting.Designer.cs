@@ -36,6 +36,7 @@
             this.radProductionModeEnable = new System.Windows.Forms.RadioButton();
             this.radProductionModeDisable = new System.Windows.Forms.RadioButton();
             this.groupBoxProductionSettings = new System.Windows.Forms.GroupBox();
+            this.RLinkName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lineIndex = new System.Windows.Forms.Label();
             this.lineIndexTextBox = new System.Windows.Forms.TextBox();
@@ -54,7 +55,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.factoryCode = new System.Windows.Forms.TextBox();
             this.factoryCodeLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBoxProductionSettings.SuspendLayout();
             this.onlineProductionSettings.SuspendLayout();
@@ -163,7 +163,7 @@
             // 
             // groupBoxProductionSettings
             // 
-            this.groupBoxProductionSettings.Controls.Add(this.textBox1);
+            this.groupBoxProductionSettings.Controls.Add(this.RLinkName);
             this.groupBoxProductionSettings.Controls.Add(this.label1);
             this.groupBoxProductionSettings.Controls.Add(this.lineIndex);
             this.groupBoxProductionSettings.Controls.Add(this.lineIndexTextBox);
@@ -183,6 +183,15 @@
             this.groupBoxProductionSettings.TabStop = false;
             this.groupBoxProductionSettings.Text = "Production Settings";
             // 
+            // RLinkName
+            // 
+            this.RLinkName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RLinkName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RLinkName.Location = new System.Drawing.Point(215, 193);
+            this.RLinkName.Name = "RLinkName";
+            this.RLinkName.Size = new System.Drawing.Size(103, 26);
+            this.RLinkName.TabIndex = 80;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -199,9 +208,9 @@
             this.lineIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lineIndex.Location = new System.Drawing.Point(48, 360);
             this.lineIndex.Name = "lineIndex";
-            this.lineIndex.Size = new System.Drawing.Size(69, 20);
+            this.lineIndex.Size = new System.Drawing.Size(92, 20);
             this.lineIndex.TabIndex = 79;
-            this.lineIndex.Text = "Mã Line:";
+            this.lineIndex.Text = "Thứ tự Line:";
             // 
             // lineIndexTextBox
             // 
@@ -370,15 +379,6 @@
             this.factoryCodeLabel.TabIndex = 72;
             this.factoryCodeLabel.Text = "Mã nhà máy:";
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(215, 193);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(103, 26);
-            this.textBox1.TabIndex = 80;
-            // 
             // ucProductionSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +424,6 @@
         private System.Windows.Forms.TextBox lineIndexTextBox;
         private System.Windows.Forms.Label lineIndex;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox RLinkName;
     }
 }
