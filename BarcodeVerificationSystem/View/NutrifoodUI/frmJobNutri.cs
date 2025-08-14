@@ -52,6 +52,7 @@ using static BarcodeVerificationSystem.Controller.Shared;
 using Org.BouncyCastle.Asn1.Ocsp;
 using BarcodeVerificationSystem.Model.Payload;
 using MySqlX.XDevAPI.Common;
+using BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -171,10 +172,25 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         break;
                 }
             }
+            else if (sender == editJobBtn)
+            {
+                int lineIndex = dgvHistoryJob.SelectedRows[0].Index;
+                string JobName = dgvHistoryJob.Rows[lineIndex].Cells[1].Value.ToString();
+                JobModel CurrentJob = Shared.GetJob(JobName);
+                if (CurrentJob.NumberOfPrintedCodes == CurrentJob.NumberOfSAPSentCodes)
+                {
+                    CustomMessageBox.Show("Công việc đã hoàn thành, không thể chỉnh sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var formEdit = new frmEditJob(CurrentJob);
+                formEdit.ShowDialog();
+                List<string> JobNameList = Shared.GetJobNameList();
+                DisplayHistory(JobNameList);
+
+            }
             else if (sender == SyncDataBtn)
             {
-                progressBar1.Visible = true;
-                tabControl1.Enabled = dgvHistoryJob.Enabled = pnlMenu.Enabled = false;
+
                 int lineIndex = dgvHistoryJob.SelectedRows[0].Index;
                 string JobName = dgvHistoryJob.Rows[lineIndex].Cells[1].Value.ToString();
 
@@ -188,7 +204,15 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 }
 
                 var listQrcodes = CsvConvert.ReadStringListFromCsv(CurrentJob.DirectoryDatabase);
-                await SendGeneratedCodes(listQrcodes, CurrentJob);
+             
+                bool isSent = await SendGeneratedCodes(listQrcodes, CurrentJob);
+                if (!isSent)
+                {
+                    return;
+                }
+                UIControlsFuncs.ShowControls(progressBar1);
+                UIControlsFuncs.DisableAllTabsSelection(tabControl1);
+                UIControlsFuncs.DisableControls(dgvHistoryJob, pnlMenu, SyncDataBtn, cbbHisFilterType);
 
                 var payload = CurrentJob.DispatchingOrderPayload.payload;
                 string path = CommVariables.PathPrintedResponse + CurrentJob.PrintedResponePath;
@@ -203,9 +227,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             }
             else if(sender == StopSyncData)
             {
-                _printedDataProcess.Stop();
-                progressBar1.Visible = false;
-                tabControl1.Enabled = dgvHistoryJob.Enabled = pnlMenu.Enabled = true;
+                OnSentPrintedCodesCompleted();
             }
             else if (sender == wmsNumber)
             {
@@ -332,7 +354,13 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             }
             else if (sender == saveJobNutriOffline)
             {
-                Shared.PrintMode.SetPrintingMode(PrintingMode.PrintingModeLabel.PrintingModeOffline);
+                int numberOfCodes;
+
+                if (!int.TryParse(InputCodeNumber.Text, out numberOfCodes))
+                {
+                    CustomMessageBox.Show("Vui lòng nhập số lượng hợp lệ!", "Dữ liệu không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 GenerateCodesOffline();
                 if (Shared.databasePath != "")
@@ -343,7 +371,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 _PODFormat.Clear();
                 txtPODFormat.Text = "";
                 Shared.databasePath = "";
-
+                Shared.PrintMode.SetPrintingMode(PrintingMode.PrintingModeLabel.PrintingModeOffline);
                 SaveJob();
 
             }
@@ -1227,7 +1255,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             dgvItems.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dgvItems.AutoResizeColumnHeadersHeight();
 
-
             #endregion
 
             #region Sản phẩm in lại
@@ -1242,12 +1269,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             reprintGridView.MultiSelect = false;
             reprintGridView.ReadOnly = true;
             reprintGridView.AllowUserToAddRows = false;
+
             #endregion
-            //dgvItems.Columns.Add("material_number", "Material Number");
-            //dgvItems.Columns.Add("material_name", "Material Name");
-            //dgvItems.Columns.Add("material_group", "Item Group");
-            //dgvItems.Columns.Add("qty", "Quantity");
-            //dgvItems.Columns.Add("qty_per_carton", "Quantity Per Carton");
         }
 
         private void GenerateCodesOffline()
@@ -1256,7 +1279,12 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             string materialName = InputMaterialName.Text;
             string wms_number = InputWmsNumber.Text;
 
+            string Wavekey = InputWavekey.Text; // Not used in this context, but kept for consistency
+            string Shipment = InputShipment.Text; // Not used in this context, but kept for consistency
+            string Shipto = InputShipto.Text; // Not used in this context, but kept for consistency
+
             int numberOfCodes = int.Parse(InputCodeNumber.Text);
+
 
             string AskQuestion = Lang.AreYouSureGenerateDispatchingCodes +
                          $"\nWMS Number: {wms_number}" +
@@ -1284,11 +1312,19 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             Shared.databasePath = filePath;
             Shared.numberOfCodesGenerate = list.Count;
 
-            Shared.Settings.DispatchingOrderPayload.payload.wms_number = wms_number;
-            Shared.Settings.DispatchingOrderPayload.payload.items[0].material_number = materialNumber;
-            Shared.Settings.DispatchingOrderPayload.payload.items[0].material_name = materialName;
+            var settingsPayload = Shared.Settings.DispatchingOrderPayload.payload;
+            settingsPayload.wms_number = wms_number;
+            settingsPayload.items[0].material_number = materialNumber;
+            settingsPayload.items[0].material_name = materialName;
+            settingsPayload.wave_key = Wavekey;
+            settingsPayload.shipment = Shipment;
+            settingsPayload.shipto_code = Shipto;
 
-            txtFileName.Text = _JobModel.FileName = wms_number + "_" + materialNumber + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+            //txtFileName.Text = _JobModel.FileName = wms_number + "_" + materialNumber + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            txtFileName.Text = _JobModel.FileName = jobName.Text
+           = DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_" + wms_number + "_" + materialNumber + "_" +
+            Settings.RLinkName + "_" + Settings.LineIndex;
             templatePrint.Text = _JobModel.TemplatePrint = Shared.Settings.PrintTemplate; //templatePrint.Text
 
         }
@@ -1305,12 +1341,12 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             int lineIndex = dgvItems.SelectedRows[0].Index;
 
             _JobModel.SelectedMaterialIndex = lineIndex;
-            _JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
+            _JobModel.DispatchingOrderPayload = Settings.DispatchingOrderPayload;
 
             var selectedRow = dgvItems.SelectedRows[0];
             string materialNumber = selectedRow.Cells["material_number"].Value.ToString();
             string materialName = selectedRow.Cells["material_name"].Value.ToString();
-            string wms_number = Shared.Settings.WmsNumber;
+            string wms_number = Settings.WmsNumber;
             string selectedQy = selectedRow.Cells["qty"].Value.ToString();
             string selectedQtyPerCarton = selectedRow.Cells["qty_per_carton"].Value.ToString();
 
@@ -1323,10 +1359,12 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                          $"\nMaterial Name: {materialName}";
             if (!CustomMessageBox.IsResultShow(AskQuestion)) return;
 
-            txtFileName.Text = _JobModel.FileName = jobName.Text = wms_number + "_" + materialNumber + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            txtFileName.Text = _JobModel.FileName = jobName.Text 
+                = DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_" + wms_number + "_" + materialNumber + "_" + 
+                 Settings.RLinkName + "_" + Settings.LineIndex;
 
 
-            bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
+            bool isManufacturingMode = Settings.IsManufacturingMode;
             List<string> list;
 
             list = isManufacturingMode ? Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes) :
@@ -1344,8 +1382,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             string filePath = Path.Combine(documentsPath, fileName);
             CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
-            Shared.databasePath = filePath;
-            Shared.numberOfCodesGenerate = list.Count;
+            databasePath = filePath;
+            numberOfCodesGenerate = list.Count;
 
         }
 
@@ -1377,7 +1415,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 job_name = JobName,
                 material_number = materialNumber,
                 wave_key = payload.wave_key,
-                qrcodes = qrCodes
+                qrcodes = qrCodes,
+                first_index = jobModel.FirstGeneratedCodeIndex.ToString(),
+                last_index = jobModel.LastGeneratedCodeIndex.ToString(),
             };
             string url = DispatchingApis.GetSendGeneratedCodesUrl();
 
@@ -1424,7 +1464,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     sb.AppendLine("Body:");
                     sb.AppendLine(responseText);
 
-                    MessageBox.Show(sb.ToString(), "HTTP Response", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show(sb.ToString(), "HTTP Response", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                     var result = JsonConvert.DeserializeObject<ResponseBasedData>(responseContent);
@@ -1497,6 +1537,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             saveJobNutriOffline.Click += ActionResult;
             StopSyncData.Click += ActionResult;
             cbbHisFilterType.SelectedIndexChanged += ActionResult;
+            editJobBtn.Click += ActionResult;
 
             _TimerDateTime.Tick += TimerDateTime_Tick;
             btnGennerate.Click += ActionResult;
@@ -1634,7 +1675,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                     }
                 }
-                //progressBar1.Value = Shared.CurrentJob.NumberOfSAPSentCodes * 100 / Shared.CurrentJob.NumberOfPrintedCodes;
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new Action(() => progressBar1.Value = Shared.CurrentJob.NumberOfSAPSentCodes * 100 / Shared.CurrentJob.NumberOfPrintedCodes));
@@ -1647,31 +1687,38 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 // Call this where needed:
                 if (Shared.CurrentJob.NumberOfPrintedCodes == Shared.CurrentJob.NumberOfSAPSentCodes)
                 {
-                    OnPrintedCodesCompleted();
+                    OnSentPrintedCodesCompleted();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //tabControl1.Enabled = dgvHistoryJob.Enabled = pnlMenu.Enabled = true;
             }
 
         }
 
-        private void OnPrintedCodesCompleted()
+        private void OnSentPrintedCodesCompleted()
         {
-            _printedDataProcess.Stop();
-            Action updateUI = () =>
+            try
             {
-                progressBar1.Visible = false;
-                tabControl1.Enabled = dgvHistoryJob.Enabled = pnlMenu.Enabled = true;
-                List<string> jobNameList = Shared.GetJobNameList();
-                DisplayHistory(jobNameList);
-            };
+                _printedDataProcess.Stop();
+                Action updateUI = () =>
+                {
+                    UIControlsFuncs.HideControls(progressBar1);
+                    UIControlsFuncs.EnableAllTabsSelection(tabControl1);
+                    UIControlsFuncs.EnableControls(dgvHistoryJob, pnlMenu, SyncDataBtn, cbbHisFilterType);
+                    List<string> jobNameList = Shared.GetJobNameList();
+                    DisplayHistory(jobNameList);
+                };
 
-            if (this.InvokeRequired)
-                this.Invoke(updateUI);
-            else
-                updateUI();
+                if (this.InvokeRequired)
+                    this.Invoke(updateUI);
+                else
+                    updateUI();
+            }
+            catch (Exception ex)
+            {
+            }
+
         }
 
         private void CuzButtonPurge_Click(object sender, EventArgs e)
@@ -2091,6 +2138,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             try
             {
                 _JobModel = InitJobModel();
+                _JobModel.FirstGeneratedCodeIndex = Shared.FirstGeneratedCodeIndex;
+                _JobModel.LastGeneratedCodeIndex = Shared.LastGeneratedCodeIndex;
                 _JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
 
                 if (_JobModel != null)   // Check current Job has null

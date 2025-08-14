@@ -19,6 +19,7 @@ using BarcodeVerificationSystem.Model;
 using CommonVariable;
 using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
 using BarcodeVerificationSystem.Model.Apis.Dispatching;
+using BarcodeVerificationSystem.Services;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -28,6 +29,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
         private readonly IStorageService<PrintingDataEntry> _storageService;
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
         private readonly HttpClient _httpClient = new HttpClient();
+        private readonly ApiService apiService = new ApiService();
         private readonly string _endpoint;
 
         public PrintingSenderService(BlockingCollection<PrintingDataEntry> queue, IStorageService<PrintingDataEntry> storageService, string endpoint)
@@ -85,20 +87,24 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
                 if (Shared.UserPermission.isOnline)
                 {
-                    var jsonContent = JsonConvert.SerializeObject(printedContent, new JsonSerializerSettings
-                    {
-                        ContractResolver = new CamelCasePropertyNamesContractResolver()
-                    });
-                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                    //var jsonContent = JsonConvert.SerializeObject(printedContent, new JsonSerializerSettings
+                    //{
+                    //    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                    //});
+                    //var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                    //var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
+                    //var responseBody = await response.Content.ReadAsStringAsync();
+                    //Console.WriteLine("Raw API Response:");
+                    //Console.WriteLine(responseBody);
+                    //response.EnsureSuccessStatusCode();
+                    //var ResponsePrinted = JsonConvert.DeserializeObject<ResponsePrinted>(await response.Content.ReadAsStringAsync());
 
-                    var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
-                    response.EnsureSuccessStatusCode();
-                    var ResponsePrinted = JsonConvert.DeserializeObject<ResponsePrinted>(await response.Content.ReadAsStringAsync());
+                    var ResponsePrinted = await apiService.PostApiDataAsync<ResponsePrinted>(_endpoint, printedContent);
 
                     entry.SaasStatus = ResponsePrinted.is_success ? "success" : "failed";
-                    entry.SAPStatus = ResponsePrinted.is_sucess_sap ? "success" : "failed";
-                    entry.SaasError = ResponsePrinted.message;
-                    entry.SAPError = ResponsePrinted.sap_message;
+                    entry.SAPStatus = ResponsePrinted.is_success_sap ? "success" : "failed";
+                    entry.SaasError = ResponsePrinted.message ?? string.Empty;
+                    entry.SAPError = ResponsePrinted.message_sap ?? string.Empty;
 
                     var syncDataModel = new SyncDataParams(SyncDataParams.SyncDataType.SentData, entry.Id){};
 
@@ -111,7 +117,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
                         Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
-                    if (ResponsePrinted.is_sucess_sap)
+                    if (!ResponsePrinted.is_success_sap)
                     {
                         Shared.CurrentJob.NumberOfSAPSentCodes++;
                         Shared.CurrentJob.SaveFile(filePath);
@@ -119,7 +125,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
 
-                    if (response.IsSuccessStatusCode)
+                    if (ResponsePrinted.is_success) // nho chinh khuc nay
                     {
                         _storageService.MarkAsSent(entry.Id, entry.PrintedDate,  entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                     }
@@ -127,7 +133,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     {
                         //_storageService.AppendEntry(entry); // Re-append entry for retry
                         entry.SaasStatus = "failed";
-                        entry.SaasError = "Response Status is " + response.StatusCode;
+                        entry.SaasError = "Response Status is " + ResponsePrinted.error_code;
                         _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                         _queue.Add(entry);
                     }
@@ -155,7 +161,6 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             _cts.Cancel();
             _queue.CompleteAdding();
         }
-
 
     }
 

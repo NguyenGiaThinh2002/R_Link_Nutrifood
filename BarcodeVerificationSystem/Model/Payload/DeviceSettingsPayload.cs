@@ -8,6 +8,8 @@ namespace BarcodeVerificationSystem.Model.Payload
 {
     internal class DeviceSettingsPayload
     {
+        public bool is_success { get; set; }
+        public string message { get; set; }
         public string resource_code { get; set; }
         public string resource_name { get; set; }
         public string device_name { get; set; }

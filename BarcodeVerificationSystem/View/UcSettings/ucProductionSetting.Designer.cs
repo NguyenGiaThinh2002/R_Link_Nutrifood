@@ -181,7 +181,7 @@
             this.groupBoxProductionSettings.Size = new System.Drawing.Size(984, 494);
             this.groupBoxProductionSettings.TabIndex = 50;
             this.groupBoxProductionSettings.TabStop = false;
-            this.groupBoxProductionSettings.Text = "Production Settings";
+            this.groupBoxProductionSettings.Text = "Cài đặt Line";
             // 
             // RLinkName
             // 

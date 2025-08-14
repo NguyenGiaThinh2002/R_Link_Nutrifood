@@ -130,6 +130,16 @@ namespace BarcodeVerificationSystem.View
                 tabPageProductionSetting.Controls.Add(ucApiSetting);
             }
 
+            if(ProjectLabel.IsNutrifood && !Shared.Settings.IsManufacturingMode)
+            {
+                this.tabControlSettings.Controls.Remove(this.tabPageSystemSettings);
+                this.tabControlSettings.Controls.Remove(this.tabPageCameraSettings);
+                this.tabControlSettings.Controls.Remove(this.tabPageSensorController);
+
+
+                //this.tabControlSettings.Controls.Add(this.tabPagePrinterSettings);
+                //this.tabControlSettings.Controls.Add(this.tabPageSerialDevice);
+            }
 
         }
         private void InitEvents()

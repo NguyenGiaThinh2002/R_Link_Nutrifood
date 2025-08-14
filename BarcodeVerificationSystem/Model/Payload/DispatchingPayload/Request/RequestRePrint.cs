@@ -12,6 +12,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
     {
         public string qr_code { get; set; }
         public string job_name { get; set; } = Shared.CurrentJob.FileName;
+
         public string unique_code { get; set; }
         public DateTime scan_date { get; set; }
         public DateTime sync_date { get; set; } = DateTime.Now;

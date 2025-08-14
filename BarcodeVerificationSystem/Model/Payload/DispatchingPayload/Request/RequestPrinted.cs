@@ -12,6 +12,9 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
     {
         public int id { get; set; }
         public string job_name { get; set; } = Shared.CurrentJob.FileName;
+        public string plant { get; set; } = Shared.Settings.FactoryCode;
+        public string wave_key { get; set; } = Shared.CurrentJob.DispatchingOrderPayload.payload.wave_key;
+        public string wms_number { get; set; } = Shared.CurrentJob.DispatchingOrderPayload.payload.wms_number;
         public string qr_code { get; set; }                 
         public string unique_code { get; set; }
         public string shipto_code { get; set; }

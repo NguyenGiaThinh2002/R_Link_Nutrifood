@@ -2760,6 +2760,39 @@
   <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="editJobBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="editJobBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="editJobBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="editJobBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 445</value>
+  </data>
+  <data name="editJobBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 37</value>
+  </data>
+  <data name="editJobBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>136</value>
+  </data>
+  <data name="editJobBtn.Text" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="&gt;&gt;editJobBtn.Name" xml:space="preserve">
+    <value>editJobBtn</value>
+  </data>
+  <data name="&gt;&gt;editJobBtn.Type" xml:space="preserve">
+    <value>DesignUI.CuzUI.CuzButton, DesignUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;editJobBtn.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="&gt;&gt;editJobBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="StopSyncData.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -2770,7 +2803,7 @@
     <value>NoControl</value>
   </data>
   <data name="StopSyncData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>614, 447</value>
+    <value>619, 445</value>
   </data>
   <data name="StopSyncData.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 37</value>
@@ -2791,7 +2824,7 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;StopSyncData.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
     <value>324, 229</value>
@@ -2815,39 +2848,6 @@
     <value>tabPage4</value>
   </data>
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="picDatabaseLoading.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="picDatabaseLoading.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="picDatabaseLoading.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 300</value>
-  </data>
-  <data name="picDatabaseLoading.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 62</value>
-  </data>
-  <data name="picDatabaseLoading.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="picDatabaseLoading.TabIndex" type="System.Int32, mscorlib">
-    <value>133</value>
-  </data>
-  <data name="picDatabaseLoading.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;picDatabaseLoading.Name" xml:space="preserve">
-    <value>picDatabaseLoading</value>
-  </data>
-  <data name="&gt;&gt;picDatabaseLoading.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picDatabaseLoading.Parent" xml:space="preserve">
-    <value>tabPage4</value>
-  </data>
-  <data name="&gt;&gt;picDatabaseLoading.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="SyncDataBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -2929,7 +2929,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 447</value>
+    <value>188, 490</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -2959,7 +2959,7 @@
     <value>Hiragana</value>
   </data>
   <data name="dtpHist.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 445</value>
+    <value>226, 490</value>
   </data>
   <data name="dtpHist.Size" type="System.Drawing.Size, System.Drawing">
     <value>293, 26</value>
@@ -3048,13 +3048,13 @@
   <data name="&gt;&gt;cuzTextBox1.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-	<data name="cbbHisFilterType.Items2" xml:space="preserve">
+  <data name="cbbHisFilterType.Items" xml:space="preserve">
     <value>Tất cả</value>
   </data>
-  <data name="cbbHisFilterType.Items" xml:space="preserve">
+  <data name="cbbHisFilterType.Items1" xml:space="preserve">
     <value>Hoàn thành đồng bộ</value>
   </data>
-  <data name="cbbHisFilterType.Items1" xml:space="preserve">
+  <data name="cbbHisFilterType.Items2" xml:space="preserve">
     <value>Chưa hoàn thành đồng bộ</value>
   </data>
   <data name="cbbHisFilterType.Location" type="System.Drawing.Point, System.Drawing">
@@ -3119,6 +3119,9 @@
   </metadata>
   <data name="SoLuongDongBoSAP.HeaderText" xml:space="preserve">
     <value>Số lượng đồng bộ lên SAP</value>
+  </data>
+  <data name="HoanThanh.HeaderText" xml:space="preserve">
+    <value>Trạng thái</value>
   </data>
   <data name="dgvHistoryJob.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 59</value>
@@ -5356,6 +5359,12 @@
     <value>SoLuongDongBoSAP</value>
   </data>
   <data name="&gt;&gt;SoLuongDongBoSAP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HoanThanh.Name" xml:space="preserve">
+    <value>HoanThanh</value>
+  </data>
+  <data name="&gt;&gt;HoanThanh.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

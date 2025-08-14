@@ -26,7 +26,7 @@ namespace BarcodeVerificationSystem.View.UcSettings
         {
             lineIdLabel.Text = Lang.LineID;
             lineNameLabel.Text = Lang.LineName;
-            factoryCodeLabel.Text = Lang.FactoryCode;
+            factoryCodeLabel.Text = Lang.FactoryCode + ":";
             radProductionModeEnable.Text = Lang.Enable;
             radProductionModeDisable.Text = Lang.Disable;
             manufacturingRad.Text = Lang.Manufacturing;
@@ -36,7 +36,7 @@ namespace BarcodeVerificationSystem.View.UcSettings
             maskData.Text = Lang.MaskData;
             dataIncrease.Text = Lang.IncreasedData;
             groupBoxProductionSettings.Text = Lang.ProductionSettings;
-            labelApi.Text = Lang.URLPath;
+            labelApi.Text = "URL máy chủ:"; // Lang.URLPath;
         }
 
         private void InitControls()

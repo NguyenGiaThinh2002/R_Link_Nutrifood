@@ -37,12 +37,12 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             this.lblNotes = new System.Windows.Forms.Label();
             this.lblListTitle = new System.Windows.Forms.Label();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.btnDispose = new System.Windows.Forms.Button();
             this.notesInput = new DesignUI.CuzUI.CuzTextBox();
             this.lblDatabaseType = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.NumberOfSuccess = new System.Windows.Forms.Label();
             this.NumberOfFailed = new System.Windows.Forms.Label();
+            this.btnDispose = new DesignUI.CuzUI.CuzButton();
             this.listContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,9 +73,9 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             this.lblNotes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblNotes.Location = new System.Drawing.Point(26, 642);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(50, 20);
+            this.lblNotes.Size = new System.Drawing.Size(69, 20);
             this.lblNotes.TabIndex = 1;
-            this.lblNotes.Text = "Notes:";
+            this.lblNotes.Text = "Ghi chú:";
             // 
             // lblListTitle
             // 
@@ -83,9 +83,9 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             this.lblListTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblListTitle.Location = new System.Drawing.Point(12, 9);
             this.lblListTitle.Name = "lblListTitle";
-            this.lblListTitle.Size = new System.Drawing.Size(120, 20);
+            this.lblListTitle.Size = new System.Drawing.Size(154, 20);
             this.lblListTitle.TabIndex = 1;
-            this.lblListTitle.Text = "Product List";
+            this.lblListTitle.Text = "Danh sách mã hủy";
             // 
             // btnAddProduct
             // 
@@ -95,15 +95,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             this.btnAddProduct.Size = new System.Drawing.Size(150, 35);
             this.btnAddProduct.TabIndex = 0;
             this.btnAddProduct.Text = "Add Product";
-            // 
-            // btnDispose
-            // 
-            this.btnDispose.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDispose.Location = new System.Drawing.Point(821, 729);
-            this.btnDispose.Name = "btnDispose";
-            this.btnDispose.Size = new System.Drawing.Size(148, 59);
-            this.btnDispose.TabIndex = 2;
-            this.btnDispose.Text = "Dispose";
             // 
             // notesInput
             // 
@@ -117,7 +108,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             this.notesInput.BorderSize = 1;
             this.notesInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.notesInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.notesInput.Location = new System.Drawing.Point(85, 642);
+            this.notesInput.Location = new System.Drawing.Point(102, 642);
             this.notesInput.Margin = new System.Windows.Forms.Padding(4);
             this.notesInput.MinimumSize = new System.Drawing.Size(0, 70);
             this.notesInput.Multiline = false;
@@ -127,7 +118,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             this.notesInput.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.notesInput.PlaceholderText = "";
             this.notesInput.ReadOnly = false;
-            this.notesInput.Size = new System.Drawing.Size(884, 70);
+            this.notesInput.Size = new System.Drawing.Size(867, 70);
             this.notesInput.TabIndex = 130;
             this.notesInput.UnderlinedStyle = false;
             // 
@@ -167,22 +158,45 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             this.NumberOfFailed.TabIndex = 134;
             this.NumberOfFailed.Text = "0";
             // 
+            // btnDispose
+            // 
+            this.btnDispose._BorderColor = System.Drawing.Color.Silver;
+            this.btnDispose._BorderRadius = 15;
+            this.btnDispose._BorderSize = 0;
+            this.btnDispose._GradientsButton = false;
+            this.btnDispose._Text = "Hủy mã";
+            this.btnDispose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDispose.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDispose.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnDispose.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.btnDispose.FlatAppearance.BorderSize = 0;
+            this.btnDispose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDispose.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.btnDispose.ForeColor = System.Drawing.Color.White;
+            this.btnDispose.Location = new System.Drawing.Point(817, 729);
+            this.btnDispose.Name = "btnDispose";
+            this.btnDispose.Size = new System.Drawing.Size(152, 59);
+            this.btnDispose.TabIndex = 135;
+            this.btnDispose.Text = "Hủy mã";
+            this.btnDispose.TextColor = System.Drawing.Color.White;
+            this.btnDispose.UseVisualStyleBackColor = false;
+            // 
             // frmDisposal
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.Controls.Add(this.btnDispose);
             this.Controls.Add(this.NumberOfFailed);
             this.Controls.Add(this.NumberOfSuccess);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDatabaseType);
             this.Controls.Add(this.notesInput);
             this.Controls.Add(this.lblNotes);
-            this.Controls.Add(this.btnDispose);
             this.Controls.Add(this.listContainer);
             this.Controls.Add(this.lblListTitle);
             this.Name = "frmDisposal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Product List";
+            this.Text = "Hủy mã";
             this.listContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -190,7 +204,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
         private Panel listContainer;
         private FlowLayoutPanel flowProducts;
         private Button btnAddProduct;
-        private Button btnDispose;
         private List<RequestDisposal> disposedItems = new List<RequestDisposal>();
         private string notes = string.Empty;
         private Label lblNotes;
@@ -200,5 +213,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
         private Label label1;
         private Label NumberOfSuccess;
         private Label NumberOfFailed;
+        private DesignUI.CuzUI.CuzButton btnDispose;
     }
 }

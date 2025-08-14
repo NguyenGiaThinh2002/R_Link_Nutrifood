@@ -22,6 +22,7 @@ using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model.UserPermission;
 using BarcodeVerificationSystem.Model.Apis;
 using BarcodeVerificationSystem.Model.Payload;
+using BarcodeVerificationSystem.View.CustomDialogs;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -218,6 +219,12 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                                 var apiService = new ApiService();
                                 var deviceInfo = await apiService.GetApiWithModel<DeviceSettingsPayload>(ApiModel.getLineNameUrl(Shared.Settings.RLinkName));
+                                if (!deviceInfo.is_success)
+                                {
+                                    CustomMessageBox.Show(deviceInfo.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    //return;
+                                }
+
                                 Shared.Settings.LineId = deviceInfo.resource_code;
                                 Shared.Settings.LineName = deviceInfo.resource_name;
 

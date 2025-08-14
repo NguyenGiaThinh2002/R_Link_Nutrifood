@@ -1213,7 +1213,7 @@
     <value>Số dư dữ liệu</value>
   </data>
   <data name="ProductionSettings" xml:space="preserve">
-    <value>Cài đặt sản xuất</value>
+    <value>Cài đặt line xuất hàng</value>
   </data>
   <data name="URLPath" xml:space="preserve">
     <value>Đường dẫn URL</value>

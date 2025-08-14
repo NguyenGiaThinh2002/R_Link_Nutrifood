@@ -287,35 +287,35 @@ namespace BarcodeVerificationSystem.View.SubForms
                 Lang.Confirm,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
-                List<string> list;
-                if (isManufacturingMode) // san xuat
-                {
-                     list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes);
-                }
-                else // xuat hang
-                {
-                    list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: numberOfCodes);
-                }
+            //if (result == DialogResult.Yes)
+            //{
+            //    bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
+            //    List<string> list;
+            //    if (isManufacturingMode) // san xuat
+            //    {
+            //         list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes);
+            //    }
+            //    else // xuat hang
+            //    {
+            //        list = AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: numberOfCodes);
+            //    }
                
 
-                string tableName = "DispatchingCodes"; // Example table name, adjust as needed
-                string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
-                string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");
+            //    string tableName = "DispatchingCodes"; // Example table name, adjust as needed
+            //    string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
+            //    string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");
 
-                if (!Directory.Exists(documentsPath))
-                {
-                    Directory.CreateDirectory(documentsPath);
-                }
+            //    if (!Directory.Exists(documentsPath))
+            //    {
+            //        Directory.CreateDirectory(documentsPath);
+            //    }
 
-                string filePath = Path.Combine(documentsPath, fileName);
-                CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
-                Shared.databasePath = filePath;
-                Shared.numberOfCodesGenerate = list.Count;
-                this.Close();
-            }
+            //    string filePath = Path.Combine(documentsPath, fileName);
+            //    CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
+            //    Shared.databasePath = filePath;
+            //    Shared.numberOfCodesGenerate = list.Count;
+            //    this.Close();
+            //}
 
 
 

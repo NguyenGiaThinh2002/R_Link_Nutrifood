@@ -260,7 +260,7 @@ namespace BarcodeVerificationSystem.Model
         public string FailedDataSentToPrinter { get => _FailedDataSentToPrinter; set => _FailedDataSentToPrinter = value; }
         public List<PODModel> PrintFieldForVerifyAndPrint { get => _PrintFieldForVerifyAndPrint; set => _PrintFieldForVerifyAndPrint = value; }
 
-        private string _Language = "en-US";
+        private string _Language = "vi-VN";
         public string Language { get => _Language; set => _Language = value; }
 
         private string _DateTimeFormatOfResult = "yyyy/MM/dd HH:mm:ss";

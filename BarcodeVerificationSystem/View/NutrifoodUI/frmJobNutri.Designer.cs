@@ -122,7 +122,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.StopSyncData = new DesignUI.CuzUI.CuzButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.picDatabaseLoading = new System.Windows.Forms.PictureBox();
             this.SyncDataBtn = new DesignUI.CuzUI.CuzButton();
             this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
             this.label3 = new System.Windows.Forms.Label();
@@ -139,7 +138,6 @@
             this.SoLuongDongBoSaaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoanThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.InputCodeNumber = new DesignUI.CuzUI.CuzTextBox();
             this.InputMaterialName = new DesignUI.CuzUI.CuzTextBox();
@@ -185,6 +183,7 @@
             this.lblRLinkSeries = new System.Windows.Forms.Label();
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
+            this.editJobBtn = new DesignUI.CuzUI.CuzButton();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.pnlMain.SuspendLayout();
@@ -202,7 +201,6 @@
             this.cuzPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDatabaseLoading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -1310,9 +1308,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.editJobBtn);
             this.tabPage4.Controls.Add(this.StopSyncData);
             this.tabPage4.Controls.Add(this.progressBar1);
-            this.tabPage4.Controls.Add(this.picDatabaseLoading);
             this.tabPage4.Controls.Add(this.SyncDataBtn);
             this.tabPage4.Controls.Add(this.cuzButton1);
             this.tabPage4.Controls.Add(this.label3);
@@ -1348,13 +1346,6 @@
             resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Value = 50;
-            // 
-            // picDatabaseLoading
-            // 
-            resources.ApplyResources(this.picDatabaseLoading, "picDatabaseLoading");
-            this.picDatabaseLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
-            this.picDatabaseLoading.Name = "picDatabaseLoading";
-            this.picDatabaseLoading.TabStop = false;
             // 
             // SyncDataBtn
             // 
@@ -1432,10 +1423,9 @@
             // 
             this.cbbHisFilterType.FormattingEnabled = true;
             this.cbbHisFilterType.Items.AddRange(new object[] {
-            resources.GetString("cbbHisFilterType.Items2"),
             resources.GetString("cbbHisFilterType.Items"),
             resources.GetString("cbbHisFilterType.Items1"),
-            });
+            resources.GetString("cbbHisFilterType.Items2")});
             resources.ApplyResources(this.cbbHisFilterType, "cbbHisFilterType");
             this.cbbHisFilterType.Name = "cbbHisFilterType";
             // 
@@ -1500,11 +1490,10 @@
             this.SoLuongDongBoSAP.Name = "SoLuongDongBoSAP";
             this.SoLuongDongBoSAP.ReadOnly = true;
             // 
-            // SoLuongDongBoSAP
+            // HoanThanh
             // 
             resources.ApplyResources(this.HoanThanh, "HoanThanh");
             this.HoanThanh.Name = "HoanThanh";
-            this.HoanThanh.HeaderText = "Hoàn Thành";
             this.HoanThanh.ReadOnly = true;
             // 
             // tabPage5
@@ -2107,6 +2096,24 @@
             this.lblStandalone.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblStandalone.Name = "lblStandalone";
             // 
+            // editJobBtn
+            // 
+            this.editJobBtn._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.editJobBtn._BorderRadius = 0;
+            this.editJobBtn._BorderSize = 1;
+            this.editJobBtn._GradientsButton = false;
+            this.editJobBtn._Text = "Chỉnh sửa";
+            this.editJobBtn.BackColor = System.Drawing.Color.DarkCyan;
+            this.editJobBtn.BackgroundColor = System.Drawing.Color.DarkCyan;
+            this.editJobBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.editJobBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.editJobBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.editJobBtn, "editJobBtn");
+            this.editJobBtn.ForeColor = System.Drawing.Color.White;
+            this.editJobBtn.Name = "editJobBtn";
+            this.editJobBtn.TextColor = System.Drawing.Color.White;
+            this.editJobBtn.UseVisualStyleBackColor = false;
+            // 
             // frmJobNutri
             // 
             resources.ApplyResources(this, "$this");
@@ -2140,7 +2147,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDatabaseLoading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
@@ -2297,7 +2303,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.PictureBox picDatabaseLoading;
         private DesignUI.CuzUI.CuzButton StopSyncData;
         private System.Windows.Forms.Panel panel2;
         private DesignUI.CuzUI.CuzTextBox jobName;
@@ -2305,6 +2310,7 @@
         private System.Windows.Forms.Label templatePrintTxt;
         private DesignUI.CuzUI.CuzTextBox templatePrint;
         private System.Windows.Forms.Panel panel3;
+        private DesignUI.CuzUI.CuzButton editJobBtn;
     }
 
 }

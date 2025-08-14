@@ -1635,10 +1635,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         {
             // Check camera connection - Uncomment when release - Update later
 #if !DEBUG
-            if (Shared.GetCameraStatus() == false)
-            {
-                return CheckCondition.NotConnectCamera;
-            }
+            //if (Shared.GetCameraStatus() == false)
+            //{
+            //    return CheckCondition.NotConnectCamera;
+            //}
 #endif
             //Check IS Dual read connection
             if (Shared.Settings.CameraList.FirstOrDefault().CameraType == CameraType.ISDual && _ParentForm.ISMultiSyncHandler != null)
@@ -1751,54 +1751,54 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 CustomMessageBox.Show(Lang.DatabaseDoesNotExist, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            //CheckCondition checkCondition = CheckAllTheConditions();  // Check all condition
-            //if (checkCondition != CheckCondition.Success)
-            //{
-            //    if (interactOnUI)
-            //    {
-            //        if (checkCondition == CheckCondition.NoJobsSelected)
-            //        {
-            //            CustomMessageBox.Show(Lang.PleaseSeletedJobForTheSystem, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        if (checkCondition == CheckCondition.NotLoadDatabase)
-            //        {
-            //            CustomMessageBox.Show(Lang.PleaseCheckTheDatabaseConnection, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        else if (checkCondition == CheckCondition.NotLoadTemplate)
-            //        {
-            //            CustomMessageBox.Show(Lang.PleaseCheckTheTemplate, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        else if (checkCondition == CheckCondition.NotConnectCamera)
-            //        {
-            //            CustomMessageBox.Show(Lang.PleaseCheckTheCameraConnection, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        else if (checkCondition == CheckCondition.MissingParameter)
-            //        {
-            //            CustomMessageBox.Show(Lang.SomeParametersAreMissing, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        else if (checkCondition == CheckCondition.NotConnectPrinter)
-            //        {
-            //            CustomMessageBox.Show(Lang.PleaseCheckThePrinterConnection, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        else if (checkCondition == CheckCondition.LeastOneAction)
-            //        {
-            //            CustomMessageBox.Show(Lang.ThereMustBeAtLeastOneActionSelected, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        else if (checkCondition == CheckCondition.MissingParameterActivation)
-            //        {
-            //            CustomMessageBox.Show(Lang.SomeActivationParametersAreMissing, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        else if (checkCondition == CheckCondition.MissingParameterPrinting)
-            //        {
-            //            CustomMessageBox.Show(Lang.SomePrintParametersAreMissing, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //        else if (checkCondition == CheckCondition.OCRCameraIsOffline)
-            //        {
-            //            CustomMessageBox.Show(Lang.OCRCameraIsOffline, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //    }
-            //    return;
-            //}
+            CheckCondition checkCondition = CheckAllTheConditions();  // Check all condition
+            if (checkCondition != CheckCondition.Success)
+            {
+                if (interactOnUI)
+                {
+                    if (checkCondition == CheckCondition.NoJobsSelected)
+                    {
+                        CustomMessageBox.Show(Lang.PleaseSeletedJobForTheSystem, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    if (checkCondition == CheckCondition.NotLoadDatabase)
+                    {
+                        CustomMessageBox.Show(Lang.PleaseCheckTheDatabaseConnection, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (checkCondition == CheckCondition.NotLoadTemplate)
+                    {
+                        CustomMessageBox.Show(Lang.PleaseCheckTheTemplate, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (checkCondition == CheckCondition.NotConnectCamera)
+                    {
+                        CustomMessageBox.Show(Lang.PleaseCheckTheCameraConnection, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (checkCondition == CheckCondition.MissingParameter)
+                    {
+                        CustomMessageBox.Show(Lang.SomeParametersAreMissing, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (checkCondition == CheckCondition.NotConnectPrinter)
+                    {
+                        CustomMessageBox.Show(Lang.PleaseCheckThePrinterConnection, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (checkCondition == CheckCondition.LeastOneAction)
+                    {
+                        CustomMessageBox.Show(Lang.ThereMustBeAtLeastOneActionSelected, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (checkCondition == CheckCondition.MissingParameterActivation)
+                    {
+                        CustomMessageBox.Show(Lang.SomeActivationParametersAreMissing, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (checkCondition == CheckCondition.MissingParameterPrinting)
+                    {
+                        CustomMessageBox.Show(Lang.SomePrintParametersAreMissing, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (checkCondition == CheckCondition.OCRCameraIsOffline)
+                    {
+                        CustomMessageBox.Show(Lang.OCRCameraIsOffline, Lang.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                return;
+            }
 
             bool isNeedToCheckPrinter = _SelectedJob.PrinterSeries && _SelectedJob.CompareType == CompareType.Database;
             CheckPrinterSettings checkPrinterSettings = CheckAllSettingsPrinter();

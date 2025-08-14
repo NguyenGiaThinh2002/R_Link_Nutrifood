@@ -18,16 +18,26 @@ namespace BarcodeVerificationSystem.Services
 
         public async Task<T> GetApiWithModel<T>(string url)
         {
-            var response = await _client.GetAsync(url);
+            try
+            {
+                var response = await _client.GetAsync(url);
 
-            response.EnsureSuccessStatusCode(); // throws if not 2xx
+                response.EnsureSuccessStatusCode(); // throws if not 2xx
 
-            var responseContent = await response.Content.ReadAsStringAsync();
+                var responseContent = await response.Content.ReadAsStringAsync();
 
-            var result = JsonConvert.DeserializeObject<T>(responseContent);
+                var result = JsonConvert.DeserializeObject<T>(responseContent);
 
-            return result;
-        }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"ERROR getting Api: {url}" + ex.Message);
+                return default;
+            };
+            }
+     
+        
 
         public async Task<JArray> GetApiDataAsync(string apiUrl)
         {

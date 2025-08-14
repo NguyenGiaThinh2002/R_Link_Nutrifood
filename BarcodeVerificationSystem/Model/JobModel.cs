@@ -21,6 +21,10 @@ namespace BarcodeVerificationSystem.Model
         public int NumberOfSaaSSentCodes { get; set; } = 0;
         public int NumberOfSAPSentCodes { get; set; } = 0;
 
+        public int FirstGeneratedCodeIndex { get; set; } = 0;
+        public int LastGeneratedCodeIndex { get; set; } = 0;
+
+
 
         private CompareType _CompareType = CompareType.CanRead;
         private string _StaticText = "";

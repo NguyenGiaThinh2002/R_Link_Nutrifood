@@ -9,12 +9,10 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
     internal class ResponsePrinted
     {
         public bool is_success { get; set; }
-        public int status_code { get; set; }
-        public string error_code { get; set; }
         public string message { get; set; }
-        public bool is_sucess_sap { get; set; }
-        public int sap_status_code { get; set; }
-        public string sap_error_code { get; set; }
-        public string sap_message { get; set; }
+        public string error_code { get; set; }
+        public bool is_success_sap { get; set; }
+        public string message_sap { get; set; }
+        public string error_code_sap { get; set; }
     }
 }

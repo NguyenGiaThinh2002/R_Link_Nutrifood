@@ -295,6 +295,7 @@
     <Compile Include="Utils\CodeGeneration\Helper\YearCodeHelper.cs" />
     <Compile Include="Utils\RegistryHelper.cs" />
     <Compile Include="Utils\SyncDataList.cs" />
+    <Compile Include="Utils\UIControlsFuncs.cs" />
     <Compile Include="View\NutrifoodUI\frmJobNutri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +326,12 @@
     </Compile>
     <Compile Include="View\UtilityForms\DispatchingProcess\frmDisposal.Designer.cs">
       <DependentUpon>frmDisposal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmEditJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\DispatchingProcess\frmEditJob.Designer.cs">
+      <DependentUpon>frmEditJob.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.cs">
       <SubType>Form</SubType>
@@ -534,6 +541,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmDisposal.resx">
       <DependentUpon>frmDisposal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmEditJob.resx">
+      <DependentUpon>frmEditJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.resx">
       <DependentUpon>frmGetDispatchingDataOffline.cs</DependentUpon>
@@ -941,6 +951,7 @@
   <ItemGroup>
     <Folder Include="Libs\x64\" />
     <Folder Include="Model\RunningMode\Manufacturing\" />
+    <Folder Include="View\MainRLinkUI\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonVariable\CommonVariable.csproj">
