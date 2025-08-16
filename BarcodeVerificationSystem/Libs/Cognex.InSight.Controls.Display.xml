@@ -19336,7 +19336,9 @@
       <summary>For Cognex internal use only.</summary>
       <exclude />
     </member>
-    <member name="P:Cognex.InSight.Controls.Display.Internal.VisionViewViewSelectionControl.SelectedRowIndex">
+    <member name="P:Cognex.InSight.Controls.Display.Internal.VisionViewViewSelectionControl.
+			
+Index">
       <summary>For Cognex internal use only.</summary>
       <exclude />
     </member>

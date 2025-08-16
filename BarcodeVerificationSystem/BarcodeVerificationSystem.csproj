@@ -50,7 +50,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>logores.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -279,6 +279,7 @@
     <Compile Include="Utils\CodeGeneration\Helper\LineConvertHelper.cs" />
     <Compile Include="Utils\CreateScrollablePanel.cs" />
     <Compile Include="Utils\CsvConvert.cs" />
+    <Compile Include="Utils\EmptyValueValidator.cs" />
     <Compile Include="Utils\MaskData.cs" />
     <Compile Include="Utils\ExceptionLogger.cs" />
     <Compile Include="Services\FormCapture.cs" />
@@ -319,6 +320,12 @@
     </Compile>
     <Compile Include="View\NutrifoodUI\frmPreviewDatabaseNutri.Designer.cs">
       <DependentUpon>frmPreviewDatabaseNutri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmSettingsNuti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\frmSettingsNuti.Designer.cs">
+      <DependentUpon>frmSettingsNuti.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
     <Compile Include="View\UtilityForms\DispatchingProcess\frmDisposal.cs">
@@ -387,16 +394,16 @@
     <Compile Include="View\UtilityForms\frmTableData.Designer.cs">
       <DependentUpon>frmTableData.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmCheckedResult.cs">
+    <Compile Include="View\MainRLinkUI\frmCheckedResult.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmCheckedResult.Designer.cs">
+    <Compile Include="View\MainRLinkUI\frmCheckedResult.Designer.cs">
       <DependentUpon>frmCheckedResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmMain.cs">
+    <Compile Include="View\MainRLinkUI\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmMain.designer.cs">
+    <Compile Include="View\MainRLinkUI\frmMain.designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UtilityForms\frmPrintFieldForVerifyAndPrintCompareMode.cs">
@@ -429,16 +436,16 @@
     <Compile Include="View\SubForms\frmChangePassword.designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmJob.cs">
+    <Compile Include="View\MainRLinkUI\frmJob.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmJob.Designer.cs">
+    <Compile Include="View\MainRLinkUI\frmJob.Designer.cs">
       <DependentUpon>frmJob.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmLoginNew.cs">
+    <Compile Include="View\MainRLinkUI\frmLoginNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmLoginNew.Designer.cs">
+    <Compile Include="View\MainRLinkUI\frmLoginNew.Designer.cs">
       <DependentUpon>frmLoginNew.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SubForms\frmManageAccount.cs">
@@ -453,16 +460,16 @@
     <Compile Include="View\UtilityForms\frmPODFormat.designer.cs">
       <DependentUpon>frmPODFormat.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmPreviewDatabase.cs">
+    <Compile Include="View\MainRLinkUI\frmPreviewDatabase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmPreviewDatabase.Designer.cs">
+    <Compile Include="View\MainRLinkUI\frmPreviewDatabase.Designer.cs">
       <DependentUpon>frmPreviewDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmSettings.cs">
+    <Compile Include="View\MainRLinkUI\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmSettings.Designer.cs">
+    <Compile Include="View\MainRLinkUI\frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PopupDialogs\frmSplashScreen.cs">
@@ -519,7 +526,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.vi.resx" />
-    <EmbeddedResource Include="View\frmMain.vi.resx">
+    <EmbeddedResource Include="View\MainRLinkUI\frmMain.vi.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NutrifoodUI\frmJobNutri.resx">
@@ -538,6 +545,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NutrifoodUI\frmPreviewDatabaseNutri.resx">
       <DependentUpon>frmPreviewDatabaseNutri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\frmSettingsNuti.resx">
+      <DependentUpon>frmSettingsNuti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmDisposal.resx">
       <DependentUpon>frmDisposal.cs</DependentUpon>
@@ -582,19 +592,19 @@
     <EmbeddedResource Include="View\SubForms\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmCheckedResult.resx">
+    <EmbeddedResource Include="View\MainRLinkUI\frmCheckedResult.resx">
       <DependentUpon>frmCheckedResult.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmJob.resx">
+    <EmbeddedResource Include="View\MainRLinkUI\frmJob.resx">
       <DependentUpon>frmJob.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmLogin.resx" />
-    <EmbeddedResource Include="View\frmLogin.vi.resx" />
-    <EmbeddedResource Include="View\frmLoginNew.resx">
+    <EmbeddedResource Include="View\MainRLinkUI\frmLogin.resx" />
+    <EmbeddedResource Include="View\MainRLinkUI\frmLogin.vi.resx" />
+    <EmbeddedResource Include="View\MainRLinkUI\frmLoginNew.resx">
       <DependentUpon>frmLoginNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmMain.resx">
+    <EmbeddedResource Include="View\MainRLinkUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -604,7 +614,7 @@
     <EmbeddedResource Include="View\UtilityForms\frmPODFormat.resx">
       <DependentUpon>frmPODFormat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmPreviewDatabase.resx">
+    <EmbeddedResource Include="View\MainRLinkUI\frmPreviewDatabase.resx">
       <DependentUpon>frmPreviewDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\frmPrintFieldForVerifyAndPrintCompareMode.resx">
@@ -613,7 +623,7 @@
     <EmbeddedResource Include="View\SubForms\frmRemotePrinter.resx">
       <DependentUpon>frmRemotePrinter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmSettings.resx">
+    <EmbeddedResource Include="View\MainRLinkUI\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PopupDialogs\frmSplashScreen.resx">
@@ -739,6 +749,7 @@
     <Content Include="Libs\WinFormAnimation.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="logores.ico" />
     <Content Include="R-Link_InnoScript.iss" />
     <None Include="Resources\check.png" />
     <Content Include="Resources\Database18.png" />
@@ -951,7 +962,6 @@
   <ItemGroup>
     <Folder Include="Libs\x64\" />
     <Folder Include="Model\RunningMode\Manufacturing\" />
-    <Folder Include="View\MainRLinkUI\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonVariable\CommonVariable.csproj">
@@ -999,7 +1009,7 @@
       <Version>0.10.4</Version>
     </PackageReference>
     <PackageReference Include="FontAwesome.Sharp">
-      <Version>6.1.1</Version>
+      <Version>6.6.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Caching.Memory">
       <Version>8.0.1</Version>
@@ -1009,7 +1019,7 @@
       <Version>9.3.0</Version>
     </PackageReference>
     <PackageReference Include="PDFsharp">
-      <Version>6.1.1</Version>
+      <Version>6.2.1</Version>
     </PackageReference>
     <PackageReference Include="System.Management">
       <Version>8.0.0</Version>

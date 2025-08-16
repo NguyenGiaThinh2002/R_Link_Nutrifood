@@ -10,7 +10,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
 {
     internal class RequestPrinted
     {
-        public int id { get; set; }
+        public int index_qr_code { get; set; }
         public string job_name { get; set; } = Shared.CurrentJob.FileName;
         public string plant { get; set; } = Shared.Settings.FactoryCode;
         public string wave_key { get; set; } = Shared.CurrentJob.DispatchingOrderPayload.payload.wave_key;
@@ -25,7 +25,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
             Shared.CurrentJob.DispatchingOrderPayload.payload.items[Shared.CurrentJob.SelectedMaterialIndex].material_number;
         public string resource_code { get; set; } = Shared.Settings.LineId;
         public string resource_name { get; set; } = Shared.Settings.LineName;
-        public string username { get; set; } = CurrentUser.UserName;
+        public string username { get; set; } = CurrentUser.UserCode;
         public DateTime printed_date { get; set; }
         public string status { get; set; } = "Printed";
         public DateTime sync_date { get; set; } = DateTime.Now;

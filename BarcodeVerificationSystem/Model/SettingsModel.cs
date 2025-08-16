@@ -16,7 +16,13 @@ namespace BarcodeVerificationSystem.Model
     {
         #region Properties
 
-        public ResponseOrder DispatchingOrderPayload { get; set; } = null;
+        public ResponseOrder DispatchingOrderPayload = new ResponseOrder
+        {
+            payload = new ResponseOrder.Payload
+            {
+                items = new List<ResponseOrder.Item>()
+            }
+        };
         public int AddQuantity = 0;
         private string _printTemplate = "";
         public string PrintTemplate { get => _printTemplate; set => _printTemplate = value; }
@@ -121,13 +127,6 @@ namespace BarcodeVerificationSystem.Model
 
 
         #region Production Mode
-
-        private bool _isProductionMode = false;
-        public bool IsProductionMode
-        {
-            get { return _isProductionMode; }
-            set { _isProductionMode = value; }
-        }
 
         private int _increasedDataPercent = 10;
         public int IncreasedDataPercent

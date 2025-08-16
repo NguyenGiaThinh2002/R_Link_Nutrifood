@@ -15,7 +15,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
         public string notes { get; set; }
         public DateTime destroy_date { get; set; } 
         public DateTime sync_date { get; set; } // ?????
-        public string username { get; set; } = CurrentUser.UserName; 
+        public string username { get; set; } = CurrentUser.UserCode; 
         public DateTime scan_date { get; set; } = DateTime.Now; // Default to current time if not set
         public string status { get; set; } = "Dispose";
 

@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginNutri));
             this.panelDrag = new System.Windows.Forms.Panel();
-            this.cuzPanel1 = new DesignUI.CuzUI.CuzPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cuzPanel1 = new DesignUI.CuzUI.CuzPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.labelSoftwareName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cuzControlBox1 = new DesignUI.CuzUI.CuzControlBox();
@@ -46,11 +48,9 @@
             this.chbRememberPassword = new System.Windows.Forms.CheckBox();
             this.cuzDragControl1 = new DesignUI.CuzUI.CuzDragControl();
             this.cuzDropShadow1 = new DesignUI.CuzUI.CuzDropShadow();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panelDrag.SuspendLayout();
-            this.cuzPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cuzPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,6 +75,29 @@
             this.panelDrag.Size = new System.Drawing.Size(1024, 600);
             this.panelDrag.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Green;
+            this.label3.Location = new System.Drawing.Point(787, 565);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 25);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Design for";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(875, 563);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(146, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // cuzPanel1
             // 
             this.cuzPanel1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
@@ -93,16 +116,17 @@
             this.cuzPanel1.Size = new System.Drawing.Size(512, 600);
             this.cuzPanel1.TabIndex = 58;
             // 
-            // pictureBox1
+            // label2
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(875, 563);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(72, 566);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(372, 25);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "© 2025 - All rights reserved by Mylan ";
             // 
             // labelSoftwareName
             // 
@@ -296,46 +320,23 @@
             // 
             this.cuzDropShadow1.TargetControl = this;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(72, 566);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(372, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "© 2025 - All rights reserved by Mylan ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Green;
-            this.label3.Location = new System.Drawing.Point(787, 565);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Design for";
-            // 
-            // frmLogin
+            // frmLoginNutri
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.panelDrag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmLogin";
+            this.Name = "frmLoginNutri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelDrag.ResumeLayout(false);
             this.panelDrag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.cuzPanel1.ResumeLayout(false);
             this.cuzPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).EndInit();
             this.ResumeLayout(false);
 

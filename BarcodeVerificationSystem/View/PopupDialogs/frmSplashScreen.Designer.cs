@@ -61,7 +61,7 @@
             // 
             // lblComment
             // 
-            this.lblComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.lblComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.lblComment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblComment.ForeColor = System.Drawing.Color.White;
@@ -84,7 +84,7 @@
             this.panel1.Size = new System.Drawing.Size(384, 36);
             this.panel1.TabIndex = 1;
             // 
-            // frmSplashScreen
+            // FrmSplashScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,7 +97,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmSplashScreen";
+            this.Name = "FrmSplashScreen";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

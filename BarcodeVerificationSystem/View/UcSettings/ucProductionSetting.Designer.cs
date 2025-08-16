@@ -32,14 +32,10 @@
             this.labelApi = new System.Windows.Forms.Label();
             this.comboBoxRLinkId = new System.Windows.Forms.ComboBox();
             this.lineIdLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.radProductionModeEnable = new System.Windows.Forms.RadioButton();
-            this.radProductionModeDisable = new System.Windows.Forms.RadioButton();
             this.groupBoxProductionSettings = new System.Windows.Forms.GroupBox();
-            this.RLinkName = new System.Windows.Forms.TextBox();
+            this.FactoryCodeCombox = new System.Windows.Forms.ComboBox();
+            this.RLinkNamescombox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lineIndex = new System.Windows.Forms.Label();
-            this.lineIndexTextBox = new System.Windows.Forms.TextBox();
             this.onlineProductionSettings = new System.Windows.Forms.Panel();
             this.productionMode = new System.Windows.Forms.Label();
             this.manufacturingRad = new System.Windows.Forms.RadioButton();
@@ -53,9 +49,7 @@
             this.lineName = new System.Windows.Forms.TextBox();
             this.dataDisplay = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.factoryCode = new System.Windows.Forms.TextBox();
             this.factoryCodeLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5.SuspendLayout();
             this.groupBoxProductionSettings.SuspendLayout();
             this.onlineProductionSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numIncreasedData)).BeginInit();
@@ -65,17 +59,17 @@
             // 
             this.apiTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.apiTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apiTextbox.Location = new System.Drawing.Point(215, 106);
+            this.apiTextbox.Location = new System.Drawing.Point(233, 65);
             this.apiTextbox.MinimumSize = new System.Drawing.Size(361, 30);
             this.apiTextbox.Name = "apiTextbox";
-            this.apiTextbox.Size = new System.Drawing.Size(439, 26);
+            this.apiTextbox.Size = new System.Drawing.Size(439, 30);
             this.apiTextbox.TabIndex = 0;
             // 
             // labelApi
             // 
             this.labelApi.AutoSize = true;
             this.labelApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApi.Location = new System.Drawing.Point(48, 109);
+            this.labelApi.Location = new System.Drawing.Point(66, 68);
             this.labelApi.Name = "labelApi";
             this.labelApi.Size = new System.Drawing.Size(57, 20);
             this.labelApi.TabIndex = 39;
@@ -106,72 +100,14 @@
             this.lineIdLabel.TabIndex = 41;
             this.lineIdLabel.Text = "Line Id:";
             // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.radProductionModeEnable, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.radProductionModeDisable, 1, 0);
-            this.tableLayoutPanel5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(215, 37);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(439, 38);
-            this.tableLayoutPanel5.TabIndex = 42;
-            // 
-            // radProductionModeEnable
-            // 
-            this.radProductionModeEnable.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radProductionModeEnable.BackColor = System.Drawing.Color.White;
-            this.radProductionModeEnable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radProductionModeEnable.FlatAppearance.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.radProductionModeEnable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radProductionModeEnable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radProductionModeEnable.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.radProductionModeEnable.Location = new System.Drawing.Point(0, 0);
-            this.radProductionModeEnable.Margin = new System.Windows.Forms.Padding(0);
-            this.radProductionModeEnable.Name = "radProductionModeEnable";
-            this.radProductionModeEnable.Size = new System.Drawing.Size(219, 38);
-            this.radProductionModeEnable.TabIndex = 3;
-            this.radProductionModeEnable.TabStop = true;
-            this.radProductionModeEnable.Text = "Enable";
-            this.radProductionModeEnable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radProductionModeEnable.UseVisualStyleBackColor = false;
-            // 
-            // radProductionModeDisable
-            // 
-            this.radProductionModeDisable.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radProductionModeDisable.BackColor = System.Drawing.Color.White;
-            this.radProductionModeDisable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radProductionModeDisable.FlatAppearance.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.radProductionModeDisable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radProductionModeDisable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radProductionModeDisable.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.radProductionModeDisable.Location = new System.Drawing.Point(219, 0);
-            this.radProductionModeDisable.Margin = new System.Windows.Forms.Padding(0);
-            this.radProductionModeDisable.Name = "radProductionModeDisable";
-            this.radProductionModeDisable.Size = new System.Drawing.Size(220, 38);
-            this.radProductionModeDisable.TabIndex = 4;
-            this.radProductionModeDisable.TabStop = true;
-            this.radProductionModeDisable.Text = "Disable";
-            this.radProductionModeDisable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radProductionModeDisable.UseVisualStyleBackColor = false;
-            // 
             // groupBoxProductionSettings
             // 
-            this.groupBoxProductionSettings.Controls.Add(this.RLinkName);
+            this.groupBoxProductionSettings.Controls.Add(this.FactoryCodeCombox);
+            this.groupBoxProductionSettings.Controls.Add(this.RLinkNamescombox);
             this.groupBoxProductionSettings.Controls.Add(this.label1);
-            this.groupBoxProductionSettings.Controls.Add(this.lineIndex);
-            this.groupBoxProductionSettings.Controls.Add(this.lineIndexTextBox);
             this.groupBoxProductionSettings.Controls.Add(this.onlineProductionSettings);
             this.groupBoxProductionSettings.Controls.Add(this.progressBar1);
-            this.groupBoxProductionSettings.Controls.Add(this.factoryCode);
             this.groupBoxProductionSettings.Controls.Add(this.factoryCodeLabel);
-            this.groupBoxProductionSettings.Controls.Add(this.tableLayoutPanel5);
             this.groupBoxProductionSettings.Controls.Add(this.labelApi);
             this.groupBoxProductionSettings.Controls.Add(this.apiTextbox);
             this.groupBoxProductionSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -183,43 +119,43 @@
             this.groupBoxProductionSettings.TabStop = false;
             this.groupBoxProductionSettings.Text = "Cài đặt Line";
             // 
-            // RLinkName
+            // FactoryCodeCombox
             // 
-            this.RLinkName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RLinkName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RLinkName.Location = new System.Drawing.Point(215, 193);
-            this.RLinkName.Name = "RLinkName";
-            this.RLinkName.Size = new System.Drawing.Size(103, 26);
-            this.RLinkName.TabIndex = 80;
+            this.FactoryCodeCombox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FactoryCodeCombox.FormattingEnabled = true;
+            this.FactoryCodeCombox.Items.AddRange(new object[] {
+            "R1",
+            "R2",
+            "R3",
+            "R4"});
+            this.FactoryCodeCombox.Location = new System.Drawing.Point(233, 214);
+            this.FactoryCodeCombox.Name = "FactoryCodeCombox";
+            this.FactoryCodeCombox.Size = new System.Drawing.Size(160, 28);
+            this.FactoryCodeCombox.TabIndex = 81;
+            // 
+            // RLinkNamescombox
+            // 
+            this.RLinkNamescombox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RLinkNamescombox.FormattingEnabled = true;
+            this.RLinkNamescombox.Items.AddRange(new object[] {
+            "R1",
+            "R2",
+            "R3",
+            "R4"});
+            this.RLinkNamescombox.Location = new System.Drawing.Point(233, 138);
+            this.RLinkNamescombox.Name = "RLinkNamescombox";
+            this.RLinkNamescombox.Size = new System.Drawing.Size(160, 28);
+            this.RLinkNamescombox.TabIndex = 78;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 199);
+            this.label1.Location = new System.Drawing.Point(66, 141);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 78;
             this.label1.Text = "Tên thiết bị:";
-            // 
-            // lineIndex
-            // 
-            this.lineIndex.AutoSize = true;
-            this.lineIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lineIndex.Location = new System.Drawing.Point(48, 360);
-            this.lineIndex.Name = "lineIndex";
-            this.lineIndex.Size = new System.Drawing.Size(92, 20);
-            this.lineIndex.TabIndex = 79;
-            this.lineIndex.Text = "Thứ tự Line:";
-            // 
-            // lineIndexTextBox
-            // 
-            this.lineIndexTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lineIndexTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lineIndexTextBox.Location = new System.Drawing.Point(215, 357);
-            this.lineIndexTextBox.Name = "lineIndexTextBox";
-            this.lineIndexTextBox.Size = new System.Drawing.Size(103, 26);
-            this.lineIndexTextBox.TabIndex = 78;
             // 
             // onlineProductionSettings
             // 
@@ -360,20 +296,11 @@
             this.progressBar1.TabIndex = 76;
             this.progressBar1.Visible = false;
             // 
-            // factoryCode
-            // 
-            this.factoryCode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.factoryCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.factoryCode.Location = new System.Drawing.Point(215, 274);
-            this.factoryCode.Name = "factoryCode";
-            this.factoryCode.Size = new System.Drawing.Size(103, 26);
-            this.factoryCode.TabIndex = 75;
-            // 
             // factoryCodeLabel
             // 
             this.factoryCodeLabel.AutoSize = true;
             this.factoryCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.factoryCodeLabel.Location = new System.Drawing.Point(48, 280);
+            this.factoryCodeLabel.Location = new System.Drawing.Point(66, 217);
             this.factoryCodeLabel.Name = "factoryCodeLabel";
             this.factoryCodeLabel.Size = new System.Drawing.Size(99, 20);
             this.factoryCodeLabel.TabIndex = 72;
@@ -386,7 +313,6 @@
             this.Controls.Add(this.groupBoxProductionSettings);
             this.Name = "ucProductionSetting";
             this.Size = new System.Drawing.Size(990, 500);
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBoxProductionSettings.ResumeLayout(false);
             this.groupBoxProductionSettings.PerformLayout();
             this.onlineProductionSettings.ResumeLayout(false);
@@ -402,9 +328,6 @@
         private System.Windows.Forms.Label labelApi;
         private System.Windows.Forms.ComboBox comboBoxRLinkId;
         private System.Windows.Forms.Label lineIdLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.RadioButton radProductionModeEnable;
-        private System.Windows.Forms.RadioButton radProductionModeDisable;
         private System.Windows.Forms.GroupBox groupBoxProductionSettings;
         private System.Windows.Forms.RadioButton dispatchingRad;
         private System.Windows.Forms.RadioButton manufacturingRad;
@@ -414,16 +337,14 @@
         private System.Windows.Forms.NumericUpDown numIncreasedData;
         private System.Windows.Forms.Label dataDisplay;
         private System.Windows.Forms.CheckBox maskData;
-        private System.Windows.Forms.TextBox factoryCode;
         private System.Windows.Forms.Label lineNameLabel;
         private System.Windows.Forms.TextBox lineName;
         private System.Windows.Forms.Label factoryCodeLabel;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox LineId;
         private System.Windows.Forms.Panel onlineProductionSettings;
-        private System.Windows.Forms.TextBox lineIndexTextBox;
-        private System.Windows.Forms.Label lineIndex;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox RLinkName;
+        private System.Windows.Forms.ComboBox FactoryCodeCombox;
+        private System.Windows.Forms.ComboBox RLinkNamescombox;
     }
 }

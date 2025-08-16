@@ -63,7 +63,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 {
                     printedContent = new RequestPrinted
                     {
-                        id = entry.Id,
+                        index_qr_code = entry.Id,
                         qr_code = entry.Code,
                         unique_code = entry.UniqueCode, // entry.HumanCode
                         printed_date = DateTime.Parse(entry.PrintedDate),
@@ -117,7 +117,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
                         Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
-                    if (!ResponsePrinted.is_success_sap)
+                    if (ResponsePrinted.is_success_sap)
                     {
                         Shared.CurrentJob.NumberOfSAPSentCodes++;
                         Shared.CurrentJob.SaveFile(filePath);
@@ -125,15 +125,12 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
 
-                    if (ResponsePrinted.is_success) // nho chinh khuc nay
+                    if (ResponsePrinted.is_success && ResponsePrinted.is_success_sap) // nho chinh khuc nay
                     {
                         _storageService.MarkAsSent(entry.Id, entry.PrintedDate,  entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                     }
                     else
                     {
-                        //_storageService.AppendEntry(entry); // Re-append entry for retry
-                        entry.SaasStatus = "failed";
-                        entry.SaasError = "Response Status is " + ResponsePrinted.error_code;
                         _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                         _queue.Add(entry);
                     }

@@ -143,6 +143,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             // NumberOfSuccess
             // 
             this.NumberOfSuccess.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.NumberOfSuccess.ForeColor = System.Drawing.Color.LimeGreen;
             this.NumberOfSuccess.Location = new System.Drawing.Point(239, 729);
             this.NumberOfSuccess.Name = "NumberOfSuccess";
             this.NumberOfSuccess.Size = new System.Drawing.Size(57, 25);
@@ -152,6 +153,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             // NumberOfFailed
             // 
             this.NumberOfFailed.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.NumberOfFailed.ForeColor = System.Drawing.Color.Red;
             this.NumberOfFailed.Location = new System.Drawing.Point(542, 729);
             this.NumberOfFailed.Name = "NumberOfFailed";
             this.NumberOfFailed.Size = new System.Drawing.Size(57, 25);

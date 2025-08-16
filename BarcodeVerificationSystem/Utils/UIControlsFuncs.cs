@@ -52,7 +52,30 @@ namespace BarcodeVerificationSystem.Utils
             }
         }
 
-        public static void EnableAllTabsSelection(TabControl tabControl)
+
+        public static void HideControls(params object[] items)
+        {
+            if (items == null) throw new ArgumentNullException(nameof(items));
+
+            foreach (var item in items)
+            {
+                switch (item)
+                {
+                    case Control control:
+                        control.Visible = false;
+                        break;
+
+                    case ToolStripItem toolStripItem:
+                        toolStripItem.Visible = false;
+                        break;
+
+                    default:
+                        throw new NotSupportedException($"Unsupported type: {item?.GetType().Name}");
+                }
+            }
+        }
+
+            public static void EnableAllTabsSelection(TabControl tabControl)
         {
             if (tabControl == null) throw new ArgumentNullException(nameof(tabControl));
             _tabSelectionEnabled = true;

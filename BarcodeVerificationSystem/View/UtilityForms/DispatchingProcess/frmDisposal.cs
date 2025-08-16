@@ -118,30 +118,32 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             if (Shared.OperStatus == OperationStatus.Running && Shared.OperStatus == OperationStatus.Processing)
                 return;
 
-            var model = sender as DetectModel;
-            if (model == null || string.IsNullOrWhiteSpace(model.Text)) return;
-
-            var item = new ProductItem(model.Text.Trim());
-            item.OnDeleteClicked += delegate
+            try
             {
-                RemoveItem(item);
-            };
+                var model = sender as DetectModel;
+                if (model == null || string.IsNullOrWhiteSpace(model.Text)) return;
 
-            AddItem(item);
+                var item = new ProductItem(model.Text.Trim());
+                item.OnDeleteClicked += delegate
+                {
+                    RemoveItem(item);
+                };
 
-            disposedItems.Add(new RequestDisposal
+                AddItem(item);
+
+                var dispatching = new Dispatching(Shared.Settings.DispatchingOrderPayload.payload.shipto_code, Shared.Settings.DispatchingOrderPayload.payload.shipment);
+
+                disposedItems.Add(new RequestDisposal
+                {
+                    qr_code = model.Text.Trim(),
+                    unique_code = dispatching.GetHumanReadableCode(model.Text.Trim()),
+                });
+            }
+            catch (Exception)
             {
-                qr_code = model.Text.Trim(),
-                unique_code = Dispatching.GetHumanReadableCode(model.Text.Trim()),
-            });
+                CustomMessageBox.Show("Hủy mã không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            //reprintItems.Add(new RequestRePrint
-            //{
-            //    qr_code = model.Text.Trim(),
-            //    unique_code = Dispatching.GetHumanReadableCode(model.Text.Trim()),
-            //    notes = "Reprint request",
-            //    sync_date = DateTime.Now // nay can chinh voi nut sort or st
-            //});
         }
 
         private void AddItem(Control item)

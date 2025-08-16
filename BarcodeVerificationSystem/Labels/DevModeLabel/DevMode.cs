@@ -21,9 +21,9 @@ namespace BarcodeVerificationSystem.Labels.DevModeLabel
             AdminOfflineMode,
             AdminOnlineMode,
         }
-        private static LoginLabel _labelType = LoginLabel.OperatorOnlineMode;
+        private static LoginLabel _labelType = LoginLabel.SupportOfflineMode;
 
-        private static DevModeLabel _devMode = DevModeLabel.OnDevMode;
+        private static DevModeLabel _devMode = DevModeLabel.OffDevMode;
         public static bool IsDevMode => _devMode == DevModeLabel.OnDevMode;
         public static LoginLabel LabelType => _labelType;
     }

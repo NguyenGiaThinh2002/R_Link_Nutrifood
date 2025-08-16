@@ -120,6 +120,19 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         {
             btnLogin.Click += ActionChanged;
             Shared.OnLanguageChange += Shared_OnLanguageChange;
+            FormClosing += FrmMain_FormClosing;
+        }
+
+        private async void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                ApiService apiService = new ApiService();
+                await MonitorSenderService.sendParametersToServerAsync(apiService, false);
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void Shared_OnLanguageChange(object sender, EventArgs e)
@@ -212,35 +225,42 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         bool isOnlineAccountOK = false;
                         try
                         {
-                            if (Shared.Settings.IsProductionMode && ProjectLabel.IsNutrifood)
+                            if (ProjectLabel.IsNutrifood)
                             {
-                                Shared.UserPermission = await service.GetPermissionsAsync(username, password);
-                                Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
-
-                                var apiService = new ApiService();
-                                var deviceInfo = await apiService.GetApiWithModel<DeviceSettingsPayload>(ApiModel.getLineNameUrl(Shared.Settings.RLinkName));
-                                if (!deviceInfo.is_success)
+                                try
                                 {
-                                    CustomMessageBox.Show(deviceInfo.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    //return;
+                                    Shared.UserPermission = await service.GetPermissionsAsync(username, password);
+                                    Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
+
+                                    var apiService = new ApiService();
+                                    var deviceInfo = await apiService.GetApiWithModel<DeviceSettingsPayload>(ApiModel.getLineNameUrl(Shared.Settings.RLinkName));
+                                    if (!deviceInfo.is_success)
+                                    {
+                                        CustomMessageBox.Show(deviceInfo.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        //return;
+                                    }
+
+                                    Shared.Settings.PrintTemplate = deviceInfo.print_template_name;
+                                    Shared.Settings.AddQuantity = deviceInfo.add_qty;
+                                    Shared.Settings.LineId = deviceInfo.resource_code;
+                                    Shared.Settings.LineName = deviceInfo.resource_name;
+
+                                    if (Shared.UserPermission == null)
+                                    {
+                                        isOnlineAccountOK = false;
+                                    }
+                                    else
+                                    {
+                                        Shared.UserPermission.isOnline = isOnlineAccountOK = true;
+                                        Shared.Settings.IsManufacturingMode = Shared.UserPermission.ManufacturingMode;
+                                        Shared.SaveSettings();
+                                    }
+                                }
+                                catch (Exception)
+                                {
+                                    //CustomMessageBox.Show("Lỗi lấy ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
 
-                                Shared.Settings.LineId = deviceInfo.resource_code;
-                                Shared.Settings.LineName = deviceInfo.resource_name;
-
-                                if (Shared.UserPermission == null)
-                                {
-                                    isOnlineAccountOK = false;
-                                }
-                                else
-                                {
-                                    Shared.UserPermission.isOnline = isOnlineAccountOK = true;
-                                    Shared.Settings.IsManufacturingMode = Shared.UserPermission.ManufacturingMode;
-                                    Shared.SaveSettings();
-                                }
-                                //var text = string.Join(Environment.NewLine,
-                                //                        Shared.UserPermission.Permissions.Select(p => $"{p.Key} = {p.Value}"));
-                                //MessageBox.Show(text);
                             }
                             else
                             {

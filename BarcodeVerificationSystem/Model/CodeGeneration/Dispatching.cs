@@ -11,36 +11,36 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
 {
     public class Dispatching
     {
-        private static string _shiptoCode = Shared.Settings.DispatchingOrderPayload.payload.shipto_code;  //"2000000573"; // 10 characters
-        private static string _shipmentCode = Shared.Settings.DispatchingOrderPayload.payload.shipment; //"00136999"; // 8 characters
-        private static string _lineCode = Shared.Settings.FactoryCode;  //"B2"; //Bình Dương: B1 ; B2 -- Hưng Yên: H1 ; H2
+        private string _shiptoCode; // = Shared.Settings.DispatchingOrderPayload.payload.shipto_code; 
+        private string _shipmentCode; // = Shared.Settings.DispatchingOrderPayload.payload.shipment;
+        private string _lineCode; // = Shared.Settings.FactoryCode; 
 
-        public static string getShiptoCode() => _shiptoCode;
-        public static string getShipmentCode() => _shipmentCode;
+        public string getShiptoCode() => _shiptoCode;
+        public string getShipmentCode() => _shipmentCode;
 
-        public Dispatching(string shiptoCode, string shipment, string lineCode)
+        public Dispatching(string shiptoCode, string shipment)
         {
             _shiptoCode = shiptoCode;
             _shipmentCode = shipment;
-            _lineCode = lineCode;
+            _lineCode = Shared.Settings.FactoryCode;
         }
 
-        public static string GenerateCode(string _randomCode)
+        public string GenerateCode(string _randomCode)
         {
 
-            if (_shiptoCode.Length != 10 || _shipmentCode.Length != 8 || _lineCode.Length != 2 || _randomCode.Length != 10) // 6
-            {
-            }
+            //if (_shiptoCode.Length != 10 || _shipmentCode.Length != 8 || _lineCode.Length != 2 || _randomCode.Length != 10) // 6
+            //{
+            //}
 
-            if (Shared.Settings.IsManufacturingMode)
-            {
-                return string.Empty;
-            }
+            //if (Shared.Settings.IsManufacturingMode)
+            //{
+            //    return string.Empty;
+            //}
 
             return $"{_shiptoCode}{_shipmentCode}{_lineCode}{_randomCode}"; // tong cu: 26 , mới là : 32
         }
 
-        public static string GetHumanReadableCode(string fullCode)
+        public string GetHumanReadableCode(string fullCode)
         {
             string randomCode = string.Empty;
             if (string.IsNullOrWhiteSpace(fullCode) || fullCode.Length != 30)

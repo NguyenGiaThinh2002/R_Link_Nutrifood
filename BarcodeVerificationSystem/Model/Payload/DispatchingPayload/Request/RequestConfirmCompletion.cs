@@ -17,7 +17,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
         public string resource_code { get; set; } = Shared.Settings.LineId;
         public string resource_name { get; set; } = Shared.Settings.LineName;
         public int actual_quantity { get; set; }
-        public string username { get; set; } = CurrentUser.UserName;
+        public string username { get; set; } = CurrentUser.UserCode;
         public string notes { get; set; }
         public string confirm_type { get; set; }
         public DateTime confirm_date { get; set; } = DateTime.Now;

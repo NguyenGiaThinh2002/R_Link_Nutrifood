@@ -39,7 +39,7 @@ namespace BarcodeVerificationSystem.Model
         private bool _PrinterSeries = true;
         private string _TemplatePrint = "";
         private double _NumberTotalsCode = 0;
-        private bool _IsFirstRowHeader = true;
+        private bool _IsFirstRowHeader = false;
         private JobType _JobType = JobType.AfterProduction;
         private JobStatus _JobStatus = JobStatus.NewlyCreated;
         public CompareType CompareType { get => _CompareType; set => _CompareType = value; }

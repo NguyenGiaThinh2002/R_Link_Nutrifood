@@ -143,11 +143,12 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             };
 
             AddItem(item);
+            var dispatching = new Dispatching(Shared.Settings.DispatchingOrderPayload.payload.shipto_code, Shared.Settings.DispatchingOrderPayload.payload.shipment);
 
             reprintItems.Add(new QrCode
             {
                 qr_code = model.Text.Trim(),
-                unique_code = Dispatching.GetHumanReadableCode(model.Text.Trim()),            
+                unique_code = dispatching.GetHumanReadableCode(model.Text.Trim()),            
             });
 
             //reprintItems.Add(new RequestRePrint

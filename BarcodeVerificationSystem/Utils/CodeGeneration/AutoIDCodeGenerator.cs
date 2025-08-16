@@ -42,7 +42,7 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="Exception"></exception>
-        public static List<string> GenerateCodesWithAutoID(int quantity)
+        public static List<string> GenerateCodesWithAutoID(int quantity, string shipto, string shipment)
         {
          
            LoadAutoIdState(); // Load old key when start new sesion gen
@@ -78,6 +78,7 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
             if (currentAutoId + quantity > 10_000_000)
                 throw new Exception("Exceeding the limit of 10 million codes in the month for this line");
 
+            var dispatching = new Dispatching(shipto, shipment);
             // 5. Born a code list
             List<string> codes = new List<string>();
             for (int i = 0; i < quantity; i++)
@@ -85,8 +86,8 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
                 int id = currentAutoId + i;
                 string autoIdStr = id.ToString("D7");
                 string code = $"{yearCode}{monthCode}{autoIdStr}{lineCode}";
-                string fullCode = Dispatching.GenerateCode(code) + "," + code +
-                    "," + Dispatching.getShipmentCode() + "," + Dispatching.getShiptoCode();
+                string fullCode = dispatching.GenerateCode(code) + "," + code +
+                    "," + dispatching.getShipmentCode() + "," + dispatching.getShiptoCode();
                 codes.Add(fullCode);
             }
 

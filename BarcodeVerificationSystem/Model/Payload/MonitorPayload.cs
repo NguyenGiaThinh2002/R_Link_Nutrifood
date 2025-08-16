@@ -10,8 +10,14 @@ namespace BarcodeVerificationSystem.Model.Payload
 {
     internal class MonitorPayload
     {
+        public int printed_codes_number { get; set; }
+        public int generated_codes_number { get; set; }
+        public int sent_saas_codes { get; set; }
+        public int sent_sap_codes { get; set; }
+        public bool is_software_connected { get; set; }
+
         public string plant { get; set; }
-        public string device_name { get; set; } = Shared.Settings.RLinkName;
+        public string device_code { get; set; } = Shared.Settings.RLinkName;
         public string resource_code { get; set; }
         public string resource_name { get; set; }
         public string ip_address_rlink { get; set; }

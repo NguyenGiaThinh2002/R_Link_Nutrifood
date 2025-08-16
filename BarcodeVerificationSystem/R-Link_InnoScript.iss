@@ -9,7 +9,7 @@
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
-#define MyAppDateTimeRelease "260807"
+#define MyAppDateTimeRelease "250816"
 
 //Delete old folder first (ProgramData/R-Link)
 [Code]
@@ -68,12 +68,12 @@ UninstallDisplayName={#MyAppName}
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
 // icon for unintsall
-UninstallDisplayIcon={app}\icon.ico  
+UninstallDisplayIcon={app}\logores.ico  
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=SoftwareInstaller
 OutputBaseFilename=R_Link_Setup64_{#MyAppVersion}_{#MyAppDateTimeRelease}
-SetupIconFile=icon.ico
+SetupIconFile=logores.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -88,11 +88,11 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: "*.pdb, *.config";
-Source: "vcredist2010_x86.exe"; DestDir: "{tmp}"; Flags: deleteafterinstall; Check: not IsVCRedistInstalled
+Source: "vcredist2010_x86.exe"; DestDir: "{tmp}"; Flags: ignoreversion; Check: not IsVCRedistInstalled
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
-;Add file icon.ico into the installation directory
-Source: "icon.ico"; DestDir: "{app}"; Flags: ignoreversion  
+;Add file logoresico into the installation directory
+Source: "logores.ico"; DestDir: "{app}"; Flags: ignoreversion  
 
 [Registry]
 Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue

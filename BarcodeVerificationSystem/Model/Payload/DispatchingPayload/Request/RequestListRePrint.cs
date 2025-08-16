@@ -10,7 +10,7 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
 {
     internal class RequestListRePrint
     {
-        public string username { get; set; } = CurrentUser.UserName;
+        public string username { get; set; } = CurrentUser.UserCode;
         public string plant { get; set; } = Shared.Settings.FactoryCode;
    
         public List<QrCode> qrCodes { get; set; } = new List<QrCode>();

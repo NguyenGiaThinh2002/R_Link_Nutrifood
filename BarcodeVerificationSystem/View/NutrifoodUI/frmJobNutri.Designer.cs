@@ -120,6 +120,7 @@
             this.btnImportDatabase = new DesignUI.CuzUI.CuzButton();
             this.btnGennerate = new DesignUI.CuzUI.CuzButton();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.editJobBtn = new DesignUI.CuzUI.CuzButton();
             this.StopSyncData = new DesignUI.CuzUI.CuzButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SyncDataBtn = new DesignUI.CuzUI.CuzButton();
@@ -183,7 +184,7 @@
             this.lblRLinkSeries = new System.Windows.Forms.Label();
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
-            this.editJobBtn = new DesignUI.CuzUI.CuzButton();
+            this.picSaveJobLoading = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.pnlMain.SuspendLayout();
@@ -207,6 +208,7 @@
             this.pnlJobInfomation.SuspendLayout();
             this.cuzPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSaveJobLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // DragControl
@@ -293,7 +295,7 @@
             this.btnRestart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnRestart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
             this.btnRestart.ForeColor = System.Drawing.Color.White;
-            this.btnRestart.IconChar = FontAwesome.Sharp.IconChar.RedoAlt;
+            this.btnRestart.IconChar = FontAwesome.Sharp.IconChar.RotateForward;
             this.btnRestart.IconColor = System.Drawing.Color.White;
             this.btnRestart.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRestart.IconSize = 30;
@@ -1323,6 +1325,24 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // editJobBtn
+            // 
+            this.editJobBtn._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.editJobBtn._BorderRadius = 0;
+            this.editJobBtn._BorderSize = 1;
+            this.editJobBtn._GradientsButton = false;
+            this.editJobBtn._Text = "Chỉnh sửa";
+            this.editJobBtn.BackColor = System.Drawing.Color.DarkCyan;
+            this.editJobBtn.BackgroundColor = System.Drawing.Color.DarkCyan;
+            this.editJobBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.editJobBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.editJobBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.editJobBtn, "editJobBtn");
+            this.editJobBtn.ForeColor = System.Drawing.Color.White;
+            this.editJobBtn.Name = "editJobBtn";
+            this.editJobBtn.TextColor = System.Drawing.Color.White;
+            this.editJobBtn.UseVisualStyleBackColor = false;
+            // 
             // StopSyncData
             // 
             this.StopSyncData._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
@@ -1499,6 +1519,7 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.White;
+            this.tabPage5.Controls.Add(this.picSaveJobLoading);
             this.tabPage5.Controls.Add(this.InputCodeNumber);
             this.tabPage5.Controls.Add(this.InputMaterialName);
             this.tabPage5.Controls.Add(this.InputMaterialNumber);
@@ -2096,23 +2117,12 @@
             this.lblStandalone.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblStandalone.Name = "lblStandalone";
             // 
-            // editJobBtn
+            // picSaveJobLoading
             // 
-            this.editJobBtn._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.editJobBtn._BorderRadius = 0;
-            this.editJobBtn._BorderSize = 1;
-            this.editJobBtn._GradientsButton = false;
-            this.editJobBtn._Text = "Chỉnh sửa";
-            this.editJobBtn.BackColor = System.Drawing.Color.DarkCyan;
-            this.editJobBtn.BackgroundColor = System.Drawing.Color.DarkCyan;
-            this.editJobBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.editJobBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.editJobBtn.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.editJobBtn, "editJobBtn");
-            this.editJobBtn.ForeColor = System.Drawing.Color.White;
-            this.editJobBtn.Name = "editJobBtn";
-            this.editJobBtn.TextColor = System.Drawing.Color.White;
-            this.editJobBtn.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.picSaveJobLoading, "picSaveJobLoading");
+            this.picSaveJobLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
+            this.picSaveJobLoading.Name = "picSaveJobLoading";
+            this.picSaveJobLoading.TabStop = false;
             // 
             // frmJobNutri
             // 
@@ -2156,6 +2166,7 @@
             this.pnlJobInfomation.PerformLayout();
             this.cuzPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSaveJobLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2311,6 +2322,7 @@
         private DesignUI.CuzUI.CuzTextBox templatePrint;
         private System.Windows.Forms.Panel panel3;
         private DesignUI.CuzUI.CuzButton editJobBtn;
+        private System.Windows.Forms.PictureBox picSaveJobLoading;
     }
 
 }

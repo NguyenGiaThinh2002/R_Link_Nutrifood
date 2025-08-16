@@ -216,7 +216,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         private CancellationTokenSource _BackupSendLogCancelTokenSource;
         private CancellationTokenSource _BackupRSFPLogCancelTokenSource;
 
-        private FrmSettings _FormSettings;
+        private FrmSettingsNuti _FormSettings;
         private FrmViewHistoryProgram _FormViewHistoryProgram;
         private FrmPreviewDatabaseNutri _FormPreviewDatabase;
         private FrmCheckedResult _FormCheckedResult;
@@ -508,13 +508,18 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             _ParentForm?.ShowForm();
         }
 
-        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        private async void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (IsCloseButtonAction == true)
             {
                 DialogResult dialogResult = CustomMessageBox.Show(Lang.DoYouWantExitApplication, Lang.Info, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    try
+                    {
+                        ApiService apiService = new ApiService();
+                        await MonitorSenderService.sendParametersToServerAsync(apiService, false);
+                    }catch (Exception){}
                     _ParentForm.Close();
                 }
                 else
@@ -632,6 +637,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             if (ProjectLabel.IsNutrifood)
             {
+                UIControlsFuncs.HideControls(lblSensorControllerStatus, lblStatusCamera01);
                 //syncCodes.Visible = numberOfCodes.Visible = confirmCompletion.Visible = true;
                 //confirmCompletion.Visible = true;
                 pnlCurrentCheck.Text = "Thông tin mã in"; // Printing Process
@@ -819,6 +825,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                             break;
                         case SyncDataType.SAPSuccess:
                             ++SAPSuccess;
+                            Shared.NumberOfSentSAP = SAPSuccess;
                             _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SAPStatus] = "success";
                             break;
                         case SyncDataType.SAPFailed:
@@ -826,7 +833,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                             break;
                         case SyncDataType.SaaSSuccess:
                             ++SaaSSuccess;
+                            Shared.NumberOfSentSaaS = SaaSSuccess;
                             _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SaaSStatus] = "success";
+
                             break;
 
                     }
@@ -2444,6 +2453,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     if (podCommand != null)
                     {
                         NumberPrinted++;
+                        Shared.NumberPrinted = NumberPrinted;
                         if (_IsOnProductionMode) // Check if need to wait check result
                         {
                             ComparisonResult checkedResult = ComparisonResult.Null;
@@ -3431,7 +3441,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         }
 
                         _TotalCode = _PrintedCodeObtainFromFile.Count();
-                        _SelectedJob.NumberOfNeededSentCodes = _TotalCode;
+                        Shared.TotalCodes = _SelectedJob.NumberOfNeededSentCodes = _TotalCode;
 
                         numberOfCode.Text = _TotalCode.ToString();
 
@@ -4059,7 +4069,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             {
                 if (_FormSettings == null || _FormSettings.IsDisposed)
                 {
-                    _FormSettings = new FrmSettings();
+                    _FormSettings = new FrmSettingsNuti();
                     _FormSettings.Show();
                 }
                 else
@@ -6337,6 +6347,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         ShowLabelIcon(labelStatusCamera, Lang.CameraTMP, Properties.Resources.icons8_camera_30px_disconnected);
                         if (!cameraModel.IsConnected && !_ParentForm.isShowPopupDisConOneTime)
                         {
+                            if (ProjectLabel.IsNutrifood && !Shared.Settings.IsManufacturingMode)
+                            {
+                                return;
+                            }
                             _ParentForm.isShowPopupDisConOneTime = true;
                             CuzAlert.Show(Lang.CameraDisconnected,
                                 Alert.enmType.Warning,

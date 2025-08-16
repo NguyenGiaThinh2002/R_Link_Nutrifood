@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPreviewDatabase));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPreviewDatabaseNutri));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,6 +37,7 @@
             this.cuzControlBox1 = new DesignUI.CuzUI.CuzControlBox();
             this.lblFormName = new System.Windows.Forms.Label();
             this.grbDatabase = new System.Windows.Forms.Panel();
+            this.dgvDatabase = new DesignUI.CuzUI.CuzDataGridView();
             this.grb1 = new DesignUI.CuzUI.CuzPanel();
             this.lblTotalNumberOfCodesInDatabase = new System.Windows.Forms.Label();
             this.lblTotalDatabase = new System.Windows.Forms.Label();
@@ -60,19 +61,18 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblGoToPage = new System.Windows.Forms.Label();
             this.cuzDragControl1 = new DesignUI.CuzUI.CuzDragControl();
-            this.dgvDatabase = new DesignUI.CuzUI.CuzDataGridView();
             this.pnlDrag.SuspendLayout();
             this.grbDatabase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).BeginInit();
             this.grb1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoadDatabase)).BeginInit();
             this.pnlPaging.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -132,6 +132,67 @@
             this.grbDatabase.Name = "grbDatabase";
             this.grbDatabase.Size = new System.Drawing.Size(1004, 565);
             this.grbDatabase.TabIndex = 67;
+            // 
+            // dgvDatabase
+            // 
+            this.dgvDatabase.AllowUserToAddRows = false;
+            this.dgvDatabase.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDatabase.AlterRowBackColor = System.Drawing.Color.White;
+            this.dgvDatabase.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDatabase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDatabase.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatabase.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDatabase.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvDatabase.ColumnHeaderBackColor = System.Drawing.Color.White;
+            this.dgvDatabase.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dgvDatabase.ColumnHeaderForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.ColumnHeaderHeight = 4;
+            this.dgvDatabase.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.dgvDatabase.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatabase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatabase.EnableHeadersVisualStyles = false;
+            this.dgvDatabase.GridLineColor = System.Drawing.Color.LightBlue;
+            this.dgvDatabase.HeaderBorder = true;
+            this.dgvDatabase.HeaderBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
+            this.dgvDatabase.Location = new System.Drawing.Point(18, 115);
+            this.dgvDatabase.MultiSelect = false;
+            this.dgvDatabase.Name = "dgvDatabase";
+            this.dgvDatabase.ReadOnly = true;
+            this.dgvDatabase.RowBackColor = System.Drawing.Color.White;
+            this.dgvDatabase.RowBorder = true;
+            this.dgvDatabase.RowBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
+            this.dgvDatabase.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dgvDatabase.RowForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvDatabase.RowHeadersVisible = false;
+            this.dgvDatabase.RowHeight = 35;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDatabase.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dgvDatabase.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.RowTemplate.Height = 35;
+            this.dgvDatabase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatabase.Size = new System.Drawing.Size(970, 401);
+            this.dgvDatabase.TabIndex = 120;
             // 
             // grb1
             // 
@@ -460,68 +521,7 @@
             this.cuzDragControl1.DragParent = true;
             this.cuzDragControl1.TargetControl = this.pnlDrag;
             // 
-            // dgvDatabase
-            // 
-            this.dgvDatabase.AllowUserToAddRows = false;
-            this.dgvDatabase.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDatabase.AlterRowBackColor = System.Drawing.Color.White;
-            this.dgvDatabase.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDatabase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDatabase.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDatabase.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDatabase.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvDatabase.ColumnHeaderBackColor = System.Drawing.Color.White;
-            this.dgvDatabase.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dgvDatabase.ColumnHeaderForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.ColumnHeaderHeight = 4;
-            this.dgvDatabase.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.dgvDatabase.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatabase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatabase.EnableHeadersVisualStyles = false;
-            this.dgvDatabase.GridLineColor = System.Drawing.Color.LightBlue;
-            this.dgvDatabase.HeaderBorder = true;
-            this.dgvDatabase.HeaderBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
-            this.dgvDatabase.Location = new System.Drawing.Point(18, 115);
-            this.dgvDatabase.MultiSelect = false;
-            this.dgvDatabase.Name = "dgvDatabase";
-            this.dgvDatabase.ReadOnly = true;
-            this.dgvDatabase.RowBackColor = System.Drawing.Color.White;
-            this.dgvDatabase.RowBorder = true;
-            this.dgvDatabase.RowBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
-            this.dgvDatabase.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dgvDatabase.RowForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvDatabase.RowHeadersVisible = false;
-            this.dgvDatabase.RowHeight = 35;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDatabase.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dgvDatabase.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.RowTemplate.Height = 35;
-            this.dgvDatabase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatabase.Size = new System.Drawing.Size(970, 401);
-            this.dgvDatabase.TabIndex = 120;
-            // 
-            // frmPreviewDatabase
+            // FrmPreviewDatabaseNutri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -532,18 +532,18 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmPreviewDatabase";
+            this.Name = "FrmPreviewDatabaseNutri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPreviewDatabase";
             this.pnlDrag.ResumeLayout(false);
             this.pnlDrag.PerformLayout();
             this.grbDatabase.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).EndInit();
             this.grb1.ResumeLayout(false);
             this.grb1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoadDatabase)).EndInit();
             this.pnlPaging.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).EndInit();
             this.ResumeLayout(false);
 
         }

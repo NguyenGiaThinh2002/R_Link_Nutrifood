@@ -53,6 +53,10 @@ namespace BarcodeVerificationSystem.Controller
         internal static PrintingMode PrintMode = new PrintingMode();
         public static int FirstGeneratedCodeIndex = 0;
         public static int LastGeneratedCodeIndex = 0;
+        public static int NumberPrinted = 0;
+        public static int TotalCodes = 0;
+        public static int NumberOfSentSaaS = 0;
+        public static int NumberOfSentSAP = 0;
 
         public enum HistoryFilter{
             All,

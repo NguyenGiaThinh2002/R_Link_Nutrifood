@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Security.Policy;
 
 namespace BarcodeVerificationSystem.Services
 {
@@ -23,49 +24,51 @@ namespace BarcodeVerificationSystem.Services
         {
             ApiService apiService = new ApiService();
 
-            try
+            while (true)
             {
-                while (true)
+                try
                 {
-
-                    try
-                    {
-                        var settings = Shared.Settings;
-                        string url = DispatchingApis.GetMonitorUrl();
-
-                        var monitor = new MonitorPayload
-                        {
-                            plant = settings.FactoryCode,
-                            resource_code = settings.LineId,
-                            resource_name = settings.LineName,
-                            ip_address_rlink = GetLocalIPv4Address(),
-                            is_running = Shared.OperStatus == Model.OperationStatus.Running,
-                            ip_address_printer = settings.PrinterList[0].IP,
-                            ip_address_camera = settings.CameraList[0].IP,
-                            is_printer_connected = settings.PrinterList[0].IsConnected,
-                            is_camera_connected = settings.CameraList[0].IsConnected,
-                            timestamp = DateTime.Now
-                        };
-
-                        var res = await apiService.PostApiDataAsync(url, monitor);
-                    }
-                    catch (Exception)
-                    {
-                        //apiService.Dispose();
-                    }
-
+                    await sendParametersToServerAsync(apiService, true);
                     await Task.Delay(2000);
                 }
+                catch (Exception)
+                {
+                }
             }
-            catch (OperationCanceledException)
+
+        }
+
+        public static async Task sendParametersToServerAsync(ApiService apiService, bool isSoftwareConnected)
+        {
+            string url = DispatchingApis.GetMonitorUrl();
+            try
             {
-                //apiService.Dispose();
-                Console.WriteLine("Thread send parameters to server was stopped!");
+                var settings = Shared.Settings;
+                var monitor = new MonitorPayload
+                {
+                    plant = settings.FactoryCode,
+
+                    printed_codes_number = Shared.NumberPrinted,
+                    generated_codes_number = Shared.TotalCodes,
+                    sent_saas_codes = Shared.NumberOfSentSaaS,
+                    sent_sap_codes = Shared.NumberOfSentSAP,
+                    is_software_connected = isSoftwareConnected,
+                    resource_code = settings.LineId,
+                    resource_name = settings.LineName,
+                    ip_address_rlink = GetLocalIPv4Address(),
+                    is_running = Shared.OperStatus == Model.OperationStatus.Running,
+                    ip_address_printer = settings.PrinterList[0].IP,
+                    ip_address_camera = settings.CameraList[0].IP,
+                    is_printer_connected = settings.PrinterList[0].IsConnected,
+                    is_camera_connected = settings.CameraList[0].IsConnected,
+                    timestamp = DateTime.Now
+                };
+
+                var res = await apiService.PostApiDataAsync(url, monitor);
             }
             catch (Exception ex)
             {
-                //apiService.Dispose();
-                Console.WriteLine("Error sending parameters to server: " + ex.Message);
+                Console.WriteLine($"Error {url}: {ex.Message}");
             }
         }
 
