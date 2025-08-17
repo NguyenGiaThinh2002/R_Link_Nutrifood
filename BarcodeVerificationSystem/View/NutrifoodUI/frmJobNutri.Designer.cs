@@ -184,6 +184,7 @@
             this.lblRLinkSeries = new System.Windows.Forms.Label();
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
+            this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
             this.picSaveJobLoading = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
@@ -327,6 +328,7 @@
             this.lblStatusCamera01,
             this.lblStatusPrinter01,
             this.lblStatusSerialDevice,
+            this.UserNameDisplay,
             this.lblSensorControllerStatus,
             this.lblToolStripVersion,
             this.toolStripDateTime});
@@ -406,6 +408,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.picSaveJobLoading);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.saveJobNutri);
             this.tabPage1.Controls.Add(this.dgvItems);
@@ -1519,7 +1522,6 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.White;
-            this.tabPage5.Controls.Add(this.picSaveJobLoading);
             this.tabPage5.Controls.Add(this.InputCodeNumber);
             this.tabPage5.Controls.Add(this.InputMaterialName);
             this.tabPage5.Controls.Add(this.InputMaterialNumber);
@@ -2117,6 +2119,14 @@
             this.lblStandalone.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblStandalone.Name = "lblStandalone";
             // 
+            // UserNameDisplay
+            // 
+            resources.ApplyResources(this.UserNameDisplay, "UserNameDisplay");
+            this.UserNameDisplay.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.UserNameDisplay.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.UserNameDisplay.Name = "UserNameDisplay";
+            this.UserNameDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            // 
             // picSaveJobLoading
             // 
             resources.ApplyResources(this.picSaveJobLoading, "picSaveJobLoading");
@@ -2322,6 +2332,7 @@
         private DesignUI.CuzUI.CuzTextBox templatePrint;
         private System.Windows.Forms.Panel panel3;
         private DesignUI.CuzUI.CuzButton editJobBtn;
+        private System.Windows.Forms.ToolStripStatusLabel UserNameDisplay;
         private System.Windows.Forms.PictureBox picSaveJobLoading;
     }
 

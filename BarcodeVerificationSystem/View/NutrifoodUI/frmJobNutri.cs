@@ -54,6 +54,7 @@ using BarcodeVerificationSystem.Model.Payload;
 //using MySqlX.XDevAPI.Common;
 using BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess;
 using System.Windows.Controls;
+using BarcodeVerificationSystem.Model.UserInfo;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -143,6 +144,13 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 int selectedIndex = tabControl1.SelectedIndex;
                 Shared.JobNameSelected = "";
                 txtFileName.Text = "";
+
+                if(selectedIndex == 0)
+                {
+                    dgvItems.Rows.Clear();
+                    ResetValues.SetTextsEmpty(waveKey, shipment, shiptoCode);
+                }
+
                 if (selectedIndex == 1)
                 {
                     PrinterSupport(radRSeries.Checked, false);
@@ -356,9 +364,13 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     Shared.databasePath = "";
                     DispayJobLoading(false);
                     SaveJob();
+
+                    dgvItems.Rows.Clear();
+                    ResetValues.SetTextsEmpty(waveKey, shipment, shiptoCode);
                 }
                 catch (Exception)
                 {
+                    DispayJobLoading(false); ;
                     CustomMessageBox.Show($"Không thể tạo phiếu soạn hàng!", Lang.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                
@@ -1221,7 +1233,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             if (ProjectLabel.IsNutrifood)
             {
                 FirstRowHeader.Visible = _JobModel.IsFirstRowHeader = FirstRowHeader.Checked = false;
-                UIControlsFuncs.HideControls(lblSensorControllerStatus, lblStatusCamera01, FirstRowHeader);
+                UIControlsFuncs.HideControls(lblSensorControllerStatus, lblStatusCamera01, FirstRowHeader, btnHelp, btnAbout);
+                UserNameDisplay.Text = "Người dùng: " +  CurrentUser.UserName ?? "";
             }
 
             MonitorCameraConnection();
@@ -1526,17 +1539,19 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     if (!result.is_success)
                     {
                         CustomMessageBox.Show(result.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DispayJobLoading(false);
                         return false;
                     }
                     else
                     {
+                        DispayJobLoading(false);
                         return true;
                     }
-
                 }
             }
             catch (Exception ex)
             {
+                DispayJobLoading(false);
                 CustomMessageBox.Show("Không thể gửi dữ liệu ban đầu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return false;
@@ -1545,8 +1560,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
         private void DispayJobLoading(bool isLoading)
         {
-            picSaveJobLoading.Visible = isLoading;
             tabControl1.Enabled = !isLoading;
+            picSaveJobLoading.Visible = isLoading;
         }
 
         //var responseText = await response.Content.ReadAsStringAsync();

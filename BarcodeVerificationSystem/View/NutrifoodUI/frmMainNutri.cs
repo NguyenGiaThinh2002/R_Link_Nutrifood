@@ -637,7 +637,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             if (ProjectLabel.IsNutrifood)
             {
-                UIControlsFuncs.HideControls(lblSensorControllerStatus, lblStatusCamera01);
+                UIControlsFuncs.HideControls(lblSensorControllerStatus, lblStatusCamera01, btnHistory);
                 //syncCodes.Visible = numberOfCodes.Visible = confirmCompletion.Visible = true;
                 //confirmCompletion.Visible = true;
                 pnlCurrentCheck.Text = "Thông tin mã in"; // Printing Process
@@ -646,23 +646,27 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 txtBarcodeQuality.Visible = false;
                 GetSample.Text = "Disposal Process";
                 pnlVerificationProcess.Text = "Vận hành khác";
+                UserNameDisplay.Text = "Người dùng: " + CurrentUser.UserName ?? "";
+
+
+                lblCodeResult.Text = Lang.SentSyncData;
+                SentSaaS.Text = Lang.SentSyncDataSaaS;
+                SentSAP.Text = Lang.SentSAPData;
+                ConfirmLabel.Text = Lang.ConfirmCompletion + " " + Lang.Job;
+                SyncDataLabel.Text = Lang.SyncData;
+                DisposeLabel.Text = Lang.DisposeBarcodes;
+                RePrintLabel.Text = Lang.RePrintBarcodes;
+
+                confirmCompletion.Text = Lang.ConfirmCompletion;
+                syncDataBtn.Text = Lang.Sync;
+                disposeBtn.Text = Lang.Dispose;
+                RePrintBtn.Text = Lang.RePrint;
 
                 if (!Shared.Settings.IsManufacturingMode)
                 {
                     //tableLayoutPanelProcess.Visible = false;
                     //DispatchingActionsPanel.Visible = true;
-                    lblCodeResult.Text = Lang.SentSyncData;
-                    SentSaaS.Text = Lang.SentSyncDataSaaS;
-                    SentSAP.Text = Lang.SentSAPData;
-                    ConfirmLabel.Text = Lang.ConfirmCompletion + " " + Lang.Job;
-                    SyncDataLabel.Text = Lang.SyncData;
-                    DisposeLabel.Text = Lang.DisposeBarcodes;
-                    RePrintLabel.Text = Lang.RePrintBarcodes;
-
-                    confirmCompletion.Text = Lang.ConfirmCompletion;
-                    syncDataBtn.Text = Lang.Sync;
-                    disposeBtn.Text = Lang.Dispose;
-                    RePrintBtn.Text = Lang.RePrint;
+                   
 
                 }
 

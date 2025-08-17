@@ -237,23 +237,26 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                                     if (!deviceInfo.is_success)
                                     {
                                         CustomMessageBox.Show(deviceInfo.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        //return;
-                                    }
-
-                                    Shared.Settings.PrintTemplate = deviceInfo.print_template_name;
-                                    Shared.Settings.AddQuantity = deviceInfo.add_qty;
-                                    Shared.Settings.LineId = deviceInfo.resource_code;
-                                    Shared.Settings.LineName = deviceInfo.resource_name;
-
-                                    if (Shared.UserPermission == null)
-                                    {
-                                        isOnlineAccountOK = false;
+                                        activationStatus= ActivationStatus.Failed;
                                     }
                                     else
                                     {
-                                        Shared.UserPermission.isOnline = isOnlineAccountOK = true;
-                                        Shared.Settings.IsManufacturingMode = Shared.UserPermission.ManufacturingMode;
-                                        Shared.SaveSettings();
+
+                                        Shared.Settings.PrintTemplate = deviceInfo.print_template_name;
+                                        Shared.Settings.AddQuantity = deviceInfo.add_qty;
+                                        Shared.Settings.LineId = deviceInfo.resource_code;
+                                        Shared.Settings.LineName = deviceInfo.resource_name;
+
+                                        if (Shared.UserPermission == null)
+                                        {
+                                            isOnlineAccountOK = false;
+                                        }
+                                        else
+                                        {
+                                            Shared.UserPermission.isOnline = isOnlineAccountOK = true;
+                                            Shared.Settings.IsManufacturingMode = Shared.UserPermission.ManufacturingMode;
+                                            Shared.SaveSettings();
+                                        }
                                     }
                                 }
                                 catch (Exception)

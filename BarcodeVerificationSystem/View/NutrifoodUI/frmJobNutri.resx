@@ -429,7 +429,25 @@
   <data name="lblStatusSerialDevice.Text" xml:space="preserve">
     <value>Scanner</value>
   </data>
-  <data name="lblStatusSerialDevice.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="UserNameDisplay.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="UserNameDisplay.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="UserNameDisplay.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="UserNameDisplay.RightToLeftAutoMirrorImage" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="UserNameDisplay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 27</value>
+  </data>
+  <data name="UserNameDisplay.Text" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UserNameDisplay.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopCenter</value>
   </data>
   <data name="lblSensorControllerStatus.Font" type="System.Drawing.Font, System.Drawing">
@@ -442,7 +460,7 @@
     <value>None</value>
   </data>
   <data name="lblSensorControllerStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>378, 25</value>
+    <value>285, 25</value>
   </data>
   <data name="lblSensorControllerStatus.Text" xml:space="preserve">
     <value>PLC</value>
@@ -494,6 +512,39 @@
   </data>
   <data name="&gt;&gt;statusStrip2.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="picSaveJobLoading.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="picSaveJobLoading.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="picSaveJobLoading.Location" type="System.Drawing.Point, System.Drawing">
+    <value>415, 200</value>
+  </data>
+  <data name="picSaveJobLoading.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 62</value>
+  </data>
+  <data name="picSaveJobLoading.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="picSaveJobLoading.TabIndex" type="System.Int32, mscorlib">
+    <value>136</value>
+  </data>
+  <data name="picSaveJobLoading.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;picSaveJobLoading.Name" xml:space="preserve">
+    <value>picSaveJobLoading</value>
+  </data>
+  <data name="&gt;&gt;picSaveJobLoading.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picSaveJobLoading.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;picSaveJobLoading.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="jobName.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -649,7 +700,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="saveJobNutri.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -682,7 +733,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;saveJobNutri.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="dgvItems.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>40</value>
@@ -709,7 +760,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;dgvItems.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="shiptoCode.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -742,7 +793,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;shiptoCode.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="shipment.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -775,7 +826,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;shipment.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="waveKey.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -808,7 +859,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;waveKey.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -841,7 +892,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -874,7 +925,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -907,7 +958,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnGetInfo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -940,7 +991,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;btnGetInfo.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="wmsNumber.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -970,7 +1021,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;wmsNumber.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1003,7 +1054,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 44</value>
@@ -3171,39 +3222,6 @@
   <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="picSaveJobLoading.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="picSaveJobLoading.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="picSaveJobLoading.Location" type="System.Drawing.Point, System.Drawing">
-    <value>421, 196</value>
-  </data>
-  <data name="picSaveJobLoading.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 62</value>
-  </data>
-  <data name="picSaveJobLoading.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="picSaveJobLoading.TabIndex" type="System.Int32, mscorlib">
-    <value>135</value>
-  </data>
-  <data name="picSaveJobLoading.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;picSaveJobLoading.Name" xml:space="preserve">
-    <value>picSaveJobLoading</value>
-  </data>
-  <data name="&gt;&gt;picSaveJobLoading.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picSaveJobLoading.Parent" xml:space="preserve">
-    <value>tabPage5</value>
-  </data>
-  <data name="&gt;&gt;picSaveJobLoading.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="InputCodeNumber.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
@@ -3232,7 +3250,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;InputCodeNumber.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="InputMaterialName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -3262,7 +3280,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;InputMaterialName.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="InputMaterialNumber.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -3292,7 +3310,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;InputMaterialNumber.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="label18.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3325,7 +3343,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="label19.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3358,7 +3376,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="label20.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3391,7 +3409,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="saveJobNutriOffline.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -3424,7 +3442,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;saveJobNutriOffline.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="InputShipto.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -3454,7 +3472,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;InputShipto.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="InputShipment.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -3484,7 +3502,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;InputShipment.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="InputWavekey.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -3514,7 +3532,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;InputWavekey.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3547,7 +3565,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3580,7 +3598,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3613,7 +3631,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="InputWmsNumber.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -3643,7 +3661,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;InputWmsNumber.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="label16.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3676,7 +3694,7 @@
     <value>tabPage5</value>
   </data>
   <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="tabPage5.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 44</value>
@@ -8571,6 +8589,12 @@
   </data>
   <data name="&gt;&gt;HoanThanh.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserNameDisplay.Name" xml:space="preserve">
+    <value>UserNameDisplay</value>
+  </data>
+  <data name="&gt;&gt;UserNameDisplay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmJobNutri</value>

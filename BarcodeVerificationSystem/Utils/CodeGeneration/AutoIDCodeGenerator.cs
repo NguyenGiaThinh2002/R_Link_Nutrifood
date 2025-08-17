@@ -93,7 +93,7 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
 
             // 6. Update Autoid after birth
             autoIdPerMonth[key] = currentAutoId + quantity;
-            Shared.LastGeneratedCodeIndex = autoIdPerMonth[key]; // Save the last code index for this session
+            Shared.LastGeneratedCodeIndex = autoIdPerMonth[key] - 1; // Save the last code index for this session
             RegistryHelper.WriteValue("AutoIdStatePath", autoIdPerMonth[key].ToString());
 
             SaveAutoIdState(); // Save latest key

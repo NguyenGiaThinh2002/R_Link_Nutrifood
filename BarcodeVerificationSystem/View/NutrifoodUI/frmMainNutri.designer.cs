@@ -44,6 +44,7 @@
             this.lblStatusCamera01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusPrinter01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusSerialDevice = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblSensorControllerStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripOperationStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripVersion = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripDateTime = new System.Windows.Forms.ToolStripStatusLabel();
@@ -178,7 +179,7 @@
             this.mnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.mnLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblSensorControllerStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlControllButton.SuspendLayout();
@@ -226,6 +227,7 @@
             this.lblStatusCamera01,
             this.lblStatusPrinter01,
             this.lblStatusSerialDevice,
+            this.UserNameDisplay,
             this.lblSensorControllerStatus,
             this.toolStripOperationStatus,
             this.toolStripVersion,
@@ -274,6 +276,23 @@
             this.lblStatusSerialDevice.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.lblStatusSerialDevice.Size = new System.Drawing.Size(101, 25);
             this.lblStatusSerialDevice.Text = "Scanner";
+            // 
+            // lblSensorControllerStatus
+            // 
+            this.lblSensorControllerStatus.AutoToolTip = true;
+            this.lblSensorControllerStatus.DoubleClickEnabled = true;
+            this.lblSensorControllerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSensorControllerStatus.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblSensorControllerStatus.Image = global::BarcodeVerificationSystem.Properties.Resources.icons8_sensor_30px_disconnected;
+            this.lblSensorControllerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSensorControllerStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.lblSensorControllerStatus.Margin = new System.Windows.Forms.Padding(10, 3, 0, 5);
+            this.lblSensorControllerStatus.Name = "lblSensorControllerStatus";
+            this.lblSensorControllerStatus.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.lblSensorControllerStatus.Size = new System.Drawing.Size(911, 25);
+            this.lblSensorControllerStatus.Spring = true;
+            this.lblSensorControllerStatus.Text = "PLC";
+            this.lblSensorControllerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripOperationStatus
             // 
@@ -1535,7 +1554,7 @@
             this.lblCodeResult.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblCodeResult.Location = new System.Drawing.Point(11, 46);
             this.lblCodeResult.Name = "lblCodeResult";
-            this.lblCodeResult.Size = new System.Drawing.Size(288, 20);
+            this.lblCodeResult.Size = new System.Drawing.Size(232, 20);
             this.lblCodeResult.TabIndex = 118;
             this.lblCodeResult.Text = "Số mã đã gửi";
             // 
@@ -2372,7 +2391,7 @@
             this.lblReceived.ForeColor = System.Drawing.Color.Gray;
             this.lblReceived.Location = new System.Drawing.Point(13, 10);
             this.lblReceived.Name = "lblReceived";
-            this.lblReceived.Size = new System.Drawing.Size(284, 20);
+            this.lblReceived.Size = new System.Drawing.Size(192, 20);
             this.lblReceived.TabIndex = 2;
             this.lblReceived.Text = "Received";
             // 
@@ -2838,22 +2857,19 @@
             this.mnLogOut.Size = new System.Drawing.Size(168, 22);
             this.mnLogOut.Text = "Log out";
             // 
-            // lblSensorControllerStatus
+            // UserNameDisplay
             // 
-            this.lblSensorControllerStatus.AutoToolTip = true;
-            this.lblSensorControllerStatus.DoubleClickEnabled = true;
-            this.lblSensorControllerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSensorControllerStatus.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblSensorControllerStatus.Image = global::BarcodeVerificationSystem.Properties.Resources.icons8_sensor_30px_disconnected;
-            this.lblSensorControllerStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSensorControllerStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.lblSensorControllerStatus.Margin = new System.Windows.Forms.Padding(10, 3, 0, 5);
-            this.lblSensorControllerStatus.Name = "lblSensorControllerStatus";
-            this.lblSensorControllerStatus.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.lblSensorControllerStatus.Size = new System.Drawing.Size(1004, 25);
-            this.lblSensorControllerStatus.Spring = true;
-            this.lblSensorControllerStatus.Text = "PLC";
-            this.lblSensorControllerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UserNameDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.UserNameDisplay.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.UserNameDisplay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UserNameDisplay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.UserNameDisplay.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.UserNameDisplay.Name = "UserNameDisplay";
+            this.UserNameDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.UserNameDisplay.RightToLeftAutoMirrorImage = true;
+            this.UserNameDisplay.Size = new System.Drawing.Size(83, 27);
+            this.UserNameDisplay.Text = "Username";
+            this.UserNameDisplay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FrmMainNutri
             // 
@@ -3067,5 +3083,6 @@
         private System.Windows.Forms.Label label5;
         private DesignUI.CuzUI.CuzTextBox numberOfCode;
         private System.Windows.Forms.ToolStripStatusLabel lblSensorControllerStatus;
+        private System.Windows.Forms.ToolStripStatusLabel UserNameDisplay;
     }
 }

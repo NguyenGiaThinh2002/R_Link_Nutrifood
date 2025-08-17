@@ -295,6 +295,7 @@
     <Compile Include="Utils\CodeGeneration\TestCodeGeneration\TestGenCode.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\YearCodeHelper.cs" />
     <Compile Include="Utils\RegistryHelper.cs" />
+    <Compile Include="Utils\ResetValues.cs" />
     <Compile Include="Utils\SyncDataList.cs" />
     <Compile Include="Utils\UIControlsFuncs.cs" />
     <Compile Include="View\NutrifoodUI\frmJobNutri.cs">
