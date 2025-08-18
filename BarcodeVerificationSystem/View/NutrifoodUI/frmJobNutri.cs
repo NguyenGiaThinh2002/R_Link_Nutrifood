@@ -1167,7 +1167,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             tabPage1.Text = "Xuất Hàng"; // Lang.CreateANewJob
             tabPage2.Text = "Danh Sách Lệnh Xuất Hàng"; //Lang.SelectJob
-            tabPage3.Text = "In Lại QR";
+            tabPage3.Text = "In QR (Loyalty)";
             tabPage4.Text = "Lịch Sử Đồng Bộ"; // Lang.HistorySync
             tabPage5.Text = "Xuất Hàng"; // Lang.Settings
         }
@@ -1411,10 +1411,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 }
 
                 string AskQuestion = Lang.AreYouSureGenerateDispatchingCodes +
-                         $"\nWMS Number: {wms_number}" +
-                         $"\nNumber Of Codes: {numberOfCodes}" +
-                         $"\nMaterial Number: {materialNumber}" +
-                         $"\nMaterial Name: {materialName}";
+                         $"\nMã phiếu soạn hàng: {wms_number}" +
+                         $"\nSố lượng mã cần tạo: {numberOfCodes}" +
+                         $"\nMã sản phẩm: {materialNumber}" +
+                         $"\nTên sản phẩm: {materialName}";
                 if (!CustomMessageBox.IsResultShow(AskQuestion)) return;
                 DispayJobLoading(true);
 

@@ -2284,16 +2284,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         }
 
                         startIndex = TotalChecked;
-                        //List<string[]> test = new List<string[]>();
-                        //string[] cloneValue = (string[])_PrintedCodeObtainFromFile[currentCheckedIndex].Clone();
-                        //cloneValue[1] = "Checked"; // Now this won't affect the list
-                        //test.Add(cloneValue);
-                        //string sentDataPath = CommVariables.PathSentDataChecked + _SelectedJob.CheckedResultPath;
-                        //string url = Shared.Settings.ApiUrl + "/" + Shared.Settings.RLinkId + "/checkedData";
-                        //var clone = test.Select(arr => arr.ToArray()).ToList();
-                        //SendDataToServer(apiService, clone, sentDataPath, url);
-                        //test.Clear();
-
                         _QueueBufferDataObtainedResult.Enqueue(detectModel);
                     }
                 }
@@ -2796,11 +2786,16 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 {
                     Directory.CreateDirectory(CommVariables.PathSentDataPrinted);
                 }
-
-                string dataPath = _SelectedJob.DirectoryDatabase;
-                if (_printedDataProcess != null) _printedDataProcess.Stop();
-                _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
-                _printedDataProcess.Start();
+                try
+                {
+                    string dataPath = _SelectedJob.DirectoryDatabase;
+                    if (_printedDataProcess != null) _printedDataProcess.Stop();
+                    _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
+                    _printedDataProcess.Start();
+                }
+                catch (Exception)
+                {
+                }
 
                 while (true)
                 {
@@ -2815,9 +2810,15 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     if (valueArr.Count() > 0)
                     {
                         SaveResultToFile(valueArr, path);
-                        _SelectedJob.NumberOfPrintedCodes++;
-                        _SelectedJob.SaveFile(CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension);
-                        _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
+                        try
+                        {
+                            _SelectedJob.NumberOfPrintedCodes++;
+                            _SelectedJob.SaveFile(CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension);
+                            _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
+                        }
+                        catch (Exception)
+                        {
+                        }
                     }
                     valueArr.Clear();
                     Thread.Sleep(5);
@@ -3020,11 +3021,19 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 string sentDataPath = CommVariables.PathSentDataChecked + _SelectedJob.CheckedResultPath;
                 string url = ManufacturingApis.getSendCheckedDataUrl();
 
-                if (ProjectLabel.IsNutrifood)
+
+                try
                 {
-                    _checkedDataProcess = ReliableProcessorFactory.CreateVerificationProcessor(sentDataPath, url);
-                    _checkedDataProcess.Start();
+                    if (ProjectLabel.IsNutrifood)
+                    {
+                        _checkedDataProcess = ReliableProcessorFactory.CreateVerificationProcessor(sentDataPath, url);
+                        _checkedDataProcess.Start();
+                    }
                 }
+                catch (Exception)
+                {
+                }
+     
 
 
                 while (true)
@@ -3042,16 +3051,14 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     if (valueArr.Count() > 0)
                     {
                         // use the Dispatching or the Manufacturing to extract the code, write in the model a function to do that.
-
-                        if (Manufacturing.TryParse(clone[0][1], out string extractedRandomCode))
-                        {
-                            string t = extractedRandomCode;
-                        }
-
-                        if (ProjectLabel.IsNutrifood)
-                            _checkedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0]);
                         SaveResultToFile(valueArr, path);
-                        //SendDataToServer(apiService, clone, sentDataPath, url);
+                        try
+                        {
+                           _checkedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0]);
+                        }
+                        catch (Exception)
+                        {
+                        }
                     }
                     valueArr.Clear();
                     Thread.Sleep(5);

@@ -520,7 +520,7 @@
     <value>NoControl</value>
   </data>
   <data name="picSaveJobLoading.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 200</value>
+    <value>440, 177</value>
   </data>
   <data name="picSaveJobLoading.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 62</value>
@@ -8524,6 +8524,12 @@
   <data name="&gt;&gt;lblStatusSerialDevice.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;UserNameDisplay.Name" xml:space="preserve">
+    <value>UserNameDisplay</value>
+  </data>
+  <data name="&gt;&gt;UserNameDisplay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;lblSensorControllerStatus.Name" xml:space="preserve">
     <value>lblSensorControllerStatus</value>
   </data>
@@ -8589,12 +8595,6 @@
   </data>
   <data name="&gt;&gt;HoanThanh.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;UserNameDisplay.Name" xml:space="preserve">
-    <value>UserNameDisplay</value>
-  </data>
-  <data name="&gt;&gt;UserNameDisplay.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmJobNutri</value>
