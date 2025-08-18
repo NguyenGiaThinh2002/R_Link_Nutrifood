@@ -20,6 +20,7 @@ using CommonVariable;
 using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
 using BarcodeVerificationSystem.Model.Apis.Dispatching;
 using BarcodeVerificationSystem.Services;
+using BarcodeVerificationSystem.Utils;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -41,14 +42,22 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
         public void Start()
         {
-            Task.Run(async () =>
+            try
             {
-                foreach (var entry in _queue.GetConsumingEnumerable(_cts.Token))
+                Task.Run(async () =>
                 {
-                    _ = ProcessEntryAsync(entry); // fire-and-forget task
-                    await Task.Delay(100); // optional small delay to avoid CPU spike
-                }
-            }, _cts.Token);
+                    foreach (var entry in _queue.GetConsumingEnumerable(_cts.Token))
+                    {
+                        _ = ProcessEntryAsync(entry); // fire-and-forget task
+                        await Task.Delay(100); // optional small delay to avoid CPU spike
+                    }
+                }, _cts.Token);
+            }
+            catch (Exception ex)
+            {
+                ProjectLogger.WriteError("Error occurred in Start PrintingSenderService: " + ex.Message);
+            }
+         
         }
 
         private async Task ProcessEntryAsync(PrintingDataEntry entry)
@@ -133,6 +142,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     {
                         _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                         _queue.Add(entry);
+                        ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.PrintedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError);
                     }
                 }
                 else
@@ -145,6 +155,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             {
                 entry.SaasStatus = "failed";
                 entry.SaasError = ex.Message;
+                ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.PrintedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError + ex.Message);
                 //_storageService.AppendEntry(entry);
                 _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                 _queue.Add(entry);

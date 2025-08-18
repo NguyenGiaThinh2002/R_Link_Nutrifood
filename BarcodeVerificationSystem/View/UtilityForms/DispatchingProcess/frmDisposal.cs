@@ -18,6 +18,8 @@ using UILanguage;
 using BarcodeVerificationSystem.View.CustomDialogs;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
 using Newtonsoft.Json;
+using BarcodeVerificationSystem.Utils;
+using System.Security.Policy;
 
 namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 {
@@ -66,10 +68,10 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
         private async void BtnDispose_Click(object sender, EventArgs e)
         {
             var apiService = new ApiService();
+            string DisposedCodesUrl = DispatchingApis.GetDestroyCodesUrl();
 
             try
             {
-                string DisposedCodesUrl = DispatchingApis.GetDestroyCodesUrl();
                 DateTime now = DateTime.Now;
                 disposedItems.ForEach(item => { item.destroy_date = now; item.notes = notes; });
                 var request = new RequestListDisposal
@@ -91,12 +93,14 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
                 }
                 else
                 {
+                    ProjectLogger.WriteError($"Error occurred in {DisposedCodesUrl}" + ResponseDisposal.message + " Payload:" + json.ToString());
                     CustomMessageBox.Show(ResponseDisposal.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                CustomMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ProjectLogger.WriteError($"Error occurred in {DisposedCodesUrl}: " + ex.Message);
+                CustomMessageBox.Show("Không thể hủy mã!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

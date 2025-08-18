@@ -163,6 +163,11 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     DisplayHistory(JobNameList);
                 }
             }
+            else if(sender == ErrorsLogger)
+            {
+                //ProjectLogger.WriteError("Error occurred in btnError_Click");
+                ProjectLogger.OpenErrorFile();
+            }
             else if(sender == cbbHisFilterType)
             {
                 switch(cbbHisFilterType.SelectedIndex)
@@ -245,20 +250,21 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             else if (sender == btnGetInfo)
             {
                 string orderId = wmsNumber.Text.Trim();
+
                 if (string.IsNullOrEmpty(orderId))
                 {
                     CustomMessageBox.Show("Vui lòng nhập mã phiếu WMS!", "Lỗi thông tin nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
+                string apiUrl = DispatchingApis.GetOrderInfoUrl(orderId);
                 try
                 {
-                    string apiUrl = DispatchingApis.GetOrderInfoUrl(orderId);
                     var apiService = new ApiService();
                     var loginPayload = await apiService.GetApiWithModel<ResponseOrder>(apiUrl);
                     if (!loginPayload.is_success)
                     {
                         CustomMessageBox.Show(loginPayload.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ProjectLogger.WriteError($"Error occurred in {apiUrl}" + loginPayload.message + " Payload:" + loginPayload.ToString());
                         return;
                     }
                     Shared.Settings.DispatchingOrderPayload = loginPayload;
@@ -301,6 +307,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 }
                 catch (Exception ex)
                 {
+                    ProjectLogger.WriteError($"Error occurred in {apiUrl}: " + ex.Message);
                     Shared.Settings.DispatchingOrderPayload = null;
                     dgvItems.Rows.Clear();
                     CustomMessageBox.Show($"Không thể lấy thông tin phiếu!", Lang.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -308,16 +315,18 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             }
             else if (sender == btnGetInfoReprint)
             {
+                string apiUrl = DispatchingApis.GetReprintCodesUrl();
+
                 try
                 {
                     reprintGridView.Rows.Clear();
 
-                    string apiUrl = DispatchingApis.GetReprintCodesUrl();
                     var apiService = new ApiService();
                     var Payload = await apiService.GetApiWithModel<ResponseListRePrint>(apiUrl);
                     if(!Payload.is_success)
                     {
                         CustomMessageBox.Show(Payload.message, Lang.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ProjectLogger.WriteError($"Error occurred in {apiUrl}" + Payload.message + " Payload:" + Payload.ToString());
                         return;
                     }
 
@@ -339,8 +348,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    ProjectLogger.WriteError($"Error occurred in {apiUrl}: " + ex.Message);
                     CustomMessageBox.Show($"Không lấy được thông tin in lại!", Lang.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -368,12 +378,14 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     dgvItems.Rows.Clear();
                     ResetValues.SetTextsEmpty(waveKey, shipment, shiptoCode);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     DispayJobLoading(false); ;
                     CustomMessageBox.Show($"Không thể tạo phiếu soạn hàng!", Lang.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ProjectLogger.WriteError("Error occurred in get saveJob Function" + ex.Message);
+
                 }
-               
+
             }
             else if (sender == saveJobNutriOffline)
             {
@@ -403,9 +415,11 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                     SaveJob();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     DispayJobLoading(false);
+                    ProjectLogger.WriteError("Error occurred in get saveJobNutriOffline Function" + ex.Message);
+
                 }
             }
             else if(sender == saveJobReprint)
@@ -701,7 +715,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                     }
                 }
-                catch (Exception) { }
+                catch (Exception ex)
+                {
+                    ProjectLogger.WriteError("Error occurred in get btnNext Function" + ex.Message);
+                }
             }
             else if (sender == btnSave)
             {
@@ -1235,6 +1252,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 FirstRowHeader.Visible = _JobModel.IsFirstRowHeader = FirstRowHeader.Checked = false;
                 UIControlsFuncs.HideControls(lblSensorControllerStatus, lblStatusCamera01, FirstRowHeader, btnHelp, btnAbout);
                 UserNameDisplay.Text = "Người dùng: " +  CurrentUser.UserName ?? "";
+                if(CurrentUser.UserName == "Support")
+                {
+                    ErrorsLogger.Visible = true;
+                }
             }
 
             MonitorCameraConnection();
@@ -1451,6 +1472,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             {
                 DispayJobLoading(false);
                 CustomMessageBox.Show("Không thể tạo mã!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ProjectLogger.WriteError("Error occurred in get GenerateCodes (pushDatabase)" + ex.Message);
+
             }
         }
 
@@ -1553,6 +1576,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             {
                 DispayJobLoading(false);
                 CustomMessageBox.Show("Không thể gửi dữ liệu ban đầu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ProjectLogger.WriteError($"Error occurred in {url}: " + ex.Message);
             }
             return false;
 
@@ -1612,6 +1636,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             StopSyncData.Click += ActionResult;
             cbbHisFilterType.SelectedIndexChanged += ActionResult;
             editJobBtn.Click += ActionResult;
+            ErrorsLogger.Click += ActionResult;
 
             _TimerDateTime.Tick += TimerDateTime_Tick;
             btnGennerate.Click += ActionResult;

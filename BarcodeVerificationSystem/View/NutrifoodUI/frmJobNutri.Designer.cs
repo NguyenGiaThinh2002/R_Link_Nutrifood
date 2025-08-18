@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJobNutri));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJobNutri));
             this.DragControl = new DesignUI.CuzUI.CuzDragControl();
             this.pnlMenu = new DesignUI.CuzUI.CuzPanel();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
@@ -46,12 +46,14 @@
             this.lblStatusCamera01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusPrinter01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusSerialDevice = new System.Windows.Forms.ToolStripStatusLabel();
+            this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSensorControllerStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblToolStripVersion = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.picSaveJobLoading = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.jobName = new DesignUI.CuzUI.CuzTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -184,13 +186,13 @@
             this.lblRLinkSeries = new System.Windows.Forms.Label();
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
-            this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
-            this.picSaveJobLoading = new System.Windows.Forms.PictureBox();
+            this.ErrorsLogger = new FontAwesome.Sharp.IconButton();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSaveJobLoading)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -209,7 +211,6 @@
             this.pnlJobInfomation.SuspendLayout();
             this.cuzPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSaveJobLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // DragControl
@@ -227,6 +228,7 @@
             this.pnlMenu._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.pnlMenu._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
             this.pnlMenu._GradientPanel = true;
+            this.pnlMenu.Controls.Add(this.ErrorsLogger);
             this.pnlMenu.Controls.Add(this.btnHelp);
             this.pnlMenu.Controls.Add(this.btnAbout);
             this.pnlMenu.Controls.Add(this.btnSettings);
@@ -361,6 +363,14 @@
             this.lblStatusSerialDevice.Name = "lblStatusSerialDevice";
             this.lblStatusSerialDevice.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             // 
+            // UserNameDisplay
+            // 
+            resources.ApplyResources(this.UserNameDisplay, "UserNameDisplay");
+            this.UserNameDisplay.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.UserNameDisplay.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.UserNameDisplay.Name = "UserNameDisplay";
+            this.UserNameDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            // 
             // lblSensorControllerStatus
             // 
             resources.ApplyResources(this.lblSensorControllerStatus, "lblSensorControllerStatus");
@@ -423,6 +433,13 @@
             this.tabPage1.Controls.Add(this.label2);
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
+            // 
+            // picSaveJobLoading
+            // 
+            resources.ApplyResources(this.picSaveJobLoading, "picSaveJobLoading");
+            this.picSaveJobLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
+            this.picSaveJobLoading.Name = "picSaveJobLoading";
+            this.picSaveJobLoading.TabStop = false;
             // 
             // panel2
             // 
@@ -2119,20 +2136,22 @@
             this.lblStandalone.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblStandalone.Name = "lblStandalone";
             // 
-            // UserNameDisplay
+            // ErrorsLogger
             // 
-            resources.ApplyResources(this.UserNameDisplay, "UserNameDisplay");
-            this.UserNameDisplay.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.UserNameDisplay.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
-            this.UserNameDisplay.Name = "UserNameDisplay";
-            this.UserNameDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            // 
-            // picSaveJobLoading
-            // 
-            resources.ApplyResources(this.picSaveJobLoading, "picSaveJobLoading");
-            this.picSaveJobLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
-            this.picSaveJobLoading.Name = "picSaveJobLoading";
-            this.picSaveJobLoading.TabStop = false;
+            this.ErrorsLogger.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.ErrorsLogger, "ErrorsLogger");
+            this.ErrorsLogger.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.ErrorsLogger.FlatAppearance.BorderSize = 0;
+            this.ErrorsLogger.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.ErrorsLogger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.ErrorsLogger.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.ErrorsLogger.ForeColor = System.Drawing.Color.White;
+            this.ErrorsLogger.IconChar = FontAwesome.Sharp.IconChar.Hammer;
+            this.ErrorsLogger.IconColor = System.Drawing.Color.White;
+            this.ErrorsLogger.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ErrorsLogger.IconSize = 30;
+            this.ErrorsLogger.Name = "ErrorsLogger";
+            this.ErrorsLogger.UseVisualStyleBackColor = false;
             // 
             // frmJobNutri
             // 
@@ -2149,6 +2168,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSaveJobLoading)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
@@ -2176,7 +2196,6 @@
             this.pnlJobInfomation.PerformLayout();
             this.cuzPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSaveJobLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2334,6 +2353,7 @@
         private DesignUI.CuzUI.CuzButton editJobBtn;
         private System.Windows.Forms.ToolStripStatusLabel UserNameDisplay;
         private System.Windows.Forms.PictureBox picSaveJobLoading;
+        private FontAwesome.Sharp.IconButton ErrorsLogger;
     }
 
 }

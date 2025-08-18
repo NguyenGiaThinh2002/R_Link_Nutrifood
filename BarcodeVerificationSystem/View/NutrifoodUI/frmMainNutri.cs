@@ -1971,16 +1971,21 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         username = CurrentUser.UserCode
                     };
                     var currentPrintedCodeInfo = await apiService.PostApiDataAsync<ResponseCurrentPrintedCodeInfo>(url, CheckCodeAmount);
+                    if (!currentPrintedCodeInfo.is_success)
+                    {
+                        ProjectLogger.WriteError($"Error occurred in {url}" + currentPrintedCodeInfo.message + " Payload:" + CheckCodeAmount.ToString());
+                    }
                     if (currentPrintedCodeInfo.is_exceed)
                     {
-                        CustomMessageBox.Show("Do you want to stop process ? \n Code out of threshold" +
-                            "\n " + $"Number of printed code : {currentPrintedCodeInfo.amount}", "Code out of threshold", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CustomMessageBox.Show("Bạn có muốn dùng chương trình ? \n Số lượng mã đã in vượt ngưỡng" +
+                            "\n " + $"Số lượng mã đã in : {currentPrintedCodeInfo.amount}", "Mã vượt ngưỡng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                }
-                catch (Exception)
+                 }
+                catch (Exception ex)
                 {
+                    ProjectLogger.WriteError($"Error occurred in {url}" + ex.Message);
                 }
-                await Task.Delay(30000);
+                await Task.Delay(500);
             }
         }
 
@@ -6363,13 +6368,13 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                                 return;
                             }
                             _ParentForm.isShowPopupDisConOneTime = true;
-                            CuzAlert.Show(Lang.CameraDisconnected,
-                                Alert.enmType.Warning,
-                                new Size(500, 120),
-                                new Point(Location.X,
-                                Location.Y),
-                                Size,
-                                true);
+                            //CuzAlert.Show(Lang.CameraDisconnected,
+                            //    Alert.enmType.Warning,
+                            //    new Size(500, 120),
+                            //    new Point(Location.X,
+                            //    Location.Y),
+                            //    Size,
+                            //    true);
 
                         }
                         else if (cameraModel.IsConnected)

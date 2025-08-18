@@ -108,12 +108,12 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
                     bool isPosted = await apiService.PostApiDataAsync(ReprintCodesUrl, request);
                     if (isPosted)
                     {
-                        CustomMessageBox.Show("Reprint request sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CustomMessageBox.Show("In lại thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception)
                 {
-                    CustomMessageBox.Show("Failed to send reprint request. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CustomMessageBox.Show("In lại Thất bại công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Security.Policy;
+using BarcodeVerificationSystem.Utils;
 
 namespace BarcodeVerificationSystem.Services
 {
@@ -47,7 +48,6 @@ namespace BarcodeVerificationSystem.Services
                 var monitor = new MonitorPayload
                 {
                     plant = settings.FactoryCode,
-
                     printed_codes_number = Shared.NumberPrinted,
                     generated_codes_number = Shared.TotalCodes,
                     sent_saas_codes = Shared.NumberOfSentSaaS,
@@ -68,7 +68,7 @@ namespace BarcodeVerificationSystem.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error {url}: {ex.Message}");
+                ProjectLogger.WriteError($"Error occurred in {url}: " + ex.Message);
             }
         }
 
