@@ -201,7 +201,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         private readonly ConcurrentDictionary<string, CompareStatus> _CodeListPODFormat = new ConcurrentDictionary<string, CompareStatus>();
         private ConcurrentDictionary<string, int> _Emergency = new ConcurrentDictionary<string, int>();
 
-        private List<string[]> _SentPrintedCodeObtainFromFile = new List<string[]>();
+        private List<string[]> _SentPrintedCodeObtainFromFile = null;
 
 
         private CancellationTokenSource _OperationCancelTokenSource;
@@ -661,21 +661,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 disposeBtn.Text = Lang.Dispose;
                 RePrintBtn.Text = Lang.RePrint;
 
-                if (!Shared.Settings.IsManufacturingMode)
-                {
-                    //tableLayoutPanelProcess.Visible = false;
-                    //DispatchingActionsPanel.Visible = true;
-                   
-
-                }
-
-                // thinh dang lam
                 var payloadJob = _SelectedJob?.DispatchingOrderPayload?.payload;
                 wmsNumber.Text = payloadJob?.wms_number;
                 materialNumber.Text = payloadJob?.items[_SelectedJob.SelectedMaterialIndex].material_number;
-
                 DispatchingActionsPanel.Visible = Shared.UserPermission.isOnline;
-                //if (_printedDataProcess != null) _printedDataProcess.Stop();
                 StopPrintedDataProcess(_printedDataProcess);
             }
 
@@ -811,57 +800,51 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             _QueueBufferPrinterResponseData.Clear();
             ReceiveResponseFromPrinterHandlerAsync();
         }
+        private readonly object _syncLock = new object();
 
         private void Shared_OnSyncDataParameterChange(object sender, EventArgs e)
         {
             try
             {
-                if (sender is SyncDataParams ParamsName)
+                if(_SentPrintedCodeObtainFromFile.Count == 0)
                 {
                     string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
                     _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
-                    Shared.NumberOfSentSaaS = _SelectedJob.NumberOfSaaSSentCodes = SaaSSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
-
-                    Shared.NumberOfSentSAP = _SelectedJob.NumberOfSAPSentCodes = SAPSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
-
-                    SaaSFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("failed", StringComparison.OrdinalIgnoreCase));
-
-                    SAPFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("failed", StringComparison.OrdinalIgnoreCase));
-
-                    string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
+                }
+                if (sender is SyncDataParams ParamsName)
+                {
                     switch (ParamsName.DataType)
                     {
-                        case SyncDataType.SentData:
-                            //SentSyncData++;
-                            break;
-                        case SyncDataType.SaaSFailed:
-                            //SaaSFailed++;
-                            break;
                         case SyncDataType.SAPSuccess:
-                            //++SAPSuccess;
-                            //Shared.NumberOfSentSAP = SAPSuccess;
                             _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SAPStatus] = "success";
+
+                            SAPSuccess = Shared.NumberOfSentSAP = _SelectedJob.NumberOfSAPSentCodes =
+                            _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 &&
+                                                             item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
                             break;
                         case SyncDataType.SAPFailed:
                             SAPFailed++;
                             break;
                         case SyncDataType.SaaSSuccess:
-                            //++SaaSSuccess;
-                            //Shared.NumberOfSentSaaS = SaaSSuccess;
                             _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SaaSStatus] = "success";
-
+                            SaaSSuccess = Shared.NumberOfSentSaaS = _SelectedJob.NumberOfSaaSSentCodes =
+                            _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 &&
+                                                                  item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
                             break;
-
+                        case SyncDataType.SaaSFailed:
+                            SaaSFailed++;
+                            break;
                     }
 
-
+                    //string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
+                    //_SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
 
                 }
             }
             catch (Exception)
             {
+                // optional logging
             }
-          
         }
 
         private void GetSampleRaise(object sender, EventArgs e)
@@ -2867,12 +2850,16 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                 PrintedProcess.Start();
 
-                SafeInvoke(SyncLoading, () => SyncLoading.Visible = true);
-                SafeInvoke(SyncDataText, () =>
+                if (Shared.UserPermission.isOnline)
                 {
-                    SyncDataText.Text = "Đang đồng bộ";
-                    SyncDataText.ForeColor = Color.Green;
-                });
+                    SafeInvoke(SyncLoading, () => SyncLoading.Visible = true);
+                    SafeInvoke(SyncDataText, () =>
+                    {
+                        SyncDataText.Text = "Đang đồng bộ";
+                        SyncDataText.ForeColor = Color.Green;
+                    });
+                }
+              
             }
             catch (Exception)
             {
@@ -2898,12 +2885,16 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                 PrintedProcess.Stop();
 
-                SafeInvoke(SyncLoading, () => SyncLoading.Visible = false);
-                SafeInvoke(SyncDataText, () =>
+                if (Shared.UserPermission.isOnline)
                 {
-                    SyncDataText.Text = "Dừng đồng bộ";
-                    SyncDataText.ForeColor = Color.Red;
-                });
+                    SafeInvoke(SyncLoading, () => SyncLoading.Visible = false);
+                    SafeInvoke(SyncDataText, () =>
+                    {
+                        SyncDataText.Text = "Dừng đồng bộ";
+                        SyncDataText.ForeColor = Color.Red;
+                    });
+                }
+               
             }
             catch (Exception)
             {
@@ -4222,7 +4213,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             }
             else if(sender == syncDataBtn)
             {
-                //if()
                 if (Shared.OperStatus != OperationStatus.Running && Shared.OperStatus != OperationStatus.Processing)
                 {
                     string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;

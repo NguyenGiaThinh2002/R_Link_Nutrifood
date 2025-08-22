@@ -27,9 +27,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
         public async void Start()
         {
             _sender.Start();
-            //Task.Run(async () => await Task.Delay(100));
-            await Task.Delay(200); // Ensure the sender is ready before loading entries
-
+            await Task.Delay(200); 
 
             foreach (var entry in _storage.LoadUnsentEntries())
             {

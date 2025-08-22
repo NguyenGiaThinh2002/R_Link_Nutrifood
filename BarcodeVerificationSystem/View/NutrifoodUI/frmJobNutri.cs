@@ -238,7 +238,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 if (_printedDataProcess != null) _printedDataProcess.Stop();
                 _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
                 _printedDataProcess.Start();
-                
             }
             else if(sender == StopSyncData)
             {
@@ -1768,24 +1767,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         {
             try
             {
-                if (sender is SyncDataParams ParamsName)
-                {
-                    string filePath = CommVariables.PathJobsApp + Shared.CurrentJob.FileName + Shared.Settings.JobFileExtension;
-                    switch (ParamsName.DataType)
-                    {
-                        case SyncDataType.SentData:
-                            break;
-                        case SyncDataType.SaaSFailed:
-                            break;
-                        case SyncDataType.SAPSuccess:
-                            break;
-                        case SyncDataType.SAPFailed:
-                            break;
-                        case SyncDataType.SaaSSuccess:
-                            break;
-
-                    }
-                }
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new Action(() => progressBar1.Value = Shared.CurrentJob.NumberOfSAPSentCodes * 100 / Shared.CurrentJob.NumberOfPrintedCodes));
@@ -1794,12 +1775,12 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 {
                     progressBar1.Value = Shared.CurrentJob.NumberOfSAPSentCodes * 100 / Shared.CurrentJob.NumberOfPrintedCodes;
                 }
-
                 // Call this where needed:
                 if (Shared.CurrentJob.NumberOfPrintedCodes == Shared.CurrentJob.NumberOfSAPSentCodes)
                 {
                     OnSentPrintedCodesCompleted();
                 }
+
             }
             catch (Exception ex)
             {
@@ -1812,19 +1793,33 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             try
             {
                 _printedDataProcess.Stop();
-                Action updateUI = () =>
-                {
-                    UIControlsFuncs.HideControls(progressBar1);
-                    UIControlsFuncs.EnableAllTabsSelection(tabControl1);
-                    UIControlsFuncs.EnableControls(dgvHistoryJob, pnlMenu, SyncDataBtn, cbbHisFilterType);
-                    List<string> jobNameList = Shared.GetJobNameList();
-                    DisplayHistory(jobNameList);
-                };
+                //Action updateUI = () =>
+                //{
+                //    UIControlsFuncs.HideControls(progressBar1);
+                //    UIControlsFuncs.EnableAllTabsSelection(tabControl1);
+                //    UIControlsFuncs.EnableControls(dgvHistoryJob, pnlMenu, SyncDataBtn, cbbHisFilterType);
+                //    List<string> jobNameList = Shared.GetJobNameList();
+                //    DisplayHistory(jobNameList);
+                //};
 
-                if (this.InvokeRequired)
-                    this.Invoke(updateUI);
-                else
-                    updateUI();
+                //if (this.InvokeRequired)
+                //    this.Invoke(updateUI);
+                //else
+                //    updateUI();
+                Task.Run(() =>
+                {
+                    // Heavy work off the UI thread
+                    List<string> jobNameList = Shared.GetJobNameList();
+
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        UIControlsFuncs.HideControls(progressBar1);
+                        UIControlsFuncs.EnableAllTabsSelection(tabControl1);
+                        UIControlsFuncs.EnableControls(dgvHistoryJob, pnlMenu, SyncDataBtn, cbbHisFilterType);
+                        DisplayHistory(jobNameList);
+                    }));
+                });
+
             }
             catch (Exception ex)
             {

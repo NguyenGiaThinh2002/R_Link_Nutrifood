@@ -96,18 +96,6 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
                 if (Shared.UserPermission.isOnline)
                 {
-                    //var jsonContent = JsonConvert.SerializeObject(printedContent, new JsonSerializerSettings
-                    //{
-                    //    ContractResolver = new CamelCasePropertyNamesContractResolver()
-                    //});
-                    //var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                    //var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
-                    //var responseBody = await response.Content.ReadAsStringAsync();
-                    //Console.WriteLine("Raw API Response:");
-                    //Console.WriteLine(responseBody);
-                    //response.EnsureSuccessStatusCode();
-                    //var ResponsePrinted = JsonConvert.DeserializeObject<ResponsePrinted>(await response.Content.ReadAsStringAsync());
-
                     var ResponsePrinted = await apiService.PostApiDataAsync<ResponsePrinted>(_endpoint, printedContent);
 
                     entry.SaasStatus = ResponsePrinted.is_success ? "success" : "failed";
@@ -117,21 +105,19 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
                     var syncDataModel = new SyncDataParams(SyncDataParams.SyncDataType.SentData, entry.Id){};
 
-
                     if (ResponsePrinted.is_success)
                     {
-                        Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                         Shared.CurrentJob.NumberOfSaaSSentCodes++;
                         Shared.CurrentJob.SaveFile(filePath); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
-                        //Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+                        Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
                     if (ResponsePrinted.is_success_sap)
                     {
                         Shared.CurrentJob.NumberOfSAPSentCodes++;
                         Shared.CurrentJob.SaveFile(filePath);
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SAPSuccess;
-                        //Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+                        Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
 
                     if (ResponsePrinted.is_success && ResponsePrinted.is_success_sap) // nho chinh khuc nay

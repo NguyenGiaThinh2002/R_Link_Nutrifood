@@ -114,7 +114,6 @@
             this.SentSAP = new System.Windows.Forms.Label();
             this.lblCodeResult = new System.Windows.Forms.Label();
             this.SentSaaS = new System.Windows.Forms.Label();
-            this.sentSaaSSuccess = new DesignUI.CuzUI.CuzTextBox();
             this.pnlVerificationProcess = new DesignUI.CuzUI.RoundPanel();
             this.DispatchingActionsPanel = new System.Windows.Forms.Panel();
             this.ConfirmLabel = new System.Windows.Forms.Label();
@@ -184,6 +183,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.SyncLoading = new System.Windows.Forms.PictureBox();
             this.SyncDataText = new System.Windows.Forms.Label();
+            this.sentSaaSSuccess = new DesignUI.CuzUI.CuzTextBox();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlControllButton.SuspendLayout();
@@ -1494,13 +1494,13 @@
             // pnlCurrentCheck
             // 
             this.pnlCurrentCheck.BackColor = System.Drawing.Color.White;
+            this.pnlCurrentCheck.Controls.Add(this.sentSaaSSuccess);
             this.pnlCurrentCheck.Controls.Add(this.SyncDataText);
             this.pnlCurrentCheck.Controls.Add(this.SyncLoading);
             this.pnlCurrentCheck.Controls.Add(this.label6);
             this.pnlCurrentCheck.Controls.Add(this.sentSAPSuccess);
             this.pnlCurrentCheck.Controls.Add(this.SentSAP);
             this.pnlCurrentCheck.Controls.Add(this.SentSaaS);
-            this.pnlCurrentCheck.Controls.Add(this.sentSaaSSuccess);
             this.pnlCurrentCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCurrentCheck.IsTitleHatchStyle = false;
             this.pnlCurrentCheck.Location = new System.Drawing.Point(3, 159);
@@ -1538,7 +1538,7 @@
             this.sentSAPSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.sentSAPSuccess.PlaceholderText = "";
             this.sentSAPSuccess.ReadOnly = true;
-            this.sentSAPSuccess.Size = new System.Drawing.Size(348, 35);
+            this.sentSAPSuccess.Size = new System.Drawing.Size(340, 35);
             this.sentSAPSuccess.TabIndex = 146;
             this.sentSAPSuccess.TabStop = false;
             this.sentSAPSuccess.UnderlinedStyle = false;
@@ -1609,34 +1609,6 @@
             this.SentSaaS.Size = new System.Drawing.Size(309, 20);
             this.SentSaaS.TabIndex = 142;
             this.SentSaaS.Text = "Mã gửi Web server thành công";
-            // 
-            // sentSaaSSuccess
-            // 
-            this.sentSaaSSuccess._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.sentSaaSSuccess._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.sentSaaSSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.sentSaaSSuccess.BackColor = System.Drawing.Color.White;
-            this.sentSaaSSuccess.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.sentSaaSSuccess.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.sentSaaSSuccess.BorderRadius = 8;
-            this.sentSaaSSuccess.BorderSize = 1;
-            this.sentSaaSSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sentSaaSSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sentSaaSSuccess.Location = new System.Drawing.Point(20, 148);
-            this.sentSaaSSuccess.Margin = new System.Windows.Forms.Padding(4);
-            this.sentSaaSSuccess.MinimumSize = new System.Drawing.Size(95, 36);
-            this.sentSaaSSuccess.Multiline = false;
-            this.sentSaaSSuccess.Name = "sentSaaSSuccess";
-            this.sentSaaSSuccess.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.sentSaaSSuccess.PasswordChar = false;
-            this.sentSaaSSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.sentSaaSSuccess.PlaceholderText = "";
-            this.sentSaaSSuccess.ReadOnly = true;
-            this.sentSaaSSuccess.Size = new System.Drawing.Size(348, 36);
-            this.sentSaaSSuccess.TabIndex = 141;
-            this.sentSaaSSuccess.TabStop = false;
-            this.sentSaaSSuccess.UnderlinedStyle = false;
             // 
             // pnlVerificationProcess
             // 
@@ -2936,6 +2908,33 @@
             this.SyncDataText.TabIndex = 148;
             this.SyncDataText.Text = "Dừng đồng bộ";
             // 
+            // sentSaaSSuccess
+            // 
+            this.sentSaaSSuccess._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.sentSaaSSuccess._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentSaaSSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sentSaaSSuccess.BackColor = System.Drawing.Color.White;
+            this.sentSaaSSuccess.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sentSaaSSuccess.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentSaaSSuccess.BorderRadius = 8;
+            this.sentSaaSSuccess.BorderSize = 1;
+            this.sentSaaSSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sentSaaSSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sentSaaSSuccess.Location = new System.Drawing.Point(20, 148);
+            this.sentSaaSSuccess.Margin = new System.Windows.Forms.Padding(4);
+            this.sentSaaSSuccess.Multiline = false;
+            this.sentSaaSSuccess.Name = "sentSaaSSuccess";
+            this.sentSaaSSuccess.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.sentSaaSSuccess.PasswordChar = false;
+            this.sentSaaSSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.sentSaaSSuccess.PlaceholderText = "";
+            this.sentSaaSSuccess.ReadOnly = true;
+            this.sentSaaSSuccess.Size = new System.Drawing.Size(336, 35);
+            this.sentSaaSSuccess.TabIndex = 149;
+            this.sentSaaSSuccess.TabStop = false;
+            this.sentSaaSSuccess.UnderlinedStyle = false;
+            // 
             // FrmMainNutri
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
@@ -3139,7 +3138,6 @@
         private System.Windows.Forms.Label ConfirmLabel;
         private DesignUI.CuzUI.CuzTextBox sentSAPSuccess;
         private System.Windows.Forms.Label SentSAP;
-        private DesignUI.CuzUI.CuzTextBox sentSaaSSuccess;
         private System.Windows.Forms.Label SentSaaS;
         private DesignUI.CuzUI.CuzButton RePrintBtn;
         private DesignUI.CuzUI.CuzTextBox materialNumber;
@@ -3154,5 +3152,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label SyncDataText;
         private System.Windows.Forms.PictureBox SyncLoading;
+        private DesignUI.CuzUI.CuzTextBox sentSaaSSuccess;
     }
 }
