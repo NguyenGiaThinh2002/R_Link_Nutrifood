@@ -44,6 +44,8 @@
             this.lblStatusCamera01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusPrinter01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusSerialDevice = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LineName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSensorControllerStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripOperationStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripVersion = new System.Windows.Forms.ToolStripStatusLabel();
@@ -179,7 +181,9 @@
             this.mnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.mnLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.SyncLoading = new System.Windows.Forms.PictureBox();
+            this.SyncDataText = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlControllButton.SuspendLayout();
@@ -217,6 +221,7 @@
             this.pnlSentData.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.cuzDropdownManageAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SyncLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -227,6 +232,7 @@
             this.lblStatusCamera01,
             this.lblStatusPrinter01,
             this.lblStatusSerialDevice,
+            this.LineName,
             this.UserNameDisplay,
             this.lblSensorControllerStatus,
             this.toolStripOperationStatus,
@@ -277,6 +283,34 @@
             this.lblStatusSerialDevice.Size = new System.Drawing.Size(101, 25);
             this.lblStatusSerialDevice.Text = "Scanner";
             // 
+            // LineName
+            // 
+            this.LineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LineName.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.LineName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LineName.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.LineName.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.LineName.Name = "LineName";
+            this.LineName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.LineName.RightToLeftAutoMirrorImage = true;
+            this.LineName.Size = new System.Drawing.Size(81, 27);
+            this.LineName.Text = "LineName";
+            this.LineName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // UserNameDisplay
+            // 
+            this.UserNameDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.UserNameDisplay.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.UserNameDisplay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UserNameDisplay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.UserNameDisplay.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.UserNameDisplay.Name = "UserNameDisplay";
+            this.UserNameDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.UserNameDisplay.RightToLeftAutoMirrorImage = true;
+            this.UserNameDisplay.Size = new System.Drawing.Size(83, 27);
+            this.UserNameDisplay.Text = "Username";
+            this.UserNameDisplay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // lblSensorControllerStatus
             // 
             this.lblSensorControllerStatus.AutoToolTip = true;
@@ -289,7 +323,7 @@
             this.lblSensorControllerStatus.Margin = new System.Windows.Forms.Padding(10, 3, 0, 5);
             this.lblSensorControllerStatus.Name = "lblSensorControllerStatus";
             this.lblSensorControllerStatus.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.lblSensorControllerStatus.Size = new System.Drawing.Size(911, 25);
+            this.lblSensorControllerStatus.Size = new System.Drawing.Size(820, 25);
             this.lblSensorControllerStatus.Spring = true;
             this.lblSensorControllerStatus.Text = "PLC";
             this.lblSensorControllerStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -460,6 +494,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlJobInformation.BackColor = System.Drawing.Color.White;
             this.pnlJobInformation.Controls.Add(this.numberOfCode);
+            this.pnlJobInformation.Controls.Add(this.txtCodeResult);
+            this.pnlJobInformation.Controls.Add(this.lblCodeResult);
             this.pnlJobInformation.Controls.Add(this.materialNumber);
             this.pnlJobInformation.Controls.Add(this.panel3);
             this.pnlJobInformation.Controls.Add(this.label8);
@@ -1458,10 +1494,11 @@
             // pnlCurrentCheck
             // 
             this.pnlCurrentCheck.BackColor = System.Drawing.Color.White;
+            this.pnlCurrentCheck.Controls.Add(this.SyncDataText);
+            this.pnlCurrentCheck.Controls.Add(this.SyncLoading);
+            this.pnlCurrentCheck.Controls.Add(this.label6);
             this.pnlCurrentCheck.Controls.Add(this.sentSAPSuccess);
-            this.pnlCurrentCheck.Controls.Add(this.txtCodeResult);
             this.pnlCurrentCheck.Controls.Add(this.SentSAP);
-            this.pnlCurrentCheck.Controls.Add(this.lblCodeResult);
             this.pnlCurrentCheck.Controls.Add(this.SentSaaS);
             this.pnlCurrentCheck.Controls.Add(this.sentSaaSSuccess);
             this.pnlCurrentCheck.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1501,7 +1538,7 @@
             this.sentSAPSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.sentSAPSuccess.PlaceholderText = "";
             this.sentSAPSuccess.ReadOnly = true;
-            this.sentSAPSuccess.Size = new System.Drawing.Size(352, 35);
+            this.sentSAPSuccess.Size = new System.Drawing.Size(348, 35);
             this.sentSAPSuccess.TabIndex = 146;
             this.sentSAPSuccess.TabStop = false;
             this.sentSAPSuccess.UnderlinedStyle = false;
@@ -1519,7 +1556,7 @@
             this.txtCodeResult.BorderSize = 1;
             this.txtCodeResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodeResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCodeResult.Location = new System.Drawing.Point(15, 69);
+            this.txtCodeResult.Location = new System.Drawing.Point(11, 457);
             this.txtCodeResult.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodeResult.MinimumSize = new System.Drawing.Size(95, 36);
             this.txtCodeResult.Multiline = false;
@@ -1529,10 +1566,11 @@
             this.txtCodeResult.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtCodeResult.PlaceholderText = "";
             this.txtCodeResult.ReadOnly = true;
-            this.txtCodeResult.Size = new System.Drawing.Size(357, 36);
+            this.txtCodeResult.Size = new System.Drawing.Size(193, 36);
             this.txtCodeResult.TabIndex = 116;
             this.txtCodeResult.TabStop = false;
             this.txtCodeResult.UnderlinedStyle = false;
+            this.txtCodeResult.Visible = false;
             // 
             // SentSAP
             // 
@@ -1543,20 +1581,21 @@
             this.SentSAP.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.SentSAP.Location = new System.Drawing.Point(16, 199);
             this.SentSAP.Name = "SentSAP";
-            this.SentSAP.Size = new System.Drawing.Size(361, 20);
+            this.SentSAP.Size = new System.Drawing.Size(298, 20);
             this.SentSAP.TabIndex = 145;
-            this.SentSAP.Text = "Mã gửi Middleware thành công";
+            this.SentSAP.Text = "Mã gửi SAP thành công";
             // 
             // lblCodeResult
             // 
             this.lblCodeResult.AutoEllipsis = true;
             this.lblCodeResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodeResult.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblCodeResult.Location = new System.Drawing.Point(11, 46);
+            this.lblCodeResult.Location = new System.Drawing.Point(10, 430);
             this.lblCodeResult.Name = "lblCodeResult";
             this.lblCodeResult.Size = new System.Drawing.Size(232, 20);
             this.lblCodeResult.TabIndex = 118;
             this.lblCodeResult.Text = "Số mã đã gửi";
+            this.lblCodeResult.Visible = false;
             // 
             // SentSaaS
             // 
@@ -1565,9 +1604,9 @@
             this.SentSaaS.AutoEllipsis = true;
             this.SentSaaS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SentSaaS.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.SentSaaS.Location = new System.Drawing.Point(16, 126);
+            this.SentSaaS.Location = new System.Drawing.Point(20, 124);
             this.SentSaaS.Name = "SentSaaS";
-            this.SentSaaS.Size = new System.Drawing.Size(361, 20);
+            this.SentSaaS.Size = new System.Drawing.Size(309, 20);
             this.SentSaaS.TabIndex = 142;
             this.SentSaaS.Text = "Mã gửi Web server thành công";
             // 
@@ -1584,7 +1623,7 @@
             this.sentSaaSSuccess.BorderSize = 1;
             this.sentSaaSSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sentSaaSSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sentSaaSSuccess.Location = new System.Drawing.Point(20, 150);
+            this.sentSaaSSuccess.Location = new System.Drawing.Point(20, 148);
             this.sentSaaSSuccess.Margin = new System.Windows.Forms.Padding(4);
             this.sentSaaSSuccess.MinimumSize = new System.Drawing.Size(95, 36);
             this.sentSaaSSuccess.Multiline = false;
@@ -1594,7 +1633,7 @@
             this.sentSaaSSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.sentSaaSSuccess.PlaceholderText = "";
             this.sentSaaSSuccess.ReadOnly = true;
-            this.sentSaaSSuccess.Size = new System.Drawing.Size(352, 36);
+            this.sentSaaSSuccess.Size = new System.Drawing.Size(348, 36);
             this.sentSaaSSuccess.TabIndex = 141;
             this.sentSaaSSuccess.TabStop = false;
             this.sentSaaSSuccess.UnderlinedStyle = false;
@@ -1979,6 +2018,7 @@
             this.pnlDatabase.Name = "pnlDatabase";
             this.pnlDatabase.Size = new System.Drawing.Size(972, 358);
             this.pnlDatabase.TabIndex = 50;
+            this.pnlDatabase.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDatabase_Paint);
             // 
             // picDatabaseLoading
             // 
@@ -2857,19 +2897,44 @@
             this.mnLogOut.Size = new System.Drawing.Size(168, 22);
             this.mnLogOut.Text = "Log out";
             // 
-            // UserNameDisplay
+            // label6
             // 
-            this.UserNameDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.UserNameDisplay.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.UserNameDisplay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UserNameDisplay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.UserNameDisplay.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
-            this.UserNameDisplay.Name = "UserNameDisplay";
-            this.UserNameDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.UserNameDisplay.RightToLeftAutoMirrorImage = true;
-            this.UserNameDisplay.Size = new System.Drawing.Size(83, 27);
-            this.UserNameDisplay.Text = "Username";
-            this.UserNameDisplay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoEllipsis = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label6.Location = new System.Drawing.Point(16, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(149, 20);
+            this.label6.TabIndex = 147;
+            this.label6.Text = "Trạng thái đồng bộ";
+            // 
+            // SyncLoading
+            // 
+            this.SyncLoading.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SyncLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
+            this.SyncLoading.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.SyncLoading.Location = new System.Drawing.Point(231, 73);
+            this.SyncLoading.Name = "SyncLoading";
+            this.SyncLoading.Size = new System.Drawing.Size(36, 36);
+            this.SyncLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SyncLoading.TabIndex = 113;
+            this.SyncLoading.TabStop = false;
+            this.SyncLoading.Visible = false;
+            // 
+            // SyncDataText
+            // 
+            this.SyncDataText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SyncDataText.AutoEllipsis = true;
+            this.SyncDataText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SyncDataText.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.SyncDataText.Location = new System.Drawing.Point(79, 85);
+            this.SyncDataText.Name = "SyncDataText";
+            this.SyncDataText.Size = new System.Drawing.Size(126, 20);
+            this.SyncDataText.TabIndex = 148;
+            this.SyncDataText.Text = "Dừng đồng bộ";
             // 
             // FrmMainNutri
             // 
@@ -2937,6 +3002,7 @@
             this.pnlSentData.PerformLayout();
             this.pnlMenu.ResumeLayout(false);
             this.cuzDropdownManageAccount.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SyncLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3084,5 +3150,9 @@
         private DesignUI.CuzUI.CuzTextBox numberOfCode;
         private System.Windows.Forms.ToolStripStatusLabel lblSensorControllerStatus;
         private System.Windows.Forms.ToolStripStatusLabel UserNameDisplay;
+        private System.Windows.Forms.ToolStripStatusLabel LineName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label SyncDataText;
+        private System.Windows.Forms.PictureBox SyncLoading;
     }
 }

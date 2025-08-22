@@ -238,6 +238,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 if (_printedDataProcess != null) _printedDataProcess.Stop();
                 _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
                 _printedDataProcess.Start();
+                
             }
             else if(sender == StopSyncData)
             {
@@ -251,6 +252,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             {
                 string orderId = wmsNumber.Text.Trim();
 
+
                 if (string.IsNullOrEmpty(orderId))
                 {
                     CustomMessageBox.Show("Vui lòng nhập mã phiếu WMS!", "Lỗi thông tin nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -259,23 +261,26 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 string apiUrl = DispatchingApis.GetOrderInfoUrl(orderId);
                 try
                 {
+                    dgvItems.Rows.Clear();
+                    ResetValues.SetTextsEmpty(waveKey, shipment, shiptoCode);
+
                     var apiService = new ApiService();
-                    var loginPayload = await apiService.GetApiWithModel<ResponseOrder>(apiUrl);
-                    if (!loginPayload.is_success)
+                    var responseOrderPayload = await apiService.GetApiWithModel<ResponseOrder>(apiUrl);
+                    if (!responseOrderPayload.is_success)
                     {
-                        CustomMessageBox.Show(loginPayload.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        ProjectLogger.WriteError($"Error occurred in {apiUrl}" + loginPayload.message + " Payload:" + loginPayload.ToString());
+                        CustomMessageBox.Show(responseOrderPayload.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ProjectLogger.WriteError($"Error occurred in {apiUrl}" + responseOrderPayload.message + " Payload:" + responseOrderPayload.ToString());
                         return;
                     }
-                    Shared.Settings.DispatchingOrderPayload = loginPayload;
+                    Shared.Settings.DispatchingOrderPayload = responseOrderPayload;
 
-                    var payload = loginPayload?.payload;
-                    _JobModel.DispatchingOrderPayload = loginPayload;
+                    var payload = responseOrderPayload?.payload;
+                    _JobModel.DispatchingOrderPayload = responseOrderPayload;
 
                     _JobModel.TemplatePrint = templatePrint.Text = payload.print_template_name;
                     dgvItems.Rows.Clear();
                     var items = payload?.items.ToList();
-                    Shared.Settings.WmsNumber = loginPayload.payload.wms_number;
+                    Shared.Settings.WmsNumber = responseOrderPayload.payload.wms_number;
                     Shared.Settings.OrderId = wmsNumber.Text;
                     Shared.Settings.AddQuantity = payload.add_qty;
                     Shared.Settings.PrintTemplate = payload.print_template_name;
@@ -1184,7 +1189,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             tabPage1.Text = "Xuất Hàng"; // Lang.CreateANewJob
             tabPage2.Text = "Danh Sách Lệnh Xuất Hàng"; //Lang.SelectJob
-            tabPage3.Text = "In QR (Loyalty)";
+            tabPage3.Text = "In lại QR (Loyalty)";
             tabPage4.Text = "Lịch Sử Đồng Bộ"; // Lang.HistorySync
             tabPage5.Text = "Xuất Hàng"; // Lang.Settings
         }
@@ -1252,7 +1257,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 FirstRowHeader.Visible = _JobModel.IsFirstRowHeader = FirstRowHeader.Checked = false;
                 UIControlsFuncs.HideControls(lblSensorControllerStatus, lblStatusCamera01, FirstRowHeader, btnHelp, btnAbout);
                 UserNameDisplay.Text = "Người dùng: " +  CurrentUser.UserName ?? "";
-                if(CurrentUser.UserName == "Support")
+                LineName.Text = "Tên Line: " + Shared.Settings.RLinkName ?? "";
+                if (CurrentUser.UserName == "Support")
                 {
                     ErrorsLogger.Visible = true;
                 }
@@ -1299,7 +1305,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             dgvItems.Columns.Add("material_name", "Tên sản phẩm");
             dgvItems.Columns.Add("material_group", "Nhóm sản phẩm");
             dgvItems.Columns.Add("qty", "Số lượng");
-            dgvItems.Columns.Add("qty_per_carton", "Số lượng trên thùng");
+            dgvItems.Columns.Add("qty_per_carton", "Quy cách thùng"); // Số lượng trên thùng
             dgvItems.Columns.Add("total_qty_ctn", "Số lượng cần in");
             dgvItems.Columns.Add("printed_count", "Số lượng đã in");
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -1339,6 +1345,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 string Wavekey = InputWavekey.Text; // Not used in this context, but kept for consistency
                 string Shipment = InputShipment.Text; // Not used in this context, but kept for consistency
                 string Shipto = InputShipto.Text; // Not used in this context, but kept for consistency
+                string ShipToName = InputShipToName.Text; // Not used in this context, but kept for consistency
+
 
                 var settingsPayload = Shared.Settings.DispatchingOrderPayload.payload;
                 settingsPayload.wms_number = wms_number;
@@ -1348,6 +1356,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 settingsPayload.wave_key = Wavekey;
                 settingsPayload.shipment = Shipment;
                 settingsPayload.shipto_code = Shipto;
+                settingsPayload.shipto_name = ShipToName;
+
 
                 int numberOfCodes = int.Parse(InputCodeNumber.Text);
 
@@ -1357,19 +1367,19 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     CustomMessageBox.Show("Vui lòng đăng nhập tài khoản Online trước để lấy thông tin thiết bị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
                 string AskQuestion = Lang.AreYouSureGenerateDispatchingCodes +
-                             $"\nWMS Number: {wms_number}" +
-                             $"\nNumber Of Codes: {numberOfCodes}" +
-                             $"\nMaterial Number: {materialNumber}" +
-                             $"\nMaterial Name: {materialName}";
+                                      $"\nMã phiếu soạn hàng: {wms_number}" +
+                                      $"\nSố lượng mã cần tạo: {numberOfCodes}" +
+                                      $"\nPhần trăm số dư: {Shared.Settings.AddQuantity}%" +
+                                      $"\nMã sản phẩm: {materialNumber}" +
+                                      $"\nTên sản phẩm: {materialName}";
                 if (!CustomMessageBox.IsResultShow(AskQuestion)) return;
 
                 bool isManufacturingMode = Shared.Settings.IsManufacturingMode;
                 List<string> list;
 
                 list = isManufacturingMode ? Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes) :
-                     AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: numberOfCodes, Shipto, Shipment);
+                     AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: numberOfCodes, Shipto, Shipment, ShipToName);
 
 
                 string tableName = isManufacturingMode ? "Manufacturing" : "DispatchingCodes";
@@ -1434,6 +1444,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 string AskQuestion = Lang.AreYouSureGenerateDispatchingCodes +
                          $"\nMã phiếu soạn hàng: {wms_number}" +
                          $"\nSố lượng mã cần tạo: {numberOfCodes}" +
+                         $"\nPhần trăm số dư: {Shared.Settings.AddQuantity}%" +
                          $"\nMã sản phẩm: {materialNumber}" +
                          $"\nTên sản phẩm: {materialName}";
                 if (!CustomMessageBox.IsResultShow(AskQuestion)) return;
@@ -1448,7 +1459,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 List<string> list;
 
                 list = isManufacturingMode ? Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes) :
-                     AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: numberOfCodes, _JobModel.DispatchingOrderPayload.payload.shipto_code, _JobModel.DispatchingOrderPayload.payload.shipment);
+                     AutoIDCodeGenerator.GenerateCodesWithAutoID(quantity: numberOfCodes, _JobModel.DispatchingOrderPayload.payload.shipto_code,
+                     _JobModel.DispatchingOrderPayload.payload.shipment, _JobModel.DispatchingOrderPayload.payload.shipto_name);
 
                 _JobModel.FirstGeneratedCodeIndex = Shared.FirstGeneratedCodeIndex;
                 _JobModel.LastGeneratedCodeIndex = Shared.LastGeneratedCodeIndex;

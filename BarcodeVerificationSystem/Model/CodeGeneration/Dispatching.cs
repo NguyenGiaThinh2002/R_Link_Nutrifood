@@ -13,15 +13,20 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
     {
         private string _shiptoCode; // = Shared.Settings.DispatchingOrderPayload.payload.shipto_code; 
         private string _shipmentCode; // = Shared.Settings.DispatchingOrderPayload.payload.shipment;
+        private string _shiptoName; // = Shared.Settings.DispatchingOrderPayload.payload.shipment;
+
         private string _lineCode; // = Shared.Settings.FactoryCode; 
 
         public string getShiptoCode() => _shiptoCode;
         public string getShipmentCode() => _shipmentCode;
+        public string getShiptoNameCode() => _shiptoName;
 
-        public Dispatching(string shiptoCode, string shipment)
+
+        public Dispatching(string shiptoCode, string shipment, string ShiptoName)
         {
             _shiptoCode = shiptoCode;
             _shipmentCode = shipment;
+            _shiptoName = ShiptoName;
             _lineCode = Shared.Settings.FactoryCode;
         }
 

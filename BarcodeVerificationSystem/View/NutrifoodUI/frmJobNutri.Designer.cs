@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJobNutri));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJobNutri));
             this.DragControl = new DesignUI.CuzUI.CuzDragControl();
             this.pnlMenu = new DesignUI.CuzUI.CuzPanel();
+            this.ErrorsLogger = new FontAwesome.Sharp.IconButton();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
             this.btnAbout = new FontAwesome.Sharp.IconButton();
             this.btnSettings = new FontAwesome.Sharp.IconButton();
@@ -46,6 +47,7 @@
             this.lblStatusCamera01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusPrinter01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusSerialDevice = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LineName = new System.Windows.Forms.ToolStripStatusLabel();
             this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSensorControllerStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblToolStripVersion = new System.Windows.Forms.ToolStripStatusLabel();
@@ -142,6 +144,8 @@
             this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoanThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.InputShipToName = new DesignUI.CuzUI.CuzTextBox();
             this.InputCodeNumber = new DesignUI.CuzUI.CuzTextBox();
             this.InputMaterialName = new DesignUI.CuzUI.CuzTextBox();
             this.InputMaterialNumber = new DesignUI.CuzUI.CuzTextBox();
@@ -186,7 +190,6 @@
             this.lblRLinkSeries = new System.Windows.Forms.Label();
             this.btnRefesh = new DesignUI.CuzUI.CuzButton();
             this.lblStandalone = new System.Windows.Forms.Label();
-            this.ErrorsLogger = new FontAwesome.Sharp.IconButton();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.pnlMain.SuspendLayout();
@@ -236,6 +239,23 @@
             this.pnlMenu.Controls.Add(this.btnExit);
             resources.ApplyResources(this.pnlMenu, "pnlMenu");
             this.pnlMenu.Name = "pnlMenu";
+            // 
+            // ErrorsLogger
+            // 
+            this.ErrorsLogger.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.ErrorsLogger, "ErrorsLogger");
+            this.ErrorsLogger.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.ErrorsLogger.FlatAppearance.BorderSize = 0;
+            this.ErrorsLogger.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.ErrorsLogger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.ErrorsLogger.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.ErrorsLogger.ForeColor = System.Drawing.Color.White;
+            this.ErrorsLogger.IconChar = FontAwesome.Sharp.IconChar.Hammer;
+            this.ErrorsLogger.IconColor = System.Drawing.Color.White;
+            this.ErrorsLogger.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ErrorsLogger.IconSize = 30;
+            this.ErrorsLogger.Name = "ErrorsLogger";
+            this.ErrorsLogger.UseVisualStyleBackColor = false;
             // 
             // btnHelp
             // 
@@ -330,6 +350,7 @@
             this.lblStatusCamera01,
             this.lblStatusPrinter01,
             this.lblStatusSerialDevice,
+            this.LineName,
             this.UserNameDisplay,
             this.lblSensorControllerStatus,
             this.lblToolStripVersion,
@@ -362,6 +383,14 @@
             this.lblStatusSerialDevice.Margin = new System.Windows.Forms.Padding(10, 3, 0, 5);
             this.lblStatusSerialDevice.Name = "lblStatusSerialDevice";
             this.lblStatusSerialDevice.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            // 
+            // LineName
+            // 
+            resources.ApplyResources(this.LineName, "LineName");
+            this.LineName.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.LineName.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.LineName.Name = "LineName";
+            this.LineName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             // 
             // UserNameDisplay
             // 
@@ -1539,6 +1568,8 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.White;
+            this.tabPage5.Controls.Add(this.label15);
+            this.tabPage5.Controls.Add(this.InputShipToName);
             this.tabPage5.Controls.Add(this.InputCodeNumber);
             this.tabPage5.Controls.Add(this.InputMaterialName);
             this.tabPage5.Controls.Add(this.InputMaterialNumber);
@@ -1556,6 +1587,31 @@
             this.tabPage5.Controls.Add(this.label16);
             resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Name = "tabPage5";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label15.Name = "label15";
+            // 
+            // InputShipToName
+            // 
+            this.InputShipToName._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.InputShipToName._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.InputShipToName.BackColor = System.Drawing.Color.White;
+            this.InputShipToName.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.InputShipToName.BorderFocusColor = System.Drawing.Color.Silver;
+            this.InputShipToName.BorderRadius = 6;
+            this.InputShipToName.BorderSize = 1;
+            resources.ApplyResources(this.InputShipToName, "InputShipToName");
+            this.InputShipToName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.InputShipToName.Multiline = false;
+            this.InputShipToName.Name = "InputShipToName";
+            this.InputShipToName.PasswordChar = false;
+            this.InputShipToName.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.InputShipToName.PlaceholderText = "";
+            this.InputShipToName.ReadOnly = false;
+            this.InputShipToName.UnderlinedStyle = false;
             // 
             // InputCodeNumber
             // 
@@ -2136,23 +2192,6 @@
             this.lblStandalone.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblStandalone.Name = "lblStandalone";
             // 
-            // ErrorsLogger
-            // 
-            this.ErrorsLogger.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.ErrorsLogger, "ErrorsLogger");
-            this.ErrorsLogger.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
-            this.ErrorsLogger.FlatAppearance.BorderSize = 0;
-            this.ErrorsLogger.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
-            this.ErrorsLogger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
-            this.ErrorsLogger.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
-            this.ErrorsLogger.ForeColor = System.Drawing.Color.White;
-            this.ErrorsLogger.IconChar = FontAwesome.Sharp.IconChar.Hammer;
-            this.ErrorsLogger.IconColor = System.Drawing.Color.White;
-            this.ErrorsLogger.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ErrorsLogger.IconSize = 30;
-            this.ErrorsLogger.Name = "ErrorsLogger";
-            this.ErrorsLogger.UseVisualStyleBackColor = false;
-            // 
             // frmJobNutri
             // 
             resources.ApplyResources(this, "$this");
@@ -2354,6 +2393,9 @@
         private System.Windows.Forms.ToolStripStatusLabel UserNameDisplay;
         private System.Windows.Forms.PictureBox picSaveJobLoading;
         private FontAwesome.Sharp.IconButton ErrorsLogger;
+        private System.Windows.Forms.ToolStripStatusLabel LineName;
+        private System.Windows.Forms.Label label15;
+        private DesignUI.CuzUI.CuzTextBox InputShipToName;
     }
 
 }

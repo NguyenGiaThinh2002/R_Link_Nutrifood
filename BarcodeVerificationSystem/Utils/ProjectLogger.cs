@@ -5,27 +5,85 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Utils
 {
     public class ProjectLogger
     {
+        private static readonly string LogDirectory =
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Logs");
+
         private static readonly string LogFilePath =
-           Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs", "log-.txt");
+            Path.Combine(LogDirectory, "log.txt");
 
         static ProjectLogger()
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                //.WriteTo.Debug()
-                .WriteTo.File(LogFilePath, rollingInterval: RollingInterval.Day)
-                .CreateLogger();
+            try
+            {
+                // Ensure folder exists
+                if (!Directory.Exists(LogDirectory))
+                {
+                    Directory.CreateDirectory(LogDirectory);
+                }
+
+                // Ensure file exists
+                if (!File.Exists(LogFilePath))
+                {
+                    using (File.Create(LogFilePath)) { }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Logger initialization failed: " + ex.Message);
+            }
+        }
+
+        public static void OpenErrorFile()
+        {
+            try
+            {
+                if (!File.Exists(LogFilePath))
+                {
+                    using (File.Create(LogFilePath)) { }
+                }
+
+                Process.Start("notepad.exe", LogFilePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Failed to open log file: " + ex.Message);
+            }
+        }
+
+        public static void WriteError(string message, Exception ex = null)
+        {
+            try
+            {
+                string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ERROR: {message}";
+                if (ex != null)
+                {
+                    logMessage += Environment.NewLine + ex.ToString();
+                }
+
+                File.AppendAllText(LogFilePath, logMessage + Environment.NewLine);
+            }
+            catch (Exception logEx)
+            {
+                Debug.WriteLine("Logging failed: " + logEx.Message);
+            }
         }
 
         public static void WriteInfo(string message)
         {
-            Log.Information(message);
+            try
+            {
+                string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] INFO: {message}";
+                File.AppendAllText(LogFilePath, logMessage + Environment.NewLine);
+            }
+            catch (Exception logEx)
+            {
+                Debug.WriteLine("Logging failed: " + logEx.Message);
+            }
         }
 
         public static void WriteWarning(string message)
@@ -33,39 +91,14 @@ namespace BarcodeVerificationSystem.Utils
             Log.Warning(message);
         }
 
-        public static void WriteError(string message, Exception ex = null)
-        {
-            try
-            {
-                if (ex == null)
-                    Log.Error(message);
-                else
-                    Log.Error(ex, message);
-            }
-            catch (Exception)
-            {
-            }
-    
-        }
+
 
         public static void WriteDebug(string message)
         {
             Log.Debug(message);
         }
 
-        public static void OpenErrorFile()
-        {
-            string todayFile = LogFilePath.Replace("log-.txt", $"log-{DateTime.Now:yyyyMMdd}.txt");
 
-            if (File.Exists(todayFile))
-            {
-                Process.Start("notepad.exe", todayFile);
-            }
-            else
-            {
-                throw new FileNotFoundException("Log file not found", todayFile);
-            }
-        }
 
         public static void Close()
         {
@@ -74,3 +107,7 @@ namespace BarcodeVerificationSystem.Utils
     }
 
 }
+
+//  Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs", "log-.txt");
+
+// string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");

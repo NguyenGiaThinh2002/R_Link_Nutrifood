@@ -117,21 +117,21 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
                     var syncDataModel = new SyncDataParams(SyncDataParams.SyncDataType.SentData, entry.Id){};
 
-                    Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
 
                     if (ResponsePrinted.is_success)
                     {
+                        Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                         Shared.CurrentJob.NumberOfSaaSSentCodes++;
                         Shared.CurrentJob.SaveFile(filePath); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
-                        Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+                        //Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
                     if (ResponsePrinted.is_success_sap)
                     {
                         Shared.CurrentJob.NumberOfSAPSentCodes++;
                         Shared.CurrentJob.SaveFile(filePath);
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SAPSuccess;
-                        Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+                        //Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
 
                     if (ResponsePrinted.is_success && ResponsePrinted.is_success_sap) // nho chinh khuc nay
@@ -142,6 +142,10 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     {
                         _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                         _queue.Add(entry);
+                    }
+
+                    if (!ResponsePrinted.is_success_sap)
+                    {
                         ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.PrintedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError);
                     }
                 }
@@ -159,7 +163,6 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 //_storageService.AppendEntry(entry);
                 _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                 _queue.Add(entry);
-                // Do nothing if it fails
             }
         }
 

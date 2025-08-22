@@ -1,5 +1,7 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
+using BarcodeVerificationSystem.Utils;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -115,6 +117,11 @@ namespace BarcodeVerificationSystem.View
             radioButtonDisSendIndep.Checked = !_PrinterModel.EnableSendTurboSpeed;
 
             numPortRemote.Value = _PrinterModel.NumPortRemote;
+
+            if (ProjectLabel.IsNutrifood)
+            {
+                UIControlsFuncs.HideControls(btnSetupPrinter, lblPrinterOperSys, tableLayoutPanel2, groupBox1);
+            }
          
             _IsBinding = false;
         }

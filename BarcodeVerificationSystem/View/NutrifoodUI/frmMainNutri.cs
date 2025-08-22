@@ -638,8 +638,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             if (ProjectLabel.IsNutrifood)
             {
                 UIControlsFuncs.HideControls(lblSensorControllerStatus, lblStatusCamera01, btnHistory);
-                //syncCodes.Visible = numberOfCodes.Visible = confirmCompletion.Visible = true;
-                //confirmCompletion.Visible = true;
+                LineName.Text = "Tên Line: " + Shared.Settings.RLinkName ?? "";
                 pnlCurrentCheck.Text = "Thông tin mã in"; // Printing Process
                 lblCodeResult.Text = "Number of Sync Code";            
                 BarcodeQualityLabel.Text = "Confirm Completion";
@@ -649,9 +648,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 UserNameDisplay.Text = "Người dùng: " + CurrentUser.UserName ?? "";
 
 
-                lblCodeResult.Text = Lang.SentSyncData;
-                SentSaaS.Text = Lang.SentSyncDataSaaS;
-                SentSAP.Text = Lang.SentSAPData;
+                lblCodeResult.Text = "Mã đã gửi đồng bộ"; //Lang.SentSyncData;
+                SentSaaS.Text = "Mã đồng bộ SaaS thành công"; // Lang.SentSyncDataSaaS;
+                SentSAP.Text = "Mã đồng bộ SAP thành công"; //Lang.SentSAPData;
                 ConfirmLabel.Text = Lang.ConfirmCompletion + " " + Lang.Job;
                 SyncDataLabel.Text = Lang.SyncData;
                 DisposeLabel.Text = Lang.DisposeBarcodes;
@@ -676,7 +675,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 materialNumber.Text = payloadJob?.items[_SelectedJob.SelectedMaterialIndex].material_number;
 
                 DispatchingActionsPanel.Visible = Shared.UserPermission.isOnline;
-               
+                //if (_printedDataProcess != null) _printedDataProcess.Stop();
+                StopPrintedDataProcess(_printedDataProcess);
             }
 
 
@@ -818,31 +818,44 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             {
                 if (sender is SyncDataParams ParamsName)
                 {
+                    string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
+                    _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
+                    Shared.NumberOfSentSaaS = _SelectedJob.NumberOfSaaSSentCodes = SaaSSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
+
+                    Shared.NumberOfSentSAP = _SelectedJob.NumberOfSAPSentCodes = SAPSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
+
+                    SaaSFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("failed", StringComparison.OrdinalIgnoreCase));
+
+                    SAPFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("failed", StringComparison.OrdinalIgnoreCase));
+
                     string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
                     switch (ParamsName.DataType)
                     {
                         case SyncDataType.SentData:
-                            SentSyncData++;
+                            //SentSyncData++;
                             break;
                         case SyncDataType.SaaSFailed:
-                            SaaSFailed++;
+                            //SaaSFailed++;
                             break;
                         case SyncDataType.SAPSuccess:
-                            ++SAPSuccess;
-                            Shared.NumberOfSentSAP = SAPSuccess;
+                            //++SAPSuccess;
+                            //Shared.NumberOfSentSAP = SAPSuccess;
                             _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SAPStatus] = "success";
                             break;
                         case SyncDataType.SAPFailed:
                             SAPFailed++;
                             break;
                         case SyncDataType.SaaSSuccess:
-                            ++SaaSSuccess;
-                            Shared.NumberOfSentSaaS = SaaSSuccess;
+                            //++SaaSSuccess;
+                            //Shared.NumberOfSentSaaS = SaaSSuccess;
                             _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SaaSStatus] = "success";
 
                             break;
 
                     }
+
+
+
                 }
             }
             catch (Exception)
@@ -1985,7 +1998,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 {
                     ProjectLogger.WriteError($"Error occurred in {url}" + ex.Message);
                 }
-                await Task.Delay(500);
+                await Task.Delay(2000);
             }
         }
 
@@ -2794,9 +2807,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 try
                 {
                     string dataPath = _SelectedJob.DirectoryDatabase;
-                    if (_printedDataProcess != null) _printedDataProcess.Stop();
+                    StopPrintedDataProcess(_printedDataProcess);
                     _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
-                    _printedDataProcess.Start();
+                    StartPrintedDataProcess(_printedDataProcess);
                 }
                 catch (Exception)
                 {
@@ -2818,6 +2831,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         try
                         {
                             _SelectedJob.NumberOfPrintedCodes++;
+                            SentSyncData++;
                             _SelectedJob.SaveFile(CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension);
                             _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
                         }
@@ -2843,6 +2857,61 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 EnableUIComponent(OperationStatus.Stopped);
             }
         }
+
+        private void StartPrintedDataProcess(PrintingQueueProcessor PrintedProcess)
+        {
+            try
+            {
+                if (PrintedProcess == null)
+                    return;
+
+                PrintedProcess.Start();
+
+                SafeInvoke(SyncLoading, () => SyncLoading.Visible = true);
+                SafeInvoke(SyncDataText, () =>
+                {
+                    SyncDataText.Text = "Đang đồng bộ";
+                    SyncDataText.ForeColor = Color.Green;
+                });
+            }
+            catch (Exception)
+            {
+                // optional: log the exception
+            }
+        }
+        private void SafeInvoke(Control control, Action action)
+        {
+            if (control == null) return;
+
+            if (control.InvokeRequired)
+                control.BeginInvoke(action);
+            else
+                action();
+        }
+
+        private void StopPrintedDataProcess(PrintingQueueProcessor PrintedProcess)
+        {
+            try
+            {
+                if (PrintedProcess == null)
+                    return;
+
+                PrintedProcess.Stop();
+
+                SafeInvoke(SyncLoading, () => SyncLoading.Visible = false);
+                SafeInvoke(SyncDataText, () =>
+                {
+                    SyncDataText.Text = "Dừng đồng bộ";
+                    SyncDataText.ForeColor = Color.Red;
+                });
+            }
+            catch (Exception)
+            {
+                // optional: log the exception
+            }
+        }
+
+
 
         private async void SendDataToServer(ApiService apiService, List<string[]> value, string path, string url)
         {
@@ -3206,8 +3275,15 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             _QueueBufferUpdateUIPrinter.Enqueue(null);
             if (ProjectLabel.IsNutrifood)
             {
-                _printedDataProcess.Stop();
-                _checkedDataProcess.Stop();
+                try
+                {
+                    _checkedDataProcess.Stop();
+                    StopPrintedDataProcess(_printedDataProcess);
+                }
+                catch (Exception)
+                {
+                }
+            
             }
             Shared.OperStatus = OperationStatus.Stopped;
             Shared.RaiseOnOperationStatusChangeEvent(Shared.OperStatus);
@@ -3977,7 +4053,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                     var updatedColumns = _DatabaseColunms
                                             .Take(2)
-                                            .Concat(new[] { "Web Server", "Middleware" })
+                                            .Concat(new[] { "Trạng thái SaaS", "Trạng thái SAP" })
                                             .Concat(_DatabaseColunms.Skip(2))
                                             .ToArray();
 
@@ -4155,9 +4231,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                                                                      : DispatchingApis.GetPrintedDataUrl();
                     string dataPath = _SelectedJob.DirectoryDatabase;
 
-                    if (_printedDataProcess != null) _printedDataProcess.Stop();
+                    StopPrintedDataProcess(_printedDataProcess);
                     _printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
-                    _printedDataProcess.Start();
+                    StartPrintedDataProcess(_printedDataProcess);
                 }
                 else
                 {
@@ -6060,6 +6136,11 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlDatabase_Paint(object sender, PaintEventArgs e)
         {
 
         }

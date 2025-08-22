@@ -60,7 +60,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
         private void RegisterEvents()
         {
             btnAddProduct.Click += AddSampleProduct;
-            Shared.OnSerialDeviceReadDataChange += AddReprintBarcodes;
+            Shared.OnSerialDeviceReadDataChange += AddBarcodes;
             btnDispose.Click += BtnDispose_Click;
             notesInput.TextChanged += NotesInput_TextChanged;
         }
@@ -114,10 +114,10 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
         private void AddSampleProduct(object sender, EventArgs e)
         {
             var demoModel = new DetectModel { Text = "Demo Product " + DateTime.Now.ToLongTimeString() };
-            AddReprintBarcodes(demoModel, EventArgs.Empty);
+            AddBarcodes(demoModel, EventArgs.Empty);
         }
 
-        private void AddReprintBarcodes(object sender, EventArgs e)
+        private void AddBarcodes(object sender, EventArgs e)
         {
             if (Shared.OperStatus == OperationStatus.Running && Shared.OperStatus == OperationStatus.Processing)
                 return;
@@ -127,7 +127,13 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
                 var model = sender as DetectModel;
                 if (model == null || string.IsNullOrWhiteSpace(model.Text)) return;
 
-                var item = new ProductItem(model.Text.Trim());
+                string qrCode = model.Text.Trim();
+
+                // 🔴 Check if disposedItems already contains this qrCode
+                if (disposedItems.Any(d => d.qr_code.Equals(qrCode, StringComparison.OrdinalIgnoreCase)))
+                    return;
+
+                var item = new ProductItem(qrCode);
                 item.OnDeleteClicked += delegate
                 {
                     RemoveItem(item);
@@ -135,19 +141,22 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 
                 AddItem(item);
 
-                var dispatching = new Dispatching(Shared.Settings.DispatchingOrderPayload.payload.shipto_code, Shared.Settings.DispatchingOrderPayload.payload.shipment);
+                var dispatching = new Dispatching(
+                    Shared.Settings.DispatchingOrderPayload.payload.shipto_code,
+                    Shared.Settings.DispatchingOrderPayload.payload.shipment,
+                    Shared.Settings.DispatchingOrderPayload.payload.shipto_name);
 
                 disposedItems.Add(new RequestDisposal
                 {
-                    qr_code = model.Text.Trim(),
-                    unique_code = dispatching.GetHumanReadableCode(model.Text.Trim()),
+                    qr_code = qrCode,
+                    unique_code = dispatching.GetHumanReadableCode(qrCode),
+                    scan_date = DateTime.Now,
                 });
             }
             catch (Exception)
             {
                 CustomMessageBox.Show("Hủy mã không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void AddItem(Control item)
@@ -167,19 +176,28 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 
         private void RemoveItem(Control item)
         {
-            if (flowProducts.InvokeRequired)
+            try
             {
-                flowProducts.Invoke(new MethodInvoker(delegate
+                if (flowProducts.InvokeRequired)
                 {
+                    flowProducts.Invoke(new MethodInvoker(delegate
+                    {
+                        disposedItems.RemoveAll(x => x.qr_code == ((ProductItem)item).ProductName);
+                        flowProducts.Controls.Remove(item);
+                        item.Dispose();
+                    }));
+                }
+                else
+                {
+                    disposedItems.RemoveAll(x => x.qr_code == ((ProductItem)item).ProductName);
                     flowProducts.Controls.Remove(item);
                     item.Dispose();
-                }));
+                }
             }
-            else
+            catch (Exception)
             {
-                flowProducts.Controls.Remove(item);
-                item.Dispose();
             }
+          
         }
 
         // Nested user control
@@ -211,7 +229,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
                 lblName.TextAlign = ContentAlignment.MiddleLeft;
 
                 btnDelete = new Button();
-                btnDelete.Text = "Delete";
+                btnDelete.Text = "Xóa";
                 btnDelete.Size = new Size(80, 30);
                 btnDelete.Location = new Point(790, 10);
                 btnDelete.Click += delegate

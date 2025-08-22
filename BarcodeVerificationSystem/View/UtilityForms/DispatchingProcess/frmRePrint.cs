@@ -143,7 +143,9 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
             };
 
             AddItem(item);
-            var dispatching = new Dispatching(Shared.Settings.DispatchingOrderPayload.payload.shipto_code, Shared.Settings.DispatchingOrderPayload.payload.shipment);
+            var dispatching = new Dispatching(Shared.Settings.DispatchingOrderPayload.payload.shipto_code,
+                Shared.Settings.DispatchingOrderPayload.payload.shipment,
+                Shared.Settings.DispatchingOrderPayload.payload.shipto_name);
 
             reprintItems.Add(new QrCode
             {

@@ -748,7 +748,7 @@ namespace BarcodeVerificationSystem.View
             mnChangePassword.Click += ActionChanged;
             mnLogOut.Click += ActionChanged;
 
-            Shared.OnSyncDataParameterChange += Shared_OnSyncDataParameterChange;
+            //Shared.OnSyncDataParameterChange += Shared_OnSyncDataParameterChange;
 
             Shared.OnCameraStatusChange += Shared_OnCameraStatusChange;
             Shared.OnCameraReadDataChange += Shared_OnCameraReadDataChange;
@@ -790,38 +790,38 @@ namespace BarcodeVerificationSystem.View
             ReceiveResponseFromPrinterHandlerAsync();
         }
 
-        private void Shared_OnSyncDataParameterChange(object sender, EventArgs e)
-        {
-            try
-            {
-                if (sender is SyncDataType ParamsName)
-                {
-                    switch (ParamsName)
-                    {
-                        case SyncDataType.SentData:
-                            SentSyncData++;
-                            break;
-                        case SyncDataType.SaaSFailed:
-                            SaaSFailed++;
-                            break;
-                        case SyncDataType.SAPSuccess:
-                            SAPSuccess++;
-                            break;
-                        case SyncDataType.SAPFailed:
-                            SAPFailed++;
-                            break;
-                        case SyncDataType.SaaSSuccess:
-                            SaaSSuccess++;
-                            break;
+        //private void Shared_OnSyncDataParameterChange(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (sender is SyncDataType ParamsName)
+        //        {
+        //            switch (ParamsName)
+        //            {
+        //                case SyncDataType.SentData:
+        //                    SentSyncData++;
+        //                    break;
+        //                case SyncDataType.SaaSFailed:
+        //                    SaaSFailed++;
+        //                    break;
+        //                case SyncDataType.SAPSuccess:
+        //                    SAPSuccess++;
+        //                    break;
+        //                case SyncDataType.SAPFailed:
+        //                    SAPFailed++;
+        //                    break;
+        //                case SyncDataType.SaaSSuccess:
+        //                    SaaSSuccess++;
+        //                    break;
 
-                    }
-                }
-            }
-            catch (Exception)
-            {
-            }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //    }
           
-        }
+        //}
 
         private void GetSampleRaise(object sender, EventArgs e)
         {

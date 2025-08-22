@@ -13,10 +13,10 @@ namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
         public string qr_code { get; set; }
         public string unique_code { get; set; }
         public string notes { get; set; }
-        public DateTime destroy_date { get; set; } 
-        public DateTime sync_date { get; set; } // ?????
-        public string username { get; set; } = CurrentUser.UserCode; 
-        public DateTime scan_date { get; set; } = DateTime.Now; // Default to current time if not set
+        public DateTime destroy_date { get; set; } = DateTime.Now;
+        public DateTime sync_date { get; set; } = DateTime.Now;  // ?????
+        public string username { get; set; } = CurrentUser.UserCode;
+        public DateTime scan_date { get; set; } = DateTime.Now;
         public string status { get; set; } = "Dispose";
 
         //public int id { get; set; }

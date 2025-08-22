@@ -123,6 +123,16 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             FormClosing += FrmMain_FormClosing;
         }
 
+        // 🔑 This is the global override for Enter/Space
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter || keyData == Keys.Space)
+            {
+                return true; // block both keys globally
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private async void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
