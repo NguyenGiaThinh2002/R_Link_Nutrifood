@@ -9,7 +9,7 @@
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
-#define MyAppDateTimeRelease "250821"
+#define MyAppDateTimeRelease "250822"
 
 //Delete old folder first (ProgramData/R-Link)
 [Code]

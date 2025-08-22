@@ -280,6 +280,7 @@
     <Compile Include="Utils\CreateScrollablePanel.cs" />
     <Compile Include="Utils\CsvConvert.cs" />
     <Compile Include="Utils\EmptyValueValidator.cs" />
+    <Compile Include="Utils\FileHelper.cs" />
     <Compile Include="Utils\MaskData.cs" />
     <Compile Include="Utils\ExceptionLogger.cs" />
     <Compile Include="Services\FormCapture.cs" />
