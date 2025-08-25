@@ -162,54 +162,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\CameraController.cs" />
-    <Compile Include="Controller\CameraListenerServer .cs" />
-    <Compile Include="Controller\CamerasHandler.cs" />
+    <Compile Include="Controller\Camera\CameraController.cs" />
+    <Compile Include="Controller\Camera\CameraListenerServer .cs" />
+    <Compile Include="Controller\Camera\CamerasHandler.cs" />
     <Compile Include="Controller\Camera\DMSeries.cs" />
     <Compile Include="Controller\Camera\ISCameraController.cs" />
     <Compile Include="Controller\Camera\ISSeries.cs" />
-    <Compile Include="Controller\ComboBoxCustom.cs" />
-    <Compile Include="Controller\CompareStatus.cs" />
-    <Compile Include="Controller\CsvHandler.cs" />
-    <Compile Include="Controller\DataGridViewCustom.cs" />
-    <Compile Include="Controller\DecryptionHardwareID.cs" />
-    <Compile Include="Controller\DrawListBox.cs" />
-    <Compile Include="Controller\FingerPrint.cs" />
+    <Compile Include="Utils\UI\ComboBoxCustom.cs" />
+    <Compile Include="Utils\Validation\CompareStatus.cs" />
+    <Compile Include="Utils\IO\CsvHandler.cs" />
+    <Compile Include="Utils\UI\DataGridViewCustom.cs" />
+    <Compile Include="Controller\Security\DecryptionHardwareID.cs" />
+    <Compile Include="Utils\UI\DrawListBox.cs" />
+    <Compile Include="Controller\Security\FingerPrint.cs" />
     <Compile Include="Controller\HistorySync\HistoryUtils.cs" />
     <Compile Include="Controller\HistorySync\RoundedButton.cs" />
-    <Compile Include="Controller\ISMultiSyncHandler.cs" />
-    <Compile Include="Controller\ISSingleHandler.cs" />
+    <Compile Include="Interfaces\Camera\ISMultiSyncHandler.cs" />
+    <Compile Include="Interfaces\Camera\ISSingleHandler.cs" />
     <Compile Include="Controller\NutrifoodController\DispatchingController\DispatchingSharedValues.cs" />
-    <Compile Include="Controller\PODController.cs" />
-    <Compile Include="Controller\SecurityController.cs" />
-    <Compile Include="Controller\ControlShadow.cs" />
-    <Compile Include="Controller\SerialDeviceController.cs">
+    <Compile Include="Controller\POD\PODController.cs" />
+    <Compile Include="Controller\Security\SecurityController.cs" />
+    <Compile Include="Utils\UI\ControlShadow.cs" />
+    <Compile Include="Controller\SerialDevice\SerialDeviceController.cs">
       <Generator>Compile</Generator>
     </Compile>
     <Compile Include="Controller\Shared.cs" />
-    <Compile Include="Controller\TouchScroll.cs" />
-    <Compile Include="Controller\UserController.cs" />
-    <Compile Include="Controller\UtilityFunctions.cs" />
-    <Compile Include="Interfaces\IPositionHandler.cs" />
+    <Compile Include="Utils\UI\TouchScroll.cs" />
+    <Compile Include="Controller\User\UserController.cs" />
+    <Compile Include="Utils\UtilityFunctions.cs" />
+    <Compile Include="Interfaces\Position\IPositionHandler.cs" />
     <Compile Include="Labels\DevModeLabel\DevMode.cs" />
     <Compile Include="Labels\ProjectLabel\ProjectLabel.cs" />
     <Compile Include="Model\Apis\ApiModel.cs" />
     <Compile Include="Model\Apis\Dispatching\DispatchingApis.cs" />
     <Compile Include="Model\Apis\Manufacturing\ManufacturingApis.cs" />
-    <Compile Include="Model\CameraModel.cs" />
+    <Compile Include="Model\Camera\CameraModel.cs" />
     <Compile Include="Model\CodeGeneration\Manufacturing.cs" />
     <Compile Include="Model\CodeGeneration\Dispatching.cs" />
-    <Compile Include="Model\CountEventISCamera.cs" />
-    <Compile Include="Model\DataISCamera.cs" />
-    <Compile Include="Model\DetectModel.cs" />
-    <Compile Include="Model\ExportImageModel.cs" />
-    <Compile Include="Model\ExportResultFileModel.cs" />
-    <Compile Include="Model\GetInfoDataResponseModel.cs" />
-    <Compile Include="Model\HardwareIDModel.cs" />
-    <Compile Include="Model\InternalData.cs" />
-    <Compile Include="Model\ItemCustomModel.cs" />
-    <Compile Include="Model\JobModel.cs" />
-    <Compile Include="Model\ObjectResultModel.cs" />
+    <Compile Include="Model\Camera\CountEventISCamera.cs" />
+    <Compile Include="Model\Camera\DataISCamera.cs" />
+    <Compile Include="Model\SharedModel\DetectModel.cs" />
+    <Compile Include="Model\SharedModel\ExportImageModel.cs" />
+    <Compile Include="Model\ResponseModel\GetInfoDataResponseModel.cs" />
+    <Compile Include="Model\RLinkKey\HardwareIDModel.cs" />
+    <Compile Include="Model\SharedModel\InternalData.cs" />
+    <Compile Include="Model\SharedModel\ItemCustomModel.cs" />
+    <Compile Include="Model\JobModel\JobModel.cs" />
     <Compile Include="Model\Payload\DeviceSettingsPayload.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\QRCode.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Request\RequestBasedData.cs" />
@@ -232,21 +230,21 @@
     <Compile Include="Model\Payload\LoginPayload.cs" />
     <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseOrder.cs" />
     <Compile Include="Model\Payload\PermissionPayload.cs" />
-    <Compile Include="Model\PODDataModel.cs" />
-    <Compile Include="Model\PODModel.cs" />
-    <Compile Include="Model\PODResponseModel.cs" />
-    <Compile Include="Model\PrinterModel.cs" />
-    <Compile Include="Model\PrinterSettingsModel.cs" />
-    <Compile Include="Model\PrinterSettingsResponseModel.cs" />
-    <Compile Include="Model\ResponseGetInfoModel.cs" />
-    <Compile Include="Model\RunningMode\Dispatching\PrintingMode.cs" />
-    <Compile Include="Model\SettingsModel.cs" />
-    <Compile Include="Model\SyncDataParams.cs" />
-    <Compile Include="Model\SynchronizedDictionary.cs" />
-    <Compile Include="Model\SynchronizedQueue.cs" />
-    <Compile Include="Model\CheckMode.cs" />
-    <Compile Include="Model\USBKey.cs" />
-    <Compile Include="Model\UserDataModel.cs" />
+    <Compile Include="Model\PODModel\PODDataModel.cs" />
+    <Compile Include="Model\PODModel\PODModel.cs" />
+    <Compile Include="Model\PODModel\PODResponseModel.cs" />
+    <Compile Include="Model\PrinterModel\PrinterModel.cs" />
+    <Compile Include="Model\PrinterModel\PrinterSettingsModel.cs" />
+    <Compile Include="Model\PrinterModel\PrinterSettingsResponseModel.cs" />
+    <Compile Include="Model\ResponseModel\ResponseGetInfoModel.cs" />
+    <Compile Include="Model\RunningModel\Dispatching\PrintingMode.cs" />
+    <Compile Include="Model\SettingModel\SettingsModel.cs" />
+    <Compile Include="Model\SyncDataModel\SyncDataParams.cs" />
+    <Compile Include="Model\SyncDataModel\SynchronizedDictionary.cs" />
+    <Compile Include="Model\SyncDataModel\SynchronizedQueue.cs" />
+    <Compile Include="Model\SharedModel\CheckMode.cs" />
+    <Compile Include="Model\RLinkKey\USBKey.cs" />
+    <Compile Include="Model\UserInfo\UserDataModel.cs" />
     <Compile Include="Model\UserInfo\CurrentUser.cs" />
     <Compile Include="Model\UserInfo\OnlineUserModel.cs" />
     <Compile Include="Model\UserInfo\UserPermission.cs" />
@@ -264,7 +262,7 @@
     <Compile Include="Modules\ReliableDataSender\Services\VerificationStorageService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controller\ExportResult.cs" />
+    <Compile Include="Utils\IO\ExportResult.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -273,17 +271,16 @@
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\MonitorSenderService.cs" />
     <Compile Include="Services\PermissionService.cs" />
-    <Compile Include="Utils\AutoTriggerCameraDataman.cs" />
+    <Compile Include="Utils\TriggerDevices\AutoTriggerCameraDataman.cs" />
     <Compile Include="Utils\CodeGeneration\AutoIDCodeGenerator.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\Base30Helper.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\LineConvertHelper.cs" />
-    <Compile Include="Utils\CreateScrollablePanel.cs" />
-    <Compile Include="Utils\CsvConvert.cs" />
-    <Compile Include="Utils\EmptyValueValidator.cs" />
-    <Compile Include="Utils\FileHelper.cs" />
-    <Compile Include="Utils\MaskData.cs" />
-    <Compile Include="Utils\ExceptionLogger.cs" />
-    <Compile Include="Services\FormCapture.cs" />
+    <Compile Include="Utils\UI\CreateScrollablePanel.cs" />
+    <Compile Include="Utils\IO\CsvConvert.cs" />
+    <Compile Include="Utils\Validation\EmptyValueValidator.cs" />
+    <Compile Include="Utils\IO\FileHelper.cs" />
+    <Compile Include="Utils\Validation\MaskData.cs" />
+    <Compile Include="Utils\Logging\ExceptionLogger.cs" />
     <Compile Include="Utils\CodeGeneration\Base30AutoCodeGenerator.cs" />
     <Compile Include="Utils\CodeGeneration\TestCodeGeneration\BenchmarkGenerateLineCodes.cs" />
     <Compile Include="Utils\CodeGeneration\Converter\CodeConverter.cs" />
@@ -295,11 +292,11 @@
     <Compile Include="Utils\CodeGeneration\Helper\Random2CharHelper.cs" />
     <Compile Include="Utils\CodeGeneration\TestCodeGeneration\TestGenCode.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\YearCodeHelper.cs" />
-    <Compile Include="Utils\ProjectLogger.cs" />
-    <Compile Include="Utils\RegistryHelper.cs" />
-    <Compile Include="Utils\ResetValues.cs" />
-    <Compile Include="Utils\SyncDataList.cs" />
-    <Compile Include="Utils\UIControlsFuncs.cs" />
+    <Compile Include="Utils\Logging\ProjectLogger.cs" />
+    <Compile Include="Utils\System\RegistryHelper.cs" />
+    <Compile Include="Utils\System\ResetValues.cs" />
+    <Compile Include="Utils\IO\SyncDataList.cs" />
+    <Compile Include="Utils\UI\UIControlsFuncs.cs" />
     <Compile Include="View\NutrifoodUI\frmJobNutri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -964,7 +961,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\x64\" />
-    <Folder Include="Model\RunningMode\Manufacturing\" />
+    <Folder Include="Model\RunningModel\Manufacturing\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonVariable\CommonVariable.csproj">

@@ -90,23 +90,4 @@ namespace BarcodeVerificationSystem.Services
         }
     }
 
-
-    //object parameters = new
-    //{
-    //    NumberPrinted,
-    //    ReceivedCode,
-    //    _NumberOfSentPrinter,
-    //    TotalChecked,
-    //    NumberOfCheckPassed,
-    //    NumberOfCheckFailed
-    //};
-
-
-    //var jsonContent = JsonConvert.SerializeObject(printedContent, new JsonSerializerSettings
-    //{
-    //    ContractResolver = new CamelCasePropertyNamesContractResolver()
-    //});
-    //var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-    //var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
 }

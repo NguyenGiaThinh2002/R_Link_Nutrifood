@@ -60,37 +60,12 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
            
         }
 
-
-        //public void AppendEntry(PrintingDataEntry entry)
-        //{
-        //    try
-        //    {
-        //        lock (_fileLock)
-        //        {
-        //            var lines = File.ReadAllLines(_filePath).ToList();
-
-        //            // This will throw if entryId is out of range
-        //            var parts = lines[entry.Id - 1].Split(',');
-
-        //            // Blindly replace the line like MarkAsSent
-        //            lines[entry.Id - 1] = $"{entry.Id},{entry.Code},{entry.UniqueCode},{entry.PrintedDate},,,,,{_unsentStatus}";
-
-        //            File.WriteAllLines(_filePath, lines, Encoding.UTF8);
-        //        }
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        ProjectLogger.WriteError("Error occurred in InitializeDefaultDatabaseFormat" + ex.Message);
-        //    }
-        //}
         public void AppendEntry(PrintingDataEntry entry)
         {
             try
             {
                 lock (_fileLock)
                 {
-                    //string line = $"{entry.Id},{entry.Code},{entry.UniqueCode},{entry.PrintedDate},,,,,{_unsentStatus}";
-                    //File.AppendAllText(_filePath, line + Environment.NewLine, Encoding.UTF8);
                     FileHelper.AppendEntry(_filePath, entry, _unsentStatus);
                 }
             }
@@ -99,7 +74,6 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 ProjectLogger.WriteError("Error in AppendNewEntry: " + ex.Message);
             }
         }
-
 
         public List<PrintingDataEntry> LoadUnsentEntries()
         {
@@ -161,56 +135,84 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             }
         }
 
-        //public void MarkAsFailed(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
-        //{
-        //    try
-        //    {
-        //        lock (_fileLock)
-        //        {
-        //            var lines = File.ReadAllLines(_filePath).ToList();
-
-        //            // This will throw if entryId is out of range
-        //            var parts = lines[entryId - 1].Split(',');
-
-        //            // Blindly replace the line like MarkAsSent
-        //            lines[entryId - 1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{SAPStatus},{SaasSError},{SAPError},{_unsentStatus}";
-
-        //            File.WriteAllLines(_filePath, lines, Encoding.UTF8);
-        //        }
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        ProjectLogger.WriteError("Error occurred in MarkAsFailed" + ex.Message);
-        //    }
-        //}
-
-
-        //public void MarkAsSent(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
-        //{
-        //    try
-        //    {
-        //        lock (_fileLock)
-        //        {
-        //            var lines = File.ReadAllLines(_filePath).ToList();
-
-        //            // This will throw if entryId is out of range
-        //            var parts = lines[entryId - 1].Split(',');
-
-        //            // Blindly replace the line
-        //            lines[entryId - 1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{SAPStatus},{SaasSError},{SAPError},{_sentStatus}";
-
-        //            File.WriteAllLines(_filePath, lines, Encoding.UTF8);
-        //        }
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        ProjectLogger.WriteError("Error occurred in MarkAsSent" + ex.Message);
-        //    }
-
-        //}
-
 
 
     }
 
 }
+
+#region Comments Code
+
+//public void AppendEntry(PrintingDataEntry entry)
+//{
+//    try
+//    {
+//        lock (_fileLock)
+//        {
+//            var lines = File.ReadAllLines(_filePath).ToList();
+
+//            // This will throw if entryId is out of range
+//            var parts = lines[entry.Id - 1].Split(',');
+
+//            // Blindly replace the line like MarkAsSent
+//            lines[entry.Id - 1] = $"{entry.Id},{entry.Code},{entry.UniqueCode},{entry.PrintedDate},,,,,{_unsentStatus}";
+
+//            File.WriteAllLines(_filePath, lines, Encoding.UTF8);
+//        }
+//    }
+//    catch (System.Exception ex)
+//    {
+//        ProjectLogger.WriteError("Error occurred in InitializeDefaultDatabaseFormat" + ex.Message);
+//    }
+//}
+
+//public void MarkAsFailed(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
+//{
+//    try
+//    {
+//        lock (_fileLock)
+//        {
+//            var lines = File.ReadAllLines(_filePath).ToList();
+
+//            // This will throw if entryId is out of range
+//            var parts = lines[entryId - 1].Split(',');
+
+//            // Blindly replace the line like MarkAsSent
+//            lines[entryId - 1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{SAPStatus},{SaasSError},{SAPError},{_unsentStatus}";
+
+//            File.WriteAllLines(_filePath, lines, Encoding.UTF8);
+//        }
+//    }
+//    catch (System.Exception ex)
+//    {
+//        ProjectLogger.WriteError("Error occurred in MarkAsFailed" + ex.Message);
+//    }
+//}
+
+
+//public void MarkAsSent(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
+//{
+//    try
+//    {
+//        lock (_fileLock)
+//        {
+//            var lines = File.ReadAllLines(_filePath).ToList();
+
+//            // This will throw if entryId is out of range
+//            var parts = lines[entryId - 1].Split(',');
+
+//            // Blindly replace the line
+//            lines[entryId - 1] = $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{SAPStatus},{SaasSError},{SAPError},{_sentStatus}";
+
+//            File.WriteAllLines(_filePath, lines, Encoding.UTF8);
+//        }
+//    }
+//    catch (System.Exception ex)
+//    {
+//        ProjectLogger.WriteError("Error occurred in MarkAsSent" + ex.Message);
+//    }
+
+//}
+
+
+#endregion
