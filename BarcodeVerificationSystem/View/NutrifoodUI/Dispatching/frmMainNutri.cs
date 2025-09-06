@@ -61,9 +61,10 @@ using System.Security.Policy;
 using BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess;
 using static BarcodeVerificationSystem.Model.SyncDataParams;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
-using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using BarcodeVerificationSystem.Model.UserInfo;
+using BarcodeVerificationSystem.Services.Dispatching;
+using BarcodeVerificationSystem.Modules.ReliableDataSender.SharedValues;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -74,7 +75,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
         private JobModel _SelectedJob = new JobModel();
         private bool _IsPrinterDisconnectedNot = false;
         private bool _IsReCheck = false;
-      
+        public DispatchingService DispatchingService = new DispatchingService();
+
 
         private readonly Timer _TimerDateTime = new Timer();
         private readonly string _DateTimeFormatTicker = "yyyy/MM/dd hh:mm:ss tt";
@@ -816,7 +818,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     switch (ParamsName.DataType)
                     {
                         case SyncDataType.SAPSuccess:
-                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SAPStatus] = "success";
+                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][PrintingValues.SAPStatus] = "success";
 
                             SAPSuccess = Shared.NumberOfSentSAP = _SelectedJob.NumberOfSAPSentCodes =
                             _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 &&
@@ -826,7 +828,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                             SAPFailed++;
                             break;
                         case SyncDataType.SaaSSuccess:
-                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][DispatchingSharedValues.SaaSStatus] = "success";
+                            _SentPrintedCodeObtainFromFile[ParamsName.CodeIndex - 1][PrintingValues.SaaSStatus] = "success";
                             SaaSSuccess = Shared.NumberOfSentSaaS = _SelectedJob.NumberOfSaaSSentCodes =
                             _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 &&
                                                                   item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
@@ -1945,8 +1947,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
         private async Task CheckPrintedCodeThreshold(CancellationToken token)
         {
-            var apiService = new ApiService();
-            string url = DispatchingApis.GetCurrentPrintedCodeInfoUrl();
 
             while (true)
             {
@@ -1957,7 +1957,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 try
                 {
                     var payload = Shared.CurrentJob?.DispatchingOrderPayload.payload;
-
                     var CheckCodeAmount = new RequestCheckCodeAmount()
                     {
                         job_name = Shared.CurrentJob?.FileName,
@@ -1966,20 +1965,41 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         material_number = payload?.items[Shared.CurrentJob.SelectedMaterialIndex].material_number,
                         username = CurrentUser.UserCode
                     };
-                    var currentPrintedCodeInfo = await apiService.PostApiDataAsync<ResponseCurrentPrintedCodeInfo>(url, CheckCodeAmount);
+                    //var currentPrintedCodeInfo = await apiService.PostApiDataAsync<ResponseCurrentPrintedCodeInfo>(url, CheckCodeAmount); // GetPrintedAmountDataAsync
+                    var currentPrintedCodeInfo = await DispatchingService.GetPrintedAmountDataAsync(CheckCodeAmount);
+
                     if (!currentPrintedCodeInfo.is_success)
                     {
-                        ProjectLogger.WriteError($"Error occurred in {url}" + currentPrintedCodeInfo.message + " Payload:" + CheckCodeAmount.ToString());
+                        ProjectLogger.WriteError($"Error occurred in GetPrintedAmountDataAsync" + currentPrintedCodeInfo.message + " Payload:" + CheckCodeAmount.ToString());
                     }
                     if (currentPrintedCodeInfo.is_exceed)
                     {
-                        CustomMessageBox.Show("Bạn có muốn dùng chương trình ? \n Số lượng mã đã in vượt ngưỡng" +
-                            "\n " + $"Số lượng mã đã in : {currentPrintedCodeInfo.amount}", "Mã vượt ngưỡng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (Application.OpenForms.Count > 0)
+                        {
+                            var mainForm = Application.OpenForms[0];
+                            mainForm.Invoke(new Action(() =>
+                            {
+                                CustomMessageBox.Show(
+                                    "Bạn có muốn dùng chương trình ? \n Số lượng mã đã in vượt ngưỡng" +
+                                    "\n " + $"Số lượng mã đã in : {currentPrintedCodeInfo.amount}",
+                                    "Mã vượt ngưỡng",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information
+                                );
+                            }));
+                        }
+                        else
+                        {
+                            CustomMessageBox.Show("Bạn có muốn dùng chương trình ? \n Số lượng mã đã in vượt ngưỡng" +
+                                "\n " + $"Số lượng mã đã in : {currentPrintedCodeInfo.amount}", "Mã vượt ngưỡng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
-                 }
+
+                }
                 catch (Exception ex)
                 {
-                    ProjectLogger.WriteError($"Error occurred in {url}" + ex.Message);
+                    ProjectLogger.WriteError($"Error occurred in GetPrintedAmountDataAsync" + ex.Message);
                 }
                 await Task.Delay(2000);
             }
@@ -2775,7 +2795,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             {
                 string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
                 string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
+                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.postPrintedDataUrl()
                                                                  : DispatchingApis.GetPrintedDataUrl();
 
                 if (Shared.PrintMode.IsReprintMode)
@@ -3084,14 +3104,14 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     Directory.CreateDirectory(CommVariables.PathSentDataChecked);
                 }
                 string sentDataPath = CommVariables.PathSentDataChecked + _SelectedJob.CheckedResultPath;
-                string url = ManufacturingApis.getSendCheckedDataUrl();
+                string url = ManufacturingApis.postCheckedDataUrl();
 
 
                 try
                 {
                     if (ProjectLabel.IsNutrifood)
                     {
-                        _checkedDataProcess = ReliableProcessorFactory.CreateVerificationProcessor(sentDataPath, url);
+                        _checkedDataProcess = ReliableProcessorFactory.CreateVerificationProcessor(sentDataPath, url, path);
                         _checkedDataProcess.Start();
                     }
                 }
@@ -4033,8 +4053,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                                         newArray[0] = arr[0];
                                         newArray[1] = arr[1];
 
-                                        newArray[2] = SentPrintedCodeObtainFromFile[i][DispatchingSharedValues.SaaSStatus];
-                                        newArray[3] = SentPrintedCodeObtainFromFile[i][DispatchingSharedValues.SAPStatus];
+                                        newArray[2] = SentPrintedCodeObtainFromFile[i][PrintingValues.SaaSStatus];
+                                        newArray[3] = SentPrintedCodeObtainFromFile[i][PrintingValues.SAPStatus];
 
                                         Array.Copy(arr, 2, newArray, 4, arr.Length - 2);
 
@@ -4217,7 +4237,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 {
                     string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
                     string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                    string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
+                    string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.postPrintedDataUrl()
                                                                      : DispatchingApis.GetPrintedDataUrl();
                     string dataPath = _SelectedJob.DirectoryDatabase;
 

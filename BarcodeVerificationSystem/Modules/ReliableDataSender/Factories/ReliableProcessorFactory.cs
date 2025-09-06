@@ -21,10 +21,10 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Factories
             return processor;
         }
 
-        public static VerificationQueueProcessor CreateVerificationProcessor(string filePath, string endpoint)
+        public static VerificationQueueProcessor CreateVerificationProcessor(string filePath, string endpoint, string databasePath)
         {
             var queue = new BlockingCollection<VerificationDataEntry>();
-            var fileStorage = new VerificationStorageService(filePath);
+            var fileStorage = new VerificationStorageService(filePath, databasePath);
             var senderWorker = new VerificationSenderService(queue, fileStorage, endpoint);
             var processor = new VerificationQueueProcessor(queue, fileStorage, senderWorker);
             return processor;

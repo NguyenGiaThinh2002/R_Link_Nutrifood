@@ -168,6 +168,26 @@
     <Compile Include="Controller\Camera\DMSeries.cs" />
     <Compile Include="Controller\Camera\ISCameraController.cs" />
     <Compile Include="Controller\Camera\ISSeries.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestDestroyCodes.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestGeneratedCodes.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestPrinted.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestPrintedAmount.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestChecked.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseBatchInfo.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseDestroyCodes.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseGeneratedCodes.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponsePrinted.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponsePrintedAmount.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseProcessOrder.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseRevervation.cs" />
+    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseChecked.cs" />
+    <Compile Include="Modules\ReliableDataSender\SharedValues\PrintingValues.cs" />
+    <Compile Include="Modules\ReliableDataSender\SharedValues\VerifyingValues.cs" />
+    <Compile Include="Services\Dispatching\DispatchingService.cs" />
+    <Compile Include="Services\Interface\IApiService.cs" />
+    <Compile Include="Services\Interface\IDispatchingService.cs" />
+    <Compile Include="Services\Interface\IManufacturingService.cs" />
+    <Compile Include="Services\Manufacturing\ManufacturingService.cs" />
     <Compile Include="Utils\UI\ComboBoxCustom.cs" />
     <Compile Include="Utils\Validation\CompareStatus.cs" />
     <Compile Include="Utils\IO\CsvHandler.cs" />
@@ -179,7 +199,6 @@
     <Compile Include="Controller\HistorySync\RoundedButton.cs" />
     <Compile Include="Interfaces\Camera\ISMultiSyncHandler.cs" />
     <Compile Include="Interfaces\Camera\ISSingleHandler.cs" />
-    <Compile Include="Controller\NutrifoodController\DispatchingController\DispatchingSharedValues.cs" />
     <Compile Include="Controller\POD\PODController.cs" />
     <Compile Include="Controller\Security\SecurityController.cs" />
     <Compile Include="Utils\UI\ControlShadow.cs" />
@@ -268,7 +287,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\API\ApiService.cs" />
     <Compile Include="Services\MonitorSenderService.cs" />
     <Compile Include="Services\PermissionService.cs" />
     <Compile Include="Utils\TriggerDevices\AutoTriggerCameraDataman.cs" />
@@ -297,10 +316,10 @@
     <Compile Include="Utils\System\ResetValues.cs" />
     <Compile Include="Utils\IO\SyncDataList.cs" />
     <Compile Include="Utils\UI\UIControlsFuncs.cs" />
-    <Compile Include="View\NutrifoodUI\frmJobNutri.cs">
+    <Compile Include="View\NutrifoodUI\Dispatching\frmJobNutri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NutrifoodUI\frmJobNutri.Designer.cs">
+    <Compile Include="View\NutrifoodUI\Dispatching\frmJobNutri.Designer.cs">
       <DependentUpon>frmJobNutri.cs</DependentUpon>
     </Compile>
     <Compile Include="View\NutrifoodUI\frmLoginNutri.cs">
@@ -309,22 +328,40 @@
     <Compile Include="View\NutrifoodUI\frmLoginNutri.Designer.cs">
       <DependentUpon>frmLoginNutri.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NutrifoodUI\frmMainNutri.cs">
+    <Compile Include="View\NutrifoodUI\Dispatching\frmMainNutri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NutrifoodUI\frmMainNutri.designer.cs">
+    <Compile Include="View\NutrifoodUI\Dispatching\frmMainNutri.designer.cs">
       <DependentUpon>frmMainNutri.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NutrifoodUI\frmPreviewDatabaseNutri.cs">
+    <Compile Include="View\NutrifoodUI\Dispatching\frmPreviewDatabaseNutri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NutrifoodUI\frmPreviewDatabaseNutri.Designer.cs">
+    <Compile Include="View\NutrifoodUI\Dispatching\frmPreviewDatabaseNutri.Designer.cs">
       <DependentUpon>frmPreviewDatabaseNutri.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NutrifoodUI\frmSettingsNuti.cs">
+    <Compile Include="View\NutrifoodUI\Dispatching\frmSettingsNuti.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NutrifoodUI\frmSettingsNuti.Designer.cs">
+    <Compile Include="View\NutrifoodUI\Dispatching\frmSettingsNuti.Designer.cs">
+      <DependentUpon>frmSettingsNuti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\Manufacturing\frmJobNutri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\Manufacturing\frmJobNutri.Designer.cs">
+      <DependentUpon>frmJobNutri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\Manufacturing\frmMainNutri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\Manufacturing\frmMainNutri.designer.cs">
+      <DependentUpon>frmMainNutri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\Manufacturing\frmSettingsNuti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NutrifoodUI\Manufacturing\frmSettingsNuti.Designer.cs">
       <DependentUpon>frmSettingsNuti.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PopupDialogs\CustomMessageBox.cs" />
@@ -339,12 +376,6 @@
     </Compile>
     <Compile Include="View\UtilityForms\DispatchingProcess\frmEditJob.Designer.cs">
       <DependentUpon>frmEditJob.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.Designer.cs">
-      <DependentUpon>frmGetDispatchingDataOffline.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UcSettings\ucProductionSetting.cs">
       <SubType>UserControl</SubType>
@@ -363,24 +394,6 @@
     </Compile>
     <Compile Include="View\UtilityForms\frmConfirmCompletion.Designer.cs">
       <DependentUpon>frmConfirmCompletion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UtilityForms\ManufacturingProcess\frmGetDataOffline.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UtilityForms\ManufacturingProcess\frmGetDataOffline.Designer.cs">
-      <DependentUpon>frmGetDataOffline.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UtilityForms\ManufacturingProcess\frmGetManufacturingInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UtilityForms\ManufacturingProcess\frmGetManufacturingInfo.Designer.cs">
-      <DependentUpon>frmGetManufacturingInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingInfo.Designer.cs">
-      <DependentUpon>frmGetDispatchingInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UtilityForms\frmDatabase.cs">
       <SubType>Form</SubType>
@@ -529,24 +542,38 @@
     <EmbeddedResource Include="View\MainRLinkUI\frmMain.vi.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NutrifoodUI\frmJobNutri.resx">
+    <EmbeddedResource Include="View\NutrifoodUI\Dispatching\frmJobNutri.resx">
       <DependentUpon>frmJobNutri.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NutrifoodUI\frmLoginNutri.resx">
       <DependentUpon>frmLoginNutri.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NutrifoodUI\frmMainNutri.resx">
+    <EmbeddedResource Include="View\NutrifoodUI\Dispatching\frmMainNutri.resx">
       <DependentUpon>frmMainNutri.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NutrifoodUI\frmMainNutri.vi.resx">
+    <EmbeddedResource Include="View\NutrifoodUI\Dispatching\frmMainNutri.vi.resx">
       <DependentUpon>frmMainNutri.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NutrifoodUI\frmPreviewDatabaseNutri.resx">
+    <EmbeddedResource Include="View\NutrifoodUI\Dispatching\frmPreviewDatabaseNutri.resx">
       <DependentUpon>frmPreviewDatabaseNutri.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NutrifoodUI\frmSettingsNuti.resx">
+    <EmbeddedResource Include="View\NutrifoodUI\Dispatching\frmSettingsNuti.resx">
+      <DependentUpon>frmSettingsNuti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\Manufacturing\frmJobNutri.resx">
+      <DependentUpon>frmJobNutri.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\Manufacturing\frmMainNutri.resx">
+      <DependentUpon>frmMainNutri.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\Manufacturing\frmMainNutri.vi.resx">
+      <DependentUpon>frmMainNutri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NutrifoodUI\Manufacturing\frmSettingsNuti.resx">
       <DependentUpon>frmSettingsNuti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmDisposal.resx">
@@ -554,9 +581,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmEditJob.resx">
       <DependentUpon>frmEditJob.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingDataOffline.resx">
-      <DependentUpon>frmGetDispatchingDataOffline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UcSettings\ucProductionSetting.resx">
       <DependentUpon>ucProductionSetting.cs</DependentUpon>
@@ -569,15 +593,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\frmDatabase.resx">
       <DependentUpon>frmDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UtilityForms\DispatchingProcess\frmGetDispatchingInfo.resx">
-      <DependentUpon>frmGetDispatchingInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UtilityForms\ManufacturingProcess\frmGetDataOffline.resx">
-      <DependentUpon>frmGetDataOffline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UtilityForms\ManufacturingProcess\frmGetManufacturingInfo.resx">
-      <DependentUpon>frmGetManufacturingInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UtilityForms\frmTableData.resx">
       <DependentUpon>frmTableData.cs</DependentUpon>
@@ -1014,7 +1029,10 @@
     <PackageReference Include="Microsoft.Extensions.Caching.Memory">
       <Version>8.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
     <PackageReference Include="MySql.Data">
       <Version>9.3.0</Version>
     </PackageReference>

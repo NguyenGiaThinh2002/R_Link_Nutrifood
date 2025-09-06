@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
 {
-    internal class QrCode
+    public class QrCode
     {
         public int index_qr_code { get; set; }
         public string unique_code { get; set; }

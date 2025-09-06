@@ -1,5 +1,6 @@
 ﻿using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
+using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Response;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +13,8 @@ namespace BarcodeVerificationSystem.Model
     {
         #region Properties
         public ResponseOrder DispatchingOrderPayload { get; set; } = null;
+        public ResponseProcessOrder.Data ManufacturingOrderPayload = null;
+        public int SelectedBatchIndex { get; set; } = 0;
         public int SelectedMaterialIndex { get; set; } = 0;
         public bool IsOnlineJob { get; set; } = false;
 

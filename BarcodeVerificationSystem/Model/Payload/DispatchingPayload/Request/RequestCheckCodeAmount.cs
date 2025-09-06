@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
 {
-    internal class RequestCheckCodeAmount
+    public class RequestCheckCodeAmount
     {
         public string plant { get; set; } = Shared.Settings.FactoryCode;
         public string job_name { get; set; }

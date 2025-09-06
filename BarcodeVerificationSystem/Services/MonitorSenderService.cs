@@ -11,11 +11,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Security.Policy;
 using BarcodeVerificationSystem.Utils;
+using BarcodeVerificationSystem.Services.Dispatching;
+using Mysqlx.Crud;
 
 namespace BarcodeVerificationSystem.Services
 {
     internal class MonitorSenderService
     {
+        private static DispatchingService _dispatchingService = new DispatchingService();
         public static async void SendParametersToServer()
         {
             await Task.Run(() => SendParametersToServerAsync());
@@ -64,7 +67,8 @@ namespace BarcodeVerificationSystem.Services
                     timestamp = DateTime.Now
                 };
 
-                var res = await apiService.PostApiDataAsync(url, monitor);
+                //var res = await apiService.PostApiDataAsync(url, monitor);
+                var res = await _dispatchingService.PostMonitorDataAsync(monitor);
             }
             catch (Exception ex)
             {

@@ -82,6 +82,7 @@ namespace BarcodeVerificationSystem.Controller
                     try
                     {
                         serialPort.Open();
+                        serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                         return true;
                     }
                     catch (Exception ex)

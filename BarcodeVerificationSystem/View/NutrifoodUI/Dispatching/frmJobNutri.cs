@@ -26,7 +26,6 @@ using RestartProcessHelper;
 using Timer = System.Windows.Forms.Timer;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.View.UtilityForms;
-using BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess;
 using BarcodeVerificationSystem.Model.RunningMode.Dispatching;
 using GenCode.Utils;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
@@ -55,6 +54,7 @@ using BarcodeVerificationSystem.Model.Payload;
 using BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess;
 using System.Windows.Controls;
 using BarcodeVerificationSystem.Model.UserInfo;
+using BarcodeVerificationSystem.Services.Dispatching;
 
 namespace BarcodeVerificationSystem.View.NutrifoodUI
 {
@@ -62,6 +62,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
     {
         #region Variables Jobs
         public static readonly DMSeries DMCamera = new DMSeries();
+        public DispatchingService DispatchingService = new DispatchingService();
 
         public ISMultiSyncHandler ISMultiSyncHandler;
         public ISSingleHandler ISSingleHandler;
@@ -231,7 +232,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 var payload = CurrentJob.DispatchingOrderPayload.payload;
                 string path = CommVariables.PathPrintedResponse + CurrentJob.PrintedResponePath;
                 string sentDataPath = CommVariables.PathSentDataPrinted + CurrentJob.PrintedResponePath;
-                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
+                string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.postPrintedDataUrl()
                                                                  : DispatchingApis.GetPrintedDataUrl();
 
                 string dataPath = CurrentJob.DirectoryDatabase;
@@ -257,18 +258,17 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     CustomMessageBox.Show("Vui lòng nhập mã phiếu WMS!", "Lỗi thông tin nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                string apiUrl = DispatchingApis.GetOrderInfoUrl(orderId);
                 try
                 {
                     dgvItems.Rows.Clear();
                     ResetValues.SetTextsEmpty(waveKey, shipment, shiptoCode);
 
-                    var apiService = new ApiService();
-                    var responseOrderPayload = await apiService.GetApiWithModel<ResponseOrder>(apiUrl);
+                    var responseOrderPayload = await DispatchingService.GetOrderInfoAsync(orderId);
+
                     if (!responseOrderPayload.is_success)
                     {
                         CustomMessageBox.Show(responseOrderPayload.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        ProjectLogger.WriteError($"Error occurred in {apiUrl}" + responseOrderPayload.message + " Payload:" + responseOrderPayload.ToString());
+                        ProjectLogger.WriteError($"Error occurred in GetOrderInfoAsync" + responseOrderPayload.message + " Payload:" + responseOrderPayload.ToString());
                         return;
                     }
                     Shared.Settings.DispatchingOrderPayload = responseOrderPayload;
@@ -311,7 +311,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 }
                 catch (Exception ex)
                 {
-                    ProjectLogger.WriteError($"Error occurred in {apiUrl}: " + ex.Message);
+                    ProjectLogger.WriteError($"Error occurred in GetOrderInfoAsync: " + ex.Message);
                     Shared.Settings.DispatchingOrderPayload = null;
                     dgvItems.Rows.Clear();
                     CustomMessageBox.Show($"Không thể lấy thông tin phiếu!", Lang.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -324,9 +324,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 try
                 {
                     reprintGridView.Rows.Clear();
-
-                    var apiService = new ApiService();
-                    var Payload = await apiService.GetApiWithModel<ResponseListRePrint>(apiUrl);
+                    var Payload = await DispatchingService.GetListReprintDataAsync();
                     if(!Payload.is_success)
                     {
                         CustomMessageBox.Show(Payload.message, Lang.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1416,7 +1414,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
                 int lineIndex = dgvItems.SelectedRows[0].Index;
 
-                _JobModel.SelectedMaterialIndex = lineIndex;
+                Shared.SelectedMaterialIndex = _JobModel.SelectedMaterialIndex = lineIndex;
                 _JobModel.DispatchingOrderPayload = Settings.DispatchingOrderPayload;
 
 
@@ -2247,6 +2245,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 _JobModel.FirstGeneratedCodeIndex = Shared.FirstGeneratedCodeIndex;
                 _JobModel.LastGeneratedCodeIndex = Shared.LastGeneratedCodeIndex;
                 _JobModel.DispatchingOrderPayload = Shared.Settings.DispatchingOrderPayload;
+                _JobModel.SelectedMaterialIndex = Shared.SelectedMaterialIndex;
 
                 if (_JobModel != null)   // Check current Job has null
                 {

@@ -50,7 +50,7 @@ namespace GenCode.Utils
             string valueMode = "ManufacturingCurrentValue";
             int lineIndex = Shared.Settings.LineIndex;
             int totalLines = Shared.Settings.TotalLines;
-            int startValue = RegistryHelper.ReadValue(valueMode) == null ? 0 : int.Parse(RegistryHelper.ReadValue(valueMode));
+            int startValue = Shared.FirstGeneratedCodeIndex = RegistryHelper.ReadValue(valueMode) == null ? 0 : int.Parse(RegistryHelper.ReadValue(valueMode));
 
             try
             {
@@ -140,7 +140,7 @@ namespace GenCode.Utils
                     }
                     c = u;
                 }
-                currentPerLine[lineIndex] = c; // cập nhật lại current
+                currentPerLine[lineIndex] = Shared.LastGeneratedCodeIndex = c; // cập nhật lại current
                 RegistryHelper.WriteValue(valueMode, (c+1).ToString());
 
                 return randomCodes;

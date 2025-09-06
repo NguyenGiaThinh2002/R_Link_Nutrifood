@@ -49,35 +49,35 @@ namespace BarcodeVerificationSystem.View.UtilityForms
 
             try
             {
-                var confirmCompletionContent = new RequestConfirmCompletion
-                {
-                    wms_number = _jobModel.DispatchingOrderPayload.payload.wms_number,
-                    wave_key = _jobModel.DispatchingOrderPayload.payload.wave_key,
-                    material_number = _jobModel.DispatchingOrderPayload.payload.items[_jobModel.SelectedMaterialIndex].material_number,
-                    actual_quantity = int.Parse(numberOfCodes.Text),
-                    notes = note.Text,
-                    confirm_type = Shared.Settings.IsManufacturingMode ? "Loyalty" : "Shipment",
-                };
-
-                string endpoint = Shared.Settings.IsManufacturingMode
-                        ? ManufacturingApis.getConfirmCompletionUrl()
-                        : DispatchingApis.GetConfirmCompletionUrl();
-
-                //var jsonContent = JsonConvert.SerializeObject(confirmCompletionContent, new JsonSerializerSettings
+                //var confirmCompletionContent = new RequestConfirmCompletion
                 //{
-                //    ContractResolver = new CamelCasePropertyNamesContractResolver()
-                //});
-                //var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                //    wms_number = _jobModel.DispatchingOrderPayload.payload.wms_number,
+                //    wave_key = _jobModel.DispatchingOrderPayload.payload.wave_key,
+                //    material_number = _jobModel.DispatchingOrderPayload.payload.items[_jobModel.SelectedMaterialIndex].material_number,
+                //    actual_quantity = int.Parse(numberOfCodes.Text),
+                //    notes = note.Text,
+                //    confirm_type = Shared.Settings.IsManufacturingMode ? "Loyalty" : "Shipment",
+                //};
+
+                //string endpoint = Shared.Settings.IsManufacturingMode
+                //        ? ManufacturingApis.getConfirmCompletionUrl()
+                //        : DispatchingApis.GetConfirmCompletionUrl();
+
+                ////var jsonContent = JsonConvert.SerializeObject(confirmCompletionContent, new JsonSerializerSettings
+                ////{
+                ////    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                ////});
+                ////var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
     
-                //var response = await _httpClient.PostAsync(endpoint, content, _cts.Token);
+                ////var response = await _httpClient.PostAsync(endpoint, content, _cts.Token);
 
-                var apiService = new ApiService();
-                var isResponsed = await apiService.PostApiDataAsync(endpoint, confirmCompletionContent);
-                //apiService.Dispose();
+                //var apiService = new ApiService();
+                //var isResponsed = await apiService.PostApiDataAsync(endpoint, confirmCompletionContent);
+                ////apiService.Dispose();
 
-                CustomMessageBox.Show("Job completed successfully!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                //CustomMessageBox.Show("Job completed successfully!", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //this.Close();
             }
             catch (Exception ex)
             {

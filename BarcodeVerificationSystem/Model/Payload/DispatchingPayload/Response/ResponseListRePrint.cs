@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response
 {
-    internal class ResponseListRePrint
+    public class ResponseListRePrint
     {
         public bool is_success { get; set; }
         public string message { get; set; }
         public List<ProcessOrder> process_orders { get; set; }
     
     }
-    internal class ProcessOrder
+    public class ProcessOrder
     {
         public string process_order { get; set; }
         public string material_number { get; set; }

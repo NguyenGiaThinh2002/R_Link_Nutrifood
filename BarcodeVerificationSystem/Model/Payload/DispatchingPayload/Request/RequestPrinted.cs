@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
 {
-    internal class RequestPrinted
+    public class RequestPrinted
     {
         public int index_qr_code { get; set; }
         public string job_name { get; set; } = Shared.CurrentJob.FileName;

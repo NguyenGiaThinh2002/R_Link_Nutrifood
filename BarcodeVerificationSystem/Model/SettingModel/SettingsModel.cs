@@ -2,6 +2,7 @@
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
+using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Response;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,13 @@ namespace BarcodeVerificationSystem.Model
                 items = new List<ResponseOrder.Item>()
             }
         };
+
+        public ResponseProcessOrder ManufacturingListPO;
+        public int SelectedPOIndex = 0;
+        public int SelectedBatchIndex = 0;
+
+
+
         public int AddQuantity = 0;
         private string _printTemplate = "";
         public string PrintTemplate { get => _printTemplate; set => _printTemplate = value; }

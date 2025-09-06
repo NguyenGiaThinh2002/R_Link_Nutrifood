@@ -113,14 +113,23 @@
             this.btnPODFormat = new DesignUI.CuzUI.CuzButton();
             this.btnImportDatabase = new DesignUI.CuzUI.CuzButton();
             this.btnGennerate = new DesignUI.CuzUI.CuzButton();
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cbbHisFilterType = new System.Windows.Forms.ComboBox();
-            this.cuzTextBox1 = new DesignUI.CuzUI.CuzTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvHistoryJob = new System.Windows.Forms.DataGridView();
-            this.dtpHist = new System.Windows.Forms.DateTimePicker();
+            this.cuzButton2 = new DesignUI.CuzUI.CuzButton();
+            this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.dtpHist = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cuzTextBox1 = new DesignUI.CuzUI.CuzTextBox();
+            this.cbbHisFilterType = new System.Windows.Forms.ComboBox();
+            this.dgvHistoryJob = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCongViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPhieuSoanHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongCanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongDongBoSaaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,15 +137,6 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongDongBoSaaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongCanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaPhieuSoanHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaCongViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
-            this.cuzButton2 = new DesignUI.CuzUI.CuzButton();
             this.pnlMenu.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -150,9 +150,9 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.cuzPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).BeginInit();
-            this.pnlMain.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).BeginInit();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // DragControl
@@ -163,12 +163,12 @@
             // 
             // pnlMenu
             // 
-            this.pnlMenu._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.pnlMenu._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(230)))));
             this.pnlMenu._BorderRadius = 0;
             this.pnlMenu._BorderSize = 1;
             this.pnlMenu._Corner = 90F;
-            this.pnlMenu._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.pnlMenu._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.pnlMenu._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(230)))));
+            this.pnlMenu._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(230)))));
             this.pnlMenu._GradientPanel = true;
             this.pnlMenu.Controls.Add(this.btnHelp);
             this.pnlMenu.Controls.Add(this.btnAbout);
@@ -239,7 +239,7 @@
             this.btnRestart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
             this.btnRestart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(230)))));
             this.btnRestart.ForeColor = System.Drawing.Color.White;
-            this.btnRestart.IconChar = FontAwesome.Sharp.IconChar.RedoAlt;
+            this.btnRestart.IconChar = FontAwesome.Sharp.IconChar.RotateForward;
             this.btnRestart.IconColor = System.Drawing.Color.White;
             this.btnRestart.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRestart.IconSize = 30;
@@ -1217,14 +1217,6 @@
             this.btnGennerate.TextColor = System.Drawing.SystemColors.ControlText;
             this.btnGennerate.UseVisualStyleBackColor = false;
             // 
-            // pnlMain
-            // 
-            this.pnlMain.Controls.Add(this.tabControl1);
-            this.pnlMain.Controls.Add(this.statusStrip2);
-            this.pnlMain.Controls.Add(this.pnlMenu);
-            resources.ApplyResources(this.pnlMain, "pnlMain");
-            this.pnlMain.Name = "pnlMain";
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.cuzButton2);
@@ -1239,14 +1231,58 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // cbbHisFilterType
+            // cuzButton2
             // 
-            this.cbbHisFilterType.FormattingEnabled = true;
-            this.cbbHisFilterType.Items.AddRange(new object[] {
-            resources.GetString("cbbHisFilterType.Items"),
-            resources.GetString("cbbHisFilterType.Items1")});
-            resources.ApplyResources(this.cbbHisFilterType, "cbbHisFilterType");
-            this.cbbHisFilterType.Name = "cbbHisFilterType";
+            this.cuzButton2._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton2._BorderRadius = 0;
+            this.cuzButton2._BorderSize = 1;
+            this.cuzButton2._GradientsButton = false;
+            this.cuzButton2._Text = "Đồng Bộ";
+            this.cuzButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton2.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cuzButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.cuzButton2.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.cuzButton2, "cuzButton2");
+            this.cuzButton2.ForeColor = System.Drawing.Color.White;
+            this.cuzButton2.Name = "cuzButton2";
+            this.cuzButton2.TextColor = System.Drawing.Color.White;
+            this.cuzButton2.UseVisualStyleBackColor = false;
+            // 
+            // cuzButton1
+            // 
+            this.cuzButton1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
+            this.cuzButton1._BorderRadius = 0;
+            this.cuzButton1._BorderSize = 1;
+            this.cuzButton1._GradientsButton = false;
+            this.cuzButton1._Text = "Tìm Kiếm";
+            this.cuzButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.cuzButton1.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cuzButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.cuzButton1.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.cuzButton1, "cuzButton1");
+            this.cuzButton1.ForeColor = System.Drawing.Color.White;
+            this.cuzButton1.Name = "cuzButton1";
+            this.cuzButton1.TextColor = System.Drawing.Color.White;
+            this.cuzButton1.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label2.Name = "label2";
+            // 
+            // dtpHist
+            // 
+            resources.ApplyResources(this.dtpHist, "dtpHist");
+            this.dtpHist.Name = "dtpHist";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Name = "label1";
             // 
             // cuzTextBox1
             // 
@@ -1267,11 +1303,14 @@
             this.cuzTextBox1.ReadOnly = false;
             this.cuzTextBox1.UnderlinedStyle = false;
             // 
-            // label1
+            // cbbHisFilterType
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Name = "label1";
+            this.cbbHisFilterType.FormattingEnabled = true;
+            this.cbbHisFilterType.Items.AddRange(new object[] {
+            resources.GetString("cbbHisFilterType.Items"),
+            resources.GetString("cbbHisFilterType.Items1")});
+            resources.ApplyResources(this.cbbHisFilterType, "cbbHisFilterType");
+            this.cbbHisFilterType.Name = "cbbHisFilterType";
             // 
             // dgvHistoryJob
             // 
@@ -1291,16 +1330,55 @@
             this.dgvHistoryJob.Name = "dgvHistoryJob";
             this.dgvHistoryJob.ReadOnly = true;
             // 
-            // dtpHist
+            // STT
             // 
-            resources.ApplyResources(this.dtpHist, "dtpHist");
-            this.dtpHist.Name = "dtpHist";
+            resources.ApplyResources(this.STT, "STT");
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             // 
-            // label2
+            // MaCongViec
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.MaCongViec, "MaCongViec");
+            this.MaCongViec.Name = "MaCongViec";
+            this.MaCongViec.ReadOnly = true;
+            // 
+            // MaPhieuSoanHang
+            // 
+            resources.ApplyResources(this.MaPhieuSoanHang, "MaPhieuSoanHang");
+            this.MaPhieuSoanHang.Name = "MaPhieuSoanHang";
+            this.MaPhieuSoanHang.ReadOnly = true;
+            // 
+            // MaSanPham
+            // 
+            resources.ApplyResources(this.MaSanPham, "MaSanPham");
+            this.MaSanPham.Name = "MaSanPham";
+            this.MaSanPham.ReadOnly = true;
+            // 
+            // SoLuongCanXuat
+            // 
+            resources.ApplyResources(this.SoLuongCanXuat, "SoLuongCanXuat");
+            this.SoLuongCanXuat.Name = "SoLuongCanXuat";
+            this.SoLuongCanXuat.ReadOnly = true;
+            // 
+            // SoLuongDongBoSaaS
+            // 
+            resources.ApplyResources(this.SoLuongDongBoSaaS, "SoLuongDongBoSaaS");
+            this.SoLuongDongBoSaaS.Name = "SoLuongDongBoSaaS";
+            this.SoLuongDongBoSaaS.ReadOnly = true;
+            // 
+            // SoLuongDongBoSAP
+            // 
+            resources.ApplyResources(this.SoLuongDongBoSAP, "SoLuongDongBoSAP");
+            this.SoLuongDongBoSAP.Name = "SoLuongDongBoSAP";
+            this.SoLuongDongBoSAP.ReadOnly = true;
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Controls.Add(this.tabControl1);
+            this.pnlMain.Controls.Add(this.statusStrip2);
+            this.pnlMain.Controls.Add(this.pnlMenu);
+            resources.ApplyResources(this.pnlMain, "pnlMain");
+            this.pnlMain.Name = "pnlMain";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1337,84 +1415,6 @@
             resources.ApplyResources(this.dataGridViewTextBoxColumn7, "dataGridViewTextBoxColumn7");
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // SoLuongDongBoSAP
-            // 
-            resources.ApplyResources(this.SoLuongDongBoSAP, "SoLuongDongBoSAP");
-            this.SoLuongDongBoSAP.Name = "SoLuongDongBoSAP";
-            this.SoLuongDongBoSAP.ReadOnly = true;
-            // 
-            // SoLuongDongBoSaaS
-            // 
-            resources.ApplyResources(this.SoLuongDongBoSaaS, "SoLuongDongBoSaaS");
-            this.SoLuongDongBoSaaS.Name = "SoLuongDongBoSaaS";
-            this.SoLuongDongBoSaaS.ReadOnly = true;
-            // 
-            // SoLuongCanXuat
-            // 
-            resources.ApplyResources(this.SoLuongCanXuat, "SoLuongCanXuat");
-            this.SoLuongCanXuat.Name = "SoLuongCanXuat";
-            this.SoLuongCanXuat.ReadOnly = true;
-            // 
-            // MaSanPham
-            // 
-            resources.ApplyResources(this.MaSanPham, "MaSanPham");
-            this.MaSanPham.Name = "MaSanPham";
-            this.MaSanPham.ReadOnly = true;
-            // 
-            // MaPhieuSoanHang
-            // 
-            resources.ApplyResources(this.MaPhieuSoanHang, "MaPhieuSoanHang");
-            this.MaPhieuSoanHang.Name = "MaPhieuSoanHang";
-            this.MaPhieuSoanHang.ReadOnly = true;
-            // 
-            // MaCongViec
-            // 
-            resources.ApplyResources(this.MaCongViec, "MaCongViec");
-            this.MaCongViec.Name = "MaCongViec";
-            this.MaCongViec.ReadOnly = true;
-            // 
-            // STT
-            // 
-            resources.ApplyResources(this.STT, "STT");
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            // 
-            // cuzButton1
-            // 
-            this.cuzButton1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton1._BorderRadius = 0;
-            this.cuzButton1._BorderSize = 1;
-            this.cuzButton1._GradientsButton = false;
-            this.cuzButton1._Text = "Tìm Kiếm";
-            this.cuzButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.cuzButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.cuzButton1.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cuzButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.cuzButton1.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.cuzButton1, "cuzButton1");
-            this.cuzButton1.ForeColor = System.Drawing.Color.White;
-            this.cuzButton1.Name = "cuzButton1";
-            this.cuzButton1.TextColor = System.Drawing.Color.White;
-            this.cuzButton1.UseVisualStyleBackColor = false;
-            // 
-            // cuzButton2
-            // 
-            this.cuzButton2._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton2._BorderRadius = 0;
-            this.cuzButton2._BorderSize = 1;
-            this.cuzButton2._GradientsButton = false;
-            this.cuzButton2._Text = "Đồng Bộ";
-            this.cuzButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.cuzButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.cuzButton2.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cuzButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.cuzButton2.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.cuzButton2, "cuzButton2");
-            this.cuzButton2.ForeColor = System.Drawing.Color.White;
-            this.cuzButton2.Name = "cuzButton2";
-            this.cuzButton2.TextColor = System.Drawing.Color.White;
-            this.cuzButton2.UseVisualStyleBackColor = false;
-            // 
             // FrmJob
             // 
             resources.ApplyResources(this, "$this");
@@ -1441,10 +1441,10 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.cuzPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).EndInit();
-            this.pnlMain.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).EndInit();
+            this.pnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

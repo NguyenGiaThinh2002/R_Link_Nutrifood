@@ -26,12 +26,12 @@ namespace BarcodeVerificationSystem.Services
                 try
                 {
                     string loginUrl = ApiModel.getLoginUrl(username, password);
-                    var loginPayload = await apiService.GetApiWithModel<LoginPayload>(loginUrl);
+                    var loginPayload = await apiService.GetApiWithModelAsync<LoginPayload>(loginUrl);
 
                     if (loginPayload?.data?.Count == 0) return null;
                     string maQuyen = loginPayload.data[0].ma_quyen;
                     string permissionUrl = ApiModel.getPermissionUrl(maQuyen);
-                    var permPayload = await apiService.GetApiWithModel<PermissionPayload>(permissionUrl);
+                    var permPayload = await apiService.GetApiWithModelAsync<PermissionPayload>(permissionUrl);
 
                     if (permPayload?.data == null) return null;
 

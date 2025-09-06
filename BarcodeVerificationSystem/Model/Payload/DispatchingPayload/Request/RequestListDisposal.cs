@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request
 {
-    internal class RequestListDisposal
+    public class RequestListDisposal
     {
         public string username { get; set; } = CurrentUser.UserCode;
         public string plant { get; set; } = Shared.Settings.FactoryCode;

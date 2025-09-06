@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response
 {
-    internal class ResponseDisposal
+    public class ResponseDisposal
     {
         public bool is_success { get; set; }
         public string message { get; set; }

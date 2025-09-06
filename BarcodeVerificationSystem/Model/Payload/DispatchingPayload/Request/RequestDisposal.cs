@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload
 {
-    internal class RequestDisposal
+    public class RequestDisposal
     {
         public string qr_code { get; set; }
         public string unique_code { get; set; }

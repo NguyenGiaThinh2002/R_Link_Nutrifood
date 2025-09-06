@@ -148,16 +148,20 @@ namespace BarcodeVerificationSystem
                     Form form = null;
                     if (ProjectLabel.IsNutrifood)
                     {
-                        form = new frmJobNutri();
-                        //form = new FrmJob();
-
+                        if (Shared.Settings.IsManufacturingMode)
+                        {
+                            form = new BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing.frmJobNutri();
+                        }
+                        else
+                        {
+                            form = new frmJobNutri();
+                        }
                     }
 
                     if (ProjectLabel.IsDefault)
                     {
                         form = new FrmJob();
                     }
-                    //FrmJob frmJob = new FrmJob();
                     Application.Run(form);
                 }
             }
@@ -174,6 +178,7 @@ namespace BarcodeVerificationSystem
             {
                 if ((proc.MainModule.FileName == currentRunningProcess.MainModule.FileName) && (proc.Id != currentRunningProcess.Id))
                 {
+                    //proc.Kill();
                     return true;
                 }
             }

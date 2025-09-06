@@ -14,10 +14,7 @@ namespace BarcodeVerificationSystem.View.UcSettings
 {
     public partial class ucProductionSetting : UserControl
     {
-        private string[] RLinkNames = Enumerable
-                        .Range(1, 30) 
-                        .Select(i => $"XH{i:D3}")
-                        .ToArray();
+        private string[] RLinkNames;
         public class Factory
         {
             public string Code { get; set; }
@@ -70,10 +67,6 @@ namespace BarcodeVerificationSystem.View.UcSettings
             lineName.Text = Shared.Settings.LineName;
             LineId.Text = Shared.Settings.LineId;
 
-            RLinkNamescombox.Items.Clear();
-            RLinkNamescombox.Items.AddRange(RLinkNames);
-            RLinkNamescombox.SelectedItem = Shared.Settings.RLinkName;
-
             FactoryCodeCombox.Items.Clear();
             FactoryCodeCombox.Items.AddRange(factories.ToArray());
             var selected = factories.FirstOrDefault(f => f.Code == Shared.Settings.FactoryCode);
@@ -82,6 +75,9 @@ namespace BarcodeVerificationSystem.View.UcSettings
                 FactoryCodeCombox.SelectedItem = selected;
             }
             onlineProductionSettings.Enabled = !Shared.UserPermission.isOnline;
+
+            InitDeviceName();
+            RLinkNamescombox.SelectedItem = Shared.Settings.RLinkName;
         }
 
         private void InitEvents()
@@ -95,6 +91,18 @@ namespace BarcodeVerificationSystem.View.UcSettings
             maskData.CheckedChanged += AdjustData;
             lineName.TextChanged += AdjustData;
             LineId.TextChanged += AdjustData;
+        }
+
+        private void InitDeviceName()
+        {
+            bool t = Shared.Settings.IsManufacturingMode;
+            RLinkNamescombox.Text = string.Empty;
+            RLinkNames = Enumerable
+                        .Range(1, 30)
+                        .Select(i => Shared.Settings.IsManufacturingMode ? $"SX{i:D3}" : $"XH{i:D3}")
+                        .ToArray();
+            RLinkNamescombox.Items.Clear();
+            RLinkNamescombox.Items.AddRange(RLinkNames);
         }
 
         private void AdjustData(object sender, EventArgs args)
@@ -131,10 +139,11 @@ namespace BarcodeVerificationSystem.View.UcSettings
                         Shared.Settings.IncreasedDataPercent = (int)numIncreasedData.Value;
                     break;
                 case RadioButton rb:
-                    if (rb == manufacturingRad)
-                        Shared.Settings.IsManufacturingMode = true;
-                    else if (rb == dispatchingRad)
-                        Shared.Settings.IsManufacturingMode = false;
+                    if (rb == manufacturingRad || rb == dispatchingRad)
+                    {
+                        Shared.Settings.IsManufacturingMode = manufacturingRad.Checked;
+                        InitDeviceName();
+                    }
                     break;
                 case CheckBox cbx:
                     if(cbx == maskData)

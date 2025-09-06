@@ -26,8 +26,6 @@ using RestartProcessHelper;
 using Timer = System.Windows.Forms.Timer;
 using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.View.UtilityForms;
-using BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess;
-using BarcodeVerificationSystem.View.SubForms;
 using GenCode.Utils;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 using BarcodeVerificationSystem.Controller.HistorySync;

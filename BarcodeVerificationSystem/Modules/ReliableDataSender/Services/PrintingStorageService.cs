@@ -1,8 +1,8 @@
 ﻿using BarcodeVerificationSystem.Controller;
-using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
 using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Interfaces;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Models;
+using BarcodeVerificationSystem.Modules.ReliableDataSender.SharedValues;
 using BarcodeVerificationSystem.Utils;
 using System;
 using System.Collections.Generic;
@@ -66,7 +66,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             {
                 lock (_fileLock)
                 {
-                    FileHelper.AppendEntry(_filePath, entry, _unsentStatus);
+                    FileHelper.AppendPrintingEntry(_filePath, entry, _unsentStatus);
                 }
             }
             catch (Exception ex)
@@ -81,6 +81,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             {
                 lock (_fileLock)
                 {
+                    
 
                     return File.ReadAllLines(_filePath)
                     .Select((line, index) =>
@@ -88,15 +89,15 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         var parts = line.Split(',');
                         return new PrintingDataEntry
                         {
-                            Id = int.Parse(parts[DispatchingSharedValues.Index]), // parts[0]}
-                            Code = parts[DispatchingSharedValues.QrCodeIndex], // parts[1]
-                            UniqueCode = parts[DispatchingSharedValues.UniqueCode],
-                            PrintedDate = parts[DispatchingSharedValues.PrintedDate],
-                            SaasStatus = parts[DispatchingSharedValues.SaaSStatus],
-                            SAPStatus = parts[DispatchingSharedValues.SAPStatus],
-                            SaasError = parts[DispatchingSharedValues.SaaSError],
-                            SAPError = parts[DispatchingSharedValues.SAPError],
-                            Status = parts[DispatchingSharedValues.SentStatus],
+                            Id = int.Parse(parts[PrintingValues.Index]), // parts[0]}
+                            Code = parts[PrintingValues.QrCodeIndex], // parts[1]
+                            UniqueCode = parts[PrintingValues.UniqueCode],
+                            PrintedDate = parts[PrintingValues.PrintedDate],
+                            SaasStatus = parts[PrintingValues.SaaSStatus],
+                            SAPStatus = parts[PrintingValues.SAPStatus],
+                            SaasError = parts[PrintingValues.SaaSError],
+                            SAPError = parts[PrintingValues.SAPError],
+                            Status = parts[PrintingValues.SentStatus],
                         };
                     })
                     .Where(e => e.Status == _unsentStatus)
@@ -108,14 +109,13 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                 ProjectLogger.WriteError("Error occurred in LoadUnsentEntries" + ex.Message);
                 return default;
             }
- 
         }
 
         public void MarkAsFailed(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
         {
             try
             {
-                FileHelper.UpdateEntry(_filePath, entryId, PrintedDate, SaasStatus, SAPStatus, SaasSError, SAPError, _unsentStatus);
+                FileHelper.UpdatePrintingEntry(_filePath, entryId, PrintedDate, SaasStatus, SAPStatus, SaasSError, SAPError, _unsentStatus);
             }
             catch (Exception ex)
             {
@@ -127,7 +127,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
         {
             try
             {
-                FileHelper.UpdateEntry(_filePath, entryId, PrintedDate, SaasStatus, SAPStatus, SaasSError, SAPError, _sentStatus);
+                FileHelper.UpdatePrintingEntry(_filePath, entryId, PrintedDate, SaasStatus, SAPStatus, SaasSError, SAPError, _sentStatus);
             }
             catch (Exception ex)
             {

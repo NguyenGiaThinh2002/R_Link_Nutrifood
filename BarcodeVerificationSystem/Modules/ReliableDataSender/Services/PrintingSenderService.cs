@@ -13,14 +13,14 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using BarcodeVerificationSystem.View;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
-using BarcodeVerificationSystem.Model.Payload;
+using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload;
 using System.Windows;
 using BarcodeVerificationSystem.Model;
 using CommonVariable;
-using BarcodeVerificationSystem.Controller.NutrifoodController.DispatchingController;
 using BarcodeVerificationSystem.Model.Apis.Dispatching;
 using BarcodeVerificationSystem.Services;
 using BarcodeVerificationSystem.Utils;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -29,7 +29,6 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
         private readonly BlockingCollection<PrintingDataEntry> _queue;
         private readonly IStorageService<PrintingDataEntry> _storageService;
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
-        private readonly HttpClient _httpClient = new HttpClient();
         private readonly ApiService apiService = new ApiService();
         private readonly string _endpoint;
 
@@ -68,7 +67,9 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
                 var printedContent = new object();
 
-                if (Shared.PrintMode.IsPrintingMode || Shared.PrintMode.IsPrintingModeOffline)
+                bool isManuMode = Shared.Settings.IsManufacturingMode;
+
+                if ((Shared.PrintMode.IsPrintingMode || Shared.PrintMode.IsPrintingModeOffline) && !isManuMode)
                 {
                     printedContent = new RequestPrinted
                     {
@@ -82,8 +83,8 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         resource_name = Shared.Settings.LineName,
                     };
                 }
-               
-                if(Shared.PrintMode.IsReprintMode)
+
+                if(Shared.PrintMode.IsReprintMode && !isManuMode)
                 {
                     printedContent = new RequestRePrint
                     {
@@ -92,6 +93,26 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         scan_date = DateTime.Parse(entry.PrintedDate),
 
                     };
+                }
+
+
+                if (isManuMode)
+                {
+                    var PO = Shared.CurrentJob.ManufacturingOrderPayload;
+
+                    printedContent = new Model.Payload.ManufacturingPayload.Request.RequestPrinted
+                    {
+                        index_qr_code = entry.Id,
+                        qr_code = entry.Code,
+                        unique_code = entry.UniqueCode, // entry.HumanCode
+                        printed_date = DateTime.Parse(entry.PrintedDate),
+                        process_order = PO.process_order,
+                        material_number = PO.material_number,
+                        print_type = "process_order",
+                        batch = PO.batch_info[0].batch,
+                        mauf_date = PO.batch_info[0].mauf_date,
+                        expired_date = PO.batch_info[0].expired_date,
+                    }; 
                 }
 
                 if (Shared.UserPermission.isOnline)

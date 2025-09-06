@@ -2976,11 +2976,11 @@ namespace BarcodeVerificationSystem.View
                     Directory.CreateDirectory(CommVariables.PathSentDataChecked);
                 }
                 string sentDataPath = CommVariables.PathSentDataChecked + _SelectedJob.CheckedResultPath;
-                string url = ManufacturingApis.getSendCheckedDataUrl();
+                string url = ManufacturingApis.postCheckedDataUrl();
 
                 if (ProjectLabel.IsNutrifood)
                 {
-                    _checkedDataProcess = ReliableProcessorFactory.CreateVerificationProcessor(sentDataPath, url);
+                    _checkedDataProcess = ReliableProcessorFactory.CreateVerificationProcessor(sentDataPath, url, path);
                     _checkedDataProcess.Start();
                 }
 

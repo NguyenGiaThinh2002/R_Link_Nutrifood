@@ -11,6 +11,13 @@ using System.Net.Http;
 using System.Threading;
 using BarcodeVerificationSystem.Controller;
 using Newtonsoft.Json.Linq;
+using BarcodeVerificationSystem.Utils;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Request;
+using BarcodeVerificationSystem.Model;
+using BarcodeVerificationSystem.Services;
+using CommonVariable;
+using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Request;
+using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Response;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -19,8 +26,10 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
         private readonly BlockingCollection<VerificationDataEntry> _queue;
         private readonly IStorageService<VerificationDataEntry> _storageService;
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
-        private readonly HttpClient _httpClient = new HttpClient();
+        private readonly ApiService apiService = new ApiService();
         private readonly string _endpoint;
+        private readonly string _databasePath;
+
         public VerificationSenderService(BlockingCollection<VerificationDataEntry> queue, IStorageService<VerificationDataEntry> storageService, string endpoint)
         {
             _queue = queue;
@@ -30,55 +39,108 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
         public void Start()
         {
-            Task.Run(async () =>
+            try
             {
-                foreach (var entry in _queue.GetConsumingEnumerable(_cts.Token))
+                Task.Run(async () =>
                 {
-                    _ = ProcessEntryAsync(entry); // fire-and-forget task
-                    await Task.Delay(100); // optional small delay to avoid CPU spike
-                }
-            }, _cts.Token);
+                    foreach (var entry in _queue.GetConsumingEnumerable(_cts.Token))
+                    {
+                        _ = ProcessEntryAsync(entry); // fire-and-forget task
+                        await Task.Delay(100); // optional small delay to avoid CPU spike
+                    }
+                }, _cts.Token);
+            }
+            catch (Exception ex)
+            {
+                ProjectLogger.WriteError("Error occurred in Start PrintingSenderService: " + ex.Message);
+            }
+
         }
 
         private async Task ProcessEntryAsync(VerificationDataEntry entry)
         {
             try
             {
-                //var content = new StringContent($"{{\"qr_code\":\"{entry.Code}\"}}", Encoding.UTF8, "application/json");
-                var content = new StringContent($@"
-                {{
-                    ""qr_code"": ""{entry.Code}"",
-                    ""plant"": ""{Shared.Settings.FactoryCode}"",
-                    ""wms_number"": ""{Shared.Settings.WmsNumber}"",
-                    ""resource_code"": ""{Shared.Settings.LineId}"",
-                    ""resource_name"": ""{Shared.Settings.LineName}"",
-                    ""printed_date"": ""{entry.VerifiedDate}"",
-                    ""status"": ""{entry.VerifiedStatus}""
-                }}", Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync(_endpoint, content, _cts.Token);
-                string responseContent = await response.Content.ReadAsStringAsync();
+                string filePath = CommVariables.PathJobsApp + Shared.CurrentJob.FileName + Shared.Settings.JobFileExtension;
+                var payload = Shared.CurrentJob.ManufacturingOrderPayload;
 
-                var json = JObject.Parse(responseContent);
-                string status = json.Value<string>("status");
-                string serverStatus = json.Value<string>("serverStatus");
-                string serverError = json.Value<string>("serverError");
-                string saasError = "";
+                //var printedContent = new object();
 
-                if (response.IsSuccessStatusCode)
+                //if (Shared.PrintMode.IsPrintingMode || Shared.PrintMode.IsPrintingModeOffline)
+                //{
+                  
+                //}
+                RequestChecked request = new RequestChecked
                 {
-                    _storageService.MarkAsSent(entry.Id, entry.VerifiedDate, status, serverStatus, saasError, serverError);
+                    index_qr_code = entry.Id,
+                    qr_code = entry.Code,
+                    unique_code = entry.UniqueCode,
+                    process_order = payload.process_order,
+                    material_number = payload.material_number,
+                    check_date = entry.VerifiedDate,
+                    status = entry.Status,
+                    print_type = "process_order",
+                    batch = payload.batch_info[0].batch,
+                    mauf_date = payload.batch_info[0].mauf_date,
+                    expired_date = payload.batch_info[0].expired_date,
+                };
+
+                if (Shared.UserPermission.isOnline)
+                {
+                    var ResponsePrinted = await apiService.PostApiDataAsync<ResponseChecked>(_endpoint, request);
+
+                    entry.SaasStatus = ResponsePrinted.is_success ? "success" : "failed";
+                    entry.SAPStatus = ResponsePrinted.is_success_sap ? "success" : "failed";
+                    entry.SaasError = ResponsePrinted.message ?? string.Empty;
+                    entry.SAPError = ResponsePrinted.message_sap ?? string.Empty;
+
+                    var syncDataModel = new SyncDataParams(SyncDataParams.SyncDataType.SentData, entry.Id) { };
+
+                    //if (ResponsePrinted.is_success)
+                    //{
+                    //    Shared.CurrentJob.NumberOfSaaSSentCodes++;
+                    //    Shared.CurrentJob.SaveFile(filePath); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
+
+                    //    syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
+                    //    Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+                    //}
+                    //if (ResponsePrinted.is_success_sap)
+                    //{
+                    //    Shared.CurrentJob.NumberOfSAPSentCodes++;
+                    //    Shared.CurrentJob.SaveFile(filePath);
+                    //    syncDataModel.DataType = SyncDataParams.SyncDataType.SAPSuccess;
+                    //    Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
+                    //}
+
+                    if (ResponsePrinted.is_success && ResponsePrinted.is_success_sap) // nho chinh khuc nay
+                    {
+                        _storageService.MarkAsSent(entry.Id, entry.VerifiedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                    }
+                    else
+                    {
+                        _storageService.MarkAsFailed(entry.Id, entry.VerifiedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                        _queue.Add(entry);
+                    }
+
+                    if (!ResponsePrinted.is_success_sap)
+                    {
+                        ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.VerifiedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError);
+                    }
                 }
                 else
                 {
-                    //_storageService.AppendEntry(entry); // Re-append entry for retry
-                    _queue.Add(entry);
+                    _storageService.MarkAsFailed(entry.Id, entry.VerifiedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                 }
+
             }
-            catch
+            catch (Exception ex)
             {
+                entry.SaasStatus = "failed";
+                entry.SaasError = ex.Message;
+                ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.VerifiedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError + ex.Message);
                 //_storageService.AppendEntry(entry);
+                _storageService.MarkAsFailed(entry.Id, entry.VerifiedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
                 _queue.Add(entry);
-                // Do nothing if it fails
             }
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response
 {
-    internal class ResponseCurrentPrintedCodeInfo
+    public class ResponseCurrentPrintedCodeInfo
     {
         public bool is_success { get; set; } // Có vượt ngưỡng hay không
         public bool is_exceed { get; set; } // Có vượt ngưỡng hay không

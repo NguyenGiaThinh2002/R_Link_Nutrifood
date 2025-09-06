@@ -240,32 +240,41 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                                 try
                                 {
                                     Shared.UserPermission = await service.GetPermissionsAsync(username, password);
-                                    Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
-
-                                    var apiService = new ApiService();
-                                    var deviceInfo = await apiService.GetApiWithModel<DeviceSettingsPayload>(ApiModel.getLineNameUrl(Shared.Settings.RLinkName));
-                                    if (!deviceInfo.is_success)
+                                    if(Shared.Settings.IsManufacturingMode != Shared.UserPermission.ManufacturingMode)
                                     {
-                                        CustomMessageBox.Show(deviceInfo.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        activationStatus= ActivationStatus.Failed;
+                                        CustomMessageBox.Show("Chế độ vận hành không tương thích!", "Lỗi chế độ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                     else
                                     {
 
-                                        Shared.Settings.PrintTemplate = deviceInfo.print_template_name;
-                                        Shared.Settings.AddQuantity = deviceInfo.add_qty;
-                                        Shared.Settings.LineId = deviceInfo.resource_code;
-                                        Shared.Settings.LineName = deviceInfo.resource_name;
+                                        string url = Shared.Settings.IsManufacturingMode ? ApiModel.getManufacturingSettingsUrl(Shared.Settings.RLinkName)
+                                                        : ApiModel.getDispatchingSettingsUrl(Shared.Settings.RLinkName);
 
-                                        if (Shared.UserPermission == null)
+                                        Shared.Settings.MaskData = !Shared.UserPermission.PartialDisplay;
+
+                                        var apiService = new ApiService();
+                                        var deviceInfo = await apiService.GetApiWithModelAsync<DeviceSettingsPayload>(url);
+                                        if (!deviceInfo.is_success)
                                         {
-                                            isOnlineAccountOK = false;
+                                            CustomMessageBox.Show(deviceInfo.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            activationStatus = ActivationStatus.Failed;
                                         }
                                         else
                                         {
-                                            Shared.UserPermission.isOnline = isOnlineAccountOK = true;
-                                            Shared.Settings.IsManufacturingMode = Shared.UserPermission.ManufacturingMode;
-                                            Shared.SaveSettings();
+                                            Shared.Settings.PrintTemplate = deviceInfo.print_template_name;
+                                            Shared.Settings.AddQuantity = deviceInfo.add_qty;
+                                            Shared.Settings.LineId = deviceInfo.resource_code;
+                                            Shared.Settings.LineName = deviceInfo.resource_name;
+
+                                            if (Shared.UserPermission == null)
+                                            {
+                                                isOnlineAccountOK = false;
+                                            }
+                                            else
+                                            {
+                                                Shared.UserPermission.isOnline = isOnlineAccountOK = true;
+                                                Shared.SaveSettings();
+                                            }
                                         }
                                     }
                                 }

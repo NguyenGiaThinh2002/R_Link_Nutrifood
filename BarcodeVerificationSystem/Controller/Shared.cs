@@ -46,6 +46,7 @@ namespace BarcodeVerificationSystem.Controller
         public static string JobNameSelected = "";
         public static string databasePath = "";
         public static int numberOfCodesGenerate = 0;
+        public static int SelectedMaterialIndex = 0;
 
         // shared models
         // Dispatching

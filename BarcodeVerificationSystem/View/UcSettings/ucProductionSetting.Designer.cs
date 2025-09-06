@@ -62,7 +62,7 @@
             this.apiTextbox.Location = new System.Drawing.Point(233, 65);
             this.apiTextbox.MinimumSize = new System.Drawing.Size(361, 30);
             this.apiTextbox.Name = "apiTextbox";
-            this.apiTextbox.Size = new System.Drawing.Size(439, 30);
+            this.apiTextbox.Size = new System.Drawing.Size(439, 26);
             this.apiTextbox.TabIndex = 0;
             // 
             // labelApi
@@ -102,6 +102,9 @@
             // 
             // groupBoxProductionSettings
             // 
+            this.groupBoxProductionSettings.Controls.Add(this.dispatchingRad);
+            this.groupBoxProductionSettings.Controls.Add(this.manufacturingRad);
+            this.groupBoxProductionSettings.Controls.Add(this.productionMode);
             this.groupBoxProductionSettings.Controls.Add(this.FactoryCodeCombox);
             this.groupBoxProductionSettings.Controls.Add(this.RLinkNamescombox);
             this.groupBoxProductionSettings.Controls.Add(this.label1);
@@ -128,7 +131,7 @@
             "R2",
             "R3",
             "R4"});
-            this.FactoryCodeCombox.Location = new System.Drawing.Point(233, 214);
+            this.FactoryCodeCombox.Location = new System.Drawing.Point(233, 280);
             this.FactoryCodeCombox.Name = "FactoryCodeCombox";
             this.FactoryCodeCombox.Size = new System.Drawing.Size(160, 28);
             this.FactoryCodeCombox.TabIndex = 81;
@@ -142,7 +145,7 @@
             "R2",
             "R3",
             "R4"});
-            this.RLinkNamescombox.Location = new System.Drawing.Point(233, 138);
+            this.RLinkNamescombox.Location = new System.Drawing.Point(233, 204);
             this.RLinkNamescombox.Name = "RLinkNamescombox";
             this.RLinkNamescombox.Size = new System.Drawing.Size(160, 28);
             this.RLinkNamescombox.TabIndex = 78;
@@ -151,7 +154,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 141);
+            this.label1.Location = new System.Drawing.Point(66, 207);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 78;
@@ -159,9 +162,6 @@
             // 
             // onlineProductionSettings
             // 
-            this.onlineProductionSettings.Controls.Add(this.productionMode);
-            this.onlineProductionSettings.Controls.Add(this.manufacturingRad);
-            this.onlineProductionSettings.Controls.Add(this.dispatchingRad);
             this.onlineProductionSettings.Controls.Add(this.LineId);
             this.onlineProductionSettings.Controls.Add(this.label2);
             this.onlineProductionSettings.Controls.Add(this.dataIncrease);
@@ -172,9 +172,9 @@
             this.onlineProductionSettings.Controls.Add(this.dataDisplay);
             this.onlineProductionSettings.Controls.Add(this.comboBoxRLinkId);
             this.onlineProductionSettings.Controls.Add(this.lineIdLabel);
-            this.onlineProductionSettings.Location = new System.Drawing.Point(460, 138);
+            this.onlineProductionSettings.Location = new System.Drawing.Point(460, 234);
             this.onlineProductionSettings.Name = "onlineProductionSettings";
-            this.onlineProductionSettings.Size = new System.Drawing.Size(509, 350);
+            this.onlineProductionSettings.Size = new System.Drawing.Size(509, 254);
             this.onlineProductionSettings.TabIndex = 51;
             this.onlineProductionSettings.Visible = false;
             // 
@@ -182,7 +182,7 @@
             // 
             this.productionMode.AutoSize = true;
             this.productionMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productionMode.Location = new System.Drawing.Point(22, 40);
+            this.productionMode.Location = new System.Drawing.Point(66, 140);
             this.productionMode.Name = "productionMode";
             this.productionMode.Size = new System.Drawing.Size(133, 20);
             this.productionMode.TabIndex = 43;
@@ -191,7 +191,7 @@
             // manufacturingRad
             // 
             this.manufacturingRad.AutoSize = true;
-            this.manufacturingRad.Location = new System.Drawing.Point(198, 36);
+            this.manufacturingRad.Location = new System.Drawing.Point(233, 136);
             this.manufacturingRad.Name = "manufacturingRad";
             this.manufacturingRad.Size = new System.Drawing.Size(142, 24);
             this.manufacturingRad.TabIndex = 44;
@@ -202,7 +202,7 @@
             // dispatchingRad
             // 
             this.dispatchingRad.AutoSize = true;
-            this.dispatchingRad.Location = new System.Drawing.Point(360, 36);
+            this.dispatchingRad.Location = new System.Drawing.Point(433, 138);
             this.dispatchingRad.Name = "dispatchingRad";
             this.dispatchingRad.Size = new System.Drawing.Size(122, 24);
             this.dispatchingRad.TabIndex = 45;
@@ -214,7 +214,7 @@
             // 
             this.LineId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LineId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LineId.Location = new System.Drawing.Point(189, 225);
+            this.LineId.Location = new System.Drawing.Point(189, 177);
             this.LineId.Name = "LineId";
             this.LineId.Size = new System.Drawing.Size(103, 26);
             this.LineId.TabIndex = 77;
@@ -272,7 +272,7 @@
             // 
             this.lineName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lineName.Location = new System.Drawing.Point(189, 290);
+            this.lineName.Location = new System.Drawing.Point(189, 242);
             this.lineName.Name = "lineName";
             this.lineName.Size = new System.Drawing.Size(103, 26);
             this.lineName.TabIndex = 73;
@@ -290,9 +290,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(433, 136);
+            this.progressBar1.Location = new System.Drawing.Point(433, 207);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1, 355);
+            this.progressBar1.Size = new System.Drawing.Size(10, 284);
             this.progressBar1.TabIndex = 76;
             this.progressBar1.Visible = false;
             // 
@@ -300,7 +300,7 @@
             // 
             this.factoryCodeLabel.AutoSize = true;
             this.factoryCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.factoryCodeLabel.Location = new System.Drawing.Point(66, 217);
+            this.factoryCodeLabel.Location = new System.Drawing.Point(66, 283);
             this.factoryCodeLabel.Name = "factoryCodeLabel";
             this.factoryCodeLabel.Size = new System.Drawing.Size(99, 20);
             this.factoryCodeLabel.TabIndex = 72;

@@ -20,6 +20,7 @@ using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
 using Newtonsoft.Json;
 using BarcodeVerificationSystem.Utils;
 using System.Security.Policy;
+using BarcodeVerificationSystem.Services.Dispatching;
 
 namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 {
@@ -33,7 +34,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
         //private string notes = string.Empty;
         //TextBox txtNotes = new TextBox();
         TextBox txtNotes = new TextBox();
-
+        DispatchingService dispatchingService = new DispatchingService();
 
         public frmDisposal()
         {
@@ -67,9 +68,6 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 
         private async void BtnDispose_Click(object sender, EventArgs e)
         {
-            var apiService = new ApiService();
-            string DisposedCodesUrl = DispatchingApis.GetDestroyCodesUrl();
-
             try
             {
                 DateTime now = DateTime.Now;
@@ -81,8 +79,8 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
                 string json = JsonConvert.SerializeObject(request);
                 Console.WriteLine(json);
 
-                var ResponseDisposal = await apiService.PostApiDataAsync<ResponseDisposal>(DisposedCodesUrl, request);
-
+                //var ResponseDisposal = await apiService.PostApiDataAsync<ResponseDisposal>(DisposedCodesUrl, request);
+                var ResponseDisposal = await dispatchingService.PostDestroyDataAsync(request);
 
                 if (ResponseDisposal.is_success)
                 {
@@ -93,13 +91,13 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
                 }
                 else
                 {
-                    ProjectLogger.WriteError($"Error occurred in {DisposedCodesUrl}" + ResponseDisposal.message + " Payload:" + json.ToString());
+                    ProjectLogger.WriteError($"Error occurred in PostDestroyDataAsync" + ResponseDisposal.message + " Payload:" + json.ToString());
                     CustomMessageBox.Show(ResponseDisposal.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                ProjectLogger.WriteError($"Error occurred in {DisposedCodesUrl}: " + ex.Message);
+                ProjectLogger.WriteError($"Error occurred in PostDestroyDataAsync " + ex.Message);
                 CustomMessageBox.Show("Không thể hủy mã!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
