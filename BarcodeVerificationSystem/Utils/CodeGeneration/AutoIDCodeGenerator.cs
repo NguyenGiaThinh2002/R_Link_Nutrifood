@@ -1,4 +1,4 @@
-﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.Model.CodeGeneration;
 using CommonVariable;
@@ -68,8 +68,12 @@ namespace BarcodeVerificationSystem.Utils.CodeGeneration.Helper
             string key = $"{yearCode}-{monthCode}-{lineCode}";
 
             // 3. Get the current Autoid
-            if (!autoIdPerMonth.ContainsKey(key))
-                autoIdPerMonth[key] = 0;
+            if (!autoIdPerMonth.ContainsKey(key)){
+                 autoIdPerMonth[key] = 0;
+                 CurrentValue = 0;
+                 RegistryHelper.WriteValue("AutoIdStatePath", "0"); // reset registry
+            }
+               
 
             int currentAutoId = CurrentValue + 1; //  autoIdPerMonth[key]
             Shared.FirstGeneratedCodeIndex = currentAutoId; // Save the first code index for this session
