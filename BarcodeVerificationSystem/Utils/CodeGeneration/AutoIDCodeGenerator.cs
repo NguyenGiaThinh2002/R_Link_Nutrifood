@@ -1,4 +1,4 @@
-﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.Model.CodeGeneration;
 using CommonVariable;
