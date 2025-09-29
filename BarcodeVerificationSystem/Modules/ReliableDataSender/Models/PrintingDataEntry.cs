@@ -14,7 +14,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Models
         public string UniqueCode { get; set; }
         public string PrintedDate { get; set; }
         public string PrintedStatus { get; set; }
-        public string SaasStatus { get; set; } 
+        public string SaaSStatus { get; set; } 
         public string SAPStatus { get; set; }
         public string SaasError { get; set; }
         public string SAPError { get; set; }

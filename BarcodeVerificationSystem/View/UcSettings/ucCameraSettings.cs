@@ -1,5 +1,8 @@
 ﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Labels.ProjectLabel;
 using BarcodeVerificationSystem.Model;
+using static BarcodeVerificationSystem.Utils.UIControlsFuncs;
+using static BarcodeVerificationSystem.Utils.ControlEvents.InitControlEvents;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -73,84 +76,71 @@ namespace BarcodeVerificationSystem.View
 
         private void InitVisibiltyForCamType(CameraType cameraType)
         {
+            CameraBrandPanel.Visible = ProjectLabel.IsDefault;
+            InitCameraType();
+
             switch (cameraType)
             {
                 case CameraType.DM:
                     comboBoxCamType.SelectedIndex = 0;
+                    OutputTypePanel.Enabled = true;
+                    OutputTypePanel.Location = new System.Drawing.Point(336, 207);
+                    CustomCommandPanel.Location = new System.Drawing.Point(326, 247);
                     break;
                 case CameraType.IS:
                     comboBoxCamType.SelectedIndex = 1;
+                    CommandErrorBox.Checked = true;
+                    OutputTypePanel.Enabled = false;
+                    OutputTypePanel.Location = new System.Drawing.Point(30, 394);
+                    CustomCommandPanel.Location = new System.Drawing.Point(335, 397);
                     break;
                 case CameraType.ISDual:
                     comboBoxCamType.SelectedIndex = 2;
-
+                    CommandErrorBox.Checked = true;
+                    OutputTypePanel.Enabled = false;
+                    OutputTypePanel.Location = new System.Drawing.Point(30, 394);
+                    CustomCommandPanel.Location = new System.Drawing.Point(335, 397);
+                    break;
+                case CameraType.CV_X:
+                    comboBoxCamType.SelectedIndex = 0;
+                    CommandErrorBox.Checked = true;
+                    OutputTypePanel.Enabled = false;
+                    OutputTypePanel.Location = new System.Drawing.Point(30, 394);
+                    CustomCommandPanel.Location = new System.Drawing.Point(5, 142);
                     break;
                 default:
                     comboBoxCamType.SelectedIndex = 0;
+                    OutputTypePanel.Enabled = true;
+                    OutputTypePanel.Location = new System.Drawing.Point(336, 207);
+                    CustomCommandPanel.Location = new System.Drawing.Point(326, 247);
                     break;
             }
 
-            if (!_firstLoad)
-            {
-                // Remove for conflict
-                //  txtSlaveIPAddress.Text = txtIPAddress.Text = string.Empty;
-            }
+            numCamPort.Value = int.TryParse(_CameraModel.Port, out int port) ? port : 0;
             EnablePosition.Checked = Shared.Settings.EnablePosition;
             itemsPerHour.Checked = Shared.Settings.IsItemsPerHour;
             radioBarcodePosition.Checked = Shared.Settings.Position == SettingsModel.PositionType.BarcodePosition;
             radioLogoPosition.Checked = Shared.Settings.Position == SettingsModel.PositionType.LogoPosition;
 
-            // Change language 
             labelMasterJobName.Text = cameraType.Equals(CameraType.IS) ? Lang.SingleJobFileName : Lang.MasterJobName;
             labelObjectNameMaster.Text = cameraType.Equals(CameraType.IS) ? Lang.ObjectNameSingle : Lang.ObjectNameMaster;
 
-            // Visibility
-            textBoxObjectNameSlave.Visible =
-            labelObjectNameSlave.Visible =
-            tableLayoutPanelObjectSym.Visible =
-            textBoxSlaveJobName.Visible =
-            labelSlaveJobName.Visible = lblSlaveIp.Visible =
-            txtSlaveIPAddress.Visible = cameraType.Equals(CameraType.ISDual);
+            VisibleControl(cameraType.Equals(CameraType.ISDual),
+                textBoxObjectNameSlave,
+                labelObjectNameSlave,
+                tableLayoutPanelObjectSym,
+                textBoxSlaveJobName,
+                labelSlaveJobName,
+                lblSlaveIp,
+                txtSlaveIPAddress);
 
-            PositionPanel.Visible = cameraType.Equals(CameraType.IS);
+            VisibleControl(cameraType.Equals(CameraType.IS), PositionPanel);
             CustomCommandPanel.Parent = this;
-
-            switch (cameraType)
-            {
-                case CameraType.DM:
-                    OutputTypePanel.Enabled = true;
-                    OutputTypePanel.Location = new System.Drawing.Point(336, 207);
-                    CustomCommandPanel.Location = new System.Drawing.Point(326, 247);
-                    break;
-                case CameraType.IS:
-                    CommandErrorBox.Checked = true;
-                    OutputTypePanel.Enabled = false;
-                    OutputTypePanel.Location = new System.Drawing.Point(30, 394);
-                    CustomCommandPanel.Location = new System.Drawing.Point(335, 397);
-                    break;
-                case CameraType.ISDual:
-                    CommandErrorBox.Checked = true;
-                    OutputTypePanel.Enabled = false;
-                    OutputTypePanel.Location = new System.Drawing.Point(30, 394);
-                    CustomCommandPanel.Location = new System.Drawing.Point(335, 397);
-                    break;
-                case CameraType.UKN:
-                default:
-                    OutputTypePanel.Enabled = true;
-                    OutputTypePanel.Location = new System.Drawing.Point(336, 207);
-                    CustomCommandPanel.Location = new System.Drawing.Point(326, 247);
-                    break;
-            }
 
             CustomCommandPanel.BringToFront();
             OutputTypePanel.Parent = this;
             OutputTypePanel.BringToFront();
-            comboBox_ModeReadCamera.Visible =
-            lblModeRead.Visible = cameraType.Equals(CameraType.DM);
-            labelImageResolution.Visible =
-            comboBoxImageResolution.Visible =
-            groupBoxOCR.Visible = cameraType.Equals(CameraType.ISDual) || cameraType.Equals(CameraType.IS);
-
+          
             // Init Value
             comboBoxImageResolution.SelectedIndex = convertToIndexResolution(_CameraModel.WidthImage, _CameraModel.HeigthImage);
             comboBox_ModeReadCamera.SelectedIndex = (cameraType.Equals(CameraType.DM) && (Shared.Settings.CameraList.FirstOrDefault().ReadMode == CameraModeRead.Basic)) ? 0 : 1;
@@ -159,6 +149,16 @@ namespace BarcodeVerificationSystem.View
             textBoxMasterJobName.Text = _CameraModel.CameraJobNameMaster;
             textBoxSlaveJobName.Text = _CameraModel.CameraJobNameSlave;
 
+            CognexRad.Checked = _CameraModel.CameraBrand.Equals(Model.CameraBrand.Cognex);
+            KeyenceRad.Checked = _CameraModel.CameraBrand.Equals(Model.CameraBrand.Keyence);
+
+            VisibleControl(cameraType.Equals(CameraType.DM), comboBox_ModeReadCamera, lblModeRead, comboBox_ModeReadCamera);
+            VisibleControl(!cameraType.Equals(CameraType.DM) && !KeyenceRad.Checked, 
+                labelImageResolution, comboBoxImageResolution, groupBoxOCR );
+
+            VisibleControl(KeyenceRad.Checked, CognexComponentsPanel, CameraPortPanel); // CameraPortPanel
+            //SetAbleControls(KeyenceRad.Checked, CustomCommandPanel);
+            VisibleControl(CognexRad.Checked,  OutputTypePanel); // CustomCommandPanel,
         }
 
         private void InitControls()
@@ -168,11 +168,31 @@ namespace BarcodeVerificationSystem.View
             textBoxCommandError.Text = _CameraModel.CommandErrorOutput;
             textBoxObjectNameMaster.Text = _CameraModel.ObjectNameMaster.Replace(".ReadText", "").Replace(".Result00.String", "");
             textBoxObjectNameSlave.Text = _CameraModel.ObjectNameSlave.Replace(".ReadText", "").Replace(".Result00.String", "");
+            numCamPort.Value = int.Parse(_CameraModel.Port); 
             UpdateCameraInfo();
             _IsBinding = false;
             bool[] listBoolCheckBox = UtilityFunctions.IntToBools(_CameraModel.ObjectSelectNum, 5);
             InitControlsAndEvents_IS();
         }
+
+        private void InitCameraType()
+        {
+            bool isCognex = _CameraModel?.CameraBrand == Model.CameraBrand.Cognex;
+
+            comboBoxCamType.Items.Clear();
+
+            if (isCognex)
+            {
+                CognexComponentsPanel.BringToFront();
+                comboBoxCamType.Items.AddRange(new object[] { "DM Series", "IS Series", "IS Series Dual" });
+            }
+            else
+            {
+                comboBoxCamType.Items.Add("CV-X Series");
+            }
+            comboBoxCamType.Text = "";
+        }
+
 
         private void InitControlsAndEvents_IS()
 
@@ -215,30 +235,27 @@ namespace BarcodeVerificationSystem.View
 
         private void InitEvents()
         {
+            RegisterRadioButtonControls(AdjustData, CognexRad, KeyenceRad);
+
             txtIPAddress.TextChanged += AdjustData;
             txtSlaveIPAddress.TextChanged += AdjustData;
-
             EnablePosition.CheckedChanged += AdjustData;
             radioBarcodePosition.CheckedChanged += AdjustData;
             radioLogoPosition.CheckedChanged += AdjustData;
+            numCamPort.ValueChanged += AdjustData;
             // Job Name
-            textBoxMasterJobName.TextChanged += AdjustData;
-            textBoxSlaveJobName.TextChanged += AdjustData;
-
-
-            textBoxObjectNameMaster.TextChanged += AdjustData;
-            textBoxObjectNameSlave.TextChanged += AdjustData;
-
-
-            textBoxCommandError.TextChanged += AdjustData;
+            RegisterTextBoxControls(AdjustData,
+                textBoxMasterJobName,
+                textBoxSlaveJobName,
+                textBoxObjectNameMaster,
+                textBoxObjectNameSlave,
+                textBoxCommandError);
 
             Shared.OnLanguageChange += Shared_OnLanguageChange;
             Shared.OnCameraStatusChange += Shared_OnCameraStatusChange;
 
             Load += UcCameraSettings_Load;
-            comboBoxCamType.SelectedIndexChanged += AdjustData;
-            comboBoxImageResolution.SelectedIndexChanged += AdjustData;
-            comboBox_ModeReadCamera.SelectedIndexChanged += AdjustData;
+            RegisterComboBoxControls(AdjustData, comboBoxCamType, comboBoxImageResolution, comboBox_ModeReadCamera);
             IndexCheckBox.Checked = _CameraModel.IsIndexCommandEnable;
             OutputCameraBox.Checked = _CameraModel.OutputType == OutputType.OutputCamera;
             CommandErrorBox.Checked = _CameraModel.OutputType == OutputType.CommandError;
@@ -246,11 +263,8 @@ namespace BarcodeVerificationSystem.View
 
         private void RadioButtonMaster_CheckedChanged(object sender, EventArgs e)
         {
-
             _CameraModel.IsSymbolMaster = radioButtonSymMaster.Checked;
             _CameraModel.ObjectNameMaster = textBoxObjectNameMaster.Text;
-
-
             Shared.SaveSettings();
         }
 
@@ -294,19 +308,6 @@ namespace BarcodeVerificationSystem.View
                 }
                 _CameraModel.ISSlaveIP = txtSlaveIPAddress.Text;
             }
-            //else if(sender == textBoxPort)
-            //{
-            //    _CameraModel.IsConnected = false;
-            //    _CameraModel.Port = textBoxPort.Text;
-            //}
-            //else if (sender == txtPassword)
-            //{
-            //    _CameraModel.Password = txtPassword.Text;
-            //}
-            //else if (sender == txtNoReadOutputString)
-            //{
-            //    _CameraModel.NoReadOutputString = txtNoReadOutputString.Text;
-            //}
             else if (sender == textBoxCommandError)
             {
                 if (textBoxCommandError.Text == "")
@@ -338,34 +339,62 @@ namespace BarcodeVerificationSystem.View
             }
             else if (sender == comboBoxCamType)
             {
-                switch (comboBoxCamType.SelectedIndex)
+                if(Model.CameraBrand.Cognex == _CameraModel.CameraBrand)
                 {
-                    case 0:
-                        if (!(_CameraModel.CameraType == CameraType.DM))
-                        {
-                            _CameraModel.CameraType = CameraType.DM;
-                            _CameraModel.IsConnected = false;
-                        }
-                        break;
-                    case 1:
-                        if (!(_CameraModel.CameraType == CameraType.IS))
-                        {
-                            _CameraModel.CameraType = CameraType.IS;
-                            _CameraModel.IsConnected = false;
-                        }
-                        break;
-                    case 2:
-                        if (!(_CameraModel.CameraType == CameraType.ISDual))
-                        {
-                            _CameraModel.CameraType = CameraType.ISDual;
-                            _CameraModel.IsConnected = false;
-                        }
+                    switch (comboBoxCamType.SelectedIndex)
+                    {
+                        case 0:
+                            if (!(_CameraModel.CameraType == CameraType.DM))
+                            {
+                                _CameraModel.CameraType = CameraType.DM;
+                                _CameraModel.IsConnected = false;
+                                InitVisibiltyForCamType(_CameraModel.CameraType);
 
-                        break;
-                    default:
-                        break;
+                            }
+                            break;
+                        case 1:
+                            if (!(_CameraModel.CameraType == CameraType.IS))
+                            {
+                                _CameraModel.CameraType = CameraType.IS;
+                                _CameraModel.IsConnected = false;
+                                InitVisibiltyForCamType(_CameraModel.CameraType);
+
+                            }
+                            break;
+                        case 2:
+                            if (!(_CameraModel.CameraType == CameraType.ISDual))
+                            {
+                                _CameraModel.CameraType = CameraType.ISDual;
+                                _CameraModel.IsConnected = false;
+                                InitVisibiltyForCamType(_CameraModel.CameraType);
+
+                            }
+
+                            break;
+                        default:
+                            break;
+                    }
+
                 }
-                InitVisibiltyForCamType(_CameraModel.CameraType);
+                else
+                {
+                    switch (comboBoxCamType.SelectedIndex)
+                    {
+                        case 0:
+                            if (!(_CameraModel.CameraType == CameraType.CV_X))
+                            {
+                                _CameraModel.CameraType = CameraType.CV_X;
+                                _CameraModel.IsConnected = false;
+                                InitVisibiltyForCamType(_CameraModel.CameraType);
+
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+
             }
             else if (sender == textBoxObjectNameMaster)
             {
@@ -381,8 +410,6 @@ namespace BarcodeVerificationSystem.View
                 {
                     Shared.Settings.CameraList.FirstOrDefault().ReadMode = CameraModeRead.Basic;
                     FrmJob.DMCamera?.Disconnect();
-                    //Shared.CamController.Disconnect();
-                    //Shared.Settings.CameraList.FirstOrDefault().IsConnected = false;
                     FrmJob.DMCamera?.Connect(Shared.Settings.CameraList.FirstOrDefault().IP);
 
                 }
@@ -390,8 +417,6 @@ namespace BarcodeVerificationSystem.View
                 {
                     Shared.Settings.CameraList.FirstOrDefault().ReadMode = CameraModeRead.MultiRead;
                     FrmJob.DMCamera?.Disconnect();
-                    //Shared.CamController.Disconnect();
-                    //Shared.Settings.CameraList.FirstOrDefault().IsConnected = false;
                 }
             }
             else if (sender == EnablePosition)
@@ -405,7 +430,23 @@ namespace BarcodeVerificationSystem.View
             else if (sender == radioBarcodePosition || sender == radioLogoPosition)
             {
                 Shared.Settings.Position = radioBarcodePosition.Checked ? SettingsModel.PositionType.BarcodePosition : SettingsModel.PositionType.LogoPosition;
+            }else if(sender == CognexRad || sender == KeyenceRad)
+            {
+                bool isCognex = CognexRad.Checked;
+                _CameraModel.CameraBrand = isCognex ? Model.CameraBrand.Cognex : Model.CameraBrand.Keyence;
+                if (!isCognex)
+                {
+                    CognexComponentsPanel.BringToFront();
+                    _CameraModel.CameraType = CameraType.CV_X;
+                }
+                InitVisibiltyForCamType(_CameraModel.CameraType);
+                comboBoxCamType.SelectedIndex = 0;
+            }else if(sender == numCamPort)
+            {
+                _CameraModel.Port = numCamPort.Value.ToString();
+                //numCamPort
             }
+
             Shared.SaveSettings();
         }
 
@@ -417,12 +458,10 @@ namespace BarcodeVerificationSystem.View
                 return;
             }
 
-            lblModel.Text = Lang.Model;
-            //   lblNoReadOuputString.Text = Lang.NoReadOuputString;
+            lblModel.Text = Lang .Model;
             labelCamType.Text = Lang.Type;
             lblIPAddress.Text = Lang.IPAddress;
             lblSerialNumber.Text = Lang.SerialNumber;
-            //   lblPassword.Text = Lang.Password;
             lblSlaveIp.Text = Lang.SlaveIPAddress;
             grbCamera.Text = Lang.CameraTMP;
             groupBoxOCR.Text = Lang.InsightVisionObjectSettings;
@@ -434,7 +473,7 @@ namespace BarcodeVerificationSystem.View
             lblModeRead.Text = Lang.DatamanReadMode;
             labelMasterJobName.Text = Lang.MasterJobName;
             labelSlaveJobName.Text = Lang.SlaveJobName;
-            //  labelNotesOCR.Text = Lang.NotesForSettingCam;
+            CameraBrand.Text = Lang.Camera;
         }
 
         private void CustomButton_Click(object sender, EventArgs e)
@@ -453,17 +492,7 @@ namespace BarcodeVerificationSystem.View
             _CameraModel.IsIndexCommandEnable = IndexCheckBox.Checked;
             Shared.SaveSettings();
         }
-
-        private void grbCamera_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxCommandError_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             _CameraModel.OutputType = OutputType.OutputCamera;

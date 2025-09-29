@@ -1892,8 +1892,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             bool isNonePrinted = _SelectedJob.CompareType == CompareType.CanRead || _SelectedJob.CompareType == CompareType.StaticText;
             _SelectedJob.JobStatus = JobStatus.Unfinished;
-            string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
-            _SelectedJob.SaveFile(filePath);
+            _SelectedJob.SaveFile();
 
             _OperationCancelTokenSource = new CancellationTokenSource();
             _UICheckedResultCancelTokenSource = new CancellationTokenSource();
@@ -2766,7 +2765,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             if (_SelectedJob.PrintedResponePath == "")
             {
                 string fileName = DateTime.Now.ToString(_DateTimeFormat) + "_Printed_" + _SelectedJob.FileName;
-                string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
                 string path = CommVariables.PathPrintedResponse + fileName + ".csv";
 
                 // Determine whether the directory exists.
@@ -2788,7 +2786,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 }
 
                 _SelectedJob.PrintedResponePath = fileName + ".csv";
-                _SelectedJob.SaveFile(filePath);
+                _SelectedJob.SaveFile();
             }
 
             try
@@ -2835,7 +2833,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         {
                             _SelectedJob.NumberOfPrintedCodes++;
                             SentSyncData++;
-                            _SelectedJob.SaveFile(CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension);
+                            _SelectedJob.SaveFile();
                             _printedDataProcess.Enqueue(int.Parse(clone[0][0]), clone[0][2], clone[0][3]);
                         }
                         catch (Exception)
@@ -3070,7 +3068,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             if (_SelectedJob.CheckedResultPath == "")
             {
                 string fileName = DateTime.Now.ToString(_DateTimeFormat) + "_" + _SelectedJob.FileName;
-                string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
                 string path = CommVariables.PathCheckedResult + fileName + ".csv";
 
                 // Determine whether the directory exists.
@@ -3092,7 +3089,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 }
 
                 _SelectedJob.CheckedResultPath = fileName + ".csv";
-                _SelectedJob.SaveFile(filePath);
+                _SelectedJob.SaveFile();
             }
 
             try
@@ -3257,8 +3254,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             KillTThreadSendPODDataToPrinter();
             _QueueBufferPrinterResponseData.Clear();
 
-
-            
             if (Shared.Settings.IsPrinting && _SelectedJob.PrinterSeries)
             {
                 PODController podController = Shared.Settings.PrinterList.Where(p => p.RoleOfPrinter == RoleOfStation.ForProduct).FirstOrDefault().PODController;
@@ -3320,8 +3315,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 if (completeNum >= _TotalCode - _NumberOfDuplicate)
                 {
                     _SelectedJob.JobStatus = JobStatus.Accomplished;
-                    string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
-                    _SelectedJob.SaveFile(filePath);
+                    _SelectedJob.SaveFile();
                 }
             }
 

@@ -41,11 +41,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainNutri));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.LineName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusCamera01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusPrinter01 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusSerialDevice = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LineName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.UserNameDisplay = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblSensorControllerStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripOperationStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripVersion = new System.Windows.Forms.ToolStripStatusLabel();
@@ -58,51 +58,22 @@
             this.btnStart = new DesignUI.CuzUI.CuzButton();
             this.pnlJobInformation = new DesignUI.CuzUI.RoundPanel();
             this.numberOfCode = new DesignUI.CuzUI.CuzTextBox();
-            this.txtCodeResult = new DesignUI.CuzUI.CuzTextBox();
-            this.lblCodeResult = new System.Windows.Forms.Label();
-            this.materialNumber = new DesignUI.CuzUI.CuzTextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblProcessingTime = new System.Windows.Forms.Label();
-            this.labelModeCheck = new System.Windows.Forms.Label();
-            this.txtJobType = new DesignUI.CuzUI.CuzTextBox();
-            this.txtTemplatePrint = new DesignUI.CuzUI.CuzTextBox();
-            this.lblJobType = new System.Windows.Forms.Label();
-            this.txtPODFormat = new DesignUI.CuzUI.CuzTextBox();
-            this.lblTemplatePrint = new System.Windows.Forms.Label();
-            this.lblStatusResult = new System.Windows.Forms.Label();
-            this.txtStaticText = new DesignUI.CuzUI.CuzTextBox();
-            this.cuzTextBoxCheckMode = new DesignUI.CuzUI.CuzTextBox();
-            this.BarcodeQualityLabel = new System.Windows.Forms.Label();
-            this.lblPODFormat = new System.Windows.Forms.Label();
-            this.GetSample = new System.Windows.Forms.Label();
-            this.txtProcessingTimeResult = new DesignUI.CuzUI.CuzTextBox();
-            this.txtStatusResult = new DesignUI.CuzUI.CuzTextBox();
-            this.cuzButtonGetSample = new DesignUI.CuzUI.CuzButton();
-            this.lblCompareType = new System.Windows.Forms.Label();
-            this.lblStaticText = new System.Windows.Forms.Label();
-            this.txtCompareType = new DesignUI.CuzUI.CuzTextBox();
-            this.txtBarcodeQuality = new DesignUI.CuzUI.CuzTextBox();
-            this.itemsPerHour = new System.Windows.Forms.Label();
-            this.SAPFailedCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.tableLayoutPanelGetSample = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SAPSuccessCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.SaaSFailedCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.RePrintBtn = new DesignUI.CuzUI.CuzButton();
-            this.RePrintLabel = new System.Windows.Forms.Label();
-            this.numberOfCodes = new System.Windows.Forms.Label();
-            this.SaaSSuccessCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.syncSentCodes = new DesignUI.CuzUI.CuzTextBox();
+            this.MaterialName = new DesignUI.CuzUI.CuzTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.wmsNumber = new DesignUI.CuzUI.CuzTextBox();
+            this.MaterialNumberTextBox = new DesignUI.CuzUI.CuzTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtJobName = new DesignUI.CuzUI.CuzTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.lblJobName = new System.Windows.Forms.Label();
+            this.LOTPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LOTNumberCombo = new System.Windows.Forms.ComboBox();
+            this.ExpireDate = new DesignUI.CuzUI.CuzTextBox();
+            this.btnRefesh = new DesignUI.CuzUI.CuzButton();
+            this.MaufDate = new DesignUI.CuzUI.CuzTextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -111,6 +82,12 @@
             this.pnlPicture = new DesignUI.CuzUI.CuzPanel();
             this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.pnlCurrentCheck = new DesignUI.CuzUI.RoundPanel();
+            this.sentCheckSAPSuccess = new DesignUI.CuzUI.CuzTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.sentCheckSaaSSuccess = new DesignUI.CuzUI.CuzTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.sentSaaSSuccess = new DesignUI.CuzUI.CuzTextBox();
             this.SyncDataText = new System.Windows.Forms.Label();
             this.SyncLoading = new System.Windows.Forms.PictureBox();
@@ -141,10 +118,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlDatabase = new DesignUI.CuzUI.CuzPanel();
             this.picDatabaseLoading = new System.Windows.Forms.PictureBox();
-            this.dgvDatabase = new DesignUI.CuzUI.CuzDataGridView();
             this.lblDatabase = new System.Windows.Forms.Label();
             this.pnlCheckedResult = new DesignUI.CuzUI.CuzPanel();
             this.picCheckedResultLoading = new System.Windows.Forms.PictureBox();
+            this.dgvDatabase = new DesignUI.CuzUI.CuzDataGridView();
             this.btnNull = new System.Windows.Forms.Button();
             this.btnDuplicate = new System.Windows.Forms.Button();
             this.btnInvalid = new System.Windows.Forms.Button();
@@ -189,7 +166,7 @@
             this.pnlControllButton.SuspendLayout();
             this.tableLayoutControl.SuspendLayout();
             this.pnlJobInformation.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.LOTPanel.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             this.tableLayoutPanelMain.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
@@ -209,9 +186,9 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlDatabase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDatabaseLoading)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).BeginInit();
             this.pnlCheckedResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCheckedResultLoading)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckedResult)).BeginInit();
             this.tableLayoutPanelPrintedState.SuspendLayout();
             this.pnlPrintedState3.SuspendLayout();
@@ -229,11 +206,11 @@
             this.statusStrip1.AutoSize = false;
             this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LineName,
+            this.UserNameDisplay,
             this.lblStatusCamera01,
             this.lblStatusPrinter01,
             this.lblStatusSerialDevice,
-            this.LineName,
-            this.UserNameDisplay,
             this.lblSensorControllerStatus,
             this.toolStripOperationStatus,
             this.toolStripVersion,
@@ -243,6 +220,34 @@
             this.statusStrip1.Size = new System.Drawing.Size(1718, 33);
             this.statusStrip1.TabIndex = 23;
             this.statusStrip1.Text = "statusStripMain";
+            // 
+            // LineName
+            // 
+            this.LineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LineName.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.LineName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LineName.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.LineName.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.LineName.Name = "LineName";
+            this.LineName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.LineName.RightToLeftAutoMirrorImage = true;
+            this.LineName.Size = new System.Drawing.Size(81, 27);
+            this.LineName.Text = "LineName";
+            this.LineName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // UserNameDisplay
+            // 
+            this.UserNameDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.UserNameDisplay.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.UserNameDisplay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UserNameDisplay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.UserNameDisplay.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.UserNameDisplay.Name = "UserNameDisplay";
+            this.UserNameDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.UserNameDisplay.RightToLeftAutoMirrorImage = true;
+            this.UserNameDisplay.Size = new System.Drawing.Size(83, 27);
+            this.UserNameDisplay.Text = "Username";
+            this.UserNameDisplay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblStatusCamera01
             // 
@@ -282,34 +287,6 @@
             this.lblStatusSerialDevice.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.lblStatusSerialDevice.Size = new System.Drawing.Size(101, 25);
             this.lblStatusSerialDevice.Text = "Scanner";
-            // 
-            // LineName
-            // 
-            this.LineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LineName.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.LineName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LineName.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.LineName.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
-            this.LineName.Name = "LineName";
-            this.LineName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.LineName.RightToLeftAutoMirrorImage = true;
-            this.LineName.Size = new System.Drawing.Size(81, 27);
-            this.LineName.Text = "LineName";
-            this.LineName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // UserNameDisplay
-            // 
-            this.UserNameDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.UserNameDisplay.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.UserNameDisplay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UserNameDisplay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.UserNameDisplay.Margin = new System.Windows.Forms.Padding(10, 6, 0, 0);
-            this.UserNameDisplay.Name = "UserNameDisplay";
-            this.UserNameDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.UserNameDisplay.RightToLeftAutoMirrorImage = true;
-            this.UserNameDisplay.Size = new System.Drawing.Size(83, 27);
-            this.UserNameDisplay.Text = "Username";
-            this.UserNameDisplay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblSensorControllerStatus
             // 
@@ -494,17 +471,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlJobInformation.BackColor = System.Drawing.Color.White;
             this.pnlJobInformation.Controls.Add(this.numberOfCode);
-            this.pnlJobInformation.Controls.Add(this.txtCodeResult);
-            this.pnlJobInformation.Controls.Add(this.lblCodeResult);
-            this.pnlJobInformation.Controls.Add(this.materialNumber);
-            this.pnlJobInformation.Controls.Add(this.panel3);
+            this.pnlJobInformation.Controls.Add(this.MaterialName);
             this.pnlJobInformation.Controls.Add(this.label8);
             this.pnlJobInformation.Controls.Add(this.label7);
-            this.pnlJobInformation.Controls.Add(this.wmsNumber);
+            this.pnlJobInformation.Controls.Add(this.MaterialNumberTextBox);
             this.pnlJobInformation.Controls.Add(this.label5);
             this.pnlJobInformation.Controls.Add(this.txtJobName);
             this.pnlJobInformation.Controls.Add(this.label14);
             this.pnlJobInformation.Controls.Add(this.lblJobName);
+            this.pnlJobInformation.Controls.Add(this.LOTPanel);
             this.pnlJobInformation.IsTitleHatchStyle = false;
             this.pnlJobInformation.Location = new System.Drawing.Point(10, 15);
             this.pnlJobInformation.Name = "pnlJobInformation";
@@ -546,774 +521,32 @@
             this.numberOfCode.TabStop = false;
             this.numberOfCode.UnderlinedStyle = false;
             // 
-            // txtCodeResult
+            // MaterialName
             // 
-            this.txtCodeResult._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtCodeResult._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtCodeResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.MaterialName._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.MaterialName._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.MaterialName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCodeResult.BackColor = System.Drawing.Color.White;
-            this.txtCodeResult.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtCodeResult.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtCodeResult.BorderRadius = 8;
-            this.txtCodeResult.BorderSize = 1;
-            this.txtCodeResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodeResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCodeResult.Location = new System.Drawing.Point(11, 457);
-            this.txtCodeResult.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCodeResult.MinimumSize = new System.Drawing.Size(95, 36);
-            this.txtCodeResult.Multiline = false;
-            this.txtCodeResult.Name = "txtCodeResult";
-            this.txtCodeResult.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtCodeResult.PasswordChar = false;
-            this.txtCodeResult.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCodeResult.PlaceholderText = "";
-            this.txtCodeResult.ReadOnly = true;
-            this.txtCodeResult.Size = new System.Drawing.Size(193, 36);
-            this.txtCodeResult.TabIndex = 116;
-            this.txtCodeResult.TabStop = false;
-            this.txtCodeResult.UnderlinedStyle = false;
-            this.txtCodeResult.Visible = false;
-            // 
-            // lblCodeResult
-            // 
-            this.lblCodeResult.AutoEllipsis = true;
-            this.lblCodeResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodeResult.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblCodeResult.Location = new System.Drawing.Point(10, 430);
-            this.lblCodeResult.Name = "lblCodeResult";
-            this.lblCodeResult.Size = new System.Drawing.Size(232, 20);
-            this.lblCodeResult.TabIndex = 118;
-            this.lblCodeResult.Text = "Số mã đã gửi";
-            this.lblCodeResult.Visible = false;
-            // 
-            // materialNumber
-            // 
-            this.materialNumber._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.materialNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.materialNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialNumber.BackColor = System.Drawing.Color.White;
-            this.materialNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.materialNumber.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.materialNumber.BorderRadius = 8;
-            this.materialNumber.BorderSize = 1;
-            this.materialNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.materialNumber.Location = new System.Drawing.Point(14, 219);
-            this.materialNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.materialNumber.Multiline = false;
-            this.materialNumber.Name = "materialNumber";
-            this.materialNumber.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.materialNumber.PasswordChar = false;
-            this.materialNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.materialNumber.PlaceholderText = "";
-            this.materialNumber.ReadOnly = true;
-            this.materialNumber.Size = new System.Drawing.Size(261, 35);
-            this.materialNumber.TabIndex = 148;
-            this.materialNumber.TabStop = false;
-            this.materialNumber.UnderlinedStyle = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lblProcessingTime);
-            this.panel3.Controls.Add(this.labelModeCheck);
-            this.panel3.Controls.Add(this.txtJobType);
-            this.panel3.Controls.Add(this.txtTemplatePrint);
-            this.panel3.Controls.Add(this.lblJobType);
-            this.panel3.Controls.Add(this.txtPODFormat);
-            this.panel3.Controls.Add(this.lblTemplatePrint);
-            this.panel3.Controls.Add(this.lblStatusResult);
-            this.panel3.Controls.Add(this.txtStaticText);
-            this.panel3.Controls.Add(this.cuzTextBoxCheckMode);
-            this.panel3.Controls.Add(this.BarcodeQualityLabel);
-            this.panel3.Controls.Add(this.lblPODFormat);
-            this.panel3.Controls.Add(this.GetSample);
-            this.panel3.Controls.Add(this.txtProcessingTimeResult);
-            this.panel3.Controls.Add(this.txtStatusResult);
-            this.panel3.Controls.Add(this.cuzButtonGetSample);
-            this.panel3.Controls.Add(this.lblCompareType);
-            this.panel3.Controls.Add(this.lblStaticText);
-            this.panel3.Controls.Add(this.txtCompareType);
-            this.panel3.Controls.Add(this.txtBarcodeQuality);
-            this.panel3.Controls.Add(this.itemsPerHour);
-            this.panel3.Controls.Add(this.SAPFailedCodes);
-            this.panel3.Controls.Add(this.tableLayoutPanelGetSample);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.SAPSuccessCodes);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.SaaSFailedCodes);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.RePrintBtn);
-            this.panel3.Controls.Add(this.RePrintLabel);
-            this.panel3.Controls.Add(this.numberOfCodes);
-            this.panel3.Controls.Add(this.SaaSSuccessCodes);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.syncSentCodes);
-            this.panel3.Location = new System.Drawing.Point(17, 562);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(225, 126);
-            this.panel3.TabIndex = 143;
-            this.panel3.Visible = false;
-            // 
-            // lblProcessingTime
-            // 
-            this.lblProcessingTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProcessingTime.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblProcessingTime.Location = new System.Drawing.Point(75, 474);
-            this.lblProcessingTime.Name = "lblProcessingTime";
-            this.lblProcessingTime.Size = new System.Drawing.Size(129, 20);
-            this.lblProcessingTime.TabIndex = 117;
-            this.lblProcessingTime.Text = "Processing time";
-            // 
-            // labelModeCheck
-            // 
-            this.labelModeCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelModeCheck.AutoEllipsis = true;
-            this.labelModeCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelModeCheck.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.labelModeCheck.Location = new System.Drawing.Point(15, 650);
-            this.labelModeCheck.Name = "labelModeCheck";
-            this.labelModeCheck.Size = new System.Drawing.Size(143, 20);
-            this.labelModeCheck.TabIndex = 126;
-            this.labelModeCheck.Text = "Check mode";
-            // 
-            // txtJobType
-            // 
-            this.txtJobType._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtJobType._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtJobType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtJobType.BackColor = System.Drawing.Color.White;
-            this.txtJobType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtJobType.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtJobType.BorderRadius = 8;
-            this.txtJobType.BorderSize = 1;
-            this.txtJobType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJobType.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtJobType.Location = new System.Drawing.Point(10, 371);
-            this.txtJobType.Margin = new System.Windows.Forms.Padding(4);
-            this.txtJobType.Multiline = false;
-            this.txtJobType.Name = "txtJobType";
-            this.txtJobType.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtJobType.PasswordChar = false;
-            this.txtJobType.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtJobType.PlaceholderText = "";
-            this.txtJobType.ReadOnly = true;
-            this.txtJobType.Size = new System.Drawing.Size(128, 35);
-            this.txtJobType.TabIndex = 122;
-            this.txtJobType.TabStop = false;
-            this.txtJobType.UnderlinedStyle = false;
-            // 
-            // txtTemplatePrint
-            // 
-            this.txtTemplatePrint._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtTemplatePrint._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtTemplatePrint.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTemplatePrint.BackColor = System.Drawing.Color.White;
-            this.txtTemplatePrint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtTemplatePrint.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtTemplatePrint.BorderRadius = 8;
-            this.txtTemplatePrint.BorderSize = 1;
-            this.txtTemplatePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemplatePrint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTemplatePrint.Location = new System.Drawing.Point(16, 600);
-            this.txtTemplatePrint.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTemplatePrint.Multiline = false;
-            this.txtTemplatePrint.Name = "txtTemplatePrint";
-            this.txtTemplatePrint.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtTemplatePrint.PasswordChar = false;
-            this.txtTemplatePrint.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtTemplatePrint.PlaceholderText = "";
-            this.txtTemplatePrint.ReadOnly = true;
-            this.txtTemplatePrint.Size = new System.Drawing.Size(142, 35);
-            this.txtTemplatePrint.TabIndex = 116;
-            this.txtTemplatePrint.TabStop = false;
-            this.txtTemplatePrint.UnderlinedStyle = false;
-            // 
-            // lblJobType
-            // 
-            this.lblJobType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblJobType.AutoEllipsis = true;
-            this.lblJobType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJobType.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblJobType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblJobType.Location = new System.Drawing.Point(52, 235);
-            this.lblJobType.Name = "lblJobType";
-            this.lblJobType.Size = new System.Drawing.Size(132, 20);
-            this.lblJobType.TabIndex = 121;
-            this.lblJobType.Text = "Job type";
-            // 
-            // txtPODFormat
-            // 
-            this.txtPODFormat._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtPODFormat._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtPODFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPODFormat.BackColor = System.Drawing.Color.White;
-            this.txtPODFormat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtPODFormat.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtPODFormat.BorderRadius = 8;
-            this.txtPODFormat.BorderSize = 1;
-            this.txtPODFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPODFormat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPODFormat.Location = new System.Drawing.Point(28, 178);
-            this.txtPODFormat.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPODFormat.Multiline = false;
-            this.txtPODFormat.Name = "txtPODFormat";
-            this.txtPODFormat.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtPODFormat.PasswordChar = false;
-            this.txtPODFormat.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtPODFormat.PlaceholderText = "";
-            this.txtPODFormat.ReadOnly = true;
-            this.txtPODFormat.Size = new System.Drawing.Size(140, 35);
-            this.txtPODFormat.TabIndex = 117;
-            this.txtPODFormat.TabStop = false;
-            this.txtPODFormat.UnderlinedStyle = false;
-            // 
-            // lblTemplatePrint
-            // 
-            this.lblTemplatePrint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTemplatePrint.AutoEllipsis = true;
-            this.lblTemplatePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplatePrint.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblTemplatePrint.Location = new System.Drawing.Point(16, 495);
-            this.lblTemplatePrint.Name = "lblTemplatePrint";
-            this.lblTemplatePrint.Size = new System.Drawing.Size(143, 20);
-            this.lblTemplatePrint.TabIndex = 110;
-            this.lblTemplatePrint.Text = "Template print";
-            // 
-            // lblStatusResult
-            // 
-            this.lblStatusResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusResult.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblStatusResult.Location = new System.Drawing.Point(99, 451);
-            this.lblStatusResult.Name = "lblStatusResult";
-            this.lblStatusResult.Size = new System.Drawing.Size(88, 20);
-            this.lblStatusResult.TabIndex = 113;
-            this.lblStatusResult.Text = "Status";
-            // 
-            // txtStaticText
-            // 
-            this.txtStaticText._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtStaticText._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtStaticText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStaticText.BackColor = System.Drawing.Color.White;
-            this.txtStaticText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtStaticText.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtStaticText.BorderRadius = 8;
-            this.txtStaticText.BorderSize = 1;
-            this.txtStaticText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaticText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtStaticText.Location = new System.Drawing.Point(28, 158);
-            this.txtStaticText.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStaticText.Multiline = false;
-            this.txtStaticText.Name = "txtStaticText";
-            this.txtStaticText.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtStaticText.PasswordChar = false;
-            this.txtStaticText.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtStaticText.PlaceholderText = "";
-            this.txtStaticText.ReadOnly = true;
-            this.txtStaticText.Size = new System.Drawing.Size(115, 35);
-            this.txtStaticText.TabIndex = 118;
-            this.txtStaticText.TabStop = false;
-            this.txtStaticText.UnderlinedStyle = false;
-            // 
-            // cuzTextBoxCheckMode
-            // 
-            this.cuzTextBoxCheckMode._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.cuzTextBoxCheckMode._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBoxCheckMode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cuzTextBoxCheckMode.AutoSize = true;
-            this.cuzTextBoxCheckMode.BackColor = System.Drawing.Color.White;
-            this.cuzTextBoxCheckMode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cuzTextBoxCheckMode.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBoxCheckMode.BorderRadius = 8;
-            this.cuzTextBoxCheckMode.BorderSize = 1;
-            this.cuzTextBoxCheckMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuzTextBoxCheckMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cuzTextBoxCheckMode.Location = new System.Drawing.Point(16, 674);
-            this.cuzTextBoxCheckMode.Margin = new System.Windows.Forms.Padding(4);
-            this.cuzTextBoxCheckMode.Multiline = false;
-            this.cuzTextBoxCheckMode.Name = "cuzTextBoxCheckMode";
-            this.cuzTextBoxCheckMode.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.cuzTextBoxCheckMode.PasswordChar = false;
-            this.cuzTextBoxCheckMode.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.cuzTextBoxCheckMode.PlaceholderText = "";
-            this.cuzTextBoxCheckMode.ReadOnly = true;
-            this.cuzTextBoxCheckMode.Size = new System.Drawing.Size(142, 35);
-            this.cuzTextBoxCheckMode.TabIndex = 127;
-            this.cuzTextBoxCheckMode.TabStop = false;
-            this.cuzTextBoxCheckMode.UnderlinedStyle = false;
-            // 
-            // BarcodeQualityLabel
-            // 
-            this.BarcodeQualityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BarcodeQualityLabel.AutoEllipsis = true;
-            this.BarcodeQualityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarcodeQualityLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.BarcodeQualityLabel.Location = new System.Drawing.Point(12, 509);
-            this.BarcodeQualityLabel.Name = "BarcodeQualityLabel";
-            this.BarcodeQualityLabel.Size = new System.Drawing.Size(172, 20);
-            this.BarcodeQualityLabel.TabIndex = 128;
-            this.BarcodeQualityLabel.Text = "Barcode Quality";
-            // 
-            // lblPODFormat
-            // 
-            this.lblPODFormat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPODFormat.AutoEllipsis = true;
-            this.lblPODFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPODFormat.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblPODFormat.Location = new System.Drawing.Point(15, 163);
-            this.lblPODFormat.Name = "lblPODFormat";
-            this.lblPODFormat.Size = new System.Drawing.Size(144, 20);
-            this.lblPODFormat.TabIndex = 111;
-            this.lblPODFormat.Text = "POD format";
-            // 
-            // GetSample
-            // 
-            this.GetSample.AutoEllipsis = true;
-            this.GetSample.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GetSample.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.GetSample.Location = new System.Drawing.Point(93, 424);
-            this.GetSample.Name = "GetSample";
-            this.GetSample.Size = new System.Drawing.Size(94, 20);
-            this.GetSample.TabIndex = 130;
-            this.GetSample.Text = "Get Sample";
-            // 
-            // txtProcessingTimeResult
-            // 
-            this.txtProcessingTimeResult._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtProcessingTimeResult._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtProcessingTimeResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProcessingTimeResult.BackColor = System.Drawing.Color.White;
-            this.txtProcessingTimeResult.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtProcessingTimeResult.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtProcessingTimeResult.BorderRadius = 8;
-            this.txtProcessingTimeResult.BorderSize = 1;
-            this.txtProcessingTimeResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProcessingTimeResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtProcessingTimeResult.Location = new System.Drawing.Point(16, 513);
-            this.txtProcessingTimeResult.Margin = new System.Windows.Forms.Padding(4);
-            this.txtProcessingTimeResult.MinimumSize = new System.Drawing.Size(95, 36);
-            this.txtProcessingTimeResult.Multiline = false;
-            this.txtProcessingTimeResult.Name = "txtProcessingTimeResult";
-            this.txtProcessingTimeResult.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtProcessingTimeResult.PasswordChar = false;
-            this.txtProcessingTimeResult.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtProcessingTimeResult.PlaceholderText = "";
-            this.txtProcessingTimeResult.ReadOnly = true;
-            this.txtProcessingTimeResult.Size = new System.Drawing.Size(187, 36);
-            this.txtProcessingTimeResult.TabIndex = 115;
-            this.txtProcessingTimeResult.TabStop = false;
-            this.txtProcessingTimeResult.UnderlinedStyle = false;
-            // 
-            // txtStatusResult
-            // 
-            this.txtStatusResult._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtStatusResult._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtStatusResult.BackColor = System.Drawing.Color.White;
-            this.txtStatusResult.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtStatusResult.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtStatusResult.BorderRadius = 8;
-            this.txtStatusResult.BorderSize = 1;
-            this.txtStatusResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatusResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtStatusResult.Location = new System.Drawing.Point(7, 435);
-            this.txtStatusResult.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStatusResult.Multiline = false;
-            this.txtStatusResult.Name = "txtStatusResult";
-            this.txtStatusResult.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtStatusResult.PasswordChar = false;
-            this.txtStatusResult.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtStatusResult.PlaceholderText = "";
-            this.txtStatusResult.ReadOnly = true;
-            this.txtStatusResult.Size = new System.Drawing.Size(152, 36);
-            this.txtStatusResult.TabIndex = 114;
-            this.txtStatusResult.TabStop = false;
-            this.txtStatusResult.UnderlinedStyle = false;
-            // 
-            // cuzButtonGetSample
-            // 
-            this.cuzButtonGetSample._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
-            this.cuzButtonGetSample._BorderRadius = 10;
-            this.cuzButtonGetSample._BorderSize = 1;
-            this.cuzButtonGetSample._GradientsButton = false;
-            this.cuzButtonGetSample._Text = "";
-            this.cuzButtonGetSample.BackColor = System.Drawing.Color.White;
-            this.cuzButtonGetSample.BackgroundColor = System.Drawing.Color.White;
-            this.cuzButtonGetSample.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cuzButtonGetSample.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.cuzButtonGetSample.FlatAppearance.BorderSize = 0;
-            this.cuzButtonGetSample.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cuzButtonGetSample.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuzButtonGetSample.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cuzButtonGetSample.Image = global::BarcodeVerificationSystem.Properties.Resources.icons8_checklist_24px_11;
-            this.cuzButtonGetSample.Location = new System.Drawing.Point(16, 424);
-            this.cuzButtonGetSample.Name = "cuzButtonGetSample";
-            this.cuzButtonGetSample.Size = new System.Drawing.Size(91, 41);
-            this.cuzButtonGetSample.TabIndex = 97;
-            this.cuzButtonGetSample.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cuzButtonGetSample.TextColor = System.Drawing.SystemColors.ControlText;
-            this.cuzButtonGetSample.UseVisualStyleBackColor = false;
-            // 
-            // lblCompareType
-            // 
-            this.lblCompareType.AutoEllipsis = true;
-            this.lblCompareType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompareType.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblCompareType.Location = new System.Drawing.Point(8, 303);
-            this.lblCompareType.Name = "lblCompareType";
-            this.lblCompareType.Size = new System.Drawing.Size(124, 20);
-            this.lblCompareType.TabIndex = 113;
-            this.lblCompareType.Text = "Compare type";
-            // 
-            // lblStaticText
-            // 
-            this.lblStaticText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStaticText.AutoEllipsis = true;
-            this.lblStaticText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaticText.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblStaticText.Location = new System.Drawing.Point(24, 577);
-            this.lblStaticText.Name = "lblStaticText";
-            this.lblStaticText.Size = new System.Drawing.Size(262, 20);
-            this.lblStaticText.TabIndex = 112;
-            this.lblStaticText.Text = "Static text";
-            // 
-            // txtCompareType
-            // 
-            this.txtCompareType._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtCompareType._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtCompareType.BackColor = System.Drawing.Color.White;
-            this.txtCompareType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtCompareType.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtCompareType.BorderRadius = 8;
-            this.txtCompareType.BorderSize = 1;
-            this.txtCompareType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompareType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCompareType.Location = new System.Drawing.Point(7, 614);
-            this.txtCompareType.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCompareType.Multiline = false;
-            this.txtCompareType.Name = "txtCompareType";
-            this.txtCompareType.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtCompareType.PasswordChar = false;
-            this.txtCompareType.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCompareType.PlaceholderText = "";
-            this.txtCompareType.ReadOnly = true;
-            this.txtCompareType.Size = new System.Drawing.Size(112, 35);
-            this.txtCompareType.TabIndex = 119;
-            this.txtCompareType.TabStop = false;
-            this.txtCompareType.UnderlinedStyle = false;
-            // 
-            // txtBarcodeQuality
-            // 
-            this.txtBarcodeQuality._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.txtBarcodeQuality._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtBarcodeQuality.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBarcodeQuality.BackColor = System.Drawing.Color.White;
-            this.txtBarcodeQuality.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBarcodeQuality.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.txtBarcodeQuality.BorderRadius = 8;
-            this.txtBarcodeQuality.BorderSize = 1;
-            this.txtBarcodeQuality.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBarcodeQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBarcodeQuality.Location = new System.Drawing.Point(10, 327);
-            this.txtBarcodeQuality.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBarcodeQuality.Multiline = false;
-            this.txtBarcodeQuality.Name = "txtBarcodeQuality";
-            this.txtBarcodeQuality.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtBarcodeQuality.PasswordChar = false;
-            this.txtBarcodeQuality.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtBarcodeQuality.PlaceholderText = "";
-            this.txtBarcodeQuality.ReadOnly = true;
-            this.txtBarcodeQuality.Size = new System.Drawing.Size(187, 36);
-            this.txtBarcodeQuality.TabIndex = 129;
-            this.txtBarcodeQuality.TabStop = false;
-            this.txtBarcodeQuality.UnderlinedStyle = false;
-            // 
-            // itemsPerHour
-            // 
-            this.itemsPerHour.AutoSize = true;
-            this.itemsPerHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemsPerHour.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.itemsPerHour.Location = new System.Drawing.Point(38, 396);
-            this.itemsPerHour.Name = "itemsPerHour";
-            this.itemsPerHour.Size = new System.Drawing.Size(149, 25);
-            this.itemsPerHour.TabIndex = 135;
-            this.itemsPerHour.Text = "Items per hour";
-            this.itemsPerHour.Visible = false;
-            // 
-            // SAPFailedCodes
-            // 
-            this.SAPFailedCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.SAPFailedCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SAPFailedCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SAPFailedCodes.AutoSize = true;
-            this.SAPFailedCodes.BackColor = System.Drawing.Color.White;
-            this.SAPFailedCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.SAPFailedCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SAPFailedCodes.BorderRadius = 8;
-            this.SAPFailedCodes.BorderSize = 1;
-            this.SAPFailedCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SAPFailedCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SAPFailedCodes.Location = new System.Drawing.Point(-7, 255);
-            this.SAPFailedCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.SAPFailedCodes.Multiline = false;
-            this.SAPFailedCodes.Name = "SAPFailedCodes";
-            this.SAPFailedCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.SAPFailedCodes.PasswordChar = false;
-            this.SAPFailedCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.SAPFailedCodes.PlaceholderText = "";
-            this.SAPFailedCodes.ReadOnly = true;
-            this.SAPFailedCodes.Size = new System.Drawing.Size(205, 35);
-            this.SAPFailedCodes.TabIndex = 148;
-            this.SAPFailedCodes.TabStop = false;
-            this.SAPFailedCodes.UnderlinedStyle = false;
-            // 
-            // tableLayoutPanelGetSample
-            // 
-            this.tableLayoutPanelGetSample.ColumnCount = 1;
-            this.tableLayoutPanelGetSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelGetSample.Location = new System.Drawing.Point(17, 424);
-            this.tableLayoutPanelGetSample.Name = "tableLayoutPanelGetSample";
-            this.tableLayoutPanelGetSample.RowCount = 1;
-            this.tableLayoutPanelGetSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelGetSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanelGetSample.Size = new System.Drawing.Size(97, 47);
-            this.tableLayoutPanelGetSample.TabIndex = 127;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoEllipsis = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label4.Location = new System.Drawing.Point(8, 264);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 20);
-            this.label4.TabIndex = 147;
-            this.label4.Text = "Sent SAP Failed";
-            // 
-            // SAPSuccessCodes
-            // 
-            this.SAPSuccessCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.SAPSuccessCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SAPSuccessCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SAPSuccessCodes.AutoSize = true;
-            this.SAPSuccessCodes.BackColor = System.Drawing.Color.White;
-            this.SAPSuccessCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.SAPSuccessCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SAPSuccessCodes.BorderRadius = 8;
-            this.SAPSuccessCodes.BorderSize = 1;
-            this.SAPSuccessCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SAPSuccessCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SAPSuccessCodes.Location = new System.Drawing.Point(7, 37);
-            this.SAPSuccessCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.SAPSuccessCodes.Multiline = false;
-            this.SAPSuccessCodes.Name = "SAPSuccessCodes";
-            this.SAPSuccessCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.SAPSuccessCodes.PasswordChar = false;
-            this.SAPSuccessCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.SAPSuccessCodes.PlaceholderText = "";
-            this.SAPSuccessCodes.ReadOnly = true;
-            this.SAPSuccessCodes.Size = new System.Drawing.Size(205, 35);
-            this.SAPSuccessCodes.TabIndex = 146;
-            this.SAPSuccessCodes.TabStop = false;
-            this.SAPSuccessCodes.UnderlinedStyle = false;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoEllipsis = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label3.Location = new System.Drawing.Point(13, 206);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 20);
-            this.label3.TabIndex = 145;
-            this.label3.Text = "Sent SAP Successful";
-            // 
-            // SaaSFailedCodes
-            // 
-            this.SaaSFailedCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.SaaSFailedCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SaaSFailedCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaaSFailedCodes.AutoSize = true;
-            this.SaaSFailedCodes.BackColor = System.Drawing.Color.White;
-            this.SaaSFailedCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.SaaSFailedCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SaaSFailedCodes.BorderRadius = 8;
-            this.SaaSFailedCodes.BorderSize = 1;
-            this.SaaSFailedCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaaSFailedCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SaaSFailedCodes.Location = new System.Drawing.Point(4, 32);
-            this.SaaSFailedCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.SaaSFailedCodes.Multiline = false;
-            this.SaaSFailedCodes.Name = "SaaSFailedCodes";
-            this.SaaSFailedCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.SaaSFailedCodes.PasswordChar = false;
-            this.SaaSFailedCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.SaaSFailedCodes.PlaceholderText = "";
-            this.SaaSFailedCodes.ReadOnly = true;
-            this.SaaSFailedCodes.Size = new System.Drawing.Size(205, 35);
-            this.SaaSFailedCodes.TabIndex = 144;
-            this.SaaSFailedCodes.TabStop = false;
-            this.SaaSFailedCodes.UnderlinedStyle = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoEllipsis = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(7, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(206, 20);
-            this.label2.TabIndex = 143;
-            this.label2.Text = "Sent SaaS Failed";
-            // 
-            // RePrintBtn
-            // 
-            this.RePrintBtn._BorderColor = System.Drawing.Color.Lavender;
-            this.RePrintBtn._BorderRadius = 10;
-            this.RePrintBtn._BorderSize = 1;
-            this.RePrintBtn._GradientsButton = false;
-            this.RePrintBtn._Text = "RePrint";
-            this.RePrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.RePrintBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.RePrintBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.RePrintBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RePrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.RePrintBtn.FlatAppearance.BorderSize = 0;
-            this.RePrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RePrintBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.RePrintBtn.ForeColor = System.Drawing.Color.White;
-            this.RePrintBtn.Location = new System.Drawing.Point(11, 474);
-            this.RePrintBtn.Name = "RePrintBtn";
-            this.RePrintBtn.Size = new System.Drawing.Size(168, 45);
-            this.RePrintBtn.TabIndex = 7;
-            this.RePrintBtn.Text = "RePrint";
-            this.RePrintBtn.TextColor = System.Drawing.Color.White;
-            this.RePrintBtn.UseVisualStyleBackColor = false;
-            // 
-            // RePrintLabel
-            // 
-            this.RePrintLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.RePrintLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.RePrintLabel.Location = new System.Drawing.Point(12, 332);
-            this.RePrintLabel.Name = "RePrintLabel";
-            this.RePrintLabel.Size = new System.Drawing.Size(175, 25);
-            this.RePrintLabel.TabIndex = 6;
-            this.RePrintLabel.Text = "RePrint Old Barcodes:";
-            this.RePrintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // numberOfCodes
-            // 
-            this.numberOfCodes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numberOfCodes.AutoEllipsis = true;
-            this.numberOfCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfCodes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.numberOfCodes.Location = new System.Drawing.Point(13, 8);
-            this.numberOfCodes.Name = "numberOfCodes";
-            this.numberOfCodes.Size = new System.Drawing.Size(171, 20);
-            this.numberOfCodes.TabIndex = 140;
-            this.numberOfCodes.Text = "Number Of Sent Codes";
-            // 
-            // SaaSSuccessCodes
-            // 
-            this.SaaSSuccessCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.SaaSSuccessCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SaaSSuccessCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaaSSuccessCodes.AutoSize = true;
-            this.SaaSSuccessCodes.BackColor = System.Drawing.Color.White;
-            this.SaaSSuccessCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.SaaSSuccessCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SaaSSuccessCodes.BorderRadius = 8;
-            this.SaaSSuccessCodes.BorderSize = 1;
-            this.SaaSSuccessCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaaSSuccessCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SaaSSuccessCodes.Location = new System.Drawing.Point(8, 27);
-            this.SaaSSuccessCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.SaaSSuccessCodes.Multiline = false;
-            this.SaaSSuccessCodes.Name = "SaaSSuccessCodes";
-            this.SaaSSuccessCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.SaaSSuccessCodes.PasswordChar = false;
-            this.SaaSSuccessCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.SaaSSuccessCodes.PlaceholderText = "";
-            this.SaaSSuccessCodes.ReadOnly = true;
-            this.SaaSSuccessCodes.Size = new System.Drawing.Size(205, 35);
-            this.SaaSSuccessCodes.TabIndex = 141;
-            this.SaaSSuccessCodes.TabStop = false;
-            this.SaaSSuccessCodes.UnderlinedStyle = false;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoEllipsis = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(13, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 20);
-            this.label1.TabIndex = 142;
-            this.label1.Text = "Sent SaaS Successful";
-            // 
-            // syncSentCodes
-            // 
-            this.syncSentCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.syncSentCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.syncSentCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.syncSentCodes.AutoSize = true;
-            this.syncSentCodes.BackColor = System.Drawing.Color.White;
-            this.syncSentCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.syncSentCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.syncSentCodes.BorderRadius = 8;
-            this.syncSentCodes.BorderSize = 1;
-            this.syncSentCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.syncSentCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.syncSentCodes.Location = new System.Drawing.Point(11, 32);
-            this.syncSentCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.syncSentCodes.Multiline = false;
-            this.syncSentCodes.Name = "syncSentCodes";
-            this.syncSentCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.syncSentCodes.PasswordChar = false;
-            this.syncSentCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.syncSentCodes.PlaceholderText = "";
-            this.syncSentCodes.ReadOnly = true;
-            this.syncSentCodes.Size = new System.Drawing.Size(201, 35);
-            this.syncSentCodes.TabIndex = 139;
-            this.syncSentCodes.TabStop = false;
-            this.syncSentCodes.UnderlinedStyle = false;
+            this.MaterialName.BackColor = System.Drawing.Color.White;
+            this.MaterialName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MaterialName.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.MaterialName.BorderRadius = 8;
+            this.MaterialName.BorderSize = 1;
+            this.MaterialName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaterialName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MaterialName.Location = new System.Drawing.Point(14, 219);
+            this.MaterialName.Margin = new System.Windows.Forms.Padding(4);
+            this.MaterialName.Multiline = false;
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.MaterialName.PasswordChar = false;
+            this.MaterialName.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.MaterialName.PlaceholderText = "";
+            this.MaterialName.ReadOnly = true;
+            this.MaterialName.Size = new System.Drawing.Size(261, 35);
+            this.MaterialName.TabIndex = 148;
+            this.MaterialName.TabStop = false;
+            this.MaterialName.UnderlinedStyle = false;
             // 
             // label8
             // 
@@ -1336,34 +569,34 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(140, 20);
             this.label7.TabIndex = 146;
-            this.label7.Text = "Mã tên sản phẩm";
+            this.label7.Text = "Tên sản phẩm";
             // 
-            // wmsNumber
+            // MaterialNumberTextBox
             // 
-            this.wmsNumber._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.wmsNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.wmsNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.MaterialNumberTextBox._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.MaterialNumberTextBox._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.MaterialNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.wmsNumber.BackColor = System.Drawing.Color.White;
-            this.wmsNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.wmsNumber.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.wmsNumber.BorderRadius = 8;
-            this.wmsNumber.BorderSize = 1;
-            this.wmsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wmsNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.wmsNumber.Location = new System.Drawing.Point(14, 145);
-            this.wmsNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.wmsNumber.Multiline = false;
-            this.wmsNumber.Name = "wmsNumber";
-            this.wmsNumber.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.wmsNumber.PasswordChar = false;
-            this.wmsNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.wmsNumber.PlaceholderText = "";
-            this.wmsNumber.ReadOnly = true;
-            this.wmsNumber.Size = new System.Drawing.Size(261, 35);
-            this.wmsNumber.TabIndex = 145;
-            this.wmsNumber.TabStop = false;
-            this.wmsNumber.UnderlinedStyle = false;
+            this.MaterialNumberTextBox.BackColor = System.Drawing.Color.White;
+            this.MaterialNumberTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MaterialNumberTextBox.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.MaterialNumberTextBox.BorderRadius = 8;
+            this.MaterialNumberTextBox.BorderSize = 1;
+            this.MaterialNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaterialNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MaterialNumberTextBox.Location = new System.Drawing.Point(14, 145);
+            this.MaterialNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.MaterialNumberTextBox.Multiline = false;
+            this.MaterialNumberTextBox.Name = "MaterialNumberTextBox";
+            this.MaterialNumberTextBox.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.MaterialNumberTextBox.PasswordChar = false;
+            this.MaterialNumberTextBox.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.MaterialNumberTextBox.PlaceholderText = "";
+            this.MaterialNumberTextBox.ReadOnly = true;
+            this.MaterialNumberTextBox.Size = new System.Drawing.Size(261, 35);
+            this.MaterialNumberTextBox.TabIndex = 145;
+            this.MaterialNumberTextBox.TabStop = false;
+            this.MaterialNumberTextBox.UnderlinedStyle = false;
             // 
             // label5
             // 
@@ -1422,6 +655,145 @@
             this.lblJobName.Size = new System.Drawing.Size(191, 20);
             this.lblJobName.TabIndex = 115;
             this.lblJobName.Text = "Mã phiếu Process Order";
+            // 
+            // LOTPanel
+            // 
+            this.LOTPanel.Controls.Add(this.label2);
+            this.LOTPanel.Controls.Add(this.label9);
+            this.LOTPanel.Controls.Add(this.label1);
+            this.LOTPanel.Controls.Add(this.LOTNumberCombo);
+            this.LOTPanel.Controls.Add(this.ExpireDate);
+            this.LOTPanel.Controls.Add(this.btnRefesh);
+            this.LOTPanel.Controls.Add(this.MaufDate);
+            this.LOTPanel.Location = new System.Drawing.Point(6, 332);
+            this.LOTPanel.Name = "LOTPanel";
+            this.LOTPanel.Size = new System.Drawing.Size(280, 276);
+            this.LOTPanel.TabIndex = 157;
+            // 
+            // label2
+            // 
+            this.label2.AutoEllipsis = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label2.Location = new System.Drawing.Point(9, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 20);
+            this.label2.TabIndex = 156;
+            this.label2.Text = "Ngày hết hạn";
+            // 
+            // label9
+            // 
+            this.label9.AutoEllipsis = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label9.Location = new System.Drawing.Point(9, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(140, 20);
+            this.label9.TabIndex = 151;
+            this.label9.Text = "Số LOT";
+            // 
+            // label1
+            // 
+            this.label1.AutoEllipsis = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Location = new System.Drawing.Point(9, 95);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.TabIndex = 155;
+            this.label1.Text = "Ngày sản xuất";
+            // 
+            // LOTNumberCombo
+            // 
+            this.LOTNumberCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LOTNumberCombo.FormattingEnabled = true;
+            this.LOTNumberCombo.Items.AddRange(new object[] {
+            "DM Series",
+            "IS Series",
+            "IS Series Dual"});
+            this.LOTNumberCombo.Location = new System.Drawing.Point(11, 47);
+            this.LOTNumberCombo.Name = "LOTNumberCombo";
+            this.LOTNumberCombo.Size = new System.Drawing.Size(168, 28);
+            this.LOTNumberCombo.TabIndex = 150;
+            // 
+            // ExpireDate
+            // 
+            this.ExpireDate._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.ExpireDate._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.ExpireDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ExpireDate.BackColor = System.Drawing.Color.White;
+            this.ExpireDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ExpireDate.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.ExpireDate.BorderRadius = 8;
+            this.ExpireDate.BorderSize = 1;
+            this.ExpireDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExpireDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ExpireDate.Location = new System.Drawing.Point(8, 199);
+            this.ExpireDate.Margin = new System.Windows.Forms.Padding(4);
+            this.ExpireDate.Multiline = false;
+            this.ExpireDate.Name = "ExpireDate";
+            this.ExpireDate.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.ExpireDate.PasswordChar = false;
+            this.ExpireDate.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.ExpireDate.PlaceholderText = "";
+            this.ExpireDate.ReadOnly = true;
+            this.ExpireDate.Size = new System.Drawing.Size(261, 35);
+            this.ExpireDate.TabIndex = 154;
+            this.ExpireDate.TabStop = false;
+            this.ExpireDate.UnderlinedStyle = false;
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh._BorderColor = System.Drawing.Color.Silver;
+            this.btnRefesh._BorderRadius = 10;
+            this.btnRefesh._BorderSize = 1;
+            this.btnRefesh._GradientsButton = false;
+            this.btnRefesh._Text = "";
+            this.btnRefesh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefesh.BackColor = System.Drawing.SystemColors.Window;
+            this.btnRefesh.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnRefesh.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnRefesh.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.btnRefesh.FlatAppearance.BorderSize = 0;
+            this.btnRefesh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnRefesh.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRefesh.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_refresh_161;
+            this.btnRefesh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnRefesh.Location = new System.Drawing.Point(191, 40);
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(84, 40);
+            this.btnRefesh.TabIndex = 152;
+            this.btnRefesh.TextColor = System.Drawing.SystemColors.ControlText;
+            this.btnRefesh.UseVisualStyleBackColor = false;
+            // 
+            // MaufDate
+            // 
+            this.MaufDate._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.MaufDate._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.MaufDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MaufDate.BackColor = System.Drawing.Color.White;
+            this.MaufDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MaufDate.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.MaufDate.BorderRadius = 8;
+            this.MaufDate.BorderSize = 1;
+            this.MaufDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaufDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MaufDate.Location = new System.Drawing.Point(8, 122);
+            this.MaufDate.Margin = new System.Windows.Forms.Padding(4);
+            this.MaufDate.Multiline = false;
+            this.MaufDate.Name = "MaufDate";
+            this.MaufDate.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.MaufDate.PasswordChar = false;
+            this.MaufDate.PlaceholderColor = System.Drawing.Color.Thistle;
+            this.MaufDate.PlaceholderText = "";
+            this.MaufDate.ReadOnly = true;
+            this.MaufDate.Size = new System.Drawing.Size(261, 35);
+            this.MaufDate.TabIndex = 153;
+            this.MaufDate.TabStop = false;
+            this.MaufDate.UnderlinedStyle = false;
             // 
             // pnlContainer
             // 
@@ -1535,6 +907,12 @@
             // pnlCurrentCheck
             // 
             this.pnlCurrentCheck.BackColor = System.Drawing.Color.White;
+            this.pnlCurrentCheck.Controls.Add(this.sentCheckSAPSuccess);
+            this.pnlCurrentCheck.Controls.Add(this.label11);
+            this.pnlCurrentCheck.Controls.Add(this.label10);
+            this.pnlCurrentCheck.Controls.Add(this.sentCheckSaaSSuccess);
+            this.pnlCurrentCheck.Controls.Add(this.label4);
+            this.pnlCurrentCheck.Controls.Add(this.label3);
             this.pnlCurrentCheck.Controls.Add(this.sentSaaSSuccess);
             this.pnlCurrentCheck.Controls.Add(this.SyncDataText);
             this.pnlCurrentCheck.Controls.Add(this.SyncLoading);
@@ -1557,6 +935,112 @@
             this.pnlCurrentCheck.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlCurrentCheck.TitleHeight = 30;
             // 
+            // sentCheckSAPSuccess
+            // 
+            this.sentCheckSAPSuccess._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.sentCheckSAPSuccess._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentCheckSAPSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sentCheckSAPSuccess.BackColor = System.Drawing.Color.White;
+            this.sentCheckSAPSuccess.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sentCheckSAPSuccess.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentCheckSAPSuccess.BorderRadius = 8;
+            this.sentCheckSAPSuccess.BorderSize = 1;
+            this.sentCheckSAPSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sentCheckSAPSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sentCheckSAPSuccess.Location = new System.Drawing.Point(289, 233);
+            this.sentCheckSAPSuccess.Margin = new System.Windows.Forms.Padding(4);
+            this.sentCheckSAPSuccess.Multiline = false;
+            this.sentCheckSAPSuccess.Name = "sentCheckSAPSuccess";
+            this.sentCheckSAPSuccess.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.sentCheckSAPSuccess.PasswordChar = false;
+            this.sentCheckSAPSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.sentCheckSAPSuccess.PlaceholderText = "";
+            this.sentCheckSAPSuccess.ReadOnly = true;
+            this.sentCheckSAPSuccess.Size = new System.Drawing.Size(71, 35);
+            this.sentCheckSAPSuccess.TabIndex = 155;
+            this.sentCheckSAPSuccess.TabStop = false;
+            this.sentCheckSAPSuccess.UnderlinedStyle = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoEllipsis = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label11.Location = new System.Drawing.Point(209, 239);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 20);
+            this.label11.TabIndex = 154;
+            this.label11.Text = "Kiểm tra";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoEllipsis = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label10.Location = new System.Drawing.Point(209, 151);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 20);
+            this.label10.TabIndex = 153;
+            this.label10.Text = "Kiểm tra";
+            // 
+            // sentCheckSaaSSuccess
+            // 
+            this.sentCheckSaaSSuccess._ReadOnlyBackColor = System.Drawing.Color.White;
+            this.sentCheckSaaSSuccess._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentCheckSaaSSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sentCheckSaaSSuccess.BackColor = System.Drawing.Color.White;
+            this.sentCheckSaaSSuccess.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sentCheckSaaSSuccess.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.sentCheckSaaSSuccess.BorderRadius = 8;
+            this.sentCheckSaaSSuccess.BorderSize = 1;
+            this.sentCheckSaaSSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sentCheckSaaSSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sentCheckSaaSSuccess.Location = new System.Drawing.Point(289, 143);
+            this.sentCheckSaaSSuccess.Margin = new System.Windows.Forms.Padding(4);
+            this.sentCheckSaaSSuccess.Multiline = false;
+            this.sentCheckSaaSSuccess.Name = "sentCheckSaaSSuccess";
+            this.sentCheckSaaSSuccess.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.sentCheckSaaSSuccess.PasswordChar = false;
+            this.sentCheckSaaSSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.sentCheckSaaSSuccess.PlaceholderText = "";
+            this.sentCheckSaaSSuccess.ReadOnly = true;
+            this.sentCheckSaaSSuccess.Size = new System.Drawing.Size(71, 35);
+            this.sentCheckSaaSSuccess.TabIndex = 152;
+            this.sentCheckSaaSSuccess.TabStop = false;
+            this.sentCheckSaaSSuccess.UnderlinedStyle = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoEllipsis = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label4.Location = new System.Drawing.Point(24, 239);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 20);
+            this.label4.TabIndex = 151;
+            this.label4.Text = "Đã In";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoEllipsis = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label3.Location = new System.Drawing.Point(24, 151);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 20);
+            this.label3.TabIndex = 150;
+            this.label3.Text = "Đã In";
+            // 
             // sentSaaSSuccess
             // 
             this.sentSaaSSuccess._ReadOnlyBackColor = System.Drawing.Color.White;
@@ -1570,7 +1054,7 @@
             this.sentSaaSSuccess.BorderSize = 1;
             this.sentSaaSSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sentSaaSSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sentSaaSSuccess.Location = new System.Drawing.Point(20, 148);
+            this.sentSaaSSuccess.Location = new System.Drawing.Point(83, 143);
             this.sentSaaSSuccess.Margin = new System.Windows.Forms.Padding(4);
             this.sentSaaSSuccess.Multiline = false;
             this.sentSaaSSuccess.Name = "sentSaaSSuccess";
@@ -1579,7 +1063,7 @@
             this.sentSaaSSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.sentSaaSSuccess.PlaceholderText = "";
             this.sentSaaSSuccess.ReadOnly = true;
-            this.sentSaaSSuccess.Size = new System.Drawing.Size(336, 35);
+            this.sentSaaSSuccess.Size = new System.Drawing.Size(65, 35);
             this.sentSaaSSuccess.TabIndex = 149;
             this.sentSaaSSuccess.TabStop = false;
             this.sentSaaSSuccess.UnderlinedStyle = false;
@@ -1591,7 +1075,7 @@
             this.SyncDataText.AutoEllipsis = true;
             this.SyncDataText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SyncDataText.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.SyncDataText.Location = new System.Drawing.Point(79, 85);
+            this.SyncDataText.Location = new System.Drawing.Point(171, 71);
             this.SyncDataText.Name = "SyncDataText";
             this.SyncDataText.Size = new System.Drawing.Size(126, 20);
             this.SyncDataText.TabIndex = 148;
@@ -1602,7 +1086,7 @@
             this.SyncLoading.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SyncLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
             this.SyncLoading.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SyncLoading.Location = new System.Drawing.Point(231, 73);
+            this.SyncLoading.Location = new System.Drawing.Point(312, 61);
             this.SyncLoading.Name = "SyncLoading";
             this.SyncLoading.Size = new System.Drawing.Size(36, 36);
             this.SyncLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1636,7 +1120,7 @@
             this.sentSAPSuccess.BorderSize = 1;
             this.sentSAPSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sentSAPSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sentSAPSuccess.Location = new System.Drawing.Point(20, 223);
+            this.sentSAPSuccess.Location = new System.Drawing.Point(83, 233);
             this.sentSAPSuccess.Margin = new System.Windows.Forms.Padding(4);
             this.sentSAPSuccess.Multiline = false;
             this.sentSAPSuccess.Name = "sentSAPSuccess";
@@ -1645,7 +1129,7 @@
             this.sentSAPSuccess.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.sentSAPSuccess.PlaceholderText = "";
             this.sentSAPSuccess.ReadOnly = true;
-            this.sentSAPSuccess.Size = new System.Drawing.Size(340, 35);
+            this.sentSAPSuccess.Size = new System.Drawing.Size(65, 35);
             this.sentSAPSuccess.TabIndex = 146;
             this.sentSAPSuccess.TabStop = false;
             this.sentSAPSuccess.UnderlinedStyle = false;
@@ -1657,7 +1141,7 @@
             this.SentSAP.AutoEllipsis = true;
             this.SentSAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SentSAP.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.SentSAP.Location = new System.Drawing.Point(16, 199);
+            this.SentSAP.Location = new System.Drawing.Point(16, 196);
             this.SentSAP.Name = "SentSAP";
             this.SentSAP.Size = new System.Drawing.Size(298, 20);
             this.SentSAP.TabIndex = 145;
@@ -1670,7 +1154,7 @@
             this.SentSaaS.AutoEllipsis = true;
             this.SentSaaS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SentSaaS.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.SentSaaS.Location = new System.Drawing.Point(20, 124);
+            this.SentSaaS.Location = new System.Drawing.Point(20, 109);
             this.SentSaaS.Name = "SentSaaS";
             this.SentSaaS.Size = new System.Drawing.Size(309, 20);
             this.SentSaaS.TabIndex = 142;
@@ -1719,7 +1203,7 @@
             // 
             this.ConfirmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.ConfirmLabel.Location = new System.Drawing.Point(13, 259);
+            this.ConfirmLabel.Location = new System.Drawing.Point(21, 259);
             this.ConfirmLabel.Name = "ConfirmLabel";
             this.ConfirmLabel.Size = new System.Drawing.Size(340, 25);
             this.ConfirmLabel.TabIndex = 0;
@@ -1758,9 +1242,9 @@
             // 
             this.SyncDataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.SyncDataLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.SyncDataLabel.Location = new System.Drawing.Point(17, 27);
+            this.SyncDataLabel.Location = new System.Drawing.Point(21, 15);
             this.SyncDataLabel.Name = "SyncDataLabel";
-            this.SyncDataLabel.Size = new System.Drawing.Size(340, 25);
+            this.SyncDataLabel.Size = new System.Drawing.Size(340, 41);
             this.SyncDataLabel.TabIndex = 2;
             this.SyncDataLabel.Text = "Đồng bộ thủ công:";
             this.SyncDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2071,84 +1555,6 @@
             this.picDatabaseLoading.TabStop = false;
             this.picDatabaseLoading.Visible = false;
             // 
-            // dgvDatabase
-            // 
-            this.dgvDatabase.AllowUserToAddRows = false;
-            this.dgvDatabase.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDatabase.AlterRowBackColor = System.Drawing.Color.White;
-            this.dgvDatabase.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDatabase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvDatabase.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDatabase.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDatabase.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvDatabase.ColumnHeaderBackColor = System.Drawing.Color.White;
-            this.dgvDatabase.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dgvDatabase.ColumnHeaderForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.ColumnHeaderHeight = 4;
-            this.dgvDatabase.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.dgvDatabase.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatabase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDatabase.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDatabase.EnableHeadersVisualStyles = false;
-            this.dgvDatabase.GridLineColor = System.Drawing.Color.LightBlue;
-            this.dgvDatabase.HeaderBorder = true;
-            this.dgvDatabase.HeaderBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
-            this.dgvDatabase.Location = new System.Drawing.Point(24, 41);
-            this.dgvDatabase.MultiSelect = false;
-            this.dgvDatabase.Name = "dgvDatabase";
-            this.dgvDatabase.ReadOnly = true;
-            this.dgvDatabase.RowBackColor = System.Drawing.Color.White;
-            this.dgvDatabase.RowBorder = true;
-            this.dgvDatabase.RowBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
-            this.dgvDatabase.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dgvDatabase.RowForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatabase.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDatabase.RowHeadersVisible = false;
-            this.dgvDatabase.RowHeight = 35;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvDatabase.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dgvDatabase.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.dgvDatabase.RowTemplate.Height = 35;
-            this.dgvDatabase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatabase.Size = new System.Drawing.Size(935, 296);
-            this.dgvDatabase.TabIndex = 111;
-            // 
             // lblDatabase
             // 
             this.lblDatabase.AutoSize = true;
@@ -2198,6 +1604,84 @@
             this.picCheckedResultLoading.TabIndex = 124;
             this.picCheckedResultLoading.TabStop = false;
             this.picCheckedResultLoading.Visible = false;
+            // 
+            // dgvDatabase
+            // 
+            this.dgvDatabase.AllowUserToAddRows = false;
+            this.dgvDatabase.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDatabase.AlterRowBackColor = System.Drawing.Color.White;
+            this.dgvDatabase.AlterRowForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDatabase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDatabase.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatabase.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDatabase.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvDatabase.ColumnHeaderBackColor = System.Drawing.Color.White;
+            this.dgvDatabase.ColumnHeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dgvDatabase.ColumnHeaderForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.ColumnHeaderHeight = 4;
+            this.dgvDatabase.ColumnHeaderPadding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.dgvDatabase.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatabase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDatabase.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDatabase.EnableHeadersVisualStyles = false;
+            this.dgvDatabase.GridLineColor = System.Drawing.Color.LightBlue;
+            this.dgvDatabase.HeaderBorder = true;
+            this.dgvDatabase.HeaderBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
+            this.dgvDatabase.Location = new System.Drawing.Point(24, 36);
+            this.dgvDatabase.MultiSelect = false;
+            this.dgvDatabase.Name = "dgvDatabase";
+            this.dgvDatabase.ReadOnly = true;
+            this.dgvDatabase.RowBackColor = System.Drawing.Color.White;
+            this.dgvDatabase.RowBorder = true;
+            this.dgvDatabase.RowBorderStyle = DesignUI.CuzUI.CuzDataGridView.CustomBorderStyle.SingleHorizontal;
+            this.dgvDatabase.RowFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dgvDatabase.RowForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatabase.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDatabase.RowHeadersVisible = false;
+            this.dgvDatabase.RowHeight = 35;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvDatabase.RowSelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dgvDatabase.RowSelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgvDatabase.RowTemplate.Height = 35;
+            this.dgvDatabase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatabase.Size = new System.Drawing.Size(935, 296);
+            this.dgvDatabase.TabIndex = 111;
             // 
             // btnNull
             // 
@@ -2959,8 +2443,7 @@
             this.tableLayoutControl.ResumeLayout(false);
             this.pnlJobInformation.ResumeLayout(false);
             this.pnlJobInformation.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.LOTPanel.ResumeLayout(false);
             this.pnlContainer.ResumeLayout(false);
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanel.ResumeLayout(false);
@@ -2985,10 +2468,10 @@
             this.pnlDatabase.ResumeLayout(false);
             this.pnlDatabase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDatabaseLoading)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).EndInit();
             this.pnlCheckedResult.ResumeLayout(false);
             this.pnlCheckedResult.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCheckedResultLoading)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckedResult)).EndInit();
             this.tableLayoutPanelPrintedState.ResumeLayout(false);
             this.pnlPrintedState3.ResumeLayout(false);
@@ -3060,12 +2543,6 @@
         private FontAwesome.Sharp.IconButton btnVirtualStart;
         private FontAwesome.Sharp.IconButton btnExportData;
         private DesignUI.CuzUI.RoundPanel pnlCurrentCheck;
-        private System.Windows.Forms.Label lblStatusResult;
-        private System.Windows.Forms.Label lblProcessingTime;
-        private DesignUI.CuzUI.CuzTextBox txtStatusResult;
-        private DesignUI.CuzUI.CuzTextBox txtProcessingTimeResult;
-        private DesignUI.CuzUI.CuzTextBox txtCodeResult;
-        private System.Windows.Forms.Label lblCodeResult;
         private DesignUI.CuzUI.RoundPanel pnlVerificationProcess;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelProcess;
         private DesignUI.CuzUI.CuzPanel pnlTotalChecked;
@@ -3079,17 +2556,7 @@
         private System.Windows.Forms.Label lblCheckResultPassedValue;
         private System.Windows.Forms.Label lblPassed;
         private DesignUI.CuzUI.RoundPanel pnlJobInformation;
-        private DesignUI.CuzUI.CuzTextBox txtJobType;
-        private System.Windows.Forms.Label lblJobType;
-        private DesignUI.CuzUI.CuzTextBox txtTemplatePrint;
-        private DesignUI.CuzUI.CuzTextBox txtPODFormat;
-        private DesignUI.CuzUI.CuzTextBox txtStaticText;
-        private DesignUI.CuzUI.CuzTextBox txtCompareType;
         private DesignUI.CuzUI.CuzTextBox txtJobName;
-        private System.Windows.Forms.Label lblTemplatePrint;
-        private System.Windows.Forms.Label lblPODFormat;
-        private System.Windows.Forms.Label lblStaticText;
-        private System.Windows.Forms.Label lblCompareType;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblJobName;
         private DesignUI.CuzUI.CuzDataGridView dgvCheckedResult;
@@ -3108,42 +2575,21 @@
         private FontAwesome.Sharp.IconButton btnExportResult;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusPrinter01;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusSerialDevice;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGetSample;
-        private System.Windows.Forms.Label labelModeCheck;
-        private DesignUI.CuzUI.CuzTextBox cuzTextBoxCheckMode;
-        private DesignUI.CuzUI.CuzButton cuzButtonGetSample;
         private FontAwesome.Sharp.IconButton btnExportAll;
-        private DesignUI.CuzUI.CuzTextBox txtBarcodeQuality;
-        private System.Windows.Forms.Label BarcodeQualityLabel;
-        private System.Windows.Forms.Label GetSample;
-        private System.Windows.Forms.Label itemsPerHour;
         private DesignUI.CuzUI.CuzButton confirmCompletion;
-        private System.Windows.Forms.Label numberOfCodes;
-        private DesignUI.CuzUI.CuzTextBox syncSentCodes;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private DesignUI.CuzUI.CuzTextBox SAPSuccessCodes;
-        private System.Windows.Forms.Label label3;
-        private DesignUI.CuzUI.CuzTextBox SaaSFailedCodes;
-        private System.Windows.Forms.Label label2;
-        private DesignUI.CuzUI.CuzTextBox SaaSSuccessCodes;
-        private DesignUI.CuzUI.CuzTextBox SAPFailedCodes;
         private System.Windows.Forms.Panel DispatchingActionsPanel;
         private DesignUI.CuzUI.CuzButton disposeBtn;
         private DesignUI.CuzUI.CuzButton syncDataBtn;
-        private System.Windows.Forms.Label RePrintLabel;
         private System.Windows.Forms.Label DisposeLabel;
         private System.Windows.Forms.Label SyncDataLabel;
         private System.Windows.Forms.Label ConfirmLabel;
         private DesignUI.CuzUI.CuzTextBox sentSAPSuccess;
         private System.Windows.Forms.Label SentSAP;
         private System.Windows.Forms.Label SentSaaS;
-        private DesignUI.CuzUI.CuzButton RePrintBtn;
-        private DesignUI.CuzUI.CuzTextBox materialNumber;
+        private DesignUI.CuzUI.CuzTextBox MaterialName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private DesignUI.CuzUI.CuzTextBox wmsNumber;
+        private DesignUI.CuzUI.CuzTextBox MaterialNumberTextBox;
         private System.Windows.Forms.Label label5;
         private DesignUI.CuzUI.CuzTextBox numberOfCode;
         private System.Windows.Forms.ToolStripStatusLabel lblSensorControllerStatus;
@@ -3153,5 +2599,19 @@
         private System.Windows.Forms.Label SyncDataText;
         private System.Windows.Forms.PictureBox SyncLoading;
         private DesignUI.CuzUI.CuzTextBox sentSaaSSuccess;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox LOTNumberCombo;
+        private DesignUI.CuzUI.CuzButton btnRefesh;
+        private DesignUI.CuzUI.CuzTextBox ExpireDate;
+        private DesignUI.CuzUI.CuzTextBox MaufDate;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel LOTPanel;
+        private DesignUI.CuzUI.CuzTextBox sentCheckSAPSuccess;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private DesignUI.CuzUI.CuzTextBox sentCheckSaaSSuccess;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

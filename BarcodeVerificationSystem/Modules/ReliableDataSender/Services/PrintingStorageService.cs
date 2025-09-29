@@ -93,7 +93,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                             Code = parts[PrintingValues.QrCodeIndex], // parts[1]
                             UniqueCode = parts[PrintingValues.UniqueCode],
                             PrintedDate = parts[PrintingValues.PrintedDate],
-                            SaasStatus = parts[PrintingValues.SaaSStatus],
+                            SaaSStatus = parts[PrintingValues.SaaSStatus],
                             SAPStatus = parts[PrintingValues.SAPStatus],
                             SaasError = parts[PrintingValues.SaaSError],
                             SAPError = parts[PrintingValues.SAPError],
@@ -111,11 +111,11 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             }
         }
 
-        public void MarkAsFailed(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
+        public void MarkAsFailed(StorageUpdate storageUpdate)
         {
             try
             {
-                FileHelper.UpdatePrintingEntry(_filePath, entryId, PrintedDate, SaasStatus, SAPStatus, SaasSError, SAPError, _unsentStatus);
+                FileHelper.UpdatePrintingEntry(_filePath, storageUpdate, _unsentStatus);
             }
             catch (Exception ex)
             {
@@ -123,11 +123,11 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             }
         }
 
-        public void MarkAsSent(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
+        public void MarkAsSent(StorageUpdate storageUpdate)
         {
             try
             {
-                FileHelper.UpdatePrintingEntry(_filePath, entryId, PrintedDate, SaasStatus, SAPStatus, SaasSError, SAPError, _sentStatus);
+                FileHelper.UpdatePrintingEntry(_filePath, storageUpdate, _sentStatus);
             }
             catch (Exception ex)
             {

@@ -25,7 +25,7 @@ namespace BarcodeVerificationSystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.0.0.0 Build 250822")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0.1.0 Build 250926")]
         public string SoftwareVersion {
             get {
                 return ((string)(this["SoftwareVersion"]));

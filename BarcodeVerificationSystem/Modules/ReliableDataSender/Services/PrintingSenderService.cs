@@ -21,6 +21,8 @@ using BarcodeVerificationSystem.Model.Apis.Dispatching;
 using BarcodeVerificationSystem.Services;
 using BarcodeVerificationSystem.Utils;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
+using Org.BouncyCastle.Asn1.Ocsp;
+using System.Windows.Forms;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -61,9 +63,10 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
         private async Task ProcessEntryAsync(PrintingDataEntry entry)
         {
+            var storageUpdate = new StorageUpdate();
+
             try
             {
-                string filePath = CommVariables.PathJobsApp + Shared.CurrentJob.FileName + Shared.Settings.JobFileExtension;
 
                 var printedContent = new object();
 
@@ -95,10 +98,9 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     };
                 }
 
-
-                if (isManuMode)
+                if (isManuMode && Shared.CurrentJob.IsProcessOrderMode)
                 {
-                    var PO = Shared.CurrentJob.ManufacturingOrderPayload;
+                    var PO = Shared.CurrentJob.ProcessOrderItem;
 
                     printedContent = new Model.Payload.ManufacturingPayload.Request.RequestPrinted
                     {
@@ -109,17 +111,36 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         process_order = PO.process_order,
                         material_number = PO.material_number,
                         print_type = "process_order",
-                        batch = PO.batch_info[0].batch,
-                        mauf_date = PO.batch_info[0].mauf_date,
-                        expired_date = PO.batch_info[0].expired_date,
+                        batch = PO.batch_info[Shared.Settings.SelectedBatchIndex].batch, // Shared.CurrentJob.SelectedBatchIndex
+                        mauf_date = PO.batch_info[Shared.Settings.SelectedBatchIndex].mauf_date,
+                        expired_date = PO.batch_info[Shared.Settings.SelectedBatchIndex].expired_date,
                     }; 
+                }
+              
+                if (isManuMode && Shared.CurrentJob.IsReservationMode)
+                {
+                    var Material = Shared.CurrentJob.ReservationItem;
+
+                    printedContent = new Model.Payload.ManufacturingPayload.Request.RequestPrinted
+                    {
+                        index_qr_code = entry.Id,
+                        qr_code = entry.Code,
+                        unique_code = entry.UniqueCode, // entry.HumanCode
+                        printed_date = DateTime.Parse(entry.PrintedDate),
+                        material_number = Material.material_number,
+                        material_doc = Shared.CurrentJob.Reservation.material_doc,
+                        print_type = "reservation",
+                        batch = Material.batch,
+                        mauf_date = Material.mauf_date,
+                        expired_date = Material.expried_date
+                    };
                 }
 
                 if (Shared.UserPermission.isOnline)
                 {
                     var ResponsePrinted = await apiService.PostApiDataAsync<ResponsePrinted>(_endpoint, printedContent);
 
-                    entry.SaasStatus = ResponsePrinted.is_success ? "success" : "failed";
+                    entry.SaaSStatus = ResponsePrinted.is_success ? "success" : "failed";
                     entry.SAPStatus = ResponsePrinted.is_success_sap ? "success" : "failed";
                     entry.SaasError = ResponsePrinted.message ?? string.Empty;
                     entry.SAPError = ResponsePrinted.message_sap ?? string.Empty;
@@ -129,46 +150,64 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     if (ResponsePrinted.is_success)
                     {
                         Shared.CurrentJob.NumberOfSaaSSentCodes++;
-                        Shared.CurrentJob.SaveFile(filePath); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
+                        Shared.CurrentJob.SaveFile(); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
                         Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
                     if (ResponsePrinted.is_success_sap)
                     {
                         Shared.CurrentJob.NumberOfSAPSentCodes++;
-                        Shared.CurrentJob.SaveFile(filePath);
+                        Shared.CurrentJob.SaveFile();
                         syncDataModel.DataType = SyncDataParams.SyncDataType.SAPSuccess;
                         Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
                     }
 
+                    storageUpdate = new StorageUpdate()
+                    {
+                        Id = entry.Id,
+                        SaaSStatus = entry.SaaSStatus,
+                        SAPStatus = entry.SAPStatus,
+                        SaaSError = entry.SaasError,
+                        SAPError = entry.SAPError,
+                        PrintedDate = entry.PrintedDate
+                    };
+
                     if (ResponsePrinted.is_success && ResponsePrinted.is_success_sap) // nho chinh khuc nay
                     {
-                        _storageService.MarkAsSent(entry.Id, entry.PrintedDate,  entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                        _storageService.MarkAsSent(storageUpdate);
                     }
                     else
                     {
-                        _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                        _storageService.MarkAsFailed(storageUpdate);
                         _queue.Add(entry);
                     }
 
                     if (!ResponsePrinted.is_success_sap)
                     {
-                        ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.PrintedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError);
+                        ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.PrintedDate + entry.SaaSStatus + entry.SAPStatus + entry.SaasError + entry.SAPError);
                     }
                 }
                 else
                 {
-                    _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                    _storageService.MarkAsFailed(storageUpdate);
                 }
 
             }
             catch (Exception ex)
             {
-                entry.SaasStatus = "failed";
-                entry.SaasError = ex.Message;
-                ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.PrintedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError + ex.Message);
+                storageUpdate = new StorageUpdate()
+                {
+                    Id = entry.Id,
+                    SaaSStatus = "failed",
+                    SAPStatus = entry.SAPStatus,
+                    SaaSError = ex.Message,
+                    SAPError = entry.SAPError,
+                    PrintedDate = entry.PrintedDate
+                };
+
+                ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.PrintedDate + entry.SaaSStatus + entry.SAPStatus + entry.SaasError + entry.SAPError + ex.Message);
                 //_storageService.AppendEntry(entry);
-                _storageService.MarkAsFailed(entry.Id, entry.PrintedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                _storageService.MarkAsFailed(storageUpdate);
                 _queue.Add(entry);
             }
         }

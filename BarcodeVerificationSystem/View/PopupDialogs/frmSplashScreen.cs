@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using BarcodeVerificationSystem.Labels.ProjectLabel;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace BarcodeVerificationSystem.View
@@ -23,7 +24,15 @@ namespace BarcodeVerificationSystem.View
 
         private void InitControl()
         {
-          
+            if(ProjectLabel.IsDefault)
+            {
+                lblComment.ForeColor = System.Drawing.Color.FromArgb(8, 109, 70);
+            }
+            else if (ProjectLabel.IsDefault)
+            {
+                lblComment.ForeColor = System.Drawing.Color.FromArgb(0, 170, 230);
+            }
+            
         }
 
         private delegate void CloseDelegate();

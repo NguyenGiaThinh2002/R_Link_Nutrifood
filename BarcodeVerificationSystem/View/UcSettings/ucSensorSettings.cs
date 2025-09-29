@@ -1,21 +1,31 @@
 ﻿using BarcodeVerificationSystem.Controller;
 using BarcodeVerificationSystem.Model;
+using BarcodeVerificationSystem.Utils;
+using BarcodeVerificationSystem.Utils.ControlEvents;
+using GenCode.Types;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Serialization.Formatters;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using UILanguage;
+using static BarcodeVerificationSystem.Model.SettingsModel;
 
 namespace BarcodeVerificationSystem.View
 {
     public partial class UcSensorSettings : UserControl
     {
         private bool _IsBinding = false;
-
+        private RadioButton[] PLCVersionRadios;
+        private CancellationTokenSource _cts;
         private int _CurrentSensorIndex { get; set; } = 0;
         public UcSensorSettings()
         {
             InitializeComponent();
+            this.Load += UcSensorSettings_Load;
+            this.Disposed += UcSensorSettings_Disposed;
         }
 
         protected override void OnHandleCreated(EventArgs e)
@@ -23,28 +33,61 @@ namespace BarcodeVerificationSystem.View
             base.OnHandleCreated(e);
             InitEvents();
             SetLanguage();
+            UpdateStatusUI();
+        }
+        private void UcSensorSettings_Disposed(object sender, EventArgs e)
+        {
+            _cts?.Cancel();
+            //_cts?.Dispose();
+        }
+
+        private void StartMonitoring(CancellationToken token)
+        {
+            Task.Run(async () =>
+            {
+                while (!token.IsCancellationRequested)
+                {
+                    try
+                    {
+                        // Call UI update safely
+                        this.Invoke(new Action(UpdateStatusUI));
+                    }
+                    catch (Exception) { break; }
+                    await Task.Delay(2000, token); // 2 seconds
+                }
+            }, token);
         }
 
         private void InitControls()
         {
             _IsBinding = true;
+            PLCVersionRadios = new[] { radioV0, radioV1, radioV2 };
             sensorOneBtn.BackColor = _CurrentSensorIndex == 0 ? Color.FromArgb(0, 170, 230) : Color.White;
             sensorTwoBtn.BackColor = _CurrentSensorIndex == 1 ? Color.FromArgb(0, 170, 230) : Color.White;
+            EncoderMode.Location = new Point(493, 389);
+
             grBoxSensor.Text = Lang.Sensor + " " + (_CurrentSensorIndex + 1);
          
-            radioResumeA.Checked = Shared.Settings.ResumeEncoder == SettingsModel.ResumeEncoderType.ResumeA;
-            radioResumeAB.Checked = Shared.Settings.ResumeEncoder == SettingsModel.ResumeEncoderType.ResumeAB;
-            radioV1.Checked = Shared.Settings.PLCVersion == 0;
-            grbResumeEncoder.Visible = delayOutputPanel.Visible = radioV2.Checked = Shared.Settings.PLCVersion == 1;
+            radioResumeA.Checked = Shared.Settings.ResumeEncoder == ResumeEncoderType.ResumeA;
+            radioResumeAB.Checked = Shared.Settings.ResumeEncoder == ResumeEncoderType.ResumeAB;
 
+            InternalRad.Checked = Shared.Settings.EncoderMode == ResumeEncoderMode.Internal;
+            ExternalRad.Checked = Shared.Settings.EncoderMode == ResumeEncoderMode.External;
+
+            PLCVersionRadios[Shared.Settings.PLCVersion].Checked = true;
+            UIControlsFuncs.VisibleControl(radioV1.Checked, grbResumeEncoder, grbResumeEncoder, delayOutputPanel);
+            UIControlsFuncs.VisibleControl(radioV2.Checked && _CurrentSensorIndex == 1, EncoderMode);
+
+            SetInExLanguage();
+           
             numSensorControllerPort2.Value = Shared.Settings.SensorControllerPort2;
             comboPLCPort.SelectedIndex = Shared.Settings.NumberOfPort - 1;
             Port2Panel.Visible = Shared.Settings.NumberOfPort > 1;
 
+            txtSensorControllerIP.Text = Shared.Settings.SensorControllerIP;
             EnableResumeEncoder.Checked = Shared.Settings.ResumeEncoderEnable;
             radSensorControllerEnable.Checked = Shared.Settings.SensorControllerEnable;
             radSensorControllerDisable.Checked = !Shared.Settings.SensorControllerEnable;
-            txtSensorControllerIP.Text = Shared.Settings.SensorControllerIP;
             numSensorControllerPort.Value = Shared.Settings.SensorControllerPort;
             numSensorControllerPulseEncoder.Value = Shared.Settings.SensorControllerPulseEncoder[_CurrentSensorIndex];
             numSensorControllerEncoderDiameter.Value = (decimal)Shared.Settings.SensorControllerEncoderDiameter[_CurrentSensorIndex];
@@ -57,50 +100,127 @@ namespace BarcodeVerificationSystem.View
             _IsBinding = false;
         }
 
+        private void SetInExLanguage()
+        {
+            bool isV2Internal = Shared.Settings.EncoderMode == ResumeEncoderMode.Internal && radioV2.Checked && _CurrentSensorIndex == 1;
+            (isV2Internal ? (Action)LanguageForInternal : LanguageForExternal)();
+        }
+
+        private void LanguageForExternal()
+        {
+            lblSensorControllerPulseEncoder.Text = Lang.PulseEncoder;
+            lblSensorControllerDelayBefore.Text = Lang.DelaySensor;
+            ppr.Text = "ppr";
+            lblGAP.Text = "GAP";
+            GAPmm.Text = "mm";
+        }
+
+        private void LanguageForInternal()
+        {
+            lblSensorControllerPulseEncoder.Text = Lang.InternalSpeed;
+            lblSensorControllerDelayBefore.Text = "Bộ lọc cảm biến";
+            ppr.Text = "m/min";
+            lblGAP.Text = "Thời gian tín hiệu lỗi";
+            GAPmm.Text = "ms";
+        }
+
+        private void UpdateStatusUI()
+        {
+            if (Shared.SensorController == null) return;
+            iconConnectPort1.Image = Shared.SensorController.IsConnected() ? Properties.Resources.icons_green_dot : Properties.Resources.icons8_red_dot;
+            iconConnectPort2.Image = Shared.SensorController.IsConnected2() ? Properties.Resources.icons_green_dot : Properties.Resources.icons8_red_dot;
+        }
+
+        private void TestPLC(object sender, EventArgs e)
+        {
+            if (_IsBinding) return;
+            switch (sender as Button){
+                case Button btn when btn == StartPLC:
+                    Shared.SensorController.Send2("(C00001)");
+                    break;
+                case Button btn when btn == StopPLC:
+                    Shared.SensorController.Send2("(C00000)");
+                    break;
+                case Button btn when btn == ErrorPLC:
+                    Shared.SensorController.Send2("(C00005)");
+                    break;
+                case Button btn when btn == PassPLC:
+                    Shared.SensorController.Send2("(C00003)");
+                    break;
+            }
+        }
+
         private void InitEvents()
         {
-            radSensorControllerEnable.CheckedChanged += AdjustData;
-            radSensorControllerDisable.CheckedChanged += AdjustData;
+            StartPLC.Click += TestPLC;
+            StopPLC.Click += TestPLC;
+            ErrorPLC.Click += TestPLC;
+            PassPLC.Click += TestPLC;
 
-            radSensorControllerEnable.CheckedChanged += FrmJob.RadioButton_CheckedChanged;
-            radSensorControllerDisable.CheckedChanged += FrmJob.RadioButton_CheckedChanged;
-            comboPLCPort.SelectedIndexChanged += AdjustData;
+            //numSensorControllerPort.ValueChanged += AdjustData;
+            //numSensorControllerPort2.ValueChanged += AdjustData;
+
+            InitControlEvents.RegisterNumericControls(AdjustData, Numeric_KeyUp,
+                  numSensorControllerPort,
+                  numSensorControllerPulseEncoder,
+                  numSensorControllerEncoderDiameter,
+                  numSensorControllerDelayBefore,
+                  numSensorControllerDelayAfter,
+                  numGapLength1,
+                  numLength2Error1,
+                  numSensorControllerPort2
+              );
+
+            InitControlEvents.RegisterNumericKeyUpOnlyControls(Numeric_KeyUp, numericDelayOutputError);
+
+            InitControlEvents.RegisterComboBoxControls(AdjustData, comboPLCPort);
+
+            InitControlEvents.RegisterRadioButtonControls(
+                FrmJob.RadioButton_CheckedChanged,
+                AdjustData,
+                radSensorControllerEnable,
+                radSensorControllerDisable,
+                InternalRad,
+                ExternalRad
+            );
+            InitControlEvents.RegisterRadioButtonControls(AdjustData, 
+                radioResumeA,
+                radioResumeAB,
+                radioV0,
+                radioV1,
+                radioV2);
+
+            InitControlEvents.RegisterButtonControls(AdjustData,
+                btnContenResponseClear,
+                SendPort2
+            );
+
+            InitControlEvents.RegisterCheckBoxControls(AdjustData,
+                EnableResumeEncoder
+            );
 
             txtSensorControllerIP.TextChanged += AdjustData;
-            //numSensorControllerPort.ValueChanged += AdjustData;
-            //numSensorControllerPulseEncoder.ValueChanged += AdjustData;
-            //numSensorControllerEncoderDiameter.ValueChanged += AdjustData;
-            //numSensorControllerDelayBefore.ValueChanged += AdjustData;
-            //numSensorControllerDelayAfter.ValueChanged += AdjustData;
-            //numGapLength1.ValueChanged += AdjustData;
-            //numLength2Error1.ValueChanged += AdjustData;
-
-            numSensorControllerPort.KeyUp += AdjustData;
-            numSensorControllerPort2.KeyUp += AdjustData;
-            numSensorControllerPulseEncoder.KeyUp += AdjustData;
-            numSensorControllerEncoderDiameter.KeyUp += AdjustData;
-            numSensorControllerDelayBefore.KeyUp += AdjustData;
-            numSensorControllerDelayAfter.KeyUp += AdjustData;
-            numGapLength1.KeyUp += AdjustData;
-            numLength2Error1.KeyUp += AdjustData;
-
-            btnContenResponseClear.Click += AdjustData;
-            SendPort2.Click += AdjustData;
-            EnableResumeEncoder.CheckedChanged += AdjustData;
-            radioResumeA.CheckedChanged += AdjustData;
-            radioResumeAB.CheckedChanged += AdjustData;
-            radioV1.CheckedChanged += AdjustData;
-            radioV2.CheckedChanged += AdjustData;
-            numericDelayOutputError.KeyUp += AdjustData;
-
             Shared.OnLanguageChange += Shared_OnLanguageChange;
             Shared.OnRepeatTCPMessageChange += Shared_OnRepeatTCPMessageChange;
             this.Load += UcSensorSettings_Load;
         }
 
+        private bool _handlingKeyUp;
+        private void Numeric_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                _handlingKeyUp = true;
+                AdjustData(sender, e);
+                _handlingKeyUp = false;
+            }
+        }
+
         private void UcSensorSettings_Load(object sender, EventArgs e)
         {
             InitControls();
+            _cts = new CancellationTokenSource();
+            StartMonitoring(_cts.Token);
         }
 
         private void Shared_OnLanguageChange(object sender, EventArgs e)
@@ -122,7 +242,7 @@ namespace BarcodeVerificationSystem.View
                 richTXTContentResponse.Text = richTXTContentResponse.Text.Insert(0, DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + ": " + message + "\n");
                 try
                 {
-                    richTXTContentResponse.SelectedText = message;
+                    //richTXTContentResponse.SelectedText = message;
                     richTXTContentResponse.ScrollToCaret();
                 }
                 catch
@@ -149,14 +269,14 @@ namespace BarcodeVerificationSystem.View
 
             lblSensorControllerDelayBefore.Text = Lang.DelaySensor;
             lblSensorControllerDelayAfter.Text = Lang.DisableSensor;
-            lblSensorControllerPulseEncoder.Text = Lang.PulseEncoder;
+            lblSensorControllerPulseEncoder.Text = Lang.PulseEncoder; // "PPR"
             lblSensorControllerEncoderDiameter.Text = Lang.EncoderDiameter;
             lblErrorCondition.Text = Lang.ErrorCondition;
             lblUnit.Text = Lang.Unit;
             lblDelayOutputError.Text = Lang.DelayOutputError;
             sensorOneBtn.Text = Lang.Sensor + " " + 1;
             sensorTwoBtn.Text = Lang.Sensor + " " + 2;
-            grbResumeEncoder.Text = Lang.EncoderSettings;
+            EncoderMode.Text = grbResumeEncoder.Text = Lang.EncoderSettings;
             EnableResumeEncoder.Text = Lang.ResumeEncoder;
             radioResumeA.Text = Lang.ResumeA;
             radioResumeAB.Text = Lang.ResumeAB;
@@ -169,6 +289,9 @@ namespace BarcodeVerificationSystem.View
             {
                 return;
             }
+
+            if (_handlingKeyUp && sender is NumericUpDown)
+                return;
 
             if (sender == radSensorControllerEnable)
             {
@@ -257,16 +380,24 @@ namespace BarcodeVerificationSystem.View
                     Shared.SendCommandToSensorController(Shared.Settings.ResumeEncoder == SettingsModel.ResumeEncoderType.ResumeA ? Shared.ResumeA : Shared.ResumeAB);
 
             }
-            else if (sender == radioV1)
+            else if (sender is RadioButton rb && PLCVersionRadios.Contains(rb))
             {
-                Shared.Settings.PLCVersion = radioV1.Checked ? 0 : 1;
-                grbResumeEncoder.Visible = delayOutputPanel.Visible = Shared.Settings.PLCVersion == 1;
+                Shared.Settings.PLCVersion = Array.IndexOf(PLCVersionRadios, rb);
+     
+                UIControlsFuncs.VisibleControl(radioV1.Checked, grbResumeEncoder, delayOutputPanel);
+                UIControlsFuncs.VisibleControl(radioV2.Checked && _CurrentSensorIndex == 1, EncoderMode); // 
             }
             else if (sender == comboPLCPort)
             {
                 Shared.Settings.NumberOfPort = comboPLCPort.SelectedIndex + 1;
                 Port2Panel.Visible = Shared.Settings.NumberOfPort > 1;
-
+            }
+            else if (sender == ExternalRad) // sender == InternalRad || 
+            {
+                Shared.Settings.EncoderMode = InternalRad.Checked ? ResumeEncoderMode.Internal 
+                                                                    : ResumeEncoderMode.External;
+                SetInExLanguage();
+                Shared.SendSettingToSensorController();
             }
 
             Shared.SaveSettings();

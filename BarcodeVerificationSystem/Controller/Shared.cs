@@ -1,5 +1,7 @@
-﻿using BarcodeVerificationSystem.Model;
+﻿using BarcodeVerificationSystem.Controller.Camera.Keyence;
+using BarcodeVerificationSystem.Model;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
+using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Response;
 using BarcodeVerificationSystem.Model.RunningMode.Dispatching;
 using BarcodeVerificationSystem.Model.UserPermission;
 using BarcodeVerificationSystem.Services;
@@ -38,10 +40,15 @@ namespace BarcodeVerificationSystem.Controller
         public static bool IsSerialDeviceConnected = false;
         public static bool IsSampled = false;
 
+        public static ResponseReservation Reservation;
+        public static int SelectedRESMaterialIndex = 0;
+
         public static PODController SensorController = null;
         public static SerialDeviceController SerialDevController = null;
 
         public static CameraController CamController = null;
+        public static CvxCamera cvxCamera = null;
+
         public static List<HardwareIDModel> listPCAllow = new List<HardwareIDModel>();
         public static string JobNameSelected = "";
         public static string databasePath = "";
@@ -52,12 +59,19 @@ namespace BarcodeVerificationSystem.Controller
         // Dispatching
         internal static ResponseListRePrint ResponseListRePrint = new ResponseListRePrint();
         internal static PrintingMode PrintMode = new PrintingMode();
+        public static bool isPushDatabase = false;
         public static int FirstGeneratedCodeIndex = 0;
         public static int LastGeneratedCodeIndex = 0;
         public static int NumberPrinted = 0;
         public static int TotalCodes = 0;
         public static int NumberOfSentSaaS = 0;
         public static int NumberOfSentSAP = 0;
+
+        public static int NumberChecked = 0;
+        public static int NumberOfCheckSentSaaS = 0;
+        public static int NumberOfCheckSentSAP = 0;
+        public static int NumberOfCheckSentSuccess = 0;
+
 
         public enum HistoryFilter{
             All,
@@ -73,6 +87,12 @@ namespace BarcodeVerificationSystem.Controller
         public static void RaiseOnSyncDataParameterChangeEvent(SyncDataParams sender)
         {
             OnSyncDataParameterChange?.Invoke(sender, EventArgs.Empty);
+        }
+
+        public static event EventHandler OnSyncCheckDataParameterChange;
+        public static void RaiseOnSyncCheckDataParameterChangeEvent(SyncDataParams sender)
+        {
+            OnSyncCheckDataParameterChange?.Invoke(sender, EventArgs.Empty);
         }
 
         public static event EventHandler OnNextButtonEvent;
@@ -513,30 +533,48 @@ namespace BarcodeVerificationSystem.Controller
         public static string ResumeAB = "(T10100000000000000000000000000000000000000000000000000000000000000000000000000000000)";
         public static void SendErrorOutputToSensorController(int Index)
         {
-            if (Shared.Settings.CameraList.FirstOrDefault().IsIndexCommandEnable)
+            if (Settings.CameraList.FirstOrDefault().IsIndexCommandEnable)
             {
                 string formattedCompareIndex = Index.ToString("D7"); // Formats as a 7-digit number
 
-                if(Shared.Settings.PLCVersion != 0)
+                switch (Settings.PLCVersion)
                 {
-                    SensorController.Send((Shared.Settings.CameraList.FirstOrDefault()).CommandErrorOutput + formattedCompareIndex);
+                    case 0:
+                        SensorController.Send((Settings.CameraList.FirstOrDefault()).CommandErrorOutput + formattedCompareIndex);
+                        break;
+                    case 1:
+                        SensorController.Send((Settings.CameraList.FirstOrDefault()).CommandErrorOutput + formattedCompareIndex);
+                        break;
+                    case 2:
+                        SensorController.Send("(C00005)" + formattedCompareIndex);
+                        break;
+
                 }
 
                 if (SensorController.IsConnected2())
                 {
-                    SensorController.Send2((Shared.Settings.CameraList.FirstOrDefault()).CommandErrorOutput + formattedCompareIndex);
+                    SensorController.Send2((Settings.CameraList.FirstOrDefault()).CommandErrorOutput + formattedCompareIndex);
                 }
             }
             else
             {
-                if (Shared.Settings.PLCVersion != 0)
+                switch (Settings.PLCVersion)
                 {
-                    SensorController.Send(Shared.Settings.CameraList.FirstOrDefault().CommandErrorOutput);
+                    case 0:
+                        SensorController.Send(Settings.CameraList.FirstOrDefault().CommandErrorOutput);
+                        break;
+                    case 1:
+                        SensorController.Send(Settings.CameraList.FirstOrDefault().CommandErrorOutput);
+                        break;
+                    case 2:
+                        SensorController.Send2("(C00005)");
+                        break;
+
                 }
 
-                if (SensorController.IsConnected2())
+                if (Settings.PLCVersion != 2)
                 {
-                    SensorController.Send2(Shared.Settings.CameraList.FirstOrDefault().CommandErrorOutput);
+                    SensorController.Send2(Settings.CameraList.FirstOrDefault().CommandErrorOutput);
                 }
             }
             //SensorController.Send("1");
@@ -575,14 +613,29 @@ namespace BarcodeVerificationSystem.Controller
             string strGapLength = Settings.GapLength1[index].ToString("D5");
             string strLength2Err = Settings.Length2Error1[index].ToString("D5");
 
-            string segment = string.Format("P{0}D{1}L{2}H{3}G{4}E{5}",
-                strPulseEncoder,
-                strEncoderDiameter,
-                strSensorDisableLength,
-                strSensorEnableLength,
-                strGapLength,
-                strLength2Err
-            );
+            string EncoderModeCharacter = (Settings.PLCVersion == 2
+                                        && Settings.EncoderMode == SettingsModel.ResumeEncoderMode.Internal
+                                        && index == 1
+                                        ) ? "I" : "P";
+
+            string segment = string.Format("{6}{0}D{1}L{2}H{3}G{4}E{5}",
+                                strPulseEncoder,
+                                strEncoderDiameter,
+                                strSensorDisableLength,
+                                strSensorEnableLength,
+                                strGapLength,
+                                strLength2Err,
+                                EncoderModeCharacter
+                            );
+
+            //string segment = string.Format("P{0}D{1}L{2}H{3}G{4}E{5}",
+            //    strPulseEncoder,
+            //    strEncoderDiameter,
+            //    strSensorDisableLength,
+            //    strSensorEnableLength,
+            //    strGapLength,
+            //    strLength2Err
+            //);
 
             if (includeDelayOutput)
             {

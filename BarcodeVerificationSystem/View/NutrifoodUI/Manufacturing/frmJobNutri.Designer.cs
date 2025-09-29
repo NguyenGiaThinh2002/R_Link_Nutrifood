@@ -54,19 +54,19 @@
             this.toolStripDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabGetPO = new System.Windows.Forms.TabPage();
             this.picSaveJobLoading = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.jobName = new DesignUI.CuzUI.CuzTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.templatePrintTxt = new System.Windows.Forms.Label();
             this.templatePrint = new DesignUI.CuzUI.CuzTextBox();
-            this.saveJobNutri = new DesignUI.CuzUI.CuzButton();
+            this.saveJobNuti = new DesignUI.CuzUI.CuzButton();
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.btnGetInfo = new DesignUI.CuzUI.CuzButton();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabGetMaterial = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.materialTable = new System.Windows.Forms.DataGridView();
             this.createdDate = new DesignUI.CuzUI.CuzTextBox();
@@ -118,14 +118,16 @@
             this.btnPODFormat = new DesignUI.CuzUI.CuzButton();
             this.btnImportDatabase = new DesignUI.CuzUI.CuzButton();
             this.btnGennerate = new DesignUI.CuzUI.CuzButton();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabSyncData = new System.Windows.Forms.TabPage();
+            this.syncDataPanel = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.syncCheckedProgress = new System.Windows.Forms.ProgressBar();
+            this.label18 = new System.Windows.Forms.Label();
+            this.syncPrintedProgress = new System.Windows.Forms.ProgressBar();
             this.editJobBtn = new DesignUI.CuzUI.CuzButton();
             this.StopSyncData = new DesignUI.CuzUI.CuzButton();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SyncDataBtn = new DesignUI.CuzUI.CuzButton();
             this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpHist = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.cuzTextBox1 = new DesignUI.CuzUI.CuzTextBox();
             this.cbbHisFilterType = new System.Windows.Forms.ComboBox();
@@ -138,25 +140,37 @@
             this.SoLuongDongBoSaaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoanThanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.TabCreatePOOffline = new System.Windows.Forms.TabPage();
+            this.DateTimePanel = new System.Windows.Forms.Panel();
+            this.ExpiredDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.MaufDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.InputShipToName = new DesignUI.CuzUI.CuzTextBox();
+            this.LOTNumber = new DesignUI.CuzUI.CuzTextBox();
             this.InputCodeNumber = new DesignUI.CuzUI.CuzTextBox();
-            this.InputMaterialName = new DesignUI.CuzUI.CuzTextBox();
-            this.InputMaterialNumber = new DesignUI.CuzUI.CuzTextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.MaterialNumber = new DesignUI.CuzUI.CuzTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.saveJobNutriOffline = new DesignUI.CuzUI.CuzButton();
-            this.InputShipto = new DesignUI.CuzUI.CuzTextBox();
-            this.InputShipment = new DesignUI.CuzUI.CuzTextBox();
-            this.InputWavekey = new DesignUI.CuzUI.CuzTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.InputWmsNumber = new DesignUI.CuzUI.CuzTextBox();
+            this.savePOOffline = new DesignUI.CuzUI.CuzButton();
+            this.InputPO = new DesignUI.CuzUI.CuzTextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabCreateRESOffline = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.RESExpiredDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.RESMaufDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.CreateRESOffline = new DesignUI.CuzUI.CuzButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.RES_LotNumber = new DesignUI.CuzUI.CuzTextBox();
+            this.RES_NumberCode = new DesignUI.CuzUI.CuzTextBox();
+            this.RES_MaterialNumber = new DesignUI.CuzUI.CuzTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.RES_Material_doc = new DesignUI.CuzUI.CuzTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tabSelectJob = new System.Windows.Forms.TabPage();
             this.cuzButtonPurge = new DesignUI.CuzUI.CuzButton();
             this.pnlJobInfomation = new DesignUI.CuzUI.RoundPanel();
             this.txtJobStatus = new DesignUI.CuzUI.CuzTextBox();
@@ -189,12 +203,12 @@
             this.statusStrip2.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabGetPO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSaveJobLoading)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tabGetMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialTable)).BeginInit();
             this.tblCompareType.SuspendLayout();
@@ -202,10 +216,14 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.cuzPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).BeginInit();
-            this.tabPage4.SuspendLayout();
+            this.tabSyncData.SuspendLayout();
+            this.syncDataPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.TabCreatePOOffline.SuspendLayout();
+            this.DateTimePanel.SuspendLayout();
+            this.tabCreateRESOffline.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tabSelectJob.SuspendLayout();
             this.pnlJobInfomation.SuspendLayout();
             this.cuzPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoading)).BeginInit();
@@ -345,9 +363,9 @@
             this.lblStatusCamera01,
             this.lblStatusPrinter01,
             this.lblStatusSerialDevice,
+            this.lblSensorControllerStatus,
             this.LineName,
             this.UserNameDisplay,
-            this.lblSensorControllerStatus,
             this.lblToolStripVersion,
             this.toolStripDateTime});
             this.statusStrip2.Name = "statusStrip2";
@@ -430,26 +448,27 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabGetPO);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabSyncData);
+            this.tabControl1.Controls.Add(this.TabCreatePOOffline);
+            this.tabControl1.Controls.Add(this.tabCreateRESOffline);
+            this.tabControl1.Controls.Add(this.tabSelectJob);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
-            // tabPage1
+            // tabGetPO
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.picSaveJobLoading);
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.saveJobNutri);
-            this.tabPage1.Controls.Add(this.dgvItems);
-            this.tabPage1.Controls.Add(this.btnGetInfo);
-            this.tabPage1.Controls.Add(this.label2);
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
+            this.tabGetPO.BackColor = System.Drawing.Color.White;
+            this.tabGetPO.Controls.Add(this.picSaveJobLoading);
+            this.tabGetPO.Controls.Add(this.panel2);
+            this.tabGetPO.Controls.Add(this.saveJobNuti);
+            this.tabGetPO.Controls.Add(this.dgvItems);
+            this.tabGetPO.Controls.Add(this.btnGetInfo);
+            this.tabGetPO.Controls.Add(this.label2);
+            resources.ApplyResources(this.tabGetPO, "tabGetPO");
+            this.tabGetPO.Name = "tabGetPO";
             // 
             // picSaveJobLoading
             // 
@@ -517,23 +536,23 @@
             this.templatePrint.ReadOnly = false;
             this.templatePrint.UnderlinedStyle = false;
             // 
-            // saveJobNutri
+            // saveJobNuti
             // 
-            this.saveJobNutri._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
-            this.saveJobNutri._BorderRadius = 20;
-            this.saveJobNutri._BorderSize = 1;
-            this.saveJobNutri._GradientsButton = false;
-            this.saveJobNutri._Text = "TẠO";
-            this.saveJobNutri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.saveJobNutri.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.saveJobNutri.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.saveJobNutri.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.saveJobNutri.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.saveJobNutri, "saveJobNutri");
-            this.saveJobNutri.ForeColor = System.Drawing.Color.White;
-            this.saveJobNutri.Name = "saveJobNutri";
-            this.saveJobNutri.TextColor = System.Drawing.Color.White;
-            this.saveJobNutri.UseVisualStyleBackColor = false;
+            this.saveJobNuti._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
+            this.saveJobNuti._BorderRadius = 20;
+            this.saveJobNuti._BorderSize = 1;
+            this.saveJobNuti._GradientsButton = false;
+            this.saveJobNuti._Text = "TẠO";
+            this.saveJobNuti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.saveJobNuti.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.saveJobNuti.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.saveJobNuti.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.saveJobNuti.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.saveJobNuti, "saveJobNuti");
+            this.saveJobNuti.ForeColor = System.Drawing.Color.White;
+            this.saveJobNuti.Name = "saveJobNuti";
+            this.saveJobNuti.TextColor = System.Drawing.Color.White;
+            this.saveJobNuti.UseVisualStyleBackColor = false;
             // 
             // dgvItems
             // 
@@ -602,7 +621,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
-            this.tabPage3.Controls.Add(this.panel1);
+            this.tabPage3.Controls.Add(this.tabGetMaterial);
             this.tabPage3.Controls.Add(this.numberOfCodes);
             this.tabPage3.Controls.Add(this.FirstRowHeader);
             this.tabPage3.Controls.Add(this.BtnViewLog);
@@ -635,22 +654,22 @@
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             // 
-            // panel1
+            // tabGetMaterial
             // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.materialTable);
-            this.panel1.Controls.Add(this.createdDate);
-            this.panel1.Controls.Add(this.companyCode);
-            this.panel1.Controls.Add(this.reservation);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.GetMaterialDoc);
-            this.panel1.Controls.Add(this.material_doc);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.saveJobReservation);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
+            this.tabGetMaterial.Controls.Add(this.pictureBox1);
+            this.tabGetMaterial.Controls.Add(this.materialTable);
+            this.tabGetMaterial.Controls.Add(this.createdDate);
+            this.tabGetMaterial.Controls.Add(this.companyCode);
+            this.tabGetMaterial.Controls.Add(this.reservation);
+            this.tabGetMaterial.Controls.Add(this.label6);
+            this.tabGetMaterial.Controls.Add(this.label8);
+            this.tabGetMaterial.Controls.Add(this.label9);
+            this.tabGetMaterial.Controls.Add(this.GetMaterialDoc);
+            this.tabGetMaterial.Controls.Add(this.material_doc);
+            this.tabGetMaterial.Controls.Add(this.label10);
+            this.tabGetMaterial.Controls.Add(this.saveJobReservation);
+            resources.ApplyResources(this.tabGetMaterial, "tabGetMaterial");
+            this.tabGetMaterial.Name = "tabGetMaterial";
             // 
             // pictureBox1
             // 
@@ -1293,22 +1312,53 @@
             this.btnGennerate.TextColor = System.Drawing.SystemColors.ControlText;
             this.btnGennerate.UseVisualStyleBackColor = false;
             // 
-            // tabPage4
+            // tabSyncData
             // 
-            this.tabPage4.Controls.Add(this.editJobBtn);
-            this.tabPage4.Controls.Add(this.StopSyncData);
-            this.tabPage4.Controls.Add(this.progressBar1);
-            this.tabPage4.Controls.Add(this.SyncDataBtn);
-            this.tabPage4.Controls.Add(this.cuzButton1);
-            this.tabPage4.Controls.Add(this.label3);
-            this.tabPage4.Controls.Add(this.dtpHist);
-            this.tabPage4.Controls.Add(this.label7);
-            this.tabPage4.Controls.Add(this.cuzTextBox1);
-            this.tabPage4.Controls.Add(this.cbbHisFilterType);
-            this.tabPage4.Controls.Add(this.dgvHistoryJob);
-            resources.ApplyResources(this.tabPage4, "tabPage4");
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabSyncData.Controls.Add(this.syncDataPanel);
+            this.tabSyncData.Controls.Add(this.editJobBtn);
+            this.tabSyncData.Controls.Add(this.StopSyncData);
+            this.tabSyncData.Controls.Add(this.SyncDataBtn);
+            this.tabSyncData.Controls.Add(this.cuzButton1);
+            this.tabSyncData.Controls.Add(this.label7);
+            this.tabSyncData.Controls.Add(this.cuzTextBox1);
+            this.tabSyncData.Controls.Add(this.cbbHisFilterType);
+            this.tabSyncData.Controls.Add(this.dgvHistoryJob);
+            resources.ApplyResources(this.tabSyncData, "tabSyncData");
+            this.tabSyncData.Name = "tabSyncData";
+            this.tabSyncData.UseVisualStyleBackColor = true;
+            // 
+            // syncDataPanel
+            // 
+            this.syncDataPanel.Controls.Add(this.label21);
+            this.syncDataPanel.Controls.Add(this.syncCheckedProgress);
+            this.syncDataPanel.Controls.Add(this.label18);
+            this.syncDataPanel.Controls.Add(this.syncPrintedProgress);
+            resources.ApplyResources(this.syncDataPanel, "syncDataPanel");
+            this.syncDataPanel.Name = "syncDataPanel";
+            // 
+            // label21
+            // 
+            resources.ApplyResources(this.label21, "label21");
+            this.label21.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label21.Name = "label21";
+            // 
+            // syncCheckedProgress
+            // 
+            resources.ApplyResources(this.syncCheckedProgress, "syncCheckedProgress");
+            this.syncCheckedProgress.Name = "syncCheckedProgress";
+            this.syncCheckedProgress.Value = 100;
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label18.Name = "label18";
+            // 
+            // syncPrintedProgress
+            // 
+            resources.ApplyResources(this.syncPrintedProgress, "syncPrintedProgress");
+            this.syncPrintedProgress.Name = "syncPrintedProgress";
+            this.syncPrintedProgress.Value = 100;
             // 
             // editJobBtn
             // 
@@ -1346,12 +1396,6 @@
             this.StopSyncData.TextColor = System.Drawing.Color.White;
             this.StopSyncData.UseVisualStyleBackColor = false;
             // 
-            // progressBar1
-            // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Value = 50;
-            // 
             // SyncDataBtn
             // 
             this.SyncDataBtn._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
@@ -1387,17 +1431,6 @@
             this.cuzButton1.Name = "cuzButton1";
             this.cuzButton1.TextColor = System.Drawing.Color.White;
             this.cuzButton1.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label3.Name = "label3";
-            // 
-            // dtpHist
-            // 
-            resources.ApplyResources(this.dtpHist, "dtpHist");
-            this.dtpHist.Name = "dtpHist";
             // 
             // label7
             // 
@@ -1501,28 +1534,54 @@
             this.HoanThanh.Name = "HoanThanh";
             this.HoanThanh.ReadOnly = true;
             // 
-            // tabPage5
+            // TabCreatePOOffline
             // 
-            this.tabPage5.BackColor = System.Drawing.Color.White;
-            this.tabPage5.Controls.Add(this.label15);
-            this.tabPage5.Controls.Add(this.InputShipToName);
-            this.tabPage5.Controls.Add(this.InputCodeNumber);
-            this.tabPage5.Controls.Add(this.InputMaterialName);
-            this.tabPage5.Controls.Add(this.InputMaterialNumber);
-            this.tabPage5.Controls.Add(this.label18);
-            this.tabPage5.Controls.Add(this.label19);
-            this.tabPage5.Controls.Add(this.label20);
-            this.tabPage5.Controls.Add(this.saveJobNutriOffline);
-            this.tabPage5.Controls.Add(this.InputShipto);
-            this.tabPage5.Controls.Add(this.InputShipment);
-            this.tabPage5.Controls.Add(this.InputWavekey);
-            this.tabPage5.Controls.Add(this.label12);
-            this.tabPage5.Controls.Add(this.label13);
-            this.tabPage5.Controls.Add(this.label14);
-            this.tabPage5.Controls.Add(this.InputWmsNumber);
-            this.tabPage5.Controls.Add(this.label16);
-            resources.ApplyResources(this.tabPage5, "tabPage5");
-            this.tabPage5.Name = "tabPage5";
+            this.TabCreatePOOffline.BackColor = System.Drawing.Color.White;
+            this.TabCreatePOOffline.Controls.Add(this.DateTimePanel);
+            this.TabCreatePOOffline.Controls.Add(this.label15);
+            this.TabCreatePOOffline.Controls.Add(this.LOTNumber);
+            this.TabCreatePOOffline.Controls.Add(this.InputCodeNumber);
+            this.TabCreatePOOffline.Controls.Add(this.MaterialNumber);
+            this.TabCreatePOOffline.Controls.Add(this.label19);
+            this.TabCreatePOOffline.Controls.Add(this.label20);
+            this.TabCreatePOOffline.Controls.Add(this.savePOOffline);
+            this.TabCreatePOOffline.Controls.Add(this.InputPO);
+            this.TabCreatePOOffline.Controls.Add(this.label16);
+            resources.ApplyResources(this.TabCreatePOOffline, "TabCreatePOOffline");
+            this.TabCreatePOOffline.Name = "TabCreatePOOffline";
+            // 
+            // DateTimePanel
+            // 
+            this.DateTimePanel.Controls.Add(this.ExpiredDatePicker);
+            this.DateTimePanel.Controls.Add(this.MaufDatePicker);
+            this.DateTimePanel.Controls.Add(this.label4);
+            this.DateTimePanel.Controls.Add(this.label5);
+            resources.ApplyResources(this.DateTimePanel, "DateTimePanel");
+            this.DateTimePanel.Name = "DateTimePanel";
+            // 
+            // ExpiredDatePicker
+            // 
+            resources.ApplyResources(this.ExpiredDatePicker, "ExpiredDatePicker");
+            this.ExpiredDatePicker.Name = "ExpiredDatePicker";
+            // 
+            // MaufDatePicker
+            // 
+            resources.ApplyResources(this.MaufDatePicker, "MaufDatePicker");
+            this.MaufDatePicker.Name = "MaufDatePicker";
+            // 
+            // label4
+            // 
+            this.label4.AutoEllipsis = true;
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label4.Name = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoEllipsis = true;
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label5.Name = "label5";
             // 
             // label15
             // 
@@ -1530,24 +1589,24 @@
             this.label15.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label15.Name = "label15";
             // 
-            // InputShipToName
+            // LOTNumber
             // 
-            this.InputShipToName._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.InputShipToName._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.InputShipToName.BackColor = System.Drawing.Color.White;
-            this.InputShipToName.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.InputShipToName.BorderFocusColor = System.Drawing.Color.Silver;
-            this.InputShipToName.BorderRadius = 6;
-            this.InputShipToName.BorderSize = 1;
-            resources.ApplyResources(this.InputShipToName, "InputShipToName");
-            this.InputShipToName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.InputShipToName.Multiline = false;
-            this.InputShipToName.Name = "InputShipToName";
-            this.InputShipToName.PasswordChar = false;
-            this.InputShipToName.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.InputShipToName.PlaceholderText = "";
-            this.InputShipToName.ReadOnly = false;
-            this.InputShipToName.UnderlinedStyle = false;
+            this.LOTNumber._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.LOTNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.LOTNumber.BackColor = System.Drawing.Color.White;
+            this.LOTNumber.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.LOTNumber.BorderFocusColor = System.Drawing.Color.Silver;
+            this.LOTNumber.BorderRadius = 6;
+            this.LOTNumber.BorderSize = 1;
+            resources.ApplyResources(this.LOTNumber, "LOTNumber");
+            this.LOTNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LOTNumber.Multiline = false;
+            this.LOTNumber.Name = "LOTNumber";
+            this.LOTNumber.PasswordChar = false;
+            this.LOTNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.LOTNumber.PlaceholderText = "";
+            this.LOTNumber.ReadOnly = false;
+            this.LOTNumber.UnderlinedStyle = false;
             // 
             // InputCodeNumber
             // 
@@ -1568,49 +1627,24 @@
             this.InputCodeNumber.ReadOnly = false;
             this.InputCodeNumber.UnderlinedStyle = false;
             // 
-            // InputMaterialName
+            // MaterialNumber
             // 
-            this.InputMaterialName._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.InputMaterialName._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.InputMaterialName.BackColor = System.Drawing.Color.White;
-            this.InputMaterialName.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.InputMaterialName.BorderFocusColor = System.Drawing.Color.Silver;
-            this.InputMaterialName.BorderRadius = 6;
-            this.InputMaterialName.BorderSize = 1;
-            resources.ApplyResources(this.InputMaterialName, "InputMaterialName");
-            this.InputMaterialName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.InputMaterialName.Multiline = false;
-            this.InputMaterialName.Name = "InputMaterialName";
-            this.InputMaterialName.PasswordChar = false;
-            this.InputMaterialName.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.InputMaterialName.PlaceholderText = "";
-            this.InputMaterialName.ReadOnly = false;
-            this.InputMaterialName.UnderlinedStyle = false;
-            // 
-            // InputMaterialNumber
-            // 
-            this.InputMaterialNumber._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.InputMaterialNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.InputMaterialNumber.BackColor = System.Drawing.Color.White;
-            this.InputMaterialNumber.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.InputMaterialNumber.BorderFocusColor = System.Drawing.Color.Silver;
-            this.InputMaterialNumber.BorderRadius = 6;
-            this.InputMaterialNumber.BorderSize = 1;
-            resources.ApplyResources(this.InputMaterialNumber, "InputMaterialNumber");
-            this.InputMaterialNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.InputMaterialNumber.Multiline = false;
-            this.InputMaterialNumber.Name = "InputMaterialNumber";
-            this.InputMaterialNumber.PasswordChar = false;
-            this.InputMaterialNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.InputMaterialNumber.PlaceholderText = "";
-            this.InputMaterialNumber.ReadOnly = false;
-            this.InputMaterialNumber.UnderlinedStyle = false;
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label18.Name = "label18";
+            this.MaterialNumber._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.MaterialNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.MaterialNumber.BackColor = System.Drawing.Color.White;
+            this.MaterialNumber.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.MaterialNumber.BorderFocusColor = System.Drawing.Color.Silver;
+            this.MaterialNumber.BorderRadius = 6;
+            this.MaterialNumber.BorderSize = 1;
+            resources.ApplyResources(this.MaterialNumber, "MaterialNumber");
+            this.MaterialNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MaterialNumber.Multiline = false;
+            this.MaterialNumber.Name = "MaterialNumber";
+            this.MaterialNumber.PasswordChar = false;
+            this.MaterialNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.MaterialNumber.PlaceholderText = "";
+            this.MaterialNumber.ReadOnly = false;
+            this.MaterialNumber.UnderlinedStyle = false;
             // 
             // label19
             // 
@@ -1624,117 +1658,42 @@
             this.label20.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label20.Name = "label20";
             // 
-            // saveJobNutriOffline
+            // savePOOffline
             // 
-            this.saveJobNutriOffline._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
-            this.saveJobNutriOffline._BorderRadius = 20;
-            this.saveJobNutriOffline._BorderSize = 1;
-            this.saveJobNutriOffline._GradientsButton = false;
-            this.saveJobNutriOffline._Text = "TẠO";
-            this.saveJobNutriOffline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.saveJobNutriOffline.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.saveJobNutriOffline.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.saveJobNutriOffline.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.saveJobNutriOffline.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.saveJobNutriOffline, "saveJobNutriOffline");
-            this.saveJobNutriOffline.ForeColor = System.Drawing.Color.White;
-            this.saveJobNutriOffline.Name = "saveJobNutriOffline";
-            this.saveJobNutriOffline.TextColor = System.Drawing.Color.White;
-            this.saveJobNutriOffline.UseVisualStyleBackColor = false;
+            this.savePOOffline._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
+            this.savePOOffline._BorderRadius = 20;
+            this.savePOOffline._BorderSize = 1;
+            this.savePOOffline._GradientsButton = false;
+            this.savePOOffline._Text = "TẠO";
+            this.savePOOffline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.savePOOffline.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.savePOOffline.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.savePOOffline.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.savePOOffline.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.savePOOffline, "savePOOffline");
+            this.savePOOffline.ForeColor = System.Drawing.Color.White;
+            this.savePOOffline.Name = "savePOOffline";
+            this.savePOOffline.TextColor = System.Drawing.Color.White;
+            this.savePOOffline.UseVisualStyleBackColor = false;
             // 
-            // InputShipto
+            // InputPO
             // 
-            this.InputShipto._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.InputShipto._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.InputShipto.BackColor = System.Drawing.Color.White;
-            this.InputShipto.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.InputShipto.BorderFocusColor = System.Drawing.Color.Silver;
-            this.InputShipto.BorderRadius = 6;
-            this.InputShipto.BorderSize = 1;
-            resources.ApplyResources(this.InputShipto, "InputShipto");
-            this.InputShipto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.InputShipto.Multiline = false;
-            this.InputShipto.Name = "InputShipto";
-            this.InputShipto.PasswordChar = false;
-            this.InputShipto.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.InputShipto.PlaceholderText = "";
-            this.InputShipto.ReadOnly = false;
-            this.InputShipto.UnderlinedStyle = false;
-            // 
-            // InputShipment
-            // 
-            this.InputShipment._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.InputShipment._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.InputShipment.BackColor = System.Drawing.Color.White;
-            this.InputShipment.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.InputShipment.BorderFocusColor = System.Drawing.Color.Silver;
-            this.InputShipment.BorderRadius = 6;
-            this.InputShipment.BorderSize = 1;
-            resources.ApplyResources(this.InputShipment, "InputShipment");
-            this.InputShipment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.InputShipment.Multiline = false;
-            this.InputShipment.Name = "InputShipment";
-            this.InputShipment.PasswordChar = false;
-            this.InputShipment.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.InputShipment.PlaceholderText = "";
-            this.InputShipment.ReadOnly = false;
-            this.InputShipment.UnderlinedStyle = false;
-            // 
-            // InputWavekey
-            // 
-            this.InputWavekey._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.InputWavekey._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.InputWavekey.BackColor = System.Drawing.Color.White;
-            this.InputWavekey.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.InputWavekey.BorderFocusColor = System.Drawing.Color.Silver;
-            this.InputWavekey.BorderRadius = 6;
-            this.InputWavekey.BorderSize = 1;
-            resources.ApplyResources(this.InputWavekey, "InputWavekey");
-            this.InputWavekey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.InputWavekey.Multiline = false;
-            this.InputWavekey.Name = "InputWavekey";
-            this.InputWavekey.PasswordChar = false;
-            this.InputWavekey.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.InputWavekey.PlaceholderText = "";
-            this.InputWavekey.ReadOnly = false;
-            this.InputWavekey.UnderlinedStyle = false;
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label12.Name = "label12";
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label13.Name = "label13";
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label14.Name = "label14";
-            // 
-            // InputWmsNumber
-            // 
-            this.InputWmsNumber._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.InputWmsNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.InputWmsNumber.BackColor = System.Drawing.Color.White;
-            this.InputWmsNumber.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.InputWmsNumber.BorderFocusColor = System.Drawing.Color.Silver;
-            this.InputWmsNumber.BorderRadius = 6;
-            this.InputWmsNumber.BorderSize = 1;
-            resources.ApplyResources(this.InputWmsNumber, "InputWmsNumber");
-            this.InputWmsNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.InputWmsNumber.Multiline = false;
-            this.InputWmsNumber.Name = "InputWmsNumber";
-            this.InputWmsNumber.PasswordChar = false;
-            this.InputWmsNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.InputWmsNumber.PlaceholderText = "";
-            this.InputWmsNumber.ReadOnly = false;
-            this.InputWmsNumber.UnderlinedStyle = false;
+            this.InputPO._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.InputPO._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.InputPO.BackColor = System.Drawing.Color.White;
+            this.InputPO.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.InputPO.BorderFocusColor = System.Drawing.Color.Silver;
+            this.InputPO.BorderRadius = 6;
+            this.InputPO.BorderSize = 1;
+            resources.ApplyResources(this.InputPO, "InputPO");
+            this.InputPO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.InputPO.Multiline = false;
+            this.InputPO.Name = "InputPO";
+            this.InputPO.PasswordChar = false;
+            this.InputPO.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.InputPO.PlaceholderText = "";
+            this.InputPO.ReadOnly = false;
+            this.InputPO.UnderlinedStyle = false;
             // 
             // label16
             // 
@@ -1742,23 +1701,191 @@
             this.label16.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label16.Name = "label16";
             // 
-            // tabPage2
+            // tabCreateRESOffline
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Controls.Add(this.cuzButtonPurge);
-            this.tabPage2.Controls.Add(this.pnlJobInfomation);
-            this.tabPage2.Controls.Add(this.cuzPanel3);
-            this.tabPage2.Controls.Add(this.btnDelete);
-            this.tabPage2.Controls.Add(this.btnNext);
-            this.tabPage2.Controls.Add(this.pnlRLinkSeriesColor);
-            this.tabPage2.Controls.Add(this.pnlStandaloneColor);
-            this.tabPage2.Controls.Add(this.txtSearch);
-            this.tabPage2.Controls.Add(this.btnSearchJob);
-            this.tabPage2.Controls.Add(this.lblRLinkSeries);
-            this.tabPage2.Controls.Add(this.btnRefesh);
-            this.tabPage2.Controls.Add(this.lblStandalone);
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Name = "tabPage2";
+            this.tabCreateRESOffline.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tabCreateRESOffline.Controls.Add(this.panel1);
+            this.tabCreateRESOffline.Controls.Add(this.CreateRESOffline);
+            this.tabCreateRESOffline.Controls.Add(this.label3);
+            this.tabCreateRESOffline.Controls.Add(this.RES_LotNumber);
+            this.tabCreateRESOffline.Controls.Add(this.RES_NumberCode);
+            this.tabCreateRESOffline.Controls.Add(this.RES_MaterialNumber);
+            this.tabCreateRESOffline.Controls.Add(this.label11);
+            this.tabCreateRESOffline.Controls.Add(this.label12);
+            this.tabCreateRESOffline.Controls.Add(this.RES_Material_doc);
+            this.tabCreateRESOffline.Controls.Add(this.label13);
+            resources.ApplyResources(this.tabCreateRESOffline, "tabCreateRESOffline");
+            this.tabCreateRESOffline.Name = "tabCreateRESOffline";
+            this.tabCreateRESOffline.Click += new System.EventHandler(this.tabCreateRevOffline_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.RESExpiredDatePicker);
+            this.panel1.Controls.Add(this.RESMaufDatePicker);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label17);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // RESExpiredDatePicker
+            // 
+            resources.ApplyResources(this.RESExpiredDatePicker, "RESExpiredDatePicker");
+            this.RESExpiredDatePicker.Name = "RESExpiredDatePicker";
+            // 
+            // RESMaufDatePicker
+            // 
+            resources.ApplyResources(this.RESMaufDatePicker, "RESMaufDatePicker");
+            this.RESMaufDatePicker.Name = "RESMaufDatePicker";
+            // 
+            // label14
+            // 
+            this.label14.AutoEllipsis = true;
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label14.Name = "label14";
+            // 
+            // label17
+            // 
+            this.label17.AutoEllipsis = true;
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label17.Name = "label17";
+            // 
+            // CreateRESOffline
+            // 
+            this.CreateRESOffline._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
+            this.CreateRESOffline._BorderRadius = 20;
+            this.CreateRESOffline._BorderSize = 1;
+            this.CreateRESOffline._GradientsButton = false;
+            this.CreateRESOffline._Text = "TẠO";
+            this.CreateRESOffline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.CreateRESOffline.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.CreateRESOffline.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CreateRESOffline.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.CreateRESOffline.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.CreateRESOffline, "CreateRESOffline");
+            this.CreateRESOffline.ForeColor = System.Drawing.Color.White;
+            this.CreateRESOffline.Name = "CreateRESOffline";
+            this.CreateRESOffline.TextColor = System.Drawing.Color.White;
+            this.CreateRESOffline.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label3.Name = "label3";
+            // 
+            // RES_LotNumber
+            // 
+            this.RES_LotNumber._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.RES_LotNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.RES_LotNumber.BackColor = System.Drawing.Color.White;
+            this.RES_LotNumber.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.RES_LotNumber.BorderFocusColor = System.Drawing.Color.Silver;
+            this.RES_LotNumber.BorderRadius = 6;
+            this.RES_LotNumber.BorderSize = 1;
+            resources.ApplyResources(this.RES_LotNumber, "RES_LotNumber");
+            this.RES_LotNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RES_LotNumber.Multiline = false;
+            this.RES_LotNumber.Name = "RES_LotNumber";
+            this.RES_LotNumber.PasswordChar = false;
+            this.RES_LotNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.RES_LotNumber.PlaceholderText = "";
+            this.RES_LotNumber.ReadOnly = false;
+            this.RES_LotNumber.UnderlinedStyle = false;
+            // 
+            // RES_NumberCode
+            // 
+            this.RES_NumberCode._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.RES_NumberCode._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.RES_NumberCode.BackColor = System.Drawing.Color.White;
+            this.RES_NumberCode.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.RES_NumberCode.BorderFocusColor = System.Drawing.Color.Silver;
+            this.RES_NumberCode.BorderRadius = 6;
+            this.RES_NumberCode.BorderSize = 1;
+            resources.ApplyResources(this.RES_NumberCode, "RES_NumberCode");
+            this.RES_NumberCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RES_NumberCode.Multiline = false;
+            this.RES_NumberCode.Name = "RES_NumberCode";
+            this.RES_NumberCode.PasswordChar = false;
+            this.RES_NumberCode.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.RES_NumberCode.PlaceholderText = "";
+            this.RES_NumberCode.ReadOnly = false;
+            this.RES_NumberCode.UnderlinedStyle = false;
+            // 
+            // RES_MaterialNumber
+            // 
+            this.RES_MaterialNumber._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.RES_MaterialNumber._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.RES_MaterialNumber.BackColor = System.Drawing.Color.White;
+            this.RES_MaterialNumber.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.RES_MaterialNumber.BorderFocusColor = System.Drawing.Color.Silver;
+            this.RES_MaterialNumber.BorderRadius = 6;
+            this.RES_MaterialNumber.BorderSize = 1;
+            resources.ApplyResources(this.RES_MaterialNumber, "RES_MaterialNumber");
+            this.RES_MaterialNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RES_MaterialNumber.Multiline = false;
+            this.RES_MaterialNumber.Name = "RES_MaterialNumber";
+            this.RES_MaterialNumber.PasswordChar = false;
+            this.RES_MaterialNumber.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.RES_MaterialNumber.PlaceholderText = "";
+            this.RES_MaterialNumber.ReadOnly = false;
+            this.RES_MaterialNumber.UnderlinedStyle = false;
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label11.Name = "label11";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label12.Name = "label12";
+            // 
+            // RES_Material_doc
+            // 
+            this.RES_Material_doc._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
+            this.RES_Material_doc._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.RES_Material_doc.BackColor = System.Drawing.Color.White;
+            this.RES_Material_doc.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.RES_Material_doc.BorderFocusColor = System.Drawing.Color.Silver;
+            this.RES_Material_doc.BorderRadius = 6;
+            this.RES_Material_doc.BorderSize = 1;
+            resources.ApplyResources(this.RES_Material_doc, "RES_Material_doc");
+            this.RES_Material_doc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RES_Material_doc.Multiline = false;
+            this.RES_Material_doc.Name = "RES_Material_doc";
+            this.RES_Material_doc.PasswordChar = false;
+            this.RES_Material_doc.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.RES_Material_doc.PlaceholderText = "";
+            this.RES_Material_doc.ReadOnly = false;
+            this.RES_Material_doc.UnderlinedStyle = false;
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label13.Name = "label13";
+            // 
+            // tabSelectJob
+            // 
+            this.tabSelectJob.BackColor = System.Drawing.Color.White;
+            this.tabSelectJob.Controls.Add(this.cuzButtonPurge);
+            this.tabSelectJob.Controls.Add(this.pnlJobInfomation);
+            this.tabSelectJob.Controls.Add(this.cuzPanel3);
+            this.tabSelectJob.Controls.Add(this.btnDelete);
+            this.tabSelectJob.Controls.Add(this.btnNext);
+            this.tabSelectJob.Controls.Add(this.pnlRLinkSeriesColor);
+            this.tabSelectJob.Controls.Add(this.pnlStandaloneColor);
+            this.tabSelectJob.Controls.Add(this.txtSearch);
+            this.tabSelectJob.Controls.Add(this.btnSearchJob);
+            this.tabSelectJob.Controls.Add(this.lblRLinkSeries);
+            this.tabSelectJob.Controls.Add(this.btnRefesh);
+            this.tabSelectJob.Controls.Add(this.lblStandalone);
+            resources.ApplyResources(this.tabSelectJob, "tabSelectJob");
+            this.tabSelectJob.Name = "tabSelectJob";
             // 
             // cuzButtonPurge
             // 
@@ -2141,16 +2268,16 @@
             this.statusStrip2.PerformLayout();
             this.pnlMain.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabGetPO.ResumeLayout(false);
+            this.tabGetPO.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSaveJobLoading)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.tabGetMaterial.ResumeLayout(false);
+            this.tabGetMaterial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialTable)).EndInit();
             this.tblCompareType.ResumeLayout(false);
@@ -2159,13 +2286,19 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.cuzPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
+            this.tabSyncData.ResumeLayout(false);
+            this.tabSyncData.PerformLayout();
+            this.syncDataPanel.ResumeLayout(false);
+            this.syncDataPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.TabCreatePOOffline.ResumeLayout(false);
+            this.TabCreatePOOffline.PerformLayout();
+            this.DateTimePanel.ResumeLayout(false);
+            this.tabCreateRESOffline.ResumeLayout(false);
+            this.tabCreateRESOffline.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.tabSelectJob.ResumeLayout(false);
+            this.tabSelectJob.PerformLayout();
             this.pnlJobInfomation.ResumeLayout(false);
             this.pnlJobInfomation.PerformLayout();
             this.cuzPanel3.ResumeLayout(false);
@@ -2192,12 +2325,12 @@
         private FontAwesome.Sharp.IconButton btnHelp;
         private FontAwesome.Sharp.IconButton btnRestart;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private DesignUI.CuzUI.CuzButton saveJobNutri;
+        private System.Windows.Forms.TabPage tabGetPO;
+        private DesignUI.CuzUI.CuzButton saveJobNuti;
         private System.Windows.Forms.DataGridView dgvItems;
         private DesignUI.CuzUI.CuzButton btnGetInfo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabSelectJob;
         private DesignUI.CuzUI.CuzButton cuzButtonPurge;
         private DesignUI.CuzUI.RoundPanel pnlJobInfomation;
         private DesignUI.CuzUI.CuzTextBox txtJobStatus;
@@ -2227,7 +2360,8 @@
         private DesignUI.CuzUI.CuzButton btnRefesh;
         private System.Windows.Forms.Label lblStandalone;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabPage tabCreateRESOffline;
+        private System.Windows.Forms.Panel tabGetMaterial;
         private DesignUI.CuzUI.CuzButton saveJobReservation;
         private System.Windows.Forms.Label numberOfCodes;
         private System.Windows.Forms.CheckBox FirstRowHeader;
@@ -2268,11 +2402,9 @@
         private DesignUI.CuzUI.CuzButton btnPODFormat;
         private DesignUI.CuzUI.CuzButton btnImportDatabase;
         private DesignUI.CuzUI.CuzButton btnGennerate;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabSyncData;
         private DesignUI.CuzUI.CuzButton SyncDataBtn;
         private DesignUI.CuzUI.CuzButton cuzButton1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpHist;
         private System.Windows.Forms.Label label7;
         private DesignUI.CuzUI.CuzTextBox cuzTextBox1;
         private System.Windows.Forms.ComboBox cbbHisFilterType;
@@ -2285,23 +2417,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSaaS;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoanThanh;
-        private System.Windows.Forms.TabPage tabPage5;
-        private DesignUI.CuzUI.CuzButton saveJobNutriOffline;
-        private DesignUI.CuzUI.CuzTextBox InputShipto;
-        private DesignUI.CuzUI.CuzTextBox InputShipment;
-        private DesignUI.CuzUI.CuzTextBox InputWavekey;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private DesignUI.CuzUI.CuzTextBox InputWmsNumber;
+        private System.Windows.Forms.TabPage TabCreatePOOffline;
+        private DesignUI.CuzUI.CuzButton savePOOffline;
+        private DesignUI.CuzUI.CuzTextBox InputPO;
         private System.Windows.Forms.Label label16;
         private DesignUI.CuzUI.CuzTextBox InputCodeNumber;
-        private DesignUI.CuzUI.CuzTextBox InputMaterialName;
-        private DesignUI.CuzUI.CuzTextBox InputMaterialNumber;
-        private System.Windows.Forms.Label label18;
+        private DesignUI.CuzUI.CuzTextBox MaterialNumber;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar syncPrintedProgress;
         private DesignUI.CuzUI.CuzButton StopSyncData;
         private DesignUI.CuzUI.CuzButton editJobBtn;
         private System.Windows.Forms.ToolStripStatusLabel UserNameDisplay;
@@ -2309,7 +2433,7 @@
         private FontAwesome.Sharp.IconButton ErrorsLogger;
         private System.Windows.Forms.ToolStripStatusLabel LineName;
         private System.Windows.Forms.Label label15;
-        private DesignUI.CuzUI.CuzTextBox InputShipToName;
+        private DesignUI.CuzUI.CuzTextBox LOTNumber;
         private System.Windows.Forms.Panel panel2;
         private DesignUI.CuzUI.CuzTextBox jobName;
         private System.Windows.Forms.Label label1;
@@ -2326,6 +2450,29 @@
         private DesignUI.CuzUI.CuzButton GetMaterialDoc;
         private DesignUI.CuzUI.CuzTextBox material_doc;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel DateTimePanel;
+        private System.Windows.Forms.DateTimePicker ExpiredDatePicker;
+        private System.Windows.Forms.DateTimePicker MaufDatePicker;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private DesignUI.CuzUI.CuzTextBox RES_LotNumber;
+        private DesignUI.CuzUI.CuzTextBox RES_NumberCode;
+        private DesignUI.CuzUI.CuzTextBox RES_MaterialNumber;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private DesignUI.CuzUI.CuzTextBox RES_Material_doc;
+        private System.Windows.Forms.Label label13;
+        private DesignUI.CuzUI.CuzButton CreateRESOffline;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker RESExpiredDatePicker;
+        private System.Windows.Forms.DateTimePicker RESMaufDatePicker;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel syncDataPanel;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ProgressBar syncCheckedProgress;
+        private System.Windows.Forms.Label label18;
     }
 
 }

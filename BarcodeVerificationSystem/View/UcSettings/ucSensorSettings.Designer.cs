@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblSensorControllerIP = new System.Windows.Forms.Label();
             this.lblSensorControllerPort = new System.Windows.Forms.Label();
             this.lblSensorControllerPulseEncoder = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@
             this.lblSensorControllerDelayAfter = new System.Windows.Forms.Label();
             this.numSensorControllerDelayBefore = new System.Windows.Forms.NumericUpDown();
             this.numSensorControllerDelayAfter = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ppr = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,15 +52,28 @@
             this.richTXTContentResponse = new System.Windows.Forms.RichTextBox();
             this.btnContenResponseClear = new System.Windows.Forms.Button();
             this.grbSensorController = new System.Windows.Forms.GroupBox();
+            this.iconConnectPort1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.PassPLC = new System.Windows.Forms.Button();
+            this.ErrorPLC = new System.Windows.Forms.Button();
+            this.StopPLC = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.StartPLC = new System.Windows.Forms.Button();
+            this.EncoderMode = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ExternalRad = new System.Windows.Forms.RadioButton();
+            this.InternalRad = new System.Windows.Forms.RadioButton();
+            this.radioV2 = new System.Windows.Forms.RadioButton();
             this.delayOutputPanel = new System.Windows.Forms.Panel();
             this.lblDelayOutputError = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Delaymm = new System.Windows.Forms.Label();
             this.numericDelayOutputError = new System.Windows.Forms.NumericUpDown();
-            this.radioV2 = new System.Windows.Forms.RadioButton();
-            this.versionLabel = new System.Windows.Forms.Label();
             this.radioV1 = new System.Windows.Forms.RadioButton();
+            this.versionLabel = new System.Windows.Forms.Label();
+            this.radioV0 = new System.Windows.Forms.RadioButton();
             this.comboPLCPort = new System.Windows.Forms.ComboBox();
             this.Port2Panel = new System.Windows.Forms.Panel();
+            this.iconConnectPort2 = new System.Windows.Forms.PictureBox();
             this.numSensorControllerPort2 = new System.Windows.Forms.NumericUpDown();
             this.SendPort2 = new System.Windows.Forms.Button();
             this.grbResumeEncoder = new System.Windows.Forms.GroupBox();
@@ -73,9 +87,13 @@
             this.lblUnit = new System.Windows.Forms.Label();
             this.lblGAP = new System.Windows.Forms.Label();
             this.numGapLength1 = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
+            this.GAPmm = new System.Windows.Forms.Label();
             this.numLength2Error1 = new System.Windows.Forms.NumericUpDown();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSensorControllerPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSensorControllerPulseEncoder)).BeginInit();
@@ -83,9 +101,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numSensorControllerDelayBefore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSensorControllerDelayAfter)).BeginInit();
             this.grbSensorController.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconConnectPort1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.EncoderMode.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.delayOutputPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericDelayOutputError)).BeginInit();
             this.Port2Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconConnectPort2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSensorControllerPort2)).BeginInit();
             this.grbResumeEncoder.SuspendLayout();
             this.grBoxSensor.SuspendLayout();
@@ -291,15 +314,15 @@
             this.numSensorControllerDelayAfter.Size = new System.Drawing.Size(186, 26);
             this.numSensorControllerDelayAfter.TabIndex = 40;
             // 
-            // label1
+            // ppr
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(202, 111);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 20);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "ppr";
+            this.ppr.AutoSize = true;
+            this.ppr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ppr.Location = new System.Drawing.Point(202, 111);
+            this.ppr.Name = "ppr";
+            this.ppr.Size = new System.Drawing.Size(32, 20);
+            this.ppr.TabIndex = 41;
+            this.ppr.Text = "ppr";
             // 
             // label2
             // 
@@ -367,10 +390,14 @@
             // grbSensorController
             // 
             this.grbSensorController.BackColor = System.Drawing.Color.White;
-            this.grbSensorController.Controls.Add(this.delayOutputPanel);
+            this.grbSensorController.Controls.Add(this.iconConnectPort1);
+            this.grbSensorController.Controls.Add(this.panel1);
+            this.grbSensorController.Controls.Add(this.EncoderMode);
             this.grbSensorController.Controls.Add(this.radioV2);
-            this.grbSensorController.Controls.Add(this.versionLabel);
+            this.grbSensorController.Controls.Add(this.delayOutputPanel);
             this.grbSensorController.Controls.Add(this.radioV1);
+            this.grbSensorController.Controls.Add(this.versionLabel);
+            this.grbSensorController.Controls.Add(this.radioV0);
             this.grbSensorController.Controls.Add(this.comboPLCPort);
             this.grbSensorController.Controls.Add(this.Port2Panel);
             this.grbSensorController.Controls.Add(this.grbResumeEncoder);
@@ -394,10 +421,180 @@
             this.grbSensorController.TabStop = false;
             this.grbSensorController.Text = "PLC";
             // 
+            // iconConnectPort1
+            // 
+            this.iconConnectPort1.Image = global::BarcodeVerificationSystem.Properties.Resources.icons8_red_dot;
+            this.iconConnectPort1.InitialImage = global::BarcodeVerificationSystem.Properties.Resources.icons8_red_dot;
+            this.iconConnectPort1.Location = new System.Drawing.Point(463, 167);
+            this.iconConnectPort1.Name = "iconConnectPort1";
+            this.iconConnectPort1.Size = new System.Drawing.Size(24, 28);
+            this.iconConnectPort1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconConnectPort1.TabIndex = 152;
+            this.iconConnectPort1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.PassPLC);
+            this.panel1.Controls.Add(this.ErrorPLC);
+            this.panel1.Controls.Add(this.StopPLC);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.StartPLC);
+            this.panel1.Location = new System.Drawing.Point(49, 278);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(447, 108);
+            this.panel1.TabIndex = 138;
+            this.panel1.Visible = false;
+            // 
+            // PassPLC
+            // 
+            this.PassPLC.FlatAppearance.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.PassPLC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PassPLC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.PassPLC.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.PassPLC.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.PassPLC.Location = new System.Drawing.Point(281, 60);
+            this.PassPLC.Name = "PassPLC";
+            this.PassPLC.Size = new System.Drawing.Size(153, 34);
+            this.PassPLC.TabIndex = 120;
+            this.PassPLC.Text = "Pass";
+            this.PassPLC.UseVisualStyleBackColor = true;
+            // 
+            // ErrorPLC
+            // 
+            this.ErrorPLC.FlatAppearance.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.ErrorPLC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ErrorPLC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ErrorPLC.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ErrorPLC.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ErrorPLC.Location = new System.Drawing.Point(95, 60);
+            this.ErrorPLC.Name = "ErrorPLC";
+            this.ErrorPLC.Size = new System.Drawing.Size(153, 34);
+            this.ErrorPLC.TabIndex = 119;
+            this.ErrorPLC.Text = "Error";
+            this.ErrorPLC.UseVisualStyleBackColor = true;
+            // 
+            // StopPLC
+            // 
+            this.StopPLC.FlatAppearance.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.StopPLC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StopPLC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.StopPLC.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.StopPLC.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.StopPLC.Location = new System.Drawing.Point(281, 12);
+            this.StopPLC.Name = "StopPLC";
+            this.StopPLC.Size = new System.Drawing.Size(153, 34);
+            this.StopPLC.TabIndex = 118;
+            this.StopPLC.Text = "Stop";
+            this.StopPLC.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(15, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 20);
+            this.label6.TabIndex = 117;
+            this.label6.Text = "Test PLC";
+            // 
+            // StartPLC
+            // 
+            this.StartPLC.FlatAppearance.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.StartPLC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartPLC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.StartPLC.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.StartPLC.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.StartPLC.Location = new System.Drawing.Point(95, 12);
+            this.StartPLC.Name = "StartPLC";
+            this.StartPLC.Size = new System.Drawing.Size(153, 34);
+            this.StartPLC.TabIndex = 80;
+            this.StartPLC.Text = "Start";
+            this.StartPLC.UseVisualStyleBackColor = true;
+            // 
+            // EncoderMode
+            // 
+            this.EncoderMode.Controls.Add(this.tableLayoutPanel1);
+            this.EncoderMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EncoderMode.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.EncoderMode.Location = new System.Drawing.Point(6, 389);
+            this.EncoderMode.Name = "EncoderMode";
+            this.EncoderMode.Size = new System.Drawing.Size(494, 85);
+            this.EncoderMode.TabIndex = 79;
+            this.EncoderMode.TabStop = false;
+            this.EncoderMode.Text = "Encoder Settings";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.ExternalRad, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.InternalRad, 1, 0);
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(32, 25);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(439, 38);
+            this.tableLayoutPanel1.TabIndex = 34;
+            // 
+            // ExternalRad
+            // 
+            this.ExternalRad.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ExternalRad.BackColor = System.Drawing.Color.White;
+            this.ExternalRad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ExternalRad.FlatAppearance.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.ExternalRad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExternalRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExternalRad.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ExternalRad.Location = new System.Drawing.Point(0, 0);
+            this.ExternalRad.Margin = new System.Windows.Forms.Padding(0);
+            this.ExternalRad.Name = "ExternalRad";
+            this.ExternalRad.Size = new System.Drawing.Size(219, 38);
+            this.ExternalRad.TabIndex = 3;
+            this.ExternalRad.TabStop = true;
+            this.ExternalRad.Text = "External";
+            this.ExternalRad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ExternalRad.UseVisualStyleBackColor = false;
+            // 
+            // InternalRad
+            // 
+            this.InternalRad.Appearance = System.Windows.Forms.Appearance.Button;
+            this.InternalRad.BackColor = System.Drawing.Color.White;
+            this.InternalRad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InternalRad.FlatAppearance.BorderColor = System.Drawing.SystemColors.ScrollBar;
+            this.InternalRad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InternalRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InternalRad.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.InternalRad.Location = new System.Drawing.Point(219, 0);
+            this.InternalRad.Margin = new System.Windows.Forms.Padding(0);
+            this.InternalRad.Name = "InternalRad";
+            this.InternalRad.Size = new System.Drawing.Size(220, 38);
+            this.InternalRad.TabIndex = 4;
+            this.InternalRad.TabStop = true;
+            this.InternalRad.Text = "Internal";
+            this.InternalRad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.InternalRad.UseVisualStyleBackColor = false;
+            // 
+            // radioV2
+            // 
+            this.radioV2.AutoSize = true;
+            this.radioV2.Location = new System.Drawing.Point(372, 40);
+            this.radioV2.Name = "radioV2";
+            this.radioV2.Size = new System.Drawing.Size(90, 24);
+            this.radioV2.TabIndex = 85;
+            this.radioV2.TabStop = true;
+            this.radioV2.Text = "v1.0.0.2";
+            this.radioV2.UseVisualStyleBackColor = true;
+            // 
             // delayOutputPanel
             // 
             this.delayOutputPanel.Controls.Add(this.lblDelayOutputError);
-            this.delayOutputPanel.Controls.Add(this.label5);
+            this.delayOutputPanel.Controls.Add(this.Delaymm);
             this.delayOutputPanel.Controls.Add(this.numericDelayOutputError);
             this.delayOutputPanel.Location = new System.Drawing.Point(502, 315);
             this.delayOutputPanel.Name = "delayOutputPanel";
@@ -414,15 +611,15 @@
             this.lblDelayOutputError.TabIndex = 71;
             this.lblDelayOutputError.Text = "Delay ouput error";
             // 
-            // label5
+            // Delaymm
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(193, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 20);
-            this.label5.TabIndex = 73;
-            this.label5.Text = "mm";
+            this.Delaymm.AutoSize = true;
+            this.Delaymm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delaymm.Location = new System.Drawing.Point(193, 28);
+            this.Delaymm.Name = "Delaymm";
+            this.Delaymm.Size = new System.Drawing.Size(35, 20);
+            this.Delaymm.TabIndex = 73;
+            this.Delaymm.Text = "mm";
             // 
             // numericDelayOutputError
             // 
@@ -437,16 +634,16 @@
             this.numericDelayOutputError.Size = new System.Drawing.Size(186, 26);
             this.numericDelayOutputError.TabIndex = 72;
             // 
-            // radioV2
+            // radioV1
             // 
-            this.radioV2.AutoSize = true;
-            this.radioV2.Location = new System.Drawing.Point(309, 40);
-            this.radioV2.Name = "radioV2";
-            this.radioV2.Size = new System.Drawing.Size(90, 24);
-            this.radioV2.TabIndex = 79;
-            this.radioV2.TabStop = true;
-            this.radioV2.Text = "v1.0.0.1";
-            this.radioV2.UseVisualStyleBackColor = true;
+            this.radioV1.AutoSize = true;
+            this.radioV1.Location = new System.Drawing.Point(262, 40);
+            this.radioV1.Name = "radioV1";
+            this.radioV1.Size = new System.Drawing.Size(90, 24);
+            this.radioV1.TabIndex = 79;
+            this.radioV1.TabStop = true;
+            this.radioV1.Text = "v1.0.0.1";
+            this.radioV1.UseVisualStyleBackColor = true;
             // 
             // versionLabel
             // 
@@ -458,16 +655,16 @@
             this.versionLabel.TabIndex = 83;
             this.versionLabel.Text = "PLC version";
             // 
-            // radioV1
+            // radioV0
             // 
-            this.radioV1.AutoSize = true;
-            this.radioV1.Location = new System.Drawing.Point(152, 40);
-            this.radioV1.Name = "radioV1";
-            this.radioV1.Size = new System.Drawing.Size(90, 24);
-            this.radioV1.TabIndex = 78;
-            this.radioV1.TabStop = true;
-            this.radioV1.Text = "v1.0.0.0";
-            this.radioV1.UseVisualStyleBackColor = true;
+            this.radioV0.AutoSize = true;
+            this.radioV0.Location = new System.Drawing.Point(152, 40);
+            this.radioV0.Name = "radioV0";
+            this.radioV0.Size = new System.Drawing.Size(90, 24);
+            this.radioV0.TabIndex = 78;
+            this.radioV0.TabStop = true;
+            this.radioV0.Text = "v1.0.0.0";
+            this.radioV0.UseVisualStyleBackColor = true;
             // 
             // comboPLCPort
             // 
@@ -483,12 +680,24 @@
             // 
             // Port2Panel
             // 
+            this.Port2Panel.Controls.Add(this.iconConnectPort2);
             this.Port2Panel.Controls.Add(this.numSensorControllerPort2);
             this.Port2Panel.Controls.Add(this.SendPort2);
             this.Port2Panel.Location = new System.Drawing.Point(243, 199);
             this.Port2Panel.Name = "Port2Panel";
-            this.Port2Panel.Size = new System.Drawing.Size(229, 79);
+            this.Port2Panel.Size = new System.Drawing.Size(249, 79);
             this.Port2Panel.TabIndex = 81;
+            // 
+            // iconConnectPort2
+            // 
+            this.iconConnectPort2.Image = global::BarcodeVerificationSystem.Properties.Resources.icons8_red_dot;
+            this.iconConnectPort2.InitialImage = global::BarcodeVerificationSystem.Properties.Resources.icons8_red_dot;
+            this.iconConnectPort2.Location = new System.Drawing.Point(220, 6);
+            this.iconConnectPort2.Name = "iconConnectPort2";
+            this.iconConnectPort2.Size = new System.Drawing.Size(24, 28);
+            this.iconConnectPort2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconConnectPort2.TabIndex = 151;
+            this.iconConnectPort2.TabStop = false;
             // 
             // numSensorControllerPort2
             // 
@@ -596,7 +805,7 @@
             this.grBoxSensor.Controls.Add(this.lblUnit);
             this.grBoxSensor.Controls.Add(this.lblGAP);
             this.grBoxSensor.Controls.Add(this.numGapLength1);
-            this.grBoxSensor.Controls.Add(this.label16);
+            this.grBoxSensor.Controls.Add(this.GAPmm);
             this.grBoxSensor.Controls.Add(this.numLength2Error1);
             this.grBoxSensor.Controls.Add(this.lblSensorControllerDelayAfter);
             this.grBoxSensor.Controls.Add(this.lblSensorControllerPulseEncoder);
@@ -609,7 +818,7 @@
             this.grBoxSensor.Controls.Add(this.numSensorControllerDelayBefore);
             this.grBoxSensor.Controls.Add(this.label2);
             this.grBoxSensor.Controls.Add(this.numSensorControllerDelayAfter);
-            this.grBoxSensor.Controls.Add(this.label1);
+            this.grBoxSensor.Controls.Add(this.ppr);
             this.grBoxSensor.Location = new System.Drawing.Point(493, 100);
             this.grBoxSensor.Name = "grBoxSensor";
             this.grBoxSensor.Size = new System.Drawing.Size(494, 283);
@@ -660,15 +869,15 @@
             this.numGapLength1.Size = new System.Drawing.Size(186, 26);
             this.numGapLength1.TabIndex = 47;
             // 
-            // label16
+            // GAPmm
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(201, 175);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(35, 20);
-            this.label16.TabIndex = 49;
-            this.label16.Text = "mm";
+            this.GAPmm.AutoSize = true;
+            this.GAPmm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GAPmm.Location = new System.Drawing.Point(201, 175);
+            this.GAPmm.Name = "GAPmm";
+            this.GAPmm.Size = new System.Drawing.Size(35, 20);
+            this.GAPmm.TabIndex = 49;
+            this.GAPmm.Text = "mm";
             // 
             // numLength2Error1
             // 
@@ -682,6 +891,33 @@
             this.numLength2Error1.Name = "numLength2Error1";
             this.numLength2Error1.Size = new System.Drawing.Size(186, 26);
             this.numLength2Error1.TabIndex = 48;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imageList2
+            // 
+            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imageList3
+            // 
+            this.imageList3.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList3.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // iconMenuItem1
+            // 
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(32, 19);
+            this.iconMenuItem1.Text = "iconMenuItem1";
             // 
             // UcSensorSettings
             // 
@@ -698,10 +934,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numSensorControllerDelayAfter)).EndInit();
             this.grbSensorController.ResumeLayout(false);
             this.grbSensorController.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconConnectPort1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.EncoderMode.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.delayOutputPanel.ResumeLayout(false);
             this.delayOutputPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericDelayOutputError)).EndInit();
             this.Port2Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconConnectPort2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSensorControllerPort2)).EndInit();
             this.grbResumeEncoder.ResumeLayout(false);
             this.grbResumeEncoder.PerformLayout();
@@ -730,7 +972,7 @@
         private System.Windows.Forms.Label lblSensorControllerDelayAfter;
         private System.Windows.Forms.NumericUpDown numSensorControllerDelayBefore;
         private System.Windows.Forms.NumericUpDown numSensorControllerDelayAfter;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ppr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -744,7 +986,7 @@
         private System.Windows.Forms.Label lblUnit;
         private System.Windows.Forms.Label lblGAP;
         private System.Windows.Forms.NumericUpDown numGapLength1;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label GAPmm;
         private System.Windows.Forms.NumericUpDown numLength2Error1;
         private System.Windows.Forms.Button sensorTwoBtn;
         private System.Windows.Forms.Button sensorOneBtn;
@@ -754,14 +996,31 @@
         private System.Windows.Forms.RadioButton radioResumeA;
         private System.Windows.Forms.RadioButton radioResumeAB;
         private System.Windows.Forms.CheckBox EnableResumeEncoder;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label Delaymm;
         private System.Windows.Forms.NumericUpDown numSensorControllerPort2;
         private System.Windows.Forms.Button SendPort2;
         private System.Windows.Forms.Panel Port2Panel;
         private System.Windows.Forms.ComboBox comboPLCPort;
         private System.Windows.Forms.Label versionLabel;
-        private System.Windows.Forms.RadioButton radioV2;
         private System.Windows.Forms.RadioButton radioV1;
+        private System.Windows.Forms.RadioButton radioV0;
         private System.Windows.Forms.Panel delayOutputPanel;
+        private System.Windows.Forms.RadioButton radioV2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.RadioButton ExternalRad;
+        private System.Windows.Forms.RadioButton InternalRad;
+        private System.Windows.Forms.GroupBox EncoderMode;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button PassPLC;
+        private System.Windows.Forms.Button ErrorPLC;
+        private System.Windows.Forms.Button StopPLC;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button StartPLC;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imageList2;
+        private System.Windows.Forms.ImageList imageList3;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private System.Windows.Forms.PictureBox iconConnectPort2;
+        private System.Windows.Forms.PictureBox iconConnectPort1;
     }
 }

@@ -1,6 +1,8 @@
-﻿using BarcodeVerificationSystem.Model.CodeGeneration;
+﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model.CodeGeneration;
 using BarcodeVerificationSystem.Model.Payload.DispatchingPayload;
 using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Response;
+using CommonVariable;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +15,16 @@ namespace BarcodeVerificationSystem.Model
     {
         #region Properties
         public ResponseOrder DispatchingOrderPayload { get; set; } = null;
-        public ResponseProcessOrder.Data ManufacturingOrderPayload = null;
+        public ResponseProcessOrder.Data ProcessOrderItem = null;
+        public ResponseReservation Reservation;
+        public ReservationItem ReservationItem;
+
+
+        public bool isPushedDatabase { get; set; } = false;
+        public bool IsProcessOrderMode = false; 
+        public bool IsReservationMode = false;
+
+        public int SelectedRESItemIndex { get; set; } = 0;
         public int SelectedBatchIndex { get; set; } = 0;
         public int SelectedMaterialIndex { get; set; } = 0;
         public bool IsOnlineJob { get; set; } = false;
@@ -23,6 +34,9 @@ namespace BarcodeVerificationSystem.Model
         public int NumberOfNeededSentCodes { get; set; } = 0;
         public int NumberOfSaaSSentCodes { get; set; } = 0;
         public int NumberOfSAPSentCodes { get; set; } = 0;
+
+        public int NumberOfCheckSaaSSentCodes { get; set; } = 0;
+        public int NumberOfCheckSAPSentCodes { get; set; } = 0;
 
         public int FirstGeneratedCodeIndex { get; set; } = 0;
         public int LastGeneratedCodeIndex { get; set; } = 0;
@@ -66,12 +80,13 @@ namespace BarcodeVerificationSystem.Model
 
 
         #region Methods
-        public void SaveFile(string fileName)
+        public void SaveFile()
         {
             try
             {
+                string filePath = CommVariables.PathJobsApp + FileName + Shared.Settings.JobFileExtension;
                 var xs = new XmlSerializer(typeof(JobModel));
-                using (TextWriter sw = new StreamWriter(fileName))
+                using (TextWriter sw = new StreamWriter(filePath))
                 {
                     xs.Serialize(sw, this);
                 }

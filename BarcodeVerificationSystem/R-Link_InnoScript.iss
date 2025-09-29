@@ -2,14 +2,14 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "R-LINK-NUTIFOOD"
-#define MyAppVersion "1.0.0.0"
+#define MyAppVersion "1.0.1.0"
 #define MyAppPublisher "Rynan Technologies"
 #define MyAppURL "https://rynantech.com/"
 #define MyAppExeName "BarcodeVerificationSystem.exe"
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
-#define MyAppDateTimeRelease "250822"
+#define MyAppDateTimeRelease "250926"
 
 //Delete old folder first (ProgramData/R-Link)
 [Code]
@@ -68,11 +68,13 @@ UninstallDisplayName={#MyAppName}
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
 // icon for unintsall
-UninstallDisplayIcon={app}\logores.ico  
+UninstallDisplayIcon={app}\logores.ico 
+//logores.ico  
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=SoftwareInstaller
-OutputBaseFilename=R_LINK_NUTIFOOD_Setup64_{#MyAppVersion}_{#MyAppDateTimeRelease}
+OutputBaseFilename=R_Link_Setup64_{#MyAppVersion}_{#MyAppDateTimeRelease}
+// OutputBaseFilename=R_LINK_NUTIFOOD_Setup64_{#MyAppVersion}_{#MyAppDateTimeRelease}
 SetupIconFile=logores.ico
 Compression=lzma
 SolidCompression=yes
@@ -92,7 +94,7 @@ Source: "vcredist2010_x86.exe"; DestDir: "{tmp}"; Flags: ignoreversion; Check: n
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 ;Add file logoresico into the installation directory
-Source: "logores.ico"; DestDir: "{app}"; Flags: ignoreversion  
+Source: "icon.ico"; DestDir: "{app}"; Flags: ignoreversion  
 
 [Registry]
 Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue

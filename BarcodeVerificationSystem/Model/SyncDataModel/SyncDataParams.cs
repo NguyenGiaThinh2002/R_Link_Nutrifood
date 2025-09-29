@@ -15,6 +15,7 @@ namespace BarcodeVerificationSystem.Model
             SaaSSuccess,
             SAPFailed,
             SaaSFailed,
+            SentSuccess
         }
         public SyncDataType DataType { get; set; }
         public int CodeIndex { get; set; }

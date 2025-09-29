@@ -221,6 +221,20 @@ namespace BarcodeVerificationSystem.Controller
                     _NetworkStream = null;
                 }
 
+                Disconnect2();
+
+                _TcpClient?.Dispose();
+                _TcpClient = null;
+            }
+            catch (Exception)
+            { }
+            return true;
+        }
+
+        public bool Disconnect2()
+        {
+            try
+            {
                 if (_StreamReader2 != null)
                 {
                     _StreamReader2.Close();
@@ -241,34 +255,69 @@ namespace BarcodeVerificationSystem.Controller
 
                 _TcpClient2?.Dispose();
                 _TcpClient2 = null;
-
-                _TcpClient?.Dispose();
-                _TcpClient = null;
             }
             catch (Exception)
-            { }
+            {
+                return false;
+            }
             return true;
         }
+
+
 
         public bool IsConnected()
         {
             try
             {
-                return _TcpClient?.Client?.Connected ?? false;
+                if (_TcpClient?.Client == null)
+                    return false;
+
+                // Check if the socket is connected and readable without blocking
+                bool isConnected = _TcpClient.Client.Connected &&
+                                  !_TcpClient.Client.Poll(0, SelectMode.SelectRead) &&
+                                  _TcpClient.Client.Available == 0;
+
+                return isConnected;
             }
-            catch
+            catch (SocketException)
+            {
+                return false;
+            }
+            catch (ObjectDisposedException)
             {
                 return false;
             }
         }
-
+        //public bool IsConnected()
+        //{
+        //    try
+        //    {
+        //        return _TcpClient?.Client?.Connected ?? false;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
         public bool IsConnected2()
         {
             try
             {
-                return _TcpClient2?.Client?.Connected ?? false;
+                if (_TcpClient2?.Client == null)
+                    return false;
+
+                // Check if the socket is connected and readable without blocking
+                bool isConnected = _TcpClient2.Client.Connected &&
+                                  !_TcpClient2.Client.Poll(0, SelectMode.SelectRead) &&
+                                  _TcpClient2.Client.Available == 0;
+
+                return isConnected;
             }
-            catch
+            catch (SocketException)
+            {
+                return false;
+            }
+            catch (ObjectDisposedException)
             {
                 return false;
             }

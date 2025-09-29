@@ -88,20 +88,6 @@ namespace BarcodeVerificationSystem.View
         private readonly int _TotalColumns = 1;
         private readonly int _StartIndex = 1;
 
-        #region sync Data parameters
-        private int _SentSyncData = 0;
-        private int _SaaSSuccessCodes = 0;
-        private int _SaaSFailedCodes = 0;
-        private int _SAPSuccessCodes = 0;
-        private int _SAPFailedCodes = 0;
-
-        public int SentSyncData { get { return _SentSyncData; } set { _SentSyncData = value; Invoke(new Action(() => { txtCodeResult.Text = string.Format("{0:N0}", _SentSyncData); })); } }
-        public int SaaSSuccess { get { return _SaaSSuccessCodes; } set { _SaaSSuccessCodes = value; Invoke(new Action(() => { sentSaaSSuccess.Text = string.Format("{0:N0}", _SaaSSuccessCodes); })); } }
-        public int SaaSFailed { get { return _SaaSFailedCodes; } set { _SaaSFailedCodes = value; Invoke(new Action(() => { SaaSFailedCodes.Text = string.Format("{0:N0}", _SaaSFailedCodes); })); } }
-        public int SAPSuccess { get { return _SAPSuccessCodes; } set { _SAPSuccessCodes = value; Invoke(new Action(() => { sentSAPSuccess.Text = string.Format("{0:N0}", _SAPSuccessCodes); })); } }
-        public int SAPFailed { get { return _SAPFailedCodes; } set { _SAPFailedCodes = value; Invoke(new Action(() => { SAPFailedCodes.Text = string.Format("{0:N0}", _SAPFailedCodes); })); } }
-        #endregion
-
         public int TotalChecked { get { return _TotalChecked; } set { _TotalChecked = value; Invoke(new Action(() => { lblTotalCheckedValue.Text = string.Format("{0:N0}", _TotalChecked); })); } }
         public int NumberOfCheckPassed { get { return _NumberOfCheckPassed; } set { _NumberOfCheckPassed = value; Invoke(new Action(() => { lblCheckResultPassedValue.Text = string.Format("{0:N0}", _NumberOfCheckPassed); })); } }
         public int NumberOfCheckFailed { get { return _NumberOfCheckFailed; } set { _NumberOfCheckFailed = value; Invoke(new Action(() => { lblCheckResultFailedValue.Text = string.Format("{0:N0}", _NumberOfCheckFailed); })); } }
@@ -628,7 +614,6 @@ namespace BarcodeVerificationSystem.View
             if (ProjectLabel.IsNutrifood)
             {
                 //syncCodes.Visible = numberOfCodes.Visible = confirmCompletion.Visible = true;
-                syncDataInfo.Visible = confirmCompletion.Visible = true;
                 pnlCurrentCheck.Text = "Printing Process";
                 lblCodeResult.Text = "Number of Sync Code";            
                 BarcodeQualityLabel.Text = "Confirm Completion";
@@ -643,15 +628,6 @@ namespace BarcodeVerificationSystem.View
                     lblCodeResult.Text = Lang.SentSyncData;
                     SentSaaS.Text = Lang.SentSyncDataSaaS;
                     SentSAP.Text = Lang.SentSAPData;
-                    ConfirmLabel.Text = Lang.ConfirmCompletion + " " + Lang.Job;
-                    SyncDataLabel.Text = Lang.SyncData;
-                    DisposeLabel.Text = Lang.DisposeBarcodes;
-                    RePrintLabel.Text = Lang.RePrintBarcodes;
-
-                    confirmCompletion.Text = Lang.ConfirmCompletion;
-                    syncDataBtn.Text = Lang.Sync;
-                    disposeBtn.Text = Lang.Dispose;
-                    RePrintBtn.Text = Lang.RePrint;
 
                 }
           
@@ -736,11 +712,6 @@ namespace BarcodeVerificationSystem.View
             pnlTotalChecked.Click += ActionChanged;
             btnExportData.Click += ActionChanged;
             btnExportAll.Click += ActionChanged;
-            syncDataBtn.Click += ActionChanged;
-            RePrintBtn.Click += ActionChanged;
-            disposeBtn.Click += ActionChanged;
-            confirmCompletion.Click += ActionChanged;
-
             cuzButtonGetSample.Click += GetSampleRaise;
 
 
@@ -1865,8 +1836,7 @@ namespace BarcodeVerificationSystem.View
 
             bool isNonePrinted = _SelectedJob.CompareType == CompareType.CanRead || _SelectedJob.CompareType == CompareType.StaticText;
             _SelectedJob.JobStatus = JobStatus.Unfinished;
-            string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
-            _SelectedJob.SaveFile(filePath);
+            _SelectedJob.SaveFile();
 
             _OperationCancelTokenSource = new CancellationTokenSource();
             _UICheckedResultCancelTokenSource = new CancellationTokenSource();
@@ -2715,7 +2685,6 @@ namespace BarcodeVerificationSystem.View
             if (_SelectedJob.PrintedResponePath == "")
             {
                 string fileName = DateTime.Now.ToString(_DateTimeFormat) + "_Printed_" + _SelectedJob.FileName;
-                string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
                 string path = CommVariables.PathPrintedResponse + fileName + ".csv";
 
                 // Determine whether the directory exists.
@@ -2737,7 +2706,7 @@ namespace BarcodeVerificationSystem.View
                 }
 
                 _SelectedJob.PrintedResponePath = fileName + ".csv";
-                _SelectedJob.SaveFile(filePath);
+                _SelectedJob.SaveFile();
             }
 
             try
@@ -2942,7 +2911,6 @@ namespace BarcodeVerificationSystem.View
             if (_SelectedJob.CheckedResultPath == "")
             {
                 string fileName = DateTime.Now.ToString(_DateTimeFormat) + "_" + _SelectedJob.FileName;
-                string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
                 string path = CommVariables.PathCheckedResult + fileName + ".csv";
 
                 // Determine whether the directory exists.
@@ -2964,7 +2932,7 @@ namespace BarcodeVerificationSystem.View
                 }
 
                 _SelectedJob.CheckedResultPath = fileName + ".csv";
-                _SelectedJob.SaveFile(filePath);
+                _SelectedJob.SaveFile();
             }
 
             try
@@ -3179,8 +3147,7 @@ namespace BarcodeVerificationSystem.View
                 if (completeNum >= _TotalCode - _NumberOfDuplicate)
                 {
                     _SelectedJob.JobStatus = JobStatus.Accomplished;
-                    string filePath = CommVariables.PathJobsApp + _SelectedJob.FileName + Shared.Settings.JobFileExtension;
-                    _SelectedJob.SaveFile(filePath);
+                    _SelectedJob.SaveFile();
                 }
             }
 
@@ -3322,21 +3289,6 @@ namespace BarcodeVerificationSystem.View
 
             if (jobModel.CompareType == CompareType.Database)
             {
-                #region Sent Printed Data
-                string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
-                SaaSSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
-                SaaSFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("failed", StringComparison.OrdinalIgnoreCase));
-
-                Shared.numberOfCodesGenerate = 100;
-
-               SAPSuccess = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
-                SAPFailed = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 && item[5].Equals("failed", StringComparison.OrdinalIgnoreCase));
-
-                int BothSuccessCount = _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 && item[4].Equals("success", StringComparison.OrdinalIgnoreCase) 
-                                        && item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
-                #endregion
-
                 Task<List<string[]>> databaseTsk = InitDatabaseAndPrintedStatusAsync(jobModel); //Load database and update printed status
                 Task<List<string[]>> checkedResultTsk = InitCheckedResultDataAsync(jobModel); //Load checked result
                 await Task.WhenAll(databaseTsk, checkedResultTsk); // Waiting until database and checked result completed load
@@ -4020,33 +3972,6 @@ namespace BarcodeVerificationSystem.View
                 string filePathCheckResult = CommVariables.PathCheckedResult + _SelectedJob.CheckedResultPath;
                 Shared.ExportCheckedResult(filePathCheckResult);
             }
-            else if(sender == confirmCompletion)
-            {
-                Form confirmCompletion = new frmConfirmCompletion(_SelectedJob);
-                confirmCompletion.ShowDialog();
-                tableLayoutControl.Enabled = false;
-            }
-            else if(sender == syncDataBtn)
-            {
-                //string path = CommVariables.PathPrintedResponse + _SelectedJob.PrintedResponePath;
-                //string sentDataPath = CommVariables.PathSentDataPrinted + _SelectedJob.PrintedResponePath;
-                //string url = Shared.Settings.IsManufacturingMode ? ManufacturingApis.getSendPrintedDataUrl()
-                //                                                 : DispatchingApis.GetPrintedDataUrl();
-                //string dataPath = _SelectedJob.DirectoryDatabase;
-
-                //_printedDataProcess = ReliableProcessorFactory.CreatePrintingProcessor(sentDataPath, url, dataPath);
-                //_printedDataProcess.Start();
-            }
-            else if(sender == RePrintBtn)
-            {
-                var RePrintForm = new frmRePrint();
-                RePrintForm.ShowDialog();
-            }
-            else if(sender == disposeBtn)
-            {
-                var frmDisposal = new frmDisposal();
-                frmDisposal.ShowDialog();
-            }
         }
         private void Shared_OnCameraReadDataChange(object sender, EventArgs e)
         {
@@ -4064,6 +3989,7 @@ namespace BarcodeVerificationSystem.View
                         case CameraType.DM:
                         case CameraType.IS:
                         case CameraType.ISDual:
+                        case CameraType.CV_X:
                             if (Shared.Settings.Position == SettingsModel.PositionType.BarcodePosition && Shared.Settings.EnablePosition)
                             {
                                 break;

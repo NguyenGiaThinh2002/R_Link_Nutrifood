@@ -1,4 +1,5 @@
-﻿using BarcodeVerificationSystem.Model;
+﻿using BarcodeVerificationSystem.Controller;
+using BarcodeVerificationSystem.Model;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -42,6 +43,19 @@ namespace BarcodeVerificationSystem.Interfaces
         {
             // No position processing needed
             detectModel.isBarcodeWithinThreshold = "False";
+
+            if(Shared.Settings.CameraList.FirstOrDefault().CameraType == CameraType.CV_X)
+            {
+                string[] numbers = detectModel.Text.Split(new char[] { '#' }, StringSplitOptions.RemoveEmptyEntries);
+                if (numbers?.Length > 0)
+                {
+                    detectModel.Text = numbers[0];
+                }
+                else
+                {
+                    detectModel.Text = "";
+                }
+            }
         }
 
         public bool ShouldThrowCancellation(CancellationToken token)

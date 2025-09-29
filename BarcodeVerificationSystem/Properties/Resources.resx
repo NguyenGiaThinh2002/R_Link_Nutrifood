@@ -502,4 +502,14 @@
   <data name="success" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="InternalSpeed" xml:space="preserve">
+    <value>Internal Speed</value>
+    <comment>Tốc độ Internal</comment>
+  </data>
+  <data name="icons8_red_dot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-red-dot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons_green_dot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons-green-dot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -11,21 +11,38 @@ namespace BarcodeVerificationSystem.Utils
     {
         private static bool _tabSelectionEnabled = true;
 
-
+        public static void SetAbleControls(bool isAble, params Control[] controls)
+        {
+            if (controls == null) return;
+            foreach (var control in controls)
+            {
+                if (control != null) control.Enabled = isAble;
+            }
+        }
         // Enable all specified controls
         public static void EnableControls(params Control[] controls)
         {
-            if (controls == null) throw new ArgumentNullException(nameof(controls));
-            foreach (var control in controls)
+            if (controls == null || controls.Length == 0) return;
+
+            Control invoker = controls[0]; // use first control for InvokeRequired
+
+            if (invoker.InvokeRequired)
             {
-                if (control != null) control.Enabled = true;
+                invoker.Invoke(new Action(() => EnableControls(controls)));
+                return;
+            }
+
+            foreach (var ctrl in controls)
+            {
+                ctrl.Enabled = true;
             }
         }
+
 
         // Disable all specified controls
         public static void DisableControls(params Control[] controls)
         {
-            if (controls == null) throw new ArgumentNullException(nameof(controls));
+            if (controls == null) return;
             foreach (var control in controls)
             {
                 if (control != null) control.Enabled = false;
@@ -33,9 +50,19 @@ namespace BarcodeVerificationSystem.Utils
         }
 
         // Show all specified controls
+        public static void VisibleControl(bool isShow, params Control[] controls)
+        {
+            if (controls == null) return;
+            foreach (var control in controls)
+            {
+                if (control != null) control.Visible = isShow;
+            }
+        }
+
+        // Show all specified controls
         public static void ShowControls(params Control[] controls)
         {
-            if (controls == null) throw new ArgumentNullException(nameof(controls));
+            if (controls == null) return;
             foreach (var control in controls)
             {
                 if (control != null) control.Visible = true;
@@ -45,7 +72,7 @@ namespace BarcodeVerificationSystem.Utils
         // Hide all specified controls
         public static void HideControls(params Control[] controls)
         {
-            if (controls == null) throw new ArgumentNullException(nameof(controls));
+            if (controls == null) return;
             foreach (var control in controls)
             {
                 if (control != null) control.Visible = false;
@@ -55,7 +82,7 @@ namespace BarcodeVerificationSystem.Utils
 
         public static void HideControls(params object[] items)
         {
-            if (items == null) throw new ArgumentNullException(nameof(items));
+            if (items == null) return;
 
             foreach (var item in items)
             {
@@ -75,7 +102,7 @@ namespace BarcodeVerificationSystem.Utils
             }
         }
 
-            public static void EnableAllTabsSelection(TabControl tabControl)
+        public static void EnableAllTabsSelection(TabControl tabControl)
         {
             if (tabControl == null) throw new ArgumentNullException(nameof(tabControl));
             _tabSelectionEnabled = true;

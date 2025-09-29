@@ -21,18 +21,20 @@ namespace BarcodeVerificationSystem.Model.CodeGeneration
         }
         public static string GenerateCode(string _randomCode)
         {
-
-            if (_url.Length != 24 || _factoryId.Length != 1 || _yearAndMonth.Length != 4 || _randomCode.Length != 12) 
-            {
-                throw new ArgumentException("Invalid code length. Please check the input values.");
-            }
-
-            if (!Shared.Settings.IsManufacturingMode)
-            {
-                throw new ArgumentException("Invalid code length. Please check the input values.");
-            }
+            if(Shared.Settings.FactoryCode == "1210") _factoryId = "2";
+            else if (Shared.Settings.FactoryCode == "1260") _factoryId = "3";
+            else if (Shared.Settings.FactoryCode == "1240") _factoryId = "4";
 
             return $"{_url}{_factoryId}{_yearAndMonth}{_randomCode}"; // Tong ky tu la 41
+        }
+
+        public static string GetUniqueCode(string _randomCode)
+        {
+            if (Shared.Settings.FactoryCode == "1210") _factoryId = "2";
+            else if (Shared.Settings.FactoryCode == "1260") _factoryId = "3";
+            else if (Shared.Settings.FactoryCode == "1240") _factoryId = "4";
+
+            return $"{_factoryId}{_yearAndMonth}{_randomCode}"; // Tong ky tu la 41
         }
 
 

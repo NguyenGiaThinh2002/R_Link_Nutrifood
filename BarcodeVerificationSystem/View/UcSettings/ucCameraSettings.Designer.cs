@@ -29,12 +29,22 @@
         private void InitializeComponent()
         {
             this.grbCamera = new System.Windows.Forms.GroupBox();
+            this.itemsPerHour = new System.Windows.Forms.CheckBox();
+            this.CameraPortPanel = new System.Windows.Forms.Panel();
+            this.numCamPort = new System.Windows.Forms.NumericUpDown();
+            this.lblPrinterPort = new System.Windows.Forms.Label();
+            this.CameraBrandPanel = new System.Windows.Forms.Panel();
+            this.KeyenceRad = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.CognexRad = new System.Windows.Forms.RadioButton();
+            this.CameraBrand = new System.Windows.Forms.Label();
+            this.CognexComponentsPanel = new System.Windows.Forms.Panel();
+            this.comboBoxImageResolution = new System.Windows.Forms.ComboBox();
+            this.labelImageResolution = new System.Windows.Forms.Label();
             this.PositionPanel = new System.Windows.Forms.GroupBox();
             this.EnablePosition = new System.Windows.Forms.CheckBox();
             this.radioBarcodePosition = new System.Windows.Forms.RadioButton();
             this.radioLogoPosition = new System.Windows.Forms.RadioButton();
-            this.labelImageResolution = new System.Windows.Forms.Label();
-            this.comboBoxImageResolution = new System.Windows.Forms.ComboBox();
             this.txtSlaveIPAddress = new IPAddressControlLib.IPAddressControl();
             this.lblSlaveIp = new System.Windows.Forms.Label();
             this.lblModeRead = new System.Windows.Forms.Label();
@@ -72,8 +82,11 @@
             this.lblModel = new System.Windows.Forms.Label();
             this.txtModel = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.itemsPerHour = new System.Windows.Forms.CheckBox();
             this.grbCamera.SuspendLayout();
+            this.CameraPortPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCamPort)).BeginInit();
+            this.CameraBrandPanel.SuspendLayout();
+            this.CognexComponentsPanel.SuspendLayout();
             this.PositionPanel.SuspendLayout();
             this.groupBoxOCR.SuspendLayout();
             this.OutputTypePanel.SuspendLayout();
@@ -85,9 +98,10 @@
             // 
             this.grbCamera.BackColor = System.Drawing.Color.White;
             this.grbCamera.Controls.Add(this.itemsPerHour);
+            this.grbCamera.Controls.Add(this.CameraPortPanel);
+            this.grbCamera.Controls.Add(this.CameraBrandPanel);
+            this.grbCamera.Controls.Add(this.CognexComponentsPanel);
             this.grbCamera.Controls.Add(this.PositionPanel);
-            this.grbCamera.Controls.Add(this.labelImageResolution);
-            this.grbCamera.Controls.Add(this.comboBoxImageResolution);
             this.grbCamera.Controls.Add(this.txtSlaveIPAddress);
             this.grbCamera.Controls.Add(this.lblSlaveIp);
             this.grbCamera.Controls.Add(this.lblModeRead);
@@ -110,7 +124,134 @@
             this.grbCamera.TabIndex = 18;
             this.grbCamera.TabStop = false;
             this.grbCamera.Text = "Camera";
-            this.grbCamera.Enter += new System.EventHandler(this.grbCamera_Enter);
+            // 
+            // itemsPerHour
+            // 
+            this.itemsPerHour.AutoSize = true;
+            this.itemsPerHour.Location = new System.Drawing.Point(767, 33);
+            this.itemsPerHour.Name = "itemsPerHour";
+            this.itemsPerHour.Size = new System.Drawing.Size(212, 24);
+            this.itemsPerHour.TabIndex = 80;
+            this.itemsPerHour.Text = "Items Per Hour Display";
+            this.itemsPerHour.UseVisualStyleBackColor = true;
+            // 
+            // CameraPortPanel
+            // 
+            this.CameraPortPanel.Controls.Add(this.numCamPort);
+            this.CameraPortPanel.Controls.Add(this.lblPrinterPort);
+            this.CameraPortPanel.Location = new System.Drawing.Point(334, 66);
+            this.CameraPortPanel.Name = "CameraPortPanel";
+            this.CameraPortPanel.Size = new System.Drawing.Size(653, 65);
+            this.CameraPortPanel.TabIndex = 84;
+            this.CameraPortPanel.Visible = false;
+            // 
+            // numCamPort
+            // 
+            this.numCamPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCamPort.Location = new System.Drawing.Point(54, 35);
+            this.numCamPort.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numCamPort.Name = "numCamPort";
+            this.numCamPort.Size = new System.Drawing.Size(139, 26);
+            this.numCamPort.TabIndex = 39;
+            // 
+            // lblPrinterPort
+            // 
+            this.lblPrinterPort.AutoSize = true;
+            this.lblPrinterPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrinterPort.Location = new System.Drawing.Point(50, 9);
+            this.lblPrinterPort.Name = "lblPrinterPort";
+            this.lblPrinterPort.Size = new System.Drawing.Size(38, 20);
+            this.lblPrinterPort.TabIndex = 38;
+            this.lblPrinterPort.Text = "Port";
+            // 
+            // CameraBrandPanel
+            // 
+            this.CameraBrandPanel.Controls.Add(this.KeyenceRad);
+            this.CameraBrandPanel.Controls.Add(this.flowLayoutPanel2);
+            this.CameraBrandPanel.Controls.Add(this.CognexRad);
+            this.CameraBrandPanel.Controls.Add(this.CameraBrand);
+            this.CameraBrandPanel.Location = new System.Drawing.Point(267, 20);
+            this.CameraBrandPanel.Name = "CameraBrandPanel";
+            this.CameraBrandPanel.Size = new System.Drawing.Size(333, 40);
+            this.CameraBrandPanel.TabIndex = 78;
+            // 
+            // KeyenceRad
+            // 
+            this.KeyenceRad.AutoSize = true;
+            this.KeyenceRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyenceRad.Location = new System.Drawing.Point(206, 8);
+            this.KeyenceRad.Name = "KeyenceRad";
+            this.KeyenceRad.Size = new System.Drawing.Size(88, 24);
+            this.KeyenceRad.TabIndex = 77;
+            this.KeyenceRad.TabStop = true;
+            this.KeyenceRad.Text = "Keyence";
+            this.KeyenceRad.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(100, 40);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(8, 8);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // CognexRad
+            // 
+            this.CognexRad.AutoSize = true;
+            this.CognexRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CognexRad.Location = new System.Drawing.Point(100, 8);
+            this.CognexRad.Name = "CognexRad";
+            this.CognexRad.Size = new System.Drawing.Size(81, 24);
+            this.CognexRad.TabIndex = 76;
+            this.CognexRad.TabStop = true;
+            this.CognexRad.Text = "Cognex";
+            this.CognexRad.UseVisualStyleBackColor = true;
+            // 
+            // CameraBrand
+            // 
+            this.CameraBrand.AutoSize = true;
+            this.CameraBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CameraBrand.Location = new System.Drawing.Point(5, 10);
+            this.CameraBrand.Name = "CameraBrand";
+            this.CameraBrand.Size = new System.Drawing.Size(76, 20);
+            this.CameraBrand.TabIndex = 72;
+            this.CameraBrand.Text = "Camera:";
+            // 
+            // CognexComponentsPanel
+            // 
+            this.CognexComponentsPanel.Controls.Add(this.comboBoxImageResolution);
+            this.CognexComponentsPanel.Controls.Add(this.labelImageResolution);
+            this.CognexComponentsPanel.Location = new System.Drawing.Point(656, 132);
+            this.CognexComponentsPanel.Name = "CognexComponentsPanel";
+            this.CognexComponentsPanel.Size = new System.Drawing.Size(319, 109);
+            this.CognexComponentsPanel.TabIndex = 83;
+            this.CognexComponentsPanel.Visible = false;
+            // 
+            // comboBoxImageResolution
+            // 
+            this.comboBoxImageResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxImageResolution.FormattingEnabled = true;
+            this.comboBoxImageResolution.Items.AddRange(new object[] {
+            "240*160",
+            "320*240",
+            "480*360"});
+            this.comboBoxImageResolution.Location = new System.Drawing.Point(10, 75);
+            this.comboBoxImageResolution.Name = "comboBoxImageResolution";
+            this.comboBoxImageResolution.Size = new System.Drawing.Size(304, 28);
+            this.comboBoxImageResolution.TabIndex = 50;
+            // 
+            // labelImageResolution
+            // 
+            this.labelImageResolution.AutoSize = true;
+            this.labelImageResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImageResolution.Location = new System.Drawing.Point(6, 48);
+            this.labelImageResolution.Name = "labelImageResolution";
+            this.labelImageResolution.Size = new System.Drawing.Size(134, 20);
+            this.labelImageResolution.TabIndex = 51;
+            this.labelImageResolution.Text = "Image Resolution";
             // 
             // PositionPanel
             // 
@@ -119,12 +260,13 @@
             this.PositionPanel.Controls.Add(this.radioLogoPosition);
             this.PositionPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionPanel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.PositionPanel.Location = new System.Drawing.Point(22, 142);
+            this.PositionPanel.Location = new System.Drawing.Point(18, 142);
             this.PositionPanel.Name = "PositionPanel";
             this.PositionPanel.Size = new System.Drawing.Size(628, 97);
             this.PositionPanel.TabIndex = 79;
             this.PositionPanel.TabStop = false;
             this.PositionPanel.Text = "Position Settings";
+            this.PositionPanel.Visible = false;
             // 
             // EnablePosition
             // 
@@ -157,29 +299,6 @@
             this.radioLogoPosition.TabStop = true;
             this.radioLogoPosition.Text = "Logo Position";
             this.radioLogoPosition.UseVisualStyleBackColor = true;
-            // 
-            // labelImageResolution
-            // 
-            this.labelImageResolution.AutoSize = true;
-            this.labelImageResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelImageResolution.Location = new System.Drawing.Point(671, 142);
-            this.labelImageResolution.Name = "labelImageResolution";
-            this.labelImageResolution.Size = new System.Drawing.Size(134, 20);
-            this.labelImageResolution.TabIndex = 51;
-            this.labelImageResolution.Text = "Image Resolution";
-            // 
-            // comboBoxImageResolution
-            // 
-            this.comboBoxImageResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxImageResolution.FormattingEnabled = true;
-            this.comboBoxImageResolution.Items.AddRange(new object[] {
-            "240*160",
-            "320*240",
-            "480*360"});
-            this.comboBoxImageResolution.Location = new System.Drawing.Point(675, 169);
-            this.comboBoxImageResolution.Name = "comboBoxImageResolution";
-            this.comboBoxImageResolution.Size = new System.Drawing.Size(304, 28);
-            this.comboBoxImageResolution.TabIndex = 50;
             // 
             // txtSlaveIPAddress
             // 
@@ -251,6 +370,7 @@
             this.groupBoxOCR.TabIndex = 45;
             this.groupBoxOCR.TabStop = false;
             this.groupBoxOCR.Text = "OCR Settings";
+            this.groupBoxOCR.Visible = false;
             // 
             // OutputTypePanel
             // 
@@ -361,7 +481,6 @@
             this.textBoxCommandError.Name = "textBoxCommandError";
             this.textBoxCommandError.Size = new System.Drawing.Size(499, 26);
             this.textBoxCommandError.TabIndex = 66;
-            this.textBoxCommandError.TextChanged += new System.EventHandler(this.textBoxCommandError_TextChanged);
             // 
             // tableLayoutPanelObjectSym
             // 
@@ -509,7 +628,7 @@
             // 
             this.labelCamType.AutoSize = true;
             this.labelCamType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCamType.Location = new System.Drawing.Point(18, 33);
+            this.labelCamType.Location = new System.Drawing.Point(19, 34);
             this.labelCamType.Name = "labelCamType";
             this.labelCamType.Size = new System.Drawing.Size(43, 20);
             this.labelCamType.TabIndex = 38;
@@ -523,7 +642,7 @@
             "DM Series",
             "IS Series",
             "IS Series Dual"});
-            this.comboBoxCamType.Location = new System.Drawing.Point(67, 30);
+            this.comboBoxCamType.Location = new System.Drawing.Point(68, 31);
             this.comboBoxCamType.Name = "comboBoxCamType";
             this.comboBoxCamType.Size = new System.Drawing.Size(138, 28);
             this.comboBoxCamType.TabIndex = 37;
@@ -559,7 +678,7 @@
             // 
             this.txtSerialNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSerialNumber.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtSerialNumber.Location = new System.Drawing.Point(346, 101);
+            this.txtSerialNumber.Location = new System.Drawing.Point(347, 101);
             this.txtSerialNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtSerialNumber.Name = "txtSerialNumber";
             this.txtSerialNumber.ReadOnly = true;
@@ -597,16 +716,6 @@
             this.txtModel.Size = new System.Drawing.Size(302, 26);
             this.txtModel.TabIndex = 19;
             // 
-            // itemsPerHour
-            // 
-            this.itemsPerHour.AutoSize = true;
-            this.itemsPerHour.Location = new System.Drawing.Point(675, 29);
-            this.itemsPerHour.Name = "itemsPerHour";
-            this.itemsPerHour.Size = new System.Drawing.Size(212, 24);
-            this.itemsPerHour.TabIndex = 80;
-            this.itemsPerHour.Text = "Items Per Hour Display";
-            this.itemsPerHour.UseVisualStyleBackColor = true;
-            // 
             // UcCameraSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -616,6 +725,13 @@
             this.Size = new System.Drawing.Size(990, 500);
             this.grbCamera.ResumeLayout(false);
             this.grbCamera.PerformLayout();
+            this.CameraPortPanel.ResumeLayout(false);
+            this.CameraPortPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCamPort)).EndInit();
+            this.CameraBrandPanel.ResumeLayout(false);
+            this.CameraBrandPanel.PerformLayout();
+            this.CognexComponentsPanel.ResumeLayout(false);
+            this.CognexComponentsPanel.PerformLayout();
             this.PositionPanel.ResumeLayout(false);
             this.PositionPanel.PerformLayout();
             this.groupBoxOCR.ResumeLayout(false);
@@ -677,5 +793,14 @@
         private System.Windows.Forms.RadioButton radioLogoPosition;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox itemsPerHour;
+        private System.Windows.Forms.Panel CameraBrandPanel;
+        private System.Windows.Forms.RadioButton KeyenceRad;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.RadioButton CognexRad;
+        private System.Windows.Forms.Label CameraBrand;
+        private System.Windows.Forms.Panel CameraPortPanel;
+        private System.Windows.Forms.NumericUpDown numCamPort;
+        private System.Windows.Forms.Label lblPrinterPort;
+        private System.Windows.Forms.Panel CognexComponentsPanel;
     }
 }

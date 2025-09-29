@@ -218,7 +218,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     return;
                 }
 
-                var listQrcodes = CsvConvert.ReadStringListFromCsv(CurrentJob.DirectoryDatabase);
+                var listQrcodes = FileFuncs.ReadStringListFromCsv(CurrentJob.DirectoryDatabase);
              
                 bool isSent = await SendGeneratedCodes(listQrcodes, CurrentJob);
                 if (!isSent)
@@ -356,7 +356,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     CustomMessageBox.Show($"Không lấy được thông tin in lại!", Lang.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (sender == saveJobNutri)
+            else if (sender == saveJobNuti)
             {
                 try
                 {
@@ -389,7 +389,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 }
 
             }
-            else if (sender == saveJobNutriOffline)
+            else if (sender == saveJobNutiOffline)
             {
                 try
                 {
@@ -452,7 +452,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 if (!Directory.Exists(documentsPath)) Directory.CreateDirectory(documentsPath);
 
                 string filePath = Path.Combine(documentsPath, fileName);
-                CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
+                FileFuncs.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
                 Shared.databasePath = filePath;
                 Shared.numberOfCodesGenerate = list.Count;
 
@@ -1076,6 +1076,9 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             switch (cameraModel.CameraType)
             {
+                case CameraType.CV_X:
+                    Shared.SendErrorOutputToSensorController(currentIndex);
+                    break;
                 case CameraType.DM:
                     if(cameraModel.OutputType == OutputType.OutputCamera)
                     {
@@ -1311,6 +1314,12 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             dgvItems.ReadOnly = true;
             dgvItems.AllowUserToAddRows = false;
             dgvItems.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvItems.RowTemplate.Height = 45;
+            foreach (DataGridViewColumn column in dgvItems.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
             dgvItems.AutoResizeColumnHeadersHeight();
 
             #endregion
@@ -1327,6 +1336,13 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
             reprintGridView.MultiSelect = false;
             reprintGridView.ReadOnly = true;
             reprintGridView.AllowUserToAddRows = false;
+
+            reprintGridView.RowTemplate.Height = 45;
+            foreach (DataGridViewColumn column in reprintGridView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
 
             #endregion
         }
@@ -1386,7 +1402,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 if (!Directory.Exists(documentsPath)) Directory.CreateDirectory(documentsPath);
 
                 string filePath = Path.Combine(documentsPath, fileName);
-                CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
+                FileFuncs.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
                 Shared.databasePath = filePath;
                 Shared.numberOfCodesGenerate = list.Count;
 
@@ -1473,7 +1489,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                 if (!Directory.Exists(documentsPath)) Directory.CreateDirectory(documentsPath);
 
                 string filePath = Path.Combine(documentsPath, fileName);
-                CsvConvert.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
+                FileFuncs.WriteStringListToCsv(list, filePath); // Ensure this method is accessible
                 databasePath = filePath;
                 numberOfCodesGenerate = list.Count;
             }
@@ -1638,10 +1654,10 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
 
             wmsNumber.TextChanged += ActionResult;
             btnGetInfo.Click += ActionResult;
-            saveJobNutri.Click += ActionResult;
+            saveJobNuti.Click += ActionResult;
             saveJobReprint.Click += ActionResult;
             SyncDataBtn.Click += ActionResult;
-            saveJobNutriOffline.Click += ActionResult;
+            saveJobNutiOffline.Click += ActionResult;
             StopSyncData.Click += ActionResult;
             cbbHisFilterType.SelectedIndexChanged += ActionResult;
             editJobBtn.Click += ActionResult;
@@ -2120,8 +2136,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                     if (result == DialogResult.Yes)
                     {
                         jobModel.JobStatus = JobStatus.Deleted; // Reload Job name list
-                        string filePath = CommVariables.PathJobsApp + jobModel.FileName + Shared.Settings.JobFileExtension;
-                        jobModel.SaveFile(filePath);
+                        jobModel.SaveFile();
                     }
 
                     LoadJobNameList();
@@ -2370,8 +2385,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         Shared.DeleteJob(_JobModel);  // Perform delete Job file
                     }
 
-                    string filePath = CommVariables.PathJobsApp + _JobModel.FileName + Shared.Settings.JobFileExtension; // Save Job
-                    _JobModel.SaveFile(filePath);
+                    _JobModel.SaveFile();
                     // END Save Job
                     // Reload Job name list
                     Shared.JobNameSelected = JobName + Shared.Settings.JobFileExtension;

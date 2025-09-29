@@ -25,8 +25,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
         public async void Start()
         {
             _sender.Start();
-            //Task.Run(async () => await Task.Delay(100));
-            await Task.Delay(200); // Ensure the sender is ready before loading entries
+            await Task.Delay(200); 
 
 
             foreach (var entry in _storage.LoadUnsentEntries())
@@ -43,9 +42,8 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
             {
                 Id = id,
                 Code = code[1],
-                VerifiedStatus = "Verified", // reconsider to (duplicate, valid, invalid)
-                VerifiedDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                Status = "NotSent"
+                VerifiedStatus = code[2], // reconsider to (duplicate, valid, invalid)
+                VerifiedDate = code[6],
             };
             _storage.AppendEntry(entry);
             _queue.Add(entry);

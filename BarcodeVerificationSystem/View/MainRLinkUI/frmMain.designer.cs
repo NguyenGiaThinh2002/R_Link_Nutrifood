@@ -56,17 +56,6 @@
             this.btnStart = new DesignUI.CuzUI.CuzButton();
             this.pnlJobInformation = new DesignUI.CuzUI.RoundPanel();
             this.itemsPerHour = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.SAPFailedCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SAPSuccessCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.SaaSFailedCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numberOfCodes = new System.Windows.Forms.Label();
-            this.SaaSSuccessCodes = new DesignUI.CuzUI.CuzTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.syncSentCodes = new DesignUI.CuzUI.CuzTextBox();
             this.labelModeCheck = new System.Windows.Forms.Label();
             this.txtJobType = new DesignUI.CuzUI.CuzTextBox();
             this.lblJobType = new System.Windows.Forms.Label();
@@ -107,15 +96,6 @@
             this.txtCodeResult = new DesignUI.CuzUI.CuzTextBox();
             this.lblCodeResult = new System.Windows.Forms.Label();
             this.pnlVerificationProcess = new DesignUI.CuzUI.RoundPanel();
-            this.DispatchingActionsPanel = new System.Windows.Forms.Panel();
-            this.ConfirmLabel = new System.Windows.Forms.Label();
-            this.confirmCompletion = new DesignUI.CuzUI.CuzButton();
-            this.SyncDataLabel = new System.Windows.Forms.Label();
-            this.syncDataBtn = new DesignUI.CuzUI.CuzButton();
-            this.DisposeLabel = new System.Windows.Forms.Label();
-            this.disposeBtn = new DesignUI.CuzUI.CuzButton();
-            this.RePrintLabel = new System.Windows.Forms.Label();
-            this.RePrintBtn = new DesignUI.CuzUI.CuzButton();
             this.tableLayoutPanelProcess = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTotalChecked = new DesignUI.CuzUI.CuzPanel();
             this.lblTotalCheckedValue = new System.Windows.Forms.Label();
@@ -179,7 +159,6 @@
             this.pnlControllButton.SuspendLayout();
             this.tableLayoutControl.SuspendLayout();
             this.pnlJobInformation.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.tableLayoutPanelGetSample.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             this.tableLayoutPanelMain.SuspendLayout();
@@ -191,7 +170,6 @@
             this.pnlCurrentCheck.SuspendLayout();
             this.syncDataInfo.SuspendLayout();
             this.pnlVerificationProcess.SuspendLayout();
-            this.DispatchingActionsPanel.SuspendLayout();
             this.tableLayoutPanelProcess.SuspendLayout();
             this.pnlTotalChecked.SuspendLayout();
             this.pnlCheckFailed.SuspendLayout();
@@ -455,7 +433,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlJobInformation.BackColor = System.Drawing.Color.White;
             this.pnlJobInformation.Controls.Add(this.itemsPerHour);
-            this.pnlJobInformation.Controls.Add(this.panel3);
             this.pnlJobInformation.Controls.Add(this.labelModeCheck);
             this.pnlJobInformation.Controls.Add(this.txtJobType);
             this.pnlJobInformation.Controls.Add(this.lblJobType);
@@ -496,234 +473,6 @@
             this.itemsPerHour.TabIndex = 135;
             this.itemsPerHour.Text = "Items per hour";
             this.itemsPerHour.Visible = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.SAPFailedCodes);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.SAPSuccessCodes);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.SaaSFailedCodes);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.numberOfCodes);
-            this.panel3.Controls.Add(this.SaaSSuccessCodes);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.syncSentCodes);
-            this.panel3.Location = new System.Drawing.Point(14, 221);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(261, 368);
-            this.panel3.TabIndex = 143;
-            this.panel3.Visible = false;
-            // 
-            // SAPFailedCodes
-            // 
-            this.SAPFailedCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.SAPFailedCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SAPFailedCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SAPFailedCodes.AutoSize = true;
-            this.SAPFailedCodes.BackColor = System.Drawing.Color.White;
-            this.SAPFailedCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.SAPFailedCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SAPFailedCodes.BorderRadius = 8;
-            this.SAPFailedCodes.BorderSize = 1;
-            this.SAPFailedCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SAPFailedCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SAPFailedCodes.Location = new System.Drawing.Point(7, 403);
-            this.SAPFailedCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.SAPFailedCodes.Multiline = false;
-            this.SAPFailedCodes.Name = "SAPFailedCodes";
-            this.SAPFailedCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.SAPFailedCodes.PasswordChar = false;
-            this.SAPFailedCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.SAPFailedCodes.PlaceholderText = "";
-            this.SAPFailedCodes.ReadOnly = true;
-            this.SAPFailedCodes.Size = new System.Drawing.Size(241, 35);
-            this.SAPFailedCodes.TabIndex = 148;
-            this.SAPFailedCodes.TabStop = false;
-            this.SAPFailedCodes.UnderlinedStyle = false;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoEllipsis = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label4.Location = new System.Drawing.Point(13, 368);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(242, 20);
-            this.label4.TabIndex = 147;
-            this.label4.Text = "Sent SAP Failed";
-            // 
-            // SAPSuccessCodes
-            // 
-            this.SAPSuccessCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.SAPSuccessCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SAPSuccessCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SAPSuccessCodes.AutoSize = true;
-            this.SAPSuccessCodes.BackColor = System.Drawing.Color.White;
-            this.SAPSuccessCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.SAPSuccessCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SAPSuccessCodes.BorderRadius = 8;
-            this.SAPSuccessCodes.BorderSize = 1;
-            this.SAPSuccessCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SAPSuccessCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SAPSuccessCodes.Location = new System.Drawing.Point(10, 308);
-            this.SAPSuccessCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.SAPSuccessCodes.Multiline = false;
-            this.SAPSuccessCodes.Name = "SAPSuccessCodes";
-            this.SAPSuccessCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.SAPSuccessCodes.PasswordChar = false;
-            this.SAPSuccessCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.SAPSuccessCodes.PlaceholderText = "";
-            this.SAPSuccessCodes.ReadOnly = true;
-            this.SAPSuccessCodes.Size = new System.Drawing.Size(241, 35);
-            this.SAPSuccessCodes.TabIndex = 146;
-            this.SAPSuccessCodes.TabStop = false;
-            this.SAPSuccessCodes.UnderlinedStyle = false;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoEllipsis = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label3.Location = new System.Drawing.Point(9, 284);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(242, 20);
-            this.label3.TabIndex = 145;
-            this.label3.Text = "Sent SAP Successful";
-            // 
-            // SaaSFailedCodes
-            // 
-            this.SaaSFailedCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.SaaSFailedCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SaaSFailedCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaaSFailedCodes.AutoSize = true;
-            this.SaaSFailedCodes.BackColor = System.Drawing.Color.White;
-            this.SaaSFailedCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.SaaSFailedCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SaaSFailedCodes.BorderRadius = 8;
-            this.SaaSFailedCodes.BorderSize = 1;
-            this.SaaSFailedCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaaSFailedCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SaaSFailedCodes.Location = new System.Drawing.Point(10, 221);
-            this.SaaSFailedCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.SaaSFailedCodes.Multiline = false;
-            this.SaaSFailedCodes.Name = "SaaSFailedCodes";
-            this.SaaSFailedCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.SaaSFailedCodes.PasswordChar = false;
-            this.SaaSFailedCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.SaaSFailedCodes.PlaceholderText = "";
-            this.SaaSFailedCodes.ReadOnly = true;
-            this.SaaSFailedCodes.Size = new System.Drawing.Size(241, 35);
-            this.SaaSFailedCodes.TabIndex = 144;
-            this.SaaSFailedCodes.TabStop = false;
-            this.SaaSFailedCodes.UnderlinedStyle = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoEllipsis = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(9, 197);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 20);
-            this.label2.TabIndex = 143;
-            this.label2.Text = "Sent SaaS Failed";
-            // 
-            // numberOfCodes
-            // 
-            this.numberOfCodes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numberOfCodes.AutoEllipsis = true;
-            this.numberOfCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfCodes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.numberOfCodes.Location = new System.Drawing.Point(7, 9);
-            this.numberOfCodes.Name = "numberOfCodes";
-            this.numberOfCodes.Size = new System.Drawing.Size(207, 20);
-            this.numberOfCodes.TabIndex = 140;
-            this.numberOfCodes.Text = "Number Of Sent Codes";
-            // 
-            // SaaSSuccessCodes
-            // 
-            this.SaaSSuccessCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.SaaSSuccessCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SaaSSuccessCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaaSSuccessCodes.AutoSize = true;
-            this.SaaSSuccessCodes.BackColor = System.Drawing.Color.White;
-            this.SaaSSuccessCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.SaaSSuccessCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.SaaSSuccessCodes.BorderRadius = 8;
-            this.SaaSSuccessCodes.BorderSize = 1;
-            this.SaaSSuccessCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaaSSuccessCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SaaSSuccessCodes.Location = new System.Drawing.Point(11, 123);
-            this.SaaSSuccessCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.SaaSSuccessCodes.Multiline = false;
-            this.SaaSSuccessCodes.Name = "SaaSSuccessCodes";
-            this.SaaSSuccessCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.SaaSSuccessCodes.PasswordChar = false;
-            this.SaaSSuccessCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.SaaSSuccessCodes.PlaceholderText = "";
-            this.SaaSSuccessCodes.ReadOnly = true;
-            this.SaaSSuccessCodes.Size = new System.Drawing.Size(241, 35);
-            this.SaaSSuccessCodes.TabIndex = 141;
-            this.SaaSSuccessCodes.TabStop = false;
-            this.SaaSSuccessCodes.UnderlinedStyle = false;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoEllipsis = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(9, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(242, 20);
-            this.label1.TabIndex = 142;
-            this.label1.Text = "Sent SaaS Successful";
-            // 
-            // syncSentCodes
-            // 
-            this.syncSentCodes._ReadOnlyBackColor = System.Drawing.Color.White;
-            this.syncSentCodes._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.syncSentCodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.syncSentCodes.AutoSize = true;
-            this.syncSentCodes.BackColor = System.Drawing.Color.White;
-            this.syncSentCodes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.syncSentCodes.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.syncSentCodes.BorderRadius = 8;
-            this.syncSentCodes.BorderSize = 1;
-            this.syncSentCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.syncSentCodes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.syncSentCodes.Location = new System.Drawing.Point(11, 46);
-            this.syncSentCodes.Margin = new System.Windows.Forms.Padding(4);
-            this.syncSentCodes.Multiline = false;
-            this.syncSentCodes.Name = "syncSentCodes";
-            this.syncSentCodes.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.syncSentCodes.PasswordChar = false;
-            this.syncSentCodes.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.syncSentCodes.PlaceholderText = "";
-            this.syncSentCodes.ReadOnly = true;
-            this.syncSentCodes.Size = new System.Drawing.Size(237, 35);
-            this.syncSentCodes.TabIndex = 139;
-            this.syncSentCodes.TabStop = false;
-            this.syncSentCodes.UnderlinedStyle = false;
             // 
             // labelModeCheck
             // 
@@ -1456,7 +1205,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlVerificationProcess.BackColor = System.Drawing.Color.White;
-            this.pnlVerificationProcess.Controls.Add(this.DispatchingActionsPanel);
             this.pnlVerificationProcess.Controls.Add(this.tableLayoutPanelProcess);
             this.pnlVerificationProcess.IsTitleHatchStyle = false;
             this.pnlVerificationProcess.Location = new System.Drawing.Point(11, 442);
@@ -1472,169 +1220,6 @@
             this.pnlVerificationProcess.TitleForeColor = System.Drawing.Color.White;
             this.pnlVerificationProcess.TitleHatchStyle = System.Drawing.Drawing2D.HatchStyle.Percent60;
             this.pnlVerificationProcess.TitleHeight = 30;
-            // 
-            // DispatchingActionsPanel
-            // 
-            this.DispatchingActionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DispatchingActionsPanel.Controls.Add(this.ConfirmLabel);
-            this.DispatchingActionsPanel.Controls.Add(this.confirmCompletion);
-            this.DispatchingActionsPanel.Controls.Add(this.SyncDataLabel);
-            this.DispatchingActionsPanel.Controls.Add(this.syncDataBtn);
-            this.DispatchingActionsPanel.Controls.Add(this.DisposeLabel);
-            this.DispatchingActionsPanel.Controls.Add(this.disposeBtn);
-            this.DispatchingActionsPanel.Controls.Add(this.RePrintLabel);
-            this.DispatchingActionsPanel.Controls.Add(this.RePrintBtn);
-            this.DispatchingActionsPanel.Location = new System.Drawing.Point(6, 41);
-            this.DispatchingActionsPanel.Name = "DispatchingActionsPanel";
-            this.DispatchingActionsPanel.Size = new System.Drawing.Size(380, 369);
-            this.DispatchingActionsPanel.TabIndex = 136;
-            // 
-            // ConfirmLabel
-            // 
-            this.ConfirmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.ConfirmLabel.Location = new System.Drawing.Point(20, 20);
-            this.ConfirmLabel.Name = "ConfirmLabel";
-            this.ConfirmLabel.Size = new System.Drawing.Size(340, 25);
-            this.ConfirmLabel.TabIndex = 0;
-            this.ConfirmLabel.Text = "Confirm job is completed:";
-            this.ConfirmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ConfirmLabel.Click += new System.EventHandler(this.ConfirmLabel_Click);
-            // 
-            // confirmCompletion
-            // 
-            this.confirmCompletion._BorderColor = System.Drawing.Color.Lavender;
-            this.confirmCompletion._BorderRadius = 15;
-            this.confirmCompletion._BorderSize = 1;
-            this.confirmCompletion._GradientsButton = false;
-            this.confirmCompletion._Text = "Confirm Completion";
-            this.confirmCompletion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.confirmCompletion.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.confirmCompletion.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
-            this.confirmCompletion.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.confirmCompletion.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.confirmCompletion.FlatAppearance.BorderSize = 0;
-            this.confirmCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.confirmCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmCompletion.ForeColor = System.Drawing.Color.White;
-            this.confirmCompletion.Location = new System.Drawing.Point(20, 50);
-            this.confirmCompletion.Name = "confirmCompletion";
-            this.confirmCompletion.Size = new System.Drawing.Size(340, 45);
-            this.confirmCompletion.TabIndex = 1;
-            this.confirmCompletion.Text = "Confirm Completion";
-            this.confirmCompletion.TextColor = System.Drawing.Color.White;
-            this.confirmCompletion.UseVisualStyleBackColor = false;
-            // 
-            // SyncDataLabel
-            // 
-            this.SyncDataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.SyncDataLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.SyncDataLabel.Location = new System.Drawing.Point(20, 110);
-            this.SyncDataLabel.Name = "SyncDataLabel";
-            this.SyncDataLabel.Size = new System.Drawing.Size(340, 25);
-            this.SyncDataLabel.TabIndex = 2;
-            this.SyncDataLabel.Text = "Sync Data Manually:";
-            this.SyncDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // syncDataBtn
-            // 
-            this.syncDataBtn._BorderColor = System.Drawing.Color.Lavender;
-            this.syncDataBtn._BorderRadius = 10;
-            this.syncDataBtn._BorderSize = 1;
-            this.syncDataBtn._GradientsButton = false;
-            this.syncDataBtn._Text = "Sync Data";
-            this.syncDataBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.syncDataBtn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.syncDataBtn.BackgroundColor = System.Drawing.Color.CornflowerBlue;
-            this.syncDataBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.syncDataBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.syncDataBtn.FlatAppearance.BorderSize = 0;
-            this.syncDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.syncDataBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.syncDataBtn.ForeColor = System.Drawing.Color.White;
-            this.syncDataBtn.Location = new System.Drawing.Point(20, 140);
-            this.syncDataBtn.Name = "syncDataBtn";
-            this.syncDataBtn.Size = new System.Drawing.Size(340, 45);
-            this.syncDataBtn.TabIndex = 3;
-            this.syncDataBtn.Text = "Sync Data";
-            this.syncDataBtn.TextColor = System.Drawing.Color.White;
-            this.syncDataBtn.UseVisualStyleBackColor = false;
-            // 
-            // DisposeLabel
-            // 
-            this.DisposeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.DisposeLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.DisposeLabel.Location = new System.Drawing.Point(20, 200);
-            this.DisposeLabel.Name = "DisposeLabel";
-            this.DisposeLabel.Size = new System.Drawing.Size(340, 25);
-            this.DisposeLabel.TabIndex = 4;
-            this.DisposeLabel.Text = "Dispose Error Barcodes:";
-            this.DisposeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // disposeBtn
-            // 
-            this.disposeBtn._BorderColor = System.Drawing.Color.Lavender;
-            this.disposeBtn._BorderRadius = 10;
-            this.disposeBtn._BorderSize = 1;
-            this.disposeBtn._GradientsButton = false;
-            this.disposeBtn._Text = "Dispose Barcodes";
-            this.disposeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.disposeBtn.BackColor = System.Drawing.Color.Turquoise;
-            this.disposeBtn.BackgroundColor = System.Drawing.Color.Turquoise;
-            this.disposeBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.disposeBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.disposeBtn.FlatAppearance.BorderSize = 0;
-            this.disposeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.disposeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.disposeBtn.ForeColor = System.Drawing.Color.White;
-            this.disposeBtn.Location = new System.Drawing.Point(20, 230);
-            this.disposeBtn.Name = "disposeBtn";
-            this.disposeBtn.Size = new System.Drawing.Size(340, 45);
-            this.disposeBtn.TabIndex = 5;
-            this.disposeBtn.Text = "Dispose Barcodes";
-            this.disposeBtn.TextColor = System.Drawing.Color.White;
-            this.disposeBtn.UseVisualStyleBackColor = false;
-            // 
-            // RePrintLabel
-            // 
-            this.RePrintLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.RePrintLabel.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.RePrintLabel.Location = new System.Drawing.Point(20, 290);
-            this.RePrintLabel.Name = "RePrintLabel";
-            this.RePrintLabel.Size = new System.Drawing.Size(340, 25);
-            this.RePrintLabel.TabIndex = 6;
-            this.RePrintLabel.Text = "RePrint Old Barcodes:";
-            this.RePrintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // RePrintBtn
-            // 
-            this.RePrintBtn._BorderColor = System.Drawing.Color.Lavender;
-            this.RePrintBtn._BorderRadius = 10;
-            this.RePrintBtn._BorderSize = 1;
-            this.RePrintBtn._GradientsButton = false;
-            this.RePrintBtn._Text = "RePrint";
-            this.RePrintBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.RePrintBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.RePrintBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.RePrintBtn.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RePrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.RePrintBtn.FlatAppearance.BorderSize = 0;
-            this.RePrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RePrintBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.RePrintBtn.ForeColor = System.Drawing.Color.White;
-            this.RePrintBtn.Location = new System.Drawing.Point(20, 320);
-            this.RePrintBtn.Name = "RePrintBtn";
-            this.RePrintBtn.Size = new System.Drawing.Size(340, 45);
-            this.RePrintBtn.TabIndex = 7;
-            this.RePrintBtn.Text = "RePrint";
-            this.RePrintBtn.TextColor = System.Drawing.Color.White;
-            this.RePrintBtn.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanelProcess
             // 
@@ -2620,7 +2205,7 @@
             this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistory.ForeColor = System.Drawing.Color.White;
-            this.btnHistory.IconChar = FontAwesome.Sharp.IconChar.ListSquares;
+            this.btnHistory.IconChar = FontAwesome.Sharp.IconChar.List;
             this.btnHistory.IconColor = System.Drawing.Color.White;
             this.btnHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHistory.IconSize = 30;
@@ -2767,8 +2352,6 @@
             this.tableLayoutControl.ResumeLayout(false);
             this.pnlJobInformation.ResumeLayout(false);
             this.pnlJobInformation.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.tableLayoutPanelGetSample.ResumeLayout(false);
             this.pnlContainer.ResumeLayout(false);
             this.tableLayoutPanelMain.ResumeLayout(false);
@@ -2781,7 +2364,6 @@
             this.syncDataInfo.ResumeLayout(false);
             this.syncDataInfo.PerformLayout();
             this.pnlVerificationProcess.ResumeLayout(false);
-            this.DispatchingActionsPanel.ResumeLayout(false);
             this.tableLayoutPanelProcess.ResumeLayout(false);
             this.pnlTotalChecked.ResumeLayout(false);
             this.pnlTotalChecked.PerformLayout();
@@ -2928,30 +2510,10 @@
         private System.Windows.Forms.Label BarcodeQualityLabel;
         private System.Windows.Forms.Label GetSample;
         private System.Windows.Forms.Label itemsPerHour;
-        private DesignUI.CuzUI.CuzButton confirmCompletion;
-        private System.Windows.Forms.Label numberOfCodes;
-        private DesignUI.CuzUI.CuzTextBox syncSentCodes;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private DesignUI.CuzUI.CuzTextBox SAPSuccessCodes;
-        private System.Windows.Forms.Label label3;
-        private DesignUI.CuzUI.CuzTextBox SaaSFailedCodes;
-        private System.Windows.Forms.Label label2;
-        private DesignUI.CuzUI.CuzTextBox SaaSSuccessCodes;
-        private DesignUI.CuzUI.CuzTextBox SAPFailedCodes;
-        private System.Windows.Forms.Panel DispatchingActionsPanel;
-        private DesignUI.CuzUI.CuzButton disposeBtn;
-        private DesignUI.CuzUI.CuzButton syncDataBtn;
-        private System.Windows.Forms.Label RePrintLabel;
-        private System.Windows.Forms.Label DisposeLabel;
-        private System.Windows.Forms.Label SyncDataLabel;
-        private System.Windows.Forms.Label ConfirmLabel;
         private DesignUI.CuzUI.CuzTextBox sentSAPSuccess;
         private System.Windows.Forms.Label SentSAP;
         private DesignUI.CuzUI.CuzTextBox sentSaaSSuccess;
         private System.Windows.Forms.Panel syncDataInfo;
         private System.Windows.Forms.Label SentSaaS;
-        private DesignUI.CuzUI.CuzButton RePrintBtn;
     }
 }

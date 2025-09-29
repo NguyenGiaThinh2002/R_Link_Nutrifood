@@ -6,6 +6,13 @@ namespace BarcodeVerificationSystem.Model
     [Serializable]
     public class CameraModel
     {
+        private CameraBrand _CameraBrand = CameraBrand.Cognex;
+        public CameraBrand CameraBrand
+        {
+            get => _CameraBrand;
+            set => _CameraBrand = value;
+        }
+
         private CameraType _CameraType = CameraType.DM;
         public CameraType CameraType
         {
@@ -96,6 +103,13 @@ namespace BarcodeVerificationSystem.Model
         UKN,
         DM,
         IS,
-        ISDual
+        ISDual,
+        CV_X
+    }
+
+    public enum CameraBrand
+    {
+        Cognex,
+        Keyence
     }
 }

@@ -75,8 +75,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.DispatchingProcess
 
         private void OnSave_Click(object sender, EventArgs e)
         {
-            string filePath = CommVariables.PathJobsApp + _jobModel.FileName + Shared.Settings.JobFileExtension;
-            _jobModel.SaveFile(filePath);
+            _jobModel.SaveFile();
             Close();
         }
 

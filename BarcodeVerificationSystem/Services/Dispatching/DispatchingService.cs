@@ -44,7 +44,6 @@ namespace BarcodeVerificationSystem.Services.Dispatching
 
         public async Task<bool> PostMonitorDataAsync(MonitorPayload payload)
         {
-            return default;
             return await _apiService.PostApiDataAsync(DispatchingApis.GetMonitorUrl(), payload);
         }
 

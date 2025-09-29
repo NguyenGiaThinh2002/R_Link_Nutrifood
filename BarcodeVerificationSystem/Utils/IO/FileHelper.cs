@@ -1,8 +1,10 @@
 ﻿using BarcodeVerificationSystem.Modules.ReliableDataSender.Models;
+using BarcodeVerificationSystem.View.CustomDialogs;
 using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 
 namespace BarcodeVerificationSystem.Utils
@@ -11,22 +13,21 @@ namespace BarcodeVerificationSystem.Utils
     {
         private static readonly object _fileLock = new object();
 
-        public static void UpdatePrintingEntry(string filePath, int entryId, string PrintedDate,
-                                       string SaasStatus, string SAPStatus,
-                                       string SaasSError, string SAPError,
+        public static void UpdatePrintingEntry(string filePath, StorageUpdate storageUpdate,
                                        string status)
         {
             lock (_fileLock)
             {
                 var lines = File.ReadAllLines(filePath).ToList();
 
-                if (entryId < 1 || entryId > lines.Count)
-                    throw new ArgumentOutOfRangeException(nameof(entryId));
+                if (storageUpdate.Id < 1 || storageUpdate.Id > lines.Count)
+                    throw new ArgumentOutOfRangeException(nameof(storageUpdate.Id));
 
-                var parts = lines[entryId - 1].Split(',');
+                var parts = lines[storageUpdate.Id - 1].Split(',');
 
-                lines[entryId - 1] =
-                    $"{parts[0]},{parts[1]},{parts[2]},{PrintedDate},{SaasStatus},{SAPStatus},{SaasSError},{SAPError},{status}";
+                lines[storageUpdate.Id - 1] =
+                    $"{parts[0]},{parts[1]},{parts[2]},{storageUpdate.PrintedDate},{storageUpdate.SaaSStatus}" +
+                    $",{storageUpdate.SAPStatus},{storageUpdate.SaaSError},{storageUpdate.SAPError},{status}";
 
                 string tempFile = filePath + ".tmp";
 
@@ -60,53 +61,78 @@ namespace BarcodeVerificationSystem.Utils
             }
         }
 
-        public static void AppendVerifyingEntry(string filePath, VerificationDataEntry entry, string unsentStatus)
-        {
-            lock (_fileLock)
-            {
-                var lines = File.ReadAllLines(filePath).ToList();
+        //public static void UpdateVerifyingEntry(string filePath, StorageUpdate storageUpdate, string status)
+        //{
+        //    const int maxRetries = 3;
+        //    const int delayMs = 200;
 
-                if (entry.Id < 1 || entry.Id > lines.Count)
-                    throw new ArgumentOutOfRangeException(nameof(entry.Id));
+        //    for (int attempt = 1; attempt <= maxRetries; attempt++)
+        //    {
+        //        var lines = File.ReadAllLines(filePath).ToList();
 
-                lines[entry.Id - 1] =
-                    $"{entry.Id},{entry.Code},{entry.UniqueCode},{entry.VerifiedDate},,,,,{unsentStatus}";
+        //        if (storageUpdate.Id < 1 || storageUpdate.Id > lines.Count)
+        //            return;
 
-                string tempFile = filePath + ".tmp";
+        //        var parts = lines[storageUpdate.Id - 1].Split(',');
 
-                // Write to temp file first
-                File.WriteAllLines(tempFile, lines, Encoding.UTF8);
+        //        if (storageUpdate.Id - 1 != int.Parse(parts[0]))
+        //        {
+        //            CustomMessageBox.Show("Lỗi dữ liệu đồng bộ kiểm tra bị sai Index", "Lỗi Index",
+        //                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+        //            throw new ArgumentOutOfRangeException(nameof(storageUpdate.Id));
+        //        }
 
-                // Replace atomically
-                File.Replace(tempFile, filePath, null);
-            }
-        }
 
-        public static void UpdateVerifyingEntry(string filePath, int entryId, string VerifiedDate,
-                               string SaasStatus, string SAPStatus,
-                               string SaasSError, string SAPError,
+        //        lines[storageUpdate.Id - 1] =
+        //            $"{parts[0]},{parts[1]},{storageUpdate.VerifiedStatus},{storageUpdate.VerifiedDate}" +
+        //            $",{storageUpdate.SaaSStatus},{storageUpdate.SAPStatus},{storageUpdate.SaaSError},{storageUpdate.SAPError},{status}";
+
+        //        string tempFile = filePath + ".tmp";
+
+        //        File.WriteAllLines(tempFile, lines, Encoding.UTF8);
+
+        //        File.Replace(tempFile, filePath, null);
+
+        //        return; // ✅ success, exit method
+        //        //try
+        //        //{
+
+        //        //}
+        //        //catch (IOException)
+        //        //{
+        //        //}
+        //    }
+        //}
+
+        public static void UpdateVerifyingEntry(string filePath, StorageUpdate storageUpdate,
                                string status)
         {
-            lock (_fileLock)
-            {
-                var lines = File.ReadAllLines(filePath).ToList();
+            var lines = File.ReadAllLines(filePath).ToList();
 
-                if (entryId < 1 || entryId > lines.Count)
-                    throw new ArgumentOutOfRangeException(nameof(entryId));
+            if (storageUpdate.Id < 1 || storageUpdate.Id > lines.Count)
+                throw new ArgumentOutOfRangeException(nameof(storageUpdate.Id));
 
-                var parts = lines[entryId - 1].Split(',');
 
-                lines[entryId - 1] =
-                    $"{parts[0]},{parts[1]},{parts[2]},{VerifiedDate},{SaasStatus},{SAPStatus},{SaasSError},{SAPError},{status}";
+            var parts = lines[storageUpdate.Id - 1].Split(',');
 
-                string tempFile = filePath + ".tmp";
+            //if (storageUpdate.Id - 1 != int.Parse(parts[0]))
+            //{
+            //    CustomMessageBox.Show("Lỗi dữ liệu đồng bộ kiểm tra bị sai Index", "Lỗi Index",
+            //            System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //    throw new ArgumentOutOfRangeException(nameof(storageUpdate.Id));
+            //}
 
-                // Write to temp file first
-                File.WriteAllLines(tempFile, lines, Encoding.UTF8);
+            lines[storageUpdate.Id - 1] =
+                $"{parts[0]},{parts[1]},{storageUpdate.VerifiedStatus},{storageUpdate.VerifiedDate}" +
+                $",{storageUpdate.SaaSStatus},{storageUpdate.SAPStatus},{storageUpdate.SaaSError},{storageUpdate.SAPError},{status}";
 
-                // Atomically replace the original file
-                File.Replace(tempFile, filePath, null);
-            }
+            string tempFile = filePath + ".tmp";
+
+            // Write to temp file first
+            File.WriteAllLines(tempFile, lines, Encoding.UTF8);
+
+            // Atomically replace the original file
+            File.Replace(tempFile, filePath, null);
         }
 
     }

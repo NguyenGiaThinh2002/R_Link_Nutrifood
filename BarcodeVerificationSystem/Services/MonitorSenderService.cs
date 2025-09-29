@@ -13,12 +13,14 @@ using System.Security.Policy;
 using BarcodeVerificationSystem.Utils;
 using BarcodeVerificationSystem.Services.Dispatching;
 using Mysqlx.Crud;
+using BarcodeVerificationSystem.Services.Manufacturing;
 
 namespace BarcodeVerificationSystem.Services
 {
     internal class MonitorSenderService
     {
-        private static DispatchingService _dispatchingService = new DispatchingService();
+        private static ManufacturingService manufacturingService = new ManufacturingService();
+
         public static async void SendParametersToServer()
         {
             await Task.Run(() => SendParametersToServerAsync());
@@ -44,9 +46,14 @@ namespace BarcodeVerificationSystem.Services
 
         public static async Task sendParametersToServerAsync(ApiService apiService, bool isSoftwareConnected)
         {
-            string url = DispatchingApis.GetMonitorUrl();
             try
             {
+                string userCode = string.Empty;
+                if (Shared.UserPermission.OnlineUserModel != null)
+                {
+                    userCode = Shared.UserPermission?.OnlineUserModel?.ma_tai_khoan;
+                }
+
                 var settings = Shared.Settings;
                 var monitor = new MonitorPayload
                 {
@@ -54,6 +61,8 @@ namespace BarcodeVerificationSystem.Services
                     printed_codes_number = Shared.NumberPrinted,
                     generated_codes_number = Shared.TotalCodes,
                     sent_saas_codes = Shared.NumberOfSentSaaS,
+                    sent_saas_check_codes = Shared.NumberOfCheckSentSaaS,
+                    sent_sap_check_codes = Shared.NumberOfCheckSentSAP,
                     sent_sap_codes = Shared.NumberOfSentSAP,
                     is_software_connected = isSoftwareConnected,
                     resource_code = settings.LineId,
@@ -64,15 +73,14 @@ namespace BarcodeVerificationSystem.Services
                     ip_address_camera = settings.CameraList[0].IP,
                     is_printer_connected = settings.PrinterList[0].IsConnected,
                     is_camera_connected = settings.CameraList[0].IsConnected,
+                    username = userCode,
                     timestamp = DateTime.Now
                 };
 
-                //var res = await apiService.PostApiDataAsync(url, monitor);
-                var res = await _dispatchingService.PostMonitorDataAsync(monitor);
+                var res = await manufacturingService.PostMonitorDataAsync(monitor);
             }
             catch (Exception ex)
             {
-                ProjectLogger.WriteError($"Error occurred in {url}: " + ex.Message);
             }
         }
 

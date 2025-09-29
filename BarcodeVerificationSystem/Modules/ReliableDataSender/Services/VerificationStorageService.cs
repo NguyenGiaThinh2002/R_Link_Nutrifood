@@ -43,7 +43,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                     for (int i = 0; i < lines.Count; i++)
                     {
                         var parts = lines[i].Split(',');
-                        var newLine = $"{i + 1},{parts[0]},{parts[1]},,,,,,";
+                        var newLine = $"{i + 1},{parts[0]},,,,,,";
                         newLines.Add(newLine);
                     }
 
@@ -57,25 +57,11 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
         }
 
-        //public void AppendEntry(VerificationDataEntry entry)
-        //{
-        //    try
-        //    {
-        //        lock (_fileLock)
-        //        {
-        //            FileHelper.AppendVerifyingEntry(_filePath, entry, _unsentStatus);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ProjectLogger.WriteError("Error in AppendNewEntry: " + ex.Message);
-        //    }
-        //}
         public void AppendEntry(VerificationDataEntry entry)  
         {
             lock (_fileLock)
             {
-                var entryLine = $"{entry.Id},{entry.Code},{entry.UniqueCode},{entry.VerifiedDate},{entry.SaasStatus},{entry.SAPStatus},{entry.SaasError},{entry.SAPError},{entry.Status}";
+                var entryLine = $"{entry.Id},{entry.Code},{entry.VerifiedStatus},{entry.VerifiedDate},{entry.SaasStatus},{entry.SAPStatus},{entry.SaasError},{entry.SAPError},{_unsentStatus}";
                 File.AppendAllLines(_filePath, new[] { entryLine }, Encoding.UTF8);
             }
         }
@@ -93,8 +79,8 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         return new VerificationDataEntry
                         {
                             Id = int.Parse(parts[VerifyingValues.Index]), // parts[0]}
-                            Code = parts[VerifyingValues.QrCodeIndex], // parts[1]
-                            UniqueCode = parts[VerifyingValues.UniqueCode],
+                            Code = parts[VerifyingValues.Code],
+                            VerifiedStatus = parts[VerifyingValues.VerifiedStatus],
                             VerifiedDate = parts[VerifyingValues.VerifiedDate],
                             SaasStatus = parts[VerifyingValues.SaaSStatus],
                             SAPStatus = parts[VerifyingValues.SAPStatus],
@@ -114,11 +100,14 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             }
         }
 
-        public void MarkAsFailed(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
+        public void MarkAsFailed(StorageUpdate storageUpdate)
         {
             try
             {
-                FileHelper.UpdateVerifyingEntry(_filePath, entryId, PrintedDate, SaasStatus, SAPStatus, SaasSError, SAPError, _unsentStatus);
+                lock (_fileLock)
+                {
+                    FileHelper.UpdateVerifyingEntry(_filePath, storageUpdate, _unsentStatus);
+                }
             }
             catch (Exception ex)
             {
@@ -126,11 +115,14 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
             }
         }
 
-        public void MarkAsSent(int entryId, string PrintedDate, string SaasStatus, string SAPStatus, string SaasSError, string SAPError)
+        public void MarkAsSent(StorageUpdate storageUpdate)
         {
             try
             {
-                FileHelper.UpdateVerifyingEntry(_filePath, entryId, PrintedDate, SaasStatus, SAPStatus, SaasSError, SAPError, _sentStatus);
+                lock (_fileLock)
+                {
+                    FileHelper.UpdateVerifyingEntry(_filePath, storageUpdate, _sentStatus);
+                }
             }
             catch (Exception ex)
             {

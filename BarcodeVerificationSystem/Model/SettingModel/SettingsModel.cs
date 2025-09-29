@@ -29,8 +29,6 @@ namespace BarcodeVerificationSystem.Model
         public int SelectedPOIndex = 0;
         public int SelectedBatchIndex = 0;
 
-
-
         public int AddQuantity = 0;
         private string _printTemplate = "";
         public string PrintTemplate { get => _printTemplate; set => _printTemplate = value; }
@@ -91,6 +89,15 @@ namespace BarcodeVerificationSystem.Model
             ResumeAB,
         }
         public ResumeEncoderType ResumeEncoder { get => _ResumeEncoderType; set => _ResumeEncoderType = value; }
+
+
+        private ResumeEncoderMode _ResumeEncoderMode = ResumeEncoderMode.External;
+        public enum ResumeEncoderMode
+        {
+            Internal,
+            External,
+        }
+        public ResumeEncoderMode EncoderMode { get => _ResumeEncoderMode; set => _ResumeEncoderMode = value; }
 
         private bool _EnablePosition = false;
         public bool EnablePosition { get => _EnablePosition && Shared.Settings.CameraList.FirstOrDefault().CameraType != CameraType.DM; set => _EnablePosition = value; }
@@ -195,6 +202,9 @@ namespace BarcodeVerificationSystem.Model
             set { _factoryCode = value; }
         }
 
+        private string _LOTFormatDate = "yyyy/MM/dd";
+        public string LOTFormatDate { get => _LOTFormatDate; set => _LOTFormatDate = value; }
+
         #endregion
 
 
@@ -281,7 +291,7 @@ namespace BarcodeVerificationSystem.Model
         private bool _DuplicatedDBEnable = false;
         public bool DuplicatedDBEnable { get => _DuplicatedDBEnable; set => _DuplicatedDBEnable = value; }
 
-        private bool _TotalCheckEnable = true;
+        private bool _TotalCheckEnable = ProjectLabel.IsDefault; // true
         public bool TotalCheckEnable { get => _TotalCheckEnable; set => _TotalCheckEnable = value; }
         private bool _VerifyAndPrintBasicSentMethod = true;
         public bool VerifyAndPrintBasicSentMethod { get => _VerifyAndPrintBasicSentMethod; set => _VerifyAndPrintBasicSentMethod = value; }

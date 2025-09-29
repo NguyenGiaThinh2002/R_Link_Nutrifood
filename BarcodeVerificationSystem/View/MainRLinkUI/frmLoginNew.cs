@@ -53,35 +53,34 @@ namespace BarcodeVerificationSystem.View
                     case LoginLabel.AdminOnlineMode:
                         txtUsername.Text = "admin";
                         txtPassword.Text = "123456";
-                        chbRememberPassword.Checked = true;
                         break;
                     case LoginLabel.AdminOfflineMode:
                         txtUsername.Text = "Administrator";
                         txtPassword.Text = "Admin@2025";
-                        chbRememberPassword.Checked = true;
                         break;
                     case LoginLabel.SupportOfflineMode:
                         txtUsername.Text = "Support";
                         txtPassword.Text = "Support@2025";
-                        chbRememberPassword.Checked = true;
                         break;
-                    case LoginLabel.OperatorOnlineMode:
+                    case LoginLabel.BinhduongXH:
                         txtUsername.Text = "binhduongpp";
                         txtPassword.Text = "binhduong@pp";
-                        chbRememberPassword.Checked = true;
+                        break;
+                    case LoginLabel.BinhduongSX:
+                        txtUsername.Text = "binhduongsx";
+                        txtPassword.Text = "binhduong@sx";
                         break;
                     case LoginLabel.OperatorOfflineMode:
                         txtUsername.Text = "Operator";
                         txtPassword.Text = "Operator@123";
-                        chbRememberPassword.Checked = true;
                         break;
 
                     default:
                         txtUsername.Text = "";
                         txtPassword.Text = "";
-                        chbRememberPassword.Checked = false;
                         break;
                 }
+                chbRememberPassword.Checked = false;
                 Login(txtUsername.Text, txtPassword.Text, chbRememberPassword.Checked);
 
             }

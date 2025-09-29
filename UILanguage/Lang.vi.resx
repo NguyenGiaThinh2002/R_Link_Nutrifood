@@ -162,6 +162,10 @@
   <data name="PleaseCheckTheDatabaseConnection" xml:space="preserve">
     <value>Vui lòng kiểm tra kết nối cơ sở dữ liệu !</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Info" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
   <data name="PleaseCheckTheTemplate" xml:space="preserve">
     <value>Vui lòng kiểm tra mẫu in !</value>
   </data>
@@ -1274,5 +1278,8 @@
   </data>
   <data name="AreYouSureGenerateDispatchingCodes" xml:space="preserve">
     <value>Bạn có muốn tạo mã xuất kho cho thông tin này ?</value>
+  </data>
+  <data name="InternalSpeed" xml:space="preserve">
+    <value>Tốc độ Internal</value>
   </data>
 </root>

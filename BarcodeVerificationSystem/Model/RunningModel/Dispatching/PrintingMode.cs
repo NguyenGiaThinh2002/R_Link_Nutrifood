@@ -12,14 +12,17 @@ namespace BarcodeVerificationSystem.Model.RunningMode.Dispatching
         {
             PrintingMode,
             ReprintMode,
-            PrintingModeOffline
+            PrintingModeOffline,
+            ProcessOrder,
+            Reservation
         }
 
         private PrintingModeLabel _printingMode = PrintingModeLabel.PrintingMode;
-
         public bool IsPrintingMode => _printingMode == PrintingModeLabel.PrintingMode;
         public bool IsReprintMode => _printingMode == PrintingModeLabel.ReprintMode;
         public bool IsPrintingModeOffline => _printingMode == PrintingModeLabel.PrintingModeOffline;
+        public bool IsProcessOrderMode => _printingMode == PrintingModeLabel.ProcessOrder;
+        public bool IsReservationMode => _printingMode == PrintingModeLabel.Reservation;
 
         public void SetPrintingMode(PrintingModeLabel mode)
         {

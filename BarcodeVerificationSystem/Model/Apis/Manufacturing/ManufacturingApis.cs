@@ -25,14 +25,22 @@ namespace BarcodeVerificationSystem.Model.Apis.Manufacturing
         private static string _postDestroyCodesUrl = $"{url}/api/production/destroy";
         private static string _postReservationUrl = $"{url}/api/production/reservation";
 
-        public static string getReservationUrl(string plant, string material_doc)
+        private static string _postMonitorUrl = $"{url}/api/production/monitoring";
+
+        public static string GetMonitorUrl()
         {
-            return $"{_getReservationUrl}?plant={plant}&material_doc={material_doc}" ;
+            return _postMonitorUrl;
         }
 
-        public static string getProcessOrderInfoUrl(string resourceCode, string plant)
+        public static string getReservationUrl(string plant, string material_doc, string device_name)
         {
-            return $"{_getProcessOrderInfoUrl}/?resource_code={resourceCode}&plant={plant}";
+            return $"{_getReservationUrl}?plant={plant}&material_doc={material_doc}&device_name={device_name}" ;
+        }
+
+        public static string getProcessOrderInfoUrl(string resourceCode, string plant, string device_name)
+        {
+            string t  = $"{_getProcessOrderInfoUrl}/?resource_code={resourceCode}&plant={plant}&device_name={device_name}";
+            return $"{_getProcessOrderInfoUrl}?resource_code={resourceCode}&plant={plant}&device_name={device_name}";
         }
 
         public static string getBatchInfoUrl(string plant, string process_order)

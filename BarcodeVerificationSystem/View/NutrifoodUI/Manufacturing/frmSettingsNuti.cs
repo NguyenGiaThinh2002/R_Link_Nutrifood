@@ -37,8 +37,20 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
             InitializeComponent();
             InitControls();
             SetLanguage();
+            SetTabPagesContentEnabled(tabControlSettings, Shared.OperStatus == OperationStatus.Stopped); //  
 
         }
+        private void SetTabPagesContentEnabled(TabControl tabControl, bool enable)
+        {
+            foreach (TabPage tabPage in tabControl.TabPages)
+            {
+                foreach (Control ctrl in tabPage.Controls)
+                {
+                    ctrl.Enabled = enable;
+                }
+            }
+        }
+
         protected override void OnHandleCreated(EventArgs e)
         {
             InitEvents();
@@ -123,6 +135,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
                 this.tabPageProductionSetting.TabIndex = 1;
                 this.tabPageProductionSetting.Text = Lang.ProductionSettings;
                 this.tabPageProductionSetting.UseVisualStyleBackColor = true;
+                tabPageProductionSetting.Text = "Cài đặt thông tin Line";
 
                 //Initial tab api settings
                 tabPageProductionSetting.Controls.Clear();

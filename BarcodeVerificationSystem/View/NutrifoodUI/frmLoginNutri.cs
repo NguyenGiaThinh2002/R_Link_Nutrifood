@@ -67,7 +67,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                         txtPassword.Text = "Support@2025";
                         chbRememberPassword.Checked = true;
                         break;
-                    case LoginLabel.OperatorOnlineMode:
+                    case LoginLabel.BinhduongXH:
                         txtUsername.Text = "binhduongpp";
                         txtPassword.Text = "binhduong@pp";
                         chbRememberPassword.Checked = true;
@@ -265,6 +265,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI
                                             Shared.Settings.AddQuantity = deviceInfo.add_qty;
                                             Shared.Settings.LineId = deviceInfo.resource_code;
                                             Shared.Settings.LineName = deviceInfo.resource_name;
+                                            Shared.Settings.LOTFormatDate = deviceInfo.batch_date_format;
 
                                             if (Shared.UserPermission == null)
                                             {

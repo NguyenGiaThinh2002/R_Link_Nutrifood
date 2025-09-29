@@ -1411,6 +1411,15 @@ namespace UILanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Internal Speed.
+        /// </summary>
+        public static string InternalSpeed {
+            get {
+                return ResourceManager.GetString("InternalSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid password !.
         /// </summary>
         public static string InvalidPassword {
@@ -2482,7 +2491,7 @@ namespace UILanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pulse Encoder.
+        ///   Looks up a localized string similar to PPR.
         /// </summary>
         public static string PulseEncoder {
             get {

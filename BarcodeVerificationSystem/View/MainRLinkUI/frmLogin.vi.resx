@@ -120,4 +120,10 @@
   <data name="ItemsPerHour" xml:space="preserve">
     <value>Sản phẩm / Giờ</value>
   </data>
+  <data name="InternalSpeed" xml:space="preserve">
+    <value>Tốc độ Internal</value>
+  </data>
+  <data name="CameraBrand" xml:space="preserve">
+    <value>Máy ảnh</value>
+  </data>
 </root>

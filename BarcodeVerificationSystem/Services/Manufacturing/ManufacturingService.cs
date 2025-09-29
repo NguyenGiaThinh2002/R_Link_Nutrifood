@@ -15,6 +15,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BarcodeVerificationSystem.Model.Payload.DispatchingPayload.Response;
+using BarcodeVerificationSystem.Model.Payload;
 
 namespace BarcodeVerificationSystem.Services.Manufacturing
 {
@@ -26,18 +28,24 @@ namespace BarcodeVerificationSystem.Services.Manufacturing
             _apiService = new ApiService();
         }
 
-        public async Task<ResponseProcessOrder> GetProcessOrderAsync(string resourceCode, string plant)
+        public async Task<bool> PostMonitorDataAsync(MonitorPayload payload)
         {
-            return await _apiService.GetApiWithModelAsync<ResponseProcessOrder>(ManufacturingApis.getProcessOrderInfoUrl(resourceCode, plant));
+            return await _apiService.PostApiDataAsync(ManufacturingApis.GetMonitorUrl(), payload);
         }
 
-        public async Task<ResponseRevervation> GetReservationAsync(string plant, string material_doc)
+        public async Task<ResponseProcessOrder> GetProcessOrderAsync(string resourceCode, string plant, string device_name)
         {
-            return await _apiService.GetApiWithModelAsync<ResponseRevervation>(ManufacturingApis.getReservationUrl(plant, material_doc));
+            return await _apiService.GetApiWithModelAsync<ResponseProcessOrder>(ManufacturingApis.getProcessOrderInfoUrl(resourceCode, plant, device_name));
         }
-        public async Task<ResponseBatchInfo> GetBatchInfoAsync(string plant, string material_doc)
+
+        public async Task<ResponseReservation> GetReservationAsync(string plant, string material_doc, string device_name)
         {
-            return await _apiService.GetApiWithModelAsync<ResponseBatchInfo>(ManufacturingApis.getBatchInfoUrl(plant, material_doc));
+            return await _apiService.GetApiWithModelAsync<ResponseReservation>(ManufacturingApis.getReservationUrl(plant, material_doc, device_name));
+        }
+
+        public async Task<ResponseBatchInfo> GetBatchInfoAsync(string plant, string process_order)
+        {
+            return await _apiService.GetApiWithModelAsync<ResponseBatchInfo>(ManufacturingApis.getBatchInfoUrl(plant, process_order));
         }
 
         public async Task<ResponseDestroyCodes> PostDestroyCodesAsync(RequestDestroyCodes payload)

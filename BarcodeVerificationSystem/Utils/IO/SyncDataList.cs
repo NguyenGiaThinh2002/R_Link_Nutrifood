@@ -23,58 +23,121 @@ namespace BarcodeVerificationSystem.Utils
 
         public static List<SyncDataList> ReturnSyncDataList(List<string> _JobNameList)
         {
-            try
+            List<SyncDataList> rows = new List<SyncDataList>();
+            foreach (var x in _JobNameList)
             {
-                List<SyncDataList> rows = new List<SyncDataList>();
-             
-                foreach (var x in _JobNameList)
+                try
                 {
-                    try
-                    {
-                        JobModel CurrentJob = Shared.GetJob(x);
-                        var payload = CurrentJob.DispatchingOrderPayload.payload;
-                        string sentDataPath = CommVariables.PathSentDataPrinted + CurrentJob.PrintedResponePath;
-                        var _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
+                    JobModel CurrentJob = Shared.GetJob(x);
 
-                        CurrentJob.NumberOfSAPSentCodes =
-                        _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 &&
-                                        item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
-
-
-                        CurrentJob.NumberOfSaaSSentCodes =
-                        _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 &&
-                                                              item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
-
-                        rows.Add(new SyncDataList
-                        {
-                            STT = 1,
-                            MaCongViec = x,
-                            MaPhieuSoanHang = payload?.wms_number,
-                            MaSanPham = (payload?.items != null
-                                                         && CurrentJob.SelectedMaterialIndex >= 0
-                                                         && CurrentJob.SelectedMaterialIndex < payload.items.Count)
-                                                        ? payload.items[CurrentJob.SelectedMaterialIndex]?.material_number
-                                                        : "null",
-                            SoLuongCanXuat = CurrentJob.NumberOfPrintedCodes,
-                            SoLuongDongBoSaaS = CurrentJob.NumberOfSaaSSentCodes,
-                            SoLuongDongBoSAP = CurrentJob.NumberOfSAPSentCodes,
-                            Hoanthanh = CurrentJob.NumberOfPrintedCodes == CurrentJob.NumberOfSAPSentCodes
-                        });
-                    }
-                    catch (Exception)
-                    {
-                    }
-                 
+                    (Shared.Settings.IsManufacturingMode ? (Action)(() => InitManufacturingSyncData(CurrentJob, rows, x))
+                                                                    : () => InitDispatchingSyncData(CurrentJob, rows, x))();
                 }
+                catch (Exception)
+                {
+                }
+                 
+            }
 
-                return rows;
-            }
-            catch (Exception ex)
+            return rows;
+        }
+
+        private static void InitManufacturingSyncData(JobModel CurrentJob, List<SyncDataList> rows, string x)
+        {
+            if(CurrentJob.IsProcessOrderMode)
+                InitProcessOrderData(CurrentJob, rows, x);
+
+            if(CurrentJob.IsReservationMode)
+                InitReservationSyncData(CurrentJob, rows, x);
+        }
+
+        private static void InitReservationSyncData(JobModel CurrentJob, List<SyncDataList> rows, string x)
+        {
+            var payload = CurrentJob.ReservationItem;
+            string sentDataPath = CommVariables.PathSentDataPrinted + CurrentJob.PrintedResponePath;
+            var _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
+
+            CurrentJob.NumberOfSAPSentCodes =
+            _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 &&
+                            item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
+
+
+            CurrentJob.NumberOfSaaSSentCodes =
+            _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 &&
+                                                  item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
+
+            rows.Add(new SyncDataList
             {
-                Console.WriteLine("Error: " + ex);
-            }
-            return null;
-            
+                STT = 1,
+                MaCongViec = x,
+                MaPhieuSoanHang = CurrentJob.Reservation.material_doc,
+                MaSanPham = payload.material_number,
+                SoLuongCanXuat = CurrentJob.NumberOfPrintedCodes,
+                SoLuongDongBoSaaS = CurrentJob.NumberOfSaaSSentCodes,
+                SoLuongDongBoSAP = CurrentJob.NumberOfSAPSentCodes,
+                Hoanthanh = CurrentJob.NumberOfPrintedCodes == CurrentJob.NumberOfSAPSentCodes
+            });
+        }
+
+        private static void InitProcessOrderData(JobModel CurrentJob, List<SyncDataList> rows, string x)
+        {
+            var payload = CurrentJob.ProcessOrderItem;
+            string sentDataPath = CommVariables.PathSentDataPrinted + CurrentJob.PrintedResponePath;
+            var _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
+
+            CurrentJob.NumberOfSAPSentCodes =
+            _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 &&
+                            item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
+
+
+            CurrentJob.NumberOfSaaSSentCodes =
+            _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 &&
+                                                  item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
+
+            rows.Add(new SyncDataList
+            {
+                STT = 1,
+                MaCongViec = x,
+                MaPhieuSoanHang = payload?.process_order,
+                MaSanPham = payload.material_number,
+                SoLuongCanXuat = CurrentJob.NumberOfPrintedCodes,
+                SoLuongDongBoSaaS = CurrentJob.NumberOfSaaSSentCodes,
+                SoLuongDongBoSAP = CurrentJob.NumberOfSAPSentCodes,
+                Hoanthanh = CurrentJob.NumberOfPrintedCodes == CurrentJob.NumberOfSAPSentCodes
+            });
+        }
+
+        private static void InitDispatchingSyncData(JobModel CurrentJob, List<SyncDataList> rows, string x)
+        {
+
+            var payload = CurrentJob.DispatchingOrderPayload.payload;
+            string sentDataPath = CommVariables.PathSentDataPrinted + CurrentJob.PrintedResponePath;
+            var _SentPrintedCodeObtainFromFile = ReadPrintedCodeData(sentDataPath);
+
+            CurrentJob.NumberOfSAPSentCodes =
+            _SentPrintedCodeObtainFromFile.Count(item => item.Length > 5 &&
+                            item[5].Equals("success", StringComparison.OrdinalIgnoreCase));
+
+
+            CurrentJob.NumberOfSaaSSentCodes =
+            _SentPrintedCodeObtainFromFile.Count(item => item.Length > 4 &&
+                                                  item[4].Equals("success", StringComparison.OrdinalIgnoreCase));
+
+            rows.Add(new SyncDataList
+            {
+                STT = 1,
+                MaCongViec = x,
+                MaPhieuSoanHang = payload?.wms_number,
+                MaSanPham = (payload?.items != null
+                                             && CurrentJob.SelectedMaterialIndex >= 0
+                                             && CurrentJob.SelectedMaterialIndex < payload.items.Count)
+                                            ? payload.items[CurrentJob.SelectedMaterialIndex]?.material_number
+                                            : "null",
+                SoLuongCanXuat = CurrentJob.NumberOfPrintedCodes,
+                SoLuongDongBoSaaS = CurrentJob.NumberOfSaaSSentCodes,
+                SoLuongDongBoSAP = CurrentJob.NumberOfSAPSentCodes,
+                Hoanthanh = CurrentJob.NumberOfPrintedCodes == CurrentJob.NumberOfSAPSentCodes
+            });
         }
 
         public static List<string[]> ReadPrintedCodeData(string fullFilePath, char delimiter = ',')

@@ -61,7 +61,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.templatePrintTxt = new System.Windows.Forms.Label();
             this.templatePrint = new DesignUI.CuzUI.CuzTextBox();
-            this.saveJobNutri = new DesignUI.CuzUI.CuzButton();
+            this.saveJobNuti = new DesignUI.CuzUI.CuzButton();
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.shiptoCode = new DesignUI.CuzUI.CuzTextBox();
             this.shipment = new DesignUI.CuzUI.CuzTextBox();
@@ -152,7 +152,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.saveJobNutriOffline = new DesignUI.CuzUI.CuzButton();
+            this.saveJobNutiOffline = new DesignUI.CuzUI.CuzButton();
             this.InputShipto = new DesignUI.CuzUI.CuzTextBox();
             this.InputShipment = new DesignUI.CuzUI.CuzTextBox();
             this.InputWavekey = new DesignUI.CuzUI.CuzTextBox();
@@ -449,7 +449,7 @@
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.picSaveJobLoading);
             this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.saveJobNutri);
+            this.tabPage1.Controls.Add(this.saveJobNuti);
             this.tabPage1.Controls.Add(this.dgvItems);
             this.tabPage1.Controls.Add(this.shiptoCode);
             this.tabPage1.Controls.Add(this.shipment);
@@ -531,21 +531,21 @@
             // 
             // saveJobNutri
             // 
-            this.saveJobNutri._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
-            this.saveJobNutri._BorderRadius = 20;
-            this.saveJobNutri._BorderSize = 1;
-            this.saveJobNutri._GradientsButton = false;
-            this.saveJobNutri._Text = "TẠO";
-            this.saveJobNutri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.saveJobNutri.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.saveJobNutri.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.saveJobNutri.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.saveJobNutri.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.saveJobNutri, "saveJobNutri");
-            this.saveJobNutri.ForeColor = System.Drawing.Color.White;
-            this.saveJobNutri.Name = "saveJobNutri";
-            this.saveJobNutri.TextColor = System.Drawing.Color.White;
-            this.saveJobNutri.UseVisualStyleBackColor = false;
+            this.saveJobNuti._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
+            this.saveJobNuti._BorderRadius = 20;
+            this.saveJobNuti._BorderSize = 1;
+            this.saveJobNuti._GradientsButton = false;
+            this.saveJobNuti._Text = "TẠO";
+            this.saveJobNuti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.saveJobNuti.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.saveJobNuti.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.saveJobNuti.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.saveJobNuti.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.saveJobNuti, "saveJobNutri");
+            this.saveJobNuti.ForeColor = System.Drawing.Color.White;
+            this.saveJobNuti.Name = "saveJobNutri";
+            this.saveJobNuti.TextColor = System.Drawing.Color.White;
+            this.saveJobNuti.UseVisualStyleBackColor = false;
             // 
             // dgvItems
             // 
@@ -1576,7 +1576,7 @@
             this.tabPage5.Controls.Add(this.label18);
             this.tabPage5.Controls.Add(this.label19);
             this.tabPage5.Controls.Add(this.label20);
-            this.tabPage5.Controls.Add(this.saveJobNutriOffline);
+            this.tabPage5.Controls.Add(this.saveJobNutiOffline);
             this.tabPage5.Controls.Add(this.InputShipto);
             this.tabPage5.Controls.Add(this.InputShipment);
             this.tabPage5.Controls.Add(this.InputWavekey);
@@ -1690,21 +1690,21 @@
             // 
             // saveJobNutriOffline
             // 
-            this.saveJobNutriOffline._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
-            this.saveJobNutriOffline._BorderRadius = 20;
-            this.saveJobNutriOffline._BorderSize = 1;
-            this.saveJobNutriOffline._GradientsButton = false;
-            this.saveJobNutriOffline._Text = "TẠO";
-            this.saveJobNutriOffline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.saveJobNutriOffline.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.saveJobNutriOffline.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.saveJobNutriOffline.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.saveJobNutriOffline.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.saveJobNutriOffline, "saveJobNutriOffline");
-            this.saveJobNutriOffline.ForeColor = System.Drawing.Color.White;
-            this.saveJobNutriOffline.Name = "saveJobNutriOffline";
-            this.saveJobNutriOffline.TextColor = System.Drawing.Color.White;
-            this.saveJobNutriOffline.UseVisualStyleBackColor = false;
+            this.saveJobNutiOffline._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(199)))), ((int)(((byte)(82)))));
+            this.saveJobNutiOffline._BorderRadius = 20;
+            this.saveJobNutiOffline._BorderSize = 1;
+            this.saveJobNutiOffline._GradientsButton = false;
+            this.saveJobNutiOffline._Text = "TẠO";
+            this.saveJobNutiOffline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.saveJobNutiOffline.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
+            this.saveJobNutiOffline.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.saveJobNutiOffline.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.saveJobNutiOffline.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.saveJobNutiOffline, "saveJobNutriOffline");
+            this.saveJobNutiOffline.ForeColor = System.Drawing.Color.White;
+            this.saveJobNutiOffline.Name = "saveJobNutriOffline";
+            this.saveJobNutiOffline.TextColor = System.Drawing.Color.White;
+            this.saveJobNutiOffline.UseVisualStyleBackColor = false;
             // 
             // InputShipto
             // 
@@ -2258,7 +2258,7 @@
         private FontAwesome.Sharp.IconButton btnRestart;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private DesignUI.CuzUI.CuzButton saveJobNutri;
+        private DesignUI.CuzUI.CuzButton saveJobNuti;
         private System.Windows.Forms.DataGridView dgvItems;
         private DesignUI.CuzUI.CuzTextBox shiptoCode;
         private DesignUI.CuzUI.CuzTextBox shipment;
@@ -2366,7 +2366,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoanThanh;
         private System.Windows.Forms.TabPage tabPage5;
-        private DesignUI.CuzUI.CuzButton saveJobNutriOffline;
+        private DesignUI.CuzUI.CuzButton saveJobNutiOffline;
         private DesignUI.CuzUI.CuzTextBox InputShipto;
         private DesignUI.CuzUI.CuzTextBox InputShipment;
         private DesignUI.CuzUI.CuzTextBox InputWavekey;

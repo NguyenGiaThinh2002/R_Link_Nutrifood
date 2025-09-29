@@ -593,6 +593,16 @@ namespace BarcodeVerificationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons_green_dot {
+            get {
+                object obj = ResourceManager.GetObject("icons_green_dot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_Add_Database_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_Add_Database_24px", resourceCulture);
@@ -1043,6 +1053,16 @@ namespace BarcodeVerificationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_red_dot {
+            get {
+                object obj = ResourceManager.GetObject("icons8_red_dot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_save_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_save_24px", resourceCulture);
@@ -1247,6 +1267,15 @@ namespace BarcodeVerificationSystem.Properties {
             get {
                 object obj = ResourceManager.GetObject("icons8_xbox_x_16px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal Speed.
+        /// </summary>
+        internal static string InternalSpeed {
+            get {
+                return ResourceManager.GetString("InternalSpeed", resourceCulture);
             }
         }
         

@@ -10,8 +10,8 @@ namespace BarcodeVerificationSystem.Services.Interface
 {
     public interface IManufacturingService
     {
-        Task<ResponseProcessOrder> GetProcessOrderAsync(string resourceCode, string plant);
-        Task<ResponseRevervation> GetReservationAsync(string plant, string material_doc);
+        Task<ResponseProcessOrder> GetProcessOrderAsync(string resourceCode, string plant, string device_name);
+        Task<ResponseReservation> GetReservationAsync(string plant, string material_doc, string device_name);
         Task<ResponseBatchInfo> GetBatchInfoAsync(string plant, string material_doc);
 
         Task<ResponsePrinted> PostPrintedDataAsync(RequestPrinted payload);

@@ -123,7 +123,7 @@ namespace GenCode.Utils
 
                     string _focusCode = Manufacturing.GenerateCode(focusCode);
 
-                    string allPODCode = _focusCode + "," + focusCode; //+ (!isManufacturingMode ? "," + Dispatching.getShipmentCode() + "," + Dispatching.getShiptoCode() : "");
+                    string allPODCode = _focusCode + "," + Manufacturing.GetUniqueCode(focusCode); //+ (!isManufacturingMode ? "," + Dispatching.getShipmentCode() + "," + Dispatching.getShiptoCode() : "");
 
                     randomCodes.Add(allPODCode);
 
@@ -150,9 +150,6 @@ namespace GenCode.Utils
                 return new List<string>();
             }
         }
-
-
-
 
 
 

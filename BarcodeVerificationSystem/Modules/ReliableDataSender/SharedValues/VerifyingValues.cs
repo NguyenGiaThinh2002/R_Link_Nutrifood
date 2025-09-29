@@ -6,9 +6,30 @@ using System.Threading.Tasks;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.SharedValues
 {
-    internal class VerifyingValues
+    internal static class VerifyingValues
     {
-        internal static int Index = 0, QrCodeIndex = 1, UniqueCode = 2,
-                    VerifiedDate = 3, SaaSStatus = 4, SAPStatus = 5, SaaSError = 6, SAPError = 7, SentStatus = 8;
+        private static readonly List<string> Columns = new List<string>
+            {
+                "Index",
+                "UniqueCode",
+                "VerifiedStatus",
+                "VerifiedDate",
+                "SaaSStatus",
+                "SAPStatus",
+                "SaaSError",
+                "SAPError",
+                "SentStatus"
+            };
+
+        public static int Index => Columns.IndexOf("Index");
+        public static int Code => Columns.IndexOf("UniqueCode");
+        public static int VerifiedStatus => Columns.IndexOf("VerifiedStatus");
+        public static int VerifiedDate => Columns.IndexOf("VerifiedDate");
+        public static int SaaSStatus => Columns.IndexOf("SaaSStatus");
+        public static int SAPStatus => Columns.IndexOf("SAPStatus");
+        public static int SaaSError => Columns.IndexOf("SaaSError");
+        public static int SAPError => Columns.IndexOf("SAPError");
+        public static int SentStatus => Columns.IndexOf("SentStatus");
     }
+
 }

@@ -47,7 +47,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
                 PrintedStatus = "Printed",
                 PrintedDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 Status = "NotSent",
-                SaasStatus = string.Empty,
+                SaaSStatus = string.Empty,
                 SAPStatus = string.Empty,
                 SaasError = string.Empty,
                 SAPError = string.Empty

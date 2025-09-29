@@ -18,6 +18,8 @@ using BarcodeVerificationSystem.Services;
 using CommonVariable;
 using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Request;
 using BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Response;
+using static BarcodeVerificationSystem.Model.Payload.DispatchingPayload.ResponseOrder;
+using System.Windows.Forms;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 {
@@ -59,87 +61,143 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
 
         private async Task ProcessEntryAsync(VerificationDataEntry entry)
         {
+            var storageUpdate = new StorageUpdate();
+
             try
             {
                 string filePath = CommVariables.PathJobsApp + Shared.CurrentJob.FileName + Shared.Settings.JobFileExtension;
-                var payload = Shared.CurrentJob.ManufacturingOrderPayload;
+                var request = new RequestChecked();
 
-                //var printedContent = new object();
-
-                //if (Shared.PrintMode.IsPrintingMode || Shared.PrintMode.IsPrintingModeOffline)
-                //{
-                  
-                //}
-                RequestChecked request = new RequestChecked
+                if (Shared.CurrentJob.IsProcessOrderMode)
                 {
-                    index_qr_code = entry.Id,
-                    qr_code = entry.Code,
-                    unique_code = entry.UniqueCode,
-                    process_order = payload.process_order,
-                    material_number = payload.material_number,
-                    check_date = entry.VerifiedDate,
-                    status = entry.Status,
-                    print_type = "process_order",
-                    batch = payload.batch_info[0].batch,
-                    mauf_date = payload.batch_info[0].mauf_date,
-                    expired_date = payload.batch_info[0].expired_date,
-                };
+                    var payload = Shared.CurrentJob.ProcessOrderItem;
+
+                    request = new RequestChecked
+                    {
+                        index_qr_code = entry.Id,
+                        qr_code = entry.Code,
+                        process_order = payload.process_order,
+                        material_number = payload.material_number,
+                        check_date = entry.VerifiedDate,
+                        status = entry.VerifiedStatus,
+                        print_type = "process_order",
+                        batch = payload.batch_info[Shared.Settings.SelectedBatchIndex].batch,
+                        mauf_date = payload.batch_info[Shared.Settings.SelectedBatchIndex].mauf_date,
+                        expired_date = payload.batch_info[Shared.Settings.SelectedBatchIndex].expired_date,
+                    };
+                }
+
+                if(Shared.CurrentJob.IsReservationMode)
+                {
+                    var payload = Shared.CurrentJob.ReservationItem;
+                    request = new RequestChecked
+                    {
+                        index_qr_code = entry.Id,
+                        qr_code = entry.Code,
+                        material_number = payload.material_number,
+                        check_date = entry.VerifiedDate,
+                        status = entry.VerifiedStatus,
+                        material_doc = Shared.CurrentJob.Reservation.material_doc,
+                        print_type = "reservation",
+                        batch = payload.batch,
+                        mauf_date = payload.mauf_date,
+                        expired_date = payload.expried_date,
+                    };
+                }
+                //new Form
+                //{
+                //    Text = "JSON Viewer",
+                //    Width = 800,
+                //    Height = 600,
+                //    Controls = { new TextBox { Multiline = true, Dock = DockStyle.Fill, ScrollBars = ScrollBars.Both,
+                // Text = Newtonsoft.Json.JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented) } }
+                //}.ShowDialog();
+
 
                 if (Shared.UserPermission.isOnline)
                 {
-                    var ResponsePrinted = await apiService.PostApiDataAsync<ResponseChecked>(_endpoint, request);
+                    var ResponseChecked = await apiService.PostApiDataAsync<ResponseChecked>(_endpoint, request);
 
-                    entry.SaasStatus = ResponsePrinted.is_success ? "success" : "failed";
-                    entry.SAPStatus = ResponsePrinted.is_success_sap ? "success" : "failed";
-                    entry.SaasError = ResponsePrinted.message ?? string.Empty;
-                    entry.SAPError = ResponsePrinted.message_sap ?? string.Empty;
+                    entry.SaasStatus = ResponseChecked.is_success ? "success" : "failed";
+                    entry.SAPStatus = ResponseChecked.is_success_sap ? "success" : "failed";
+                    entry.SaasError = ResponseChecked.message ?? string.Empty;
+                    entry.SAPError = ResponseChecked.message_sap ?? string.Empty;
 
                     var syncDataModel = new SyncDataParams(SyncDataParams.SyncDataType.SentData, entry.Id) { };
 
-                    //if (ResponsePrinted.is_success)
-                    //{
-                    //    Shared.CurrentJob.NumberOfSaaSSentCodes++;
-                    //    Shared.CurrentJob.SaveFile(filePath); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
-
-                    //    syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
-                    //    Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
-                    //}
-                    //if (ResponsePrinted.is_success_sap)
-                    //{
-                    //    Shared.CurrentJob.NumberOfSAPSentCodes++;
-                    //    Shared.CurrentJob.SaveFile(filePath);
-                    //    syncDataModel.DataType = SyncDataParams.SyncDataType.SAPSuccess;
-                    //    Shared.RaiseOnSyncDataParameterChangeEvent(syncDataModel);
-                    //}
-
-                    if (ResponsePrinted.is_success && ResponsePrinted.is_success_sap) // nho chinh khuc nay
+                    if (ResponseChecked.is_success)
                     {
-                        _storageService.MarkAsSent(entry.Id, entry.VerifiedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                        //Shared.CurrentJob.NumberOfCheckSaaSSentCodes++;
+                        //Shared.CurrentJob.SaveFile(filePath); // Có thể không save ở đây nhưng khi đọc job phải đọc file lên và đếm lại.
+
+                        syncDataModel.DataType = SyncDataParams.SyncDataType.SaaSSuccess;
+                        Shared.RaiseOnSyncCheckDataParameterChangeEvent(syncDataModel);
+                    }
+                    if (ResponseChecked.is_success_sap)
+                    {
+                        //Shared.CurrentJob.NumberOfCheckSAPSentCodes++;
+                        //Shared.CurrentJob.SaveFile(filePath);
+                        syncDataModel.DataType = SyncDataParams.SyncDataType.SAPSuccess;
+                        Shared.RaiseOnSyncCheckDataParameterChangeEvent(syncDataModel);
+                    }
+
+
+                    storageUpdate = new StorageUpdate()
+                    {
+                        Id = entry.Id,
+                        VerifiedStatus = entry.VerifiedStatus,
+                        VerifiedDate = entry.VerifiedDate,
+                        SaaSStatus = entry.SaasStatus,
+                        SAPStatus = entry.SAPStatus,
+                        SaaSError = entry.SaasError,
+                        SAPError = entry.SAPError
+                    };
+
+                    if(ResponseChecked.is_success && entry.VerifiedStatus != "Valid")
+                    {
+                        _storageService.MarkAsSent(storageUpdate);
+                        syncDataModel.DataType = SyncDataParams.SyncDataType.SentSuccess;
+                        Shared.RaiseOnSyncCheckDataParameterChangeEvent(syncDataModel);
+                    }
+                    else if (ResponseChecked.is_success && ResponseChecked.is_success_sap) // nho chinh khuc nay
+                    {
+                        _storageService.MarkAsSent(storageUpdate);
+                        syncDataModel.DataType = SyncDataParams.SyncDataType.SentSuccess;
+                        Shared.RaiseOnSyncCheckDataParameterChangeEvent(syncDataModel);
                     }
                     else
                     {
-                        _storageService.MarkAsFailed(entry.Id, entry.VerifiedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                        _storageService.MarkAsFailed(storageUpdate);
                         _queue.Add(entry);
                     }
 
-                    if (!ResponsePrinted.is_success_sap)
+                    if (!ResponseChecked.is_success_sap)
                     {
                         ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.VerifiedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError);
                     }
                 }
                 else
                 {
-                    _storageService.MarkAsFailed(entry.Id, entry.VerifiedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                    _storageService.MarkAsFailed(storageUpdate);
                 }
 
             }
             catch (Exception ex)
             {
-                entry.SaasStatus = "failed";
-                entry.SaasError = ex.Message;
+                storageUpdate = new StorageUpdate()
+                {
+                    Id = entry.Id,
+                    VerifiedStatus = entry.VerifiedStatus,
+                    VerifiedDate = entry.VerifiedDate,
+                    SaaSStatus = "failed",
+                    SAPStatus = entry.SAPStatus,
+                    SaaSError = ex.Message,
+                    SAPError = entry.SAPError
+                };
+
                 ProjectLogger.WriteError($"Error occurred in {_endpoint}): " + entry.VerifiedDate + entry.SaasStatus + entry.SAPStatus + entry.SaasError + entry.SAPError + ex.Message);
                 //_storageService.AppendEntry(entry);
-                _storageService.MarkAsFailed(entry.Id, entry.VerifiedDate, entry.SaasStatus, entry.SAPStatus, entry.SaasError, entry.SAPError);
+                _storageService.MarkAsFailed(storageUpdate);
                 _queue.Add(entry);
             }
         }

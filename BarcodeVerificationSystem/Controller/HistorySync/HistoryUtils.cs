@@ -20,12 +20,14 @@ namespace BarcodeVerificationSystem.Controller.HistorySync
             dgv.Columns["SoLuongDongBoSaaS"].Width = 150;
             dgv.Columns["SoLuongDongBoSAP"].Width = 150;
             dgv.Columns["HoanThanh"].Width = 150;
+            dgv.RowTemplate.Height = 45;
 
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#D3D3D3");
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             dgv.ClearSelection();
             dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv.ColumnHeadersDefaultCellStyle.BackColor;
+
 
             // Column behavior
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;

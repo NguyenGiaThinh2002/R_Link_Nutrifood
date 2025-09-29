@@ -101,7 +101,7 @@ namespace BarcodeVerificationSystem.View
 
         public void UpdateIcon()
         {
-            string path = Application.StartupPath + "\\Label\\logores.ico";
+            string path = Application.StartupPath + "\\Label\\icon.ico"; // logores.ico
             if (File.Exists(path))
             {
                 Icon = Icon.ExtractAssociatedIcon(path);

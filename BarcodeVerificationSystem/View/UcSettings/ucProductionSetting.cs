@@ -33,7 +33,6 @@ namespace BarcodeVerificationSystem.View.UcSettings
             new Factory { Code = "1260", Name = "Gia Lai" }
         };
 
-
         public ucProductionSetting()
         {
             InitializeComponent();
@@ -53,7 +52,7 @@ namespace BarcodeVerificationSystem.View.UcSettings
             dataDisplay.Text = Lang.DisplayData;
             maskData.Text = Lang.MaskData;
             dataIncrease.Text = Lang.IncreasedData;
-            groupBoxProductionSettings.Text = Lang.ProductionSettings;
+            groupBoxProductionSettings.Text = "Cài đặt Line"; // Lang.ProductionSettings
             labelApi.Text = "URL máy chủ:"; // Lang.URLPath;
         }
 

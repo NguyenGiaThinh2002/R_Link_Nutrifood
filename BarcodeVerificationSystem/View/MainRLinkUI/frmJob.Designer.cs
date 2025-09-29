@@ -113,22 +113,6 @@
             this.btnPODFormat = new DesignUI.CuzUI.CuzButton();
             this.btnImportDatabase = new DesignUI.CuzUI.CuzButton();
             this.btnGennerate = new DesignUI.CuzUI.CuzButton();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cuzButton2 = new DesignUI.CuzUI.CuzButton();
-            this.cuzButton1 = new DesignUI.CuzUI.CuzButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpHist = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cuzTextBox1 = new DesignUI.CuzUI.CuzTextBox();
-            this.cbbHisFilterType = new System.Windows.Forms.ComboBox();
-            this.dgvHistoryJob = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaCongViec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaPhieuSoanHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongCanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongDongBoSaaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongDongBoSAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -150,8 +134,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.cuzPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).BeginInit();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -332,7 +314,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1217,161 +1198,6 @@
             this.btnGennerate.TextColor = System.Drawing.SystemColors.ControlText;
             this.btnGennerate.UseVisualStyleBackColor = false;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.cuzButton2);
-            this.tabPage3.Controls.Add(this.cuzButton1);
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.dtpHist);
-            this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.cuzTextBox1);
-            this.tabPage3.Controls.Add(this.cbbHisFilterType);
-            this.tabPage3.Controls.Add(this.dgvHistoryJob);
-            resources.ApplyResources(this.tabPage3, "tabPage3");
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // cuzButton2
-            // 
-            this.cuzButton2._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton2._BorderRadius = 0;
-            this.cuzButton2._BorderSize = 1;
-            this.cuzButton2._GradientsButton = false;
-            this.cuzButton2._Text = "Đồng Bộ";
-            this.cuzButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.cuzButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.cuzButton2.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cuzButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.cuzButton2.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.cuzButton2, "cuzButton2");
-            this.cuzButton2.ForeColor = System.Drawing.Color.White;
-            this.cuzButton2.Name = "cuzButton2";
-            this.cuzButton2.TextColor = System.Drawing.Color.White;
-            this.cuzButton2.UseVisualStyleBackColor = false;
-            // 
-            // cuzButton1
-            // 
-            this.cuzButton1._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(151)))), ((int)(((byte)(149)))));
-            this.cuzButton1._BorderRadius = 0;
-            this.cuzButton1._BorderSize = 1;
-            this.cuzButton1._GradientsButton = false;
-            this.cuzButton1._Text = "Tìm Kiếm";
-            this.cuzButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.cuzButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(109)))), ((int)(((byte)(70)))));
-            this.cuzButton1.FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cuzButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.cuzButton1.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.cuzButton1, "cuzButton1");
-            this.cuzButton1.ForeColor = System.Drawing.Color.White;
-            this.cuzButton1.Name = "cuzButton1";
-            this.cuzButton1.TextColor = System.Drawing.Color.White;
-            this.cuzButton1.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Name = "label2";
-            // 
-            // dtpHist
-            // 
-            resources.ApplyResources(this.dtpHist, "dtpHist");
-            this.dtpHist.Name = "dtpHist";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Name = "label1";
-            // 
-            // cuzTextBox1
-            // 
-            this.cuzTextBox1._ReadOnlyBackColor = System.Drawing.Color.WhiteSmoke;
-            this.cuzTextBox1._ReadOnlyBorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.cuzTextBox1.BackColor = System.Drawing.Color.White;
-            this.cuzTextBox1.BorderColor = System.Drawing.SystemColors.ScrollBar;
-            this.cuzTextBox1.BorderFocusColor = System.Drawing.Color.Silver;
-            this.cuzTextBox1.BorderRadius = 6;
-            this.cuzTextBox1.BorderSize = 1;
-            resources.ApplyResources(this.cuzTextBox1, "cuzTextBox1");
-            this.cuzTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cuzTextBox1.Multiline = false;
-            this.cuzTextBox1.Name = "cuzTextBox1";
-            this.cuzTextBox1.PasswordChar = false;
-            this.cuzTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.cuzTextBox1.PlaceholderText = "";
-            this.cuzTextBox1.ReadOnly = false;
-            this.cuzTextBox1.UnderlinedStyle = false;
-            // 
-            // cbbHisFilterType
-            // 
-            this.cbbHisFilterType.FormattingEnabled = true;
-            this.cbbHisFilterType.Items.AddRange(new object[] {
-            resources.GetString("cbbHisFilterType.Items"),
-            resources.GetString("cbbHisFilterType.Items1")});
-            resources.ApplyResources(this.cbbHisFilterType, "cbbHisFilterType");
-            this.cbbHisFilterType.Name = "cbbHisFilterType";
-            // 
-            // dgvHistoryJob
-            // 
-            this.dgvHistoryJob.AllowUserToAddRows = false;
-            this.dgvHistoryJob.AllowUserToDeleteRows = false;
-            this.dgvHistoryJob.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvHistoryJob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistoryJob.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
-            this.MaCongViec,
-            this.MaPhieuSoanHang,
-            this.MaSanPham,
-            this.SoLuongCanXuat,
-            this.SoLuongDongBoSaaS,
-            this.SoLuongDongBoSAP});
-            resources.ApplyResources(this.dgvHistoryJob, "dgvHistoryJob");
-            this.dgvHistoryJob.Name = "dgvHistoryJob";
-            this.dgvHistoryJob.ReadOnly = true;
-            // 
-            // STT
-            // 
-            resources.ApplyResources(this.STT, "STT");
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            // 
-            // MaCongViec
-            // 
-            resources.ApplyResources(this.MaCongViec, "MaCongViec");
-            this.MaCongViec.Name = "MaCongViec";
-            this.MaCongViec.ReadOnly = true;
-            // 
-            // MaPhieuSoanHang
-            // 
-            resources.ApplyResources(this.MaPhieuSoanHang, "MaPhieuSoanHang");
-            this.MaPhieuSoanHang.Name = "MaPhieuSoanHang";
-            this.MaPhieuSoanHang.ReadOnly = true;
-            // 
-            // MaSanPham
-            // 
-            resources.ApplyResources(this.MaSanPham, "MaSanPham");
-            this.MaSanPham.Name = "MaSanPham";
-            this.MaSanPham.ReadOnly = true;
-            // 
-            // SoLuongCanXuat
-            // 
-            resources.ApplyResources(this.SoLuongCanXuat, "SoLuongCanXuat");
-            this.SoLuongCanXuat.Name = "SoLuongCanXuat";
-            this.SoLuongCanXuat.ReadOnly = true;
-            // 
-            // SoLuongDongBoSaaS
-            // 
-            resources.ApplyResources(this.SoLuongDongBoSaaS, "SoLuongDongBoSaaS");
-            this.SoLuongDongBoSaaS.Name = "SoLuongDongBoSaaS";
-            this.SoLuongDongBoSaaS.ReadOnly = true;
-            // 
-            // SoLuongDongBoSAP
-            // 
-            resources.ApplyResources(this.SoLuongDongBoSAP, "SoLuongDongBoSAP");
-            this.SoLuongDongBoSAP.Name = "SoLuongDongBoSAP";
-            this.SoLuongDongBoSAP.ReadOnly = true;
-            // 
             // pnlMain
             // 
             this.pnlMain.Controls.Add(this.tabControl1);
@@ -1441,9 +1267,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.cuzPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLoadTemplate)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoryJob)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1536,20 +1359,6 @@
         private System.Windows.Forms.CheckBox FirstRowHeader;
         private DesignUI.CuzUI.CuzButton BtnViewLog;
         private System.Windows.Forms.Label numberOfCodes;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ComboBox cbbHisFilterType;
-        private DesignUI.CuzUI.CuzTextBox cuzTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvHistoryJob;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaCongViec;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuSoanHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongCanXuat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSaaS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongDongBoSAP;
-        private System.Windows.Forms.DateTimePicker dtpHist;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1557,8 +1366,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DesignUI.CuzUI.CuzButton cuzButton1;
-        private DesignUI.CuzUI.CuzButton cuzButton2;
     }
 
 }

@@ -29,6 +29,7 @@ using BarcodeVerificationSystem.View.UtilityForms;
 using GenCode.Utils;
 using BarcodeVerificationSystem.Utils.CodeGeneration.Helper;
 using BarcodeVerificationSystem.Controller.HistorySync;
+using BarcodeVerificationSystem.Controller.Camera.Keyence;
 
 namespace BarcodeVerificationSystem.View
 {
@@ -782,6 +783,9 @@ namespace BarcodeVerificationSystem.View
                 case CameraType.ISDual:
                     Shared.SendErrorOutputToSensorController(currentIndex);
                     break;
+                case CameraType.CV_X:
+                    Shared.SendErrorOutputToSensorController(currentIndex);
+                    break;
                 default:
                     break;
             }
@@ -1311,8 +1315,7 @@ namespace BarcodeVerificationSystem.View
                     if (result == DialogResult.Yes)
                     {
                         jobModel.JobStatus = JobStatus.Deleted; // Reload Job name list
-                        string filePath = CommVariables.PathJobsApp + jobModel.FileName + Shared.Settings.JobFileExtension;
-                        jobModel.SaveFile(filePath);
+                        jobModel.SaveFile();
                     }
 
                     LoadJobNameList();
@@ -1540,8 +1543,7 @@ namespace BarcodeVerificationSystem.View
                         Shared.DeleteJob(_JobModel);  // Perform delete Job file
                     }
 
-                    string filePath = CommVariables.PathJobsApp + _JobModel.FileName + Shared.Settings.JobFileExtension; // Save Job
-                    _JobModel.SaveFile(filePath);
+                    _JobModel.SaveFile();
                     // END Save Job
                     // Reload Job name list
                     Shared.JobNameSelected = JobName + Shared.Settings.JobFileExtension;
@@ -2070,6 +2072,37 @@ namespace BarcodeVerificationSystem.View
                             {
                                 switch (cameraModel.CameraType)
                                 {
+                                    case CameraType.CV_X: // DM Series Camera
+                                        //cameraModel.Port = "8500"; // Default is 23
+
+                                        if (Shared.cvxCamera == null || counter >= 3)
+                                        {
+                                            Shared.cvxCamera = new CvxCamera(cameraModel.IP, int.Parse(cameraModel.Port), 3000);
+                                            Shared.cvxCamera.Connect();
+                                            Shared.cvxCamera.StartListening();
+                                        }
+                                        else
+                                        {
+                                            bool checkIP = Shared.cvxCamera.ip == cameraModel.IP;
+                                            if (checkIP)
+                                            {
+                                                bool checkPort = Shared.cvxCamera.port == int.Parse(cameraModel.Port);
+                                                if (!checkPort)
+                                                {
+                                                    Shared.cvxCamera.Disconnect();
+                                                    Shared.cvxCamera = null;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Shared.cvxCamera.Disconnect();
+                                                Shared.cvxCamera = null;
+                                            }
+                                        }
+                                        cameraModel.IsConnected = Shared.cvxCamera.IsConnected();
+                                        Shared.RaiseOnCameraStatusChangeEvent();
+                                        break;
+
                                     case CameraType.DM: // DM Series Camera
                                         cameraModel.Port = "23"; // Default is 23
                                         if (Shared.CamController == null || counter >= 3)

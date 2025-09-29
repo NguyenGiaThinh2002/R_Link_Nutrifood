@@ -120,4 +120,10 @@
   <data name="ItemsPerHour" xml:space="preserve">
     <value>Items / Hour</value>
   </data>
+  <data name="InternalSpeed" xml:space="preserve">
+    <value>Internal Speed</value>
+  </data>
+  <data name="CameraBrand" xml:space="preserve">
+    <value>Camera Brand</value>
+  </data>
 </root>

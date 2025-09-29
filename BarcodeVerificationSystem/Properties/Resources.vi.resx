@@ -120,4 +120,7 @@
   <data name="LineID" xml:space="preserve">
     <value>Mã Line</value>
   </data>
+  <data name="InternalSpeed" xml:space="preserve">
+    <value>Tốc độ Internal</value>
+  </data>
 </root>

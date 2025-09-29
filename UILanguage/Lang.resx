@@ -1017,7 +1017,7 @@
     <value>Disable Sensor</value>
   </data>
   <data name="PulseEncoder" xml:space="preserve">
-    <value>Pulse Encoder</value>
+    <value>PPR</value>
   </data>
   <data name="EncoderDiameter" xml:space="preserve">
     <value>Encoder Diameter</value>
@@ -1365,5 +1365,8 @@
   </data>
   <data name="AreYouSureGenerateDispatchingCodes" xml:space="preserve">
     <value>Are You Sure To Generate Dispatching Codes For This ?</value>
+  </data>
+  <data name="InternalSpeed" xml:space="preserve">
+    <value>Internal Speed</value>
   </data>
 </root>

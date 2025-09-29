@@ -162,25 +162,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Camera\CameraController.cs" />
-    <Compile Include="Controller\Camera\CameraListenerServer .cs" />
-    <Compile Include="Controller\Camera\CamerasHandler.cs" />
-    <Compile Include="Controller\Camera\DMSeries.cs" />
-    <Compile Include="Controller\Camera\ISCameraController.cs" />
-    <Compile Include="Controller\Camera\ISSeries.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestDestroyCodes.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestGeneratedCodes.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestPrinted.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestPrintedAmount.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Request\RequestChecked.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseBatchInfo.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseDestroyCodes.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseGeneratedCodes.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponsePrinted.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponsePrintedAmount.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseProcessOrder.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseRevervation.cs" />
-    <Compile Include="Model\Payload\ManufacturingPayload\Response\ResponseChecked.cs" />
+    <Compile Include="Controller\Camera\Cognex\CameraController.cs" />
+    <Compile Include="Controller\Camera\Cognex\CameraListenerServer .cs" />
+    <Compile Include="Controller\Camera\Cognex\CamerasHandler.cs" />
+    <Compile Include="Controller\Camera\Cognex\DMSeries.cs" />
+    <Compile Include="Controller\Camera\Cognex\ISCameraController.cs" />
+    <Compile Include="Controller\Camera\Cognex\ISSeries.cs" />
+    <Compile Include="Controller\Camera\Keyence\CvxCamera.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Request\RequestDestroyCodes.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Request\RequestGeneratedCodes.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Request\RequestPrinted.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Request\RequestPrintedAmount.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Request\RequestChecked.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Response\ResponseBatchInfo.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Response\ResponseDestroyCodes.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Response\ResponseGeneratedCodes.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Response\ResponsePrinted.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Response\ResponsePrintedAmount.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Response\ResponseProcessOrder.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Response\ResponseReservation.cs" />
+    <Compile Include="Model\NutifoodPayload\ManufacturingPayload\Response\ResponseChecked.cs" />
+    <Compile Include="Modules\ReliableDataSender\Models\StorageUpdate.cs" />
     <Compile Include="Modules\ReliableDataSender\SharedValues\PrintingValues.cs" />
     <Compile Include="Modules\ReliableDataSender\SharedValues\VerifyingValues.cs" />
     <Compile Include="Services\Dispatching\DispatchingService.cs" />
@@ -188,6 +190,8 @@
     <Compile Include="Services\Interface\IDispatchingService.cs" />
     <Compile Include="Services\Interface\IManufacturingService.cs" />
     <Compile Include="Services\Manufacturing\ManufacturingService.cs" />
+    <Compile Include="Utils\ControlEvents\InitControlEvents.cs" />
+    <Compile Include="Utils\UI\ClearValues.cs" />
     <Compile Include="Utils\UI\ComboBoxCustom.cs" />
     <Compile Include="Utils\Validation\CompareStatus.cs" />
     <Compile Include="Utils\IO\CsvHandler.cs" />
@@ -227,28 +231,28 @@
     <Compile Include="Model\SharedModel\InternalData.cs" />
     <Compile Include="Model\SharedModel\ItemCustomModel.cs" />
     <Compile Include="Model\JobModel\JobModel.cs" />
-    <Compile Include="Model\Payload\DeviceSettingsPayload.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\QRCode.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestBasedData.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestCheckCodeAmount.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestConfirmCompletion.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestDisposal.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestListDisposal.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestListRePrint.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestReprintedCode.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseBasedData.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseCurrentPrintedCodeInfo.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseListRePrint.cs" />
-    <Compile Include="Model\Payload\MonitorPayload.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestPrinted.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Request\RequestRePrint.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseConfirmCompletion.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseDisposal.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponsePrinted.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseRePrint.cs" />
-    <Compile Include="Model\Payload\LoginPayload.cs" />
-    <Compile Include="Model\Payload\DispatchingPayload\Response\ResponseOrder.cs" />
-    <Compile Include="Model\Payload\PermissionPayload.cs" />
+    <Compile Include="Model\NutifoodPayload\DeviceSettingsPayload.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\QRCode.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestBasedData.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestCheckCodeAmount.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestConfirmCompletion.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestDisposal.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestListDisposal.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestListRePrint.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestReprintedCode.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Response\ResponseBasedData.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Response\ResponseCurrentPrintedCodeInfo.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Response\ResponseListRePrint.cs" />
+    <Compile Include="Model\NutifoodPayload\MonitorPayload.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestPrinted.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Request\RequestRePrint.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Response\ResponseConfirmCompletion.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Response\ResponseDisposal.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Response\ResponsePrinted.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Response\ResponseRePrint.cs" />
+    <Compile Include="Model\NutifoodPayload\LoginPayload.cs" />
+    <Compile Include="Model\NutifoodPayload\DispatchingPayload\Response\ResponseOrder.cs" />
+    <Compile Include="Model\NutifoodPayload\PermissionPayload.cs" />
     <Compile Include="Model\PODModel\PODDataModel.cs" />
     <Compile Include="Model\PODModel\PODModel.cs" />
     <Compile Include="Model\PODModel\PODResponseModel.cs" />
@@ -295,7 +299,7 @@
     <Compile Include="Utils\CodeGeneration\Helper\Base30Helper.cs" />
     <Compile Include="Utils\CodeGeneration\Helper\LineConvertHelper.cs" />
     <Compile Include="Utils\UI\CreateScrollablePanel.cs" />
-    <Compile Include="Utils\IO\CsvConvert.cs" />
+    <Compile Include="Utils\IO\FileFuncs.cs" />
     <Compile Include="Utils\Validation\EmptyValueValidator.cs" />
     <Compile Include="Utils\IO\FileHelper.cs" />
     <Compile Include="Utils\Validation\MaskData.cs" />
@@ -533,6 +537,30 @@
     <Compile Include="View\UcSettings\ucSerialDeviceSettings.Designer.cs">
       <DependentUpon>ucSerialDeviceSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmBatchInfoManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmBatchInfoManual.Designer.cs">
+      <DependentUpon>frmBatchInfoManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmBatchInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmBatchInfo.Designer.cs">
+      <DependentUpon>frmBatchInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmDisposal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmDisposal.Designer.cs">
+      <DependentUpon>frmDisposal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmEditJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityForms\ManufacturingProcess\frmEditJob.Designer.cs">
+      <DependentUpon>frmEditJob.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -666,6 +694,18 @@
     <EmbeddedResource Include="View\UcSettings\ucSerialDeviceSettings.resx">
       <DependentUpon>ucSerialDeviceSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\ManufacturingProcess\frmBatchInfoManual.resx">
+      <DependentUpon>frmBatchInfoManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\ManufacturingProcess\frmBatchInfo.resx">
+      <DependentUpon>frmBatchInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\ManufacturingProcess\frmDisposal.resx">
+      <DependentUpon>frmDisposal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityForms\ManufacturingProcess\frmEditJob.resx">
+      <DependentUpon>frmEditJob.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
@@ -775,6 +815,8 @@
     <Resource Include="Resources\nutifood_logo.jpg" />
     <None Include="Resources\success.png" />
     <None Include="Resources\failed.png" />
+    <None Include="Resources\icons-green-dot.png" />
+    <None Include="Resources\icons8-red-dot.png" />
     <Content Include="vcredist2010_x86.exe" />
     <None Include="RConfig.dat" />
     <None Include="Resources\TemplateIllustration.png" />

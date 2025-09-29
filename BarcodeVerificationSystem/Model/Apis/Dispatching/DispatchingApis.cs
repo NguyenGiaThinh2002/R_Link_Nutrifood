@@ -14,7 +14,7 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
         static readonly string orderId = Shared.Settings.OrderId;
         static readonly string factoryCode = Shared.Settings.FactoryCode;
 
-        private static string _getOrderInfoUrl = $"{url}/api/shipment/get/{factoryCode}"; // Okay
+        private static string _getOrderInfoUrl = $"{url}/api/shipment/get"; // Okay
         private static string _sendGeneratedCodesUrl = $"{url}/api/shipment/pushDatabase"; // Okay
         private static string _printedDataUrl = $"{url}/api/shipment/printed";// Okay  
         private static string _monitorUrl = $"{url}/api/shipment/monitoring";// Okay
@@ -25,7 +25,8 @@ namespace BarcodeVerificationSystem.Model.Apis.Dispatching
 
         public static string GetOrderInfoUrl(string wmsNumber) // checked error
         {
-            return _getOrderInfoUrl + "/" + wmsNumber;
+            string t = _getOrderInfoUrl + $"/?plant={factoryCode}&wms_number={wmsNumber}&device_name={Shared.Settings.RLinkName}"; 
+            return _getOrderInfoUrl + $"/?plant={factoryCode}&wms_number={wmsNumber}&device_name={Shared.Settings.RLinkName}";
         }
 
         public static string GetSendGeneratedCodesUrl() // checked error
