@@ -148,17 +148,19 @@
             // 
             // MaufDatePicker
             // 
-            this.MaufDatePicker.Location = new System.Drawing.Point(173, 121);
+            this.MaufDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaufDatePicker.Location = new System.Drawing.Point(173, 117);
             this.MaufDatePicker.Name = "MaufDatePicker";
-            this.MaufDatePicker.Size = new System.Drawing.Size(275, 20);
+            this.MaufDatePicker.Size = new System.Drawing.Size(275, 26);
             this.MaufDatePicker.TabIndex = 168;
             this.MaufDatePicker.Value = new System.DateTime(2025, 9, 19, 10, 31, 33, 0);
             // 
             // ExpiredDatePicker
             // 
-            this.ExpiredDatePicker.Location = new System.Drawing.Point(173, 185);
+            this.ExpiredDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExpiredDatePicker.Location = new System.Drawing.Point(173, 181);
             this.ExpiredDatePicker.Name = "ExpiredDatePicker";
-            this.ExpiredDatePicker.Size = new System.Drawing.Size(275, 20);
+            this.ExpiredDatePicker.Size = new System.Drawing.Size(275, 26);
             this.ExpiredDatePicker.TabIndex = 169;
             // 
             // frmBatchInfoManual

@@ -1425,7 +1425,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
 
             list = Base30AutoCodeGenerator.GenerateLineCodesForLoyalty(quantity: numberOfCodes);
 
-
             string tableName = isManufacturingMode ? "Manufacturing" : "DispatchingCodes";
             string fileName = $"{tableName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
             string documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Database");
@@ -1587,14 +1586,18 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
                     CustomMessageBox.Show("Số lượng đã in vượt ngưỡng cho phép!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                string t = Shared.Settings.FactoryCode;
+                
+                if(PO.batch_info.Count == 0 || PO?.batch_info[Settings.SelectedBatchIndex]?.batch == "")
+                {
+                    CustomMessageBox.Show("Số LOT không được rỗng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 if ((Settings.FactoryCode == "1210" || Settings.FactoryCode == "1240") &&  PO.status != "Processing")
                 {
                     CustomMessageBox.Show($"Trạng thái phiếu là {PO.status}!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
 
                 if ((Settings.FactoryCode == "1260") && PO.status != "Released")
                 {
@@ -1641,7 +1644,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
             {
                 DisplayJobLoading(false);
                 CustomMessageBox.Show("Không thể tạo mã!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ProjectLogger.WriteError("Error occurred in get GenerateCodes (pushDatabase)" + ex.Message);
+                ProjectLogger.WriteError("Error occurred in get GenerateCodes (GeneratePOCodes)" + ex.Message);
 
             }
         }
@@ -1698,7 +1701,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
                     job_name = jobModel.FileName,
                     batch = Material.batch, // Can sua
                     mauf_date = Material.mauf_date,
-                    expired_date = Material.expried_date,
+                    expired_date = Material.expired_date,
                     material_doc = jobModel.Reservation.material_doc,
                     material_number = Material.material_number,
                     print_type = "reservation",
@@ -2559,7 +2562,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
                                     material_number = RES_MaterialNumber.Text,
                                     batch = RES_LotNumber.Text,
                                     mauf_date = RESMaufDatePicker.Value,
-                                    expried_date = RESExpiredDatePicker.Value,
+                                    expired_date = RESExpiredDatePicker.Value,
                                 }
                             }
                         };

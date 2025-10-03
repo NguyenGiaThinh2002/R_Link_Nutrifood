@@ -132,7 +132,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         print_type = "reservation",
                         batch = Material.batch,
                         mauf_date = Material.mauf_date,
-                        expired_date = Material.expried_date
+                        expired_date = Material.expired_date
                     };
                 }
 

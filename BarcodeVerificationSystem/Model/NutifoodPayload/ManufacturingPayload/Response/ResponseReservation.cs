@@ -26,7 +26,7 @@ namespace BarcodeVerificationSystem.Model.Payload.ManufacturingPayload.Response
         public string material_name { get; set; }
         public string batch { get; set; }
         public DateTime mauf_date { get; set; }
-        public DateTime expried_date { get; set; }
+        public DateTime expired_date { get; set; } // expried_date
         public int qty { get; set; }
         public string uom { get; set; }
         public int qty_per_carton { get; set; }

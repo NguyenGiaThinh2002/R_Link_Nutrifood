@@ -1,11 +1,13 @@
 ﻿using BarcodeVerificationSystem.Modules.ReliableDataSender.Interfaces;
 using BarcodeVerificationSystem.Modules.ReliableDataSender.Models;
+using BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
 {
@@ -37,13 +39,12 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Core
 
         public void Enqueue(int id, string[] code)
         {
-
             var entry = new VerificationDataEntry
             {
                 Id = id,
-                Code = code[1],
-                VerifiedStatus = code[2], // reconsider to (duplicate, valid, invalid)
-                VerifiedDate = code[6],
+                Code = code[FrmMainNutri.Index_ResultData],
+                VerifiedStatus = code[FrmMainNutri.Index_Result], // reconsider to (duplicate, valid, invalid)
+                VerifiedDate = code[FrmMainNutri.Index_DateTime],
             };
             _storage.AppendEntry(entry);
             _queue.Add(entry);

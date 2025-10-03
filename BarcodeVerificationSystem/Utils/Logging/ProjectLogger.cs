@@ -11,7 +11,7 @@ namespace BarcodeVerificationSystem.Utils
     public class ProjectLogger
     {
         private static readonly string LogDirectory =
-        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Logs");
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "R-Link", "Logs");
 
         private static readonly string LogFilePath =
             Path.Combine(LogDirectory, "log.txt");
@@ -64,8 +64,13 @@ namespace BarcodeVerificationSystem.Utils
                 {
                     logMessage += Environment.NewLine + ex.ToString();
                 }
+                logMessage += Environment.NewLine;
 
-                File.AppendAllText(LogFilePath, logMessage + Environment.NewLine);
+                // Read existing content
+                string existingContent = File.Exists(LogFilePath) ? File.ReadAllText(LogFilePath) : string.Empty;
+
+                // Prepend new message
+                File.WriteAllText(LogFilePath, logMessage + existingContent);
             }
             catch (Exception logEx)
             {
@@ -78,7 +83,13 @@ namespace BarcodeVerificationSystem.Utils
             try
             {
                 string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] INFO: {message}";
-                File.AppendAllText(LogFilePath, logMessage + Environment.NewLine);
+                logMessage += Environment.NewLine;
+
+                // Read existing content
+                string existingContent = File.Exists(LogFilePath) ? File.ReadAllText(LogFilePath) : string.Empty;
+
+                // Prepend new message
+                File.WriteAllText(LogFilePath, logMessage + existingContent);
             }
             catch (Exception logEx)
             {
@@ -88,24 +99,47 @@ namespace BarcodeVerificationSystem.Utils
 
         public static void WriteWarning(string message)
         {
-            Log.Warning(message);
+            try
+            {
+                string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] WARNING: {message}";
+                logMessage += Environment.NewLine;
+
+                // Read existing content
+                string existingContent = File.Exists(LogFilePath) ? File.ReadAllText(LogFilePath) : string.Empty;
+
+                // Prepend new message
+                File.WriteAllText(LogFilePath, logMessage + existingContent);
+            }
+            catch (Exception logEx)
+            {
+                Debug.WriteLine("Logging failed: " + logEx.Message);
+            }
         }
-
-
 
         public static void WriteDebug(string message)
         {
-            Log.Debug(message);
+            try
+            {
+                string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] DEBUG: {message}";
+                logMessage += Environment.NewLine;
+
+                // Read existing content
+                string existingContent = File.Exists(LogFilePath) ? File.ReadAllText(LogFilePath) : string.Empty;
+
+                // Prepend new message
+                File.WriteAllText(LogFilePath, logMessage + existingContent);
+            }
+            catch (Exception logEx)
+            {
+                Debug.WriteLine("Logging failed: " + logEx.Message);
+            }
         }
-
-
 
         public static void Close()
         {
-            Log.CloseAndFlush();
+            // No resources to close in this implementation
         }
     }
-
 }
 
 //  Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs", "log-.txt");

@@ -93,6 +93,92 @@ namespace BarcodeVerificationSystem.Controller
             };
         }
 
+        public static void AdjustColumnWidthsToFitContent(DataGridView dgv)
+        {
+            // Adjust the DataGridView
+            if (dgv.Columns.Count > 0)
+            {
+                // Step 1: Autosize all columns to fit content
+                dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                // Step 2: Calculate total column width after autosizing
+                int totalColumnWidth = 0;
+                foreach (DataGridViewColumn column in dgv.Columns)
+                {
+                    totalColumnWidth += column.Width;
+                }
+
+                // Step 3: Set MinimumWidth and FillWeight based on autosized width, and set mode to Fill for each
+                foreach (DataGridViewColumn column in dgv.Columns)
+                {
+                    column.MinimumWidth = column.Width;
+                    column.FillWeight = (float)column.Width;
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+
+                // Step 4: Get available client width
+                int clientWidth = dgv.ClientSize.Width;
+
+                // Step 5: Decide mode based on total width
+                if (totalColumnWidth >= clientWidth)
+                {
+                    // Keep content-fit widths and allow scrolling
+                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                }
+                else
+                {
+                    // Fill proportionally using FillWeights
+                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                }
+
+                // Step 6: Always enable both horizontal and vertical scrolling
+                dgv.ScrollBars = ScrollBars.Both;
+            }
+        }
+        //public static void AdjustColumnWidthsToFitContent(DataGridView dgv)
+        //{
+        //    // Adjust dgvCheckedResult
+        //    if (dgv.Columns.Count > 0)
+        //    {
+        //        // Step 1: Autosize all columns to fit content
+        //        dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        //        dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+        //        // Step 2: Calculate total column width after autosizing
+        //        int totalColumnWidth = 0;
+        //        foreach (DataGridViewColumn column in dgv.Columns)
+        //        {
+        //            totalColumnWidth += column.Width;
+        //        }
+
+        //        // Step 3: Set MinimumWidth and FillWeight based on autosized width, and set mode to Fill for each
+        //        foreach (DataGridViewColumn column in dgv.Columns)
+        //        {
+        //            column.MinimumWidth = column.Width;
+        //            column.FillWeight = (float)column.Width;
+        //            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        //        }
+
+        //        // Step 4: Get available client width
+        //        int clientWidth = dgv.ClientSize.Width;
+
+        //        // Step 5: Decide mode based on total width
+        //        if (totalColumnWidth >= clientWidth)
+        //        {
+        //            // Keep content-fit widths and allow scrolling
+        //            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+        //            dgv.ScrollBars = ScrollBars.Horizontal;
+        //        }
+        //        else
+        //        {
+        //            // Fill proportionally using FillWeights
+        //            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //            dgv.ScrollBars = ScrollBars.None;
+        //        }
+        //    }
+        //}
+
         public static void AutoResizeColumnWith(DataGridView dgv, string[] value)
         {
             try

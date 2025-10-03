@@ -56,14 +56,12 @@ namespace BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess
             {
                 DateTime now = DateTime.Now;
 
-                disposedItems.ForEach(item => {item.notes = notes; });
+                disposedItems.ForEach(item => { item.notes = notes == "" ? "Không có ghi chú!" : notes; });
                 var request = new RequestDestroyCodes
                 {
                     qrcodes = disposedItems,
-                    notes = notes,
+                    notes = notes == "" ? "Không có ghi chú!" : notes,
                 };
-                //new Form { Text = "JSON Viewer", Width = 800, Height = 600, Controls = { new TextBox { Multiline = true, Dock = DockStyle.Fill, ScrollBars = ScrollBars.Both, 
-                //    Text = Newtonsoft.Json.JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented) } } }.ShowDialog();
 
 
 
@@ -83,7 +81,7 @@ namespace BarcodeVerificationSystem.View.UtilityForms.ManufacturingProcess
                     CustomMessageBox.Show(ResponseDisposal.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-
+                notes = notesInput.Text = string.Empty; // Clear notes after disposal
             }
             catch (Exception ex)
             {

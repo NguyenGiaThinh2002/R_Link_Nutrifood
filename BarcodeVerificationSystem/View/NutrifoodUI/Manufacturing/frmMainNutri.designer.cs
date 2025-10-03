@@ -118,10 +118,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlDatabase = new DesignUI.CuzUI.CuzPanel();
             this.picDatabaseLoading = new System.Windows.Forms.PictureBox();
+            this.dgvDatabase = new DesignUI.CuzUI.CuzDataGridView();
             this.lblDatabase = new System.Windows.Forms.Label();
             this.pnlCheckedResult = new DesignUI.CuzUI.CuzPanel();
             this.picCheckedResultLoading = new System.Windows.Forms.PictureBox();
-            this.dgvDatabase = new DesignUI.CuzUI.CuzDataGridView();
             this.btnNull = new System.Windows.Forms.Button();
             this.btnDuplicate = new System.Windows.Forms.Button();
             this.btnInvalid = new System.Windows.Forms.Button();
@@ -186,9 +186,9 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlDatabase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDatabaseLoading)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).BeginInit();
             this.pnlCheckedResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCheckedResultLoading)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckedResult)).BeginInit();
             this.tableLayoutPanelPrintedState.SuspendLayout();
             this.pnlPrintedState3.SuspendLayout();
@@ -1555,56 +1555,6 @@
             this.picDatabaseLoading.TabStop = false;
             this.picDatabaseLoading.Visible = false;
             // 
-            // lblDatabase
-            // 
-            this.lblDatabase.AutoSize = true;
-            this.lblDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatabase.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblDatabase.Location = new System.Drawing.Point(21, 11);
-            this.lblDatabase.Name = "lblDatabase";
-            this.lblDatabase.Size = new System.Drawing.Size(87, 20);
-            this.lblDatabase.TabIndex = 108;
-            this.lblDatabase.Text = "Database";
-            // 
-            // pnlCheckedResult
-            // 
-            this.pnlCheckedResult._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
-            this.pnlCheckedResult._BorderRadius = 10;
-            this.pnlCheckedResult._BorderSize = 1;
-            this.pnlCheckedResult._Corner = 0F;
-            this.pnlCheckedResult._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.pnlCheckedResult._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
-            this.pnlCheckedResult._GradientPanel = false;
-            this.pnlCheckedResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlCheckedResult.BackColor = System.Drawing.Color.White;
-            this.pnlCheckedResult.Controls.Add(this.picCheckedResultLoading);
-            this.pnlCheckedResult.Controls.Add(this.btnNull);
-            this.pnlCheckedResult.Controls.Add(this.btnDuplicate);
-            this.pnlCheckedResult.Controls.Add(this.btnInvalid);
-            this.pnlCheckedResult.Controls.Add(this.btnValid);
-            this.pnlCheckedResult.Controls.Add(this.dgvCheckedResult);
-            this.pnlCheckedResult.Controls.Add(this.lblCheckedResult);
-            this.pnlCheckedResult.Location = new System.Drawing.Point(9, 381);
-            this.pnlCheckedResult.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pnlCheckedResult.Name = "pnlCheckedResult";
-            this.pnlCheckedResult.Size = new System.Drawing.Size(972, 358);
-            this.pnlCheckedResult.TabIndex = 51;
-            // 
-            // picCheckedResultLoading
-            // 
-            this.picCheckedResultLoading.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.picCheckedResultLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
-            this.picCheckedResultLoading.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picCheckedResultLoading.Location = new System.Drawing.Point(441, 148);
-            this.picCheckedResultLoading.Name = "picCheckedResultLoading";
-            this.picCheckedResultLoading.Size = new System.Drawing.Size(92, 62);
-            this.picCheckedResultLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCheckedResultLoading.TabIndex = 124;
-            this.picCheckedResultLoading.TabStop = false;
-            this.picCheckedResultLoading.Visible = false;
-            // 
             // dgvDatabase
             // 
             this.dgvDatabase.AllowUserToAddRows = false;
@@ -1682,6 +1632,56 @@
             this.dgvDatabase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatabase.Size = new System.Drawing.Size(935, 296);
             this.dgvDatabase.TabIndex = 111;
+            // 
+            // lblDatabase
+            // 
+            this.lblDatabase.AutoSize = true;
+            this.lblDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatabase.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblDatabase.Location = new System.Drawing.Point(21, 11);
+            this.lblDatabase.Name = "lblDatabase";
+            this.lblDatabase.Size = new System.Drawing.Size(87, 20);
+            this.lblDatabase.TabIndex = 108;
+            this.lblDatabase.Text = "Database";
+            // 
+            // pnlCheckedResult
+            // 
+            this.pnlCheckedResult._BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(149)))), ((int)(((byte)(70)))));
+            this.pnlCheckedResult._BorderRadius = 10;
+            this.pnlCheckedResult._BorderSize = 1;
+            this.pnlCheckedResult._Corner = 0F;
+            this.pnlCheckedResult._FillColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.pnlCheckedResult._FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(165)))));
+            this.pnlCheckedResult._GradientPanel = false;
+            this.pnlCheckedResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCheckedResult.BackColor = System.Drawing.Color.White;
+            this.pnlCheckedResult.Controls.Add(this.picCheckedResultLoading);
+            this.pnlCheckedResult.Controls.Add(this.btnNull);
+            this.pnlCheckedResult.Controls.Add(this.btnDuplicate);
+            this.pnlCheckedResult.Controls.Add(this.btnInvalid);
+            this.pnlCheckedResult.Controls.Add(this.btnValid);
+            this.pnlCheckedResult.Controls.Add(this.dgvCheckedResult);
+            this.pnlCheckedResult.Controls.Add(this.lblCheckedResult);
+            this.pnlCheckedResult.Location = new System.Drawing.Point(9, 381);
+            this.pnlCheckedResult.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pnlCheckedResult.Name = "pnlCheckedResult";
+            this.pnlCheckedResult.Size = new System.Drawing.Size(972, 358);
+            this.pnlCheckedResult.TabIndex = 51;
+            // 
+            // picCheckedResultLoading
+            // 
+            this.picCheckedResultLoading.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.picCheckedResultLoading.Image = global::BarcodeVerificationSystem.Properties.Resources.icon_loading_2681;
+            this.picCheckedResultLoading.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.picCheckedResultLoading.Location = new System.Drawing.Point(441, 148);
+            this.picCheckedResultLoading.Name = "picCheckedResultLoading";
+            this.picCheckedResultLoading.Size = new System.Drawing.Size(92, 62);
+            this.picCheckedResultLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCheckedResultLoading.TabIndex = 124;
+            this.picCheckedResultLoading.TabStop = false;
+            this.picCheckedResultLoading.Visible = false;
             // 
             // btnNull
             // 
@@ -2468,10 +2468,10 @@
             this.pnlDatabase.ResumeLayout(false);
             this.pnlDatabase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDatabaseLoading)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).EndInit();
             this.pnlCheckedResult.ResumeLayout(false);
             this.pnlCheckedResult.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCheckedResultLoading)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatabase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCheckedResult)).EndInit();
             this.tableLayoutPanelPrintedState.ResumeLayout(false);
             this.pnlPrintedState3.ResumeLayout(false);

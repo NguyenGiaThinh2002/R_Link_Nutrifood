@@ -157,14 +157,14 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
         private readonly string _DateTimeFormat = "yyMMddHHmmss";
         private string[] _DatabaseColunms = new string[0];
         private readonly string[] defaultRecord = new string[] { "100000", "data1","Valid", "Barcode Quality", "False", "100", DateTime.Now.ToString(), "Camera", " " };
-        private static readonly string _index = "Index", _resultData = "ResultData", _result = "Result",
-                                       _barcodeQuality = "CodeQuality", _position = "Position", _processingTime = "ProcessingTime",
-                                       _dateTime = "DateTime", _device = "Device", _sampled = "Sampled";
+        private static readonly string _index = "Index", _resultData = "ResultData", _result = "Result"
+                                       , _processingTime = "ProcessingTime",
+                                       _dateTime = "DateTime";
 
-        private static readonly string[] _ColumnNames = { _index, _resultData, _result, _barcodeQuality, _position, _processingTime, _dateTime, _device, _sampled };
-        public readonly int Index_Index = Array.IndexOf(_ColumnNames, _index), Index_ResultData = Array.IndexOf(_ColumnNames, _resultData), Index_Result = Array.IndexOf(_ColumnNames, _result),
-                            Index_BarcodeQuality = Array.IndexOf(_ColumnNames, _barcodeQuality), Index_Position = Array.IndexOf(_ColumnNames, _position), Index_ProcessingTime = Array.IndexOf(_ColumnNames, _processingTime),
-                            Index_DateTime = Array.IndexOf(_ColumnNames, _dateTime), Index_Device = Array.IndexOf(_ColumnNames, _device), Index_Sampled = Array.IndexOf(_ColumnNames, _sampled);
+        private static readonly string[] _ColumnNames = { _index, _resultData, _result, _processingTime, _dateTime };
+        public static readonly int Index_Index = Array.IndexOf(_ColumnNames, _index), Index_ResultData = Array.IndexOf(_ColumnNames, _resultData), Index_Result = Array.IndexOf(_ColumnNames, _result),
+                            Index_ProcessingTime = Array.IndexOf(_ColumnNames, _processingTime),
+                            Index_DateTime = Array.IndexOf(_ColumnNames, _dateTime);
 
 
         private bool _IsAfterProductionMode = false;
@@ -622,6 +622,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
             disposeBtn.Text = Lang.Dispose;
             numberOfCode.Text = _SelectedJob.NumberTotalsCode.ToString();
 
+   
+
             if (_SelectedJob.IsProcessOrderMode)
             {
                 var payloadJob = _SelectedJob?.ProcessOrderItem;
@@ -693,7 +695,7 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
             {
                 var payloadJob = _SelectedJob?.ReservationItem;
                 MaufDate.Text = payloadJob?.mauf_date.ToString(Shared.Settings.LOTFormatDate) ?? "";
-                ExpireDate.Text = payloadJob?.expried_date.ToString(Shared.Settings.LOTFormatDate) ?? "";
+                ExpireDate.Text = payloadJob?.expired_date.ToString(Shared.Settings.LOTFormatDate) ?? "";
             }
        
         }
@@ -2642,12 +2644,12 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
                     strResult[Index_Index] = detectModel.Index.ToString();
                     strResult[Index_ResultData] = detectModel.Text;
                     strResult[Index_Result] = detectModel.CompareResult.ToString();
-                    strResult[Index_BarcodeQuality] = detectModel.CodeQuality;
-                    strResult[Index_Position] = detectModel.isBarcodeWithinThreshold;
+                    //strResult[Index_BarcodeQuality] = detectModel.CodeQuality;
+                    //strResult[Index_Position] = detectModel.isBarcodeWithinThreshold;
                     strResult[Index_ProcessingTime] = detectModel.CompareTime + " ms";
                     strResult[Index_DateTime] = detectModel.ProcessingDateTime;
-                    strResult[Index_Device] = detectModel.Device;
-                    strResult[Index_Sampled] = detectModel.Sampled;
+                    //strResult[Index_Device] = detectModel.Device;
+                    //strResult[Index_Sampled] = detectModel.Sampled;
 
 
                     strResultCheckList.Add(strResult);
@@ -2904,8 +2906,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
             }
         }
 
-
-
         private async void SendDataToServer(ApiService apiService, List<string[]> value, string path, string url)
         {
             try
@@ -2947,7 +2947,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
                 MessageBox.Show("Error while sending data:\n" + ex.Message);
             }
         }
-
 
         private async void BackupSendLogAsync(CancellationToken token)
         {
@@ -3400,6 +3399,8 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
                 _CodeListPODFormat.Clear();
 
                 InitDataAsync(_SelectedJob);
+
+              
             }
         }
 
@@ -3538,6 +3539,11 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
             InitDataGridView(dgvCheckedResult, _ColumnNames, 2);  // Implement virtual mode for DataGridView display checked results
             await Task.Delay(50);
             AutoResizeColumnWith(dgvCheckedResult, defaultRecord, 2);  // Adjust width of columns
+
+            DataGridViewCustom.AdjustColumnWidthsToFitContent(dgvCheckedResult);
+            DataGridViewCustom.AdjustColumnWidthsToFitContent(dgvDatabase);
+
+
             // Update progress bar
             ProgressBarInitialize();
             ProgressBarCheckedUpdate();
@@ -4330,7 +4336,6 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
             }
         }
 
-
         private void Shared_OnSerialDeviceReadDataChange(object sender, EventArgs e)
         {
             if ((Shared.OperStatus != OperationStatus.Running && Shared.OperStatus != OperationStatus.Processing) || !_IsReCheck) return;
@@ -5053,41 +5058,41 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
 
         private void ExportPassedDataByCamAndScanner(string fileName)
         {
-            var checkedResultDict = _CheckedResultCodeList
-                  .Where(arr => arr[Index_Result] == "Valid" && arr[Index_Sampled] != "True")
-                  .GroupBy(x => x[Index_ResultData])
-                  .ToDictionary(
-                                  g => g.Key,
-                                  g => string.Join(", ", g.First().Skip(3).Prepend(g.First().ElementAtOrDefault(Index_ResultData)).Where(value => !string.IsNullOrEmpty(value)))
+            //var checkedResultDict = _CheckedResultCodeList
+            //      .Where(arr => arr[Index_Result] == "Valid" && arr[Index_Sampled] != "True")
+            //      .GroupBy(x => x[Index_ResultData])
+            //      .ToDictionary(
+            //                      g => g.Key,
+            //                      g => string.Join(", ", g.First().Skip(3).Prepend(g.First().ElementAtOrDefault(Index_ResultData)).Where(value => !string.IsNullOrEmpty(value)))
 
-                               );
-            ExportPassedData(fileName, checkedResultDict);
+            //                   );
+            //ExportPassedData(fileName, checkedResultDict);
         }
 
         private void ExportPassedDataByScanner(string fileName)
         {
-            var checkedResultDict = _CheckedResultCodeList
-                 .Where(arr => arr[Index_Result] == "Valid" && arr[Index_Device] != "Camera" && arr[Index_Sampled] != "True")
-                 .GroupBy(x => x[Index_ResultData])
-                 .ToDictionary(
-                                  g => g.Key,
-                                  g => string.Join(", ", g.First().Skip(3).Prepend(g.First().ElementAtOrDefault(Index_ResultData)).Where(value => !string.IsNullOrEmpty(value)))
+            //var checkedResultDict = _CheckedResultCodeList
+            //     .Where(arr => arr[Index_Result] == "Valid" && arr[Index_Device] != "Camera" && arr[Index_Sampled] != "True")
+            //     .GroupBy(x => x[Index_ResultData])
+            //     .ToDictionary(
+            //                      g => g.Key,
+            //                      g => string.Join(", ", g.First().Skip(3).Prepend(g.First().ElementAtOrDefault(Index_ResultData)).Where(value => !string.IsNullOrEmpty(value)))
 
-                              );
-            ExportPassedData(fileName, checkedResultDict);
+            //                  );
+            //ExportPassedData(fileName, checkedResultDict);
         }
 
         private void ExportSampledData(string fileName)
         {
-            var checkedResultDict = _CheckedResultCodeList
-                 .Where(arr => arr[Index_Sampled] == "True")
-                 .GroupBy(x => x[Index_ResultData])
-                 .ToDictionary(
-                                  g => g.Key,
-                                  g => string.Join(", ", g.First().Skip(3).Prepend(g.First().ElementAtOrDefault(Index_ResultData)).Where(value => !string.IsNullOrEmpty(value)))
+            //var checkedResultDict = _CheckedResultCodeList
+            //     .Where(arr => arr[Index_Sampled] == "True")
+            //     .GroupBy(x => x[Index_ResultData])
+            //     .ToDictionary(
+            //                      g => g.Key,
+            //                      g => string.Join(", ", g.First().Skip(3).Prepend(g.First().ElementAtOrDefault(Index_ResultData)).Where(value => !string.IsNullOrEmpty(value)))
 
-                              );
-            ExportPassedData(fileName, checkedResultDict);
+            //                  );
+            //ExportPassedData(fileName, checkedResultDict);
         }
 
         private void ExportFailedData(string fileName)
@@ -5307,114 +5312,115 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
 
         private void ExportWaitingData_2(string fileName)
         {
-            try
-            {
-                var checkedResultDict = _CheckedResultCodeList
-                  .Where(arr => arr[Index_Result] == "Valid" && arr[Index_Sampled] != "True")
-                  .GroupBy(x => x[Index_ResultData])
-                  .ToDictionary(
-                                   g => g.Key,
-                                   g => string.Join(", ", g.First().Skip(3).Prepend(g.First().ElementAtOrDefault(Index_ResultData)).Where(value => !string.IsNullOrEmpty(value)))
-                );
-                var duplicateCountDict = _CheckedResultCodeList
-                 .Where(arr => arr[Index_Result] == "Duplicated")
-                 .GroupBy(x => x[Index_ResultData])
-                 .ToDictionary(g => g.Key, g => g.Count());
+            //try
+            //{
+            //    var checkedResultDict = _CheckedResultCodeList
+            //      .Where(arr => arr[Index_Result] == "Valid" && arr[Index_Sampled] != "True")
+            //      .GroupBy(x => x[Index_ResultData])
+            //      .ToDictionary(
+            //                       g => g.Key,
+            //                       g => string.Join(", ", g.First().Skip(3).Prepend(g.First().ElementAtOrDefault(Index_ResultData)).Where(value => !string.IsNullOrEmpty(value)))
+            //    );
+            //    var duplicateCountDict = _CheckedResultCodeList
+            //     .Where(arr => arr[Index_Result] == "Duplicated")
+            //     .GroupBy(x => x[Index_ResultData])
+            //     .ToDictionary(g => g.Key, g => g.Count());
 
-                if (File.Exists(fileName))
-                    File.Delete(fileName);
+            //    if (File.Exists(fileName))
+            //        File.Delete(fileName);
 
-                List<string> lines = new List<string>();
-                var statusCol = _DatabaseColunms[1];
-                var newColumn = new string[_DatabaseColunms.Length];
-                int currentIndex = 0;
-                for (int i = 0; i < _DatabaseColunms.Length; i++)
-                {
-                    if (i != 1)
-                    {
-                        newColumn[currentIndex++] = _DatabaseColunms[i];
-                    }
-                }
-                newColumn[newColumn.Length - 1] = statusCol;
-                string header = string.Join(",", newColumn.Select(Csv.Escape));
-                lines.Add(header);
+            //    List<string> lines = new List<string>();
+            //    var statusCol = _DatabaseColunms[1];
+            //    var newColumn = new string[_DatabaseColunms.Length];
+            //    int currentIndex = 0;
+            //    for (int i = 0; i < _DatabaseColunms.Length; i++)
+            //    {
+            //        if (i != 1)
+            //        {
+            //            newColumn[currentIndex++] = _DatabaseColunms[i];
+            //        }
+            //    }
+            //    newColumn[newColumn.Length - 1] = statusCol;
+            //    string header = string.Join(",", newColumn.Select(Csv.Escape));
+            //    lines.Add(header);
 
-                for (int i = 0; i < _TotalCode; i++)
-                {
-                    bool isAllowedWriteLine = false;
-                    var record = _PrintedCodeObtainFromFile[i];
+            //    for (int i = 0; i < _TotalCode; i++)
+            //    {
+            //        bool isAllowedWriteLine = false;
+            //        var record = _PrintedCodeObtainFromFile[i];
 
-                    if (record.Length > 1)
-                    {
-                        var newRecord = new string[record.Length];
-                        Array.Copy(record, 0, newRecord, 0, 1);
-                        Array.Copy(record, 2, newRecord, 1, record.Length - 2);
-                        newRecord[newRecord.Length - 1] = record[1];
-                        record = newRecord;
-                    }
+            //        if (record.Length > 1)
+            //        {
+            //            var newRecord = new string[record.Length];
+            //            Array.Copy(record, 0, newRecord, 0, 1);
+            //            Array.Copy(record, 2, newRecord, 1, record.Length - 2);
+            //            newRecord[newRecord.Length - 1] = record[1];
+            //            record = newRecord;
+            //        }
 
-                    var compareString = GetCompareDataByPODFormat(record, _SelectedJob.PODFormat);
-                    var writeValue = string.Join(",", record.Take(record.Length - 1).Select(Csv.Escape)) + ",";
-                    var status = record[record.Length - 1];
-                    bool isChecked = checkedResultDict.TryGetValue(compareString, out string dateVerify);
+            //        var compareString = GetCompareDataByPODFormat(record, _SelectedJob.PODFormat);
+            //        var writeValue = string.Join(",", record.Take(record.Length - 1).Select(Csv.Escape)) + ",";
+            //        var status = record[record.Length - 1];
+            //        bool isChecked = checkedResultDict.TryGetValue(compareString, out string dateVerify);
 
-                    if (isChecked)
-                    {
+            //        if (isChecked)
+            //        {
 
 
-                    }
-                    else
-                    {
-                        if (status.Equals("Printed")) // Is Printed 
-                        {
-                            if (duplicateCountDict.TryGetValue(compareString, out int duplicateCount) && duplicateCount >= 1)
-                            {
-                                // writeValue += "Printed-Duplicate";
-                                writeValue += PrintedVerified;
-                            }
-                            else
-                            {
-                                writeValue += PrintedUnverified;
-                            }
-                        }
-                        else
-                        {
-                            writeValue += UnprintedUnverified;
-                        }
+            //        }
+            //        else
+            //        {
+            //            if (status.Equals("Printed")) // Is Printed 
+            //            {
+            //                if (duplicateCountDict.TryGetValue(compareString, out int duplicateCount) && duplicateCount >= 1)
+            //                {
+            //                    // writeValue += "Printed-Duplicate";
+            //                    writeValue += PrintedVerified;
+            //                }
+            //                else
+            //                {
+            //                    writeValue += PrintedUnverified;
+            //                }
+            //            }
+            //            else
+            //            {
+            //                writeValue += UnprintedUnverified;
+            //            }
 
-                        //writeValue += "," + Csv.Escape(dateVerify).Trim('"');
-                        //checkedResultDict.Remove(compareString);
+            //            //writeValue += "," + Csv.Escape(dateVerify).Trim('"');
+            //            //checkedResultDict.Remove(compareString);
 
-                        isAllowedWriteLine = true;
-                    }
-                    if (isAllowedWriteLine)
-                    {
-                        lines.Add(writeValue);// Write the value if the record is checked
-                    }
+            //            isAllowedWriteLine = true;
+            //        }
+            //        if (isAllowedWriteLine)
+            //        {
+            //            lines.Add(writeValue);// Write the value if the record is checked
+            //        }
                     
-                }
-                if (fileName.EndsWith(".pdf"))
-                {
-                    ConvertCsvToPdf(lines.ToArray(), fileName);
-                }
-                else
-                {
-                    using (var writer = new StreamWriter(fileName, true, Encoding.UTF8))
-                    {
-                        foreach (var line in lines)
-                        {
-                            writer.WriteLine(line); // Write the sorted comma-separated string
-                        }
-                    }
-                }
+            //    }
+            //    if (fileName.EndsWith(".pdf"))
+            //    {
+            //        ConvertCsvToPdf(lines.ToArray(), fileName);
+            //    }
+            //    else
+            //    {
+            //        using (var writer = new StreamWriter(fileName, true, Encoding.UTF8))
+            //        {
+            //            foreach (var line in lines)
+            //            {
+            //                writer.WriteLine(line); // Write the sorted comma-separated string
+            //            }
+            //        }
+            //    }
 
-                MoveToTheFile(fileName);
-                checkedResultDict.Clear();
-            }
-            catch (Exception)
-            {
+            //    MoveToTheFile(fileName);
+            //    checkedResultDict.Clear();
+            //}
+            //catch (Exception)
+            //{
 
-            }
+            //}
+        
         }
 
         private void ExportPassedData(string fileName, Dictionary<string, string> checkedResultDict)
@@ -5588,153 +5594,154 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
 
         public void ExportAllData(string fileName)
         {
-            try
-            {
+            //try
+            //{
 
-                List<string> linesToWrite = new List<string>();
-                // if duplicate, which position would we get, if valid then miss-alignment, what would we get
-                // thinh_04_04_2025
-                var duplicateCountDict = _CheckedResultCodeList
-                    .Where(arr => arr[Index_Device] != "Barcode Scanner" && arr[Index_Result] == "Duplicated")
-                    .GroupBy(x => x[Index_ResultData])
-                    .ToDictionary(g => g.Key, g => g.Count());
+            //    List<string> linesToWrite = new List<string>();
+            //    // if duplicate, which position would we get, if valid then miss-alignment, what would we get
+            //    // thinh_04_04_2025
+            //    var duplicateCountDict = _CheckedResultCodeList
+            //        .Where(arr => arr[Index_Device] != "Barcode Scanner" && arr[Index_Result] == "Duplicated")
+            //        .GroupBy(x => x[Index_ResultData])
+            //        .ToDictionary(g => g.Key, g => g.Count());
 
-                //Dictionary with Result data is key and datetime is value
-                var checkedResultDict = _CheckedResultCodeList
-                    .Where(arr => arr[Index_Device] != "Barcode Scanner")
-                    .GroupBy(x => x[Index_ResultData])
-                    .ToDictionary(
-                        g => g.Key,
-                        g => (DateTime: g.First()[Index_DateTime], Position: g.First()[Index_Position])
-                    );
+            //    //Dictionary with Result data is key and datetime is value
+            //    var checkedResultDict = _CheckedResultCodeList
+            //        .Where(arr => arr[Index_Device] != "Barcode Scanner")
+            //        .GroupBy(x => x[Index_ResultData])
+            //        .ToDictionary(
+            //            g => g.Key,
+            //            g => (DateTime: g.First()[Index_DateTime], Position: g.First()[Index_Position])
+            //        );
 
-                var test2 = _CheckedResultCodeList
-                    .Where(arr => arr[Index_Device] != "Barcode Scanner" && arr[Index_Result] != "Valid" && arr[Index_Result] != "Duplicated").GroupBy(x => x[Index_ResultData]).ToDictionary(g => g.Key, g => g.First()[Index_DateTime]);
-
-
-                var test = _CheckedResultCodeList
-                                            .Where(arr => arr[Index_Device] != "Barcode Scanner" && arr[Index_Result] != "Valid" && arr[Index_Result] != "Duplicated")
-                                            .Select(arr => new KeyValuePair<string, string>(arr[Index_ResultData], arr[Index_DateTime]))
-                                            .ToList();
+            //    var test2 = _CheckedResultCodeList
+            //        .Where(arr => arr[Index_Device] != "Barcode Scanner" && arr[Index_Result] != "Valid" && arr[Index_Result] != "Duplicated").GroupBy(x => x[Index_ResultData]).ToDictionary(g => g.Key, g => g.First()[Index_DateTime]);
 
 
-                if (File.Exists(fileName))
-                    File.Delete(fileName);
-
-                using (var writer = new StreamWriter(fileName, true, Encoding.UTF8))
-                {
-                    // Write the header, edit column element
-                    var statusCol = _DatabaseColunms[1];
-                    var newColumn = new string[_DatabaseColunms.Length];
-                    int currentIndex = 0;
-                    for (int i = 0; i < _DatabaseColunms.Length; i++)
-                    {
-                        if (i != 1)
-                        {
-                            newColumn[currentIndex++] = _DatabaseColunms[i];
-                        }
-                    }
-                    newColumn[newColumn.Length - 1] = statusCol;
-                    string header = string.Join(",", newColumn.Select(Csv.Escape)) + ",Number Checking Code" + ",Position" + ",VerifyDate";
-                    //writer.WriteLine(header);
-                    linesToWrite.Add(header);
-
-                    for (int i = 0; i < _TotalCode; i++)
-                    {
-                        var record = _PrintedCodeObtainFromFile[i];
-
-                        // Rearrange the record if it has more than 1 element
-                        if (record.Length > 1)
-                        {
-                            var newRecord = new string[record.Length];
-                            Array.Copy(record, 0, newRecord, 0, 1);
-                            Array.Copy(record, 2, newRecord, 1, record.Length - 2);
-                            newRecord[newRecord.Length - 1] = record[1];
-                            record = newRecord;
-                        }
-
-                        var compareString = GetCompareDataByPODFormat(record, _SelectedJob.PODFormat);
-                        var writeValue = string.Join(",", record.Take(record.Length - 1).Select(Csv.Escape)) + ",";
-                        var status = record[record.Length - 1];
-                        bool isChecked = checkedResultDict.TryGetValue(compareString, out var checkedValues);
-
-                        if (isChecked)
-                        {
-                            if (status.Equals("Printed")) // Is Printed 
-                            {
-                                if (duplicateCountDict.TryGetValue(compareString, out int duplicateCount) && duplicateCount >= 1)
-                                {
-                                    //writeValue += "Duplicated";
-                                    writeValue += "Valid";
-                                    writeValue += "," + (duplicateCount + 1);
-                                }
-                                else
-                                {
-                                    writeValue += "Valid";
-                                    writeValue += "," + "1";
-                                }
-                            }
-                            else // Is Not Printed
-                            {
-                                var index = test.FindIndex(kvp => kvp.Key == compareString);
-                                if (index != -1)
-                                {
-                                    test.RemoveAt(index);
-                                }
+            //    var test = _CheckedResultCodeList
+            //                                .Where(arr => arr[Index_Device] != "Barcode Scanner" && arr[Index_Result] != "Valid" && arr[Index_Result] != "Duplicated")
+            //                                .Select(arr => new KeyValuePair<string, string>(arr[Index_ResultData], arr[Index_DateTime]))
+            //                                .ToList();
 
 
-                                // Dang lam cho In-Sight
-                                writeValue += "Miss Alignment";
-                                writeValue += "," + "1";
-                            }
+            //    if (File.Exists(fileName))
+            //        File.Delete(fileName);
+
+            //    using (var writer = new StreamWriter(fileName, true, Encoding.UTF8))
+            //    {
+            //        // Write the header, edit column element
+            //        var statusCol = _DatabaseColunms[1];
+            //        var newColumn = new string[_DatabaseColunms.Length];
+            //        int currentIndex = 0;
+            //        for (int i = 0; i < _DatabaseColunms.Length; i++)
+            //        {
+            //            if (i != 1)
+            //            {
+            //                newColumn[currentIndex++] = _DatabaseColunms[i];
+            //            }
+            //        }
+            //        newColumn[newColumn.Length - 1] = statusCol;
+            //        string header = string.Join(",", newColumn.Select(Csv.Escape)) + ",Number Checking Code" + ",Position" + ",VerifyDate";
+            //        //writer.WriteLine(header);
+            //        linesToWrite.Add(header);
+
+            //        for (int i = 0; i < _TotalCode; i++)
+            //        {
+            //            var record = _PrintedCodeObtainFromFile[i];
+
+            //            // Rearrange the record if it has more than 1 element
+            //            if (record.Length > 1)
+            //            {
+            //                var newRecord = new string[record.Length];
+            //                Array.Copy(record, 0, newRecord, 0, 1);
+            //                Array.Copy(record, 2, newRecord, 1, record.Length - 2);
+            //                newRecord[newRecord.Length - 1] = record[1];
+            //                record = newRecord;
+            //            }
+
+            //            var compareString = GetCompareDataByPODFormat(record, _SelectedJob.PODFormat);
+            //            var writeValue = string.Join(",", record.Take(record.Length - 1).Select(Csv.Escape)) + ",";
+            //            var status = record[record.Length - 1];
+            //            bool isChecked = checkedResultDict.TryGetValue(compareString, out var checkedValues);
+
+            //            if (isChecked)
+            //            {
+            //                if (status.Equals("Printed")) // Is Printed 
+            //                {
+            //                    if (duplicateCountDict.TryGetValue(compareString, out int duplicateCount) && duplicateCount >= 1)
+            //                    {
+            //                        //writeValue += "Duplicated";
+            //                        writeValue += "Valid";
+            //                        writeValue += "," + (duplicateCount + 1);
+            //                    }
+            //                    else
+            //                    {
+            //                        writeValue += "Valid";
+            //                        writeValue += "," + "1";
+            //                    }
+            //                }
+            //                else // Is Not Printed
+            //                {
+            //                    var index = test.FindIndex(kvp => kvp.Key == compareString);
+            //                    if (index != -1)
+            //                    {
+            //                        test.RemoveAt(index);
+            //                    }
 
 
-                            writeValue += "," + Csv.Escape(checkedValues.Position).Trim('"');
-                            writeValue += "," + Csv.Escape(checkedValues.DateTime);
-                            checkedResultDict.Remove(compareString);
+            //                    // Dang lam cho In-Sight
+            //                    writeValue += "Miss Alignment";
+            //                    writeValue += "," + "1";
+            //                }
 
-                        }
-                        else
-                        {
-                            if (status.Equals("Printed"))
-                            {
-                                writeValue += PrintedUnverified;
-                            }
-                            else
-                            {
-                                writeValue += "Unverified";
 
-                            }
+            //                writeValue += "," + Csv.Escape(checkedValues.Position).Trim('"');
+            //                writeValue += "," + Csv.Escape(checkedValues.DateTime);
+            //                checkedResultDict.Remove(compareString);
 
-                        }
-                        linesToWrite.Add(writeValue);
-                    }
-                }
+            //            }
+            //            else
+            //            {
+            //                if (status.Equals("Printed"))
+            //                {
+            //                    writeValue += PrintedUnverified;
+            //                }
+            //                else
+            //                {
+            //                    writeValue += "Unverified";
 
-                if (fileName.EndsWith(".pdf"))
-                {
-                    ConvertCsvToPdf(linesToWrite.ToArray(), fileName);
-                }
-                else
-                {
-                    using (var writer = new StreamWriter(fileName, true, Encoding.UTF8))
-                    {
-                        foreach (var line in linesToWrite)
-                        {
-                            writer.WriteLine(line); // Write the sorted comma-separated string
-                        }
-                    }
-                }
+            //                }
 
-                MoveToTheFile(fileName);
-                checkedResultDict.Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(Lang.DetectError);
-                Shared.RaiseOnLogError(ex);
-                EnableUIComponent(OperationStatus.Stopped);
-            }
+            //            }
+            //            linesToWrite.Add(writeValue);
+            //        }
+            //    }
+
+            //    if (fileName.EndsWith(".pdf"))
+            //    {
+            //        ConvertCsvToPdf(linesToWrite.ToArray(), fileName);
+            //    }
+            //    else
+            //    {
+            //        using (var writer = new StreamWriter(fileName, true, Encoding.UTF8))
+            //        {
+            //            foreach (var line in linesToWrite)
+            //            {
+            //                writer.WriteLine(line); // Write the sorted comma-separated string
+            //            }
+            //        }
+            //    }
+
+            //    MoveToTheFile(fileName);
+            //    checkedResultDict.Clear();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(Lang.DetectError);
+            //    Shared.RaiseOnLogError(ex);
+            //    EnableUIComponent(OperationStatus.Stopped);
+            //}
+      
         }
 
         public void ExportData(string fileName)
@@ -5742,12 +5749,12 @@ namespace BarcodeVerificationSystem.View.NutrifoodUI.Manufacturing
             try
             {
                 var duplicateCountDict = _CheckedResultCodeList
-                    .Where(arr => arr[Index_Device] != "Barcode Scanner" && arr[Index_Result] == "Duplicated")
+                    .Where(arr =>  arr[Index_Result] == "Duplicated") // arr[Index_Device] != "Barcode Scanner" &&
                     .GroupBy(x => x[Index_ResultData])
                     .ToDictionary(g => g.Key, g => g.Count());
 
                 var checkedResultDict = _CheckedResultCodeList
-                    .Where(arr => arr[Index_Device] != "Barcode Scanner" && arr[Index_Result] == "Valid")
+                    .Where(arr => arr[Index_Result] == "Valid") //  arr[Index_Device] != "Barcode Scanner" &&
                     .GroupBy(x => x[Index_ResultData])
                     .ToDictionary(g => g.Key, g => g.First()[Index_DateTime]);
 

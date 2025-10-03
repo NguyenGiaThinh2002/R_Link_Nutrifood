@@ -101,7 +101,7 @@ namespace BarcodeVerificationSystem.Modules.ReliableDataSender.Services
                         print_type = "reservation",
                         batch = payload.batch,
                         mauf_date = payload.mauf_date,
-                        expired_date = payload.expried_date,
+                        expired_date = payload.expired_date,
                     };
                 }
                 //new Form

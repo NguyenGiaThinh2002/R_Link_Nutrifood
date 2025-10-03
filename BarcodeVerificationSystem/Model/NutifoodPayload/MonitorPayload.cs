@@ -29,7 +29,8 @@ namespace BarcodeVerificationSystem.Model.Payload
         public int check_codes_number { get; set; }
         public int sent_saas_check_codes { get; set; }
         public int sent_sap_check_codes { get; set; }
-        public string process_order { get; set; }
+        public string process_order { get; set; } = Shared.CurrentJob?.ProcessOrderItem?.process_order ?? "";
+        public string material_doc { get; set; } = Shared.CurrentJob?.Reservation?.material_doc ?? "";
         public string device_name { get; set; } = Shared.Settings.RLinkName;
         public string wms_number { get; set; } = Shared.CurrentJob?.DispatchingOrderPayload?.payload?.wms_number ?? "";
         public string job_name { get; set; } = Shared.CurrentJob?.FileName ?? "";
